@@ -27,7 +27,7 @@ test_compile:
 
 clean:
 	rm -f $(NAME)
-	rm log.txt
+	rm -f log.txt
 
 fclean:	clean
 
