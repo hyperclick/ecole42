@@ -117,7 +117,6 @@ int		process_line(char *line, int line_number)
 		return (r);
 	}
 	//ft_putstr("new candidates:\n");
-	//print_candidates(new_candidates);
 	//table_print_header();
 	//table_print_all(new_candidates);
 	//table_clean_all(new_candidates);
@@ -128,7 +127,12 @@ int		process_line(char *line, int line_number)
 	all_append_new_candidates(new_candidates);
 	//print_map_with_candidates(table);
 	
+	ft_putstr("\n\n----entire table:\n");
 	table_print_header();
 	table_print_all(all_get_table());
+	ft_putstr("\n\n----entire table:\n");
+	table_print_header();
+	table_print_all(all_get_table());
+	
 	return (0);
 }

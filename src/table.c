@@ -28,6 +28,8 @@ char			*sec_to_table_entry(char buffer[], t_section *section)
 	ft_strcpy(buffer + i, str);
 	i += ft_strlen(str);
 	
+	//stprintf(buffer + i, "\t%p", section);
+	
 	return (buffer);
 }
 
@@ -71,9 +73,10 @@ t_table			*table_append2(t_table **node, int x, int y, int len)
 	
 	return (table_append(node, data));
 }
-
-void			table_clean_all(t_table *node)
+/*
+void			table_clean_all2(t_table *node)
 {
+	t_table		*p;
 	//printf("enter table_clean_all\n");
 	if (node == NULL)
 	{
@@ -81,8 +84,56 @@ void			table_clean_all(t_table *node)
 		return ;
 	}
 	m_free(node->data, sec_to_string(g_tmp, node->data));
+	node->data = NULL;
+	p = (node->next);
 	m_free(node, g_tmp);
-	table_clean_all(node->next);
+	node = NULL;
+	table_clean_all2(p);
+}*/
+/*
+void			table_clean_all(t_table **pp_table)
+{
+	char		tmp[100];
+	t_table		**p;
+	//printf("enter table_clean_all\n");
+	if (*pp_table == NULL)
+	{
+		//printf("exit table_clean_all\n");
+		return ;
+	}
+	sec_to_table_entry(tmp, (*pp_table)->data);
+	m_free((*pp_table)->data, sec_to_string(g_tmp, (*pp_table)->data));
+	(*pp_table)->data = NULL;
+	p = &(*pp_table)->next;
+	m_free((*pp_table), tmp);
+	(*pp_table) = NULL;
+	table_clean_all(p);
+}*/
+
+void			table_clean_all(t_table **pp_table)
+{
+	char		tmp[100];
+	t_table		*p;
+	t_table		*next;
+	
+	//printf("enter table_clean_all\n");
+	if (*pp_table == NULL)
+	{
+		//printf("exit table_clean_all\n");
+		return ;
+	}
+	p = *pp_table;
+	sec_to_table_entry(tmp, p->data);
+	sec_to_string(g_tmp, (*pp_table)->data);
+	
+	while (p)
+	{
+		next = p->next;
+		m_free(p->data, tmp);
+		m_free(p, g_tmp);
+		p = next;
+	}
+	(*pp_table) = NULL;
 }
 
 void	table_print_all(t_table *node)
@@ -94,6 +145,7 @@ void	table_print_all(t_table *node)
 		return ;
 	}
 	ft_putstr(sec_to_table_entry(g_tmp, node->data));
+	printf("\t%p", node);
 	new_line();
 	table_print_all(node->next);
 }

@@ -11,14 +11,26 @@ t_table		*all_get_table()
 	return (g_table);
 }
 
+t_table		**all_get_table_address()
+{
+	return (&g_table);
+}
+
+void	all_table_clean()
+{
+	table_clean_all(&g_table);
+}
+
 void	all_append_new_candidates(t_table *new_candidates)
 {
+	//printf("g_table = %p\n", g_table);
 	if (new_candidates == NULL)
 	{
 		return ;
 	}
 	if (g_table == NULL)
 	{
+		//printf("going to set g_table to %p\n", new_candidates);
 		g_table = new_candidates;
 		return ;
 	}
