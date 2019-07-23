@@ -66,12 +66,13 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 
 int		load(int fd)
 {
-	const int	buffer_length = 9999999;
+	const int	buffer_length = 999999;
 	char		buffer[buffer_length];
 	char		rest[buffer_length];
 	int			bytes_read;
 	int			r;
 	
+	//printf("fd = %d\n", fd);
 	//printf("buffer_length = %d\n", buffer_length);
 	bytes_read = read(fd, buffer, buffer_length);
 	while (bytes_read != 0)
@@ -120,7 +121,12 @@ int	process_file(char *name)
 	close(fd);
 	fd = open(name, O_RDONLY);
 	if (fd == -1)
+	{
+		_log("map error: failed to open file:");
+		_log(name);
 		return (-1);
+	}
+		//printf("fd1 = %d\n", fd);
 	r = load(fd);
 	close(fd);
 	return (r);

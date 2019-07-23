@@ -20,7 +20,7 @@ t_table	*create_all_candidates(t_table **table, int x, int len, int *r)
 		return (*table);
 	}
 	i = 1;
-	while (i < len)
+	while (i <= len)
 	{
 		data.x = x;
 		data.y = g_lines_read;
@@ -41,22 +41,23 @@ t_table	*find_new_candidates_rec(t_table **table, char *line, int x, int *r)
 {
 	int		empty_len;
 	t_table	*node;
-	
-	while (line[x] != 0 && line[x++] == get_obstacle())
+	//printf("line[%d] = '%c'\n",x, line[x]);
+	while (line[x] != 0 && line[x] == get_obstacle())
 	{
-		
+		++x;
 	}
 	if (line[x] == 0)
 	{
 		return (g_first_candidate);
 	}
+	printf("line[%d] = '%c'\n",x, line[x]);
 	empty_len = 0;
 	while (line[x] != 0 && line[x] == get_empty())
 	{
 		++empty_len;
 		++x;
 	}
-	++empty_len;
+	//++empty_len;
 	node = create_all_candidates(table, x - empty_len, empty_len, r);
 	if (line[x] == 0)
 	{
@@ -64,10 +65,9 @@ t_table	*find_new_candidates_rec(t_table **table, char *line, int x, int *r)
 	}
 	if (line[x] != get_empty() && line[x] != get_obstacle())
 	{
-		printf("map error: unexpected char:\t'%c' empty = '%c'\n", line[x], get_empty());
-		_log("map error: unexpected char:\t'");
+		printf("map error: unexpected char:\t'%c', empty = '%c'\n", line[x], get_empty());
+		_log("map error: unexpected char:");
 		_log(line+x);
-		_log("'\n");
 		*r = 1;
 		return (NULL);
 	}
@@ -92,7 +92,7 @@ int		process_line(char *line)
 		return (r);
 	}
 	
-	printf("'%s'\n", line);
+	printf("line %d: '%s'\n", g_lines_read, line);
 	r = check_line(line);
 	if (r != 0)
 	{
