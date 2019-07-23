@@ -35,27 +35,44 @@ t_table			*table_create(t_section *data)
 {
 	t_table		*t;
 	
+	if (data == NULL)
+	{
+		_log("ERROR\tcan't create node for section = NULL\n");
+		return (NULL);
+	}
 	t = m_alloc(sizeof(t_table), sec_to_table_entry(g_tmp, data));
 	t->data = data;
 	t->next = NULL;
 	return (t);
 }
 
-t_table			*table_append(t_table *node, t_section *data)
+t_table			*table_append(t_table **node, t_section d)
 {
-	if (node == NULL)
+	if (*node == NULL)
 	{
-		return (table_create(data));
+		*node = table_create(create_heap_copy(d));
+		return (*node);
 	}
-	if (node->next == NULL)
+	if ((*node)->next == NULL)
 	{
-		node->next = table_create(data);
-		return (node->next);
+		(*node)->next = table_create(create_heap_copy(d));
+		return ((*node)->next);
 	}
-	return (table_append(node->next, data));
+	return (table_append(&(*node)->next, d));
 }
 
-void	table_clean_all(t_table *node)
+t_table			*table_append2(t_table **node, int x, int y, int len)
+{
+	t_section	data;
+	
+	data.x = x;
+	data.y = y;
+	data.len = len;
+	
+	return (table_append(node, data));
+}
+
+void			table_clean_all(t_table *node)
 {
 	//printf("enter table_clean_all\n");
 	if (node == NULL)
@@ -63,7 +80,8 @@ void	table_clean_all(t_table *node)
 		//printf("exit table_clean_all\n");
 		return ;
 	}
-	m_free(node, sec_to_table_entry(g_tmp, node->data));
+	m_free(node->data, sec_to_string(g_tmp, node->data));
+	m_free(node, g_tmp);
 	table_clean_all(node->next);
 }
 

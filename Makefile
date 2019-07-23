@@ -15,6 +15,7 @@ ARGS = -Wall -Wextra -Werror
 COMMON_SRC  = lib/*.c src/*.c
 RELEASE_SRC = release/*.c
 TEST_SRC = test/*.c
+TEST_ARGS = test_files/good/one_line_one_obstacle_at_BOL.txt
 
 all:	compile
 
@@ -31,6 +32,11 @@ clean:
 	rm -f .DS_Store
 	rm -f a.out
 	rm -f includes/.DS_Store
+	rm -f test_files/.DS_Store
+	rm -f test_files/good/.DS_Store
+	rm -f libs/.DS_Store
+	rm -f src/.DS_Store
+	
 
 fclean:	clean
 
@@ -38,5 +44,5 @@ re:	fclean compile
 
 
 test:	clean test_compile
-	./a.out test_files/badfile.txt
+	./a.out $(TEST_ARGS)
 #	cat test_files/example_file.txt | ./a.out
