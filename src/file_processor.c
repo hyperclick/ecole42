@@ -1,18 +1,76 @@
 #include "../includes/ft.h"
 #include "../includes/t_table.h"
+#include "../includes/file_processor.h"
+
 #include <fcntl.h>
 #include <stdio.h>
 #include <unistd.h>
+
+char	*ft_concat(char *dst, char *a, char *b)
+{
+	ft_strcpy(dst, a);
+	ft_strcpy(dst + ft_strlen(a), b);
+	
+	return (dst);
+}
+
+
+
+int		process_buffer(char *rest, char *buffer, int buffer_length)
+{
+	int			r;
+	char		buffer4total[2*buffer_length];
+	char		*total;
+	char		buffer4line[2*buffer_length];
+	char		*line;
+	
+	total = buffer4total;
+	ft_concat(total, rest, buffer);
+	
+	//process lines
+	
+	line = buffer4line;
+	while (*total != 0)
+	{
+		
+		if (*total == '\n')
+		{
+			*line = '\0';
+			r = check_line(buffer4line, line - buffer4line);
+			if (r != 0)
+			{
+				_log("lines lengths differ\n");
+				return (r);
+			}
+			//process_line(line);
+			line = buffer4line;
+		}
+		
+		*line++ = *total++;
+	}
+	
+	*line = '\0';
+	ft_strcpy(rest, line);
+	return (0);
+}
+
 
 int		load(int fd)
 {
 	const int	buffer_length = 1000000;
 	char		buffer[buffer_length];
+	char		rest[buffer_length];
 	int			bytes_read;
+	int			r;
 	
 	bytes_read = read(fd, buffer, buffer_length);
 	while (bytes_read != 0)
 	{
+		r = process_buffer(rest, buffer, bytes_read);
+		if (r != 0)
+		{
+			return (r);
+		}
 		//write(1, buffer, bytes_read);
 		bytes_read = read(fd, buffer, buffer_length);
 	}
@@ -53,7 +111,7 @@ void	process_files(int argc, char **argv)
 {
 	printf("\n\n\n\n\n ==================       process files =================== \n\n\n\n\n");
 	_log("started");
-	
+	/*
 	t_section	s = {0,0,0};
 	t_table *t = table_create(&s);
 	t_section	s1 = {0,0,1};
@@ -65,13 +123,11 @@ void	process_files(int argc, char **argv)
 	//printf("%s\n", tmp);
 	table_print_all(t);
 	table_clean_all(t);
+	*/
 	
 	
-	printf("m_get_count = %d\n", m_get_count() );
-	_log("finished");
 	
-	
-	return ;
+	//return ;
 	int	i;
 	int	r;
 	//todo: handle no args
@@ -89,4 +145,6 @@ void	process_files(int argc, char **argv)
 		}
 		++i;
 	}
+	printf("m_get_count = %d\n", m_get_count() );
+	_log("finished");
 }
