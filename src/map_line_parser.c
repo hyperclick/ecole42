@@ -71,6 +71,7 @@ t_table	*find_new_candidates(char *line, int *r)
 	g_first_candidate = NULL;
 	return (find_new_candidates_rec(g_first_candidate, line, 0, r));
 }
+
 int		process_line(char *line)
 {
 	int		r;
@@ -94,7 +95,7 @@ int		process_line(char *line)
 	new_candidates = find_new_candidates(line, &r);
 	if (r != 0)
 	{
-		//_log("wrong line\n");
+		_log("wrong line\n");
 		//printf("line = '%s'\n",r, line);
 		return (r);
 	}

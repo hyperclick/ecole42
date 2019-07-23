@@ -17,7 +17,7 @@ char	*ft_concat(char *dst, char *a, char *b)
 
 int		process_buffer(char *rest, char *buffer, int buffer_length)
 {
-//	int			r;
+	int			r;
 	char		buffer4total[2*buffer_length];
 	char		*total;
 	char		buffer4line[2*buffer_length];
@@ -41,7 +41,11 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 			*line = '\0';
 			total++;
 			//printf("line = '%s'\n", buffer4line);
-			process_line(buffer4line);
+			r = process_line(buffer4line);
+			if (r != 0)
+			{
+				return (r);
+			}
 			line = buffer4line;
 			//continue;
 		}
