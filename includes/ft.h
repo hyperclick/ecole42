@@ -53,4 +53,7 @@ void	_log2(char *logger, char *str);
 void	_log(char *str);
 void	create_directory(char *path);
 
+void	*m_alloc(int size, char *name);
+void	m_free(void *p, char *name);
+
 #endif

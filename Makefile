@@ -28,6 +28,9 @@ test_compile:
 clean:
 	rm -f $(NAME)
 	rm -f log.txt
+	rm -f .DS_Store
+	rm -f a.out
+	rm -f includes/.DS_Store
 
 fclean:	clean
 
