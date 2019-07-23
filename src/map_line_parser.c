@@ -4,7 +4,8 @@
 #include <stdio.h>
 
 
-int		g_lines_read = -2;
+int		g_lines_read;
+//int		g_lines_len;
 
 t_table	*g_first_candidate = NULL;
 
@@ -50,7 +51,7 @@ t_table	*find_new_candidates_rec(t_table **table, char *line, int x, int *r)
 	{
 		return (g_first_candidate);
 	}
-	printf("line[%d] = '%c'\n",x, line[x]);
+	//git printf("line[%d] = '%c'\n",x, line[x]);
 	empty_len = 0;
 	while (line[x] != 0 && line[x] == get_empty())
 	{
@@ -80,45 +81,54 @@ t_table	*find_new_candidates(char *line, int *r)
 	return (find_new_candidates_rec(&g_first_candidate, line, 0, r));
 }
 
-int		process_line(char *line)
+int		process_line(char *line, int line_number)
 {
+	static int	lines_len;
 	int		r;
 	t_table	*new_candidates;
 	
-	++g_lines_read;
+	g_lines_read = line_number - 1;
+	printf("line %d: '%s'\n", g_lines_read, line);
 	if (g_lines_read == -1)
 	{
 		r = parse_first_line(line);
 		return (r);
 	}
-	
-	printf("line %d: '%s'\n", g_lines_read, line);
-	r = check_line(line);
-	if (r != 0)
+	if (g_lines_read == 0)
 	{
-		_log("lines lengths differ\n");
-		printf("diff = %d, line = '%s'\n",r, line);
-		return (r);
+		lines_len = ft_strlen(line);
+	}
+	else
+	{
+		r = (lines_len - ft_strlen(line));
+		if (r != 0)
+		{
+			_log("lines lengths differ\n");
+			printf("diff = %d, line = '%s'\n",r, line);
+			return (r);
+		}
 	}
 	
 	new_candidates = find_new_candidates(line, &r);
 	if (r != 0)
 	{
-		_log("wrong line\n");
+		_log("map error: wrong line\n");
 		//printf("line = '%s'\n",r, line);
 		return (r);
 	}
-	ft_putstr("new candidates:\n");
+	//ft_putstr("new candidates:\n");
 	//print_candidates(new_candidates);
-	table_print_header();
-	table_print_all(new_candidates);
-	table_clean_all(new_candidates);
+	//table_print_header();
+	//table_print_all(new_candidates);
+	//table_clean_all(new_candidates);
 	
 	//remove uncompatible candidates
 	//try to add bsq (new_candidates)
 	//print_map_with_bsq(bsq)
-	//add_new_candidates(table, new_candidates);
+	all_append_new_candidates(new_candidates);
 	//print_map_with_candidates(table);
 	
+	table_print_header();
+	table_print_all(all_get_table());
 	return (0);
 }

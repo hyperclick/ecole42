@@ -102,3 +102,30 @@ void	table_print_header()
 {
 	ft_putstr("y\tx\tlen\n");
 }
+
+t_table	*get_last_node(t_table *table)
+{
+	if (table == NULL)
+	{
+		return (NULL);
+	}
+	if (table->next == NULL)
+	{
+		return (table);
+	}
+	return (get_last_node(table->next));
+}
+
+void table_append_node(t_table *table, t_table *new_nodes)
+{
+	if (table == NULL)
+	{
+		_log("ERROR: not implemented for table == NULL");
+		return ;
+	}
+	if (new_nodes == NULL)
+	{
+		return ;
+	}
+	get_last_node(table)->next = new_nodes;
+}

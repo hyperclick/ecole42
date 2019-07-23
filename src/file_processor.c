@@ -22,6 +22,7 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 	char		*total;
 	char		buffer4line[2*buffer_length];
 	char		*line;
+	int			line_number;
 	
 	//printf("process_buffer:\trest = '%s'\n", rest);
 	//printf("buffer = '%s'\n", buffer);
@@ -31,6 +32,7 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 	
 	//printf("total len = %d, total = '%s'\n", ft_strlen(total), total);
 	
+	line_number = 0;
 	line = buffer4line;
 	while (*total != 0)
 	{
@@ -41,7 +43,7 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 			*line = '\0';
 			total++;
 			//printf("line = '%s'\n", buffer4line);
-			r = process_line(buffer4line);
+			r = process_line(buffer4line, line_number++);
 			if (r != 0)
 			{
 				return (r);
@@ -113,8 +115,11 @@ int	process_file(char *name)
 	printf("\n\n\n\n\nprocess file: '%s'\n\n\n\n\n", name);
 	fd = open(name, O_RDONLY);
 	if (fd == -1)
+	{
+		_log("map error: unable to open file:");
+		_log(name);
 		return (-1);
-	
+	}
 	printf("source file:\n\n");
 	print_echo(1, fd);
 	printf("\n\n---- end of source file -------\n\n");
@@ -129,6 +134,7 @@ int	process_file(char *name)
 		//printf("fd1 = %d\n", fd);
 	r = load(fd);
 	close(fd);
+	table_clean_all(all_get_table());
 	return (r);
 }
 
