@@ -54,11 +54,12 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 		{
 			*line = '\0';
 			total++;
-			//printf("line = '%s'\n", buffer4line);
-			r = check_line(buffer4line, line - buffer4line);
+			printf("line = '%s'\n", buffer4line);
+			r = check_line(buffer4line);
 			if (r != 0)
 			{
 				_log("lines lengths differ\n");
+				printf("diff = %d, line = '%s'\n",r, line);
 				return (r);
 			}
 			process_line(buffer4line);
