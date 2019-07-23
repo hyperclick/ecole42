@@ -28,7 +28,7 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 	char		buffer4line[2*buffer_length];
 	char		*line;
 	
-	printf("rest = '%s'\n", rest);
+	//printf("process_buffer:\trest = '%s'\n", rest);
 	//printf("buffer = '%s'\n", buffer);
 	
 	total = buffer4total;
@@ -40,6 +40,7 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 	while (*total != 0)
 	{
 		
+		//printf("process_buffer:\ttotal = '%s', line = '%s'\n", total, buffer4line);
 		if (*total == '\n')
 		{
 			*line = '\0';
@@ -54,31 +55,38 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 			}
 			process_line(buffer4line);
 			line = buffer4line;
+			//continue;
+		}
+		if (*total == '\n')
+		{
 			continue;
 		}
-		
 		*line++ = *total++;
+		//printf("process_buffer:\ttotal2 = '%s', line2 = '%s'\n", total, buffer4line);
 	}
 	
 	*line = '\0';
-	ft_strcpy(rest, line);
+	//printf("line = '%s'\n", buffer4line);
+	ft_strcpy(rest, buffer4line);
 	return (0);
 }
 
 
 int		load(int fd)
 {
-	const int	buffer_length = 100;
+	const int	buffer_length = 5;
 	char		buffer[buffer_length];
 	char		rest[buffer_length];
 	int			bytes_read;
 	int			r;
 	
+	//printf("buffer_length = %d\n", buffer_length);
 	bytes_read = read(fd, buffer, buffer_length);
 	while (bytes_read != 0)
 	{
 		buffer[bytes_read] = 0;
 		r = process_buffer(rest, buffer, bytes_read);
+		//printf("rest2 = '%s'\n", rest);
 		if (r != 0)
 		{
 			return (r);
@@ -90,7 +98,7 @@ int		load(int fd)
 	return (0);
 }
 
-int		print_echo(int fout, int fin)
+void		print_echo(int fout, int fin)
 {
 	const int	buffer_length = 1000000;
 	char		buffer[buffer_length];
@@ -102,7 +110,6 @@ int		print_echo(int fout, int fin)
 		print_to_out(fout, buffer);
 		bytes_read = read(fin, buffer, buffer_length);
 	}
-	return (0);
 }
 
 int	process_file(char *name)
@@ -111,6 +118,14 @@ int	process_file(char *name)
 	int			r;
 	
 	printf("\n\n\n\n\nprocess file: '%s'\n\n\n\n\n", name);
+	fd = open(name, O_RDONLY);
+	if (fd == -1)
+		return (-1);
+	
+	printf("source file:\n\n");
+	print_echo(1, fd);
+	printf("\n\n---- end of source file -------\n\n");
+	close(fd);
 	fd = open(name, O_RDONLY);
 	if (fd == -1)
 		return (-1);
