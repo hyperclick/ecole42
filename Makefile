@@ -31,6 +31,9 @@ clean:
 	rm -f .DS_Store
 	rm -f a.out
 	rm -f includes/.DS_Store
+	rm -f test_files/.DS_Store
+	rm -f libs/.DS_Store
+	rm -f src/.DS_Store
 
 fclean:	clean
 
@@ -38,5 +41,5 @@ re:	fclean compile
 
 
 test:	clean test_compile
-	./a.out test_files/example_file.txt
+	./a.out test_files/good/little_map.txt
 #	cat test_files/example_file.txt | ./a.out

@@ -46,21 +46,22 @@ t_table			*table_create(t_section *data)
 	return (t);
 }
 
-t_table			*table_append(t_table *node, t_section d)
+t_table			*table_append(t_table **node, t_section d)
 {
-	if (node == NULL)
+	if (*node == NULL)
 	{
-		return (table_create(create_heap_copy(d)));
+		*node = table_create(create_heap_copy(d));
+		return (*node);
 	}
-	if (node->next == NULL)
+	if ((*node)->next == NULL)
 	{
-		node->next = table_create(create_heap_copy(d));
-		return (node->next);
+		(*node)->next = table_create(create_heap_copy(d));
+		return ((*node)->next);
 	}
-	return (table_append(node->next, d));
+	return (table_append(&(*node)->next, d));
 }
 
-t_table			*table_append2(t_table *node, int x, int y, int len)
+t_table			*table_append2(t_table **node, int x, int y, int len)
 {
 	t_section	data;
 	

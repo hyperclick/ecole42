@@ -1,4 +1,5 @@
 #include "../includes/ft.h"
+#include <stdio.h>
 
 int		g_lines_count;
 char	g_empty;
@@ -28,17 +29,25 @@ int		parse_first_line(char *line)
 
 	if (len < 4)
 	{
+		_log("map error: first line is less than 4 chars:\t'");
+		_log(line);
+		_log("'");
 		return (len);
 	}
-	g_empty = line[--len];
-	g_obstacle = line[--len];
 	g_full = line[--len];
+	g_obstacle = line[--len];
+	g_empty = line[--len];
 	line[len] = 0;
 	g_lines_count = ft_atoi(line);
 	if (g_lines_count < 0)
 	{
+		_log("map error: lines count is negative:\t'");
+		_log(line);
+		_log("'");
 		return (g_lines_count);
 	}
+	_log("first line parsed successfully");
+	printf("empty = '%c', obstacle = '%c', full = '%c', count = %d\n", get_empty(), get_obstacle(), get_full(), get_lines_count());
 	return (0);
 }
 
