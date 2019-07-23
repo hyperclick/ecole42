@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
+int		g_lines_read = 0;
 char	*ft_concat(char *dst, char *a, char *b)
 {
 	ft_strcpy(dst, a);
@@ -16,7 +17,22 @@ char	*ft_concat(char *dst, char *a, char *b)
 
 int		process_line(char *line)
 {
+	int	r;
+	
+	++g_lines_read;
+	if (g_lines_read == 1)
+	{
+		r = parse_first_line(line);
+		return (r);
+	}
 	printf("'%s'\n", line);
+	r = check_line(line);
+	if (r != 0)
+	{
+		_log("lines lengths differ\n");
+		printf("diff = %d, line = '%s'\n",r, line);
+		return (r);
+	}
 	
 	//new_candidates = find_new_candidates(line);
 	//print_candidates(new_candidates);
@@ -31,7 +47,7 @@ int		process_line(char *line)
 
 int		process_buffer(char *rest, char *buffer, int buffer_length)
 {
-	int			r;
+//	int			r;
 	char		buffer4total[2*buffer_length];
 	char		*total;
 	char		buffer4line[2*buffer_length];
@@ -54,14 +70,7 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 		{
 			*line = '\0';
 			total++;
-			printf("line = '%s'\n", buffer4line);
-			r = check_line(buffer4line);
-			if (r != 0)
-			{
-				_log("lines lengths differ\n");
-				printf("diff = %d, line = '%s'\n",r, line);
-				return (r);
-			}
+			//printf("line = '%s'\n", buffer4line);
 			process_line(buffer4line);
 			line = buffer4line;
 			//continue;
