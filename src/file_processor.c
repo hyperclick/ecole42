@@ -17,6 +17,15 @@ char	*ft_concat(char *dst, char *a, char *b)
 int		process_line(char *line)
 {
 	printf("'%s'\n", line);
+	
+	//new_candidates = find_new_candidates(line);
+	//print_candidates(new_candidates);
+	//remove uncompatible candidates
+	//try to add bsq (new_candidates)
+	//print_map_with_bsq(bsq)
+	//add_new_candidates(table, new_candidates);
+	//print_map_with_candidates(table);
+	
 	return (0);
 }
 
@@ -46,8 +55,7 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 			*line = '\0';
 			total++;
 			//printf("line = '%s'\n", buffer4line);
-			r = 0;
-			//r = check_line(buffer4line, line - buffer4line);
+			r = check_line(buffer4line, line - buffer4line);
 			if (r != 0)
 			{
 				_log("lines lengths differ\n");
@@ -94,7 +102,7 @@ int		load(int fd)
 		//write(1, buffer, bytes_read);
 		bytes_read = read(fd, buffer, buffer_length);
 	}
-	
+	//print_map_with_bsq(bsq)
 	return (0);
 }
 
