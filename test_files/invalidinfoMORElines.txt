@@ -1,7 +1,7 @@
-4.oX\n
-.oooooooooo..\n
-oooooooooo...\n
-ooooooooooo..\n
-ooooooooooo..\n
-.............\n
-.............\n
+4.oX
+.oooooooooo..
+oooooooooo...
+ooooooooooo..
+ooooooooooo..
+.............
+.............
