@@ -14,7 +14,11 @@ char	*ft_concat(char *dst, char *a, char *b)
 	return (dst);
 }
 
-
+int		process_line(char *line)
+{
+	printf("'%s'\n", line);
+	return (0);
+}
 
 int		process_buffer(char *rest, char *buffer, int buffer_length)
 {
@@ -24,10 +28,13 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 	char		buffer4line[2*buffer_length];
 	char		*line;
 	
+	//printf("rest = '%s'\n", rest);
+	//printf("buffer = '%s'\n", buffer);
+	
 	total = buffer4total;
 	ft_concat(total, rest, buffer);
 	
-	//process lines
+	//printf("total len = %d, total = '%s'\n", ft_strlen(total), total);
 	
 	line = buffer4line;
 	while (*total != 0)
@@ -36,14 +43,18 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 		if (*total == '\n')
 		{
 			*line = '\0';
-			r = check_line(buffer4line, line - buffer4line);
+			total++;
+			//printf("line = '%s'\n", buffer4line);
+			r = 0;
+			//r = check_line(buffer4line, line - buffer4line);
 			if (r != 0)
 			{
 				_log("lines lengths differ\n");
 				return (r);
 			}
-			//process_line(line);
+			process_line(buffer4line);
 			line = buffer4line;
+			continue;
 		}
 		
 		*line++ = *total++;
@@ -66,6 +77,7 @@ int		load(int fd)
 	bytes_read = read(fd, buffer, buffer_length);
 	while (bytes_read != 0)
 	{
+		buffer[bytes_read] = 0;
 		r = process_buffer(rest, buffer, bytes_read);
 		if (r != 0)
 		{
