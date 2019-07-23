@@ -82,7 +82,7 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 
 int		load(int fd)
 {
-	const int	buffer_length = 5;
+	const int	buffer_length = 9999999;
 	char		buffer[buffer_length];
 	char		rest[buffer_length];
 	int			bytes_read;
