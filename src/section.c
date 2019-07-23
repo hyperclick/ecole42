@@ -34,9 +34,25 @@ char			*sec_to_string(char buffer[], t_section *section)
 	return (buffer);
 }
 
+BOOL	sec_validate(t_section section)
+{
+	if (section.x < 0 || section.y < 0 || section.len < 1)
+	{
+		_log("section is invalid:");
+		_log(sec_to_string(g_tmp, &section));
+		return (FALSE);
+	}
+	return (TRUE);
+}
+
 t_section	*create_heap_copy(t_section d)
 {
 	t_section	*section;
+	
+	if (!sec_validate(d))
+	{
+		return (NULL);
+	}
 	
 	section = NULL;
 	section = m_alloc(sizeof(t_section), sec_to_string(g_tmp, &d));
