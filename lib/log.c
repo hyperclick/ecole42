@@ -24,6 +24,7 @@ void	_log2(char *logger, char *str)
 		printf("failed to open file 'log.txt'");
 		return ;
 	}
+	printf("%s\n", str);
 	print_to_out(d, str);
 	print_to_out(d, "\n");
 	close(d);
