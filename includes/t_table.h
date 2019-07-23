@@ -10,4 +10,8 @@ typedef struct	s_list_of_sections
 }				t_table;
 
 t_table			*table_create(t_section *data);
+void			table_clean_all(t_table *node);
+void			table_print_all(t_table *node);
+t_table			*table_append(t_table *node, t_section *data);
+
 #endif

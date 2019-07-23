@@ -21,6 +21,7 @@
 extern const int	g_last_int;
 
 void	ft_putchar(char c);
+void	new_line();
 void	ft_putnbr(int nb);
 void	ft_putstr(char *str);
 char	*ft_strcpy(char *dest, const char *src);
