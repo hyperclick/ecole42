@@ -6,7 +6,7 @@
 void	create_directory(char *path)
 {
 	print_to_out(1, "create_directory ignored");
-	//_log("create_directory ignored");
-	//_log(path);
+	_log("create_directory ignored");
+	_log(path);
 }
 

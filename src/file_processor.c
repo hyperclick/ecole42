@@ -12,7 +12,7 @@ int		load(int fd)
 	bytes_read = read(fd, buffer, buffer_length);
 	while (bytes_read != 0)
 	{
-		write(1, buffer, bytes_read);
+		//write(1, buffer, bytes_read);
 		bytes_read = read(fd, buffer, buffer_length);
 	}
 	
@@ -51,6 +51,8 @@ int	process_file(char *name)
 void	process_files(int argc, char **argv)
 {
 	printf("\n\n\n\n\n ==================       process files =================== \n\n\n\n\n");
+	_log("started");
+	_log("finished");
 	int	i;
 	int	r;
 	//todo: handle no args

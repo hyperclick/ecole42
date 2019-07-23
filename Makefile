@@ -24,13 +24,15 @@ compile:
 test_compile:
 	gcc $(COMMON_SRC) $(TEST_SRC) $(ARGS)
 
-test:	test_compile
-	./a.out Makefile
 
 clean:
 	rm -f $(NAME)
+	rm log.txt
 
 fclean:	clean
 
 re:	fclean compile
 
+
+test:	clean test_compile
+	./a.out Makefile
