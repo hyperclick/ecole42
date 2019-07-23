@@ -7,8 +7,7 @@ t_section	get_bsq()
 {
 	return (g_bsq);
 }
-
-BOOL	try_set_new_bsq(t_section new_bsq)
+BOOL	is_better_than_bsq(t_section new_bsq)
 {
 	if (new_bsq.len < g_bsq.len)
 	{
@@ -16,7 +15,6 @@ BOOL	try_set_new_bsq(t_section new_bsq)
 	}
 	if (new_bsq.len > g_bsq.len)
 	{
-		g_bsq = new_bsq;
 		return (TRUE);
 	}
 	if (new_bsq.y > g_bsq.y)
@@ -25,17 +23,25 @@ BOOL	try_set_new_bsq(t_section new_bsq)
 	}
 	if (new_bsq.y < g_bsq.y)
 	{
-		g_bsq = new_bsq;
 		return (TRUE);
 	}
 	if (new_bsq.x < g_bsq.x)
 	{
-		g_bsq = new_bsq;
 		return (TRUE);
 	}
 	if (new_bsq.x > g_bsq.x)
 	{
 		return (FALSE);
+	}
+	return (FALSE);
+}
+
+BOOL	try_set_new_bsq(t_section new_bsq)
+{
+	if (is_better_than_bsq(new_bsq) )
+	{
+		g_bsq = new_bsq;
+		return (TRUE);
 	}
 	return (FALSE);
 }
