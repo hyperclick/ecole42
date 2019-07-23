@@ -1,4 +1,5 @@
 #include "../includes/ft.h"
+#include "../includes/t_table.h"
 #include <fcntl.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -52,7 +53,25 @@ void	process_files(int argc, char **argv)
 {
 	printf("\n\n\n\n\n ==================       process files =================== \n\n\n\n\n");
 	_log("started");
+	
+	t_section	s = {0,0,0};
+	t_table *t = table_create(&s);
+	t_section	s1 = {0,0,1};
+	table_append(t, &s1);
+	t_section	s2 = {0,1,0};
+	table_append(t, &s2);
+	char	tmp[100];
+	sec_to_string(tmp, &s);
+	//printf("%s\n", tmp);
+	table_print_all(t);
+	table_clean_all(t);
+	
+	
+	printf("m_get_count = %d\n", m_get_count() );
 	_log("finished");
+	
+	
+	return ;
 	int	i;
 	int	r;
 	//todo: handle no args

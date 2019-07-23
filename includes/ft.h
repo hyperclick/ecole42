@@ -21,6 +21,7 @@
 extern const int	g_last_int;
 
 void	ft_putchar(char c);
+void	new_line();
 void	ft_putnbr(int nb);
 void	ft_putstr(char *str);
 char	*ft_strcpy(char *dest, const char *src);
@@ -52,5 +53,9 @@ void	print_to_out(int fd, char *str);
 void	_log2(char *logger, char *str);
 void	_log(char *str);
 void	create_directory(char *path);
+
+void	*m_alloc(int size, char *name);
+void	m_free(void *p, char *name);
+int		m_get_count();
 
 #endif
