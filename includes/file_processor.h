@@ -10,5 +10,6 @@ char	get_empty();
 char	get_full();
 
 int		parse_first_line(char *line);
+int		process_line(char *line);
 
 #endif

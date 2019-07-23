@@ -6,7 +6,6 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int		g_lines_read = 0;
 char	*ft_concat(char *dst, char *a, char *b)
 {
 	ft_strcpy(dst, a);
@@ -15,35 +14,6 @@ char	*ft_concat(char *dst, char *a, char *b)
 	return (dst);
 }
 
-int		process_line(char *line)
-{
-	int	r;
-	
-	++g_lines_read;
-	if (g_lines_read == 1)
-	{
-		r = parse_first_line(line);
-		return (r);
-	}
-	printf("'%s'\n", line);
-	r = check_line(line);
-	if (r != 0)
-	{
-		_log("lines lengths differ\n");
-		printf("diff = %d, line = '%s'\n",r, line);
-		return (r);
-	}
-	
-	//new_candidates = find_new_candidates(line);
-	//print_candidates(new_candidates);
-	//remove uncompatible candidates
-	//try to add bsq (new_candidates)
-	//print_map_with_bsq(bsq)
-	//add_new_candidates(table, new_candidates);
-	//print_map_with_candidates(table);
-	
-	return (0);
-}
 
 int		process_buffer(char *rest, char *buffer, int buffer_length)
 {
