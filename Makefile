@@ -38,5 +38,5 @@ re:	fclean compile
 
 
 test:	clean test_compile
-	./a.out test_files/badfile.txt
+	./a.out test_files/example_file.txt
 #	cat test_files/example_file.txt | ./a.out
