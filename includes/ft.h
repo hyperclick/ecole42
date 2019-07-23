@@ -47,4 +47,10 @@ void	print_string_array(char *a[]);
 char	**make_string_array(char *dst[], char *str, ...);
 int		*convert_to_int_array(int dst[], char	*a[]);
 void	print_int_array(int a[]);
+
+void	print_to_out(int fd, char *str);
+void	_log2(char *logger, char *str);
+void	_log(char *str);
+void	create_directory(char *path);
+
 #endif

@@ -12,18 +12,20 @@
 
 NAME = bsq
 ARGS = -Wall -Wextra -Werror
-SRC  = lib/*.c *.c
+COMMON_SRC  = lib/*.c src/*.c
+RELEASE_SRC = release/*.c
+TEST_SRC = test/*.c
 
 all:	compile
 
 compile:
-	gcc $(SRC) -o $(NAME) $(ARGS)
+	gcc $(COMMON_SRC) $(RELEASE_SRC) -o $(NAME) $(ARGS)
 
 test_compile:
-	gcc $(SRC) $(ARGS)
+	gcc $(COMMON_SRC) $(TEST_SRC) $(ARGS)
 
 test:	test_compile
-	./a.out main.c
+	./a.out Makefile
 
 clean:
 	rm -f $(NAME)
