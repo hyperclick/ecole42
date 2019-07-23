@@ -56,5 +56,6 @@ void	create_directory(char *path);
 
 void	*m_alloc(int size, char *name);
 void	m_free(void *p, char *name);
+int		m_get_count();
 
 #endif

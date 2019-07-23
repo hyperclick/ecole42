@@ -66,6 +66,8 @@ void	process_files(int argc, char **argv)
 	table_print_all(t);
 	table_clean_all(t);
 	
+	
+	printf("m_get_count = %d\n", m_get_count() );
 	_log("finished");
 	
 	
