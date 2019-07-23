@@ -19,8 +19,11 @@ all:	compile
 compile:
 	gcc $(SRC) -o $(NAME) $(ARGS)
 
-test:
+test_compile:
 	gcc $(SRC) $(ARGS)
+
+test:	test_compile
+	./a.out main.c
 
 clean:
 	rm -f $(NAME)
