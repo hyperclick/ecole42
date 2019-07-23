@@ -28,7 +28,7 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 	char		buffer4line[2*buffer_length];
 	char		*line;
 	
-	//printf("rest = '%s'\n", rest);
+	printf("rest = '%s'\n", rest);
 	//printf("buffer = '%s'\n", buffer);
 	
 	total = buffer4total;
@@ -68,7 +68,7 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 
 int		load(int fd)
 {
-	const int	buffer_length = 1000000;
+	const int	buffer_length = 100;
 	char		buffer[buffer_length];
 	char		rest[buffer_length];
 	int			bytes_read;
