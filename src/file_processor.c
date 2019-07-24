@@ -109,33 +109,38 @@ void		print_echo(int fout, int fin)
 	new_line();
 }
 
-int	process_file(char *name)
-{
-	int			fd;
+int	process_file(char *name, BOOL from_console)
+{int fd;
 	int			r;
 	
 	//printf("\n\n\n\n\nprocess file: '%s'\n\n\n\n\n", name);
+	/*
 	fd = open(name, O_RDONLY);
 	if (fd == -1)
 	{
 		_log("map error: unable to open file:");
 		_log(name);
 		return (-1);
-	}
+	}*/
 	//printf("source file:\n\n");
-	print_echo(1, fd);
+	//print_echo(1, fd);
 	//printf("\n\n---- end of source file -------\n\n");
-	close(fd);
-	fd = open(name, O_RDONLY);
-	if (fd == -1)
+	//close(fd);
+	if (from_console)
 	{
-		_log("map error: failed to open file:");
-		_log(name);
-		return (-1);
+		fd = open(name, O_RDONLY);
+		if (fd == -1)
+		{
+			_log("map error: failed to open file:");
+			_log(name);
+			return (-1);
+		}
 	}
 		//printf("fd1 = %d\n", fd);
-	r = load(fd, 0);
-	close(fd);
+	r = load(from_console ? 0 : fd, 0);
+	if(from_console)
+		close(fd);
+	
 	if (r != 0)
 	{
 		_log("map error: failed to open file:");
@@ -175,8 +180,9 @@ int	process_file(char *name)
 
 void	process_files(int argc, char **argv)
 {
-	printf("\n\n\n\n\n ==================       process files =================== \n\n\n\n\n");
-	//_log("started");
+	BOOL	from_console;
+	//printf("\n\n\n\n\n ==================       process files =================== \n\n\n\n\n");
+	_log("started");
 	/*
 	t_section	s = {0,0,0};
 	t_table *t = table_create(&s);
@@ -196,11 +202,18 @@ void	process_files(int argc, char **argv)
 	//return ;
 	int	i;
 	int	r;
-	//todo: handle no args
+	
+	from_console = TRUE;
+	if (argc == 1)
+	{
+		argc = 2;
+		from_console = TRUE;
+	}
 	i = 1;
 	while (i < argc)
 	{
-		r = process_file(argv[i]);
+		
+		r = process_file(argv[i], from_console);
 		if (r != 0)
 		{
 			ft_putstr("map error\n");
@@ -211,6 +224,6 @@ void	process_files(int argc, char **argv)
 		}
 		++i;
 	}
-	printf("\nm_get_count = %d\n", m_get_count() );
+	//printf("\nm_get_count = %d\n", m_get_count() );
 	//_log("finished");
 }

@@ -37,6 +37,7 @@ TEST_ARGS 	= test_files/good/thismapisValid2.txt #> out.txt
 TEST_ARGS 	= test_files/good/two_lines.txt
 
 all:	compile
+		./bsq q
 
 compile:
 	gcc $(COMMON_SRC) $(RELEASE_SRC) -o $(NAME) $(ARGS)
