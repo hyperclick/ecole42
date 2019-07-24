@@ -128,12 +128,17 @@ void			table_clean_all(t_table **pp_table)
 	while (p)
 	{
 		sec_to_table_entry(tmp, p->data);
-		sec_to_string(g_tmp, (*pp_table)->data);
+		//printf("made table entry:\t%s\n", tmp);
+		sec_to_string(g_tmp, p->data);
+		//printf("made string:\t%s\n", g_tmp);
 		next = p->next;
+		//printf("going to free to %p\n", p->data);
 		m_free(p->data, tmp);
 		m_free(p, g_tmp);
 		p = next;
+		//printf("moving to %p\n", p);
 	}
+	//printf("setting %p to null\n", *pp_table);
 	(*pp_table) = NULL;
 }
 
@@ -146,14 +151,20 @@ void	table_print_all(t_table *node)
 		return ;
 	}
 	ft_putstr(sec_to_table_entry(g_tmp, node->data));
-	printf("\t%p", node);
+	printf("\t%p\t%p\t%p", node->data, node, node->next);
 	new_line();
 	table_print_all(node->next);
 }
 
 void	table_print_header()
 {
-	ft_putstr("y\tx\tlen\n");
+	t_section	bsq;
+	
+	bsq = get_bsq();
+	ft_putstr("y\tx\tlen\tdata\t\tnode\t\tnext\n");
+	sec_to_table_entry(g_tmp, &bsq);
+	ft_putstr(g_tmp);
+	ft_putstr("\tbsq\n");
 }
 
 t_table	*get_last_node(t_table *table)
@@ -297,30 +308,45 @@ void	remove_less_than_len(t_table	**pp_table, int len)
 	t_table		*p;
 	t_table		*next;
 	t_table		*first;
+	t_table		*prev;
 	
+	//_log("enter remove_less_than_len");
 	if (*pp_table == NULL)
 	{
 		return ;
 	}
 	p = *pp_table;
 	first = NULL;
+	prev = NULL;
 	while (p)
 	{
 		next = p->next;
 		if (p->data->len <= len)
 		{
 			sec_to_table_entry(tmp, p->data);
-			sec_to_string(g_tmp, (*pp_table)->data);
-			m_free(p->data, tmp);
-			m_free(p, g_tmp);
+			sec_to_string(g_tmp, p->data);
+			_log2("removing\t", g_tmp);
+			m_free(p->data, g_tmp);
+			m_free(p, tmp);
 			p = NULL;
+			if (prev != NULL)
+			{
+				prev->next = next;
+			}
 		}
-		else if (first == NULL)
+		else
 		{
-			first = p;
+			//p was not deleted
+			prev = p;
+			if (first == NULL)
+			{
+				first = p;
+			}
 		}
+		
 		p = next;
 	}
+	printf("setting %p to %p\n", *pp_table, first);
 	(*pp_table) = first;
 	
 	

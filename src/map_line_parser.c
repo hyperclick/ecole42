@@ -11,7 +11,7 @@ t_table	*g_first_candidate = NULL;
 
 t_table	*create_all_candidates(t_table **table, int x, int len, int *r)
 {
-	printf("x = %d, len = %d\n", x, len);
+	//printf("x = %d, len = %d\n", x, len);
 	int	i;
 	t_section data;
 	t_table		*node;
@@ -142,8 +142,9 @@ int		process_line(char *line, int line_number)
 	print_table("after remove candidates", new_candidates);
 	remove_less_than_len(&all, get_bsq().len);
 	//remove_conflicting_sections(new_candidates);
+	printf("m_get_count = %d\n", m_get_count() );
 	all_append_new_candidates(new_candidates);
-	print_table("\n\n----entire table:\n", all);
+	print_table("\n\n----entire table:\n", all_get_table());
 	BOOL b = try_to_add_bsq(new_candidates);
 	t_section bsq = get_bsq();
 	printf("bsq found = %d: {%d:%d,%d}\n", b, bsq.x, bsq.y, bsq.len);
