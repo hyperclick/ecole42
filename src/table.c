@@ -326,4 +326,60 @@ void	remove_lt_len(t_table	**pp_table, int len)
 	
 }
 
+void	remove_incompatible(t_table	**pp_table, t_section section)
+{
+	char		tmp[100];
+	t_table		*p;
+	t_table		*next;
+	t_table		*first;
+	t_table		*prev;
+	
+	if (*pp_table == NULL)
+	{
+		return ;
+	}
+	p = *pp_table;
+	first = NULL;
+	prev = NULL;
+	printf("enter %s: %s *pp_table = %p\n", __func__, sec_to_string(g_tmp, &section), *pp_table);
+	while (p)
+	{
+		next = p->next;
+		printf("checking %s\n", sec_to_string(g_tmp, p->data));
+		
+		if(p->data->x != section.x || p->data->len <= section.len)
+		{
+			//p is not deleted
+			prev = p;
+			if (first == NULL)
+			{
+				first = p;
+			}
+			p = next;
+			continue;
+		}
+		
+		//printf("removing %s\n", sec_to_string(g_tmp, p->data));
+
+		
+			sec_to_table_entry(tmp, p->data);
+			sec_to_string(g_tmp, p->data);
+			printf("removing\t%s, %p\n", g_tmp, p);
+			m_free(p->data, g_tmp);
+			m_free(p, tmp);
+			p = NULL;
+			if (prev != NULL)
+			{
+				prev->next = next;
+			}
+		
+		p = next;
+	}
+	//printf("setting %p to %p\n", *pp_table, first);
+	(*pp_table) = first;
+	
+	
+}
+
+
 

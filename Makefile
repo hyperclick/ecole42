@@ -34,7 +34,7 @@ TEST_ARGS_3 	= test_files/good/one_line_one_obstacle_at_EOL.txt
 TEST_ARGS_4 	= test_files/good/one_line_all_free.txt
 
 TEST_ARGS 	= test_files/good/thismapisValid2.txt #> out.txt
-
+TEST_ARGS 	= test_files/good/two_lines.txt
 
 all:	compile
 

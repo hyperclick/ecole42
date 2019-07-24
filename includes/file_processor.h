@@ -19,6 +19,7 @@ t_table		*all_get_table();
 void		all_append_new_candidates(t_table *new_candidates);
 void		all_table_clean();
 void		all_remove_less_than_len(int len);
+void		all_remove_conflicting_sections(t_table	*node);
 
 t_section	get_bsq();
 BOOL		is_better_than_bsq(t_section new_bsq);

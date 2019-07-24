@@ -41,3 +41,15 @@ void		all_remove_less_than_len(int len)
 {
 	remove_lt_len(&g_table, len);
 }
+
+void	all_remove_conflicting_sections(t_table	*node)
+{
+	if (node == NULL)
+	{
+		return ;
+	}
+	//printf("%s: %s\n", __func__, sec_to_string(g_tmp, node->data));
+	remove_incompatible(&g_table, *node->data);
+	node = node->next;
+	all_remove_conflicting_sections(node);
+}

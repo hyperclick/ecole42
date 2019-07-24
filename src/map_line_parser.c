@@ -49,7 +49,7 @@ t_table	*create_all_candidates(t_table **table, int x, int len, int *r)
 		{
 			g_first_candidate = *table;
 		}
-		printf("added %s to %p\n", sec_to_string(g_tmp, &data) , *table);
+		//printf("added %s to %p\n", sec_to_string(g_tmp, &data) , *table);
 		//_log2("added:\t", sec_to_string(g_tmp, &data));
 		//print_table("\n\nnew candidates:\n", g_first_candidate);
 		//printf("added: g_first_candidate = %p\n", g_first_candidate);
@@ -103,9 +103,10 @@ t_table	*find_new_candidates(char *line, int *r)
 	g_first_candidate = NULL;
 	find_new_candidates_rec(pp_first, line, 0, r);
 	//g_first_candidate = *pp_first;
-	printf("after find: *pp_first = %p, g_first_candidate = %p\n", *pp_first, g_first_candidate);
+	//printf("after find: *pp_first = %p, g_first_candidate = %p\n", *pp_first, g_first_candidate);
 	return (g_first_candidate);
 }
+
 
 int		process_line(char *line, int line_number)
 {
@@ -142,7 +143,7 @@ int		process_line(char *line, int line_number)
 		//printf("line = '%s'\n",r, line);
 		return (r);
 	}
-	print_table("\n\nnew candidates:\n", new_candidates);
+	//print_table("\n\nnew candidates:\n", new_candidates);
 	//table_clean_all(new_candidates);
 	
 	//try add first candidate
@@ -153,23 +154,26 @@ int		process_line(char *line, int line_number)
 			//try_set_new_bsq(*new_candidates->data);
 		}
 	}
+	print_table("----entire table:-------\n", all_get_table());
 	//print_table("before remove candidates", new_candidates);
 	remove_lt_len(&new_candidates, get_bsq().len);
-	//print_table("after remove candidates", new_candidates);
+	print_table("after remove candidates", new_candidates);
 	
-	//remove_conflicting_sections(new_candidates);
+	//all_remove_conflicting_sections(new_candidates);
+	//all_remove_conflicting_sections(new_obstacles);
 	//printf("m_get_count = %d\n", m_get_count() );
 	all_append_new_candidates(new_candidates);
-	print_table("\n\n----entire table:\n", all_get_table());
+	//print_table("\n\n----entire table:\n", all_get_table());
 	BOOL b = try_to_add_bsq(new_candidates);
 	if (b)
 	{
-		t_section bsq = get_bsq();
-		printf("bsq found: {%d:%d,%d}\n", bsq.x, bsq.y, bsq.len);
+		//t_section bsq = get_bsq();
+		//printf("bsq found: {%d:%d,%d}\n", bsq.x, bsq.y, bsq.len);
 		//all = all_get_table();
 		all_remove_less_than_len(get_bsq().len);
-		print_table("----entire table after remove:-------\n", all_get_table());
+		//print_table("----entire table after remove:-------\n", all_get_table());
 	}
+	print_table("----entire table after remove:-------\n", all_get_table());
 	//print_map_with_bsq(bsq)
 	//print_map_with_candidates(table);
 	
