@@ -46,8 +46,8 @@ int		parse_first_line(char *line)
 		_log("'");
 		return (g_lines_count);
 	}
-	_log("first line parsed successfully");
-	printf("empty = '%c', obstacle = '%c', full = '%c', count = %d\n", get_empty(), get_obstacle(), get_full(), get_lines_count());
+	//_log("first line parsed successfully");
+	//printf("empty = '%c', obstacle = '%c', full = '%c', count = %d\n", get_empty(), get_obstacle(), get_full(), get_lines_count());
 	return (0);
 }
 

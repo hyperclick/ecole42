@@ -9,7 +9,7 @@
 
 char	g_tmp[100];
 
-int		process_buffer(char *rest, char *buffer, int buffer_length)
+int		process_buffer(char *rest, char *buffer, int buffer_length, int step)
 {
 	int			r;
 	char		buffer4total[2*buffer_length];
@@ -36,8 +36,15 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 		{
 			*line = '\0';
 			total++;
-			//printf("line = '%s'\n", buffer4line);
-			r = process_line(buffer4line, line_number++);
+			//printf("line = '%s', step = %d\n", buffer4line, step);
+			if (step == 0)
+			{
+				r = process_line(buffer4line, line_number++);
+			}
+			else
+			{
+				r = process_line_to_print_bsq(buffer4line, line_number++);
+			}
 			if (r != 0)
 			{
 				return (r);
@@ -60,7 +67,7 @@ int		process_buffer(char *rest, char *buffer, int buffer_length)
 }
 
 
-int		load(int fd)
+int		load(int fd, int step)
 {
 	const int	buffer_length = 999999;
 	char		buffer[buffer_length];
@@ -74,7 +81,7 @@ int		load(int fd)
 	while (bytes_read != 0)
 	{
 		buffer[bytes_read] = 0;
-		r = process_buffer(rest, buffer, bytes_read);
+		r = process_buffer(rest, buffer, bytes_read, step);
 		//printf("rest2 = '%s'\n", rest);
 		if (r != 0)
 		{
@@ -99,6 +106,7 @@ void		print_echo(int fout, int fin)
 		print_to_out(fout, buffer);
 		bytes_read = read(fin, buffer, buffer_length);
 	}
+	new_line();
 }
 
 int	process_file(char *name)
@@ -106,7 +114,7 @@ int	process_file(char *name)
 	int			fd;
 	int			r;
 	
-	printf("\n\n\n\n\nprocess file: '%s'\n\n\n\n\n", name);
+	//printf("\n\n\n\n\nprocess file: '%s'\n\n\n\n\n", name);
 	fd = open(name, O_RDONLY);
 	if (fd == -1)
 	{
@@ -114,9 +122,9 @@ int	process_file(char *name)
 		_log(name);
 		return (-1);
 	}
-	printf("source file:\n\n");
+	//printf("source file:\n\n");
 	print_echo(1, fd);
-	printf("\n\n---- end of source file -------\n\n");
+	//printf("\n\n---- end of source file -------\n\n");
 	close(fd);
 	fd = open(name, O_RDONLY);
 	if (fd == -1)
@@ -126,15 +134,41 @@ int	process_file(char *name)
 		return (-1);
 	}
 		//printf("fd1 = %d\n", fd);
-	r = load(fd);
+	r = load(fd, 0);
 	close(fd);
+	if (r != 0)
+	{
+		_log("map error: failed to open file:");
+		_log(name);
+		return (-1);
+		
+	}
 	//table_clean_all(all_get_table());
 	all_table_clean();
 	t_section bsq;
 	bsq = get_bsq();
-	printf("bsq = %s\n", sec_to_string(g_tmp, &bsq));
+	//printf("bsq = %s\n", sec_to_string(g_tmp, &bsq));
+	
+	fd = open(name, O_RDONLY);
+	if (fd == -1)
+	{
+		_log("map error: failed to open file:");
+		_log(name);
+		return (-1);
+	}
+	//printf("fd1 = %d\n", fd);
+	r = load(fd, 1);
+	close(fd);
+	if (r != 0)
+	{
+		_log("map error: failed to open file:");
+		_log(name);
+		return (-1);
+		
+	}
+	
 	clear_bsq();
-	printf("m_get_count = %d\n", m_get_count() );
+	//printf("m_get_count = %d\n", m_get_count() );
 	
 	return (r);
 }
@@ -142,7 +176,7 @@ int	process_file(char *name)
 void	process_files(int argc, char **argv)
 {
 	printf("\n\n\n\n\n ==================       process files =================== \n\n\n\n\n");
-	_log("started");
+	//_log("started");
 	/*
 	t_section	s = {0,0,0};
 	t_table *t = table_create(&s);
@@ -177,6 +211,6 @@ void	process_files(int argc, char **argv)
 		}
 		++i;
 	}
-	printf("m_get_count = %d\n", m_get_count() );
-	_log("finished");
+	printf("\nm_get_count = %d\n", m_get_count() );
+	//_log("finished");
 }

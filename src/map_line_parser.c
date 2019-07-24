@@ -115,7 +115,7 @@ int		process_line(char *line, int line_number)
 	t_table	*new_candidates;
 	
 	g_lines_read = line_number - 1;
-	printf("line %d: '%s'\n", g_lines_read, line);
+	//printf("line %d: '%s'\n", g_lines_read, line);
 	if (g_lines_read == -1)
 	{
 		r = parse_first_line(line);
@@ -154,10 +154,10 @@ int		process_line(char *line, int line_number)
 			//try_set_new_bsq(*new_candidates->data);
 		}
 	}
-	print_table("----entire table:-------\n", all_get_table());
+	//print_table("----entire table:-------\n", all_get_table());
 	//print_table("before remove candidates", new_candidates);
 	remove_lt_len(&new_candidates, get_bsq().len);
-	print_table("after remove candidates", new_candidates);
+	//print_table("after remove candidates", new_candidates);
 	
 	//all_remove_conflicting_sections(new_candidates);
 	//all_remove_conflicting_sections(new_obstacles);
@@ -173,8 +173,8 @@ int		process_line(char *line, int line_number)
 		all_remove_less_than_len(get_bsq().len);
 		//print_table("----entire table after remove:-------\n", all_get_table());
 	}
-	print_table("----entire table after remove:-------\n", all_get_table());
-	//print_map_with_bsq(bsq)
+	//print_table("----entire table after remove:-------\n", all_get_table());
+	
 	//print_map_with_candidates(table);
 	
 	

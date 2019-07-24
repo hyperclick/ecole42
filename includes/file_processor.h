@@ -27,4 +27,7 @@ BOOL		try_set_new_bsq(t_section new_bsq);
 void		clear_bsq();
 BOOL		try_to_add_bsq(t_table *new_candidates);
 
+
+int		process_line_to_print_bsq(char *line, int line_number);
+
 #endif

@@ -61,7 +61,7 @@ t_table			*table_append(t_table **node, t_section d)
 	if (*node == NULL)
 	{
 		*node = table_create(create_heap_copy(d));
-		printf("changing *node from null to %p (%s)\n", *node,  sec_to_string(g_tmp, &d));
+		//printf("changing *node from null to %p (%s)\n", *node,  sec_to_string(g_tmp, &d));
 		return (*node);
 	}
 	//sec_to_string(g_tmp, &d);

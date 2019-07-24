@@ -51,7 +51,7 @@ BOOL	try_set_new_bsq(t_section new_bsq)
 	if (is_better_than_bsq(new_bsq) )
 	{
 		g_bsq = new_bsq;
-		_log2("new bsq found:\t", sec_to_string(g_tmp, &g_bsq));
+		//_log2("new bsq found:\t", sec_to_string(g_tmp, &g_bsq));
 		return (TRUE);
 	}
 	return (FALSE);
