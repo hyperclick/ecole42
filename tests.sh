@@ -1,4 +1,5 @@
 #!/bin/bash
+#./run_test.sh good example\ file\ with\ spaces
 ./run_test.sh good one_cell_obstacle
 ./run_test.sh good one_cell_free
 ./run_test.sh good one_line_all_free
@@ -15,11 +16,95 @@
 ./run_test.sh good twosolutionsbutValid
 ./run_test.sh good nosolutionMapIsFull
 ./run_test.sh good example_file
-
+./run_test.sh good zero_len
+./run_test.sh good all_numbers
+./run_test.sh bad/header 1char
+./run_test.sh bad/header 2char
+./run_test.sh bad/header 3char
+./run_test.sh bad/header same_char
 
 exit 0
 
 
+
+
+./run_test.sh bad
+./run_test.sh bad
+./run_test.sh bad
+./run_test.sh bad
+./run_test.sh bad
+./run_test.sh bad
+./run_test.sh bad
+./run_test.sh bad
+./run_test.sh bad
+./run_test.sh bad
+./run_test.sh bad
+./run_test.sh bad
+./run_test.sh bad
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
+
+./run_test.sh good
 
 ./run_test.sh good
 

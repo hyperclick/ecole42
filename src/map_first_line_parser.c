@@ -37,6 +37,13 @@ int		parse_first_line(char *line)
 	g_full = line[--len];
 	g_obstacle = line[--len];
 	g_empty = line[--len];
+	
+	if(g_full == g_obstacle || g_empty == g_obstacle || g_empty == g_full)
+	{
+		_log2("map error: repeated chars:\t",line);
+		return (1);
+	}
+	
 	line[len] = 0;
 	g_lines_count = ft_atoi(line);
 	if (g_lines_count < 0)
