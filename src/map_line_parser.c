@@ -20,7 +20,7 @@ t_table	*create_all_candidates(t_table **table, int x, int len, int *r)
 	{
 		return (*table);
 	}
-	i = 1;
+	i = get_bsq().len + 1;
 	while (i <= len)
 	{
 		data.x = x;
@@ -121,6 +121,7 @@ int		process_line(char *line, int line_number)
 	//table_print_all(new_candidates);
 	//table_clean_all(new_candidates);
 	
+	//try add first candidate
 	if (all_get_table() == NULL)
 	{
 		if (new_candidates != NULL)
