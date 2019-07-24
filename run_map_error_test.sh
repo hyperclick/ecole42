@@ -5,7 +5,7 @@ path=test_files/bad/$1
 name=$2
 rm $path/$name.actual.txt
 
-echo test	$1 $name
+echo test bad	$1 $name
 #echo "calling ./bsq $path/$name.txt > $path/$name.actual.txt"
 
 ./bsq $path/$name.txt > $path/$name.actual.txt

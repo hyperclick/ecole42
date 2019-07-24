@@ -1,5 +1,26 @@
 #!/bin/bash
+
+echo "
+
+------- tests ---------
+
+
+"
+
+
+
 #./run_test.sh good example\ file\ with\ spaces
+echo pipe
+rm test_files/good/two_lines.from_pipe.actual.txt
+cat test_files/good/two_lines.txt | ./bsq > test_files/good/two_lines.from_pipe.actual.txt
+diff test_files/good/two_lines.expected.txt test_files/good/two_lines.from_pipe.actual.txt
+
+#./run_test.sh good number_is_less_than_rows
+#./run_test.sh good zero_len
+./run_map_error_test.sh header  number_is_less_than_rows
+./run_map_error_test.sh header  zero_len
+
+
 ./run_test.sh good one_cell_obstacle
 ./run_test.sh good one_cell_free
 ./run_test.sh good one_line_all_free
@@ -16,8 +37,9 @@
 ./run_test.sh good twosolutionsbutValid
 ./run_test.sh good nosolutionMapIsFull
 ./run_test.sh good example_file
-./run_test.sh good zero_len
 ./run_test.sh good all_numbers
+
+
 ./run_test.sh bad/header 1char
 ./run_test.sh bad/header 2char
 ./run_test.sh bad/header 3char
@@ -27,6 +49,7 @@
 ./run_map_error_test.sh header 4char
 ./run_map_error_test.sh header first_is_NAN
 
+./run_map_error_test.sh header 1digit
 
 exit 0
 

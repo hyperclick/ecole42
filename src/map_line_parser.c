@@ -116,6 +116,7 @@ int		process_line(char *line, int line_number)
 	
 	g_lines_read = line_number - 1;
 	//printf("line %d: '%s'\n", g_lines_read, line);
+	src_save_line(line);
 	if (g_lines_read == -1)
 	{
 		r = parse_first_line(line);
@@ -131,11 +132,16 @@ int		process_line(char *line, int line_number)
 		if (r != 0)
 		{
 			_log("lines lengths differ\n");
-			printf("diff = %d, line = '%s'\n",r, line);
+			//printf("diff = %d, line = '%s'\n",r, line);
 			return (r);
 		}
 	}
-	
+	if (g_lines_read > get_lines_count() - 1)
+	{
+		_log2("map error: ambiguous line", line);
+		//printf("line = '%s' count = %d\n",line, g_lines_read);
+		return (1);
+	}
 	new_candidates = find_new_candidates(line, &r);
 	if (r != 0)
 	{
@@ -163,7 +169,7 @@ int		process_line(char *line, int line_number)
 	//all_remove_conflicting_sections(new_obstacles);
 	//printf("m_get_count = %d\n", m_get_count() );
 	all_append_new_candidates(new_candidates);
-	//print_table("\n\n----entire table:\n", all_get_table());
+	//print_table("\n\n----entire table:------\n", all_get_table());
 	BOOL b = try_to_add_bsq(new_candidates);
 	if (b)
 	{

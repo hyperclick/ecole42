@@ -30,4 +30,10 @@ BOOL		try_to_add_bsq(t_table *new_candidates);
 
 int		process_line_to_print_bsq(char *line, int line_number);
 
+
+//char	*get_saved_src_file_name();
+int		src_save_line(char *line);
+int		src_recreate(void);
+char	*src_get_file_name(void);
+
 #endif

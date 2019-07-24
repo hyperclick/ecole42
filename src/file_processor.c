@@ -57,9 +57,9 @@ int		process_buffer(char *rest, char *buffer, int buffer_length, int step)
 			continue;
 		}
 		*line++ = *total++;
-		//printf("process_buffer:\ttotal2 = '%s', line2 = '%s'\n", total, buffer4line);
+		//if (*total == 0)
+			//printf("process_buffer:\ttotal2 = '%s', line2 = '%s'\n", total, buffer4line);
 	}
-	
 	*line = '\0';
 	//printf("line = '%s'\n", buffer4line);
 	ft_strcpy(rest, buffer4line);
@@ -83,6 +83,7 @@ int		load(int fd, int step)
 		buffer[bytes_read] = 0;
 		r = process_buffer(rest, buffer, bytes_read, step);
 		//printf("rest2 = '%s'\n", rest);
+		_log2("read: ", buffer);
 		if (r != 0)
 		{
 			return (r);
@@ -110,7 +111,8 @@ void		print_echo(int fout, int fin)
 }
 
 int	process_file(char *name, BOOL from_console)
-{int fd;
+{
+	int			fd;
 	int			r;
 	
 	//printf("\n\n\n\n\nprocess file: '%s' \nfrom console = %d\n\n\n\n", name, from_console);
@@ -126,6 +128,7 @@ int	process_file(char *name, BOOL from_console)
 	//print_echo(1, fd);
 	//printf("\n\n---- end of source file -------\n\n");
 	//close(fd);
+	src_recreate();
 	if (!from_console)
 	{
 		fd = open(name, O_RDONLY);
@@ -143,10 +146,9 @@ int	process_file(char *name, BOOL from_console)
 	
 	if (r != 0)
 	{
-		_log("map error: failed to open file:");
+		_log("map error: failed to read file:");
 		_log(name);
 		return (-1);
-		
 	}
 	//table_clean_all(all_get_table());
 	all_table_clean();
@@ -154,7 +156,7 @@ int	process_file(char *name, BOOL from_console)
 	bsq = get_bsq();
 	//printf("bsq = %s\n", sec_to_string(g_tmp, &bsq));
 	
-	fd = open(name, O_RDONLY);
+	fd = open(src_get_file_name(), O_RDONLY);
 	if (fd == -1)
 	{
 		_log("map error: failed to open file:");
