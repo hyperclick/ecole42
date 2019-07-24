@@ -6,6 +6,9 @@
 #include <stdio.h>
 #include <unistd.h>
 
+
+char	g_tmp[100];
+
 int		process_buffer(char *rest, char *buffer, int buffer_length)
 {
 	int			r;
@@ -127,6 +130,9 @@ int	process_file(char *name)
 	close(fd);
 	//table_clean_all(all_get_table());
 	all_table_clean();
+	t_section bsq;
+	bsq = get_bsq();
+	printf("bsq = %s\n", sec_to_string(g_tmp, &bsq));
 	clear_bsq();
 	printf("m_get_count = %d\n", m_get_count() );
 	
