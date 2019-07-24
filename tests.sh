@@ -49,6 +49,8 @@ diff test_files/good/two_lines.expected.txt test_files/good/two_lines.from_pipe.
 ./run_map_error_test.sh header/one_digit
 ./run_map_error_test.sh header/no_new_line
 ./run_map_error_test.sh header/empty_file
+
+./run_map_error_test.sh header/len_is_negative
 ./run_map_error_test.sh header/number_is_greater_than_rows
 
 ./run_map_error_test.sh empty_map
