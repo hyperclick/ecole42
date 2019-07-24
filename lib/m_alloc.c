@@ -29,7 +29,7 @@ void	*m_alloc(int size, char *name)
 
 void		m_free(void *p, char *name)
 {
-	printf("%s: freeing %p\n", name, p);
+	//printf("%s: freeing %p\n", name, p);
 	entries[g_count].size = -1;
 	ft_strcpy(entries[g_count].name, name);
 	

@@ -15,9 +15,11 @@ ARGS = -Wall -Wextra -Werror
 COMMON_SRC  = lib/*.c src/*.c
 RELEASE_SRC = release/*.c
 TEST_SRC = test/*.c
-#TEST_ARGS = test_files/good/one_line_all_two_free.txt
+TEST_ARGS = test_files/good/one_line_all_two_free.txt
 #TEST_ARGS = test_files/good/one_line_all_free.txt #test_files/good/two_lines_all_free.txt
-TEST_ARGS = test_files/good/one_cell_free.txt test_files/good/one_cell_free.txt
+TEST_ARGS_2 = test_files/good/one_cell_free.txt test_files/good/one_cell_free.txt
+
+TEST_ARGS_1 = test_files/good/one_cell_free.txt 
 
 all:	compile
 
@@ -49,3 +51,9 @@ re:	fclean compile
 test:	clean test_compile
 	./a.out $(TEST_ARGS)
 #	cat test_files/example_file.txt | ./a.out
+
+t1:	clean test_compile
+	./a.out $(TEST_ARGS_1)
+
+t2:	clean test_compile
+	./a.out $(TEST_ARGS_2)
