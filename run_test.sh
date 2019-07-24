@@ -1,10 +1,13 @@
 #!/bin/bash
-echo "TestScript1 Arguments:"
-echo "$1"
-echo "$2"
-echo "$# params called"
-path="test_files/good"
-echo path = "$path"
-./bsq $path/$1.txt #> test_files/good/$1.actual.txt
-diff test_files/good/one_cell_obstacle.expected.txt test_files/good/one_cell_obstacle.actual.txt
-exit 1
+#echo on
+
+path=test_files/$1
+name=$2
+rm $path/$name.actual.txt
+
+echo test	$1 $name
+#echo "calling ./bsq $path/$name.txt > $path/$name.actual.txt"
+
+./bsq $path/$name.txt > $path/$name.actual.txt
+diff $path/$name.expected.txt $path/$name.actual.txt
+exit 0

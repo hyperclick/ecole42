@@ -13,14 +13,16 @@ void	draw_line_with_bsq(char *line)
 	t_section bsq;
 	
 	bsq = get_bsq();
+	//printf("line '%s' (%s)\n", line, sec_to_string(g_tmp, &bsq));
 	x = -1;
 	while (line[++x] != 0)
 	{
 		if (x >= bsq.x && x < bsq.x + bsq.len)
 		{
+			//printf("x = %d\n", x);
 			ft_putchar(get_full());
 		}
-			else
+		else
 		{
 			ft_putchar(line[x]);
 		}

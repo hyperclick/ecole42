@@ -113,7 +113,7 @@ int	process_file(char *name, BOOL from_console)
 {int fd;
 	int			r;
 	
-	//printf("\n\n\n\n\nprocess file: '%s'\n\n\n\n\n", name);
+	//printf("\n\n\n\n\nprocess file: '%s' \nfrom console = %d\n\n\n\n", name, from_console);
 	/*
 	fd = open(name, O_RDONLY);
 	if (fd == -1)
@@ -126,7 +126,7 @@ int	process_file(char *name, BOOL from_console)
 	//print_echo(1, fd);
 	//printf("\n\n---- end of source file -------\n\n");
 	//close(fd);
-	if (from_console)
+	if (!from_console)
 	{
 		fd = open(name, O_RDONLY);
 		if (fd == -1)
@@ -138,7 +138,7 @@ int	process_file(char *name, BOOL from_console)
 	}
 		//printf("fd1 = %d\n", fd);
 	r = load(from_console ? 0 : fd, 0);
-	if(from_console)
+	if(!from_console)
 		close(fd);
 	
 	if (r != 0)
@@ -203,7 +203,7 @@ void	process_files(int argc, char **argv)
 	int	i;
 	int	r;
 	
-	from_console = TRUE;
+	from_console = FALSE;
 	if (argc == 1)
 	{
 		argc = 2;
@@ -225,5 +225,5 @@ void	process_files(int argc, char **argv)
 		++i;
 	}
 	//printf("\nm_get_count = %d\n", m_get_count() );
-	//_log("finished");
+	_log("finished");
 }

@@ -16,28 +16,18 @@ COMMON_SRC  = lib/*.c src/*.c
 RELEASE_SRC = release/*.c
 TEST_SRC = test/*.c
 
-#TEST_ARGS = test_files/good/one_line_all_free.txt #test_files/good/two_lines_all_free.txt
-#TEST_ARGS_2 = test_files/good/one_cell_free.txt test_files/good/one_cell_free.txt
-#TEST_ARGS_2 = test_files/good/two_lines_all_free.txt
 
-TEST_ARGS 	= test_files/good/one_cell_obstacle.txt
-TEST_ARGS_1 	= test_files/good/one_line_one_obstacle_at_2.txt
-TEST_ARGS_2 	= test_files/good/one_line_one_obstacle_at_BOL.txt
-TEST_ARGS_3 	= test_files/good/one_line_one_obstacle_at_EOL.txt
-
-
-
-#TEST_ARGS 	= test_files/good/three_lines_all_free.txt
-#TEST_ARGS_1	= test_files/good/one_cell_free.txt 
-#TEST_ARGS_2 	= test_files/good/one_line_all_two_free.txt
-#TEST_ARGS_3 	= test_files/good/one_line_all_three_free.txt
+TEST_ARGS 	= test_files/good/three_lines_all_free.txt
+TEST_ARGS_1	= test_files/good/two_lines_all_free.txt 
+TEST_ARGS_2 	= test_files/good/one_line_all_two_free.txt
+TEST_ARGS_3 	= test_files/good/one_line_all_three_free.txt
 TEST_ARGS_4 	= test_files/good/one_line_all_free.txt
 
 TEST_ARGS 	= test_files/good/thismapisValid2.txt #> out.txt
 TEST_ARGS 	= test_files/good/two_lines.txt
 
 all:	compile
-		./bsq q
+		./tests.sh
 
 compile:
 	gcc $(COMMON_SRC) $(RELEASE_SRC) -o $(NAME) $(ARGS)
@@ -65,8 +55,8 @@ fclean:	clean
 re:	fclean compile
 
 
-t:	clean test_compile
-	./a.out $(TEST_ARGS)
+t:	compile
+	./tests.sh
 #	cat test_files/example_file.txt | ./a.out
 
 t1:	clean test_compile
