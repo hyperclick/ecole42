@@ -13,11 +13,14 @@
 ./run_test.sh good two_lines_all_free
 ./run_test.sh good two_lines
 ./run_test.sh good twosolutionsbutValid
+./run_test.sh good nosolutionMapIsFull
+./run_test.sh good example_file
 
 
 exit 0
-./run_test.sh good
-./run_test.sh good
+
+
+
 ./run_test.sh good
 
 

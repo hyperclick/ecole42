@@ -47,12 +47,14 @@ int		process_line_to_print_bsq(char *line, int line_number)
 		return (0);
 	}
 	
-	if (g_lines_read < bsq.y || g_lines_read > bsq.y + bsq.len)
+	if (g_lines_read < bsq.y || g_lines_read >= bsq.y + bsq.len)
 	{
 		ft_putstr(line);
 		new_line();
 		return (0);
 	}
+	//printf("line %d: '%s' (%s)\n", g_lines_read, line, sec_to_string(g_tmp, &bsq));
+	
 	draw_line_with_bsq(line);
 	
 	return (0);

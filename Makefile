@@ -18,7 +18,7 @@ TEST_SRC = test/*.c
 
 
 TEST_ARGS 	= test_files/good/three_lines_all_free.txt
-TEST_ARGS_1	= test_files/good/two_lines_all_free.txt 
+TEST_ARGS_1	= test_files/good/example_file.txt 
 TEST_ARGS_2 	= test_files/good/one_line_all_two_free.txt
 TEST_ARGS_3 	= test_files/good/one_line_all_three_free.txt
 TEST_ARGS_4 	= test_files/good/one_line_all_free.txt
