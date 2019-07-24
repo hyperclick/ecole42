@@ -15,9 +15,9 @@ ARGS = -Wall -Wextra -Werror
 COMMON_SRC  = lib/*.c src/*.c
 RELEASE_SRC = release/*.c
 TEST_SRC = test/*.c
-TEST_ARGS = test_files/good/one_line_all_two_free.txt
+#TEST_ARGS = test_files/good/one_line_all_two_free.txt
 #TEST_ARGS = test_files/good/one_line_all_free.txt #test_files/good/two_lines_all_free.txt
-#TEST_ARGS = test_files/good/one_cell_free.txt test_files/good/one_cell_free.txt
+TEST_ARGS = test_files/good/one_cell_free.txt test_files/good/one_cell_free.txt
 
 all:	compile
 

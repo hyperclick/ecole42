@@ -136,6 +136,7 @@ int	process_file(char *name)
 	close(fd);
 	//table_clean_all(all_get_table());
 	all_table_clean();
+	clear_bsq();
 	printf("m_get_count = %d\n", m_get_count() );
 	
 	return (r);

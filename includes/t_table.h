@@ -16,5 +16,6 @@ void			table_print_all(t_table *node);
 t_table			*table_append(t_table **node, t_section data);
 t_table			*get_last_node(t_table *table);
 void			table_append_node(t_table *table, t_table *new_nodes);
+t_section		try_make_square(t_table *node);
 
 #endif

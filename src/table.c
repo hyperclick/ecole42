@@ -1,5 +1,6 @@
 #include "../includes/ft.h"
 #include "../includes/t_table.h"
+#include "../includes/file_processor.h"
 #include <stdio.h>
 
 char		g_tmp[100];
@@ -180,4 +181,63 @@ void table_append_node(t_table *table, t_table *new_nodes)
 		return ;
 	}
 	get_last_node(table)->next = new_nodes;
+}
+
+t_table		*move_to(t_table *node, int y)
+{
+	if (node == NULL)
+	{
+		return (NULL);
+	}
+	if (node->data->y > y)
+	{
+		_log("error: node->data.y > y");
+		return (NULL);
+	}
+	while (node->data->y < y)
+	{
+		node = node->next;
+	}
+	return (node);
+}
+
+t_section	try_make_square(t_table *node)
+{
+	t_table	*table;
+	int		y_min;
+	t_table	*current_node;
+	int		lines_found;
+	t_section	*section;
+	t_section	r;
+	
+	section = node->data;
+	//need to find up to len lines entries with the same x and len
+	
+	y_min = section->y - section->len - 1;
+	if (y_min < 0)
+	{
+		r.len = -1;
+		return (r);
+	}
+	table = all_get_table();
+	current_node = move_to(table, y_min);
+	lines_found = 0;
+	while (node->data->y < section->y)
+	{
+		//todo: do not check all lines if not found for first
+		if (node->data->x == section->x && node->data->len == section->len)
+		{
+			++lines_found;
+		}
+		node = node->next;
+	}
+	if (lines_found == section->len - 1)
+	{
+		r.y = y_min;
+		r.x = section->x;
+		r.len = section->len;
+		return (r);
+	}
+	r.len = -1;
+	return (r);
 }

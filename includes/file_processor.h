@@ -22,5 +22,7 @@ void		all_table_clean();
 t_section	get_bsq();
 BOOL		is_better_than_bsq(t_section new_bsq);
 BOOL		try_set_new_bsq(t_section new_bsq);
+void		clear_bsq();
+BOOL		try_to_add_bsq(t_table *new_candidates);
 
 #endif
