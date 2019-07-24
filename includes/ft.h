@@ -28,6 +28,8 @@ char	*ft_strcpy(char *dest, const char *src);
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strlen(char *str);
+char	*ft_concat(char *dst, char *a, char *b);
+char	*ft_concat3(char *dst, char *a, char *b, char *c);
 void	print_dup(char *str, int count);
 int		ft_str_is_alpha(char *str);
 int		count_words(char *str, char *delimeters);
@@ -50,8 +52,9 @@ int		*convert_to_int_array(int dst[], char	*a[]);
 void	print_int_array(int a[]);
 
 void	print_to_out(int fd, char *str);
-void	_log2(char *logger, char *str);
+void	_logger(char *logger, char *str);
 void	_log(char *str);
+void	_log2(char *a, char *b);
 void	create_directory(char *path);
 
 void	*m_alloc(int size, char *name);

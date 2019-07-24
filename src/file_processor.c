@@ -6,15 +6,6 @@
 #include <stdio.h>
 #include <unistd.h>
 
-char	*ft_concat(char *dst, char *a, char *b)
-{
-	ft_strcpy(dst, a);
-	ft_strcpy(dst + ft_strlen(a), b);
-	
-	return (dst);
-}
-
-
 int		process_buffer(char *rest, char *buffer, int buffer_length)
 {
 	int			r;

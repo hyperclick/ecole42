@@ -121,19 +121,20 @@ int		process_line(char *line, int line_number)
 	//table_print_all(new_candidates);
 	//table_clean_all(new_candidates);
 	
+	if (all_get_table() == NULL)
+	{
+		if (new_candidates != NULL)
+		{
+			try_set_new_bsq(*new_candidates->data);
+		}
+	}
+	
 	//remove uncompatible candidates
 	all_append_new_candidates(new_candidates);
 	
 	ft_putstr("\n\n----entire table:\n");
 	table_print_header();
 	table_print_all(all_get_table());
-	if (g_lines_read == 0)
-	{
-		if (new_candidates!= NULL)
-		{
-			try_set_new_bsq(*new_candidates->data);
-		}
-	}
 	BOOL b = try_to_add_bsq(new_candidates);
 	t_section bsq = get_bsq();
 	printf("bsq found = %d: {%d:%d,%d}\n", b, bsq.x, bsq.y, bsq.len);

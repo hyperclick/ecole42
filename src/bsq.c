@@ -3,6 +3,7 @@
 #include "../includes/t_table.h"
 
 t_section	g_bsq = {0,0,0};
+char		g_tmp[100];
 
 void		clear_bsq()
 {
@@ -50,6 +51,7 @@ BOOL	try_set_new_bsq(t_section new_bsq)
 	if (is_better_than_bsq(new_bsq) )
 	{
 		g_bsq = new_bsq;
+		_log2("new bsq found:\t", sec_to_string(g_tmp, &g_bsq));
 		return (TRUE);
 	}
 	return (FALSE);
