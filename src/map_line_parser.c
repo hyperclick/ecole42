@@ -150,7 +150,7 @@ int		process_line(char *line, int line_number)
 		printf("bsq found: {%d:%d,%d}\n", bsq.x, bsq.y, bsq.len);
 		//all = all_get_table();
 		all_remove_less_than_len(get_bsq().len);
-		print_table("\n\n----entire table after remove:-------\n", all_get_table());
+		print_table("----entire table after remove:-------\n", all_get_table());
 	}
 	//print_map_with_bsq(bsq)
 	//print_map_with_candidates(table);

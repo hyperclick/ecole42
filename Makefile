@@ -46,6 +46,7 @@ clean:
 	rm -f test_files/good/.DS_Store
 	rm -f libs/.DS_Store
 	rm -f src/.DS_Store
+	git status
 
 c:	clean
 

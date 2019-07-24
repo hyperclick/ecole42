@@ -222,7 +222,7 @@ t_section	try_make_square(t_table *node)
 	t_section	r;
 	
 	section = node->data;
-	//printf("%s:\t%s\n",__func__, sec_to_string(g_tmp, section));
+	printf("%s:\t%s\n",__func__, sec_to_string(g_tmp, section));
 	//need to find up to len lines entries with the same x and len
 	
 	y_min = section->y + 1 - section->len;
@@ -234,15 +234,16 @@ t_section	try_make_square(t_table *node)
 	}
 	table = all_get_table();
 	current_node = move_to(table, y_min);
+	printf("current_node = %s\n", sec_to_string(g_tmp, current_node->data));
 	lines_found = 0;
-	while (node->data->y < section->y)
+	while (current_node->data->y < section->y)
 	{
 		//todo: do not check all lines if not found for first
-		if (node->data->x == section->x && node->data->len == section->len)
+		if (current_node->data->x == section->x && current_node->data->len == section->len)
 		{
 			++lines_found;
 		}
-		node = node->next;
+		current_node = current_node->next;
 	}
 	if (lines_found == section->len - 1)
 	{
