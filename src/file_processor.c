@@ -61,6 +61,18 @@ int		process_buffer(char *rest, char *buffer, int buffer_length, int step)
 			//printf("process_buffer:\ttotal2 = '%s', line2 = '%s'\n", total, buffer4line);
 	}
 	*line = '\0';
+	if (line_number == 0)
+	{
+		_log2("map error: no new_line in file", line);
+		return (1);
+	}
+	//printf("line_number = %d, get_lines_count() - 1 = %d\n", line_number, get_lines_count() - 1);
+	if (line_number < get_lines_count() + 1)
+	{
+		_log("map error: missing line(s)");
+		//printf("line = '%s' count = %d\n",line, g_lines_read);
+		return (1);
+	}
 	//printf("line = '%s'\n", buffer4line);
 	ft_strcpy(rest, buffer4line);
 	return (0);
@@ -78,12 +90,17 @@ int		load(int fd, int step)
 	//printf("fd = %d\n", fd);
 	//printf("buffer_length = %d\n", buffer_length);
 	bytes_read = read(fd, buffer, buffer_length);
+	if(bytes_read == 0)
+	{
+		_log("map error: empty file");
+		return (1);
+	}
 	while (bytes_read != 0)
 	{
 		buffer[bytes_read] = 0;
 		r = process_buffer(rest, buffer, bytes_read, step);
 		//printf("rest2 = '%s'\n", rest);
-		_log2("read: ", buffer);
+		//_log2("read: ", buffer);
 		if (r != 0)
 		{
 			return (r);

@@ -40,20 +40,28 @@ diff test_files/good/two_lines.expected.txt test_files/good/two_lines.from_pipe.
 ./run_test.sh good all_numbers
 
 
-./run_test.sh bad/header 1char
-./run_test.sh bad/header 2char
-./run_test.sh bad/header 3char
-./run_test.sh bad/header same_char
+./run_map_error_test.sh header/1char
+./run_map_error_test.sh header/2char
+./run_map_error_test.sh header/3char
+./run_map_error_test.sh header/4char
+./run_map_error_test.sh header/same_char
+./run_map_error_test.sh header/first_is_NAN
+./run_map_error_test.sh header/one_digit
+./run_map_error_test.sh header/no_new_line
+./run_map_error_test.sh header/empty_file
+./run_map_error_test.sh header/number_is_greater_than_rows
 
-./run_map_error_test.sh header 1char
-./run_map_error_test.sh header 4char
-./run_map_error_test.sh header first_is_NAN
+./run_map_error_test.sh empty_map
+./run_map_error_test.sh extra_char_on_map
+./run_map_error_test.sh not_equal_lines.txt
 
-./run_map_error_test.sh header 1digit
 
 exit 0
 
-./run_map_error_test.sh header
+./run_map_error_test.sh
+./run_map_error_test.sh
+./run_map_error_test.sh
+./run_map_error_test.sh
 ./run_map_error_test.sh header
 ./run_map_error_test.sh header
 ./run_map_error_test.sh header

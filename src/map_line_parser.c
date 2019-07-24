@@ -86,7 +86,7 @@ t_table	*find_new_candidates_rec(t_table **table, char *line, int x, int *r)
 	}
 	if (line[x] != get_empty() && line[x] != get_obstacle())
 	{
-		printf("map error: unexpected char:\t'%c', empty = '%c'\n", line[x], get_empty());
+		//printf("map error: unexpected char:\t'%c', empty = '%c'\n", line[x], get_empty());
 		_log("map error: unexpected char:");
 		_log(line+x);
 		*r = 1;
