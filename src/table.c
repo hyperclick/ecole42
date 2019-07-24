@@ -51,14 +51,32 @@ t_table			*table_create(t_section *data)
 
 t_table			*table_append(t_table **node, t_section d)
 {
+	char tmp[100];
+	
+	if (node == NULL)
+	{
+		_log2("table_append error: node == null for ", sec_to_string(g_tmp, &d));
+		return NULL;
+	}
 	if (*node == NULL)
 	{
 		*node = table_create(create_heap_copy(d));
+		printf("changing *node from null to %p (%s)\n", *node,  sec_to_string(g_tmp, &d));
 		return (*node);
 	}
+	//sec_to_string(g_tmp, &d);
+	//sec_to_string(tmp, (*node)->data);
+	//printf("append: %s to (*node) = %p\n",  sec_to_string(g_tmp, &d), *node);
+	
 	if ((*node)->next == NULL)
 	{
+		sec_to_string(g_tmp, &d);
+		sec_to_string(tmp, (*node)->data);
+		//printf("append: %s to %s\n", g_tmp, tmp );
+		
+		//_log2("adding:\t", sec_to_string(g_tmp, &d));
 		(*node)->next = table_create(create_heap_copy(d));
+		//printf("added: %s to %p, returning next: %p\n",  sec_to_string(g_tmp, &d), *node, (*node)->next);
 		return ((*node)->next);
 	}
 	return (table_append(&(*node)->next, d));
@@ -222,7 +240,7 @@ t_section	try_make_square(t_table *node)
 	t_section	r;
 	
 	section = node->data;
-	printf("%s:\t%s\n",__func__, sec_to_string(g_tmp, section));
+	//printf("%s:\t%s\n",__func__, sec_to_string(g_tmp, section));
 	//need to find up to len lines entries with the same x and len
 	
 	y_min = section->y + 1 - section->len;
@@ -234,7 +252,7 @@ t_section	try_make_square(t_table *node)
 	}
 	table = all_get_table();
 	current_node = move_to(table, y_min);
-	printf("current_node = %s\n", sec_to_string(g_tmp, current_node->data));
+	//printf("current_node = %s\n", sec_to_string(g_tmp, current_node->data));
 	lines_found = 0;
 	while (current_node->data->y < section->y)
 	{

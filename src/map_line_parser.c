@@ -3,39 +3,59 @@
 #include "../includes/file_processor.h"
 #include <stdio.h>
 
-
+char		g_tmp[100];
 int		g_lines_read;
 //int		g_lines_len;
 
 t_table	*g_first_candidate = NULL;
 
+void	print_table(char *caption, t_table *table)
+{
+	ft_putstr(caption);
+	new_line();
+	table_print_header();
+	table_print_all(table);
+	new_line();
+}
+
 t_table	*create_all_candidates(t_table **table, int x, int len, int *r)
 {
-	//printf("x = %d, len = %d\n", x, len);
+	//printf("x = %d, len = %d, bsq.len + 1 = %d\n", x, len, get_bsq().len + 1);
 	int	i;
-	t_section data;
-	t_table		*node;
+	t_section	data;
+	//t_table		*node;
 	
 	if (len == 0)
 	{
 		return (*table);
 	}
 	i = get_bsq().len + 1;
+	//node = NULL;
 	while (i <= len)
 	{
+		
 		data.x = x;
 		data.y = g_lines_read;
 		data.len = i;
-		node = table_append(table, data);
-		if (node == NULL)
+		//printf("\nx = %d, len = %d, i = %d, *table = %p\n", x, len, i, *table);
+		*table = table_append(table, data);
+		if (*table == NULL)
 		{
 			*r = -1;
 			_log("failed to append data\n");
 			return (NULL);
 		}
+		if (g_first_candidate == NULL)
+		{
+			g_first_candidate = *table;
+		}
+		printf("added %s to %p\n", sec_to_string(g_tmp, &data) , *table);
+		//_log2("added:\t", sec_to_string(g_tmp, &data));
+		//print_table("\n\nnew candidates:\n", g_first_candidate);
+		//printf("added: g_first_candidate = %p\n", g_first_candidate);
 		++i;
 	}
-	return(create_all_candidates(&node, x + 1, len - 1, r));
+	return (create_all_candidates(table, x + 1, len - 1, r));
 }
 
 t_table	*find_new_candidates_rec(t_table **table, char *line, int x, int *r)
@@ -51,7 +71,7 @@ t_table	*find_new_candidates_rec(t_table **table, char *line, int x, int *r)
 	{
 		return (g_first_candidate);
 	}
-	//git printf("line[%d] = '%c'\n",x, line[x]);
+	//printf("line[%d] = '%c'\n",x, line[x]);
 	empty_len = 0;
 	while (line[x] != 0 && line[x] == get_empty())
 	{
@@ -77,17 +97,14 @@ t_table	*find_new_candidates_rec(t_table **table, char *line, int x, int *r)
 
 t_table	*find_new_candidates(char *line, int *r)
 {
+	t_table		*first = NULL;
+	t_table		**pp_first;
+	pp_first = &first;
 	g_first_candidate = NULL;
-	return (find_new_candidates_rec(&g_first_candidate, line, 0, r));
-}
-
-void	print_table(char *caption, t_table *table)
-{
-	ft_putstr(caption);
-	new_line();
-	table_print_header();
-	table_print_all(table);
-	new_line();
+	find_new_candidates_rec(pp_first, line, 0, r);
+	//g_first_candidate = *pp_first;
+	printf("after find: *pp_first = %p, g_first_candidate = %p\n", *pp_first, g_first_candidate);
+	return (g_first_candidate);
 }
 
 int		process_line(char *line, int line_number)
@@ -125,6 +142,7 @@ int		process_line(char *line, int line_number)
 		//printf("line = '%s'\n",r, line);
 		return (r);
 	}
+	print_table("\n\nnew candidates:\n", new_candidates);
 	//table_clean_all(new_candidates);
 	
 	//try add first candidate
