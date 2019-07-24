@@ -124,11 +124,11 @@ void			table_clean_all(t_table **pp_table)
 		return ;
 	}
 	p = *pp_table;
-	sec_to_table_entry(tmp, p->data);
-	sec_to_string(g_tmp, (*pp_table)->data);
 	
 	while (p)
 	{
+		sec_to_table_entry(tmp, p->data);
+		sec_to_string(g_tmp, (*pp_table)->data);
 		next = p->next;
 		m_free(p->data, tmp);
 		m_free(p, g_tmp);
@@ -241,3 +241,89 @@ t_section	try_make_square(t_table *node)
 	r.len = -1;
 	return (r);
 }
+
+void		remove_one(t_table **pp_node, t_table **pp_prev)
+{
+	char		tmp[100];
+	t_table		*node;
+	
+	if (pp_node == NULL || *pp_node == NULL)
+	{
+		return ;
+	}
+	node = *pp_node;
+	if (pp_prev != NULL && *pp_prev != NULL)
+	{
+		(*pp_prev)->next = node->next;
+	}
+	
+	sec_to_table_entry(tmp, node->data);
+	sec_to_string(g_tmp, node->data);
+	m_free(node->data, tmp);
+	m_free(node, g_tmp);
+	*pp_node = NULL;
+	
+}
+/*
+void	remove_uncompatible_candidates(t_table	**pp_node, t_table **pp_prev)
+{
+	t_table		*node;
+	t_table		*next;
+	
+	if (pp_node == NULL)
+	{
+		return ;
+	}
+	node = *pp_node;
+	
+	next = node->next;
+	if (node->data->len <= get_bsq().len)
+	{
+		remove_one(pp_node, pp_prev);
+	}
+	else
+	{
+		*pp_prev = node;
+	}
+	remove_uncompatible_candidates(&next, pp_prev);
+}
+*/
+
+
+
+void	remove_less_than_len(t_table	**pp_table, int len)
+{
+	char		tmp[100];
+	t_table		*p;
+	t_table		*next;
+	t_table		*first;
+	
+	if (*pp_table == NULL)
+	{
+		return ;
+	}
+	p = *pp_table;
+	first = NULL;
+	while (p)
+	{
+		next = p->next;
+		if (p->data->len <= len)
+		{
+			sec_to_table_entry(tmp, p->data);
+			sec_to_string(g_tmp, (*pp_table)->data);
+			m_free(p->data, tmp);
+			m_free(p, g_tmp);
+			p = NULL;
+		}
+		else if (first == NULL)
+		{
+			first = p;
+		}
+		p = next;
+	}
+	(*pp_table) = first;
+	
+	
+}
+
+

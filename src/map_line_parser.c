@@ -81,11 +81,21 @@ t_table	*find_new_candidates(char *line, int *r)
 	return (find_new_candidates_rec(&g_first_candidate, line, 0, r));
 }
 
+void	print_table(char *caption, t_table *table)
+{
+	ft_putstr(caption);
+	new_line();
+	table_print_header();
+	table_print_all(table);
+	new_line();
+}
+
 int		process_line(char *line, int line_number)
 {
 	static int	lines_len;
 	int		r;
 	t_table	*new_candidates;
+	t_table	*all;
 	
 	g_lines_read = line_number - 1;
 	printf("line %d: '%s'\n", g_lines_read, line);
@@ -116,26 +126,24 @@ int		process_line(char *line, int line_number)
 		//printf("line = '%s'\n",r, line);
 		return (r);
 	}
-	//ft_putstr("new candidates:\n");
-	//table_print_header();
-	//table_print_all(new_candidates);
 	//table_clean_all(new_candidates);
 	
 	//try add first candidate
-	if (all_get_table() == NULL)
+	all = all_get_table();
+	if (all == NULL)
 	{
 		if (new_candidates != NULL)
 		{
 			try_set_new_bsq(*new_candidates->data);
 		}
 	}
-	
-	//remove uncompatible candidates
+	print_table("before remove candidates", new_candidates);
+	remove_less_than_len(&new_candidates, get_bsq().len);
+	print_table("after remove candidates", new_candidates);
+	remove_less_than_len(&all, get_bsq().len);
+	//remove_conflicting_sections(new_candidates);
 	all_append_new_candidates(new_candidates);
-	
-	ft_putstr("\n\n----entire table:\n");
-	table_print_header();
-	table_print_all(all_get_table());
+	print_table("\n\n----entire table:\n", all);
 	BOOL b = try_to_add_bsq(new_candidates);
 	t_section bsq = get_bsq();
 	printf("bsq found = %d: {%d:%d,%d}\n", b, bsq.x, bsq.y, bsq.len);
