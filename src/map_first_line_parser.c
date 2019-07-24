@@ -45,6 +45,11 @@ int		parse_first_line(char *line)
 	}
 	
 	line[len] = 0;
+	if (!is_number(line))
+	{
+		_log2("map error: not start with number:\t",line);
+		return (1);
+	}
 	g_lines_count = ft_atoi(line);
 	if (g_lines_count < 0)
 	{

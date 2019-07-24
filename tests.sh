@@ -23,9 +23,17 @@
 ./run_test.sh bad/header 3char
 ./run_test.sh bad/header same_char
 
+./run_map_error_test.sh header 1char
+./run_map_error_test.sh header 4char
+./run_map_error_test.sh header first_is_NAN
+
+
 exit 0
 
-
+./run_map_error_test.sh header
+./run_map_error_test.sh header
+./run_map_error_test.sh header
+./run_map_error_test.sh header
 
 
 ./run_test.sh bad
