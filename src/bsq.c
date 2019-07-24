@@ -63,7 +63,6 @@ void	try_to_add_bsq_rec(t_table *node, BOOL *added)
 	
 	if (node == NULL)
 	{
-		*added = FALSE;
 		return ;
 	}
 	square = try_make_square(node);
@@ -80,7 +79,7 @@ void	try_to_add_bsq_rec(t_table *node, BOOL *added)
 BOOL	try_to_add_bsq(t_table *new_candidates)
 {
 	BOOL	r;
-	
+	r = FALSE;
 	try_to_add_bsq_rec(new_candidates, &r);
 	return (r);
 }

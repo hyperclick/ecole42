@@ -36,3 +36,8 @@ void	all_append_new_candidates(t_table *new_candidates)
 	}
 	table_append_node(g_table, new_candidates);
 }
+
+void		all_remove_less_than_len(int len)
+{
+	remove_lt_len(&g_table, len);
+}

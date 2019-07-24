@@ -95,7 +95,6 @@ int		process_line(char *line, int line_number)
 	static int	lines_len;
 	int		r;
 	t_table	*new_candidates;
-	t_table	*all;
 	
 	g_lines_read = line_number - 1;
 	printf("line %d: '%s'\n", g_lines_read, line);
@@ -129,25 +128,30 @@ int		process_line(char *line, int line_number)
 	//table_clean_all(new_candidates);
 	
 	//try add first candidate
-	all = all_get_table();
-	if (all == NULL)
+	if (all_get_table() == NULL)
 	{
 		if (new_candidates != NULL)
 		{
-			try_set_new_bsq(*new_candidates->data);
+			//try_set_new_bsq(*new_candidates->data);
 		}
 	}
-	print_table("before remove candidates", new_candidates);
-	remove_less_than_len(&new_candidates, get_bsq().len);
-	print_table("after remove candidates", new_candidates);
-	remove_less_than_len(&all, get_bsq().len);
+	//print_table("before remove candidates", new_candidates);
+	remove_lt_len(&new_candidates, get_bsq().len);
+	//print_table("after remove candidates", new_candidates);
+	
 	//remove_conflicting_sections(new_candidates);
-	printf("m_get_count = %d\n", m_get_count() );
+	//printf("m_get_count = %d\n", m_get_count() );
 	all_append_new_candidates(new_candidates);
 	print_table("\n\n----entire table:\n", all_get_table());
 	BOOL b = try_to_add_bsq(new_candidates);
-	t_section bsq = get_bsq();
-	printf("bsq found = %d: {%d:%d,%d}\n", b, bsq.x, bsq.y, bsq.len);
+	if (b)
+	{
+		t_section bsq = get_bsq();
+		printf("bsq found: {%d:%d,%d}\n", bsq.x, bsq.y, bsq.len);
+		//all = all_get_table();
+		all_remove_less_than_len(get_bsq().len);
+		print_table("\n\n----entire table after remove:-------\n", all_get_table());
+	}
 	//print_map_with_bsq(bsq)
 	//print_map_with_candidates(table);
 	

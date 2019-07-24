@@ -17,6 +17,6 @@ t_table			*table_append(t_table **node, t_section data);
 t_table			*get_last_node(t_table *table);
 void			table_append_node(t_table *table, t_table *new_nodes);
 t_section		try_make_square(t_table *node);
-void			remove_less_than_len(t_table	**pp_table, int len);
+void			remove_lt_len(t_table	**pp_table, int len);
 
 #endif

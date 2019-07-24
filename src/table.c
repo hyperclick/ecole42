@@ -222,9 +222,11 @@ t_section	try_make_square(t_table *node)
 	t_section	r;
 	
 	section = node->data;
+	//printf("%s:\t%s\n",__func__, sec_to_string(g_tmp, section));
 	//need to find up to len lines entries with the same x and len
 	
-	y_min = section->y - section->len - 1;
+	y_min = section->y + 1 - section->len;
+	//printf("y_min = %d\n", y_min);
 	if (y_min < 0)
 	{
 		r.len = -1;
@@ -253,56 +255,8 @@ t_section	try_make_square(t_table *node)
 	return (r);
 }
 
-void		remove_one(t_table **pp_node, t_table **pp_prev)
-{
-	char		tmp[100];
-	t_table		*node;
-	
-	if (pp_node == NULL || *pp_node == NULL)
-	{
-		return ;
-	}
-	node = *pp_node;
-	if (pp_prev != NULL && *pp_prev != NULL)
-	{
-		(*pp_prev)->next = node->next;
-	}
-	
-	sec_to_table_entry(tmp, node->data);
-	sec_to_string(g_tmp, node->data);
-	m_free(node->data, tmp);
-	m_free(node, g_tmp);
-	*pp_node = NULL;
-	
-}
-/*
-void	remove_uncompatible_candidates(t_table	**pp_node, t_table **pp_prev)
-{
-	t_table		*node;
-	t_table		*next;
-	
-	if (pp_node == NULL)
-	{
-		return ;
-	}
-	node = *pp_node;
-	
-	next = node->next;
-	if (node->data->len <= get_bsq().len)
-	{
-		remove_one(pp_node, pp_prev);
-	}
-	else
-	{
-		*pp_prev = node;
-	}
-	remove_uncompatible_candidates(&next, pp_prev);
-}
-*/
 
-
-
-void	remove_less_than_len(t_table	**pp_table, int len)
+void	remove_lt_len(t_table	**pp_table, int len)
 {
 	char		tmp[100];
 	t_table		*p;
@@ -310,7 +264,7 @@ void	remove_less_than_len(t_table	**pp_table, int len)
 	t_table		*first;
 	t_table		*prev;
 	
-	//_log("enter remove_less_than_len");
+	//printf("enter remove_less_than_len: len = %d *pp_table = %p\n", len, *pp_table);
 	if (*pp_table == NULL)
 	{
 		return ;
@@ -321,11 +275,12 @@ void	remove_less_than_len(t_table	**pp_table, int len)
 	while (p)
 	{
 		next = p->next;
+		//printf("checking %s\n", sec_to_string(g_tmp, p->data));
 		if (p->data->len <= len)
 		{
 			sec_to_table_entry(tmp, p->data);
 			sec_to_string(g_tmp, p->data);
-			_log2("removing\t", g_tmp);
+			//printf("removing\t%s, %p\n", g_tmp, p);
 			m_free(p->data, g_tmp);
 			m_free(p, tmp);
 			p = NULL;
@@ -346,7 +301,7 @@ void	remove_less_than_len(t_table	**pp_table, int len)
 		
 		p = next;
 	}
-	printf("setting %p to %p\n", *pp_table, first);
+	//printf("setting %p to %p\n", *pp_table, first);
 	(*pp_table) = first;
 	
 	
