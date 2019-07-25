@@ -8,6 +8,7 @@ typedef struct	s_section
 	int	len;
 }				t_section;
 
+char			*sec_to_table_entry(char buffer[], t_section *section);
 char			*sec_to_string(char buffer[], t_section *section);
 t_section		*create_heap_copy(t_section d);
 

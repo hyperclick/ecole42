@@ -37,25 +37,18 @@ int		process_line_to_print_bsq(char *line, int line_number)
 	t_section bsq;
 	
 	bsq = get_bsq();
-	
 	r = 0;
-	
 	g_lines_read = line_number - 1;
-	//printf("line %d: '%s' (%s)\n", g_lines_read, line, sec_to_string(g_tmp, &bsq));
 	if (g_lines_read == -1)
 	{
 		return (0);
 	}
-	
 	if (g_lines_read < bsq.y || g_lines_read >= bsq.y + bsq.len)
 	{
 		ft_putstr(line);
 		new_line();
 		return (0);
 	}
-	//printf("line %d: '%s' (%s)\n", g_lines_read, line, sec_to_string(g_tmp, &bsq));
-	
-	draw_line_with_bsq(line);
-	
+	draw_line_with_bsq(line);	
 	return (0);
 }

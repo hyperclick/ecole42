@@ -3,8 +3,11 @@
 #include "section.h"
 #include "t_table.h"
 
+int		process_buffer(char *rest, char *buffer, int buffer_length, int step);
+
 void		print_to_out(int fd, char *str);
-void		process_files(int argc, char **argv);
+
+int		validate_line(char *line, int lines_read);
 
 int			check_line(char *line);
 int			get_lines_count();
@@ -30,8 +33,6 @@ BOOL		try_to_add_bsq(t_table *new_candidates);
 
 int		process_line_to_print_bsq(char *line, int line_number);
 
-
-//char	*get_saved_src_file_name();
 int		src_save_line(char *line);
 int		src_recreate(void);
 char	*src_get_file_name(void);

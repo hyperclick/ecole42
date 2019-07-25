@@ -29,24 +29,3 @@ void	_logger(char *logger, char *str)
 	print_to_out(d, "\n");
 	close(d);
 }
-
-void	_log(char *str)
-{
-	_logger("default", str);
-}
-
-void _log2(char *a, char *b)
-{
-	char	buffer[ft_strlen(a) + ft_strlen(b) + 1];
-	
-	ft_concat(buffer, a, b);
-	_log(buffer);
-}
-
-void _log3(char *a, char *b, char *c)
-{
-	char	buffer[ft_strlen(a) + ft_strlen(b) + ft_strlen(c) + 1];
-	
-	ft_concat3(buffer, a, b, c);
-	_log(buffer);
-}

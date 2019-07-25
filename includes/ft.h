@@ -55,6 +55,7 @@ void	print_to_out(int fd, char *str);
 void	_logger(char *logger, char *str);
 void	_log(char *str);
 void	_log2(char *a, char *b);
+int		_log2_and_return(char *a, char *b, int r);
 void	create_directory(char *path);
 
 void	*m_alloc(int size, char *name);

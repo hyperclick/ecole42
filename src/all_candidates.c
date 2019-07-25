@@ -11,11 +11,6 @@ t_table		*all_get_table()
 	return (g_table);
 }
 
-t_table		**all_get_table_address()
-{
-	return (&g_table);
-}
-
 void	all_table_clean()
 {
 	table_clean_all(&g_table);

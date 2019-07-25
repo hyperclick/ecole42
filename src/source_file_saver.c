@@ -18,7 +18,9 @@ int		src_recreate(void)
 {
 	int		fd;
 	
-	fd = open(src_get_file_name(), O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
+	fd = open(src_get_file_name(),
+			  O_TRUNC, S_IRUSR | S_IWUSR |
+			  S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
 	if (fd == -1)
 	{
 		_log2("map error: failed to open file:\t", src_get_file_name());
@@ -31,7 +33,9 @@ int		src_save_line(char *line)
 {
 	int		fd;
 
-	fd = open(src_get_file_name(), O_WRONLY | O_APPEND | O_CREAT, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
+	fd = open(src_get_file_name(),
+			  O_WRONLY | O_APPEND | O_CREAT, S_IRUSR |
+			  S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
 
 	if (fd == -1)
 	{
