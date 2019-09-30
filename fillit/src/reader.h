@@ -9,6 +9,7 @@
 #ifndef reader_h
 #define reader_h
 #include "tetramino.h"
+#include "../libft/libft.h"
 
 t_list	*read_file(const char	*filename);
 

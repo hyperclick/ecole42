@@ -1,13 +1,17 @@
 #include "../libft/libft.h"
+#include "tetramino.h"
+#include "reader.h"
 
 #ifndef TESTS
 
-int main2(int argc, const char * argv[])
+int main(int argc, const char * argv[])
 {
-	if (argc == 198987987)
+	if (argc == 2)
 	{
-		ft_putstr(argv[0]);
+		t_list *list = read_file(argv[1]);
+		ft_lst_free(&list);
 	}
+	ft_putchar('\n');
 	return 0;
 }
 #endif

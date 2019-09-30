@@ -27,12 +27,6 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		return (node);
 	}
 	node->content_size = content_size;
-	node->content = malloc(content_size);
-	if (node->content == NULL)
-	{
-		free(node);
-		node = NULL;
-	}
 	node->content = (void*)content;
 	return (node);
 }

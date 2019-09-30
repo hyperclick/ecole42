@@ -1,7 +1,7 @@
 
 .PHONY: clean fclean re make all
 
-FILENAMES = main.c reader.c
+FILENAMES = main.c reader.c tetramino.c ft_lst_free.c ft_lst_reduce.c ft_lst_count.c ft_lst_free_item.c
 NAME = fillit
 
 SRCS	=$(addprefix src/, $(FILENAMES))
