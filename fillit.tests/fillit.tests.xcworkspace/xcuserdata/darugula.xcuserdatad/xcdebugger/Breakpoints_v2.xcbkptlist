@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
             endingLineNumber = "19"
-            landmarkName = "main"
+            landmarkName = "is_out_of_square"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -223,7 +223,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
             endingLineNumber = "19"
-            landmarkName = "main"
+            landmarkName = "is_out_of_square"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -240,6 +240,22 @@
             startingLineNumber = "7"
             endingLineNumber = "7"
             landmarkName = "ft_lst_free_item"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../fillit/libft/ft_str_remove_at.c"
+            timestampString = "591690739.041821"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5"
+            endingLineNumber = "5"
+            landmarkName = "ft_str_remove_at"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
