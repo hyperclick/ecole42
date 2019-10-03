@@ -6,37 +6,31 @@
 
 t_t		*parse(char str[BUFF_SIZE], char letter)
 {
-	t_t	*t;
+	t_t	t;
 	int	i;
 	int	j;
 
-	if((t = malloc(sizeof(t_t))) == NULL)
-	{
-		return (NULL);
-	}
 	i = 0;
 	while (i < 4)
 	{
 		j = 0;
 		while (j < 4)
 		{
-			t->letter = letter;
-			t->a[i][j] = is_empty(str[i * 5 + j]) ? EMPTY_ELEM2 : letter;
+			t.letter = letter;
+			t.a[i][j] = is_empty(str[i * 5 + j]) ? EMPTY_ELEM2 : letter;
 			++j;
 		}
 		if (str[i * 5 + j] != '\n')
 		{
-			free(t);
 			return (NULL);
 		}
 		++i;
 	}
 	if (str[i * 5] != '\n')
 	{
-		free(t);
 		return (NULL);
 	}
-	return (t);
+	return (&t);
 }
 
 BOOL	row_is_empty(t_t f, int row)
@@ -53,23 +47,6 @@ BOOL	row_is_empty(t_t f, int row)
 	return (TRUE);
 }
 
-t_t		move_up(t_t f)
-{
-	int	i;
-	int j;
-
-	i = -1;
-	while (++i < 4 - 1)
-	{
-		j = -1;
-		while (++j < 4)
-		{
-			f.a[i][j] = f.a[i + 1][j];
-		}
-	}
-	return f;
-}
-
 BOOL	col_is_empty(t_t f, int col)
 {
 	int	i = -1;
@@ -84,11 +61,34 @@ BOOL	col_is_empty(t_t f, int col)
 	return (TRUE);
 }
 
-t_t		move_left(t_t f)
+
+t_t		move_up(t_t f)
 {
 	int	i;
 	int j;
 	
+	i = -1;
+	while (++i < 4 - 1)
+	{
+		j = -1;
+		while (++j < 4)
+		{
+			f.a[i][j] = f.a[i + 1][j];
+		}
+	}
+	j = -1;
+	while (++j < 4)
+	{
+		f.a[i][j] = EMPTY_ELEM2;
+	}
+	return f;
+}
+
+t_t		move_left(t_t f)
+{
+	int	i;
+	int j;
+
 	i = -1;
 	while (++i < 4)
 	{
@@ -98,22 +98,25 @@ t_t		move_left(t_t f)
 			f.a[i][j] = f.a[i][j + 1];
 		}
 	}
+	i = -1;
+	while (++i < 4)
+	{
+		f.a[i][j] = EMPTY_ELEM2;
+	}
 	return f;
 }
 
 t_t		normalize(t_t f)
 {
-	t_t r;
-
 	while (row_is_empty(f, 0))
 	{
-		r = move_up(f);
+		f = move_up(f);
 	}
 	while (col_is_empty(f, 0))
 	{
-		r = move_left(f);
+		f = move_left(f);
 	}
-	return (r);
+	return (f);
 }
 
 BOOL	is_bad_buffer(const char buffer[BUFF_SIZE], ssize_t bytes_read)
@@ -125,7 +128,7 @@ BOOL	is_bad_buffer(const char buffer[BUFF_SIZE], ssize_t bytes_read)
 	return (bytes_read != BUFF_SIZE - 1);
 }
 
-t_list	*read_file(const char	*filename)
+t_t	*read_file(const char	*filename)
 {
 	int		fd;
 	t_t		*t;
@@ -144,41 +147,24 @@ t_list	*read_file(const char	*filename)
 	}
 	head = NULL;
 	current = NULL;
-	letter = 'A';
+	letter = 'A' - 1;
+	g_figures_count = 0;
 	while ((bytes_read = read(fd, buffer, BUFF_SIZE)) > 0)
 	{
-		if (is_bad_buffer(buffer, bytes_read) || (t = normalize(parse(buffer, letter++))) == NULL)
+		if (is_bad_buffer(buffer, bytes_read) || (t = (parse(buffer, ++letter))) == NULL)
 		{
-			ft_lst_free(&head);
 			ft_putstr("error\n");
 			exit(2);
 		}
-		
-		next = ft_lstnew(t, sizeof(t));
-		if (next == NULL)
-		{
-			ft_lst_free(&head);
-			ft_putstr("error\n");
-			exit(3);
-		}
-		if (head == NULL)
-		{
-			current = head = next;
-		}
-		else
-		{
-			current->next = next;
-			current = next;
-		}
-		
+		*t = normalize(*t);
+		g_figures[g_figures_count++] = *t;
 	}
 	
 	if (bytes_read != 0)
 	{
-		ft_lst_free(&head);
 		ft_putstr("error\n");
 		exit(4);
 	}
 	
-	return (head);
+	return (g_figures);
 }

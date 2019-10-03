@@ -11,6 +11,6 @@
 #include "tetramino.h"
 #include "../libft/libft.h"
 
-t_list	*read_file(const char	*filename);
+t_t	*read_file(const char	*filename);
 
 #endif /* reader_h */

@@ -6,13 +6,11 @@
 #include "tetramino.h"
 #include "result_checks.h"
 
-t_list *g_list = NULL;
-
 void	test_valid_read(const char *file_name)
 {
-	t_list *list = read_file(file_name);
-	assert_int(4, ft_lst_count(list));
-	ft_lst_free(&list);
+	read_file(file_name);
+	int q = g_figures_count;
+	assert_int(4, q);
 }
 const	int found = 1;
 const	int figures_finished = 2;
@@ -107,23 +105,9 @@ t_r	append(t_r r, int row, int col, t_t	t)
 	return (new_r);
 }
 
-BOOL	find_by_name(t_list *list, void *param)
-{
-	t_elem	e;
-	t_t		*f;
-
-	f = (t_t*)list->content;
-	e = *((t_elem*)(param));
-	return (f->letter == e);
-}
-
-
 t_t	get_figure(char letter)
 {
-	t_t *figure;
-
-	figure = (t_t*)ft_lst_find(g_list, &letter, find_by_name)->content;
-	return (*figure);
+	return (g_figures[letter - 'A']);
 }
 
 t_r		fill(t_r r, const char rest[])
@@ -153,10 +137,8 @@ t_r		fill(t_r r, const char rest[])
 		f = get_figure(rest[n]);
 		appended = FALSE;
 		for (int i = -3; i < r.height + 3; i++)
-			//for (int i = 0; i < 2; i++)
 		{
 			for (int j = -3; j < r.width + 3; j++)
-				//for (int j = 0; j < 1; j++)
 			{/*
 				if (r.deep < 4)
 				{
@@ -206,26 +188,18 @@ t_r	create_r(int width)
 	r = r_fill_all(r, EMPTY_ELEM2);
 	return (r);
 }
-
-t_t		extract_figure(t_list *list)
-{
-	return (*(t_t*)(list->content));
-}
-
+ 
 char	*make_rest(char *rest)
 {
+	int		i;
 	char	*start;
-	t_t		f;
-	t_list	*list;
 
 	start = rest;
-	list = g_list;
-	while (list!=NULL)
+	i = -1;
+	while (++i < g_figures_count)
 	{
-		f = extract_figure(list);
-		*rest = f.letter;
+		*rest = g_figures[i].letter;
 		rest++;
-		list = list->next;
 	}
 	*rest = 0;
 	return (start);
@@ -238,8 +212,8 @@ void	test_fill(const char *file_name)
 	int		max_width;
 	t_r		r;
 
-	g_list = read_file(file_name);
-	width = ft_sqrt_up(ft_lst_count(g_list) * 4);
+	read_file(file_name);
+	width = ft_sqrt_up(g_figures_count * 4);
 	max_width = width + 12;
 	r.found = FALSE;
 	while (width < max_width && r.found == FALSE)
@@ -247,23 +221,12 @@ void	test_fill(const char *file_name)
 		r = fill(r = create_r(width), make_rest(rest));
 		width++;
 	}
-	//assert_str("4321", r.path);
-	
-	ft_lst_free(&g_list);
 }
 
-t_r	test_stack(t_r r)
-{
-	r.height++;
-	r.path[0]++;
-	return r;
-}
+
 
 int main(int argc, const char * argv[])
 {
-	//t_r r2 = test_stack(create_r(4));
-	
-	
 	test_valid_read("valid_sample.fillit");
 	test_fill("valid_sample.fillit");
 	

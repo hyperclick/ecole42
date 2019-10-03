@@ -3,6 +3,9 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "move_left:reader.c">
+      </ContextState>
+      <ContextState
          contextName = "main:main.c">
          <PersistentStrings>
             <PersistentString
@@ -19,12 +22,42 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "normalize:reader.c">
+      </ContextState>
+      <ContextState
+         contextName = "assert_int:assert.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_figures_count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "test_valid_read:main.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "g_figures_count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "read_file:reader.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "*t">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "fill:main.c">
          <PersistentStrings>
             <PersistentString
                value = "r.found">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "col_is_empty:reader.c">
       </ContextState>
       <ContextState
          contextName = "can_append:main.c">

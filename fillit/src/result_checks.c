@@ -53,12 +53,3 @@ t_r		r_fill_all(t_r r, t_elem value)
 	return (r_map(r, &value, repeat));
 }
 
-BOOL	row_is_empty(int row, t_r r)
-{
-	return (r_any(r, row, is_not_empty));
-}
-
-BOOL	is_square(t_r r)
-{
-	return (TRUE);
-}

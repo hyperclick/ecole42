@@ -23,6 +23,8 @@ typedef struct	s_result
 	int		deep;
 }				t_r;
 
+static t_t		g_figures[26];
+static int		g_figures_count;
 
 BOOL	is_empty(t_elem e);
 
