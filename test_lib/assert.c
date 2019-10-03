@@ -8,7 +8,7 @@ void	assert_true(BOOL expected, BOOL actual)
 {
 	if (actual!=expected)
 	{
-		printf("\tFAILED:\nexpected: %b but was: %b\n", expected, actual);
+		printf("\tFAILED:\nexpected: %d but was: %d\n", expected, actual);
 		exit(1);
 	}
 	

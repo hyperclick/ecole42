@@ -4,6 +4,7 @@
 #include "reader.h"
 #include "assert.h"
 #include "tetramino.h"
+#include "result_checks.h"
 
 void	test_valid_read(const char *file_name)
 {
@@ -20,11 +21,6 @@ BOOL	is_out_of_square(t_r r, int row, int col)
 	return (row < 0 || col < 0 || row >= r.height || col >= r.width);
 }
 
-BOOL	is_empty(t_elem t)
-{
-	return (t == empty_elem);
-}
-
 BOOL	is_overlap(t_r r, int row, int col)
 {
 	return (!is_empty(r.a[row][col]));
@@ -37,7 +33,8 @@ BOOL	has_a_neighbour(t_r r, int row, int col)
 
 BOOL	can_append(t_r r, int row, int col, t_t t)
 {
-	return (t.letter == '1' && ft_strcmp(r.path, "32"));
+	return (TRUE);
+	return (t.letter == '1' && ft_strequ(r.path, "32"));
 	for (int i = 0; i < 4; i++)
 	{
 		for (int j = 0; j < 4; j++)
@@ -63,25 +60,30 @@ BOOL	can_append(t_r r, int row, int col, t_t t)
 	return (FALSE);
 }
 
-void	append(t_r *r, int row, int col, t_t	t)
+t_r	append_path(t_r r, t_elem letter)
 {
-	append_path(r, t.letter);
+	ft_str_append(r.path, letter);
+	return (r);
+}
+
+t_r	append(t_r r, int row, int col, t_t	t)
+{
+	t_r new_r;
+
+	new_r = append_path(r, t.letter);
+	return (new_r);
 	
 	for (int i = 0; i < 4; i++)
 	{
 		for (int j = 0; j < 4; j++)
 		{
-			r->a[row + i][col + j] = t.a[i][j];
+			new_r.a[row + i][col + j] = t.a[i][j];
 		}
 	}
+	return (new_r);
 }
 
 
-
-BOOL	is_square(t_r r)
-{
-	return (ft_strcmp("321", r.path));
-}
 t_t	get_figure(char letter)
 {
 	t_t figure;
@@ -94,8 +96,9 @@ t_r		fill(t_r r, const char rest[])
 {
 	size_t	len;
 	t_t	f;
-	char	next_rest[26];
+	char	next_rest[27];
 	t_r		new_r;
+
 
 	len = ft_strlen(rest);
 	if (len == 0)
@@ -103,19 +106,19 @@ t_r		fill(t_r r, const char rest[])
 		r.found = is_square(r);
 		return (r);
 	}
-	for (int i = 0; i < len; i++)
+	for (int n = 0; n < len; n++)
 	{
-		f = get_figure(rest[i]);
+		f = get_figure(rest[n]);
 		for (int i = -3; i < r.height + 3; i++)
 		{
 			for (int j = -3; j < r.width + 3; j++)
 			{
 				if (can_append(r, i, j, f))
 				{
-					append(&r, i, j, f);
+					new_r = append(r, i, j, f);
 					ft_strcpy(next_rest, rest);
-					ft_str_remove_at(next_rest, i);
-					new_r = fill(r, next_rest);
+					ft_str_remove_at(next_rest, n);
+					new_r = fill(new_r, next_rest);
 					if (new_r.found)
 					{
 						return (new_r);
@@ -127,19 +130,38 @@ t_r		fill(t_r r, const char rest[])
 	return (r);
 }
 
-
+t_r	create_r(int width)
+{
+	t_r r;
+	
+	r.height = width;
+	r.width = width;
+	r.path[0] = 0;
+	r.found = FALSE;
+	r = r_fill_all(r, EMPTY_ELEM2);
+	return (r);
+}
 
 void	test_fill(const char *file_name)
 {
-	t_list *list = read_file(file_name);
-	t_r r;
-	fill(r, "123");
+	t_list *lst = read_file(file_name);
+	fill(create_r(ft_sqrt_up(ft_lst_count(lst) * 4)), "123");
 	
-	ft_lst_free(&list);
+	ft_lst_free(&lst);
+}
+
+t_r	test_stack(t_r r)
+{
+	r.height++;
+	r.path[0]++;
+	return r;
 }
 
 int main(int argc, const char * argv[])
 {
+	//t_r r2 = test_stack(create_r(4));
+	
+	
 	test_valid_read("valid_sample.fillit");
 	test_fill("valid_sample.fillit");
 	

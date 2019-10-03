@@ -15,8 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include <string.h>
-# define BOOL_H
+# include <string.h> 
 # define BOOL int
 # define FALSE 0
 # define TRUE 1
@@ -35,6 +34,10 @@ t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
+void			ft_lst_free_item(void *item, size_t size);
+void			ft_lst_free(t_list **head);
+void			*ft_lst_reduce(t_list *lst, void (*f)(t_list *elem, void *accumulator), void *accumulator);
+int				ft_lst_count(t_list *lst);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void			*ft_memset (void *ptr, int value, size_t num);
@@ -71,6 +74,7 @@ int				ft_toupper(int c);
 int				ft_tolower(int c);
 void			*ft_memalloc(size_t size);
 void			ft_memdel(void **ap);
+void			ft_str_append(char	*str, const char letter);
 char			*ft_strnew(size_t size);
 void			ft_strdel(char **as);
 void			ft_strclr(char *s);
@@ -82,7 +86,9 @@ int				ft_strequ(char const *s1, char const *s2);
 int				ft_strnequ(char const *s1, char const *s2, size_t n);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
+void			ft_str_remove_at(char *dst, int n);
 char			*ft_strtrim(char const *s);
+int				ft_sqrt_up(int a);
 char			*ft_itoa(int n);
 void			ft_putchar(int c);
 void			ft_putstr(char const *s);

@@ -5,15 +5,24 @@
 #include "../libft/libft.h"
 
 typedef char	t_elem;
+static const	t_elem	EMPTY_ELEM2 = '.';
 
 typedef struct s_tetramino
 {
 	t_elem	a[4][4];
+	char	letter;
 }	t_t;
 
-void	ft_lst_free_item(void *item, size_t size);
-void	ft_lst_free(t_list **head);
-void	*ft_lst_reduce(t_list *lst, void (*f)(t_list *elem, void *accumulator), void *accumulator);
-int		ft_lst_count(t_list *lst);
+typedef struct	s_result
+{
+	int		height;
+	int		width;
+	t_elem	a[11][11];
+	char	path[255];
+	BOOL	found;
+}				t_r;
+
+
+BOOL	is_empty(t_elem e);
 
 #endif /* tetramino_h */

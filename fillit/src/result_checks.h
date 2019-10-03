@@ -9,6 +9,8 @@
 #ifndef result_checks_h
 #define result_checks_h
 
-#include <stdio.h>
+BOOL	is_square(t_r r);
+t_r		r_map(t_r r, t_elem(*f)(t_elem));
+t_r		r_fill_all(t_r r, t_elem value);
 
 #endif /* result_checks_h */

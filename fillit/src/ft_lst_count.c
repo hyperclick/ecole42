@@ -1,5 +1,4 @@
 #include "../libft/libft.h"
-#include "tetramino.h"
 
 void	ft_count(t_list *elem, void *accumulator)
 {

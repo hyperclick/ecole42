@@ -18,5 +18,21 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "fill:main.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "r.found">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "can_append:main.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "ft_strcmp(r.path, &quot;32&quot;)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>
