@@ -39,16 +39,81 @@ t_t		*parse(char str[BUFF_SIZE], char letter)
 	return (t);
 }
 
+BOOL	row_is_empty(t_t f, int row)
+{
+	int	j = -1;
+
+	while (++j < 4)
+	{
+		if (!is_empty(f.a[row][j]))
+		{
+			return (FALSE);
+		}
+	}
+	return (TRUE);
+}
+
+t_t		move_up(t_t f)
+{
+	int	i;
+	int j;
+
+	i = -1;
+	while (++i < 4 - 1)
+	{
+		j = -1;
+		while (++j < 4)
+		{
+			f.a[i][j] = f.a[i + 1][j];
+		}
+	}
+	return f;
+}
+
+BOOL	col_is_empty(t_t f, int col)
+{
+	int	i = -1;
+
+	while (++i < 4)
+	{
+		if (!is_empty(f.a[i][col]))
+		{
+			return (FALSE);
+		}
+	}
+	return (TRUE);
+}
+
+t_t		move_left(t_t f)
+{
+	int	i;
+	int j;
+	
+	i = -1;
+	while (++i < 4)
+	{
+		j = -1;
+		while (++j < 4 - 1)
+		{
+			f.a[i][j] = f.a[i][j + 1];
+		}
+	}
+	return f;
+}
+
 t_t		normalize(t_t f)
 {
 	t_t r;
-	int	row;
-	
-	row = -1;
-	while (row_is_empty(++row))
+
+	while (row_is_empty(f, 0))
 	{
 		r = move_up(f);
 	}
+	while (col_is_empty(f, 0))
+	{
+		r = move_left(f);
+	}
+	return (r);
 }
 
 BOOL	is_bad_buffer(const char buffer[BUFF_SIZE], ssize_t bytes_read)
@@ -82,7 +147,7 @@ t_list	*read_file(const char	*filename)
 	letter = 'A';
 	while ((bytes_read = read(fd, buffer, BUFF_SIZE)) > 0)
 	{
-		if (is_bad_buffer(buffer, bytes_read) || (t = parse(buffer, letter++)) == NULL)
+		if (is_bad_buffer(buffer, bytes_read) || (t = normalize(parse(buffer, letter++))) == NULL)
 		{
 			ft_lst_free(&head);
 			ft_putstr("error\n");
