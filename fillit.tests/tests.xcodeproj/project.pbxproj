@@ -15,6 +15,8 @@
 		C718A53C2341F2CA009E1C35 /* assert.c in Sources */ = {isa = PBXBuildFile; fileRef = C718A5382341F2CA009E1C35 /* assert.c */; };
 		C718A53E2341FAF3009E1C35 /* ft_lst_reduce.c in Sources */ = {isa = PBXBuildFile; fileRef = C718A53D2341FAF3009E1C35 /* ft_lst_reduce.c */; };
 		C718A5412341FC0D009E1C35 /* ft_lst_count.c in Sources */ = {isa = PBXBuildFile; fileRef = C718A53F2341FC0D009E1C35 /* ft_lst_count.c */; };
+		C720E47B23462C0F00415840 /* ft_lstadd.c in Sources */ = {isa = PBXBuildFile; fileRef = C720E47A23462C0F00415840 /* ft_lstadd.c */; };
+		C720E47D23462C4A00415840 /* ft_lstmap.c in Sources */ = {isa = PBXBuildFile; fileRef = C720E47C23462C4900415840 /* ft_lstmap.c */; };
 		C72DB4052342868A00CE4817 /* result_checks.c in Sources */ = {isa = PBXBuildFile; fileRef = C72DB4032342868A00CE4817 /* result_checks.c */; };
 		C73149F823413A960010963B /* ft_strcat.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149B523413A8F0010963B /* ft_strcat.c */; };
 		C73149F923413A960010963B /* ft_strequ.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149B623413A8F0010963B /* ft_strequ.c */; };
@@ -24,7 +26,6 @@
 		C73149FD23413A960010963B /* ft_tolower.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149BB23413A8F0010963B /* ft_tolower.c */; };
 		C73149FE23413A960010963B /* ft_strncpy.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149BC23413A8F0010963B /* ft_strncpy.c */; };
 		C73149FF23413A960010963B /* ft_isalnum.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149BD23413A8F0010963B /* ft_isalnum.c */; };
-		C7314A0023413A960010963B /* ft_lstadd.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149BE23413A8F0010963B /* ft_lstadd.c */; };
 		C7314A0123413A960010963B /* ft_isascii.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149BF23413A8F0010963B /* ft_isascii.c */; };
 		C7314A0223413A960010963B /* ft_bzero.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149C023413A8F0010963B /* ft_bzero.c */; };
 		C7314A0323413A960010963B /* ft_lstiter.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149C123413A8F0010963B /* ft_lstiter.c */; };
@@ -64,7 +65,7 @@
 		C7314A2523413A960010963B /* ft_striteri.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149E523413A940010963B /* ft_striteri.c */; };
 		C7314A2623413A960010963B /* ft_memchr.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149E623413A940010963B /* ft_memchr.c */; };
 		C7314A2723413A960010963B /* ft_strsub.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149E723413A940010963B /* ft_strsub.c */; };
-		C7314A2823413A960010963B /* ft_lstmap.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149E823413A940010963B /* ft_lstmap.c */; };
+		C7314A2823413A960010963B /* ft_lst_find.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149E823413A940010963B /* ft_lst_find.c */; };
 		C7314A2923413A960010963B /* ft_isprint.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149E923413A940010963B /* ft_isprint.c */; };
 		C7314A2A23413A960010963B /* ft_strmapi.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149EA23413A940010963B /* ft_strmapi.c */; };
 		C7314A2B23413A960010963B /* ft_strdup.c in Sources */ = {isa = PBXBuildFile; fileRef = C73149EB23413A940010963B /* ft_strdup.c */; };
@@ -162,6 +163,8 @@
 		C718A5392341F2CA009E1C35 /* string_array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = string_array.h; path = ../test_lib/string_array.h; sourceTree = "<group>"; };
 		C718A53D2341FAF3009E1C35 /* ft_lst_reduce.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = ft_lst_reduce.c; path = ../fillit/src/ft_lst_reduce.c; sourceTree = "<group>"; };
 		C718A53F2341FC0D009E1C35 /* ft_lst_count.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = ft_lst_count.c; path = ../fillit/src/ft_lst_count.c; sourceTree = "<group>"; };
+		C720E47A23462C0F00415840 /* ft_lstadd.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_lstadd.c; sourceTree = "<group>"; };
+		C720E47C23462C4900415840 /* ft_lstmap.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ft_lstmap.c; sourceTree = "<group>"; };
 		C72DB4032342868A00CE4817 /* result_checks.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = result_checks.c; path = ../fillit/src/result_checks.c; sourceTree = "<group>"; };
 		C72DB4042342868A00CE4817 /* result_checks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = result_checks.h; path = ../fillit/src/result_checks.h; sourceTree = "<group>"; };
 		C73149B523413A8F0010963B /* ft_strcat.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_strcat.c; path = ../fillit/libft/ft_strcat.c; sourceTree = "<group>"; };
@@ -173,7 +176,6 @@
 		C73149BB23413A8F0010963B /* ft_tolower.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_tolower.c; path = ../fillit/libft/ft_tolower.c; sourceTree = "<group>"; };
 		C73149BC23413A8F0010963B /* ft_strncpy.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_strncpy.c; path = ../fillit/libft/ft_strncpy.c; sourceTree = "<group>"; };
 		C73149BD23413A8F0010963B /* ft_isalnum.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_isalnum.c; path = ../fillit/libft/ft_isalnum.c; sourceTree = "<group>"; };
-		C73149BE23413A8F0010963B /* ft_lstadd.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_lstadd.c; path = ../fillit/libft/ft_lstadd.c; sourceTree = "<group>"; };
 		C73149BF23413A8F0010963B /* ft_isascii.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_isascii.c; path = ../fillit/libft/ft_isascii.c; sourceTree = "<group>"; };
 		C73149C023413A8F0010963B /* ft_bzero.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_bzero.c; path = ../fillit/libft/ft_bzero.c; sourceTree = "<group>"; };
 		C73149C123413A8F0010963B /* ft_lstiter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_lstiter.c; path = ../fillit/libft/ft_lstiter.c; sourceTree = "<group>"; };
@@ -215,7 +217,7 @@
 		C73149E523413A940010963B /* ft_striteri.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_striteri.c; path = ../fillit/libft/ft_striteri.c; sourceTree = "<group>"; };
 		C73149E623413A940010963B /* ft_memchr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_memchr.c; path = ../fillit/libft/ft_memchr.c; sourceTree = "<group>"; };
 		C73149E723413A940010963B /* ft_strsub.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_strsub.c; path = ../fillit/libft/ft_strsub.c; sourceTree = "<group>"; };
-		C73149E823413A940010963B /* ft_lstmap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_lstmap.c; path = ../fillit/libft/ft_lstmap.c; sourceTree = "<group>"; };
+		C73149E823413A940010963B /* ft_lst_find.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_lst_find.c; path = ../fillit/libft/ft_lst_find.c; sourceTree = "<group>"; };
 		C73149E923413A940010963B /* ft_isprint.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_isprint.c; path = ../fillit/libft/ft_isprint.c; sourceTree = "<group>"; };
 		C73149EA23413A940010963B /* ft_strmapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_strmapi.c; path = ../fillit/libft/ft_strmapi.c; sourceTree = "<group>"; };
 		C73149EB23413A940010963B /* ft_strdup.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_strdup.c; path = ../fillit/libft/ft_strdup.c; sourceTree = "<group>"; };
@@ -315,11 +317,12 @@
 				C73149C423413A900010963B /* ft_isdigit.c */,
 				C73149E923413A940010963B /* ft_isprint.c */,
 				C73149D723413A920010963B /* ft_itoa.c */,
-				C73149BE23413A8F0010963B /* ft_lstadd.c */,
+				C720E47A23462C0F00415840 /* ft_lstadd.c */,
 				C73149F323413A950010963B /* ft_lstdel.c */,
 				C73149EC23413A940010963B /* ft_lstdelone.c */,
 				C73149C123413A8F0010963B /* ft_lstiter.c */,
-				C73149E823413A940010963B /* ft_lstmap.c */,
+				C73149E823413A940010963B /* ft_lst_find.c */,
+				C720E47C23462C4900415840 /* ft_lstmap.c */,
 				C73149DD23413A930010963B /* ft_lstnew.c */,
 				C73149D423413A910010963B /* ft_memalloc.c */,
 				C73149E023413A930010963B /* ft_memccpy.c */,
@@ -553,7 +556,7 @@
 				C73149FC23413A960010963B /* ft_memcpy.c in Sources */,
 				C7314A1623413A960010963B /* ft_putstr_fd.c in Sources */,
 				C7314A3423413A960010963B /* ft_putchar_fd.c in Sources */,
-				C7314A2823413A960010963B /* ft_lstmap.c in Sources */,
+				C7314A2823413A960010963B /* ft_lst_find.c in Sources */,
 				C7314A0F23413A960010963B /* Makefile in Sources */,
 				C7314A0223413A960010963B /* ft_bzero.c in Sources */,
 				C718A53B2341F2CA009E1C35 /* byte_array.c in Sources */,
@@ -571,9 +574,11 @@
 				C7314A3723413A960010963B /* ft_strcpy.c in Sources */,
 				C7314A3623413A960010963B /* ft_strcmp.c in Sources */,
 				C7314A1D23413A960010963B /* ft_lstnew.c in Sources */,
+				C720E47D23462C4A00415840 /* ft_lstmap.c in Sources */,
 				C7314A3223413A960010963B /* ft_memset.c in Sources */,
 				C7314A1423413A960010963B /* ft_memalloc.c in Sources */,
 				C7E8618D23447A1800A6AA99 /* ft_str_remove_at.c in Sources */,
+				C720E47B23462C0F00415840 /* ft_lstadd.c in Sources */,
 				C7314A2323413A960010963B /* ft_strjoin.c in Sources */,
 				C7DD7CB52341D92A002B9BBB /* tetramino.c in Sources */,
 				C7C87C2F23412AF700003412 /* main.c in Sources */,
@@ -591,7 +596,6 @@
 				C73149FA23413A960010963B /* ft_strlcat.c in Sources */,
 				C7314A1E23413A960010963B /* ft_toupper.c in Sources */,
 				C7314A1C23413A960010963B /* ft_contains.c in Sources */,
-				C7314A0023413A960010963B /* ft_lstadd.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

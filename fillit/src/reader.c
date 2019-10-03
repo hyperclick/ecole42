@@ -39,6 +39,18 @@ t_t		*parse(char str[BUFF_SIZE], char letter)
 	return (t);
 }
 
+t_t		normalize(t_t f)
+{
+	t_t r;
+	int	row;
+	
+	row = -1;
+	while (row_is_empty(++row))
+	{
+		r = move_up(f);
+	}
+}
+
 BOOL	is_bad_buffer(const char buffer[BUFF_SIZE], ssize_t bytes_read)
 {
 	if (bytes_read == BUFF_SIZE)

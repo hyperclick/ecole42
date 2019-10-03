@@ -20,6 +20,7 @@ typedef struct	s_result
 	t_elem	a[11][11];
 	char	path[255];
 	BOOL	found;
+	int		deep;
 }				t_r;
 
 

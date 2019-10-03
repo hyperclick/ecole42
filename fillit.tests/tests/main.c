@@ -6,6 +6,8 @@
 #include "tetramino.h"
 #include "result_checks.h"
 
+t_list *g_list = NULL;
+
 void	test_valid_read(const char *file_name)
 {
 	t_list *list = read_file(file_name);
@@ -33,8 +35,9 @@ BOOL	has_a_neighbour(t_r r, int row, int col)
 
 BOOL	can_append(t_r r, int row, int col, t_t t)
 {
-	return (TRUE);
-	return (t.letter == '1' && ft_strequ(r.path, "32"));
+	BOOL	has_neighbour;
+	
+	has_neighbour = FALSE;
 	for (int i = 0; i < 4; i++)
 	{
 		for (int j = 0; j < 4; j++)
@@ -51,13 +54,13 @@ BOOL	can_append(t_r r, int row, int col, t_t t)
 			{
 				return (FALSE);
 			}
-			if (has_a_neighbour(r, row + i, col + j))
+			if (!has_neighbour && has_a_neighbour(r, row + i, col + j))
 			{
-				return (TRUE);
+				has_neighbour = TRUE;
 			}
 		}
 	}
-	return (FALSE);
+	return (has_neighbour);
 }
 
 t_r	append_path(t_r r, t_elem letter)
@@ -66,31 +69,61 @@ t_r	append_path(t_r r, t_elem letter)
 	return (r);
 }
 
+void	print_r(t_r r)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < r.height)
+	{
+		j = 0;
+		while (j < r.width)
+		{
+			ft_putchar(r.a[i][j]);
+			++j;
+		}
+		ft_putchar('\n');
+		++i;
+	}
+}
+
 t_r	append(t_r r, int row, int col, t_t	t)
 {
 	t_r new_r;
 
 	new_r = append_path(r, t.letter);
-	//printf("")
-	return (new_r);
 	
 	for (int i = 0; i < 4; i++)
 	{
 		for (int j = 0; j < 4; j++)
 		{
-			new_r.a[row + i][col + j] = t.a[i][j];
+			if (!is_empty(t.a[i][j]) && !is_out_of_square(r, row + i, col + j))
+			{
+				new_r.a[row + i][col + j] = t.a[i][j];
+			}
 		}
 	}
 	return (new_r);
 }
 
+BOOL	find_by_name(t_list *list, void *param)
+{
+	t_elem	e;
+	t_t		*f;
+
+	f = (t_t*)list->content;
+	e = *((t_elem*)(param));
+	return (f->letter == e);
+}
+
 
 t_t	get_figure(char letter)
 {
-	t_t figure;
-	
-	figure.letter = letter;
-	return (figure);
+	t_t *figure;
+
+	figure = (t_t*)ft_lst_find(g_list, &letter, find_by_name)->content;
+	return (*figure);
 }
 
 t_r		fill(t_r r, const char rest[])
@@ -99,30 +132,52 @@ t_r		fill(t_r r, const char rest[])
 	t_t	f;
 	char	next_rest[27];
 	t_r		new_r;
+	BOOL	appended;
 
-
+	r.deep++;
 	len = ft_strlen(rest);
 	if (len == 0)
 	{
-		r.found = is_square(r);
+		r.found = TRUE; //is_square(r);
 		return (r);
 	}
 	for (int n = 0; n < len; n++)
-	{
-		printf("\rpath: %s rest: %s check %c", r.path, rest, rest[n]);
-		f = get_figure(rest[n]);
-		//for (int i = -3; i < r.height + 3; i++)
-			for (int i = 0; i < 2; i++)
+	{/*
+		printf("\r");
+		for (int deep = 0; deep < r.deep; deep++)
 		{
-			//for (int j = -3; j < r.width + 3; j++)
-				for (int j = 0; j < 1; j++)
-			{
-				//printf("\rpath: %s check %c i:%d j:%d", r.path, rest[n], i, j);
+			printf(" ");
+		}
+		printf("path: %s rest: %s check %c", r.path, rest, rest[n]);
+	  */
+		f = get_figure(rest[n]);
+		appended = FALSE;
+		for (int i = -3; i < r.height + 3; i++)
+			//for (int i = 0; i < 2; i++)
+		{
+			for (int j = -3; j < r.width + 3; j++)
+				//for (int j = 0; j < 1; j++)
+			{/*
+				if (r.deep < 4)
+				{
+					printf("\r");
+					for (int deep = 0; deep < r.deep; deep++)
+					{
+						printf(" ");
+					}
+					printf("path: %s rest: %s check %c i:%d j:%d", r.path, rest, rest[n], i, j);
+					
+				}*/
 				if (can_append(r, i, j, f))
 				{
+					appended = TRUE;
+					//print_r(r);
 					new_r = append(r, i, j, f);
 					ft_strcpy(next_rest, rest);
 					ft_str_remove_at(next_rest, n);
+					printf("appended: path: %s next_rest: %s   i:%d j:%d\n", new_r.path, next_rest,  i, j);
+					print_r(new_r);
+					ft_putchar('\n');
 					new_r = fill(new_r, next_rest);
 					if (new_r.found)
 					{
@@ -130,6 +185,10 @@ t_r		fill(t_r r, const char rest[])
 					}
 				}
 			}
+		}
+		if (!appended)
+		{
+			return (r);
 		}
 	}
 	return (r);
@@ -143,18 +202,54 @@ t_r	create_r(int width)
 	r.width = width;
 	r.path[0] = 0;
 	r.found = FALSE;
+	r.deep = 0;
 	r = r_fill_all(r, EMPTY_ELEM2);
 	return (r);
 }
 
+t_t		extract_figure(t_list *list)
+{
+	return (*(t_t*)(list->content));
+}
+
+char	*make_rest(char *rest)
+{
+	char	*start;
+	t_t		f;
+	t_list	*list;
+
+	start = rest;
+	list = g_list;
+	while (list!=NULL)
+	{
+		f = extract_figure(list);
+		*rest = f.letter;
+		rest++;
+		list = list->next;
+	}
+	*rest = 0;
+	return (start);
+}
+
 void	test_fill(const char *file_name)
 {
-	t_list *lst = read_file(file_name);
-	t_r	r = create_r(ft_sqrt_up(ft_lst_count(lst) * 4));
-	r = fill(r, "1234");
-	assert_str("4321", r.path);
+	char	rest[27];
+	int		width;
+	int		max_width;
+	t_r		r;
+
+	g_list = read_file(file_name);
+	width = ft_sqrt_up(ft_lst_count(g_list) * 4);
+	max_width = width + 12;
+	r.found = FALSE;
+	while (width < max_width && r.found == FALSE)
+	{
+		r = fill(r = create_r(width), make_rest(rest));
+		width++;
+	}
+	//assert_str("4321", r.path);
 	
-	ft_lst_free(&lst);
+	ft_lst_free(&g_list);
 }
 
 t_r	test_stack(t_r r)

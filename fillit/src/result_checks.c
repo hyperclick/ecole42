@@ -60,6 +60,5 @@ BOOL	row_is_empty(int row, t_r r)
 
 BOOL	is_square(t_r r)
 {
-	return (ft_strequ(r.path, "4321"));
-	return (!row_is_empty(0, r));
+	return (TRUE);
 }
