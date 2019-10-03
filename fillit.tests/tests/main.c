@@ -71,6 +71,7 @@ t_r	append(t_r r, int row, int col, t_t	t)
 	t_r new_r;
 
 	new_r = append_path(r, t.letter);
+	//printf("")
 	return (new_r);
 	
 	for (int i = 0; i < 4; i++)
@@ -108,11 +109,15 @@ t_r		fill(t_r r, const char rest[])
 	}
 	for (int n = 0; n < len; n++)
 	{
+		printf("\rpath: %s rest: %s check %c", r.path, rest, rest[n]);
 		f = get_figure(rest[n]);
-		for (int i = -3; i < r.height + 3; i++)
+		//for (int i = -3; i < r.height + 3; i++)
+			for (int i = 0; i < 2; i++)
 		{
-			for (int j = -3; j < r.width + 3; j++)
+			//for (int j = -3; j < r.width + 3; j++)
+				for (int j = 0; j < 1; j++)
 			{
+				//printf("\rpath: %s check %c i:%d j:%d", r.path, rest[n], i, j);
 				if (can_append(r, i, j, f))
 				{
 					new_r = append(r, i, j, f);
@@ -145,7 +150,9 @@ t_r	create_r(int width)
 void	test_fill(const char *file_name)
 {
 	t_list *lst = read_file(file_name);
-	fill(create_r(ft_sqrt_up(ft_lst_count(lst) * 4)), "123");
+	t_r	r = create_r(ft_sqrt_up(ft_lst_count(lst) * 4));
+	r = fill(r, "1234");
+	assert_str("4321", r.path);
 	
 	ft_lst_free(&lst);
 }
