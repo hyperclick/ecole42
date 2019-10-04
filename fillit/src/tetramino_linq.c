@@ -9,8 +9,9 @@
 #include "tetramino_linq.h"
 #include "tetramino.h"
 #include "../libft/libft.h"
+#include "result_checks.h"
 
-BOOL	t_any(t_t	*t, int (*f)(char e))
+BOOL	t_any(t_t	t, int (*f)(char e))
 {
 	int	i;
 	int	j;
@@ -21,7 +22,7 @@ BOOL	t_any(t_t	*t, int (*f)(char e))
 		j = 0;
 		while (j < 4)
 		{
-			if (f(t->a[i][j]))
+			if (f(t.a[i][j]))
 			{
 				return (TRUE);
 			}
@@ -30,6 +31,11 @@ BOOL	t_any(t_t	*t, int (*f)(char e))
 		++i;
 	}
 	return (FALSE);
+}
+
+BOOL	all_empty(t_t t)
+{
+	return (!t_any(t, is_not_empty));
 }
 
 BOOL	r_any(t_r r, int row, BOOL(*f)(t_elem))

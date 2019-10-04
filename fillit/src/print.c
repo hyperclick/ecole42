@@ -21,12 +21,14 @@ void	print_figures()
 {
 	int	i;
 
+	ft_putstr("figures:\n");
 	i = -1;
-	while (++i < g_figures_count)
+	while (++i < get_figures_count())
 	{
 		print_figure(g_figures[i]);
 		ft_putchar('\n');
 	}
+	ft_putstr("-------------------------\n");
 }
 
 void	print_r(t_r r)

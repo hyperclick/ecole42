@@ -24,11 +24,13 @@ typedef struct	s_result
 }				t_r;
 
 extern t_t		g_figures[26];
-extern int		g_figures_count;
+//extern int		g_figures_count;
 
-BOOL	is_empty(t_elem e);
 
 t_t		get_figure(char letter);
+int		get_figures_count(void);
+void	set_figures_count(int count);
+void	add_figure(t_t t);
 char	*make_rest(char *rest);
 
 void	print_figures(void);

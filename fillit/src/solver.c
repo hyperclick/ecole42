@@ -77,7 +77,7 @@ void	solve(const char *file_name)
 	
 	read_file(file_name);
 	print_figures();
-	width = ft_sqrt_up(g_figures_count * 4);
+	width = ft_sqrt_up(get_figures_count() * 4);
 	max_width = width + 12;
 	r.found = FALSE;
 	while (width < max_width && r.found == FALSE)

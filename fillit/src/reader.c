@@ -2,6 +2,9 @@
 #include <fcntl.h>
 #include "../libft/libft.h"
 #include "tetramino.h"
+#include "tetramino_linq.h"
+#include "result_checks.h"
+
 #define BUFF_SIZE ((4 + 1)*(4) + 1) * sizeof(char)
 
 BOOL		parse(t_t *dst, char str[BUFF_SIZE], char letter)
@@ -143,23 +146,25 @@ t_t	*read_file(const char	*filename)
 		ft_putstr("error\n");
 		exit(1);
 	}
-	letter = 'A' - 1;
-	g_figures_count = 0;
+	letter = 'A';
+	set_figures_count(0);
 	while ((bytes_read = read(fd, buffer, BUFF_SIZE)) > 0)
 	{
-		if (is_bad_buffer(buffer, bytes_read) || parse(&t, buffer, ++letter) == FALSE)
+		if (is_bad_buffer(buffer, bytes_read) || parse(&t, buffer, letter) == FALSE)
 		{
 			ft_putstr("error\n");
 			exit(2);
 		}
-		g_figures[g_figures_count++] = normalize(t);
+		if (!all_empty(t))
+		{
+			add_figure(normalize(t));
+			++letter;
+		}
 	}
-	
 	if (bytes_read != 0)
 	{
 		ft_putstr("error\n");
 		exit(4);
 	}
-	
 	return (g_figures);
 }
