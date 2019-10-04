@@ -23,9 +23,23 @@ typedef struct	s_result
 	int		deep;
 }				t_r;
 
-static t_t		g_figures[26];
-static int		g_figures_count;
+extern t_t		g_figures[26];
+extern int		g_figures_count;
 
 BOOL	is_empty(t_elem e);
+
+t_t		get_figure(char letter);
+char	*make_rest(char *rest);
+
+void	print_figures(void);
+void	print_r(t_r r);
+
+
+t_r		append_path(t_r r, t_elem letter);
+t_r		append(t_r r, int row, int col, t_t	t);
+t_r		create_r(int width);
+t_r		r_fill_all(t_r r, t_elem value);
+
+void	solve(const char *file_name);
 
 #endif /* tetramino_h */

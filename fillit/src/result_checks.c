@@ -11,45 +11,60 @@ BOOL	is_not_empty(t_elem e)
 	return (!is_empty(e));
 }
 
-BOOL	r_any(t_r r, int row, BOOL(*f)(t_elem))
-{
-	int	j;
 
-	j = -1;
-	while (++j < r.width)
+BOOL	is_out_of_square(t_r r, int row, int col)
+{
+	return (row < 0 || col < 0 || row >= r.height || col >= r.width);
+}
+
+BOOL	is_overlap(t_r r, int row, int col)
+{
+	return (!is_empty(r.a[row][col]));
+}
+
+BOOL	has_a_neighbour(t_r r, int row, int col)
+{
+	return (
+			row == 0 || col == 0 || row == r.height - 1 || col == r.width - 1
+			||	!is_empty(r.a[row][col - 1]) || !is_empty(r.a[row - 1][col])
+			);
+}
+
+BOOL	can_append(t_r r, int row, int col, t_t t)
+{
+	BOOL	has_neighbour;
+	
+	static int q = 0;
+	if (r.height == 5)
 	{
-		if (f(r.a[row][j]))
+		q++;
+	}
+	has_neighbour = FALSE;
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 4; j++)
 		{
-			return (TRUE);
+			if (is_empty(t.a[i][j]))
+			{
+				continue;
+			}
+			if (is_out_of_square(r, row + i, col + j))
+			{
+				return (FALSE);
+			}
+			if (is_overlap(r, row + i, col + j))
+			{
+				return (FALSE);
+			}
+			if (!has_neighbour && has_a_neighbour(r, row + i, col + j))
+			{
+				has_neighbour = TRUE;
+			}
 		}
 	}
-	return (FALSE);
+	return (has_neighbour);
 }
 
-t_r	r_map(t_r r, void *param, t_elem(*f)(t_elem, void*))
-{
-	int	j;
-	int	i;
 
-	i = -1;
-	while (++i < r.height)
-	{
-		j = -1;
-		while (++j < r.width)
-		{
-			(r.a[i][j] = f(r.a[i][j], param));
-		}
-	}
-	return (r);
-}
 
-t_elem	repeat(t_elem e, void *param)
-{
-	return (*(t_elem*)(param));
-}
-
-t_r		r_fill_all(t_r r, t_elem value)
-{
-	return (r_map(r, &value, repeat));
-}
 

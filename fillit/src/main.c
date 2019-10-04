@@ -4,12 +4,11 @@
 
 #ifndef TESTS
 
-int main2(int argc, const char * argv[])
+int main(int argc, const char * argv[])
 {
 	if (argc == 2)
 	{
-		t_list *list = read_file(argv[1]);
-		ft_lst_free(&list);
+		solve(argv[1]);
 	}
 	ft_putchar('\n');
 	return 0;
