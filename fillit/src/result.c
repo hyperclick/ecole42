@@ -10,7 +10,7 @@ t_r	create_r(int width)
 	r.path[0] = 0;
 	r.found = FALSE;
 	r.deep = 0;
-	r = r_fill_all(r, EMPTY_ELEM2);
+	r = r_fill_all(r, EMPTY_ELEM);
 	return (r);
 }
 

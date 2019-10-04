@@ -5,7 +5,8 @@
 #include "../libft/libft.h"
 
 typedef char	t_elem;
-static const	t_elem	EMPTY_ELEM2 = '.';
+static const	t_elem	EMPTY_ELEM = '.';
+static const	t_elem	FILLED_ELEM = '#';
 
 typedef struct s_tetramino
 {

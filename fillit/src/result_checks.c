@@ -3,7 +3,7 @@
 
 BOOL	is_empty(t_elem e)
 {
-	return (e == EMPTY_ELEM2);
+	return (e == EMPTY_ELEM);
 }
 
 BOOL	is_not_empty(t_elem e)
