@@ -18,7 +18,7 @@ void	test_valid_read(const char *file_name)
 int main(int argc, const char * argv[])
 {
 	test_valid_read("valid_sample.fillit");
-	solve("valid_6");
+	solve("valid_7");
 	
 	//solve("valid_sample.fillit");
 	

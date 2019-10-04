@@ -1,4 +1,18 @@
 #include "tetramino.h"
+#include "result_checks.h"
+
+t_r	create_r(int width)
+{
+	t_r r;
+
+	r.height = width;
+	r.width = width;
+	r.path[0] = 0;
+	r.found = FALSE;
+	r.deep = 0;
+	r = r_fill_all(r, EMPTY_ELEM2);
+	return (r);
+}
 
 t_r	append_path(t_r r, t_elem letter)
 {
@@ -23,17 +37,4 @@ t_r	append(t_r r, int row, int col, t_t	t)
 		}
 	}
 	return (new_r);
-}
-
-t_r	create_r(int width)
-{
-	t_r r;
-
-	r.height = width;
-	r.width = width;
-	r.path[0] = 0;
-	r.found = FALSE;
-	r.deep = 0;
-	r = r_fill_all(r, EMPTY_ELEM2);
-	return (r);
 }

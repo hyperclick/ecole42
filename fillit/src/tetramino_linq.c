@@ -32,12 +32,10 @@ BOOL	t_any(t_t	*t, int (*f)(char e))
 	return (FALSE);
 }
 
-
-
 BOOL	r_any(t_r r, int row, BOOL(*f)(t_elem))
 {
 	int	j;
-	
+
 	j = -1;
 	while (++j < r.width)
 	{
@@ -49,11 +47,11 @@ BOOL	r_any(t_r r, int row, BOOL(*f)(t_elem))
 	return (FALSE);
 }
 
-t_r	r_map(t_r r, void *param, t_elem(*f)(t_elem, void*))
+t_r		r_map(t_r r, void *param, t_elem(*f)(t_elem, void*))
 {
 	int	j;
 	int	i;
-	
+
 	i = -1;
 	while (++i < r.height)
 	{
@@ -68,6 +66,7 @@ t_r	r_map(t_r r, void *param, t_elem(*f)(t_elem, void*))
 
 t_elem	repeat(t_elem e, void *param)
 {
+	e = 0;
 	return (*(t_elem*)(param));
 }
 

@@ -16,7 +16,7 @@ void	*ft_memcpy(void *trg, const void *ptr, size_t num)
 {
 	unsigned char	*dst;
 	unsigned char	*src;
-	int				i;
+	size_t			i;
 
 	if (ptr == NULL && trg == NULL)
 	{
@@ -24,10 +24,11 @@ void	*ft_memcpy(void *trg, const void *ptr, size_t num)
 	}
 	dst = (unsigned char*)trg;
 	src = (unsigned char*)ptr;
-	i = -1;
-	while (++i < num)
+	i = 0;
+	while (i < num)
 	{
 		dst[i] = src[i];
+		++i;
 	}
 	return (trg);
 }

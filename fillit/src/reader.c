@@ -4,7 +4,7 @@
 #include "tetramino.h"
 #define BUFF_SIZE ((4 + 1)*(4) + 1) * sizeof(char)
 
-t_t		*parse(char str[BUFF_SIZE], char letter)
+BOOL		parse(t_t *dst, char str[BUFF_SIZE], char letter)
 {
 	t_t	t;
 	int	i;
@@ -22,15 +22,16 @@ t_t		*parse(char str[BUFF_SIZE], char letter)
 		}
 		if (str[i * 5 + j] != '\n')
 		{
-			return (NULL);
+			return (FALSE);
 		}
 		++i;
 	}
 	if (str[i * 5] != '\n')
 	{
-		return (NULL);
+		return (FALSE);
 	}
-	return (&t);
+	*dst = t;
+	return (TRUE);
 }
 
 BOOL	row_is_empty(t_t f, int row)
@@ -131,10 +132,7 @@ BOOL	is_bad_buffer(const char buffer[BUFF_SIZE], ssize_t bytes_read)
 t_t	*read_file(const char	*filename)
 {
 	int		fd;
-	t_t		*t;
-	t_list	*head;
-	t_list	*next;
-	t_list	*current;
+	t_t		t;
 	char	buffer[BUFF_SIZE];
 	ssize_t	bytes_read;
 	char	letter;
@@ -145,19 +143,16 @@ t_t	*read_file(const char	*filename)
 		ft_putstr("error\n");
 		exit(1);
 	}
-	head = NULL;
-	current = NULL;
 	letter = 'A' - 1;
 	g_figures_count = 0;
 	while ((bytes_read = read(fd, buffer, BUFF_SIZE)) > 0)
 	{
-		if (is_bad_buffer(buffer, bytes_read) || (t = (parse(buffer, ++letter))) == NULL)
+		if (is_bad_buffer(buffer, bytes_read) || parse(&t, buffer, ++letter) == FALSE)
 		{
 			ft_putstr("error\n");
 			exit(2);
 		}
-		*t = normalize(*t);
-		g_figures[g_figures_count++] = *t;
+		g_figures[g_figures_count++] = normalize(t);
 	}
 	
 	if (bytes_read != 0)

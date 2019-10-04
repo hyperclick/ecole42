@@ -11,7 +11,6 @@ BOOL	is_not_empty(t_elem e)
 	return (!is_empty(e));
 }
 
-
 BOOL	is_out_of_square(t_r r, int row, int col)
 {
 	return (row < 0 || col < 0 || row >= r.height || col >= r.width);
@@ -64,7 +63,3 @@ BOOL	can_append(t_r r, int row, int col, t_t t)
 	}
 	return (has_neighbour);
 }
-
-
-
-

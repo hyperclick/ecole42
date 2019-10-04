@@ -8,9 +8,11 @@
 
 #ifndef result_checks_h
 #define result_checks_h
-
-BOOL	is_square(t_r r);
-t_r		r_map(t_r r, t_elem(*f)(t_elem));
-t_r		r_fill_all(t_r r, t_elem value);
+BOOL	is_empty(t_elem e);
+BOOL	is_not_empty(t_elem e);
+BOOL	is_out_of_square(t_r r, int row, int col);
+BOOL	is_overlap(t_r r, int row, int col);
+BOOL	has_a_neighbour(t_r r, int row, int col);
+BOOL	can_append(t_r r, int row, int col, t_t t);
 
 #endif /* result_checks_h */

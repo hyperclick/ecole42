@@ -17,7 +17,7 @@ t_r		fill(t_r r, const char rest[])
 		r.found = TRUE; //is_square(r);
 		return (r);
 	}
-	for (int n = 0; n < len; n++)
+	for (size_t n = 0; n < len; n++)
 	{/*
 	  printf("\r");
 	  for (int deep = 0; deep < r.deep; deep++)
@@ -49,7 +49,7 @@ t_r		fill(t_r r, const char rest[])
 					new_r = append(r, i, j, f);
 					ft_strcpy(next_rest, rest);
 					ft_str_remove_at(next_rest, n);
-					printf("appended: path: %s next_rest: %s   i:%d j:%d\n", new_r.path, next_rest,  i, j);
+					//printf("appended: path: %s next_rest: %s   i:%d j:%d\n", new_r.path, next_rest,  i, j);
 					print_r(new_r);
 					ft_putchar('\n');
 					new_r = fill(new_r, next_rest);
