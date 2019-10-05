@@ -27,11 +27,15 @@ t_r		try_append(t_r r, t_t f, const char rest[])
 {
 	t_r		new_r;
 	char	next_rest[27];
-	
+	int		i;
+	int		j;
+
 	new_r.found = FALSE;
-	for (int i = 0; i < r.height; i++)
+	i = -1;
+	while (++i < r.height)
 	{
-		for (int j = 0; j < r.width; j++)
+		j = -1;
+		while (++j < r.width)
 		{
 			if (can_append(r, i, j, f))
 			{
@@ -44,7 +48,7 @@ t_r		try_append(t_r r, t_t f, const char rest[])
 			}
 		}
 	}
-	return new_r;
+	return (new_r);
 }
 
 t_r		fill(t_r r, const char rest[])
@@ -59,7 +63,7 @@ t_r		fill(t_r r, const char rest[])
 		return (r);
 	}
 	f = get_figure(rest[0]);
-	(new_r = try_append(r, f, rest));
+	new_r = try_append(r, f, rest);
 	if (new_r.found)
 	{
 		return (new_r);
@@ -79,13 +83,12 @@ void	solve(const char *file_name)
 		ft_putstr("error\n");
 		exit(5);
 	}
-	//print_figures();
 	width = ft_sqrt_up(get_figures_count() * 4);
 	max_width = width + 12;
 	r.found = FALSE;
 	while (width < max_width && r.found == FALSE)
 	{
-		r = fill(r = create_r(width), make_rest(rest));
+		r = fill(create_r(width), make_rest(rest));
 		width++;
 	}
 	print_r(r);
