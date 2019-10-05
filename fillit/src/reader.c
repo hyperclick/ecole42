@@ -19,7 +19,7 @@
 
 BOOL		is_input_filled(t_elem e)
 {
-	return (e == FILLED_ELEM);
+	return (e == g_filled_elem);
 }
 
 BOOL		parse(t_t *t, char str[BUFF_SIZE], char letter)
@@ -35,7 +35,7 @@ BOOL		parse(t_t *t, char str[BUFF_SIZE], char letter)
 		while (++j < 4)
 		{
 			if (is_empty(str[i * 5 + j]))
-				(*t).a[i][j] = EMPTY_ELEM;
+				(*t).a[i][j] = g_empty_elem;
 			else
 			{
 				if (!is_input_filled(str[i * 5 + j]))

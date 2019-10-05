@@ -11,7 +11,13 @@
 /* ************************************************************************** */
 
 #include "tetramino.h"
+#include "tetramino_linq.h"
 #include "result_checks.h"
+
+t_r	r_fill_all(t_r r, t_elem value)
+{
+	return (r_map(r, &value, repeat));
+}
 
 t_r	create_r(int width)
 {
@@ -22,7 +28,7 @@ t_r	create_r(int width)
 	r.path[0] = 0;
 	r.found = FALSE;
 	r.deep = 0;
-	r = r_fill_all(r, EMPTY_ELEM);
+	r = r_fill_all(r, g_empty_elem);
 	return (r);
 }
 

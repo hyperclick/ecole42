@@ -61,7 +61,7 @@ t_t			move_up(t_t f)
 	j = -1;
 	while (++j < 4)
 	{
-		f.a[i][j] = EMPTY_ELEM;
+		f.a[i][j] = g_empty_elem;
 	}
 	return (f);
 }
@@ -83,7 +83,7 @@ t_t			move_left(t_t f)
 	i = -1;
 	while (++i < 4)
 	{
-		f.a[i][j] = EMPTY_ELEM;
+		f.a[i][j] = g_empty_elem;
 	}
 	return (f);
 }

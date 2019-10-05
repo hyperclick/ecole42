@@ -15,7 +15,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include <string.h> 
+# include <string.h>
+
 # define BOOL int
 # define FALSE 0
 # define TRUE 1
@@ -34,10 +35,10 @@ t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
-t_list			*ft_lst_find(t_list *lst, void *param, BOOL (*f)(t_list *elem, void *param));
+t_list			*ft_lst_find(t_list *lst, void *p, BOOL (*f)(t_list*, void*));
 void			ft_lst_free_item(void *item, size_t size);
 void			ft_lst_free(t_list **head);
-void			*ft_lst_reduce(t_list *lst, void (*f)(t_list *elem, void *accumulator), void *accumulator);
+void			*ft_lst_reduce(t_list *lst, void (*f)(t_list*, void*), void *a);
 int				ft_lst_count(t_list *lst);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));

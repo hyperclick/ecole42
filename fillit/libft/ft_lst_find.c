@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_list		*ft_lst_find(t_list *lst, void *param, BOOL (*f)(t_list *elem, void *param))
+t_list		*ft_lst_find(t_list *lst, void *param, BOOL (*f)(t_list *, void *))
 {
 	if (lst == NULL || f == NULL)
 	{
