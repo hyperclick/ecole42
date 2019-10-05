@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   solver.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/05 17:33:51 by darugula          #+#    #+#             */
+/*   Updated: 2019/10/05 17:33:57 by darugula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "tetramino.h"
 #include "result_checks.h"
 
@@ -11,21 +23,12 @@ BOOL	is_not_empty(t_elem e)
 	return (!is_empty(e));
 }
 
-t_r		fill(t_r r, const char rest[])
+t_r		try_append(t_r r, t_t f, const char rest[])
 {
-	size_t	len;
-	t_t		f;
-	char	next_rest[27];
 	t_r		new_r;
-
-	r.deep++;
-	len = ft_strlen(rest);
-	if (len == 0)
-	{
-		r.found = TRUE;
-		return (r);
-	}
-	f = get_figure(rest[0]);
+	char	next_rest[27];
+	
+	new_r.found = FALSE;
 	for (int i = 0; i < r.height; i++)
 	{
 		for (int j = 0; j < r.width; j++)
@@ -35,16 +38,31 @@ t_r		fill(t_r r, const char rest[])
 				new_r = append(r, i, j, f);
 				ft_strcpy(next_rest, rest);
 				ft_str_remove_at(next_rest, 0);
-				//printf("appended: path: %s next_rest: %s   i:%d j:%d\n", new_r.path, next_rest,  i, j);
-				//print_r(new_r);
-				//ft_putchar('\n');
 				new_r = fill(new_r, next_rest);
 				if (new_r.found)
-				{
 					return (new_r);
-				}
 			}
 		}
+	}
+	return new_r;
+}
+
+t_r		fill(t_r r, const char rest[])
+{
+	t_t		f;
+	t_r		new_r;
+
+	r.deep++;
+	if (ft_strlen(rest) == 0)
+	{
+		r.found = TRUE;
+		return (r);
+	}
+	f = get_figure(rest[0]);
+	(new_r = try_append(r, f, rest));
+	if (new_r.found)
+	{
+		return (new_r);
 	}
 	return (r);
 }

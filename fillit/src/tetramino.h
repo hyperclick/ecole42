@@ -49,5 +49,6 @@ t_r		create_r(int width);
 t_r		r_fill_all(t_r r, t_elem value);
 
 void	solve(const char *file_name);
+t_r		fill(t_r r, const char rest[]);
 
 #endif /* tetramino_h */
