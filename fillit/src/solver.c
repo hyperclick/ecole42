@@ -1,6 +1,16 @@
 #include "tetramino.h"
 #include "result_checks.h"
 
+BOOL	is_empty(t_elem e)
+{
+	return (e == EMPTY_ELEM);
+}
+
+BOOL	is_not_empty(t_elem e)
+{
+	return (!is_empty(e));
+}
+
 t_r		fill(t_r r, const char rest[])
 {
 	size_t	len;

@@ -23,6 +23,9 @@ typedef struct	s_result
 	int		deep;
 }				t_r;
 
+BOOL	is_empty(t_elem e);
+BOOL	is_not_empty(t_elem e);
+
 BOOL	is_neighbour_empty(t_t t, int row, int col);
 BOOL	is_input_filled(t_elem e);
 BOOL	validate_figure(t_t t);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   result.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/05 13:37:55 by darugula          #+#    #+#             */
+/*   Updated: 2019/10/05 13:37:57 by darugula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "tetramino.h"
 #include "result_checks.h"
 
@@ -20,15 +32,18 @@ t_r	append_path(t_r r, t_elem letter)
 	return (r);
 }
 
-t_r	append(t_r r, int row, int col, t_t	t)
+t_r	append(t_r r, int row, int col, t_t t)
 {
-	t_r new_r;
+	t_r	new_r;
+	int	i;
+	int	j;
 
 	new_r = append_path(r, t.letter);
-	
-	for (int i = 0; i < 4; i++)
+	i = -1;
+	while (++i < 4)
 	{
-		for (int j = 0; j < 4; j++)
+		j = -1;
+		while (++j < 4)
 		{
 			if (!is_empty(t.a[i][j]) && !is_out_of_square(r, row + i, col + j))
 			{

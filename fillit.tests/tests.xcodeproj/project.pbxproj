@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C70A812A2348907400F35668 /* input_checks.c in Sources */ = {isa = PBXBuildFile; fileRef = C70A81292348907400F35668 /* input_checks.c */; };
-		C70A812C23489AD600F35668 /* mormalizer.c in Sources */ = {isa = PBXBuildFile; fileRef = C70A812B23489AD600F35668 /* mormalizer.c */; };
+		C70A812C23489AD600F35668 /* normalizer.c in Sources */ = {isa = PBXBuildFile; fileRef = C70A812B23489AD600F35668 /* normalizer.c */; };
 		C70A812E2348A81F00F35668 /* input_checks2.c in Sources */ = {isa = PBXBuildFile; fileRef = C70A812D2348A81F00F35668 /* input_checks2.c */; };
 		C70E1B512345332F009E1D0F /* ft_str_append.c in Sources */ = {isa = PBXBuildFile; fileRef = C70E1B502345332F009E1D0F /* ft_str_append.c */; };
 		C718A53A2341F2CA009E1C35 /* str_array.c in Sources */ = {isa = PBXBuildFile; fileRef = C718A5352341F2CA009E1C35 /* str_array.c */; };
@@ -165,7 +165,7 @@
 
 /* Begin PBXFileReference section */
 		C70A81292348907400F35668 /* input_checks.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = input_checks.c; path = ../fillit/src/input_checks.c; sourceTree = "<group>"; };
-		C70A812B23489AD600F35668 /* mormalizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mormalizer.c; path = ../fillit/src/mormalizer.c; sourceTree = "<group>"; };
+		C70A812B23489AD600F35668 /* normalizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = normalizer.c; path = ../fillit/src/normalizer.c; sourceTree = "<group>"; };
 		C70A812D2348A81F00F35668 /* input_checks2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = input_checks2.c; path = ../fillit/src/input_checks2.c; sourceTree = "<group>"; };
 		C70E1B502345332F009E1D0F /* ft_str_append.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = ft_str_append.c; path = ../fillit/libft/ft_str_append.c; sourceTree = "<group>"; };
 		C718A5342341F2CA009E1C35 /* byte_array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = byte_array.h; path = ../test_lib/byte_array.h; sourceTree = "<group>"; };
@@ -466,7 +466,7 @@
 				C70A81292348907400F35668 /* input_checks.c */,
 				C70A812D2348A81F00F35668 /* input_checks2.c */,
 				C7DFF8C723415264000E4212 /* main.c */,
-				C70A812B23489AD600F35668 /* mormalizer.c */,
+				C70A812B23489AD600F35668 /* normalizer.c */,
 				C7B670C42347150800520BA5 /* print.c */,
 				C7E3C06D23469F92007489EE /* reader.c */,
 				C7B670C8234716EC00520BA5 /* result.c */,
@@ -553,7 +553,7 @@
 				C7314A2C23413A960010963B /* ft_lstdelone.c in Sources */,
 				C7314A0623413A960010963B /* ft_isdigit.c in Sources */,
 				C7314A1523413A960010963B /* ft_strmap.c in Sources */,
-				C70A812C23489AD600F35668 /* mormalizer.c in Sources */,
+				C70A812C23489AD600F35668 /* normalizer.c in Sources */,
 				C7314A2723413A960010963B /* ft_strsub.c in Sources */,
 				C7314A2523413A960010963B /* ft_striteri.c in Sources */,
 				C73149FE23413A960010963B /* ft_strncpy.c in Sources */,
