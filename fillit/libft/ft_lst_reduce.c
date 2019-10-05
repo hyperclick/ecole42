@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lst_reduce.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/05 11:43:51 by darugula          #+#    #+#             */
-/*   Updated: 2019/10/05 11:43:52 by darugula         ###   ########.fr       */
+/*   Created: 2019/10/05 11:40:25 by darugula          #+#    #+#             */
+/*   Updated: 2019/10/05 11:40:27 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
-#include "tetramino.h"
 
-#ifndef TESTS
-
-int	main(int argc, const char *argv[])
+void	*ft_lst_reduce(t_list *lst, void (f)(t_list*, void*), void *accumulator)
 {
-	if (argc == 2)
+	if (lst == NULL)
 	{
-		solve(argv[1]);
+		return (accumulator);
 	}
-	ft_putchar('\n');
-	return (0);
+	f(lst, accumulator);
+	return (ft_lst_reduce(lst->next, f, accumulator));
 }
-#endif

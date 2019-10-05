@@ -1,7 +1,6 @@
 #define TESTS
 
 #include <stdio.h>
-#include "reader.h"
 #include "assert.h"
 #include "tetramino.h"
 #include "result_checks.h"
@@ -18,7 +17,7 @@ void	test_valid_read(const char *file_name)
 int main(int argc, const char * argv[])
 {
 	test_valid_read("valid_sample.fillit");
-	solve("valid_8");
+	solve("valid_5");
 	
 	//solve("valid_sample.fillit");
 	

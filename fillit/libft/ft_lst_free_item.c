@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lst_free_item.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/05 11:43:51 by darugula          #+#    #+#             */
-/*   Updated: 2019/10/05 11:43:52 by darugula         ###   ########.fr       */
+/*   Created: 2019/10/05 11:39:45 by darugula          #+#    #+#             */
+/*   Updated: 2019/10/05 11:39:47 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
-#include "tetramino.h"
 
-#ifndef TESTS
-
-int	main(int argc, const char *argv[])
+void	ft_lst_free_item(void *item, size_t size)
 {
-	if (argc == 2)
+	if (size == 0)
 	{
-		solve(argv[1]);
+		exit(1);
 	}
-	ft_putchar('\n');
-	return (0);
+	free(item);
 }
-#endif

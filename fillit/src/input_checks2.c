@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   input_checks2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/05 11:43:51 by darugula          #+#    #+#             */
-/*   Updated: 2019/10/05 11:43:52 by darugula         ###   ########.fr       */
+/*   Created: 2019/10/05 12:42:03 by darugula          #+#    #+#             */
+/*   Updated: 2019/10/05 12:42:11 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "tetramino.h"
+#include "result_checks.h"
 
-#ifndef TESTS
-
-int	main(int argc, const char *argv[])
+BOOL		is_neighbour_empty(t_t t, int row, int col)
 {
-	if (argc == 2)
-	{
-		solve(argv[1]);
-	}
-	ft_putchar('\n');
-	return (0);
+	return (row < 0 || row > 4 - 1 || col < 0 || col > 4 - 1
+			|| is_empty(t.a[row][col]));
 }
-#endif

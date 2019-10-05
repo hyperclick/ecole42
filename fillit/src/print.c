@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/10/05 11:44:21 by darugula          #+#    #+#             */
+/*   Updated: 2019/10/05 11:44:22 by darugula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "tetramino.h"
 
 void	print_figure(t_t f)
@@ -17,15 +29,15 @@ void	print_figure(t_t f)
 	}
 }
 
-void	print_figures()
+void	print_figures(void)
 {
-	int	i;
+	char	c;
 
 	ft_putstr("figures:\n");
-	i = -1;
-	while (++i < get_figures_count())
+	c = 'A' - 1;
+	while (++c < 'A' + get_figures_count())
 	{
-		print_figure(g_figures[i]);
+		print_figure(get_figure(c));
 		ft_putchar('\n');
 	}
 	ft_putstr("-------------------------\n");

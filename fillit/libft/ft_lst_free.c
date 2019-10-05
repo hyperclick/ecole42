@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lst_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/05 11:43:51 by darugula          #+#    #+#             */
-/*   Updated: 2019/10/05 11:43:52 by darugula         ###   ########.fr       */
+/*   Created: 2019/10/05 11:38:43 by darugula          #+#    #+#             */
+/*   Updated: 2019/10/05 11:38:45 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
-#include "tetramino.h"
 
-#ifndef TESTS
-
-int	main(int argc, const char *argv[])
+void	ft_lst_free(t_list **head)
 {
-	if (argc == 2)
+	if (*head != NULL)
 	{
-		solve(argv[1]);
+		ft_lstdel(head, ft_lst_free_item);
 	}
-	ft_putchar('\n');
-	return (0);
 }
-#endif

@@ -1,4 +1,3 @@
-
 #ifndef tetramino_h
 #define tetramino_h
 
@@ -24,9 +23,11 @@ typedef struct	s_result
 	int		deep;
 }				t_r;
 
-extern t_t		g_figures[26];
-//extern int		g_figures_count;
-
+BOOL	is_neighbour_empty(t_t t, int row, int col);
+BOOL	is_input_filled(t_elem e);
+BOOL	validate_figure(t_t t);
+t_t		normalize(t_t f);
+BOOL	read_file(const char	*filename);
 
 t_t		get_figure(char letter);
 int		get_figures_count(void);
@@ -34,6 +35,7 @@ void	set_figures_count(int count);
 void	add_figure(t_t t);
 char	*make_rest(char *rest);
 
+void	print_figure(t_t f);
 void	print_figures(void);
 void	print_r(t_r r);
 
