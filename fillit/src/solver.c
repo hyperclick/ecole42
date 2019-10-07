@@ -78,13 +78,15 @@ void	solve(const char *file_name)
 	int		max_width;
 	t_r		r;
 
-	if (read_file(file_name) == FALSE || get_figures_count() == 0)
+	if (read_file(file_name) == FALSE
+		|| get_figures_count() == 0
+		|| get_figures_count() > 26)
 	{
 		ft_putstr("error\n");
 		exit(5);
 	}
 	width = ft_sqrt_up(get_figures_count() * 4);
-	max_width = width + 12;
+	max_width = width + 20;
 	r.found = FALSE;
 	while (width < max_width && r.found == FALSE)
 	{

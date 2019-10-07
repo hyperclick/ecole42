@@ -13,15 +13,19 @@
 #include "../libft/libft.h"
 #include "tetramino.h"
 
-#ifndef TESTS
+void	print_usage(void)
+{
+	ft_putstr("usage: fillit input_file");
+}
 
-int	main(int argc, const char *argv[])
+int		main(int argc, const char *argv[])
 {
 	if (argc == 2)
-	{
 		solve(argv[1]);
+	else
+	{
+		print_usage();
 	}
 	ft_putchar('\n');
 	return (0);
 }
-#endif

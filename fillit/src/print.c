@@ -57,7 +57,10 @@ void	print_r(t_r r)
 			ft_putchar(r.a[i][j]);
 			++j;
 		}
-		ft_putchar('\n');
+		if (i != r.height - 1)
+		{
+			ft_putchar('\n');
+		}
 		++i;
 	}
 }
