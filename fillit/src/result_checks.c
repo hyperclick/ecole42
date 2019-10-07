@@ -53,5 +53,5 @@ BOOL	can_append(t_r r, int row, int col, t_t t)
 				has_neighbour = TRUE;
 		}
 	}
-	return (has_neighbour);
+	return (TRUE);
 }

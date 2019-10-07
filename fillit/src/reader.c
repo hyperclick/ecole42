@@ -46,8 +46,6 @@ BOOL		parse(t_t *t, char str[BUFF_SIZE], char letter)
 		if (str[i * 5 + j] != '\n')
 			return (FALSE);
 	}
-	if (str[i * 5] != '\n')
-		return (FALSE);
 	return (validate_figure(*t));
 }
 
