@@ -1,39 +1,4 @@
 #include "ls.h"
-#include <sys/types.h>
-#include <dirent.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <sys/stat.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <pwd.h>
-#include <grp.h>
-#include <sys/types.h>
-#include <sys/xattr.h>
-#define XATTR_SIZE 10000
-
-typedef struct s_full_name
-{
-	char		path[MAX_PATH];
-	char		folder[MAX_PATH];
-	char		name[MAX_PATH];
-}					t_f_n;
-typedef	struct s_entry
-{
-	t_f_n	full_name;
-	BOOL		is_folder;
-}				t_entry;
-
-typedef	struct s_input
-{
-	t_entry files[MAX_FILES];
-	t_entry folders[MAX_FOLDERS];
-	t_find_ptions	find_options;
-	t_sort_options	sort_options;
-	t_print_options	print_options;
-}	t_input;
 
 void		print_entries(t_entry	entries[MAX_FSO_IN_DIR], t_print_options o)
 {
@@ -98,6 +63,11 @@ void		print_folders(t_entry folders[], t_input input)
 		print_folder_recursive(folder, input);
 	}
 }
+t_input	parse_arguments(int c, char *args[])
+{
+
+}
+
 
 int	main(int argc, const char* argv[])
 {

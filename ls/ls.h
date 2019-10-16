@@ -1,54 +1,61 @@
 #ifndef LS_H
 # define LS_H
-
-# include "libft.h"
-
+#include <sys/types.h>
 #include <dirent.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/stat.h>
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <pwd.h>
+#include <grp.h>
+#include <sys/types.h>
+#include <sys/xattr.h>
 
-#define MAX_BUFFER	1000
-#define MAX_NAME	MAX_BUFFER
-#define MAX_FSO_IN_DIR	1000
+#define BOOL    unsigned char
+#define TRUE    1
+#define FALSE   0
+#define XATTR_SIZE 10000
 
-typedef struct	g_file
+#define	MAX_PATH	        10000//!!!todo: change to 1 and test, find actual amount
+#define	MAX_FSO_IN_DIR		10000//!!!todo: change to 1 and test, find actual amount
+
+typedef struct s_find_options
 {
-	char		name[MAX_NAME];
-}				t_file;
 
-typedef struct	g_directory
-{
-	char		name[MAX_NAME];
-	DIR	dirs[1];
-	t_file		files[MAX_FSO_IN_DIR];
-}				t_dir;
+}               t_find_ptions;
 
-typedef struct s_find
+typedef struct s_sort_options
 {
-	char	pattern[MAX_BUFFER];
-} g_find;
 
-typedef struct s_sort
-{
-	char	pattern[MAX_BUFFER];
-} g_sort;
+}               t_sort_options;
 
-typedef struct s_format
+typedef struct s_print_options
 {
-	char	pattern[MAX_BUFFER];
-} g_format;
 
-typedef struct s_print
-{
-	char	pattern[MAX_BUFFER];
-} g_print;
+}               t_print_options;
 
-typedef struct s_input
+typedef struct s_full_name
 {
-	char		path[MAX_BUFFER];
-	char		search_string[MAX_BUFFER];
-	g_find		find;
-	g_sort		sort;
-	g_format	format;
-	g_print		print;
-} g_input;
+	char		path[MAX_PATH];
+	char		folder[MAX_PATH];
+	char		name[MAX_PATH];
+}					t_f_n;
+typedef	struct	s_entry
+{
+	t_f_n	full_name;
+	BOOL		is_folder;
+}				t_entry;
+
+typedef	struct	s_input
+{
+	t_entry files[MAX_FSO_IN_DIR];
+	t_entry folders[MAX_FSO_IN_DIR];
+	t_find_ptions	find_options;
+	t_sort_options	sort_options;
+	t_print_options	print_options;
+}				t_input;
 
 #endif
