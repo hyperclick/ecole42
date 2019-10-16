@@ -19,22 +19,22 @@
 #define FALSE   0
 #define XATTR_SIZE 10000
 
-#define	MAX_PATH	        10000//!!!todo: change to 1 and test, find actual amount
-#define	MAX_FSO_IN_DIR		10000//!!!todo: change to 1 and test, find actual amount
+#define	MAX_PATH	        100//!!!todo: change to 1 and test, find actual amount
+#define	MAX_FSO_IN_DIR		100//!!!todo: change to 1 and test, find actual amount
 
 typedef struct s_find_options
 {
-
+    
 }               t_find_ptions;
 
 typedef struct s_sort_options
 {
-
+    
 }               t_sort_options;
 
 typedef struct s_print_options
 {
-
+    
 }               t_print_options;
 
 typedef struct s_full_name
@@ -47,15 +47,26 @@ typedef	struct	s_entry
 {
 	t_f_n	full_name;
 	BOOL		is_folder;
+	BOOL        is_null;
 }				t_entry;
 
 typedef	struct	s_input
 {
 	t_entry files[MAX_FSO_IN_DIR];
+	int     files_count;
 	t_entry folders[MAX_FSO_IN_DIR];
+	int     folders_count;
 	t_find_ptions	find_options;
 	t_sort_options	sort_options;
 	t_print_options	print_options;
 }				t_input;
+
+BOOL is_null_entry(t_entry e);
+
+
+
+
+t_input	parse_arguments(int c, const char *args[]);
+
 
 #endif
