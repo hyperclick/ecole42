@@ -18,9 +18,21 @@ t_entry create_null_entry()
 t_f_n    get_full_name(const char name[])
 {
     t_f_n   fn;
+    int     pos;
     //todo: check overflow
     strcpy(fn.path, name);
-   //if (ft_contains(name)){}
+    pos = ft_last_index(name, PATH_SEPARATOR);
+   if (-1 == pos)
+   {
+       pos = 0;
+   }
+   int len = strlen(name);
+   char *sub = ft_strsub(name, 0, pos);
+   strcpy(fn.folder, sub);
+   free(sub);
+   sub = ft_strsub(name, pos, len - pos);
+   strcpy(fn.name, sub);
+   free(sub);
     return (fn);
 }
 void    fill_entry_dir(t_entry *e, struct stat s, const char name[])

@@ -42,6 +42,9 @@ void			*ft_lst_reduce(t_list *lst, void (*f)(t_list*, void*), void *a);
 int				ft_lst_count(t_list *lst);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+
+int		ft_last_index(const char* str, const char to_find);
 void			*ft_memset (void *ptr, int value, size_t num);
 void			ft_bzero(void *s, size_t n);
 void			*ft_memcpy(void *d, const void *s, size_t n);

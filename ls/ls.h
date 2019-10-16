@@ -14,9 +14,8 @@
 #include <sys/types.h>
 #include <sys/xattr.h>
 
-#define BOOL    unsigned char
-#define TRUE    1
-#define FALSE   0
+#include "libft.h"
+#define PATH_SEPARATOR '/'
 #define XATTR_SIZE 10000
 
 #define	MAX_PATH	        100//!!!todo: change to 1 and test, find actual amount
@@ -67,6 +66,7 @@ BOOL is_null_entry(t_entry e);
 
 
 t_input	parse_arguments(int c, const char *args[]);
-
+t_entry *sort(t_entry entries[MAX_FSO_IN_DIR], t_sort_options o);
+void    print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o);
 
 #endif
