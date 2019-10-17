@@ -11,7 +11,7 @@ int     get_rows_count(int entries_count, int cols_count)
 void    print(t_entry e, t_print_options o)
 {
     t_entry q = e;
-   printf("%s\n", e.full_name.name);
+   printf("%s ", e.full_name.name);
 }
 
 void		print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o)

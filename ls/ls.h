@@ -24,7 +24,7 @@
 typedef struct s_find_options
 {
     
-}               t_find_ptions;
+}               t_find_options;
 
 typedef struct s_sort_options
 {
@@ -55,7 +55,7 @@ typedef	struct	s_input
 	int     files_count;
 	t_entry folders[MAX_FSO_IN_DIR];
 	int     folders_count;
-	t_find_ptions	find_options;
+	t_find_options	find_options;
 	t_sort_options	sort_options;
 	t_print_options	print_options;
 }				t_input;
@@ -64,7 +64,7 @@ BOOL is_null_entry(t_entry e);
 
 
 
-
+t_entry try_get_entry(const char    arg[]);
 t_input	parse_arguments(int c, const char *args[]);
 t_entry *sort(t_entry entries[MAX_FSO_IN_DIR], t_sort_options o);
 void    print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o);
