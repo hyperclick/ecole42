@@ -55,6 +55,7 @@ int	main(int argc, const char* argv[])
 {
 	t_input input = parse_arguments(argc - 1, argv + 1);
 	//input.cur_dir = get_folder(argv[0]);
-	print_entries(sort(input.files, input.sort_options), input.print_options);
-	print_folders(sort(input.folders, input.sort_options), input);
+	print_entries(sort(input.files, input.sort_options), input.files_count, input.print_options);
+	//print_folders(sort(input.folders, input.sort_options), input);
+
 }
