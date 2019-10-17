@@ -15,15 +15,12 @@ t_entry create_null_entry()
 
 t_f_n    get_full_name(const char name[])
 {
+    char *q = name;
     t_f_n   fn;
     int     pos;
     //todo: check overflow
     strcpy(fn.path, name);
     pos = ft_last_index(name, PATH_SEPARATOR);
-   if (-1 == pos)
-   {
-       pos = 0;
-   }
    int len = strlen(name);
    char *sub = ft_strsub(name, 0, pos);
    if (sub != NULL)
@@ -31,6 +28,8 @@ t_f_n    get_full_name(const char name[])
         strcpy(fn.folder, sub);
         free(sub);
    }
+   q = name;
+   pos++;
    sub = ft_strsub(name, pos, len - pos);
    if (sub != NULL)
    {

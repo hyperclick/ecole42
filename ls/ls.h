@@ -68,5 +68,5 @@ t_entry try_get_entry(const char    arg[]);
 t_input	parse_arguments(int c, const char *args[]);
 t_entry *sort(t_entry entries[MAX_FSO_IN_DIR], t_sort_options o);
 void    print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o);
-
+int		get_folder_entries(t_entry entries[], t_entry folder, t_find_options o);
 #endif

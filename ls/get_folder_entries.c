@@ -4,9 +4,10 @@ BOOL    need_to_show(t_entry e, t_find_options o)
 {
     return (TRUE);
 }
-void		get_folder_entries(t_entry entries[], t_entry folder, t_find_options o)
+int		get_folder_entries(t_entry entries[], t_entry folder, t_find_options o)
 {
-
+    t_entry e;
+    e = folder;
 	DIR* dir;
 	struct dirent* entry;
 	dir = opendir(folder.full_name.path);
@@ -14,7 +15,7 @@ void		get_folder_entries(t_entry entries[], t_entry folder, t_find_options o)
 	{
 		//todo: compare with ls output
 		perror("diropen");
-		return;
+		return 0;
 	};
 
 size_t directory_length = strlen(folder.full_name.path);
@@ -24,7 +25,6 @@ path[directory_length] = PATH_SEPARATOR;
 int i = 0;
 	while ((entry = readdir(dir)) != NULL)
 	{
-    t_entry e;
     
     strcpy(path + directory_length + 1, entry->d_name);
     e = try_get_entry(path);
@@ -32,9 +32,10 @@ int i = 0;
 		{
 			entries[i++] = e;
 		}
-		free(entry);
+		//free(entry);???
 	};
 
 	closedir(dir);
-	free(dir);
+	//free(dir);???
+	return (i);
 }
