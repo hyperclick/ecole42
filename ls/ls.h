@@ -23,17 +23,18 @@
 
 typedef struct s_find_options
 {
-    
+	BOOL recursive;//-R
+	BOOL show_hidden;//-a
 }               t_find_options;
 
 typedef struct s_sort_options
 {
-    
+	BOOL sort_asc;
 }               t_sort_options;
 
 typedef struct s_print_options
 {
-    
+	BOOL show_details;//-l
 }               t_print_options;
 
 typedef struct s_full_name

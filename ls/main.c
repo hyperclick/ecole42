@@ -1,31 +1,5 @@
 #include "ls.h"
 
-void		get_folder_entries(t_entry entries[], t_input folder, t_find_options o)
-{
-
-	DIR* dir;
-	struct dirent* entry;
-	dir = opendir(folder);
-	if (!dir)
-	{
-		//todo: compare with ls output
-		perror("diropen");
-		return;
-	};
-
-
-	while ((entry = readdir(dir)) != NULL)
-	{
-		if (need_to_show(entry, o))
-		{
-			entries[i++] = make_entry(folder, entry);
-		}
-		free(entry);
-	};
-
-	closedir(dir);
-	free(dir);
-}
 
 void		print_folder_recursive(t_entry folder, t_input input)
 {
