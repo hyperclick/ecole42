@@ -2,7 +2,7 @@
 
 BOOL    need_to_show(t_entry e, t_find_options o)
 {
-    return (TRUE);
+    return (o.show_hidden);
 }
 int		get_folder_entries(t_entry entries[], t_entry folder, t_find_options o)
 {

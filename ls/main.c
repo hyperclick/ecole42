@@ -7,7 +7,7 @@ void		print_folder_recursive(t_entry folder, t_input input)
 	int count = get_folder_entries(folder, input.find_options);
 	sort(entries, count, input.sort_options);
 	//print_folder_header(folder, input.print_options);
-	print_entries(entries, input.print_options);
+	print_entries(entries, count, input.print_options);
 
 	for (int i = 0; i < count; i++)
 	{
@@ -19,11 +19,18 @@ void		print_folder_recursive(t_entry folder, t_input input)
 	}
 }
 
-void		print_folders(t_entry folders[], t_input input)
+void		print_folders(t_entry folders[], int count, t_input input)
 {
-	for each (t_entry folder in folders)
+	if (input.find_options.recursive)
 	{
-		print_folder_recursive(folder, input);
+		for each (t_entry folder in folders)
+		{
+			print_folder_recursive(folder, input);
+		}
+	}
+	else
+	{
+		print_entries(folders, count, input.print_options);
 	}
 }
 
