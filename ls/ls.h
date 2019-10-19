@@ -24,7 +24,8 @@
 typedef struct s_find_options
 {
 	BOOL recursive;//-R
-	BOOL show_hidden;//-a
+	BOOL all;//-a
+	BOOL almost_all //-A
 }               t_find_options;
 
 typedef struct s_sort_options

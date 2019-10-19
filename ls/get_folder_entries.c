@@ -2,8 +2,17 @@
 
 BOOL    need_to_show(t_entry e, t_find_options o)
 {
-    return (o.show_hidden);
+	if (o.all)
+	{
+		return (TRUE);
+	}
+	if (ft_starts_with(e.full_name.path, '.'))
+	{
+		return (o.almost_all);
+	}
+    return (TRUE);
 }
+
 int		get_folder_entries(t_entry entries[], t_entry folder, t_find_options o)
 {
     t_entry e;
