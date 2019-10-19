@@ -14,7 +14,7 @@ void		print_folder_recursive(t_entry folder, t_input input)
 		t_entry e = entries[i];
 		if (e.is_folder)
 		{
-			print_folder_recursive(folder, input);
+			print_folder_recursive(e, input);
 		}
 	}
 }
