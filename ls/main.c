@@ -23,9 +23,9 @@ void		print_folders(t_entry folders[], int count, t_input input)
 {
 	if (input.find_options.recursive)
 	{
-		for each (t_entry folder in folders)
+		for ( int i = 0; i < count; i++)
 		{
-			print_folder_recursive(folder, input);
+			print_folder_recursive(folders[i], input);
 		}
 	}
 	else

@@ -21,26 +21,26 @@
 #define	MAX_PATH	        100//!!!todo: change to 1 and test, find actual amount
 #define	MAX_FSO_IN_DIR		100//!!!todo: change to 1 and test, find actual amount
 
-typedef struct s_find_options
+typedef struct	s_find_options
 {
 	BOOL recursive;//-R
 	BOOL all;//-a
 	BOOL almost_all //-A
-}               t_find_options;
+}				t_find_options;
 
-typedef struct s_sort_options
+typedef struct	s_sort_options
 {
 	BOOL mod_time_desc;//-t
 	BOOL sort_asc;
 	BOOL sort_desc;//-r
-}               t_sort_options;
+}				t_sort_options;
 
-typedef struct s_print_options
+typedef struct	s_print_options
 {
 	BOOL one_file_per_line;//-l
-}               t_print_options;
+}				t_print_options;
 
-typedef struct s_full_name
+typedef struct	s_full_name
 {
 	char		path[MAX_PATH];
 	char		folder[MAX_PATH];
@@ -48,29 +48,34 @@ typedef struct s_full_name
 }					t_f_n;
 typedef	struct	s_entry
 {
-	t_f_n	full_name;
+	t_f_n		full_name;
 	BOOL		is_folder;
-	BOOL        is_null;
+	BOOL		is_null;
+	time_t		creation_time;
+	time_t		access_time;
+	time_t		mod_time;
+	_off_t		size;
+
 }				t_entry;
 
 typedef	struct	s_input
 {
-	t_entry files[MAX_FSO_IN_DIR];
-	int     files_count;
-	t_entry folders[MAX_FSO_IN_DIR];
-	int     folders_count;
+	t_entry			files[MAX_FSO_IN_DIR];
+	int				files_count;
+	t_entry			folders[MAX_FSO_IN_DIR];
+	int				folders_count;
 	t_find_options	find_options;
 	t_sort_options	sort_options;
 	t_print_options	print_options;
 }				t_input;
 
-BOOL is_null_entry(t_entry e);
+BOOL		is_null_entry(t_entry e);
 
 
 
-t_entry try_get_entry(const char    arg[]);
-t_input	parse_arguments(int c, const char *args[]);
-t_entry *sort(t_entry entries[MAX_FSO_IN_DIR], t_sort_options o);
-void    print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o);
-int		get_folder_entries(t_entry entries[], t_entry folder, t_find_options o);
+t_entry		try_get_entry(const char    arg[]);
+t_input		parse_arguments(int c, const char* args[]);
+t_entry*	sort(t_entry entries[MAX_FSO_IN_DIR], int count, t_sort_options o);
+void		print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o);
+int			get_folder_entries(t_entry entries[], t_entry folder, t_find_options o);
 #endif
