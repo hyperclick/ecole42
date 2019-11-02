@@ -6,7 +6,7 @@ int	get_console_width()
 	return (80);
 }
 
-int	get_all_letters(t_entries entries[], int entries_count)
+int	get_all_letters(t_entry entries[], int entries_count)
 {
 	int	count;
 	int	i;
@@ -14,8 +14,30 @@ int	get_all_letters(t_entries entries[], int entries_count)
 	count = 0;
 	while (++i < entries_count)
 	{
-		count += strlen(entries[i].fullname.name);
+		count += strlen(entries[i].full_name.name);
 	}
+	return (count);
+}
+
+int	get_rows_count(int entries_count, int cols_count)
+{
+	return (entries_count / cols_count);
+}
+
+int		get_col_width(t_entry entries[], int entries_count, int col, int rows_count)
+{
+	int start = col * rows_count;
+	int	max_width = 0;
+	int	width;
+
+	for (int i = start; i < MIN(start + rows_count, entries_count); i++)
+	{
+		if ((width = ft_strlen(entries[i].full_name.name)) > max_width)
+		{
+			max_width = width;
+		}
+	}
+	return (max_width);
 }
 
 BOOL	can_print(t_entry entries[], int entries_count, int cols_count, int console_width)
@@ -31,7 +53,7 @@ BOOL	can_print(t_entry entries[], int entries_count, int cols_count, int console
 	while (++i < cols_count)
 	{
 		width += get_col_width(entries, entries_count, i, rows_count);
-		if (i!= cols_count - 1)
+		if (i != cols_count - 1)
 		{
 			width += SPACES_BETWEEN_COL;
 		}
@@ -43,7 +65,7 @@ BOOL	can_print(t_entry entries[], int entries_count, int cols_count, int console
 	return (TRUE);
 }
 
-int	get_columns_count(t_entries entries[], int entries_count, t_print_options o)
+int	get_columns_count(t_entry entries[], int entries_count, t_print_options o)
 {
 	if (o.one_file_per_line)
 	{
@@ -61,7 +83,7 @@ int	get_columns_count(t_entries entries[], int entries_count, t_print_options o)
 	columns = max_width / console_width;
 	while (columns > 0)
 	{
-		if (can_print(entries, entries_count, columns))
+		if (can_print(entries, entries_count, columns, get_console_width()))
 		{
 			return (columns);
 		}
@@ -70,10 +92,6 @@ int	get_columns_count(t_entries entries[], int entries_count, t_print_options o)
 	return (1);
 }
 
-int	get_rows_count(int entries_count, int cols_count)
-{
-	return (entries_count / cols_count);
-}
 
 void	print_details(t_entry e)
 {

@@ -13,17 +13,17 @@ BOOL	need_swap(t_entry a, t_entry b, t_sort_options o)
 {
 	if (o.sort_asc)
 	{
-		return (ft_strcmp(a, b));
+		return (ft_strcmp(a.full_name.name, b.full_name.name));
 	}
 
 	if (o.sort_desc)
 	{
-		return (ft_strcmp(b, a));
+		return (ft_strcmp(b.full_name.name, a.full_name.name));
 	}
 
 	if (o.mod_time_desc)
 	{
-		return (a.mod_time > b.mod_time)
+		return (a.mod_time > b.mod_time);
 		//return (fill_mod_time(a) > fill_mod_time(b));
 	}
 

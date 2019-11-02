@@ -25,7 +25,7 @@ typedef struct	s_find_options
 {
 	BOOL recursive;//-R
 	BOOL all;//-a
-	BOOL almost_all //-A
+	BOOL almost_all; //-A
 }				t_find_options;
 
 typedef struct	s_sort_options
@@ -54,7 +54,7 @@ typedef	struct	s_entry
 	time_t		creation_time;
 	time_t		access_time;
 	time_t		mod_time;
-	_off_t		size;
+	off_t		size;
 
 }				t_entry;
 

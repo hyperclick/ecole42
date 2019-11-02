@@ -15,20 +15,18 @@ t_entry create_null_entry()
 
 t_f_n    get_full_name(const char name[])
 {
-	char* q = name;
 	t_f_n   fn;
 	int     pos;
 	//todo: check overflow
 	strcpy(fn.path, name);
 	pos = ft_last_index(name, PATH_SEPARATOR);
-	int len = strlen(name);
+	int len = ft_strlen(name);
 	char* sub = ft_strsub(name, 0, pos);
 	if (sub != NULL)
 	{
 		strcpy(fn.folder, sub);
 		free(sub);
 	}
-	q = name;
 	pos++;
 	sub = ft_strsub(name, pos, len - pos);
 	if (sub != NULL)
@@ -44,7 +42,7 @@ time_t	fill_mod_time(t_entry *e, struct stat s)
 	
 }
 */
-void	fill_entry(t_entry *e, struct stat s, const char name[])
+void	fill_entry_shared(t_entry *e, struct stat s, const char name[])
 {
 	e->full_name = get_full_name(name);
 	e->creation_time = s.st_ctime;
@@ -57,14 +55,13 @@ void	fill_entry(t_entry *e, struct stat s, const char name[])
 void	fill_entry_dir(t_entry* e, struct stat s, const char name[])
 {
 	e->is_folder = TRUE;
-	fill_entry(e, s, name);
+	fill_entry_shared(e, s, name);
 }
 
 void	fill_entry_file(t_entry* e, struct stat s, const char name[])
 {
 	e->is_folder = FALSE;
-	e->full_name = get_full_name(name);
-	e->is_null = FALSE;
+	fill_entry_shared(e, s, name);
 }
 
 void fill_entry(t_entry* e, struct stat s, const char name[])
@@ -83,6 +80,7 @@ void fill_entry(t_entry* e, struct stat s, const char name[])
 
 
 }
+
 t_entry try_get_entry(const char    arg[])
 {
 	t_entry e;
