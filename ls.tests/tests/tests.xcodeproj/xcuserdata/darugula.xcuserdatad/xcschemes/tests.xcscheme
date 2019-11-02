@@ -67,6 +67,12 @@
             ReferencedContainer = "container:tests.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "."
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
          <AdditionalOption
             key = "NSZombieEnabled"

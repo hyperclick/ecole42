@@ -60,6 +60,7 @@ typedef	struct	s_entry
 
 typedef	struct	s_input
 {
+	t_entry			cur_dir;
 	t_entry			files[MAX_FSO_IN_DIR];
 	int				files_count;
 	t_entry			folders[MAX_FSO_IN_DIR];
@@ -73,9 +74,12 @@ BOOL		is_null_entry(t_entry e);
 
 
 
-t_entry		try_get_entry(const char    arg[]);
+t_entry		try_get_entry(const char arg[]);
 t_input		parse_arguments(int c, const char* args[]);
 t_entry*	sort(t_entry entries[MAX_FSO_IN_DIR], int count, t_sort_options o);
 void		print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o);
 int			get_folder_entries(t_entry entries[], t_entry folder, t_find_options o);
+
+void		set_cur_dir(const char *dir);
+t_entry		get_cur_dir();
 #endif

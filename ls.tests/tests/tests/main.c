@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include "ls.h"
-
+int	main2(int argc, const char* argv[]);
 
 int main(int argc, const char * argv[])
 {
 	
-	t_input input = parse_arguments(argc - 1, argv + 1);
+	main2(argc, argv);
 	
 		DIR *d;
 		struct dirent *dir;

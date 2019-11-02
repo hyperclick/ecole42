@@ -1,5 +1,9 @@
 #include "ls.h"
 
+BOOL	is_absolute_path(char	*path)
+{
+	return (*path=='/');
+}
 
 BOOL is_null_entry(t_entry e)
 {
@@ -17,21 +21,27 @@ t_f_n    get_full_name(const char name[])
 {
 	t_f_n   fn;
 	int     pos;
+	
+	if (!is_absolute_path(name))
+	{
+		ft_strcpy(fn.path, get_cur_dir().full_name.path);
+	}
+	int len = ft_strlen(fn.path);
 	//todo: check overflow
-	strcpy(fn.path, name);
+	strcpy(fn.path + len, name);
 	pos = ft_last_index(name, PATH_SEPARATOR);
-	int len = ft_strlen(name);
+	len = ft_strlen(name);
 	char* sub = ft_strsub(name, 0, pos);
 	if (sub != NULL)
 	{
-		strcpy(fn.folder, sub);
+		ft_strcpy(fn.folder, sub);
 		free(sub);
 	}
 	pos++;
 	sub = ft_strsub(name, pos, len - pos);
 	if (sub != NULL)
 	{
-		strcpy(fn.name, sub);
+		ft_strcpy(fn.name, sub);
 		free(sub);
 	}
 	return (fn);
@@ -73,7 +83,7 @@ void fill_entry(t_entry* e, struct stat s, const char name[])
 	case S_IFDIR:  fill_entry_dir(e, s, name);          break;
 	case S_IFIFO:  printf("FIFO/pipe\tignoring\n");               break;
 	case S_IFLNK:  printf("symlink\n");                 break;
-	case S_IFREG:   fill_entry_file(e, s, name);           break;
+	case S_IFREG:  fill_entry_file(e, s, name);           break;
 	case S_IFSOCK: printf("socket\tignoring\n");                  break;
 	default:       printf("unknown?: %d\n", s.st_mode);   exit(2);             break;
 	}
@@ -81,7 +91,7 @@ void fill_entry(t_entry* e, struct stat s, const char name[])
 
 }
 
-t_entry try_get_entry(const char    arg[])
+t_entry try_get_entry(const char arg[])
 {
 	t_entry e;
 	e = create_null_entry();
@@ -94,7 +104,6 @@ t_entry try_get_entry(const char    arg[])
 	else
 	{
 		perror("lstat() ");
-
 	}
 	return (e);
 }

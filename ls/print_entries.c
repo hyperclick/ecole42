@@ -114,6 +114,10 @@ void	print(t_entry e, t_print_options o)
 
 void		print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o)
 {
+	if (count == 0)
+	{
+		return ;
+	}
 	int	cols_count = get_columns_count(entries, count, o);
 	int	rows_count = get_rows_count(count, cols_count);
 	for (int i = 0; i < rows_count; i++)
