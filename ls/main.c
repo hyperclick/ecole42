@@ -18,6 +18,9 @@ void		print_folder_recursive(t_entry folder, t_input input)
 		t_entry e = entries[i];
 		if (e.is_folder)
 		{
+			ft_putstr("\n");
+			ft_putstr(e.full_name.path);
+			ft_putstr(":\n");
 			print_folder_recursive(e, input);
 		}
 	}
