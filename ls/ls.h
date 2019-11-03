@@ -31,7 +31,7 @@ typedef struct	s_find_options
 typedef struct	s_sort_options
 {
 	BOOL mod_time_desc;//-t
-	BOOL sort_asc;
+//	BOOL sort_asc;//default
 	BOOL sort_desc;//-r
 }				t_sort_options;
 

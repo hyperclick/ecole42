@@ -43,8 +43,10 @@ void		print_folders(t_entry folders[], int count, t_input input)
 
 int	main2(int argc, const char* argv[])
 {
+	t_entry	app = try_get_entry(argv[0]);
 	//input.cur_dir = try_get_entry(argv[0]);
-	set_cur_dir(argv[0]);	t_input input = parse_arguments(argc - 1, argv + 1);
+	set_cur_dir(app.full_name.folder);
+	t_input input = parse_arguments(argc - 1, argv + 1);
 	if (input.files_count == 0 && input.folders_count == 0)
 	{
 		

@@ -11,14 +11,10 @@ void	swap(t_entry entries[], int i, int j)
 
 BOOL	need_swap(t_entry a, t_entry b, t_sort_options o)
 {
-	if (o.sort_asc)
-	{
-		return (ft_strcmp(a.full_name.name, b.full_name.name));
-	}
 
 	if (o.sort_desc)
 	{
-		return (ft_strcmp(b.full_name.name, a.full_name.name));
+		return (ft_strcmp(b.full_name.name, a.full_name.name) > 0);
 	}
 
 	if (o.mod_time_desc)
@@ -27,6 +23,10 @@ BOOL	need_swap(t_entry a, t_entry b, t_sort_options o)
 		//return (fill_mod_time(a) > fill_mod_time(b));
 	}
 
+	//if (o.sort_asc)
+	{
+		return (ft_strcmp(a.full_name.name, b.full_name.name) > 0);
+	}
 	printf("undefined sort");
 	exit(2);
 }

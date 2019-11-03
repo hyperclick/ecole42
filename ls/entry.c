@@ -42,9 +42,9 @@ t_f_n	get_full_name(const char name[])
 	fn = create_full_name();
 	make_path(fn.path, name);
 	
-	pos = ft_last_index(name, PATH_SEPARATOR);
-	len = ft_strlen(name);
-	char* sub = ft_strsub(name, 0, pos);
+	pos = ft_last_index(fn.path, PATH_SEPARATOR);
+	len = ft_strlen(fn.path);
+	char* sub = ft_strsub(fn.path, 0, pos);
 	if (sub != NULL)
 	{
 		ft_strcpy(fn.folder, sub);
