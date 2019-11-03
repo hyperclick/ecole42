@@ -29,8 +29,11 @@ int		get_col_width(t_entry entries[], int entries_count, int col, int rows_count
 	int start = col * rows_count;
 	int	max_width = 0;
 	int	width;
-
-	for (int i = start; i < MIN(start + rows_count, entries_count); i++)
+	int	i;
+	
+	i = start - 1;
+	int count = MIN(start + rows_count, entries_count);
+	while (++i < count)
 	{
 		if ((width = ft_strlen(entries[i].full_name.name)) > max_width)
 		{
@@ -72,7 +75,7 @@ int	get_columns_count(t_entry entries[], int entries_count, t_print_options o)
 		return (1);
 	}
 	int	all_letters = get_all_letters(entries, entries_count);
-	int	max_spaces = entries_count * 2;
+	int	max_spaces = entries_count - 1;
 	int max_width = all_letters + max_spaces;
 	int	console_width = get_console_width();
 	if (console_width >= max_width)
@@ -81,7 +84,7 @@ int	get_columns_count(t_entry entries[], int entries_count, t_print_options o)
 	}
 	int columns;
 	columns = max_width / console_width;
-	while (columns > 0)
+	while (columns > 1)
 	{
 		if (can_print(entries, entries_count, columns, get_console_width()))
 		{
@@ -108,7 +111,7 @@ void	print(t_entry e, t_print_options o)
 	printf("%s ", e.full_name.name);
 	if (e.is_folder)
 	{
-		putchar(PATH_SEPARATOR);
+		//putchar(PATH_SEPARATOR);
 	}
 }
 

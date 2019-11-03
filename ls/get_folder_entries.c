@@ -10,7 +10,7 @@ BOOL    need_to_show(t_entry e, t_find_options o)
 	{
 		return (TRUE);
 	}
-	if (ft_starts_with(e.full_name.path, '.'))
+	if (ft_starts_with(e.full_name.name, '.'))
 	{
 		return (o.almost_all);
 	}

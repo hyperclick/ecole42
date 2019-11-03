@@ -6,9 +6,6 @@
          contextName = "print_folders:main.c">
       </ContextState>
       <ContextState
-         contextName = "main2:main.c">
-      </ContextState>
-      <ContextState
          contextName = "need_swap:sort.c">
          <PersistentStrings>
             <PersistentString
@@ -19,6 +16,17 @@
             </PersistentString>
             <PersistentString
                value = "a.full_name.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "main2:main.c">
+      </ContextState>
+      <ContextState
+         contextName = "get_col_width:print_entries.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "MIN(start + rows_count, entries_count)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

@@ -79,6 +79,8 @@ int				ft_isprint(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 int				ft_last_index(const char *str, const char to_find);
+void			log_log(const char *str);
+void			log_line(const char *str);
 void			*ft_memalloc(size_t size);
 void			ft_memdel(void **ap);
 void			ft_str_append(char	*str, const char letter);
