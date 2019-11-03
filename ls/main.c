@@ -78,6 +78,7 @@ void	log_input(t_input input)
 int	main2(int argc, const char* argv[])
 {
 	log_line("\n\n\n---------------started----------------");
+	//log_args
 	t_entry	app = try_get_entry(argv[0]);
 	//input.cur_dir = try_get_entry(argv[0]);
 	set_cur_dir(app.full_name.folder);

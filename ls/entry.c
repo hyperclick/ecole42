@@ -87,6 +87,12 @@ void	fill_entry_file(t_entry* e, struct stat s, const char name[])
 	fill_entry_shared(e, s, name);
 }
 
+void	fill_entry_sym_link(t_entry* e, struct stat s, const char name[])
+{
+	e->is_folder = FALSE;
+	fill_entry_shared(e, s, name);
+}
+
 void fill_entry(t_entry* e, struct stat s, const char name[])
 {
 
@@ -95,7 +101,7 @@ void fill_entry(t_entry* e, struct stat s, const char name[])
 	case S_IFCHR:  printf("character device\tignoring\n");        break;
 	case S_IFDIR:  fill_entry_dir(e, s, name);          break;
 	case S_IFIFO:  printf("FIFO/pipe\tignoring\n");               break;
-	case S_IFLNK:  printf("symlink\n");                 break;
+	case S_IFLNK:  fill_entry_sym_link(e, s, name);                 break;
 	case S_IFREG:  fill_entry_file(e, s, name);           break;
 	case S_IFSOCK: printf("socket\tignoring\n");                  break;
 	default:       printf("unknown?: %d\n", s.st_mode);   exit(2);             break;

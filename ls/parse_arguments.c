@@ -1,14 +1,57 @@
 #include "ls.h"
 void	print_usage()
-{}
+{
+	ft_putstr("ls: illegal option -- ?\n");
+	ft_putstr("usage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]");
+	
+}
 
 void	print_no_such_file(const char    arg[])
 {
 	printf("ls: cannot access '%s': No such file or directory\n", arg);
 }
 
-BOOL	try_parse_option(t_input input, const char    arg[])
+BOOL	parse_flag(t_input *input, const char f)
 {
+	if (f == 'l')
+	{
+		input->print_options.one_file_per_line = TRUE;
+		return (TRUE);
+	}
+	if (f == 'a')
+	{
+		input->find_options.all = TRUE;
+		return (TRUE);
+	}
+	if (f == 'R')
+	{
+		input->find_options.recursive = TRUE;
+		return (TRUE);
+	}
+	if (f == 'r')
+	{
+		input->sort_options.sort_desc = TRUE;
+		return (TRUE);
+	}
+	if (f == 't')
+	{
+		input->sort_options.sort_by = SORT_BY_MOD_TIME;
+		return (TRUE);
+	}
+	
+	return (FALSE);
+}
+
+BOOL	try_parse_option(t_input *input, const char arg[])
+{
+	while (*arg != 0)
+	{
+		if (!parse_flag(input, *arg))
+		{
+			return (FALSE);
+		}
+		++arg;
+	}
 	return (TRUE);
 }
 
@@ -34,11 +77,13 @@ void	parse_arguments_add_entry(t_input *input, t_entry e)
 	}
 }
 
-t_input create_empty_input()
+t_input	create_empty_input()
 {
 	t_input input;
 	input.files_count = 0;
 	input.folders_count = 0;
+	input.sort_options.sort_by = SORT_BY_NAME;
+	input.sort_options.sort_desc = FALSE;
 	return (input);
 }
 
@@ -63,7 +108,7 @@ t_input	parse_arguments(int c, const char *args[])
 			print_no_such_file(arg);
 			continue;
 		}
-		if (!try_parse_option(input, arg))
+		if (!try_parse_option(&input, arg + 1))
 		{
 			print_usage();
 			exit (1);

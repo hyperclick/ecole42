@@ -70,6 +70,7 @@ BOOL	can_print(t_entry entries[], int entries_count, int cols_count, int console
 
 int	get_columns_count(t_entry entries[], int entries_count, t_print_options o)
 {
+	return (1);
 	if (o.one_file_per_line)
 	{
 		return (1);

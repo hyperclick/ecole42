@@ -18,7 +18,7 @@
 #define PATH_SEPARATOR '/'
 #define XATTR_SIZE 10000
 
-#define	MAX_PATH	        300//!!!todo: change to 1 and test, find actual amount
+#define	MAX_PATH			300//!!!todo: change to 1 and test, find actual amount
 #define	MAX_FSO_IN_DIR		100//!!!todo: change to 1 and test, find actual amount
 
 typedef struct	s_find_options
@@ -28,11 +28,15 @@ typedef struct	s_find_options
 	BOOL almost_all; //-A
 }				t_find_options;
 
+
+
 typedef struct	s_sort_options
 {
-	BOOL mod_time_desc;//-t
-//	BOOL sort_asc;//default
-	BOOL sort_desc;//-r
+#define SORT_BY_NAME		1//default
+#define SORT_BY_MOD_TIME	2//-t
+#define SORT_BY_SIZE		3
+	int		sort_by;
+	BOOL	sort_desc;//-r
 }				t_sort_options;
 
 typedef struct	s_print_options

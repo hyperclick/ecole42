@@ -3,24 +3,36 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "print_folders:main.c">
+         contextName = "parse_flag:parse_arguments.c">
+      </ContextState>
+      <ContextState
+         contextName = "need_to_show:get_folder_entries.c">
       </ContextState>
       <ContextState
          contextName = "need_swap:sort.c">
          <PersistentStrings>
             <PersistentString
-               value = "ft_strcmp(a.full_name.name, b.full_name.name)">
+               value = "a.full_name.name">
             </PersistentString>
             <PersistentString
                value = "b.full_name.name">
             </PersistentString>
             <PersistentString
-               value = "a.full_name.name">
+               value = "o.sort_desc == FALSE">
+            </PersistentString>
+            <PersistentString
+               value = "o.sort_desc == TRUE">
+            </PersistentString>
+            <PersistentString
+               value = "ft_strcmp(a.full_name.name, b.full_name.name)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "main2:main.c">
+         contextName = "print_entries:print_entries.c">
+      </ContextState>
+      <ContextState
+         contextName = "get_folder_entries:get_folder_entries.c">
       </ContextState>
       <ContextState
          contextName = "get_col_width:print_entries.c">
@@ -29,6 +41,12 @@
                value = "MIN(start + rows_count, entries_count)">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "print_folders:main.c">
+      </ContextState>
+      <ContextState
+         contextName = "main2:main.c">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

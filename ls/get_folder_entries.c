@@ -1,6 +1,6 @@
 #include "ls.h"
 
-BOOL    need_to_show(t_entry e, t_find_options o)
+BOOL	need_to_show(t_entry e, t_find_options o)
 {/*
 	if (ft_strcmp(e.full_name.name, ".") || ft_strcmp(e.full_name.name, "..") )
 	{
