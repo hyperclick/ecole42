@@ -2,33 +2,46 @@
 
 BOOL	is_absolute_path(char	*path)
 {
-	return (*path=='/');
+	return (*path == PATH_SEPARATOR);
 }
 
-BOOL is_null_entry(t_entry e)
+BOOL	is_null_entry(t_entry e)
 {
 	return (e.is_null);
 }
 
-t_entry create_null_entry()
+t_entry	create_null_entry()
 {
 	t_entry e;
 	e.is_null = TRUE;
 	return (e);
 }
 
-t_f_n    get_full_name(const char name[])
+void	make_path(char *path, const char name[])
 {
-	t_f_n   fn;
-	int     pos;
-	
+	int		len;
+
+	len = 0;
 	if (!is_absolute_path(name))
 	{
-		ft_strcpy(fn.path, get_cur_dir().full_name.path);
+		ft_strcpy(path, get_cur_dir().full_name.path);
+		len = ft_strlen(path);
+		path[len] = PATH_SEPARATOR;
+		len++;
 	}
-	int len = ft_strlen(fn.path);
 	//todo: check overflow
-	strcpy(fn.path + len, name);
+	ft_strcpy(path + len, name);
+}
+
+t_f_n	get_full_name(const char name[])
+{
+	t_f_n	fn;
+	int		pos;
+	int		len;
+	
+	fn = create_full_name();
+	make_path(fn.path, name);
+	
 	pos = ft_last_index(name, PATH_SEPARATOR);
 	len = ft_strlen(name);
 	char* sub = ft_strsub(name, 0, pos);

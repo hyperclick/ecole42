@@ -1,10 +1,12 @@
 #include "ls.h"
 void    print_usage()
 {}
+
 void    print_no_such_file(const char    arg[])
 {
 printf("ls: cannot access '%s': No such file or directory\n", arg);
 }
+
 BOOL    try_parse_option(t_input input, const char    arg[])
 {
     return (TRUE);
@@ -39,6 +41,7 @@ t_input create_empty_input()
     input.folders_count = 0;
     return (input);
 }
+
 t_input	parse_arguments(int c, const char *args[])
 {
 t_input input;

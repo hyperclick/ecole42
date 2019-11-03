@@ -24,6 +24,8 @@ int		get_folder_entries(t_entry entries[], t_entry folder, t_find_options o)
 	{
 		//todo: compare with ls output
 		//todo: set exit_code = 1
+		ft_putstr(folder.full_name.path);
+		ft_putstr("\n");
 		perror("diropen");
 		return 0;
 	};

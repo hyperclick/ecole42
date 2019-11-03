@@ -18,7 +18,7 @@
 #define PATH_SEPARATOR '/'
 #define XATTR_SIZE 10000
 
-#define	MAX_PATH	        100//!!!todo: change to 1 and test, find actual amount
+#define	MAX_PATH	        300//!!!todo: change to 1 and test, find actual amount
 #define	MAX_FSO_IN_DIR		100//!!!todo: change to 1 and test, find actual amount
 
 typedef struct	s_find_options
@@ -81,5 +81,6 @@ void		print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options 
 int			get_folder_entries(t_entry entries[], t_entry folder, t_find_options o);
 
 void		set_cur_dir(const char *dir);
-t_entry		get_cur_dir();
+t_entry		get_cur_dir(void);
+t_f_n		create_full_name(void);
 #endif
