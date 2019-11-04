@@ -158,12 +158,26 @@ void	print(t_entry e, t_print_options o)
 		//putchar(PATH_SEPARATOR);
 	}
 }
+int		calc_total(t_entry	entries[MAX_FSO_IN_DIR], int count)
+{
+	int	total = 0;
+	for (int j = 0; j < count; j++)
+	{
+		total += entries[j].s.st_size;
+	}
+	return (total/1024);
+}
 
-void		print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o)
+void	print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o)
 {
 	if (count == 0)
 	{
 		return ;
+	}
+	if (o.one_file_per_line)
+	{
+		ft_putstr("total ");
+		printf("%d\n", calc_total(entries, count));
 	}
 	int	cols_count = get_columns_count(entries, count, o);
 	int	rows_count = get_rows_count(count, cols_count);
