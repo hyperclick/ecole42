@@ -89,30 +89,39 @@ t_input	create_empty_input()
 
 t_input	parse_arguments(int c, const char *args[])
 {
-	t_input input;
-	const char    *arg;
-	
+	t_input		input;
+	const char	*arg;
+	BOOL		parsing_options;
+	t_entry		e;
+
+	parsing_options = TRUE;
 	input = create_empty_input();
 	
-	for (int i = 0; i< c; i++)
+	//options are coming before files
+	
+	for (int i = 0; i < c; i++)
 	{
 		arg = args[i];
-		t_entry e = try_get_entry(arg);
-		if (!is_null_entry(e))
+		if (parsing_options && arg[0] != '-')
 		{
-			parse_arguments_add_entry(&input, e);
-			continue;
+			parsing_options = FALSE;
 		}
-		if (arg[0] != '-')
+		if (parsing_options)
+		{
+			if (try_parse_option(&input, arg + 1))
+			{
+				continue;
+			}
+			print_usage();
+			exit (1);
+		}
+		e = try_get_entry(arg);
+		if (is_null_entry(e))
 		{
 			print_no_such_file(arg);
 			continue;
 		}
-		if (!try_parse_option(&input, arg + 1))
-		{
-			print_usage();
-			exit (1);
-		}
+		parse_arguments_add_entry(&input, e);
 	}
 	return (input);
 }
