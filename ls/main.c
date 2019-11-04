@@ -16,7 +16,7 @@ void		print_folder_recursive(t_entry folder, t_input input)
 	for (int i = 0; i < count; i++)
 	{
 		t_entry e = entries[i];
-		if (e.is_folder)
+		if (is_folder(e.s.st_mode))
 		{
 			ft_putstr("\n");
 			ft_putstr(e.full_name.path);

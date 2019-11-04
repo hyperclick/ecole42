@@ -14,7 +14,7 @@ BOOL	need_swap(t_entry a, t_entry b, t_sort_options o)
 	BOOL	second_is_greter;
 	if (o.sort_by == SORT_BY_MOD_TIME)
 	{
-		second_is_greter = b.mod_time >= a.mod_time;
+		second_is_greter = b.s.st_mtime >= a.s.st_mtime;
 	//	if (b.mod_time == a.mod_time)
 	//	{
 	//		second_is_greter =

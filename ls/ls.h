@@ -53,13 +53,13 @@ typedef struct	s_full_name
 typedef	struct	s_entry
 {
 	t_f_n		full_name;
-	BOOL		is_folder;
+	//char		type;
 	BOOL		is_null;
-	time_t		creation_time;
-	time_t		access_time;
-	time_t		mod_time;
-	off_t		size;
-
+	//time_t		creation_time;
+	//time_t		access_time;
+	//time_t		mod_time;
+	//off_t		size;
+	struct stat s;
 }				t_entry;
 
 typedef	struct	s_input
@@ -76,8 +76,7 @@ typedef	struct	s_input
 
 BOOL		is_null_entry(t_entry e);
 
-
-
+BOOL		is_folder(const mode_t mode);
 t_entry		try_get_entry(const char arg[]);
 t_input		parse_arguments(int c, const char* args[]);
 t_entry*	sort(t_entry entries[MAX_FSO_IN_DIR], int count, t_sort_options o);

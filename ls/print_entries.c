@@ -99,8 +99,32 @@ int	get_columns_count(t_entry entries[], int entries_count, t_print_options o)
 
 void	print_details(t_entry e)
 {
-//	print_access_rights(e);
-
+	
+	switch (e.s.st_mode & S_IFMT)
+	{
+		case S_IFBLK:  ft_putchar('b');	break;
+		case S_IFCHR:  ft_putchar('c');	break;
+		case S_IFDIR:  ft_putchar('d');	break;
+		case S_IFIFO:  ft_putchar('p');	break;
+		case S_IFLNK:  ft_putchar('l');	break;
+		case S_IFREG:  ft_putchar('-');	break;
+		case S_IFSOCK: ft_putchar('s');	break;
+		default:
+			printf("unknown?: %d\n", e.s.st_mode);
+			exit(2);
+			break;
+	}
+	
+	printf( (e.s.st_mode & S_IRUSR) ? "r" : "-");
+	printf( (e.s.st_mode & S_IWUSR) ? "w" : "-");
+	printf( (e.s.st_mode & S_IXUSR) ? "x" : "-");
+	printf( (e.s.st_mode & S_IRGRP) ? "r" : "-");
+	printf( (e.s.st_mode & S_IWGRP) ? "w" : "-");
+	printf( (e.s.st_mode & S_IXGRP) ? "x" : "-");
+	printf( (e.s.st_mode & S_IROTH) ? "r" : "-");
+	printf( (e.s.st_mode & S_IWOTH) ? "w" : "-");
+	printf( (e.s.st_mode & S_IXOTH) ? "x" : "-");
+	ft_putchar('\t');
 }
 
 void	print(t_entry e, t_print_options o)
@@ -110,7 +134,7 @@ void	print(t_entry e, t_print_options o)
 		print_details(e);
 	}
 	printf("%s ", e.full_name.name);
-	if (e.is_folder)
+	//if (e.is_folder)
 	{
 		//putchar(PATH_SEPARATOR);
 	}

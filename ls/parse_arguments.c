@@ -57,7 +57,7 @@ BOOL	try_parse_option(t_input *input, const char arg[])
 
 void	parse_arguments_add_entry(t_input *input, t_entry e)
 {
-	if (e.is_folder)
+	if (is_folder(e.s.st_mode))
 	{
 		input->folders[input->folders_count++] = e;
 		if (input->folders_count > MAX_FSO_IN_DIR)

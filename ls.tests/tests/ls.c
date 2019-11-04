@@ -8,3 +8,4 @@ t_f_n	create_full_name()
 	fn.path[0] = 0;
 	return (fn);
 }
+

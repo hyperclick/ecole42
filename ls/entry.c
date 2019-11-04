@@ -1,5 +1,10 @@
 #include "ls.h"
 
+BOOL	is_folder(const mode_t mode)
+{
+	return (S_ISDIR(mode));
+}
+
 BOOL	is_absolute_path(char	*path)
 {
 	return (*path == PATH_SEPARATOR);
@@ -59,54 +64,13 @@ t_f_n	get_full_name(const char name[])
 	}
 	return (fn);
 }
-/*
-time_t	fill_mod_time(t_entry *e, struct stat s)
-{
-	
-}
-*/
-void	fill_entry_shared(t_entry *e, struct stat s, const char name[])
-{
-	e->full_name = get_full_name(name);
-	e->creation_time = s.st_ctime;
-	e->access_time = s.st_atime;
-	e->mod_time = s.st_mtime;
-	e->size = s.st_size;
-	e->is_null = FALSE;
-}
 
-void	fill_entry_dir(t_entry* e, struct stat s, const char name[])
-{
-	e->is_folder = TRUE;
-	fill_entry_shared(e, s, name);
-}
-
-void	fill_entry_file(t_entry* e, struct stat s, const char name[])
-{
-	e->is_folder = FALSE;
-	fill_entry_shared(e, s, name);
-}
-
-void	fill_entry_sym_link(t_entry* e, struct stat s, const char name[])
-{
-	e->is_folder = FALSE;
-	fill_entry_shared(e, s, name);
-}
 
 void fill_entry(t_entry* e, struct stat s, const char name[])
 {
-
-	switch (s.st_mode & S_IFMT) {
-	case S_IFBLK:  printf("block device:\tignoring\n");            break;
-	case S_IFCHR:  printf("character device\tignoring\n");        break;
-	case S_IFDIR:  fill_entry_dir(e, s, name);          break;
-	case S_IFIFO:  printf("FIFO/pipe\tignoring\n");               break;
-	case S_IFLNK:  fill_entry_sym_link(e, s, name);                 break;
-	case S_IFREG:  fill_entry_file(e, s, name);           break;
-	case S_IFSOCK: printf("socket\tignoring\n");                  break;
-	default:       printf("unknown?: %d\n", s.st_mode);   exit(2);             break;
-	}
-
+	e->s = s;
+	e->full_name = get_full_name(name);
+	e->is_null = FALSE;
 
 }
 
