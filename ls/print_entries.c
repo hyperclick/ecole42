@@ -1,5 +1,7 @@
 #include "ls.h"
 #define SPACES_BETWEEN_COL 2
+#include <time.h>
+
 
 int	get_console_width()
 {
@@ -96,6 +98,16 @@ int	get_columns_count(t_entry entries[], int entries_count, t_print_options o)
 	return (1);
 }
 
+char* formatdate2(char* str, time_t val)
+{
+	strftime(str, 36, "%d.%m.%Y %H:%M:%S", localtime(&val));
+	return str;
+}
+char* formatdate(char* str, time_t val)
+{
+	strftime(str, 36,  " %b\t%-d %H:%M", localtime(&val));
+	return str;
+}
 
 void	print_details(t_entry e)
 {
@@ -127,6 +139,11 @@ void	print_details(t_entry e)
 	ft_putchar('\t');
 	
 	printf("%d\t", e.s.st_nlink);
+	printf("%s\t", getpwuid(e.s.st_uid)->pw_name);
+	printf("%s\t", getgrgid(e.s.st_gid)->gr_name);
+	printf("%lld\t", e.s.st_size);
+	char date[36];
+	printf("%s\t",formatdate(date, e.s.st_mtime));
 }
 
 void	print(t_entry e, t_print_options o)
