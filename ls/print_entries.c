@@ -125,6 +125,8 @@ void	print_details(t_entry e)
 	printf( (e.s.st_mode & S_IWOTH) ? "w" : "-");
 	printf( (e.s.st_mode & S_IXOTH) ? "x" : "-");
 	ft_putchar('\t');
+	
+	printf("%d\t", e.s.st_nlink);
 }
 
 void	print(t_entry e, t_print_options o)
