@@ -109,6 +109,15 @@ char* formatdate(char* str, time_t val)
 	return str;
 }
 
+BOOL	has_xattr(const char filename[])
+{
+	char list[XATTR_SIZE], value[XATTR_SIZE];
+	ssize_t len;
+	len = listxattr(filename, list, XATTR_SIZE, XATTR_NOFOLLOW);
+	
+	return (len > 0);
+	
+}
 void	print_details(t_entry e)
 {
 	
@@ -136,6 +145,11 @@ void	print_details(t_entry e)
 	printf( (e.s.st_mode & S_IROTH) ? "r" : "-");
 	printf( (e.s.st_mode & S_IWOTH) ? "w" : "-");
 	printf( (e.s.st_mode & S_IXOTH) ? "x" : "-");
+	
+	if (has_xattr(e.full_name.path))
+	{
+		ft_putchar('@');
+	}
 	ft_putchar('\t');
 	
 	printf("%d\t", e.s.st_nlink);
@@ -163,9 +177,9 @@ int		calc_total(t_entry	entries[MAX_FSO_IN_DIR], int count)
 	int	total = 0;
 	for (int j = 0; j < count; j++)
 	{
-		total += entries[j].s.st_size;
+		total += entries[j].s.st_blocks;
 	}
-	return (total/1024);
+	return (total);
 }
 
 void	print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o)
