@@ -89,11 +89,11 @@ int	main(int argc, const char* argv[])
 		<#statements#>
 	}*/
 	//t_entry	app = try_get_entry(argv[0]);
-	t_entry	app = try_get_entry("/ft_ls");
+	//t_entry	app = try_get_entry(".");
 	//input.cur_dir = try_get_entry(argv[0]);
-	set_cur_dir(app.full_name.folder);
-	log_log("cur_dir is:\t");
-	log_line(get_cur_dir().full_name.path);
+	//set_cur_dir(app.full_name.folder);
+	//log_log("cur_dir is:\t");
+	//log_line(get_cur_dir().full_name.path);
 	t_input input = parse_arguments(argc - 1, argv + 1);
 	log_input(input);
 	print_entries(sort(input.files, input.files_count, input.sort_options), input.files_count, input.print_options);

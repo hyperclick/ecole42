@@ -43,7 +43,7 @@ int				ft_lst_count(t_list *lst);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
-
+BOOL			ft_ends_with(const char *str, const char c);
 int				ft_last_index(const char* str, const char to_find);
 void			*ft_memset (void *ptr, int value, size_t num);
 void			ft_bzero(void *s, size_t n);

@@ -29,18 +29,17 @@ t_entry	create_null_entry()
 
 void	make_path(char *path, const char name[])
 {
-	int		len;
-
-	len = 0;
-	if (!is_absolute_path(name))
+	if (is_absolute_path(name))
 	{
-		ft_strcpy(path, get_cur_dir().full_name.path);
-		len = ft_strlen(path);
-		path[len] = PATH_SEPARATOR;
-		len++;
+		//todo: check overflow
+		ft_strcpy(path, name);
 	}
-	//todo: check overflow
-	ft_strcpy(path + len, name);
+	else
+	{
+		ft_strcpy(path, "./");
+		//todo: check overflow
+		ft_strcpy(path + 2, name);
+	}
 }
 
 t_f_n	get_full_name(const char name[])
@@ -50,10 +49,18 @@ t_f_n	get_full_name(const char name[])
 	int		len;
 	
 	fn = create_full_name();
-	make_path(fn.path, name);
+	ft_strcpy(fn.path, name);
+	if (ft_strcmp(".", name) == 0)
+	{
+		//ft_strcpy(fn.path, ".");
+		ft_strcpy(fn.folder, ".");
+		ft_strcpy(fn.name,".");
+		return (fn);
+	}
+	
+	//make_path(fn.path, name);
 	
 	pos = ft_last_index(fn.path, PATH_SEPARATOR);
-	len = ft_strlen(fn.path);
 	char* sub = ft_strsub(fn.path, 0, pos);
 	if (sub != NULL)
 	{
@@ -61,6 +68,7 @@ t_f_n	get_full_name(const char name[])
 		free(sub);
 	}
 	pos++;
+	len = ft_strlen(fn.path);
 	sub = ft_strsub(name, pos, len - pos);
 	if (sub != NULL)
 	{

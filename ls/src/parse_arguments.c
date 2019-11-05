@@ -133,6 +133,7 @@ t_input	parse_arguments(int c, const char *args[])
 			ft_putstr("failed to create entry for '.'\n");
 			exit(5);
 		}
+		//ft_putstr("qqq");
 		parse_arguments_add_entry(&input, e);
 	}
 	
