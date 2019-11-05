@@ -78,7 +78,7 @@ void	log_input(t_input input)
 	}
 }
 
-int	main(int argc, const char* argv[])
+int	main2(int argc, const char* argv[])
 {
 	log_line("\n\n\n---------------started----------------");
 	//log_args

@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7527A85237189AA00B2A5E1 /* print_entries.c in Sources */ = {isa = PBXBuildFile; fileRef = C7527A7C237189A900B2A5E1 /* print_entries.c */; };
+		C7527A86237189AA00B2A5E1 /* ls.c in Sources */ = {isa = PBXBuildFile; fileRef = C7527A7D237189A900B2A5E1 /* ls.c */; };
+		C7527A87237189AA00B2A5E1 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C7527A7E237189A900B2A5E1 /* main.c */; };
+		C7527A88237189AA00B2A5E1 /* parse_arguments.c in Sources */ = {isa = PBXBuildFile; fileRef = C7527A80237189A900B2A5E1 /* parse_arguments.c */; };
+		C7527A89237189AA00B2A5E1 /* cur_dir.c in Sources */ = {isa = PBXBuildFile; fileRef = C7527A81237189AA00B2A5E1 /* cur_dir.c */; };
+		C7527A8A237189AA00B2A5E1 /* get_folder_entries.c in Sources */ = {isa = PBXBuildFile; fileRef = C7527A82237189AA00B2A5E1 /* get_folder_entries.c */; };
+		C7527A8B237189AA00B2A5E1 /* sort.c in Sources */ = {isa = PBXBuildFile; fileRef = C7527A83237189AA00B2A5E1 /* sort.c */; };
+		C7527A8C237189AA00B2A5E1 /* entry.c in Sources */ = {isa = PBXBuildFile; fileRef = C7527A84237189AA00B2A5E1 /* entry.c */; };
 		C78E5B0F234FABC700F6D9A4 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C78E5B0E234FABC700F6D9A4 /* main.c */; };
-		C78E5B1E234FAD1300F6D9A4 /* ls.c in Sources */ = {isa = PBXBuildFile; fileRef = C78E5B1D234FAD1200F6D9A4 /* ls.c */; };
-		C7A2A588236D4C8F00416B6C /* sort.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A581236D4C8E00416B6C /* sort.c */; };
-		C7A2A589236D4C8F00416B6C /* parse_arguments.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A582236D4C8E00416B6C /* parse_arguments.c */; };
-		C7A2A58A236D4C8F00416B6C /* print_entries.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A583236D4C8E00416B6C /* print_entries.c */; };
-		C7A2A58B236D4C8F00416B6C /* get_folder_entries.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A584236D4C8E00416B6C /* get_folder_entries.c */; };
-		C7A2A58C236D4C8F00416B6C /* entry.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A585236D4C8F00416B6C /* entry.c */; };
-		C7A2A58D236D4C8F00416B6C /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A587236D4C8F00416B6C /* main.c */; };
 		C7A2A66D236D735600416B6C /* ft_putstr.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A622236D735000416B6C /* ft_putstr.c */; };
 		C7A2A66E236D735600416B6C /* ft_lstdel.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A623236D735000416B6C /* ft_lstdel.c */; };
 		C7A2A66F236D735600416B6C /* ft_lst_find.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A624236D735000416B6C /* ft_lst_find.c */; };
@@ -89,7 +90,6 @@
 		C7A2A6B4236D735600416B6C /* ft_strsub.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A66A236D735600416B6C /* ft_strsub.c */; };
 		C7A2A6B5236D735600416B6C /* ft_striteri.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A66B236D735600416B6C /* ft_striteri.c */; };
 		C7A2A6B6236D735600416B6C /* ft_str_remove_at.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A66C236D735600416B6C /* ft_str_remove_at.c */; };
-		C7A2A6B8236D807600416B6C /* cur_dir.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A6B7236D807600416B6C /* cur_dir.c */; };
 		C7D021F7236EE26C00898B99 /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = C7D021F6236EE26B00898B99 /* log.c */; };
 /* End PBXBuildFile section */
 
@@ -106,16 +106,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C7527A7C237189A900B2A5E1 /* print_entries.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = print_entries.c; path = ../../ls/src/print_entries.c; sourceTree = "<group>"; };
+		C7527A7D237189A900B2A5E1 /* ls.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ls.c; path = ../../ls/src/ls.c; sourceTree = "<group>"; };
+		C7527A7E237189A900B2A5E1 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = ../../ls/src/main.c; sourceTree = "<group>"; };
+		C7527A7F237189A900B2A5E1 /* ls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ls.h; path = ../../ls/src/ls.h; sourceTree = "<group>"; };
+		C7527A80237189A900B2A5E1 /* parse_arguments.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = parse_arguments.c; path = ../../ls/src/parse_arguments.c; sourceTree = "<group>"; };
+		C7527A81237189AA00B2A5E1 /* cur_dir.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cur_dir.c; path = ../../ls/src/cur_dir.c; sourceTree = "<group>"; };
+		C7527A82237189AA00B2A5E1 /* get_folder_entries.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = get_folder_entries.c; path = ../../ls/src/get_folder_entries.c; sourceTree = "<group>"; };
+		C7527A83237189AA00B2A5E1 /* sort.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sort.c; path = ../../ls/src/sort.c; sourceTree = "<group>"; };
+		C7527A84237189AA00B2A5E1 /* entry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = entry.c; path = ../../ls/src/entry.c; sourceTree = "<group>"; };
 		C78E5B0B234FABC700F6D9A4 /* tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		C78E5B0E234FABC700F6D9A4 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
-		C78E5B19234FACAB00F6D9A4 /* ls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ls.h; path = ../../ls/ls.h; sourceTree = "<group>"; };
-		C78E5B1D234FAD1200F6D9A4 /* ls.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ls.c; sourceTree = "<group>"; };
-		C7A2A581236D4C8E00416B6C /* sort.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sort.c; path = ../../ls/sort.c; sourceTree = "<group>"; };
-		C7A2A582236D4C8E00416B6C /* parse_arguments.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = parse_arguments.c; path = ../../ls/parse_arguments.c; sourceTree = "<group>"; };
-		C7A2A583236D4C8E00416B6C /* print_entries.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = print_entries.c; path = ../../ls/print_entries.c; sourceTree = "<group>"; };
-		C7A2A584236D4C8E00416B6C /* get_folder_entries.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = get_folder_entries.c; path = ../../ls/get_folder_entries.c; sourceTree = "<group>"; };
-		C7A2A585236D4C8F00416B6C /* entry.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = entry.c; path = ../../ls/entry.c; sourceTree = "<group>"; };
-		C7A2A587236D4C8F00416B6C /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = main.c; path = ../../ls/main.c; sourceTree = "<group>"; };
 		C7A2A622236D735000416B6C /* ft_putstr.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_putstr.c; path = ../../ls/libft/ft_putstr.c; sourceTree = "<group>"; };
 		C7A2A623236D735000416B6C /* ft_lstdel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_lstdel.c; path = ../../ls/libft/ft_lstdel.c; sourceTree = "<group>"; };
 		C7A2A624236D735000416B6C /* ft_lst_find.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_lst_find.c; path = ../../ls/libft/ft_lst_find.c; sourceTree = "<group>"; };
@@ -191,7 +192,6 @@
 		C7A2A66A236D735600416B6C /* ft_strsub.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_strsub.c; path = ../../ls/libft/ft_strsub.c; sourceTree = "<group>"; };
 		C7A2A66B236D735600416B6C /* ft_striteri.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_striteri.c; path = ../../ls/libft/ft_striteri.c; sourceTree = "<group>"; };
 		C7A2A66C236D735600416B6C /* ft_str_remove_at.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_str_remove_at.c; path = ../../ls/libft/ft_str_remove_at.c; sourceTree = "<group>"; };
-		C7A2A6B7236D807600416B6C /* cur_dir.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = cur_dir.c; path = ../../ls/cur_dir.c; sourceTree = "<group>"; };
 		C7D021F6236EE26B00898B99 /* log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = log.c; path = ../../ls/libft/log.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,6 +206,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C7527A7B2371897800B2A5E1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				C7527A81237189AA00B2A5E1 /* cur_dir.c */,
+				C7527A84237189AA00B2A5E1 /* entry.c */,
+				C7527A82237189AA00B2A5E1 /* get_folder_entries.c */,
+				C7527A7D237189A900B2A5E1 /* ls.c */,
+				C7527A7F237189A900B2A5E1 /* ls.h */,
+				C7527A7E237189A900B2A5E1 /* main.c */,
+				C7527A80237189A900B2A5E1 /* parse_arguments.c */,
+				C7527A7C237189A900B2A5E1 /* print_entries.c */,
+				C7527A83237189AA00B2A5E1 /* sort.c */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
 		C78E5B02234FABC700F6D9A4 = {
 			isa = PBXGroup;
 			children = (
@@ -234,16 +250,8 @@
 		C78E5B15234FABFF00F6D9A4 /* ls */ = {
 			isa = PBXGroup;
 			children = (
-				C7A2A6B7236D807600416B6C /* cur_dir.c */,
+				C7527A7B2371897800B2A5E1 /* src */,
 				C7A2A621236D733F00416B6C /* libft */,
-				C7A2A585236D4C8F00416B6C /* entry.c */,
-				C7A2A584236D4C8E00416B6C /* get_folder_entries.c */,
-				C7A2A587236D4C8F00416B6C /* main.c */,
-				C7A2A582236D4C8E00416B6C /* parse_arguments.c */,
-				C7A2A583236D4C8E00416B6C /* print_entries.c */,
-				C7A2A581236D4C8E00416B6C /* sort.c */,
-				C78E5B19234FACAB00F6D9A4 /* ls.h */,
-				C78E5B1D234FAD1200F6D9A4 /* ls.c */,
 			);
 			name = ls;
 			sourceTree = "<group>";
@@ -398,8 +406,8 @@
 				C7A2A6AC236D735600416B6C /* ft_strnequ.c in Sources */,
 				C7A2A670236D735600416B6C /* ft_memcmp.c in Sources */,
 				C7A2A6A7236D735600416B6C /* ft_isprint.c in Sources */,
+				C7527A87237189AA00B2A5E1 /* main.c in Sources */,
 				C7A2A6A5236D735600416B6C /* ft_strstr.c in Sources */,
-				C7A2A588236D4C8F00416B6C /* sort.c in Sources */,
 				C7A2A6A1236D735600416B6C /* ft_strmap.c in Sources */,
 				C7A2A693236D735600416B6C /* Makefile in Sources */,
 				C7A2A689236D735600416B6C /* ft_putnbr.c in Sources */,
@@ -413,16 +421,17 @@
 				C7A2A673236D735600416B6C /* ft_putstr_fd.c in Sources */,
 				C7A2A679236D735600416B6C /* ft_contains.c in Sources */,
 				C7A2A66F236D735600416B6C /* ft_lst_find.c in Sources */,
-				C7A2A58B236D4C8F00416B6C /* get_folder_entries.c in Sources */,
+				C7527A86237189AA00B2A5E1 /* ls.c in Sources */,
 				C7A2A6A4236D735600416B6C /* ft_tolower.c in Sources */,
+				C7527A89237189AA00B2A5E1 /* cur_dir.c in Sources */,
 				C7A2A69D236D735600416B6C /* ft_atoi.c in Sources */,
 				C7A2A66D236D735600416B6C /* ft_putstr.c in Sources */,
 				C7A2A69E236D735600416B6C /* ft_strdup.c in Sources */,
-				C7A2A58A236D4C8F00416B6C /* print_entries.c in Sources */,
 				C7A2A69C236D735600416B6C /* ft_last_index.c in Sources */,
 				C7A2A683236D735600416B6C /* ft_strcmp.c in Sources */,
 				C7A2A6B0236D735600416B6C /* ft_strclr.c in Sources */,
 				C7A2A67B236D735600416B6C /* ft_putnbr_fd.c in Sources */,
+				C7527A88237189AA00B2A5E1 /* parse_arguments.c in Sources */,
 				C7A2A67D236D735600416B6C /* ft_strlen.c in Sources */,
 				C7A2A674236D735600416B6C /* ft_starts_with.c in Sources */,
 				C7A2A6B6236D735600416B6C /* ft_str_remove_at.c in Sources */,
@@ -430,6 +439,7 @@
 				C7A2A6AF236D735600416B6C /* ft_split.c in Sources */,
 				C7A2A690236D735600416B6C /* ft_lstmap.c in Sources */,
 				C7A2A6A9236D735600416B6C /* ft_strcat.c in Sources */,
+				C7527A8A237189AA00B2A5E1 /* get_folder_entries.c in Sources */,
 				C7A2A66E236D735600416B6C /* ft_lstdel.c in Sources */,
 				C7A2A68A236D735600416B6C /* ft_strchr.c in Sources */,
 				C7A2A697236D735600416B6C /* ft_striter.c in Sources */,
@@ -437,26 +447,24 @@
 				C7A2A6A8236D735600416B6C /* ft_str_append.c in Sources */,
 				C7A2A6B4236D735600416B6C /* ft_strsub.c in Sources */,
 				C7A2A68B236D735600416B6C /* ft_isalpha.c in Sources */,
+				C7527A85237189AA00B2A5E1 /* print_entries.c in Sources */,
 				C7A2A68E236D735600416B6C /* ft_putchar.c in Sources */,
-				C7A2A589236D4C8F00416B6C /* parse_arguments.c in Sources */,
 				C7A2A6B3236D735600416B6C /* ft_memchr.c in Sources */,
+				C7527A8C237189AA00B2A5E1 /* entry.c in Sources */,
 				C7A2A686236D735600416B6C /* ft_lst_count.c in Sources */,
 				C7A2A69A236D735600416B6C /* ft_lstdelone.c in Sources */,
 				C7A2A67F236D735600416B6C /* ft_strrchr.c in Sources */,
 				C7A2A678236D735600416B6C /* ft_putchar_fd.c in Sources */,
-				C7A2A58C236D4C8F00416B6C /* entry.c in Sources */,
 				C7A2A67C236D735600416B6C /* ft_sqrt_up.c in Sources */,
 				C7A2A672236D735600416B6C /* ft_strdel.c in Sources */,
 				C7A2A671236D735600416B6C /* ft_strmapi.c in Sources */,
 				C7D021F7236EE26C00898B99 /* log.c in Sources */,
 				C7A2A688236D735600416B6C /* ft_is_number.c in Sources */,
-				C7A2A6B8236D807600416B6C /* cur_dir.c in Sources */,
+				C7527A8B237189AA00B2A5E1 /* sort.c in Sources */,
 				C7A2A695236D735600416B6C /* ft_isascii.c in Sources */,
-				C78E5B1E234FAD1300F6D9A4 /* ls.c in Sources */,
 				C7A2A68F236D735600416B6C /* ft_lst_free_item.c in Sources */,
 				C7A2A6AB236D735600416B6C /* ft_strncpy.c in Sources */,
 				C7A2A696236D735600416B6C /* ft_count_words.c in Sources */,
-				C7A2A58D236D4C8F00416B6C /* main.c in Sources */,
 				C7A2A694236D735600416B6C /* ft_memmove.c in Sources */,
 				C7A2A6AA236D735600416B6C /* ft_strncmp.c in Sources */,
 				C7A2A687236D735600416B6C /* ft_itoa.c in Sources */,
