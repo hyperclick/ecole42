@@ -29,8 +29,6 @@ typedef struct	s_find_options
 	BOOL almost_all; //-A
 }				t_find_options;
 
-
-
 typedef struct	s_sort_options
 {
 #define SORT_BY_NAME		1//default
@@ -52,6 +50,7 @@ typedef struct	s_full_name
 	char		folder[MAX_PATH];
 	char		name[MAX_PATH];
 }					t_f_n;
+
 typedef	struct	s_entry
 {
 	t_f_n		full_name;
@@ -76,6 +75,16 @@ typedef	struct	s_input
 	t_sort_options	sort_options;
 	t_print_options	print_options;
 }				t_input;
+
+typedef	struct	s_dir_info
+{
+	BOOL	any_has_xattr;
+	int		max_link_len;
+	int		max_size_len;
+	int		max_group_len;
+	int		max_user_len;
+}				t_dir_info;
+
 
 BOOL		is_null_entry(t_entry e);
 

@@ -169,7 +169,7 @@ void print_spaces(int sizespace)
 
 
 
-void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group_len, int max_user_len)
+void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group_len, int max_user_len, BOOL any_has_xattr)
 {
 	if (is_folder(e.s.st_mode))
 	{
@@ -216,26 +216,23 @@ void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group
 	{
 		ft_putchar('@');
 	}
-	else
+	else if(any_has_xattr)
 	{
 		ft_putchar(' ');
 	}
-	//ft_putchar('\t');
 	print_spaces(2 + get_number_len(max_links_len) - get_number_len(e.s.st_nlink));
 	ft_putnbr( e.s.st_nlink);
 	ft_putstr(" ");
 	
 	ft_putstr( getpwuid(e.s.st_uid)->pw_name);
-	print_spaces(1 + max_user_len - ft_strlen(getpwuid(e.s.st_uid)->pw_name));
-	//ft_putstr("\t");
+	print_spaces(2 + max_user_len - ft_strlen(getpwuid(e.s.st_uid)->pw_name));
 	
 	ft_putstr( getgrgid(e.s.st_gid)->gr_name);
 	print_spaces(max_group_len - ft_strlen(getgrgid(e.s.st_gid)->gr_name));
-	//ft_putstr("\t");
+
 	print_spaces(2 + get_number_len(max_size_len) - get_number_len(e.s.st_size));
 	ft_putnbr(e.s.st_size);
 	ft_putstr(" ");
-	//ft_putstr("\t");
 	char date[36];
 	ft_putstr(formatdate(date, e.s.st_mtime));
 	ft_putstr(" ");
@@ -255,11 +252,11 @@ static void print_link_target(const char name[])
 	ft_putstr(buf);
 }
 
-void	print(t_entry e, t_print_options o, int  max_link_len, int max_size_len, int max_group_len, int max_user_len)
+void	print(t_entry e, t_print_options o, int  max_link_len, int max_size_len, int max_group_len, int max_user_len, BOOL any_has_xattr)
 {
 	if (o.details)
 	{
-		print_details(e,  max_link_len, max_size_len, max_group_len, max_user_len);
+		print_details(e, max_link_len, max_size_len, max_group_len, max_user_len, any_has_xattr);
 	}
 	ft_putstr( e.full_name.name);
 	if (o.details && is_link(e.s.st_mode))
@@ -329,10 +326,22 @@ size_t		find_max_user_len(t_entry	entries[MAX_FSO_IN_DIR], int count)
 	return (max);
 }
 
+size_t		does_any_have_xattr(t_entry	entries[MAX_FSO_IN_DIR], int count)
+{
+	while (count > 0)
+	{
+		if (has_xattr(entries[count--].full_name.path))
+		{
+			return (TRUE);
+		}
+	}
+	return (FALSE);
+}
 
 
 void	print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o)
 {
+	BOOL	any_has_xattr = does_any_have_xattr(entries, count);
 	int max_link_len = find_max_link_len(entries, count);
 	int max_size_len = find_max_size_len(entries, count);
 	int max_group_len= find_max_group_len(entries, count);
@@ -353,7 +362,7 @@ void	print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o
 	{
 		for (int j = 0; j < cols_count; j++)
 		{
-			print(entries[i * cols_count + j], o, max_link_len, max_size_len, max_group_len, max_user_len);
+			print(entries[i * cols_count + j], o, max_link_len, max_size_len, max_group_len, max_user_len, any_has_xattr);
 		}
 		ft_putstr("\n");
 	}
