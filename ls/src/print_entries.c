@@ -98,13 +98,44 @@ int	get_columns_count(t_entry entries[], int entries_count, t_print_options o)
 	return (1);
 }
 
-char* formatdate(char* str, time_t val)
+char* formatdate2(char* str, time_t val)
 {
+	//strftime(str, 36, "%d.%m.%Y %H:%M:%S", localtime(&val));
 	char *str2;
-
+	
 	str2=ft_strncpy(&str[0], ctime(&val)+4, 4);
 	str2=ft_strncpy(&str[4], ctime(&val)+8, 3);
 	str2=ft_strncpy(&str[7], ctime(&val)+11, 5);
+	str[12]='\0';
+	return str;
+}
+char* formatdate(char* str, time_t val)
+{
+	char *str2;
+	char *tmp;
+	long i;
+	long ii;
+	time_t val2;
+	val2 =val;
+	i=time(NULL);
+	ii=time(&val2);
+	char *tmp2;
+	//strftime(str, 36,  " %b\t%-d %H:%M", localtime(&val));
+	
+	str2=ft_strncpy(&str[0], ctime(&val)+4, 4);
+	str2=ft_strncpy(&str[4], ctime(&val)+8, 3);
+	//str2=ft_strncpy(&str[7], ctime(&val)+11, 5);
+	tmp2=ctime(&val)+20;
+	if (atoi(tmp2)==2019)
+	{
+		str2=ft_strncpy(&str[7], ctime(&val)+11, 5);
+	}
+	else
+	{
+		tmp = ft_strjoin(" ", tmp2);
+		str2 = ft_strncpy(&str[7], tmp, 5);
+		free(tmp);
+	}
 	str[12]='\0';
 	return str;
 }
@@ -119,7 +150,26 @@ BOOL	has_xattr(const char filename[])
 	
 }
 
-void	print_details(t_entry e)
+int		get_number_len(unsigned int number)
+{
+	int len = 0;
+	while (number >= 10)
+	{
+		number /= 10;
+		len++;
+	}
+	return (len);
+}
+
+void print_spaces(int sizespace)
+{
+	while (sizespace-- > 0)
+		ft_putchar(' ');
+}
+
+
+
+void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group_len, int max_user_len)
 {
 	if (is_folder(e.s.st_mode))
 	{
@@ -166,14 +216,23 @@ void	print_details(t_entry e)
 	{
 		ft_putchar('@');
 	}
-	ft_putchar('\t');
-	
+	else
+	{
+		ft_putchar(' ');
+	}
+	//ft_putchar('\t');
+	print_spaces(2 + get_number_len(max_links_len) - get_number_len(e.s.st_nlink));
 	ft_putnbr( e.s.st_nlink);
-	ft_putstr("\t");
+	ft_putstr(" ");
+	
 	ft_putstr( getpwuid(e.s.st_uid)->pw_name);
-	ft_putstr("\t");
+	print_spaces(1 + max_user_len - ft_strlen(getpwuid(e.s.st_uid)->pw_name));
+	//ft_putstr("\t");
+	
 	ft_putstr( getgrgid(e.s.st_gid)->gr_name);
-	ft_putstr("\t");
+	print_spaces(max_group_len - ft_strlen(getgrgid(e.s.st_gid)->gr_name));
+	//ft_putstr("\t");
+	print_spaces(2 + get_number_len(max_size_len) - get_number_len(e.s.st_size));
 	ft_putnbr(e.s.st_size);
 	ft_putstr(" ");
 	//ft_putstr("\t");
@@ -196,11 +255,11 @@ static void print_link_target(const char name[])
 	ft_putstr(buf);
 }
 
-void	print(t_entry e, t_print_options o)
+void	print(t_entry e, t_print_options o, int  max_link_len, int max_size_len, int max_group_len, int max_user_len)
 {
 	if (o.details)
 	{
-		print_details(e);
+		print_details(e,  max_link_len, max_size_len, max_group_len, max_user_len);
 	}
 	ft_putstr( e.full_name.name);
 	if (o.details && is_link(e.s.st_mode))
@@ -218,8 +277,66 @@ int		calc_total(t_entry	entries[MAX_FSO_IN_DIR], int count)
 	return (total);
 }
 
+int		find_max_link_len(t_entry	entries[MAX_FSO_IN_DIR], int count)
+{
+	int max = 0;
+	for (int i = 0; i < count; i++)
+	{
+		if (max < entries[i].s.st_nlink)
+		{
+			max = entries[i].s.st_nlink;
+		}
+	}
+	return (max);
+}
+
+int		find_max_size_len(t_entry	entries[MAX_FSO_IN_DIR], int count)
+{
+	int max = 0;
+	for (int i = 0; i < count; i++)
+	{
+		if (max < entries[i].s.st_size)
+		{
+			max = entries[i].s.st_size;
+		}
+	}
+	return (max);
+}
+
+size_t	find_max_group_len(t_entry	entries[MAX_FSO_IN_DIR], int count)
+{
+	size_t max = 0;
+	for (int i = 0; i < count; i++)
+	{
+		if (max < ft_strlen(getgrgid(entries[i].s.st_gid)->gr_name))
+		{
+			max = ft_strlen(getgrgid(entries[i].s.st_gid)->gr_name);
+		}
+	}
+	return (max);
+}
+
+size_t		find_max_user_len(t_entry	entries[MAX_FSO_IN_DIR], int count)
+{
+	size_t max = 0;
+	for (int i = 0; i < count; i++)
+	{
+		if (max < ft_strlen(getpwuid(entries[i].s.st_uid)->pw_name))
+		{
+			max = ft_strlen(getpwuid(entries[i].s.st_uid)->pw_name);
+		}
+	}
+	return (max);
+}
+
+
+
 void	print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o)
 {
+	int max_link_len = find_max_link_len(entries, count);
+	int max_size_len = find_max_size_len(entries, count);
+	int max_group_len= find_max_group_len(entries, count);
+	int max_user_len= find_max_user_len(entries, count);
 	if (count == 0)
 	{
 		return ;
@@ -236,9 +353,8 @@ void	print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o
 	{
 		for (int j = 0; j < cols_count; j++)
 		{
-			print(entries[i * cols_count + j], o);
+			print(entries[i * cols_count + j], o, max_link_len, max_size_len, max_group_len, max_user_len);
 		}
 		ft_putstr("\n");
 	}
 }
-

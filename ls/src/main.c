@@ -41,7 +41,7 @@ void		print_folders(t_entry folders[], int count, t_input input)
 {
 	for ( int i = 0; i < count; i++)
 	{
-		if (i > 0)
+		if (i > 0 || input.files_count > 0)
 		{
 			ft_putchar('\n');
 		}

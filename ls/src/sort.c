@@ -11,20 +11,17 @@ void	swap(t_entry entries[], int i, int j)
 
 BOOL	need_swap(t_entry a, t_entry b, t_sort_options o)
 {
-	BOOL	second_is_greter;
+	BOOL	second_is_greater;
 	if (o.sort_by == SORT_BY_MOD_TIME)
 	{
-		second_is_greter = b.s.st_mtime >= a.s.st_mtime;
-	//	if (b.mod_time == a.mod_time)
-	//	{
-	//		second_is_greter =
-	//	}
+		second_is_greater = b.s.st_mtime <= a.s.st_mtime;
+		//second_is_greater = !second_is_greater;//default is descending order
 	}
 	if (o.sort_by == SORT_BY_NAME)
 	{
-		second_is_greter = (ft_strcmp(b.full_name.name, a.full_name.name) >= 0);
+		second_is_greater = (ft_strcmp(b.full_name.name, a.full_name.name) >= 0);
 	}
-	BOOL	need_to_swap = o.sort_desc == TRUE ? second_is_greter : !second_is_greter;
+	BOOL	need_to_swap = o.sort_desc == TRUE ? second_is_greater : !second_is_greater;
 	return (need_to_swap);
 
 	ft_putstr("undefined sort");
