@@ -1,9 +1,9 @@
 #include "ls.h"
-void	print_usage()
+void	print_usage(const char f)
 {
-	ft_putstr("ls: illegal option -- ?\n");
-	ft_putstr("usage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]");
-	
+	ft_putstr("ls: illegal option -- ");
+	ft_putchar(f);
+	ft_putstr("\nusage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]\n");
 }
 
 void	print_no_such_file(const char    arg[])
@@ -39,6 +39,8 @@ BOOL	parse_flag(t_input *input, const char f)
 		return (TRUE);
 	}
 	
+	print_usage(f);
+	exit (1);
 	return (FALSE);
 }
 
@@ -112,8 +114,6 @@ t_input	parse_arguments(int c, const char *args[])
 			{
 				continue;
 			}
-			print_usage();
-			exit (1);
 		}
 		e = try_get_entry(arg);
 		if (is_null_entry(e))
