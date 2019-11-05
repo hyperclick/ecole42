@@ -8,7 +8,8 @@ void log_log (const char *str)
 {
 	FILE * fp;
 	/* open the file for writing*/
-	fp = fopen ("log.txt","a");
+	fp = fopen ("/Users/darugula/log.txt","a");
+	//fp = fopen ("log.txt","a");
 	
 	fprintf (fp, "%s",str);
 	

@@ -15,3 +15,37 @@ libft
 log.txt
 Makefile
 src
+
+
+
+---------------started----------------
+./ft_ls
+no files or folders provided. using .
+arguments parsed:
+files:
+folders:
+.
+entries found in .
+author
+ft_ls
+libft
+log.txt
+Makefile
+src
+
+
+
+---------------started----------------
+./ft_ls
+no files or folders provided. using .
+arguments parsed:
+files:
+folders:
+.
+entries found in .
+author
+ft_ls
+libft
+log.txt
+Makefile
+src
