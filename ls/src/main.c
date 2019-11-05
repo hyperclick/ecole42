@@ -82,7 +82,14 @@ int	main(int argc, const char* argv[])
 {
 	log_line("\n\n\n---------------started----------------");
 	//log_args
-	t_entry	app = try_get_entry(argv[0]);
+	log_line(argv[0]);
+	/*
+	if (ft_starts_with_string(argv[0], "./ft_ls"))
+	{
+		<#statements#>
+	}*/
+	//t_entry	app = try_get_entry(argv[0]);
+	t_entry	app = try_get_entry("/ft_ls");
 	//input.cur_dir = try_get_entry(argv[0]);
 	set_cur_dir(app.full_name.folder);
 	log_log("cur_dir is:\t");

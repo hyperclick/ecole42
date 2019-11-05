@@ -5,33 +5,34 @@ FILENAMES = ls.c cur_dir.c entry.c get_folder_entries.c main.c parse_arguments.c
 NAME = ft_ls
 
 SRCS	=$(addprefix src/, $(FILENAMES))
-OBJS	=$(addprefix build/, $(FILENAMES:.c=.o))
+
+OBJS			= $(SRCS:%.c=%.o)
 
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	+= -Wall -Wextra -Werror
 CFLAGS	+= -I includes/
-LFLAGS	= -L ./libft/ -lft
+LIBFT	= libft/libft.a
 
 all: $(NAME)
 
-$(NAME):$(OBJS) | lib
-	@$(CC) $(CFLAGS) -o $(NAME) $(LFLAGS) $(OBJS)
+$(OBJS): %.o: %.c 
+	$(CC) $(CFLAGS) $< -o $@ -c 
+	
 
-build/%.o: src/%.c | build
-	@$(CC) $(CFLAGS) -o $@ -c $^
+$(LIBFT):
+	@make -C libft
+
+$(NAME): $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(LIBFT) $(OBJS)
+
+
+clean:
+	@rm -rf $(OBJS)
+	@make clean -C libft
+
+fclean: clean
+	@make fclean -C libft
+	@rm -rf $(NAME)
 
 re: fclean all
 
-lib:
-	@make -C ./libft
-	@make clean -C ./libft
-
-clean:
-	@rm -rf build/
-
-fclean: clean
-	@make fclean -C ./libft
-	@rm -f $(NAME)
-
-build:
-	@mkdir build/

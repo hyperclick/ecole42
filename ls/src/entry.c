@@ -100,7 +100,8 @@ t_entry try_get_entry(const char arg[])
 	}
 	else
 	{
-		perror("lstat() ");
+		perror("lstat()\n");
+		ft_putstr(arg);
 	}
 	return (e);
 }
