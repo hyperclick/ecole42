@@ -26,11 +26,14 @@ int		get_folder_entries(t_entry entries[], t_entry folder, t_find_options o)
 	dir = opendir(folder.full_name.path);
 	if (!dir)
 	{
-		//todo: compare with ls output
-		//todo: set exit_code = 1
-		ft_putstr(folder.full_name.path);
-		ft_putstr("\n");
-		perror("diropen");
+		log_line("diropen failed");
+		log_line(folder.full_name.path);
+		log_line(strerror(errno));
+		ft_putstr("ls: ");
+		ft_putstr(folder.full_name.name);
+		ft_putstr(": ");
+		ft_putstr(strerror(errno));
+		ft_putchar('\n');
 		return 0;
 	};
 
