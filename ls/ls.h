@@ -60,6 +60,7 @@ typedef	struct	s_entry
 	//time_t		mod_time;
 	//off_t		size;
 	struct stat s;
+	struct stat ls;
 }				t_entry;
 
 typedef	struct	s_input
@@ -77,6 +78,7 @@ typedef	struct	s_input
 BOOL		is_null_entry(t_entry e);
 
 BOOL		is_folder(const mode_t mode);
+BOOL		is_link(const mode_t mode);
 t_entry		try_get_entry(const char arg[]);
 t_input		parse_arguments(int c, const char* args[]);
 t_entry*	sort(t_entry entries[MAX_FSO_IN_DIR], int count, t_sort_options o);

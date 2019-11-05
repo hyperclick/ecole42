@@ -5,6 +5,11 @@ BOOL	is_folder(const mode_t mode)
 	return (S_ISDIR(mode));
 }
 
+BOOL	is_link(const mode_t mode)
+{
+	return (S_ISLNK(mode));
+}
+
 BOOL	is_absolute_path(char	*path)
 {
 	return (*path == PATH_SEPARATOR);
@@ -71,7 +76,16 @@ void fill_entry(t_entry* e, struct stat s, const char name[])
 	e->s = s;
 	e->full_name = get_full_name(name);
 	e->is_null = FALSE;
-
+	/*
+	if (is_link(s.st_mode))
+	{
+		struct stat ls;
+		if (stat(name, &ls) == -1)
+		{
+			perror("stat()");
+		}
+		e->ls = ls;
+	}*/
 }
 
 t_entry try_get_entry(const char arg[])

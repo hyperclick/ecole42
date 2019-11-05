@@ -120,18 +120,25 @@ BOOL	has_xattr(const char filename[])
 }
 void	print_details(t_entry e)
 {
-	
+	if (is_folder(e.s.st_mode))
+	{
+		ft_putchar('d');
+	}
+	if (is_link(e.s.st_mode))
+	{
+		ft_putchar('l');
+	}
 	switch (e.s.st_mode & S_IFMT)
 	{
 		case S_IFBLK:  ft_putchar('b');	break;
 		case S_IFCHR:  ft_putchar('c');	break;
-		case S_IFDIR:  ft_putchar('d');	break;
+		case S_IFDIR:  	break;
 		case S_IFIFO:  ft_putchar('p');	break;
-		case S_IFLNK:  ft_putchar('l');	break;
+		case S_IFLNK:  	break;
 		case S_IFREG:  ft_putchar('-');	break;
 		case S_IFSOCK: ft_putchar('s');	break;
 		default:
-			printf("unknown?: %d\n", e.s.st_mode);
+			printf("unknown mode: %d\n", e.s.st_mode);
 			exit(2);
 			break;
 	}
@@ -150,7 +157,7 @@ void	print_details(t_entry e)
 	}
 	else
 	{
-		printf( (e.s.st_mode & S_IXOTH) ? "x" : "-");		
+		printf( (e.s.st_mode & S_IXOTH) ? "x" : "-");
 	}
 	if (has_xattr(e.full_name.path))
 	{
@@ -161,9 +168,23 @@ void	print_details(t_entry e)
 	printf("%d\t", e.s.st_nlink);
 	printf("%s\t", getpwuid(e.s.st_uid)->pw_name);
 	printf("%s\t", getgrgid(e.s.st_gid)->gr_name);
-	printf("%lld\t", e.s.st_size);
+	printf("%lld\t\t", e.s.st_size);
 	char date[36];
 	printf("%s\t",formatdate(date, e.s.st_mtime));
+}
+
+static void print_link_target(const char name[])
+{
+	ft_putstr(" -> ");
+	
+	char buf[1024];
+	ssize_t len;
+	
+	if ((len = readlink(name, buf, sizeof(buf)-1)) != -1)
+		buf[len] = '\0';
+	else
+		perror("readlink");
+	ft_putstr(buf);
 }
 
 void	print(t_entry e, t_print_options o)
@@ -173,9 +194,9 @@ void	print(t_entry e, t_print_options o)
 		print_details(e);
 	}
 	printf("%s ", e.full_name.name);
-	//if (e.is_folder)
+	if (o.one_file_per_line && is_link(e.s.st_mode))
 	{
-		//putchar(PATH_SEPARATOR);
+		print_link_target(e.full_name.path);
 	}
 }
 int		calc_total(t_entry	entries[MAX_FSO_IN_DIR], int count)
