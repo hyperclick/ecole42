@@ -27,7 +27,7 @@ BOOL	need_swap(t_entry a, t_entry b, t_sort_options o)
 	BOOL	need_to_swap = o.sort_desc == TRUE ? second_is_greter : !second_is_greter;
 	return (need_to_swap);
 
-	printf("undefined sort");
+	ft_putstr("undefined sort");
 	exit(2);
 }
 

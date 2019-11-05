@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static void	put_nbr_fd_rec(int n, int fd)
+static void	put_nbr_fd_rec(long long n, int fd)
 {
 	if (n < 10 && n > -10)
 	{
@@ -24,7 +24,7 @@ static void	put_nbr_fd_rec(int n, int fd)
 	put_nbr_fd_rec(n % 10, fd);
 }
 
-void		ft_putnbr_fd(int nb, int fd)
+void		ft_putnbr_fd(long long nb, int fd)
 {
 	if (nb < 0)
 	{
