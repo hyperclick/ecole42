@@ -2,7 +2,6 @@
 #define SPACES_BETWEEN_COL 2
 #include <time.h>
 
-
 int	get_console_width()
 {
 	return (80);
@@ -16,7 +15,7 @@ int	get_all_letters(t_entry entries[], int entries_count)
 	count = 0;
 	while (++i < entries_count)
 	{
-		count += strlen(entries[i].full_name.name);
+		count += ft_strlen(entries[i].full_name.name);
 	}
 	return (count);
 }
@@ -118,6 +117,7 @@ BOOL	has_xattr(const char filename[])
 	return (len > 0);
 	
 }
+
 void	print_details(t_entry e)
 {
 	if (is_folder(e.s.st_mode))
@@ -138,26 +138,28 @@ void	print_details(t_entry e)
 		case S_IFREG:  ft_putchar('-');	break;
 		case S_IFSOCK: ft_putchar('s');	break;
 		default:
-			printf("unknown mode: %d\n", e.s.st_mode);
+			ft_putstr("unknown mode: ");
+			ft_putnbr(e.s.st_mode);
+			ft_putstr("\n");
 			exit(2);
 			break;
 	}
 	
-	printf( (e.s.st_mode & S_IRUSR) ? "r" : "-");
-	printf( (e.s.st_mode & S_IWUSR) ? "w" : "-");
-	printf( (e.s.st_mode & S_IXUSR) ? "x" : "-");
-	printf( (e.s.st_mode & S_IRGRP) ? "r" : "-");
-	printf( (e.s.st_mode & S_IWGRP) ? "w" : "-");
-	printf( (e.s.st_mode & S_IXGRP) ? "x" : "-");
-	printf( (e.s.st_mode & S_IROTH) ? "r" : "-");
-	printf( (e.s.st_mode & S_IWOTH) ? "w" : "-");
+	ft_putstr( (e.s.st_mode & S_IRUSR) ? "r" : "-");
+	ft_putstr( (e.s.st_mode & S_IWUSR) ? "w" : "-");
+	ft_putstr( (e.s.st_mode & S_IXUSR) ? "x" : "-");
+	ft_putstr( (e.s.st_mode & S_IRGRP) ? "r" : "-");
+	ft_putstr( (e.s.st_mode & S_IWGRP) ? "w" : "-");
+	ft_putstr( (e.s.st_mode & S_IXGRP) ? "x" : "-");
+	ft_putstr( (e.s.st_mode & S_IROTH) ? "r" : "-");
+	ft_putstr( (e.s.st_mode & S_IWOTH) ? "w" : "-");
 	if (e.s.st_mode & S_ISVTX)
 	{
 		ft_putchar('t');
 	}
 	else
 	{
-		printf( (e.s.st_mode & S_IXOTH) ? "x" : "-");
+		ft_putstr( (e.s.st_mode & S_IXOTH) ? "x" : "-");
 	}
 	if (has_xattr(e.full_name.path))
 	{
@@ -165,12 +167,18 @@ void	print_details(t_entry e)
 	}
 	ft_putchar('\t');
 	
-	printf("%d\t", e.s.st_nlink);
-	printf("%s\t", getpwuid(e.s.st_uid)->pw_name);
-	printf("%s\t", getgrgid(e.s.st_gid)->gr_name);
-	printf("%lld\t\t", e.s.st_size);
+	ft_putnbr( e.s.st_nlink);
+	ft_putstr("\t");
+	ft_putstr( getpwuid(e.s.st_uid)->pw_name);
+	ft_putstr("\t");
+	ft_putstr( getgrgid(e.s.st_gid)->gr_name);
+	ft_putstr("\t");
+	ft_putnbr(e.s.st_size);
+	ft_putstr("\t");
+	ft_putstr("\t");
 	char date[36];
-	printf("%s\t",formatdate(date, e.s.st_mtime));
+	ft_putstr(formatdate(date, e.s.st_mtime));
+	ft_putstr("\t");
 }
 
 static void print_link_target(const char name[])
@@ -193,12 +201,13 @@ void	print(t_entry e, t_print_options o)
 	{
 		print_details(e);
 	}
-	printf("%s ", e.full_name.name);
+	ft_putstr( e.full_name.name);
 	if (o.one_file_per_line && is_link(e.s.st_mode))
 	{
 		print_link_target(e.full_name.path);
 	}
 }
+
 int		calc_total(t_entry	entries[MAX_FSO_IN_DIR], int count)
 {
 	int	total = 0;
@@ -218,7 +227,8 @@ void	print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o
 	if (o.one_file_per_line)
 	{
 		ft_putstr("total ");
-		printf("%d\n", calc_total(entries, count));
+		ft_putnbr( calc_total(entries, count));
+		ft_putstr("\n");
 	}
 	int	cols_count = get_columns_count(entries, count, o);
 	int	rows_count = get_rows_count(count, cols_count);
@@ -228,6 +238,6 @@ void	print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o
 		{
 			print(entries[i * cols_count + j], o);
 		}
-		printf("\n");
+		ft_putstr("\n");
 	}
 }
