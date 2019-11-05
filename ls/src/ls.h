@@ -41,7 +41,8 @@ typedef struct	s_sort_options
 
 typedef struct	s_print_options
 {
-	BOOL one_file_per_line;//-l
+	BOOL	details;//-l
+	BOOL	single_column;//-1
 }				t_print_options;
 
 typedef struct	s_full_name

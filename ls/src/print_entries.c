@@ -72,7 +72,7 @@ BOOL	can_print(t_entry entries[], int entries_count, int cols_count, int console
 int	get_columns_count(t_entry entries[], int entries_count, t_print_options o)
 {
 	return (1);
-	if (o.one_file_per_line)
+	if (o.details || o.single_column)
 	{
 		return (1);
 	}
@@ -197,12 +197,12 @@ static void print_link_target(const char name[])
 
 void	print(t_entry e, t_print_options o)
 {
-	if (o.one_file_per_line)
+	if (o.details)
 	{
 		print_details(e);
 	}
 	ft_putstr( e.full_name.name);
-	if (o.one_file_per_line && is_link(e.s.st_mode))
+	if (o.details && is_link(e.s.st_mode))
 	{
 		print_link_target(e.full_name.path);
 	}
@@ -224,7 +224,7 @@ void	print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o
 	{
 		return ;
 	}
-	if (o.one_file_per_line)
+	if (o.details)
 	{
 		ft_putstr("total ");
 		ft_putnbr( calc_total(entries, count));

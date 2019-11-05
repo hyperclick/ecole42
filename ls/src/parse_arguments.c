@@ -17,7 +17,7 @@ BOOL	parse_flag(t_input *input, const char f)
 {
 	if (f == 'l')
 	{
-		input->print_options.one_file_per_line = TRUE;
+		input->print_options.details = TRUE;
 		return (TRUE);
 	}
 	if (f == 'a')
@@ -38,6 +38,11 @@ BOOL	parse_flag(t_input *input, const char f)
 	if (f == 't')
 	{
 		input->sort_options.sort_by = SORT_BY_MOD_TIME;
+		return (TRUE);
+	}
+	if (f == '1')
+	{
+		input->print_options.single_column = TRUE;
 		return (TRUE);
 	}
 	
