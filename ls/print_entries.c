@@ -144,8 +144,14 @@ void	print_details(t_entry e)
 	printf( (e.s.st_mode & S_IXGRP) ? "x" : "-");
 	printf( (e.s.st_mode & S_IROTH) ? "r" : "-");
 	printf( (e.s.st_mode & S_IWOTH) ? "w" : "-");
-	printf( (e.s.st_mode & S_IXOTH) ? "x" : "-");
-	
+	if (e.s.st_mode & S_ISVTX)
+	{
+		ft_putchar('t');
+	}
+	else
+	{
+		printf( (e.s.st_mode & S_IXOTH) ? "x" : "-");		
+	}
 	if (has_xattr(e.full_name.path))
 	{
 		ft_putchar('@');
