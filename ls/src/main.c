@@ -78,7 +78,7 @@ void	log_input(t_input input)
 	}
 }
 
-int	main2(int argc, const char* argv[])
+int	main(int argc, const char* argv[])
 {
 	log_line("\n\n\n---------------started----------------");
 	//log_args
@@ -88,17 +88,6 @@ int	main2(int argc, const char* argv[])
 	log_log("cur_dir is:\t");
 	log_line(get_cur_dir().full_name.path);
 	t_input input = parse_arguments(argc - 1, argv + 1);
-	if (input.files_count == 0 && input.folders_count == 0)
-	{
-		log_line("no files or folders provided. using .");
-		t_entry e = try_get_entry(".");
-		if (is_null_entry(e))
-		{
-			ft_putstr("failed to create entry for '.'\n");
-			exit(5);
-		}
-		parse_arguments_add_entry(&input, e);
-	}
 	log_input(input);
 	print_entries(sort(input.files, input.files_count, input.sort_options), input.files_count, input.print_options);
 	print_folders(sort(input.folders, input.folders_count, input.sort_options), input.folders_count, input);

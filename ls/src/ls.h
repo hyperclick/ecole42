@@ -88,4 +88,5 @@ int			get_folder_entries(t_entry entries[], t_entry folder, t_find_options o);
 void		set_cur_dir(const char *dir);
 t_entry		get_cur_dir(void);
 t_f_n		create_full_name(void);
+t_f_n		get_full_name(const char name[]);
 #endif

@@ -111,7 +111,7 @@ char* formatdate(char* str, time_t val)
 
 BOOL	has_xattr(const char filename[])
 {
-	char list[XATTR_SIZE], value[XATTR_SIZE];
+	char list[XATTR_SIZE];
 	ssize_t len;
 	len = listxattr(filename, list, XATTR_SIZE, XATTR_NOFOLLOW);
 	

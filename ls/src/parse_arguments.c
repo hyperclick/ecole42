@@ -123,6 +123,19 @@ t_input	parse_arguments(int c, const char *args[])
 		}
 		parse_arguments_add_entry(&input, e);
 	}
+	
+	if (input.files_count == 0 && input.folders_count == 0)
+	{
+		log_line("no files or folders provided. using .");
+		t_entry e = try_get_entry(".");
+		if (is_null_entry(e))
+		{
+			ft_putstr("failed to create entry for '.'\n");
+			exit(5);
+		}
+		parse_arguments_add_entry(&input, e);
+	}
+	
 	return (input);
 }
 
