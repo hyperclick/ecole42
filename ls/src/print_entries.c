@@ -2,6 +2,7 @@
 #define SPACES_BETWEEN_COL 2
 #include <time.h>
 
+
 int	get_console_width()
 {
 	return (80);
@@ -49,9 +50,9 @@ BOOL	can_print(t_entry entries[], int entries_count, int cols_count, int console
 	int	width;
 	int	rows_count;
 	int	i;
-
+	
 	rows_count = get_rows_count(entries_count, cols_count);
-
+	
 	i = -1;
 	width = 0;
 	while (++i < cols_count)
@@ -72,7 +73,7 @@ BOOL	can_print(t_entry entries[], int entries_count, int cols_count, int console
 int	get_columns_count(t_entry entries[], int entries_count, t_print_options o)
 {
 	return (1);
-	if (o.details || o.single_column)
+	if (o.details)
 	{
 		return (1);
 	}
@@ -97,14 +98,14 @@ int	get_columns_count(t_entry entries[], int entries_count, t_print_options o)
 	return (1);
 }
 
-char* formatdate2(char* str, time_t val)
-{
-	strftime(str, 36, "%d.%m.%Y %H:%M:%S", localtime(&val));
-	return str;
-}
 char* formatdate(char* str, time_t val)
 {
-	strftime(str, 36,  " %b\t%-d %H:%M", localtime(&val));
+	char *str2;
+
+	str2=ft_strncpy(&str[0], ctime(&val)+4, 4);
+	str2=ft_strncpy(&str[4], ctime(&val)+8, 3);
+	str2=ft_strncpy(&str[7], ctime(&val)+11, 5);
+	str[12]='\0';
 	return str;
 }
 
@@ -174,11 +175,11 @@ void	print_details(t_entry e)
 	ft_putstr( getgrgid(e.s.st_gid)->gr_name);
 	ft_putstr("\t");
 	ft_putnbr(e.s.st_size);
-	ft_putstr("\t");
-	ft_putstr("\t");
+	ft_putstr(" ");
+	//ft_putstr("\t");
 	char date[36];
 	ft_putstr(formatdate(date, e.s.st_mtime));
-	ft_putstr("\t");
+	ft_putstr(" ");
 }
 
 static void print_link_target(const char name[])
@@ -207,7 +208,6 @@ void	print(t_entry e, t_print_options o)
 		print_link_target(e.full_name.path);
 	}
 }
-
 int		calc_total(t_entry	entries[MAX_FSO_IN_DIR], int count)
 {
 	int	total = 0;
@@ -241,3 +241,4 @@ void	print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o
 		ft_putstr("\n");
 	}
 }
+

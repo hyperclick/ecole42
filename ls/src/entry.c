@@ -108,8 +108,9 @@ t_entry try_get_entry(const char arg[])
 	}
 	else
 	{
-		perror("lstat()\n");
-		ft_putstr(arg);
+		log_line("lstat failed:");
+		log_line(arg);
+		log_line(strerror(errno));
 	}
 	return (e);
 }

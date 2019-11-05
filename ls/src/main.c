@@ -47,6 +47,15 @@ void		print_folders(t_entry folders[], int count, t_input input)
 		}
 		else
 		{
+			if (i > 0)
+			{
+				ft_putchar('\n');
+			}
+			if (count != 1)
+			{
+				ft_putstr(folders[i].full_name.name);
+				ft_putstr(":\n");
+			}
 			t_entry	entries[MAX_FSO_IN_DIR];
 			int entries_count = get_folder_entries(entries, folders[i], input.find_options);
 			log_log("entries found in ");

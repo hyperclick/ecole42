@@ -13,6 +13,7 @@
 #include <grp.h>
 #include <sys/types.h>
 #include <sys/xattr.h>
+#include <errno.h>
 
 #include "../libft/libft.h"
 #define PATH_SEPARATOR '/'

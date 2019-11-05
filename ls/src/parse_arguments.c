@@ -8,7 +8,7 @@ void	print_usage(const char f)
 
 void	print_no_such_file(const char    arg[])
 {
-	ft_putstr("ls: cannot access ");
+	ft_putstr("ls: ");
 	ft_putstr(arg);
 	ft_putstr(": No such file or directory\n");
 }
@@ -102,16 +102,21 @@ t_input	parse_arguments(int c, const char *args[])
 	const char	*arg;
 	BOOL		parsing_options;
 	t_entry		e;
+	BOOL		entry_provided;
 	
 	parsing_options = TRUE;
 	input = create_empty_input();
-	
-	//options are coming before files
-	
+	entry_provided = FALSE;
 	for (int i = 0; i < c; i++)
 	{
 		arg = args[i];
-		if (parsing_options && arg[0] != '-')
+		//options are coming before files
+		if (ft_strcmp("--", arg) == 0 )
+		{
+			parsing_options = FALSE;
+			continue;
+		}
+		if ((parsing_options && arg[0] != '-') || ft_strcmp("-", arg) == 0)
 		{
 			parsing_options = FALSE;
 		}
@@ -122,6 +127,7 @@ t_input	parse_arguments(int c, const char *args[])
 				continue;
 			}
 		}
+		entry_provided = TRUE;
 		e = try_get_entry(arg);
 		if (is_null_entry(e))
 		{
@@ -131,7 +137,7 @@ t_input	parse_arguments(int c, const char *args[])
 		parse_arguments_add_entry(&input, e);
 	}
 	
-	if (input.files_count == 0 && input.folders_count == 0)
+	if (entry_provided == FALSE && input.files_count == 0 && input.folders_count == 0)
 	{
 		log_line("no files or folders provided. using .");
 		t_entry e = try_get_entry(".");
