@@ -8,7 +8,9 @@ void	print_usage(const char f)
 
 void	print_no_such_file(const char    arg[])
 {
-	printf("ls: cannot access '%s': No such file or directory\n", arg);
+	ft_putstr("ls: cannot access ");
+	ft_putstr(arg);
+	ft_putstr(": No such file or directory\n");
 }
 
 BOOL	parse_flag(t_input *input, const char f)
@@ -64,7 +66,7 @@ void	parse_arguments_add_entry(t_input *input, t_entry e)
 		input->folders[input->folders_count++] = e;
 		if (input->folders_count > MAX_FSO_IN_DIR)
 		{
-			printf("MAX_FSO_IN_DIR reached \n");
+			ft_putstr("MAX_FSO_IN_DIR reached \n");
 			exit(3);
 		}
 	}
@@ -73,7 +75,7 @@ void	parse_arguments_add_entry(t_input *input, t_entry e)
 		input->files[input->files_count++] = e;
 		if (input->files_count > MAX_FSO_IN_DIR)
 		{
-			printf("MAX_FSO_IN_DIR reached \n");
+			ft_putstr("MAX_FSO_IN_DIR reached \n");
 			exit(4);
 		}
 	}
@@ -95,7 +97,7 @@ t_input	parse_arguments(int c, const char *args[])
 	const char	*arg;
 	BOOL		parsing_options;
 	t_entry		e;
-
+	
 	parsing_options = TRUE;
 	input = create_empty_input();
 	
@@ -139,4 +141,3 @@ t_input	parse_arguments(int c, const char *args[])
 	
 	return (input);
 }
-

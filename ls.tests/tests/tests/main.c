@@ -26,7 +26,7 @@ void    use_listattr(const char filename[])
 	}
 	
 }
-int main(int argc, const char * argv[])
+int main2(int argc, const char * argv[])
 {
 	//use_listattr("log.txt");
 	main2(argc, argv);
