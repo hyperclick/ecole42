@@ -71,7 +71,7 @@ void		print_folders(t_entry folders[], int count, t_input input)
 		}
 		if (count != 1)
 		{
-			ft_putstr(folders[i].full_name.name);
+			ft_putstr(folders[i].full_name.path);
 			ft_putstr(":\n");
 		}
 		if (input.find_options.recursive)

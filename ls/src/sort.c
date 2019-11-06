@@ -24,13 +24,11 @@ static BOOL	need_swap(t_entry a, t_entry b, t_sort_options o)
 	}
 	if (o.sort_by == SORT_BY_NAME)
 	{
-		second_is_greater = (ft_strcmp(b.full_name.name, a.full_name.name) >= 0);
+		second_is_greater = (ft_strcmp(b.full_name.path, a.full_name.path) >= 0);
 	}
 	BOOL	need_to_swap = o.sort_desc == TRUE ? second_is_greater : !second_is_greater;
 	return (need_to_swap);
 
-	ft_putstr("undefined sort");
-	exit(2);
 }
 
 t_entry* sort(t_entry entries[], int count, t_sort_options o)
