@@ -6,11 +6,22 @@ void	print_usage(const char f)
 	ft_putstr("\nusage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]\n");
 }
 
-void	print_no_such_file(const char    arg[])
+void	print_no_such_file(const char arg[])
 {
 	ft_putstr("ls: ");
 	ft_putstr(arg);
 	ft_putstr(": No such file or directory\n");
+}
+
+void	print_no_such_files(char *files[], int count)
+{
+	int	i;
+
+	i = -1;
+	while (++i < count)
+	{
+		print_no_such_file(files[i]);
+	}
 }
 
 BOOL	parse_flag(t_input *input, const char f)
@@ -103,6 +114,8 @@ t_input	parse_arguments(int c, const char *args[])
 	BOOL		parsing_options;
 	t_entry		e;
 	BOOL		entry_provided;
+	char		*missing_entries[c];
+	int			missing_entries_count = 0;
 	
 	parsing_options = TRUE;
 	input = create_empty_input();
@@ -111,7 +124,7 @@ t_input	parse_arguments(int c, const char *args[])
 	{
 		arg = args[i];
 		//options are coming before files
-		if (ft_strcmp("--", arg) == 0 )
+		if (parsing_options && ft_strcmp("--", arg) == 0 )
 		{
 			parsing_options = FALSE;
 			continue;
@@ -131,10 +144,16 @@ t_input	parse_arguments(int c, const char *args[])
 		e = try_get_entry(arg);
 		if (is_null_entry(e))
 		{
-			print_no_such_file(arg);
+			missing_entries[missing_entries_count++] = ft_strdup(arg);
 			continue;
 		}
 		parse_arguments_add_entry(&input, e);
+	}
+	ft_sort_strings(missing_entries, missing_entries_count);
+	print_no_such_files(missing_entries, missing_entries_count);
+	while (missing_entries_count-- > 0)
+	{
+		free(missing_entries[missing_entries_count]);
 	}
 	
 	if (entry_provided == FALSE && input.files_count == 0 && input.folders_count == 0)

@@ -1,6 +1,6 @@
 #include "ls.h"
 
-void	swap(t_entry entries[], int i, int j)
+static void	swap(t_entry entries[], int i, int j)
 {
 	t_entry	tmp;
 
@@ -9,7 +9,7 @@ void	swap(t_entry entries[], int i, int j)
 	entries[j] = tmp;
 }
 
-BOOL	need_swap(t_entry a, t_entry b, t_sort_options o)
+static BOOL	need_swap(t_entry a, t_entry b, t_sort_options o)
 {
 	BOOL	second_is_greater;
 	if (o.sort_by == SORT_BY_MOD_TIME)

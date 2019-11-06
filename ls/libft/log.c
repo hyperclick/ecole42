@@ -6,6 +6,7 @@
 
 void log_log (const char *str)
 {
+	return ;
 	FILE * fp;
 	/* open the file for writing*/
 	fp = fopen ("/Users/darugula/log.txt","a");
