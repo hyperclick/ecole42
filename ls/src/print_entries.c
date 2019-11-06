@@ -198,15 +198,35 @@ void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group
 	
 	ft_putstr( (e.s.st_mode & S_IRUSR) ? "r" : "-");
 	ft_putstr( (e.s.st_mode & S_IWUSR) ? "w" : "-");
-	ft_putstr( (e.s.st_mode & S_IXUSR) ? "x" : "-");
+	if (e.s.st_mode & S_ISUID)
+	{
+		ft_putchar((e.s.st_mode & S_IXUSR) ? 's' : 'S');
+	}
+	else
+	{
+		ft_putchar((e.s.st_mode & S_IXUSR) ? 'x' : '-');
+	}
+	//ft_putstr( (e.s.st_mode & S_ISUID) ? "S" :
+	//		  ((e.s.st_mode & S_IXUSR) ? "x" : "-"));
 	ft_putstr( (e.s.st_mode & S_IRGRP) ? "r" : "-");
 	ft_putstr( (e.s.st_mode & S_IWGRP) ? "w" : "-");
-	ft_putstr( (e.s.st_mode & S_IXGRP) ? "x" : "-");
+	
+	
+	if (e.s.st_mode & S_ISGID)
+	{
+		ft_putchar((e.s.st_mode & S_IXGRP) ? 's' : 'S');
+	}
+	else
+	{
+		ft_putchar((e.s.st_mode & S_IXGRP) ? 'x' : '-');
+	}
+	//ft_putstr( (e.s.st_mode & S_ISGID) ? "S" :
+	//		  ((e.s.st_mode & S_IXGRP) ? "x" : "-"));
 	ft_putstr( (e.s.st_mode & S_IROTH) ? "r" : "-");
 	ft_putstr( (e.s.st_mode & S_IWOTH) ? "w" : "-");
 	if (e.s.st_mode & S_ISVTX)
 	{
-		ft_putchar('t');
+		ft_putchar( (e.s.st_mode & S_IXOTH) ? 't' : 'T');
 	}
 	else
 	{
