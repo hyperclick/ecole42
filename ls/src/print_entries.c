@@ -216,12 +216,13 @@ void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group
 	{
 		ft_putchar('@');
 	}
-	else if(any_has_xattr)
+	else //if(any_has_xattr)
 	{
+		any_has_xattr = FALSE;
 		ft_putchar(' ');
 	}
-	print_spaces(2 + get_number_len(max_links_len) - get_number_len(e.s.st_nlink));
-	ft_putnbr( e.s.st_nlink);
+	print_spaces(1 + get_number_len(max_links_len) - get_number_len(e.s.st_nlink));
+	ft_putnbr(e.s.st_nlink);
 	ft_putstr(" ");
 	
 	ft_putstr( getpwuid(e.s.st_uid)->pw_name);
