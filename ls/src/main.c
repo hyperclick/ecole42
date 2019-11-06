@@ -9,10 +9,26 @@ BOOL	is_parent_dir(const char name[])
 	return (ft_strcmp(name, "..") == 0);
 }
 
+int		calc_total(t_entry	entries[MAX_FSO_IN_DIR], int count)
+{
+	int	total = 0;
+	for (int j = 0; j < count; j++)
+	{
+		total += entries[j].s.st_blocks;
+	}
+	return (total);
+}
+
 void	print_folder_entries(t_entry entries[MAX_FSO_IN_DIR], int count, t_input input)
 {
 	sort(entries, count, input.sort_options);
 	//print_folder_header(folder, input.print_options);
+	if (input.print_options.details)
+	{
+		ft_putstr("total ");
+		ft_putnbr(calc_total(entries, count));
+		ft_putstr("\n");
+	}
 	print_entries(entries, count, input.print_options);
 }
 
@@ -66,9 +82,9 @@ void		print_folders(t_entry folders[], int count, t_input input)
 		{
 			t_entry	entries[MAX_FSO_IN_DIR];
 			int entries_count = get_folder_entries(entries, folders[i], input.find_options);
-			log_log("entries found in ");
-			log_line(folders[i].full_name.path);
-			log_entries(entries, entries_count);
+			//log_log("entries found in ");
+			//log_line(folders[i].full_name.path);
+			//log_entries(entries, entries_count);
 			print_folder_entries(entries, entries_count, input);
 		}
 	}

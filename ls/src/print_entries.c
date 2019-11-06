@@ -264,15 +264,6 @@ void	print(t_entry e, t_print_options o, int  max_link_len, int max_size_len, in
 		print_link_target(e.full_name.path);
 	}
 }
-int		calc_total(t_entry	entries[MAX_FSO_IN_DIR], int count)
-{
-	int	total = 0;
-	for (int j = 0; j < count; j++)
-	{
-		total += entries[j].s.st_blocks;
-	}
-	return (total);
-}
 
 int		find_max_link_len(t_entry	entries[MAX_FSO_IN_DIR], int count)
 {
@@ -349,12 +340,6 @@ void	print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o
 	if (count == 0)
 	{
 		return ;
-	}
-	if (o.details)
-	{
-		ft_putstr("total ");
-		ft_putnbr( calc_total(entries, count));
-		ft_putstr("\n");
 	}
 	int	cols_count = get_columns_count(entries, count, o);
 	int	rows_count = get_rows_count(count, cols_count);
