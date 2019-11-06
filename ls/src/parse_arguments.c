@@ -10,7 +10,7 @@ void	print_no_such_file(const char arg[])
 {
 	ft_putstr("ls: ");
 	ft_putstr(arg);
-	ft_putstr(": No such file or directory\n");
+	ft_putstr_fd(": No such file or directory\n", STDERR_FILENO);
 }
 
 void	print_no_such_files(char *files[], int count)
