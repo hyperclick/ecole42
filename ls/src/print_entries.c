@@ -116,14 +116,27 @@ char* formatdate(char* str, time_t val)
 	if (i - val <= 15724800 && i - val >= 0)
 	{
 		str2=ft_strncpy(&str[7], ctime(&val)+11, 5);
+		str[12]='\0';
 	}
 	else
 	{
-		tmp = ft_strjoin(" ", tmp2);
-		str2 = ft_strncpy(&str[7], tmp, 5);
-		free(tmp);
+		if (val>=253402290000)
+		{
+			tmp2=ctime(&val)+23;
+			//tmp = ft_strjoin(" ", tmp2);
+			str2 = ft_strncpy(&str[7], tmp2, 7);
+			//free(tmp);
+			str[13]='\0';
+		}
+		else
+		{
+			tmp = ft_strjoin(" ", tmp2);
+			str2 = ft_strncpy(&str[7], tmp, 5);
+			free(tmp);
+			str[12]='\0';
+		}
 	}
-	str[12]='\0';
+	
 	return str;
 }
 
