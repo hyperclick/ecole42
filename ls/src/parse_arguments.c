@@ -1,15 +1,15 @@
 #include "ls.h"
 void	print_usage(const char f)
 {
-	ft_putstr("ls: illegal option -- ");
-	ft_putchar(f);
-	ft_putstr("\nusage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]\n");
+	ft_putstr_fd("ls: illegal option -- ", STDERR_FILENO);
+	ft_putchar_fd(f, STDERR_FILENO);
+	ft_putstr_fd("\nusage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]\n", STDERR_FILENO);
 }
 
 void	print_no_such_file(const char arg[])
 {
-	ft_putstr("ls: ");
-	ft_putstr(arg);
+	ft_putstr_fd("ls: ", STDERR_FILENO);
+	ft_putstr_fd(arg, STDERR_FILENO);
 	ft_putstr_fd(": No such file or directory\n", STDERR_FILENO);
 }
 
@@ -102,6 +102,7 @@ t_input	create_empty_input()
 	t_input input;
 	input.files_count = 0;
 	input.folders_count = 0;
+	input.args_count = 0;
 	input.sort_options.sort_by = SORT_BY_NAME;
 	input.sort_options.sort_desc = FALSE;
 	return (input);
@@ -141,6 +142,7 @@ t_input	parse_arguments(int c, const char *args[])
 			}
 		}
 		entry_provided = TRUE;
+		input.args_count++;
 		e = try_get_entry(arg);
 		if (is_null_entry(e))
 		{

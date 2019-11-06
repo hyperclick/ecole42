@@ -66,7 +66,6 @@ typedef	struct	s_entry
 
 typedef	struct	s_input
 {
-	//t_entry			cur_dir;
 	t_entry			files[MAX_FSO_IN_DIR];
 	int				files_count;
 	t_entry			folders[MAX_FSO_IN_DIR];
@@ -74,6 +73,7 @@ typedef	struct	s_input
 	t_find_options	find_options;
 	t_sort_options	sort_options;
 	t_print_options	print_options;
+	int				args_count;
 }				t_input;
 
 typedef	struct	s_dir_info
