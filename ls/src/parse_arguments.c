@@ -108,6 +108,43 @@ t_input	create_empty_input()
 	return (input);
 }
 
+static void	remove_file(t_input *input, int n)
+{
+	input->files_count--;
+	while (n < input->files_count )
+	{
+		input->files[n] = input->files[n + 1];
+		n++;
+	}
+}
+
+static void process_links(t_input *input)
+{
+	int		i;
+	BOOL	link_found;
+	
+	link_found = TRUE;
+	while(link_found)
+	{
+		link_found = FALSE;
+		i = -1;
+	while (++i < input->files_count)
+	{
+		if (is_link(input->files[i].s.st_mode))
+		{
+			t_entry t = try_get_target_entry(input->files[i].full_name.path);
+			if (is_folder(t.s.st_mode))
+			{
+				parse_arguments_add_entry(input, t);
+				remove_file(input, i);
+				link_found = TRUE;
+				break;
+			}
+			
+		}
+	}}
+}
+
 t_input	parse_arguments(int c, const char *args[])
 {
 	t_input		input;
@@ -157,6 +194,9 @@ t_input	parse_arguments(int c, const char *args[])
 	{
 		free(missing_entries[missing_entries_count]);
 	}
+	
+	
+	process_links(&input);
 	
 	if (entry_provided == FALSE && input.files_count == 0 && input.folders_count == 0)
 	{

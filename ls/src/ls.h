@@ -60,8 +60,9 @@ typedef	struct	s_entry
 	//time_t		access_time;
 	//time_t		mod_time;
 	//off_t		size;
-	struct stat s;
-	struct stat ls;
+	struct stat	s;
+	struct stat	ls;
+	//struct s_entry	*link_target;
 }				t_entry;
 
 typedef	struct	s_input
@@ -85,7 +86,8 @@ typedef	struct	s_dir_info
 	int		max_user_len;
 }				t_dir_info;
 
-
+t_entry		try_get_target_entry(const char link_path[]);
+char		*get_link_target(char *buf, const char *name);
 BOOL		is_null_entry(t_entry e);
 
 BOOL		is_folder(const mode_t mode);

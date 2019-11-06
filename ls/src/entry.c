@@ -114,3 +114,25 @@ t_entry try_get_entry(const char arg[])
 	}
 	return (e);
 }
+
+
+t_entry try_get_target_entry(const char link_path[])
+{
+	t_entry e;
+	e = create_null_entry();
+	
+	char target_path[MAX_PATH];
+	struct stat s;
+	if (stat(get_link_target(target_path, link_path), &s) != -1)
+	{
+		fill_entry(&e, s, target_path);
+	}
+	else
+	{
+		log_line("stat failed:");
+		log_line(target_path);
+		log_line(strerror(errno));
+	}
+	return (e);
+}
+

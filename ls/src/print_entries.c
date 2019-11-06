@@ -238,18 +238,23 @@ void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group
 	ft_putstr(" ");
 }
 
-static void print_link_target(const char name[])
+char	*get_link_target(char *buf, const char *name)
 {
-	ft_putstr(" -> ");
-	
-	char buf[1024];
 	ssize_t len;
-	
 	if ((len = readlink(name, buf, sizeof(buf)-1)) != -1)
 		buf[len] = '\0';
 	else
 		perror("readlink");
-	ft_putstr(buf);
+	return (buf);
+}
+
+static void print_link_target(const char name[])
+{
+	ft_putstr(" -> ");
+	
+	char buf[MAX_PATH];
+	
+	ft_putstr(get_link_target(buf, name));
 }
 
 void	print(t_entry e, t_print_options o, int  max_link_len, int max_size_len, int max_group_len, int max_user_len, BOOL any_has_xattr)
@@ -258,11 +263,22 @@ void	print(t_entry e, t_print_options o, int  max_link_len, int max_size_len, in
 	{
 		print_details(e, max_link_len, max_size_len, max_group_len, max_user_len, any_has_xattr);
 	}
-	ft_putstr( e.full_name.name);
-	if (o.details && is_link(e.s.st_mode))
+	else if (is_link(e.s.st_mode))
 	{
-		print_link_target(e.full_name.path);
+		t_entry t = try_get_target_entry(e.full_name.path);
+		
+		if(is_folder(t.s.st_mode))
+		{
+			
+		}
 	}
+	
+	ft_putstr( e.full_name.name);
+	if (is_link(e.s.st_mode) && o.details)
+		{
+			print_link_target(e.full_name.path);
+		}
+	
 }
 
 int		find_max_link_len(t_entry	entries[MAX_FSO_IN_DIR], int count)
