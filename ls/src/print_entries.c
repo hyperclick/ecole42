@@ -263,21 +263,12 @@ void	print(t_entry e, t_print_options o, int  max_link_len, int max_size_len, in
 	{
 		print_details(e, max_link_len, max_size_len, max_group_len, max_user_len, any_has_xattr);
 	}
-	else if (is_link(e.s.st_mode))
-	{
-		t_entry t = try_get_target_entry(e.full_name.path);
-		
-		if(is_folder(t.s.st_mode))
-		{
-			
-		}
-	}
 	
-	ft_putstr( e.full_name.name);
+	ft_putstr(e.full_name.name);
 	if (is_link(e.s.st_mode) && o.details)
-		{
-			print_link_target(e.full_name.path);
-		}
+	{
+		print_link_target(e.full_name.path);
+	}
 	
 }
 

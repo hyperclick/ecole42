@@ -23,7 +23,7 @@ void	print_folder_entries(t_entry entries[MAX_FSO_IN_DIR], int count, t_input in
 {
 	sort(entries, count, input.sort_options);
 	//print_folder_header(folder, input.print_options);
-	if (input.print_options.details)
+	if (input.print_options.details && count != 0)
 	{
 		ft_putstr("total ");
 		ft_putnbr(calc_total(entries, count));
