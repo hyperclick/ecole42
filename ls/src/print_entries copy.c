@@ -98,22 +98,35 @@ int	get_columns_count(t_entry entries[], int entries_count, t_print_options o)
 	return (1);
 }
 
-
+char* formatdate2(char* str, time_t val)
+{
+	//strftime(str, 36, "%d.%m.%Y %H:%M:%S", localtime(&val));
+	char *str2;
+	
+	str2=ft_strncpy(&str[0], ctime(&val)+4, 4);
+	str2=ft_strncpy(&str[4], ctime(&val)+8, 3);
+	str2=ft_strncpy(&str[7], ctime(&val)+11, 5);
+	str[12]='\0';
+	return str;
+}
 char* formatdate(char* str, time_t val)
 {
 	char *str2;
 	char *tmp;
 	long i;
+	long ii;
 	time_t val2;
+	val2 =val;
+	i=time(NULL);
+	ii=time(&val2);
 	char *tmp2;
-	
-	val2 = val;
-	i = time(NULL);
+	//strftime(str, 36,  " %b\t%-d %H:%M", localtime(&val));
 	
 	str2=ft_strncpy(&str[0], ctime(&val)+4, 4);
 	str2=ft_strncpy(&str[4], ctime(&val)+8, 3);
+	//str2=ft_strncpy(&str[7], ctime(&val)+11, 5);
 	tmp2=ctime(&val)+20;
-	if (i - val <= 15724800 && i - val >= 0)
+	if (atoi(tmp2)==2019)
 	{
 		str2=ft_strncpy(&str[7], ctime(&val)+11, 5);
 	}
@@ -216,7 +229,7 @@ void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group
 	
 	ft_putstr( getgrgid(e.s.st_gid)->gr_name);
 	print_spaces(max_group_len - ft_strlen(getgrgid(e.s.st_gid)->gr_name));
-	
+
 	print_spaces(2 + get_number_len(max_size_len) - get_number_len(e.s.st_size));
 	ft_putnbr(e.s.st_size);
 	ft_putstr(" ");
@@ -339,4 +352,3 @@ void	print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o
 		ft_putstr("\n");
 	}
 }
-

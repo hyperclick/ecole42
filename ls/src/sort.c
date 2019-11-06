@@ -14,8 +14,13 @@ static BOOL	need_swap(t_entry a, t_entry b, t_sort_options o)
 	BOOL	second_is_greater;
 	if (o.sort_by == SORT_BY_MOD_TIME)
 	{
-		second_is_greater = b.s.st_mtime <= a.s.st_mtime;
-		//second_is_greater = !second_is_greater;//default is descending order
+		//Sort by time modified (most recently modified first) before
+		//sorting the operands by lexicographical order.
+		second_is_greater = b.s.st_mtime < a.s.st_mtime;//default is descending order
+		if (b.s.st_mtime == a.s.st_mtime)
+		{
+			second_is_greater = (ft_strcmp(b.full_name.name, a.full_name.name) >= 0);
+		}
 	}
 	if (o.sort_by == SORT_BY_NAME)
 	{
