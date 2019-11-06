@@ -91,6 +91,7 @@
 		C7A2A6B5236D735600416B6C /* ft_striteri.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A66B236D735600416B6C /* ft_striteri.c */; };
 		C7A2A6B6236D735600416B6C /* ft_str_remove_at.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A66C236D735600416B6C /* ft_str_remove_at.c */; };
 		C7D021F7236EE26C00898B99 /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = C7D021F6236EE26B00898B99 /* log.c */; };
+		C7F02B8F2372AC680040816D /* ft_sort_strings.c in Sources */ = {isa = PBXBuildFile; fileRef = C7F02B8E2372AC670040816D /* ft_sort_strings.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -193,6 +194,7 @@
 		C7A2A66B236D735600416B6C /* ft_striteri.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_striteri.c; path = ../../ls/libft/ft_striteri.c; sourceTree = "<group>"; };
 		C7A2A66C236D735600416B6C /* ft_str_remove_at.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_str_remove_at.c; path = ../../ls/libft/ft_str_remove_at.c; sourceTree = "<group>"; };
 		C7D021F6236EE26B00898B99 /* log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = log.c; path = ../../ls/libft/log.c; sourceTree = "<group>"; };
+		C7F02B8E2372AC670040816D /* ft_sort_strings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_sort_strings.c; path = ../../ls/libft/ft_sort_strings.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 		C7A2A621236D733F00416B6C /* libft */ = {
 			isa = PBXGroup;
 			children = (
+				C7F02B8E2372AC670040816D /* ft_sort_strings.c */,
 				C7D021F6236EE26B00898B99 /* log.c */,
 				C7A2A653236D735300416B6C /* ft_atoi.c */,
 				C7A2A62B236D735000416B6C /* ft_bzero.c */,
@@ -415,6 +418,7 @@
 				C7A2A676236D735600416B6C /* ft_bzero.c in Sources */,
 				C7A2A69B236D735600416B6C /* ft_memalloc.c in Sources */,
 				C7A2A677236D735600416B6C /* ft_memset.c in Sources */,
+				C7F02B8F2372AC680040816D /* ft_sort_strings.c in Sources */,
 				C7A2A68D236D735600416B6C /* ft_lstiter.c in Sources */,
 				C7A2A68C236D735600416B6C /* ft_lst_free.c in Sources */,
 				C7A2A684236D735600416B6C /* ft_memcpy.c in Sources */,

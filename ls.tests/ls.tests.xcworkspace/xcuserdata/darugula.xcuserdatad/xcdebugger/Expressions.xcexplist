@@ -3,36 +3,32 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "parse_flag:parse_arguments.c">
-      </ContextState>
-      <ContextState
-         contextName = "need_to_show:get_folder_entries.c">
+         contextName = "print_no_such_files:parse_arguments.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "files[0]">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "need_swap:sort.c">
          <PersistentStrings>
             <PersistentString
-               value = "a.full_name.name">
-            </PersistentString>
-            <PersistentString
-               value = "b.full_name.name">
+               value = "ft_strcmp(a.full_name.name, b.full_name.name)">
             </PersistentString>
             <PersistentString
                value = "o.sort_desc == FALSE">
             </PersistentString>
             <PersistentString
+               value = "b.full_name.name">
+            </PersistentString>
+            <PersistentString
                value = "o.sort_desc == TRUE">
             </PersistentString>
             <PersistentString
-               value = "ft_strcmp(a.full_name.name, b.full_name.name)">
+               value = "a.full_name.name">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "print_entries:print_entries.c">
-      </ContextState>
-      <ContextState
-         contextName = "get_folder_entries:get_folder_entries.c">
       </ContextState>
       <ContextState
          contextName = "get_col_width:print_entries.c">
@@ -43,10 +39,41 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "print_folders:main.c">
+         contextName = "try_get_entry:entry.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "strerror(errno)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "parse_arguments:parse_arguments.c">
+      </ContextState>
+      <ContextState
+         contextName = "need_to_show:get_folder_entries.c">
       </ContextState>
       <ContextState
          contextName = "main2:main.c">
+      </ContextState>
+      <ContextState
+         contextName = "parse_flag:parse_arguments.c">
+      </ContextState>
+      <ContextState
+         contextName = "get_folder_entries:get_folder_entries.c">
+      </ContextState>
+      <ContextState
+         contextName = "ft_sort_strings:ft_sort_strings.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "a[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "print_entries:print_entries.c">
+      </ContextState>
+      <ContextState
+         contextName = "print_folders:main.c">
       </ContextState>
    </ContextStates>
 </VariablesViewState>
