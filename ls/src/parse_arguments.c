@@ -9,14 +9,18 @@ void	print_usage(const char f)
 void	print_no_such_file(const char arg[])
 {
 	ft_putstr_fd("ls: ", STDERR_FILENO);
-	ft_putstr_fd(arg, STDERR_FILENO);
+	ft_putstr_fd(*arg == 0 ? "fts_open" : arg, STDERR_FILENO);
 	ft_putstr_fd(": No such file or directory\n", STDERR_FILENO);
+	if (*arg == 0)
+	{
+		exit(1);
+	}
 }
 
 void	print_no_such_files(char *files[], int count)
 {
 	int	i;
-
+	
 	i = -1;
 	while (++i < count)
 	{
@@ -110,6 +114,7 @@ t_input	create_empty_input()
 	return (input);
 }
 
+
 static void	remove_file(t_input *input, int n)
 {
 	input->files_count--;
@@ -130,21 +135,23 @@ static void process_links(t_input *input)
 	{
 		link_found = FALSE;
 		i = -1;
-	while (++i < input->files_count)
-	{
-		if (is_link(input->files[i].s.st_mode))
+		while (++i < input->files_count)
 		{
-			t_entry t = try_get_target_entry(input->files[i].full_name.path);
-			if (is_folder(t.s.st_mode))
+			if (is_link(input->files[i].s.st_mode))
 			{
-				parse_arguments_add_entry(input, t);
-				remove_file(input, i);
-				link_found = TRUE;
-				break;
+				t_entry t = try_get_target_entry(input->files[i].full_name.path);
+				if (is_folder(t.s.st_mode))
+				{
+					t.full_name = input->files[i].full_name;
+					parse_arguments_add_entry(input, t);
+					remove_file(input, i);
+					link_found = TRUE;
+					break;
+				}
+				
 			}
-			
 		}
-	}}
+	}
 }
 
 t_input	parse_arguments(int c, const char *args[])
@@ -215,3 +222,4 @@ t_input	parse_arguments(int c, const char *args[])
 	
 	return (input);
 }
+
