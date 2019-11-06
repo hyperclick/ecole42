@@ -1,5 +1,13 @@
 #include "ls.h"
 
+BOOL	is_cur_dir(const char name[])
+{
+	return (ft_strcmp(name, ".") == 0);
+}
+BOOL	is_parent_dir(const char name[])
+{
+	return (ft_strcmp(name, "..") == 0);
+}
 
 void	print_folder_entries(t_entry entries[MAX_FSO_IN_DIR], int count, t_input input)
 {
@@ -16,7 +24,7 @@ void		print_folder_recursive(t_entry folder, t_input input)
 	for (int i = 0; i < count; i++)
 	{
 		t_entry e = entries[i];
-		if (is_folder(e.s.st_mode))
+		if (is_folder(e.s.st_mode) && !is_cur_dir(e.full_name.name) && !is_parent_dir(e.full_name.name))
 		{
 			ft_putstr("\n");
 			ft_putstr(e.full_name.path);
