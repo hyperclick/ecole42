@@ -69,7 +69,7 @@ void		print_folders(t_entry folders[], int count, t_input input)
 		{
 			ft_putchar('\n');
 		}
-		if (count != 1)
+		if (input.args_count > 1)
 		{
 			ft_putstr(folders[i].full_name.path);
 			ft_putstr(":\n");
