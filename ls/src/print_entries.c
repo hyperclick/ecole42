@@ -259,10 +259,10 @@ void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group
 	ft_putstr(" ");
 }
 
-char	*get_link_target(char *buf, const char *name)
+char	*get_link_target(char *buf, const char *name, int size)
 {
 	ssize_t len;
-	if ((len = readlink(name, buf, sizeof(buf)-1)) != -1)
+	if ((len = readlink(name, buf, size)) != -1)
 		buf[len] = '\0';
 	else
 		perror("readlink");
@@ -275,7 +275,7 @@ static void print_link_target(const char name[])
 	
 	char buf[MAX_PATH];
 	
-	ft_putstr(get_link_target(buf, name));
+	ft_putstr(get_link_target(buf, name, MAX_PATH));
 }
 
 void	print(t_entry e, t_print_options o, int  max_link_len, int max_size_len, int max_group_len, int max_user_len, BOOL any_has_xattr)

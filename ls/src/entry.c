@@ -122,7 +122,7 @@ t_entry try_get_target_entry(const char link_path[])
 	
 	char target_path[MAX_PATH];
 	struct stat s;
-	if (stat(get_link_target(target_path, link_path), &s) != -1)
+	if (stat(get_link_target(target_path, link_path, MAX_PATH), &s) != -1)
 	{
 		fill_entry(&e, s, target_path);
 	}

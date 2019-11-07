@@ -83,7 +83,7 @@ typedef	struct	s_dir_info
 }				t_dir_info;
 
 t_entry		try_get_target_entry(const char link_path[]);
-char		*get_link_target(char *buf, const char *name);
+char	*get_link_target(char *buf, const char *name, int size);
 BOOL		is_null_entry(t_entry e);
 t_entry		create_null_entry();
 
