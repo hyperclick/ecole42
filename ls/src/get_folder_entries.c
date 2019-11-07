@@ -39,7 +39,7 @@ int		get_folder_entries(t_entry **entries, t_entry folder, t_find_options o)
 	};
 
 	size_t directory_length = ft_strlen(folder.full_name.path);
-	char path[NAME_MAX];
+	char path[PATH_MAX];
 	ft_strcpy(path, folder.full_name.path);
 	path[directory_length] = PATH_SEPARATOR;
 	int count = 0;

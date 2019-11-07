@@ -84,7 +84,7 @@ int			copy_array(t_entry dst[], t_entry src[], int count)
 	return (count);
 }
 
-
+/*
 void		print_folder_recursive(t_entry folder, t_input input)
 {
 	size_t	printed_count = 0;
@@ -134,15 +134,23 @@ void		print_folder_recursive(t_entry folder, t_input input)
 	}
 	free(not_processed);
 }
-/*
+*/
 void		print_folder_recursive(t_entry folder, t_input input)
 {
-	t_entry	entries[MAX_FSO_IN_DIR];
-	int count = get_folder_entries(entries, folder, input.find_options);
-	print_folder_entries(entries, count, input);
-	for (int i = 0; i < count; i++)
+	//t_entry	entries[MAX_FSO_IN_DIR];
+	//int count = get_folder_entries(entries, folder, input.find_options);
+	//print_folder_entries(entries, count, input);
+	
+	//size_t	printed_count = 0;
+#define BUF_SIZE 100000//MAX_FSO_IN_DIR * 6
+	t_entry	*folder_entries = NULL;
+	int folder_entries_count = get_folder_entries(&folder_entries, folder, input.find_options);
+	print_folder_entries(folder_entries, folder_entries_count, input);
+	//printed_count += folder_entries_count;
+	//remain = copy_array(not_processed, folder_entries, folder_entries_count);
+	for (int i = 0; i < folder_entries_count; i++)
 	{
-		t_entry e = entries[i];
+		t_entry e = folder_entries[i];
 		if (is_folder(e.s.st_mode) && !is_cur_dir(e.full_name.name) && !is_parent_dir(e.full_name.name))
 		{
 			ft_putstr("\n");
@@ -151,7 +159,9 @@ void		print_folder_recursive(t_entry folder, t_input input)
 			print_folder_recursive(e, input);
 		}
 	}
-}*/
+	free(folder_entries);
+	folder_entries = NULL;
+}
 
 void	log_entries(t_entry entries[], int count)
 {
