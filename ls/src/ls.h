@@ -20,7 +20,7 @@
 #define XATTR_SIZE 10000
 
 #define	MAX_PATH			300//!!!todo: change to 1 and test, find actual amount
-#define	MAX_FSO_IN_DIR		500//!!!todo: change to 1 and test, find actual amount
+#define	MAX_FSO_IN_DIR		5000//!!!todo: change to 1 and test, find actual amount
 #define	MAX_ARGS_COUNT		50
 
 typedef struct	s_find_options
@@ -93,7 +93,8 @@ t_entry		try_get_entry(const char arg[]);
 t_input		parse_arguments(int c, const char* args[]);
 t_entry*	sort(t_entry entries[MAX_FSO_IN_DIR], int count, t_sort_options o);
 void		print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o);
-int			get_folder_entries(t_entry entries[], t_entry folder, t_find_options o);
+//int			get_folder_entries(t_entry entries[], t_entry folder, t_find_options o);
+int		get_folder_entries(t_entry **entries, t_entry folder, t_find_options o);
 
 //void		set_cur_dir(const char *dir);
 //t_entry		get_cur_dir(void);

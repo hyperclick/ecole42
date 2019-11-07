@@ -17,8 +17,9 @@ BOOL	need_to_show(t_entry e, t_find_options o)
 	return (TRUE);
 }
 
-int		get_folder_entries(t_entry entries[], t_entry folder, t_find_options o)
+int		get_folder_entries(t_entry **entries, t_entry folder, t_find_options o)
 {
+	t_entry *new_entries = NULL;
 	t_entry e;
 	e = folder;
 	DIR* dir;
@@ -41,6 +42,20 @@ int		get_folder_entries(t_entry entries[], t_entry folder, t_find_options o)
 	char path[NAME_MAX];
 	ft_strcpy(path, folder.full_name.path);
 	path[directory_length] = PATH_SEPARATOR;
+	int count = 0;
+	while ((entry = readdir(dir)) != NULL)
+	{
+		//ft_strcpy(path + directory_length + 1, entry->d_name);
+		//e = try_get_entry(path);
+		//if (!is_null_entry(e) && need_to_show(e, o))
+		{
+			count++;
+		}
+		//free(entry);???
+	};
+	closedir(dir);
+	dir = opendir(folder.full_name.path);
+	new_entries = malloc(sizeof(t_entry) * count);
 	int i = 0;
 	while ((entry = readdir(dir)) != NULL)
 	{
@@ -48,12 +63,14 @@ int		get_folder_entries(t_entry entries[], t_entry folder, t_find_options o)
 		e = try_get_entry(path);
 		if (!is_null_entry(e) && need_to_show(e, o))
 		{
-			entries[i++] = e;
+			new_entries[i++] = e;
 		}
 		//free(entry);???
 	};
 
 	closedir(dir);
 	//free(dir);???
+	
+	*entries = new_entries;
 	return (i);
 }

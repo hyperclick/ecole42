@@ -87,13 +87,19 @@ int			copy_array(t_entry dst[], t_entry src[], int count)
 
 void		print_folder_recursive(t_entry folder, t_input input)
 {
-#define BUF_SIZE MAX_FSO_IN_DIR * 3
-	t_entry	not_processed[BUF_SIZE];
+	size_t	printed_count = 0;
+#define BUF_SIZE 100000//MAX_FSO_IN_DIR * 6
+	//t_entry	not_processed[BUF_SIZE];
+	t_entry	*not_processed = malloc(sizeof(t_entry) * BUF_SIZE);
 	int		remain = 0;
-	t_entry	folder_entries[MAX_FSO_IN_DIR];
-	int folder_entries_count = get_folder_entries(folder_entries, folder, input.find_options);
+	//t_entry	folder_entries[MAX_FSO_IN_DIR];
+	t_entry	*folder_entries = NULL;
+	int folder_entries_count = get_folder_entries(&folder_entries, folder, input.find_options);
 	print_folder_entries(folder_entries, folder_entries_count, input);
+	printed_count += folder_entries_count;
 	remain = copy_array(not_processed, folder_entries, folder_entries_count);
+	free(folder_entries);
+	folder_entries = NULL;
 	for (int i = 0; i < remain; i++)
 	{
 		t_entry e = not_processed[i];
@@ -101,10 +107,12 @@ void		print_folder_recursive(t_entry folder, t_input input)
 		{
 			ft_putstr("\n");
 			ft_putstr(e.full_name.path);
+			//printf(" (%zu)", printed_count);
 			ft_putstr(":\n");
 			//print_folder_recursive(e, input);
-			folder_entries_count = get_folder_entries(folder_entries, e, input.find_options);
+			folder_entries_count = get_folder_entries(&folder_entries, e, input.find_options);
 			print_folder_entries(folder_entries, folder_entries_count, input);
+			printed_count += folder_entries_count;
 			if (remain + folder_entries_count >= BUF_SIZE)
 			{
 				remain -= i;
@@ -113,13 +121,18 @@ void		print_folder_recursive(t_entry folder, t_input input)
 				remain = delete_files(not_processed, remain);
 				if (remain + folder_entries_count >= BUF_SIZE)
 				{
-					ft_putstr("not enough space");
+					ft_putstr("not enough space\n");
+					//printf("total entries printed:\t%zu\n", printed_count);
+					free(not_processed);
 					exit(49);
 				}
 			}
 			remain += copy_array(not_processed + remain, folder_entries, folder_entries_count);
+			free(folder_entries);
+			folder_entries = NULL;
 		}
 	}
+	free(not_processed);
 }
 /*
 void		print_folder_recursive(t_entry folder, t_input input)
@@ -170,12 +183,13 @@ void		print_folders(t_entry folders[], int count, t_input input)
 		}
 		else
 		{
-			t_entry	entries[MAX_FSO_IN_DIR];
-			int entries_count = get_folder_entries(entries, folders[i], input.find_options);
+			t_entry*	entries;
+			int entries_count = get_folder_entries(&entries, folders[i], input.find_options);
 			//log_log("entries found in ");
 			//log_line(folders[i].full_name.path);
 			//log_entries(entries, entries_count);
 			print_folder_entries(entries, entries_count, input);
+			free(entries);
 		}
 	}
 }
