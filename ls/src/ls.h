@@ -20,7 +20,8 @@
 #define XATTR_SIZE 10000
 
 #define	MAX_PATH			300//!!!todo: change to 1 and test, find actual amount
-#define	MAX_FSO_IN_DIR		100//!!!todo: change to 1 and test, find actual amount
+#define	MAX_FSO_IN_DIR		500//!!!todo: change to 1 and test, find actual amount
+#define	MAX_ARGS_COUNT		50
 
 typedef struct	s_find_options
 {
@@ -47,29 +48,24 @@ typedef struct	s_print_options
 typedef struct	s_full_name
 {
 	char		path[MAX_PATH];
-	char		folder[MAX_PATH];
+	//char		folder2[MAX_PATH];
 	char		name[MAX_PATH];
 }					t_f_n;
 
 typedef	struct	s_entry
 {
 	t_f_n		full_name;
-	//char		type;
 	BOOL		is_null;
-	//time_t		creation_time;
-	//time_t		access_time;
-	//time_t		mod_time;
-	//off_t		size;
 	struct stat	s;
-	struct stat	ls;
+	//struct stat	ls;
 	//struct s_entry	*link_target;
 }				t_entry;
 
 typedef	struct	s_input
 {
-	t_entry			files[MAX_FSO_IN_DIR];
+	t_entry			files[MAX_ARGS_COUNT];
 	int				files_count;
-	t_entry			folders[MAX_FSO_IN_DIR];
+	t_entry			folders[MAX_ARGS_COUNT];
 	int				folders_count;
 	t_find_options	find_options;
 	t_sort_options	sort_options;
@@ -89,6 +85,7 @@ typedef	struct	s_dir_info
 t_entry		try_get_target_entry(const char link_path[]);
 char		*get_link_target(char *buf, const char *name);
 BOOL		is_null_entry(t_entry e);
+t_entry		create_null_entry();
 
 BOOL		is_folder(const mode_t mode);
 BOOL		is_link(const mode_t mode);

@@ -52,8 +52,7 @@ t_f_n	get_full_name(const char name[])
 	ft_strcpy(fn.path, name);
 	if (ft_strcmp(".", name) == 0)
 	{
-		//ft_strcpy(fn.path, ".");
-		ft_strcpy(fn.folder, ".");
+		//ft_strcpy(fn.folder2, ".");
 		ft_strcpy(fn.name,".");
 		return (fn);
 	}
@@ -64,7 +63,7 @@ t_f_n	get_full_name(const char name[])
 	char* sub = ft_strsub(fn.path, 0, pos);
 	if (sub != NULL)
 	{
-		ft_strcpy(fn.folder, sub);
+		//ft_strcpy(fn.folder2, sub);
 		free(sub);
 	}
 	pos++;

@@ -161,9 +161,8 @@ t_input	parse_arguments(int c, const char *args[])
 	BOOL		parsing_options;
 	t_entry		e;
 	BOOL		entry_provided;
-	char		*missing_entries[c];
+	char		*missing_entries[c + 1];
 	int			missing_entries_count = 0;
-	
 	parsing_options = TRUE;
 	input = create_empty_input();
 	entry_provided = FALSE;
