@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ls.h"
+
 void	print_usage(const char f)
 {
 	ft_putstr_fd("ls: illegal option -- ", STDERR_FILENO);
@@ -79,7 +80,6 @@ BOOL	parse_flag(t_input *input, const char f)
 		input->print_options.long_datetime = TRUE;
 		return (TRUE);
 	}
-	
 	print_usage(f);
 	exit (1);
 	return (FALSE);
@@ -131,7 +131,6 @@ t_input	create_empty_input()
 	input.sort_options.sort_desc = FALSE;
 	return (input);
 }
-
 
 static void	remove_file(t_input *input, int n)
 {

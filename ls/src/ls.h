@@ -107,10 +107,14 @@ BOOL		is_absolute_path(const char *path);
 t_entry		try_get_entry(const char arg[]);
 t_input		parse_arguments(int c, const char *args[]);
 t_entry		*sort(t_entry entries[MAX_FSO_IN_DIR], int count, t_sort_options o);
+void		print_folders(t_entry folders[], int count, t_input input);
 void		print_entries(t_entry	entries[], int count, t_print_options o);
 int			get_folder_entries(
 						t_entry **entries, t_entry folder, t_find_options o);
 
 t_f_n		create_full_name(void);
 t_f_n		get_full_name(const char name[]);
+
+BOOL		is_cur_dir(const char name[]);
+BOOL		is_parent_dir(const char name[]);
 #endif
