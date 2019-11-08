@@ -31,7 +31,7 @@ int		get_folder_entries(t_entry **entries, t_entry folder, t_find_options o)
 		log_line(folder.full_name.path);
 		log_line(strerror(errno));
 		ft_putstr_fd("ls: ", STDERR_FILENO);
-		ft_putstr_fd(folder.full_name.name, STDERR_FILENO);
+		ft_putstr_fd(folder.full_name.path, STDERR_FILENO);
 		ft_putstr_fd(": ", STDERR_FILENO);
 		ft_putstr_fd(strerror(errno), STDERR_FILENO);
 		ft_putchar_fd('\n', STDERR_FILENO);

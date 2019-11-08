@@ -194,6 +194,10 @@ t_input	parse_arguments(int c, const char *args[])
 			missing_entries[missing_entries_count++] = ft_strdup(arg);
 			continue;
 		}
+		//if (is_folder(e.s.st_mode))
+		{
+			ft_strcpy(e.full_name.name, arg);
+		}
 		parse_arguments_add_entry(&input, e);
 	}
 	ft_sort_strings(missing_entries, missing_entries_count);

@@ -50,6 +50,7 @@ t_f_n	get_full_name(const char name[])
 	
 	fn = create_full_name();
 	ft_strcpy(fn.path, name);
+	
 	if (ft_strcmp(".", name) == 0)
 	{
 		//ft_strcpy(fn.folder2, ".");
