@@ -62,6 +62,11 @@ BOOL	parse_flag(t_input *input, const char f)
 		input->sort_options.sort_by = SORT_BY_MOD_TIME;
 		return (TRUE);
 	}
+	if (f == 'T')
+	{
+		input->print_options.long_datetime = TRUE;
+		return (TRUE);
+	}
 	
 	print_usage(f);
 	exit (1);
@@ -106,6 +111,7 @@ void	parse_arguments_add_entry(t_input *input, t_entry e)
 t_input	create_empty_input()
 {
 	t_input input;
+
 	input.files_count = 0;
 	input.folders_count = 0;
 	input.args_count = 0;
@@ -129,7 +135,7 @@ static void process_links(t_input *input)
 {
 	int		i;
 	BOOL	link_found;
-	
+
 	if (input->print_options.details)
 	{
 		return ;
@@ -167,6 +173,7 @@ t_input	parse_arguments(int c, const char *args[])
 	BOOL		entry_provided;
 	char		*missing_entries[c + 1];
 	int			missing_entries_count = 0;
+
 	parsing_options = TRUE;
 	input = create_empty_input();
 	entry_provided = FALSE;
@@ -211,7 +218,6 @@ t_input	parse_arguments(int c, const char *args[])
 		free(missing_entries[missing_entries_count]);
 	}
 	
-	
 	process_links(&input);
 	
 	if (entry_provided == FALSE && input.files_count == 0 && input.folders_count == 0)
@@ -223,7 +229,6 @@ t_input	parse_arguments(int c, const char *args[])
 			ft_putstr("failed to create entry for '.'\n");
 			exit(5);
 		}
-		//ft_putstr("qqq");
 		parse_arguments_add_entry(&input, e);
 	}
 	

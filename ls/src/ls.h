@@ -43,6 +43,7 @@ typedef struct	s_print_options
 {
 	BOOL	details;//-l
 	BOOL	single_column;//-1
+	BOOL	long_datetime;//-T
 }				t_print_options;
 
 typedef struct	s_full_name

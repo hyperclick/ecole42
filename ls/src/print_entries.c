@@ -99,42 +99,59 @@ int	get_columns_count(t_entry entries[], int entries_count, t_print_options o)
 }
 
 
-char* formatdate(char* str, time_t val)
+char* formatdate(char* str, time_t val, t_print_options o)//golda
 {
-	char *str2;
-	char *tmp;
-	long i;
-	time_t val2;
-	char *tmp2;
-	
+	char	*str2;
+	char	*tmp;
+	long	i;
+	time_t	val2;
+	char	*tmp2;
+
 	val2 = val;
 	i = time(NULL);
-	
-	str2=ft_strncpy(&str[0], ctime(&val)+4, 4);
-	str2=ft_strncpy(&str[4], ctime(&val)+8, 3);
-	tmp2=ctime(&val)+20;
-	if (i - val <= 15724800 && i - val >= 0)
-	{
-		str2=ft_strncpy(&str[7], ctime(&val)+11, 5);
-		str[12]='\0';
-	}
-	else
+	if (o.long_datetime)
 	{
 		if (val>=253402290000)
 		{
-			tmp2=ctime(&val)+23;
-			//tmp = ft_strjoin(" ", tmp2);
-			str2 = ft_strncpy(&str[7], tmp2, 7);
-			//free(tmp);
-			str[13]='\0';
+			str2=ft_strncpy(&str[0], ctime(&val)+4, 21);
+			str[21]='\0';
 		}
 		else
 		{
-			tmp = ft_strjoin(" ", tmp2);
-			str2 = ft_strncpy(&str[7], tmp, 5);
-			free(tmp);
+			str2=ft_strncpy(&str[0], ctime(&val)+4, 20);
+			str[20]='\0';
+		}
+	}
+	else
+	{
+		str2=ft_strncpy(&str[0], ctime(&val)+4, 4);
+		str2=ft_strncpy(&str[4], ctime(&val)+8, 3);
+		tmp2=ctime(&val)+20;
+		if (i - val <= 15724800 && i - val >= 0)
+		{
+			str2=ft_strncpy(&str[7], ctime(&val)+11, 5);
 			str[12]='\0';
 		}
+		else
+		{
+			if (val>=253402290000)
+			{
+				tmp2=ctime(&val)+23;
+				//tmp = ft_strjoin(" ", tmp2);
+				str2 = ft_strncpy(&str[7], tmp2, 7);
+				//free(tmp);
+				str[13]='\0';
+			}
+			else
+			{
+				tmp = ft_strjoin(" ", tmp2);
+				str2 = ft_strncpy(&str[7], tmp, 5);
+				free(tmp);
+				str[12]='\0';
+			}
+			
+		}
+		
 	}
 	
 	return str;
@@ -169,7 +186,7 @@ void print_spaces(int sizespace)
 
 
 
-void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group_len, int max_user_len, BOOL any_has_xattr)
+void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group_len, int max_user_len, BOOL any_has_xattr, t_print_options o)
 {
 	if (is_folder(e.s.st_mode))
 	{
@@ -255,7 +272,7 @@ void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group
 	ft_putnbr(e.s.st_size);
 	ft_putstr(" ");
 	char date[36];
-	ft_putstr(formatdate(date, e.s.st_mtime));
+	ft_putstr(formatdate(date, e.s.st_mtime, o));
 	ft_putstr(" ");
 }
 
@@ -282,7 +299,7 @@ void	print(t_entry e, t_print_options o, int  max_link_len, int max_size_len, in
 {
 	if (o.details)
 	{
-		print_details(e, max_link_len, max_size_len, max_group_len, max_user_len, any_has_xattr);
+		print_details(e, max_link_len, max_size_len, max_group_len, max_user_len, any_has_xattr, o);
 	}
 	
 	ft_putstr(e.full_name.name);
