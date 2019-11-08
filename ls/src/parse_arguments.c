@@ -16,7 +16,9 @@ void	print_usage(const char f)
 {
 	ft_putstr_fd("ls: illegal option -- ", STDERR_FILENO);
 	ft_putchar_fd(f, STDERR_FILENO);
-	ft_putstr_fd("\nusage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]\n", STDERR_FILENO);
+	ft_putstr_fd(
+		"\nusage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]\n"
+		, STDERR_FILENO);
 }
 
 void	print_no_such_file(const char arg[])
@@ -45,44 +47,29 @@ BOOL	parse_flag(t_input *input, const char f)
 {
 	if (f == 'l')
 	{
-		input->print_options.details = TRUE;
 		input->print_options.single_column = FALSE;
-		return (TRUE);
+		return (input->print_options.details = TRUE);
 	}
 	if (f == '1')
 	{
-		input->print_options.single_column = TRUE;
 		input->print_options.details = FALSE;
-		return (TRUE);
+		return (input->print_options.single_column = TRUE);
 	}
 	if (f == 'a')
-	{
-		input->find_options.all = TRUE;
-		return (TRUE);
-	}
+		return (input->find_options.all = TRUE);
 	if (f == 'R')
-	{
-		input->find_options.recursive = TRUE;
-		return (TRUE);
-	}
+		return (input->find_options.recursive = TRUE);
 	if (f == 'r')
-	{
-		input->sort_options.sort_desc = TRUE;
-		return (TRUE);
-	}
+		return (input->sort_options.sort_desc = TRUE);
 	if (f == 't')
 	{
 		input->sort_options.sort_by = SORT_BY_MOD_TIME;
 		return (TRUE);
 	}
 	if (f == 'T')
-	{
-		input->print_options.long_datetime = TRUE;
-		return (TRUE);
-	}
+		return (input->print_options.long_datetime = TRUE);
 	print_usage(f);
-	exit (1);
-	return (FALSE);
+	exit(1);
 }
 
 BOOL	try_parse_option(t_input *input, const char arg[])
@@ -120,7 +107,7 @@ void	parse_arguments_add_entry(t_input *input, t_entry e)
 	}
 }
 
-t_input	create_empty_input()
+t_input	create_empty_input(void)
 {
 	t_input input;
 
@@ -135,24 +122,30 @@ t_input	create_empty_input()
 static void	remove_file(t_input *input, int n)
 {
 	input->files_count--;
-	while (n < input->files_count )
+	while (n < input->files_count)
 	{
 		input->files[n] = input->files[n + 1];
 		n++;
 	}
 }
 
-static void process_links(t_input *input)
+static void	process_link(int i, t_input *input, t_entry *t)
+{
+	t->full_name = input->files[i].full_name;
+	parse_arguments_add_entry(input, *t);
+	remove_file(input, i);
+}
+
+static void	process_links(t_input *input)
 {
 	int		i;
 	BOOL	link_found;
+	t_entry	t;
 
 	if (input->print_options.details)
-	{
 		return ;
-	}
 	link_found = TRUE;
-	while(link_found)
+	while (link_found)
 	{
 		link_found = FALSE;
 		i = -1;
@@ -160,74 +153,80 @@ static void process_links(t_input *input)
 		{
 			if (is_link(input->files[i].s.st_mode))
 			{
-				t_entry t = try_get_target_entry(input->files[i].full_name.path);
+				t = try_get_target_entry(input->files[i].full_name.path);
 				if (is_folder(t.s.st_mode))
 				{
-					t.full_name = input->files[i].full_name;
-					parse_arguments_add_entry(input, t);
-					remove_file(input, i);
+					process_link(i, input, &t);
 					link_found = TRUE;
-					break;
+					break ;
 				}
-				
 			}
 		}
 	}
 }
 
-t_input	parse_arguments(int c, const char *args[])
+static BOOL	process_args(const char **args, int count, t_input *input, int *missing_entries_count, char *missing_entries[])
 {
-	t_input		input;
-	const char	*arg;
-	BOOL		parsing_options;
-	t_entry		e;
 	BOOL		entry_provided;
-	char		*missing_entries[c + 1];
-	int			missing_entries_count = 0;
+	int			i;
+	BOOL		parsing_options;
+	const char	*arg;
 
-	parsing_options = TRUE;
-	input = create_empty_input();
+	*missing_entries_count = 0;
 	entry_provided = FALSE;
-	for (int i = 0; i < c; i++)
+	parsing_options = TRUE;
+	i = -1;
+	while (++i < count)
 	{
 		arg = args[i];
-		//options are coming before files
 		if (parsing_options && ft_strcmp("--", arg) == 0 )
 		{
 			parsing_options = FALSE;
 			continue;
 		}
 		if ((parsing_options && arg[0] != '-') || ft_strcmp("-", arg) == 0)
-		{
 			parsing_options = FALSE;
-		}
 		if (parsing_options)
-		{
-			if (try_parse_option(&input, arg + 1))
-			{
+			if (try_parse_option(input, arg + 1))
 				continue;
-			}
-		}
 		entry_provided = TRUE;
-		input.args_count++;
+		input->args_count++;
+		t_entry		e;
 		e = try_get_entry(arg);
 		if (is_null_entry(e))
 		{
-			missing_entries[missing_entries_count++] = ft_strdup(arg);
+			missing_entries[(*missing_entries_count)++] = ft_strdup(arg);
 			continue;
 		}
-		//if (is_folder(e.s.st_mode))
-		{
-			ft_strcpy(e.full_name.name, arg);
-		}
-		parse_arguments_add_entry(&input, e);
+		ft_strcpy(e.full_name.name, arg);
+		parse_arguments_add_entry(input, e);
 	}
+	return (entry_provided);
+}
+
+static BOOL	parse_options_and_entries(const char **args, int count, t_input *input)
+{
+	BOOL		entry_provided;
+	char		*missing_entries[count + 1];
+	int			missing_entries_count;
+	
+	entry_provided = process_args(args, count, input, &missing_entries_count, missing_entries);
 	ft_sort_strings(missing_entries, missing_entries_count);
 	print_no_such_files(missing_entries, missing_entries_count);
 	while (missing_entries_count-- > 0)
 	{
 		free(missing_entries[missing_entries_count]);
 	}
+	return (entry_provided);
+}
+
+t_input	parse_arguments(int c, const char *args[])
+{
+	t_input		input;
+	BOOL		entry_provided;
+
+	input = create_empty_input();
+	entry_provided = parse_options_and_entries(args, c, &input);
 	
 	process_links(&input);
 	
@@ -245,4 +244,3 @@ t_input	parse_arguments(int c, const char *args[])
 	
 	return (input);
 }
-
