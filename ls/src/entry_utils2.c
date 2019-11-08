@@ -12,27 +12,15 @@
 
 #include "ls.h"
 
-BOOL		is_folder(const mode_t mode)
+BOOL		is_null_entry(t_entry e)
 {
-	return (S_ISDIR(mode));
+	return (e.is_null);
 }
 
-BOOL		is_link(const mode_t mode)
+t_entry		create_null_entry(void)
 {
-	return (S_ISLNK(mode));
-}
+	t_entry	e;
 
-BOOL		is_block_dev(const t_entry e)
-{
-	return (S_ISBLK(e.s.st_mode));
-}
-
-BOOL		is_char_dev(const t_entry e)
-{
-	return (S_ISCHR(e.s.st_mode));
-}
-
-BOOL		is_absolute_path(const char *path)
-{
-	return (*path == PATH_SEPARATOR);
+	e.is_null = TRUE;
+	return (e);
 }

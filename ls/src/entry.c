@@ -12,14 +12,6 @@
 
 #include "ls.h"
 
-t_entry		create_null_entry(void)
-{
-	t_entry	e;
-
-	e.is_null = TRUE;
-	return (e);
-}
-
 static void	extract_name(t_f_n *fn, const char *name)
 {
 	int		pos;

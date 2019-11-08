@@ -1,7 +1,7 @@
 
 .PHONY: clean fclean re make all
 
-FILENAMES = ls.c cur_dir.c entry.c entry_utils.c get_folder_entries.c main.c parse_arguments.c print_entries.c sort.c
+FILENAMES = ls.c cur_dir.c entry.c entry_utils.c entry_utils2.c get_folder_entries.c main.c parse_arguments.c print_entries.c sort.c
 NAME = ft_ls
 
 SRCS	=$(addprefix src/, $(FILENAMES))
