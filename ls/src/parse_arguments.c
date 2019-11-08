@@ -160,16 +160,23 @@ static BOOL		process_args(const char **args, int count, \
 	while (++i < count)
 	{
 		arg = args[i];
-		if (parsing_options && ft_strcmp("--", arg) == 0)
+		if (ft_strcmp("-", arg) == 0)
+			{
+				parsing_options = FALSE;
+			}
+		if ((parsing_options))
 		{
-			parsing_options = FALSE;
-			continue;
-		}
-		if ((parsing_options && arg[0] != '-') || ft_strcmp("-", arg) == 0)
-			parsing_options = FALSE;
-		if (parsing_options)
-			if (try_parse_option(input, arg + 1))
+			if (ft_strcmp("--", arg) == 0)
+			{
+				parsing_options = FALSE;
 				continue;
+			}
+			if ((arg[0] != '-'))
+				{parsing_options = FALSE;}
+			if (parsing_options)
+				if (try_parse_option(input, arg + 1))
+					continue;
+		}
 		entry_provided = TRUE;
 		input->args_count++;
 		e = try_get_entry(arg);
