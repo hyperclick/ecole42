@@ -12,7 +12,7 @@
 
 #include "ls.h"
 
-void	print_usage(const char f)
+void			print_usage(const char f)
 {
 	ft_putstr_fd("ls: illegal option -- ", STDERR_FILENO);
 	ft_putchar_fd(f, STDERR_FILENO);
@@ -21,29 +21,7 @@ void	print_usage(const char f)
 		, STDERR_FILENO);
 }
 
-void	print_no_such_file(const char arg[])
-{
-	ft_putstr_fd("ls: ", STDERR_FILENO);
-	ft_putstr_fd(*arg == 0 ? "fts_open" : arg, STDERR_FILENO);
-	ft_putstr_fd(": No such file or directory\n", STDERR_FILENO);
-	if (*arg == 0)
-	{
-		exit(1);
-	}
-}
-
-void	print_no_such_files(char *files[], int count)
-{
-	int	i;
-
-	i = -1;
-	while (++i < count)
-	{
-		print_no_such_file(files[i]);
-	}
-}
-
-BOOL	parse_flag(t_input *input, const char f)
+BOOL			parse_flag(t_input *input, const char f)
 {
 	if (f == 'l')
 	{
@@ -72,7 +50,7 @@ BOOL	parse_flag(t_input *input, const char f)
 	exit(1);
 }
 
-BOOL	try_parse_option(t_input *input, const char arg[])
+BOOL			try_parse_option(t_input *input, const char arg[])
 {
 	while (*arg != 0)
 	{
@@ -85,7 +63,7 @@ BOOL	try_parse_option(t_input *input, const char arg[])
 	return (TRUE);
 }
 
-void	parse_arguments_add_entry(t_input *input, t_entry e)
+void			parse_arguments_add_entry(t_input *input, t_entry e)
 {
 	if (is_folder(e.s.st_mode))
 	{
@@ -107,7 +85,7 @@ void	parse_arguments_add_entry(t_input *input, t_entry e)
 	}
 }
 
-t_input	create_empty_input(void)
+t_input			create_empty_input(void)
 {
 	t_input input;
 
@@ -119,7 +97,7 @@ t_input	create_empty_input(void)
 	return (input);
 }
 
-static void	remove_file(t_input *input, int n)
+static void		remove_file(t_input *input, int n)
 {
 	input->files_count--;
 	while (n < input->files_count)
@@ -129,18 +107,18 @@ static void	remove_file(t_input *input, int n)
 	}
 }
 
-static void	process_link(int i, t_input *input, t_entry *t)
+static void		process_link(int i, t_input *input, t_entry *t)
 {
 	t->full_name = input->files[i].full_name;
 	parse_arguments_add_entry(input, *t);
 	remove_file(input, i);
 }
 
-static void	process_links(t_input *input)
+static void		process_links(t_input *input)
 {
-	int		i;
-	BOOL	link_found;
-	t_entry	t;
+	int			i;
+	BOOL		link_found;
+	t_entry		t;
 
 	if (input->print_options.details)
 		return ;
@@ -165,17 +143,15 @@ static void	process_links(t_input *input)
 	}
 }
 
-static BOOL	process_args(
-		const char **args
-		, int count
-		, t_input *input
-		, int *missing_entries_count
-		, char *missing_entries[])
+static BOOL		process_args(const char **args, int count, \
+							t_input *input, int *missing_entries_count, \
+							char *missing_entries[])
 {
 	BOOL		entry_provided;
 	int			i;
 	BOOL		parsing_options;
 	const char	*arg;
+	t_entry		e;
 
 	*missing_entries_count = 0;
 	entry_provided = FALSE;
@@ -196,7 +172,6 @@ static BOOL	process_args(
 				continue;
 		entry_provided = TRUE;
 		input->args_count++;
-		t_entry		e;
 		e = try_get_entry(arg);
 		if (is_null_entry(e))
 		{
