@@ -130,6 +130,10 @@ static void process_links(t_input *input)
 	int		i;
 	BOOL	link_found;
 	
+	if (input->print_options.details)
+	{
+		return ;
+	}
 	link_found = TRUE;
 	while(link_found)
 	{
