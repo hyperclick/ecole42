@@ -397,7 +397,7 @@ size_t		does_any_have_xattr(t_entry	entries[MAX_FSO_IN_DIR], int count)
 }
 
 
-void	print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o)
+void	print_entries(t_entry	*entries, int count, t_print_options o)
 {
 	BOOL	any_has_xattr = does_any_have_xattr(entries, count);
 	int max_link_len = find_max_link_len(entries, count);
