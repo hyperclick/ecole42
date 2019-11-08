@@ -50,10 +50,10 @@ t_f_n	get_full_name(const char name[])
 	
 	fn = create_full_name();
 	ft_strcpy(fn.path, name);
+	
 	if (ft_strcmp(".", name) == 0)
 	{
-		//ft_strcpy(fn.path, ".");
-		ft_strcpy(fn.folder, ".");
+		//ft_strcpy(fn.folder2, ".");
 		ft_strcpy(fn.name,".");
 		return (fn);
 	}
@@ -64,7 +64,7 @@ t_f_n	get_full_name(const char name[])
 	char* sub = ft_strsub(fn.path, 0, pos);
 	if (sub != NULL)
 	{
-		ft_strcpy(fn.folder, sub);
+		//ft_strcpy(fn.folder2, sub);
 		free(sub);
 	}
 	pos++;
@@ -123,7 +123,7 @@ t_entry try_get_target_entry(const char link_path[])
 	
 	char target_path[MAX_PATH];
 	struct stat s;
-	if (stat(get_link_target(target_path, link_path), &s) != -1)
+	if (stat(get_link_target(target_path, link_path, MAX_PATH), &s) != -1)
 	{
 		fill_entry(&e, s, target_path);
 	}
