@@ -86,11 +86,14 @@ typedef struct	s_input
 
 typedef	struct	s_dir_info
 {
-	BOOL	any_has_xattr;
-	int		max_link_len;
-	int		max_size_len;
-	int		max_group_len;
-	int		max_user_len;
+	BOOL	    any_has_xattr;
+	BOOL        dir_with_bc;
+	size_t		max_links_len;
+	size_t		max_size_len;
+	size_t		max_group_len;
+	size_t		max_user_len;
+	size_t      max_major_len;
+	size_t      max_minor_len;
 }				t_dir_info;
 
 t_entry		try_get_target_entry(const char link_path[]);

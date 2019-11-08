@@ -24,30 +24,34 @@ static void	swap(t_entry entries[], int i, int j)
 static BOOL	need_swap(t_entry a, t_entry b, t_sort_options o)
 {
 	BOOL	second_is_greater;
+
 	if (o.sort_by == SORT_BY_MOD_TIME)
 	{
-		//Sort by time modified (most recently modified first) before
-		//sorting the operands by lexicographical order.
-		second_is_greater = b.s.st_mtime < a.s.st_mtime;//default is descending order
+		second_is_greater = b.s.st_mtime < a.s.st_mtime;
 		if (b.s.st_mtime == a.s.st_mtime)
 		{
-			second_is_greater = (ft_strcmp(b.full_name.name, a.full_name.name) >= 0);
+			second_is_greater =
+				(ft_strcmp(b.full_name.name, a.full_name.name) >= 0);
 		}
 	}
-	if (o.sort_by == SORT_BY_NAME)
+	else if (o.sort_by == SORT_BY_NAME)
 	{
-		second_is_greater = (ft_strcmp(b.full_name.path, a.full_name.path) >= 0);
+		second_is_greater =
+			(ft_strcmp(b.full_name.path, a.full_name.path) >= 0);
 	}
-	BOOL	need_to_swap = o.sort_desc == TRUE ? second_is_greater : !second_is_greater;
-	return (need_to_swap);
-
+	else
+	{
+		ft_putstr_fd("unknown sort", STDERR_FILENO);
+		exit(1);
+	}
+	return (o.sort_desc == TRUE ? second_is_greater : !second_is_greater);
 }
 
-t_entry* sort(t_entry entries[], int count, t_sort_options o)
+t_entry		*sort(t_entry entries[], int count, t_sort_options o)
 {
-	int	i;
+	int		i;
 	BOOL	not_sorted;
-	
+
 	not_sorted = TRUE;
 	while (not_sorted)
 	{
