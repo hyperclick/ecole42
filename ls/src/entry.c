@@ -12,50 +12,12 @@
 
 #include "ls.h"
 
-BOOL	is_folder(const mode_t mode)
-{
-	return (S_ISDIR(mode));
-}
-
-BOOL	is_link(const mode_t mode)
-{
-	return (S_ISLNK(mode));
-}
-
-BOOL	is_absolute_path(const char *path)
-{
-	return (*path == PATH_SEPARATOR);
-}
-
-BOOL	is_null_entry(t_entry e)
-{
-	return (e.is_null);
-}
-
-t_entry	create_null_entry(void)
+t_entry		create_null_entry(void)
 {
 	t_entry	e;
 
 	e.is_null = TRUE;
 	return (e);
-}
-
-void	make_path(char *path, const char name[])
-{
-	if (ft_strlen(name) > MAX_PATH)
-	{
-		ft_putstr_fd("too long name\n", STDERR_FILENO);
-		exit(1);
-	}
-	if (is_absolute_path(name))
-	{
-		ft_strcpy(path, name);
-	}
-	else
-	{
-		ft_strcpy(path, "./");
-		ft_strcpy(path + 2, name);
-	}
 }
 
 static void	extract_name(t_f_n *fn, const char *name)
@@ -80,7 +42,7 @@ static void	extract_name(t_f_n *fn, const char *name)
 	}
 }
 
-t_f_n	get_full_name(const char name[])
+t_f_n		get_full_name(const char name[])
 {
 	t_f_n	fn;
 
@@ -95,14 +57,14 @@ t_f_n	get_full_name(const char name[])
 	return (fn);
 }
 
-void	fill_entry(t_entry *e, struct stat s, const char name[])
+void		fill_entry(t_entry *e, struct stat s, const char name[])
 {
 	e->s = s;
 	e->full_name = get_full_name(name);
 	e->is_null = FALSE;
 }
 
-t_entry	try_get_entry(const char arg[])
+t_entry		try_get_entry(const char arg[])
 {
 	t_entry		e;
 	struct stat	s;
@@ -121,7 +83,7 @@ t_entry	try_get_entry(const char arg[])
 	return (e);
 }
 
-t_entry	try_get_target_entry(const char link_path[])
+t_entry		try_get_target_entry(const char link_path[])
 {
 	t_entry		e;
 	char		target_path[MAX_PATH];
