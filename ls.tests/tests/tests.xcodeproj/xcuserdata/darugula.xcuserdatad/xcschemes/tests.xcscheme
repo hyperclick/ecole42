@@ -73,6 +73,14 @@
             isEnabled = "NO">
          </CommandLineArgument>
          <CommandLineArgument
+            argument = "-a"
+            isEnabled = "NO">
+         </CommandLineArgument>
+         <CommandLineArgument
+            argument = "does_not_exit"
+            isEnabled = "YES">
+         </CommandLineArgument>
+         <CommandLineArgument
             argument = "-lR /usr/bin"
             isEnabled = "NO">
          </CommandLineArgument>
@@ -94,7 +102,7 @@
          </CommandLineArgument>
          <CommandLineArgument
             argument = "-l /dev/afsc_type5    "
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>

@@ -91,6 +91,9 @@
 		C7A2A6B5236D735600416B6C /* ft_striteri.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A66B236D735600416B6C /* ft_striteri.c */; };
 		C7A2A6B6236D735600416B6C /* ft_str_remove_at.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A66C236D735600416B6C /* ft_str_remove_at.c */; };
 		C7A8042423757C0B00B4109E /* entry_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A8042323757C0B00B4109E /* entry_utils.c */; };
+		C7A804262375862100B4109E /* entry_utils2.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A804252375862100B4109E /* entry_utils2.c */; };
+		C7A804282375A30700B4109E /* path_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A804272375A30700B4109E /* path_utils.c */; };
+		C7A8042A2375A3DE00B4109E /* print_folders.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A804292375A3DE00B4109E /* print_folders.c */; };
 		C7D021F7236EE26C00898B99 /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = C7D021F6236EE26B00898B99 /* log.c */; };
 		C7F02B8F2372AC680040816D /* ft_sort_strings.c in Sources */ = {isa = PBXBuildFile; fileRef = C7F02B8E2372AC670040816D /* ft_sort_strings.c */; };
 		C7F635CF23747801006234DA /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = C7F635CE23747801006234DA /* Makefile */; };
@@ -196,6 +199,9 @@
 		C7A2A66B236D735600416B6C /* ft_striteri.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_striteri.c; path = ../../ls/libft/ft_striteri.c; sourceTree = "<group>"; };
 		C7A2A66C236D735600416B6C /* ft_str_remove_at.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_str_remove_at.c; path = ../../ls/libft/ft_str_remove_at.c; sourceTree = "<group>"; };
 		C7A8042323757C0B00B4109E /* entry_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = entry_utils.c; path = ../../ls/src/entry_utils.c; sourceTree = "<group>"; };
+		C7A804252375862100B4109E /* entry_utils2.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = entry_utils2.c; path = ../../ls/src/entry_utils2.c; sourceTree = "<group>"; };
+		C7A804272375A30700B4109E /* path_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = path_utils.c; path = ../../ls/src/path_utils.c; sourceTree = "<group>"; };
+		C7A804292375A3DE00B4109E /* print_folders.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = print_folders.c; path = ../../ls/src/print_folders.c; sourceTree = "<group>"; };
 		C7D021F6236EE26B00898B99 /* log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = log.c; path = ../../ls/libft/log.c; sourceTree = "<group>"; };
 		C7F02B8E2372AC670040816D /* ft_sort_strings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_sort_strings.c; path = ../../ls/libft/ft_sort_strings.c; sourceTree = "<group>"; };
 		C7F635CE23747801006234DA /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../../ls/Makefile; sourceTree = "<group>"; };
@@ -215,6 +221,9 @@
 		C7527A7B2371897800B2A5E1 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				C7A804292375A3DE00B4109E /* print_folders.c */,
+				C7A804272375A30700B4109E /* path_utils.c */,
+				C7A804252375862100B4109E /* entry_utils2.c */,
 				C7A8042323757C0B00B4109E /* entry_utils.c */,
 				C7527A81237189AA00B2A5E1 /* cur_dir.c */,
 				C7527A84237189AA00B2A5E1 /* entry.c */,
@@ -410,6 +419,7 @@
 				C7A2A682236D735600416B6C /* ft_strnstr.c in Sources */,
 				C78E5B0F234FABC700F6D9A4 /* main.c in Sources */,
 				C7A2A6A3236D735600416B6C /* ft_memccpy.c in Sources */,
+				C7A8042A2375A3DE00B4109E /* print_folders.c in Sources */,
 				C7A2A6B2236D735600416B6C /* ft_strncat.c in Sources */,
 				C7A2A6A2236D735600416B6C /* ft_strnew.c in Sources */,
 				C7A2A6AC236D735600416B6C /* ft_strnequ.c in Sources */,
@@ -473,6 +483,7 @@
 				C7D021F7236EE26C00898B99 /* log.c in Sources */,
 				C7A2A688236D735600416B6C /* ft_is_number.c in Sources */,
 				C7527A8B237189AA00B2A5E1 /* sort.c in Sources */,
+				C7A804282375A30700B4109E /* path_utils.c in Sources */,
 				C7A2A695236D735600416B6C /* ft_isascii.c in Sources */,
 				C7A2A68F236D735600416B6C /* ft_lst_free_item.c in Sources */,
 				C7A2A6AB236D735600416B6C /* ft_strncpy.c in Sources */,
@@ -480,6 +491,7 @@
 				C7A2A694236D735600416B6C /* ft_memmove.c in Sources */,
 				C7A2A6AA236D735600416B6C /* ft_strncmp.c in Sources */,
 				C7A2A687236D735600416B6C /* ft_itoa.c in Sources */,
+				C7A804262375862100B4109E /* entry_utils2.c in Sources */,
 				C7A2A6A6236D735600416B6C /* ft_isalnum.c in Sources */,
 				C7A2A6B5236D735600416B6C /* ft_striteri.c in Sources */,
 				C7A2A6B1236D735600416B6C /* ft_lstnew.c in Sources */,
