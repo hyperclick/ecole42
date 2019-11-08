@@ -117,9 +117,9 @@ BOOL						is_block_dev(const t_entry e);
 BOOL						is_absolute_path(const char *path);
 t_entry						try_get_entry(const char arg[]);
 t_input						parse_arguments(int c, const char *args[]);
-void						parse_arguments_add_entry(t_input *input, t_entry e);
+void						parse_arguments_add_entry(
+								t_input *input, t_entry e);
 BOOL						parse_flag(t_input *input, const char f);
-void						parse_arguments_add_entry(t_input *input, t_entry e);
 t_input						create_empty_input(void);
 void						process_links(t_input *input);
 t_entry						*sort(t_entry entries[MAX_FSO_IN_DIR], \

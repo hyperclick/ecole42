@@ -34,7 +34,7 @@ void		process_links(t_input *input)
 	int			i;
 	BOOL		link_found;
 	t_entry		t;
-	
+
 	if (input->print_options.details)
 		return ;
 	link_found = TRUE;
@@ -58,14 +58,13 @@ void		process_links(t_input *input)
 	}
 }
 
-
 static void	print_usage(const char f)
 {
 	ft_putstr_fd("ls: illegal option -- ", STDERR_FILENO);
 	ft_putchar_fd(f, STDERR_FILENO);
 	ft_putstr_fd(
-				 "\nusage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]\n"
-				 , STDERR_FILENO);
+		"\nusage: ls [-ABCFGHLOPRSTUWabcdefghiklmnopqrstuwx1] [file ...]\n"
+		, STDERR_FILENO);
 }
 
 BOOL		parse_flag(t_input *input, const char f)
