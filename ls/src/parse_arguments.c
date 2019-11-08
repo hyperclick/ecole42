@@ -165,7 +165,12 @@ static void	process_links(t_input *input)
 	}
 }
 
-static BOOL	process_args(const char **args, int count, t_input *input, int *missing_entries_count, char *missing_entries[])
+static BOOL	process_args(
+		const char **args
+		, int count
+		, t_input *input
+		, int *missing_entries_count
+		, char *missing_entries[])
 {
 	BOOL		entry_provided;
 	int			i;
@@ -179,7 +184,7 @@ static BOOL	process_args(const char **args, int count, t_input *input, int *miss
 	while (++i < count)
 	{
 		arg = args[i];
-		if (parsing_options && ft_strcmp("--", arg) == 0 )
+		if (parsing_options && ft_strcmp("--", arg) == 0)
 		{
 			parsing_options = FALSE;
 			continue;
@@ -204,13 +209,15 @@ static BOOL	process_args(const char **args, int count, t_input *input, int *miss
 	return (entry_provided);
 }
 
-static BOOL	parse_options_and_entries(const char **args, int count, t_input *input)
+static BOOL	parse_options_and_entries(
+	const char **args, int count, t_input *input)
 {
 	BOOL		entry_provided;
 	char		*missing_entries[count + 1];
 	int			missing_entries_count;
-	
-	entry_provided = process_args(args, count, input, &missing_entries_count, missing_entries);
+
+	entry_provided = process_args(
+			args, count, input, &missing_entries_count, missing_entries);
 	ft_sort_strings(missing_entries, missing_entries_count);
 	print_no_such_files(missing_entries, missing_entries_count);
 	while (missing_entries_count-- > 0)
@@ -224,16 +231,17 @@ t_input	parse_arguments(int c, const char *args[])
 {
 	t_input		input;
 	BOOL		entry_provided;
+	t_entry		e;
 
 	input = create_empty_input();
 	entry_provided = parse_options_and_entries(args, c, &input);
-	
 	process_links(&input);
-	
-	if (entry_provided == FALSE && input.files_count == 0 && input.folders_count == 0)
+	if (entry_provided == FALSE
+		&& input.files_count == 0
+		&& input.folders_count == 0)
 	{
 		log_line("no files or folders provided. using .");
-		t_entry e = try_get_entry(".");
+		e = try_get_entry(".");
 		if (is_null_entry(e))
 		{
 			ft_putstr("failed to create entry for '.'\n");
@@ -241,6 +249,5 @@ t_input	parse_arguments(int c, const char *args[])
 		}
 		parse_arguments_add_entry(&input, e);
 	}
-	
 	return (input);
 }

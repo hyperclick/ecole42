@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_entries.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/08 12:49:51 by darugula          #+#    #+#             */
+/*   Updated: 2019/11/08 12:49:53 by darugula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ls.h"
 #define SPACES_BETWEEN_COL 2
 #include <time.h>
@@ -98,45 +110,62 @@ int	get_columns_count(t_entry entries[], int entries_count, t_print_options o)
 	return (1);
 }
 
-char* formatdate2(char* str, time_t val)
+
+char* formatdate(char* str, time_t val, t_print_options o)//golda
 {
-	//strftime(str, 36, "%d.%m.%Y %H:%M:%S", localtime(&val));
-	char *str2;
-	
-	str2=ft_strncpy(&str[0], ctime(&val)+4, 4);
-	str2=ft_strncpy(&str[4], ctime(&val)+8, 3);
-	str2=ft_strncpy(&str[7], ctime(&val)+11, 5);
-	str[12]='\0';
-	return str;
-}
-char* formatdate(char* str, time_t val)
-{
-	char *str2;
-	char *tmp;
-	long i;
-	long ii;
-	time_t val2;
-	val2 =val;
-	i=time(NULL);
-	ii=time(&val2);
-	char *tmp2;
-	//strftime(str, 36,  " %b\t%-d %H:%M", localtime(&val));
-	
-	str2=ft_strncpy(&str[0], ctime(&val)+4, 4);
-	str2=ft_strncpy(&str[4], ctime(&val)+8, 3);
-	//str2=ft_strncpy(&str[7], ctime(&val)+11, 5);
-	tmp2=ctime(&val)+20;
-	if (atoi(tmp2)==2019)
+	char	*str2;
+	char	*tmp;
+	long	i;
+	time_t	val2;
+	char	*tmp2;
+
+	val2 = val;
+	i = time(NULL);
+	if (o.long_datetime)
 	{
-		str2=ft_strncpy(&str[7], ctime(&val)+11, 5);
+		if (val>=253402290000)
+		{
+			str2=ft_strncpy(&str[0], ctime(&val)+4, 21);
+			str[21]='\0';
+		}
+		else
+		{
+			str2=ft_strncpy(&str[0], ctime(&val)+4, 20);
+			str[20]='\0';
+		}
 	}
 	else
 	{
-		tmp = ft_strjoin(" ", tmp2);
-		str2 = ft_strncpy(&str[7], tmp, 5);
-		free(tmp);
+		str2=ft_strncpy(&str[0], ctime(&val)+4, 4);
+		str2=ft_strncpy(&str[4], ctime(&val)+8, 3);
+		tmp2=ctime(&val)+20;
+		if (i - val <= 15724800 && i - val >= 0)
+		{
+			str2=ft_strncpy(&str[7], ctime(&val)+11, 5);
+			str[12]='\0';
+		}
+		else
+		{
+			if (val>=253402290000)
+			{
+				tmp2=ctime(&val)+23;
+				//tmp = ft_strjoin(" ", tmp2);
+				str2 = ft_strncpy(&str[7], tmp2, 7);
+				//free(tmp);
+				str[13]='\0';
+			}
+			else
+			{
+				tmp = ft_strjoin(" ", tmp2);
+				str2 = ft_strncpy(&str[7], tmp, 5);
+				free(tmp);
+				str[12]='\0';
+			}
+			
+		}
+		
 	}
-	str[12]='\0';
+	
 	return str;
 }
 
@@ -169,7 +198,7 @@ void print_spaces(int sizespace)
 
 
 
-void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group_len, int max_user_len, BOOL any_has_xattr)
+void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group_len, int max_user_len, BOOL any_has_xattr, t_print_options o)
 {
 	if (is_folder(e.s.st_mode))
 	{
@@ -198,15 +227,35 @@ void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group
 	
 	ft_putstr( (e.s.st_mode & S_IRUSR) ? "r" : "-");
 	ft_putstr( (e.s.st_mode & S_IWUSR) ? "w" : "-");
-	ft_putstr( (e.s.st_mode & S_IXUSR) ? "x" : "-");
+	if (e.s.st_mode & S_ISUID)
+	{
+		ft_putchar((e.s.st_mode & S_IXUSR) ? 's' : 'S');
+	}
+	else
+	{
+		ft_putchar((e.s.st_mode & S_IXUSR) ? 'x' : '-');
+	}
+	//ft_putstr( (e.s.st_mode & S_ISUID) ? "S" :
+	//		  ((e.s.st_mode & S_IXUSR) ? "x" : "-"));
 	ft_putstr( (e.s.st_mode & S_IRGRP) ? "r" : "-");
 	ft_putstr( (e.s.st_mode & S_IWGRP) ? "w" : "-");
-	ft_putstr( (e.s.st_mode & S_IXGRP) ? "x" : "-");
+	
+	
+	if (e.s.st_mode & S_ISGID)
+	{
+		ft_putchar((e.s.st_mode & S_IXGRP) ? 's' : 'S');
+	}
+	else
+	{
+		ft_putchar((e.s.st_mode & S_IXGRP) ? 'x' : '-');
+	}
+	//ft_putstr( (e.s.st_mode & S_ISGID) ? "S" :
+	//		  ((e.s.st_mode & S_IXGRP) ? "x" : "-"));
 	ft_putstr( (e.s.st_mode & S_IROTH) ? "r" : "-");
 	ft_putstr( (e.s.st_mode & S_IWOTH) ? "w" : "-");
 	if (e.s.st_mode & S_ISVTX)
 	{
-		ft_putchar('t');
+		ft_putchar( (e.s.st_mode & S_IXOTH) ? 't' : 'T');
 	}
 	else
 	{
@@ -216,12 +265,13 @@ void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group
 	{
 		ft_putchar('@');
 	}
-	else if(any_has_xattr)
+	else //if(any_has_xattr)
 	{
+		any_has_xattr = FALSE;
 		ft_putchar(' ');
 	}
-	print_spaces(2 + get_number_len(max_links_len) - get_number_len(e.s.st_nlink));
-	ft_putnbr( e.s.st_nlink);
+	print_spaces(1 + get_number_len(max_links_len) - get_number_len(e.s.st_nlink));
+	ft_putnbr(e.s.st_nlink);
 	ft_putstr(" ");
 	
 	ft_putstr( getpwuid(e.s.st_uid)->pw_name);
@@ -229,40 +279,57 @@ void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group
 	
 	ft_putstr( getgrgid(e.s.st_gid)->gr_name);
 	print_spaces(max_group_len - ft_strlen(getgrgid(e.s.st_gid)->gr_name));
-
-	print_spaces(2 + get_number_len(max_size_len) - get_number_len(e.s.st_size));
-	ft_putnbr(e.s.st_size);
+	
+	if (is_block_dev(e) || is_char_dev(e))
+	{
+		int32_t major = major(e.s.st_rdev);
+		int32_t minor = minor(e.s.st_rdev);
+		printf("%d, %d ", major, minor);
+	}
+	else
+	{
+		print_spaces(2 + get_number_len(max_size_len) - get_number_len(e.s.st_size));
+		ft_putnbr(e.s.st_size);
+	}
+	
 	ft_putstr(" ");
 	char date[36];
-	ft_putstr(formatdate(date, e.s.st_mtime));
+	ft_putstr(formatdate(date, e.s.st_mtime, o));
 	ft_putstr(" ");
+}
+
+char	*get_link_target(char *buf, const char *name, int size)
+{
+	ssize_t len;
+	if ((len = readlink(name, buf, size)) != -1)
+		buf[len] = '\0';
+	else
+		perror("readlink");
+	return (buf);
 }
 
 static void print_link_target(const char name[])
 {
 	ft_putstr(" -> ");
 	
-	char buf[1024];
-	ssize_t len;
+	char buf[MAX_PATH];
 	
-	if ((len = readlink(name, buf, sizeof(buf)-1)) != -1)
-		buf[len] = '\0';
-	else
-		perror("readlink");
-	ft_putstr(buf);
+	ft_putstr(get_link_target(buf, name, MAX_PATH));
 }
 
 void	print(t_entry e, t_print_options o, int  max_link_len, int max_size_len, int max_group_len, int max_user_len, BOOL any_has_xattr)
 {
 	if (o.details)
 	{
-		print_details(e, max_link_len, max_size_len, max_group_len, max_user_len, any_has_xattr);
+		print_details(e, max_link_len, max_size_len, max_group_len, max_user_len, any_has_xattr, o);
 	}
-	ft_putstr( e.full_name.name);
-	if (o.details && is_link(e.s.st_mode))
+	
+	ft_putstr(e.full_name.name);
+	if (is_link(e.s.st_mode) && o.details)
 	{
 		print_link_target(e.full_name.path);
 	}
+	
 }
 
 int		find_max_link_len(t_entry	entries[MAX_FSO_IN_DIR], int count)
@@ -330,7 +397,7 @@ size_t		does_any_have_xattr(t_entry	entries[MAX_FSO_IN_DIR], int count)
 }
 
 
-void	print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o)
+void	print_entries(t_entry	*entries, int count, t_print_options o)
 {
 	BOOL	any_has_xattr = does_any_have_xattr(entries, count);
 	int max_link_len = find_max_link_len(entries, count);
@@ -352,3 +419,4 @@ void	print_entries(t_entry	entries[MAX_FSO_IN_DIR], int count, t_print_options o
 		ft_putstr("\n");
 	}
 }
+
