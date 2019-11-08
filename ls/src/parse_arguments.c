@@ -32,7 +32,7 @@ void	print_no_such_file(const char arg[])
 void	print_no_such_files(char *files[], int count)
 {
 	int	i;
-	
+
 	i = -1;
 	while (++i < count)
 	{
