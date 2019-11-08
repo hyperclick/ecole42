@@ -25,8 +25,8 @@ BOOL			try_parse_option(t_input *input, const char arg[])
 	return (TRUE);
 }
 
-
-BOOL		parse_option(const char *arg, t_input *input, BOOL *parsing_options)
+BOOL			parse_option(
+				const char *arg, t_input *input, BOOL *parsing_options)
 {
 	if (ft_strcmp("-", arg) == 0)
 	{
@@ -85,8 +85,8 @@ static BOOL		process_args(
 static BOOL		parse_options_and_entries(
 	const char **args, int count, t_input *input)
 {
-	BOOL		entry_provided;
-	char		*missing_entries[count + 1];
+	BOOL					entry_provided;
+	char					*missing_entries[count + 1];
 	struct s_parse_params	params;
 
 	params.args = args;
