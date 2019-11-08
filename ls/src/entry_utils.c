@@ -1,23 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ls.c                                               :+:      :+:    :+:   */
+/*   entry_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 12:48:40 by darugula          #+#    #+#             */
-/*   Updated: 2019/11/08 12:48:42 by darugula         ###   ########.fr       */
+/*   Created: 2019/11/08 12:48:19 by darugula          #+#    #+#             */
+/*   Updated: 2019/11/08 12:48:20 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ls.h"
 
-t_f_n	create_full_name()
+BOOL		is_folder(const mode_t mode)
 {
-	t_f_n fn;
-	//fn.folder2[0] = 0;
-	fn.name[0] = 0;
-	fn.path[0] = 0;
-	return (fn);
+	return (S_ISDIR(mode));
+}
+
+BOOL		is_link(const mode_t mode)
+{
+	return (S_ISLNK(mode));
+}
+
+BOOL		is_block_dev(const t_entry e)
+{
+	return (S_ISBLK(e.s.st_mode));
+}
+
+BOOL		is_char_dev(const t_entry e)
+{
+	return (S_ISCHR(e.s.st_mode));
+}
+
+BOOL		is_absolute_path(const char *path)
+{
+	return (*path == PATH_SEPARATOR);
+}
+
+BOOL		is_null_entry(t_entry e)
+{
+	return (e.is_null);
 }
 

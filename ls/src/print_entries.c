@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_entries.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/08 12:49:51 by darugula          #+#    #+#             */
+/*   Updated: 2019/11/08 12:49:53 by darugula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ls.h"
 #define SPACES_BETWEEN_COL 2
 #include <time.h>
@@ -268,8 +280,18 @@ void	print_details(t_entry e, int max_links_len, int max_size_len, int max_group
 	ft_putstr( getgrgid(e.s.st_gid)->gr_name);
 	print_spaces(max_group_len - ft_strlen(getgrgid(e.s.st_gid)->gr_name));
 	
-	print_spaces(2 + get_number_len(max_size_len) - get_number_len(e.s.st_size));
-	ft_putnbr(e.s.st_size);
+	if (is_block_dev(e) || is_char_dev(e))
+	{
+		int32_t major = major(e.s.st_rdev);
+		int32_t minor = minor(e.s.st_rdev);
+		printf("%d, %d ", major, minor);
+	}
+	else
+	{
+		print_spaces(2 + get_number_len(max_size_len) - get_number_len(e.s.st_size));
+		ft_putnbr(e.s.st_size);
+	}
+	
 	ft_putstr(" ");
 	char date[36];
 	ft_putstr(formatdate(date, e.s.st_mtime, o));

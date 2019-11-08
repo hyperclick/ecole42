@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ls.h                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/08 12:48:50 by darugula          #+#    #+#             */
+/*   Updated: 2019/11/08 12:48:51 by darugula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LS_H
 # define LS_H
 #include <sys/types.h>
@@ -84,12 +96,15 @@ typedef	struct	s_dir_info
 }				t_dir_info;
 
 t_entry		try_get_target_entry(const char link_path[]);
-char	*get_link_target(char *buf, const char *name, int size);
+char		*get_link_target(char *buf, const char *name, int size);
 BOOL		is_null_entry(t_entry e);
 t_entry		create_null_entry();
 
 BOOL		is_folder(const mode_t mode);
 BOOL		is_link(const mode_t mode);
+BOOL		is_char_dev(const t_entry e);
+BOOL		is_block_dev(const t_entry e);
+BOOL		is_absolute_path(const char *path);
 t_entry		try_get_entry(const char arg[]);
 t_input		parse_arguments(int c, const char* args[]);
 t_entry*	sort(t_entry entries[MAX_FSO_IN_DIR], int count, t_sort_options o);
