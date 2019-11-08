@@ -24,3 +24,16 @@ t_entry		create_null_entry(void)
 	e.is_null = TRUE;
 	return (e);
 }
+
+BOOL		need_to_show(t_entry e, t_find_options o)
+{
+	if (o.all)
+	{
+		return (TRUE);
+	}
+	if (ft_starts_with(e.full_name.name, '.'))
+	{
+		return (o.almost_all);
+	}
+	return (TRUE);
+}

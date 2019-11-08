@@ -98,7 +98,8 @@ typedef	struct	s_dir_info
 t_entry		try_get_target_entry(const char link_path[]);
 char		*get_link_target(char *buf, const char *name, int size);
 BOOL		is_null_entry(t_entry e);
-t_entry		create_null_entry();
+t_entry		create_null_entry(void);
+BOOL		need_to_show(t_entry e, t_find_options o);
 
 BOOL		is_folder(const mode_t mode);
 BOOL		is_link(const mode_t mode);

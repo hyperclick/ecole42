@@ -12,19 +12,6 @@
 
 #include "ls.h"
 
-BOOL		need_to_show(t_entry e, t_find_options o)
-{
-	if (o.all)
-	{
-		return (TRUE);
-	}
-	if (ft_starts_with(e.full_name.name, '.'))
-	{
-		return (o.almost_all);
-	}
-	return (TRUE);
-}
-
 static DIR	*open_dir(const t_f_n fn)
 {
 	DIR		*dir;
@@ -45,7 +32,7 @@ static DIR	*open_dir(const t_f_n fn)
 	return (dir);
 }
 
-static int		count_entries(t_f_n fn)
+static int	count_entries(t_f_n fn)
 {
 	DIR				*dir;
 	int				count;
@@ -65,11 +52,25 @@ static int		count_entries(t_f_n fn)
 	return (count);
 }
 
+static void	process_dir_entry(
+							int *i,
+							t_entry *new_entries,
+							const t_find_options o,
+							const char *path)
+{
+	t_entry			e;
+
+	e = try_get_entry(path);
+	if (!is_null_entry(e) && need_to_show(e, o))
+	{
+		new_entries[(*i)++] = e;
+	}
+}
+
 static int	fill_entries(t_entry *new_entries, t_f_n fn, const t_find_options o)
 {
 	DIR				*dir;
 	struct dirent	*entry;
-	t_entry			e;
 	int				i;
 	char			path[PATH_MAX];
 	size_t			directory_length;
@@ -82,18 +83,14 @@ static int	fill_entries(t_entry *new_entries, t_f_n fn, const t_find_options o)
 	while ((entry = readdir(dir)) != NULL)
 	{
 		ft_strcpy(path + directory_length + 1, entry->d_name);
-		e = try_get_entry(path);
-		if (!is_null_entry(e) && need_to_show(e, o))
-		{
-			new_entries[i++] = e;
-		}
+		process_dir_entry(&i, new_entries, o, path);
 	}
 	closedir(dir);
 	return (i);
 }
 
 int			get_folder_entries(
-			t_entry **entries, t_entry folder, t_find_options o)
+						t_entry **entries, t_entry folder, t_find_options o)
 {
 	t_entry			*new_entries;
 	int				count;
