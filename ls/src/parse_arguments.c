@@ -169,33 +169,39 @@ BOOL		parse_option(const char *arg, t_input *input, BOOL *parsing_options)
 	return (FALSE);
 }
 
-static BOOL		process_args(const char **args, int count, \
-							t_input *input, int *missing_entries_count, \
-							char *missing_entries[])
+struct s_parse_params
+{
+	const char **args;
+	int count;
+	t_input *input;
+	int missing_entries_count;
+};
+
+static BOOL		process_args(struct s_parse_params *params, char *missing_entries[])
 {
 	BOOL		entry_provided;
 	int			i;
 	BOOL		parsing_options;
 	t_entry		e;
 
-	*missing_entries_count = 0;
+	params->missing_entries_count = 0;
 	entry_provided = FALSE;
 	parsing_options = TRUE;
 	i = -1;
-	while (++i < count)
+	while (++i < params->count)
 	{
 		if ((parsing_options))
-			if (parse_option(args[i], input, &parsing_options))
+			if (parse_option(params->args[i], params->input, &parsing_options))
 				continue;
 		entry_provided = TRUE;
-		input->args_count++;
-		if (is_null_entry((e = try_get_entry(args[i]))))
+		params->input->args_count++;
+		if (is_null_entry((e = try_get_entry(params->args[i]))))
 		{
-			missing_entries[(*missing_entries_count)++] = ft_strdup(args[i]);
+			missing_entries[params->missing_entries_count++] = ft_strdup(params->args[i]);
 			continue;
 		}
-		ft_strcpy(e.full_name.name, args[i]);
-		parse_arguments_add_entry(input, e);
+		ft_strcpy(e.full_name.name, params->args[i]);
+		parse_arguments_add_entry(params->input, e);
 	}
 	return (entry_provided);
 }
@@ -205,15 +211,18 @@ static BOOL	parse_options_and_entries(
 {
 	BOOL		entry_provided;
 	char		*missing_entries[count + 1];
-	int			missing_entries_count;
+	struct s_parse_params	params;
 
-	entry_provided = process_args(
-			args, count, input, &missing_entries_count, missing_entries);
-	ft_sort_strings(missing_entries, missing_entries_count);
-	print_no_such_files(missing_entries, missing_entries_count);
-	while (missing_entries_count-- > 0)
+	params.args = args;
+	params.count = count;
+	params.input = input;
+	params.missing_entries_count = 0;
+	entry_provided = process_args(&params, missing_entries);
+	ft_sort_strings(missing_entries, params.missing_entries_count);
+	print_no_such_files(missing_entries, params.missing_entries_count);
+	while (params.missing_entries_count-- > 0)
 	{
-		free(missing_entries[missing_entries_count]);
+		free(missing_entries[params.missing_entries_count]);
 	}
 	return (entry_provided);
 }
