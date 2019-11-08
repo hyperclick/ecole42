@@ -27,7 +27,7 @@ static void	swap(char a[], char b[])
 	free(copy_a);
 }
 
-void		ft_sort_strings (char *a[], int count)
+void		ft_sort_strings(char *a[], int count)
 {
 	BOOL	sorted;
 	int		i;

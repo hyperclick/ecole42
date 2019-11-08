@@ -1,21 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   log.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/11/08 12:37:38 by darugula          #+#    #+#             */
+/*   Updated: 2019/11/08 12:37:40 by darugula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
-
 #include <stdio.h>
 
-
-void log_log (const char *str)
+void	log_log(const char *str)
 {
+	FILE	*fp;
+
 	return ;
-	FILE * fp;
-	/* open the file for writing*/
-	fp = fopen ("/Users/darugula/log.txt","a");
-	//fp = fopen ("log.txt","a");
-	
-	fprintf (fp, "%s",str);
-	
-	/* close the file*/
-	fclose (fp);
+	fp = fopen("/Users/darugula/log.txt", "a");
+	fprintf(fp, "%s", str);
+	fclose(fp);
 }
 
 void	log_line(const char *str)
