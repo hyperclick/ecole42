@@ -44,6 +44,26 @@
             <PersistentString
                value = "strerror(errno)">
             </PersistentString>
+            <PersistentString
+               value = "s.st_dev">
+            </PersistentString>
+            <PersistentString
+               value = "major(s.st_rdev)">
+            </PersistentString>
+            <PersistentString
+               value = "minor(s.st_dev)">
+            </PersistentString>
+            <PersistentString
+               value = "MAJOR(s.st_dev)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "get_link_target:print_entries.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "sizeof(buf)">
+            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
@@ -54,6 +74,9 @@
       </ContextState>
       <ContextState
          contextName = "main2:main.c">
+      </ContextState>
+      <ContextState
+         contextName = "print_folder_recursive:main.c">
       </ContextState>
       <ContextState
          contextName = "parse_flag:parse_arguments.c">
@@ -74,6 +97,9 @@
       </ContextState>
       <ContextState
          contextName = "print_folders:main.c">
+      </ContextState>
+      <ContextState
+         contextName = "find_max_group_len:print_entries.c">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

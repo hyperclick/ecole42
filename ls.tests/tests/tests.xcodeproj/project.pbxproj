@@ -90,8 +90,10 @@
 		C7A2A6B4236D735600416B6C /* ft_strsub.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A66A236D735600416B6C /* ft_strsub.c */; };
 		C7A2A6B5236D735600416B6C /* ft_striteri.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A66B236D735600416B6C /* ft_striteri.c */; };
 		C7A2A6B6236D735600416B6C /* ft_str_remove_at.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A2A66C236D735600416B6C /* ft_str_remove_at.c */; };
+		C7A8042423757C0B00B4109E /* entry_utils.c in Sources */ = {isa = PBXBuildFile; fileRef = C7A8042323757C0B00B4109E /* entry_utils.c */; };
 		C7D021F7236EE26C00898B99 /* log.c in Sources */ = {isa = PBXBuildFile; fileRef = C7D021F6236EE26B00898B99 /* log.c */; };
 		C7F02B8F2372AC680040816D /* ft_sort_strings.c in Sources */ = {isa = PBXBuildFile; fileRef = C7F02B8E2372AC670040816D /* ft_sort_strings.c */; };
+		C7F635CF23747801006234DA /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = C7F635CE23747801006234DA /* Makefile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -193,8 +195,10 @@
 		C7A2A66A236D735600416B6C /* ft_strsub.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_strsub.c; path = ../../ls/libft/ft_strsub.c; sourceTree = "<group>"; };
 		C7A2A66B236D735600416B6C /* ft_striteri.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_striteri.c; path = ../../ls/libft/ft_striteri.c; sourceTree = "<group>"; };
 		C7A2A66C236D735600416B6C /* ft_str_remove_at.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_str_remove_at.c; path = ../../ls/libft/ft_str_remove_at.c; sourceTree = "<group>"; };
+		C7A8042323757C0B00B4109E /* entry_utils.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = entry_utils.c; path = ../../ls/src/entry_utils.c; sourceTree = "<group>"; };
 		C7D021F6236EE26B00898B99 /* log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = log.c; path = ../../ls/libft/log.c; sourceTree = "<group>"; };
 		C7F02B8E2372AC670040816D /* ft_sort_strings.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = ft_sort_strings.c; path = ../../ls/libft/ft_sort_strings.c; sourceTree = "<group>"; };
+		C7F635CE23747801006234DA /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; name = Makefile; path = ../../ls/Makefile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +215,7 @@
 		C7527A7B2371897800B2A5E1 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				C7A8042323757C0B00B4109E /* entry_utils.c */,
 				C7527A81237189AA00B2A5E1 /* cur_dir.c */,
 				C7527A84237189AA00B2A5E1 /* entry.c */,
 				C7527A82237189AA00B2A5E1 /* get_folder_entries.c */,
@@ -252,6 +257,7 @@
 		C78E5B15234FABFF00F6D9A4 /* ls */ = {
 			isa = PBXGroup;
 			children = (
+				C7F635CE23747801006234DA /* Makefile */,
 				C7527A7B2371897800B2A5E1 /* src */,
 				C7A2A621236D733F00416B6C /* libft */,
 			);
@@ -449,6 +455,7 @@
 				C7A2A697236D735600416B6C /* ft_striter.c in Sources */,
 				C7A2A681236D735600416B6C /* ft_toupper.c in Sources */,
 				C7A2A6A8236D735600416B6C /* ft_str_append.c in Sources */,
+				C7F635CF23747801006234DA /* Makefile in Sources */,
 				C7A2A6B4236D735600416B6C /* ft_strsub.c in Sources */,
 				C7A2A68B236D735600416B6C /* ft_isalpha.c in Sources */,
 				C7527A85237189AA00B2A5E1 /* print_entries.c in Sources */,
@@ -457,6 +464,7 @@
 				C7527A8C237189AA00B2A5E1 /* entry.c in Sources */,
 				C7A2A686236D735600416B6C /* ft_lst_count.c in Sources */,
 				C7A2A69A236D735600416B6C /* ft_lstdelone.c in Sources */,
+				C7A8042423757C0B00B4109E /* entry_utils.c in Sources */,
 				C7A2A67F236D735600416B6C /* ft_strrchr.c in Sources */,
 				C7A2A678236D735600416B6C /* ft_putchar_fd.c in Sources */,
 				C7A2A67C236D735600416B6C /* ft_sqrt_up.c in Sources */,
