@@ -143,6 +143,32 @@ static void		process_links(t_input *input)
 	}
 }
 
+BOOL		parse_option(const char *arg, t_input *input, BOOL *parsing_options)
+{
+	if (ft_strcmp("-", arg) == 0)
+	{
+		*parsing_options = FALSE;
+		return (FALSE);
+	}
+	if (ft_strcmp("--", arg) == 0)
+	{
+		*parsing_options = FALSE;
+		return (TRUE);
+	}
+	if ((arg[0] != '-'))
+	{
+		*parsing_options = FALSE;
+	}
+	if (*parsing_options)
+	{
+		if (try_parse_option(input, arg + 1))
+		{
+			return (TRUE);
+		}
+	}
+	return (FALSE);
+}
+
 static BOOL		process_args(const char **args, int count, \
 							t_input *input, int *missing_entries_count, \
 							char *missing_entries[])
@@ -150,7 +176,6 @@ static BOOL		process_args(const char **args, int count, \
 	BOOL		entry_provided;
 	int			i;
 	BOOL		parsing_options;
-	const char	*arg;
 	t_entry		e;
 
 	*missing_entries_count = 0;
@@ -159,33 +184,17 @@ static BOOL		process_args(const char **args, int count, \
 	i = -1;
 	while (++i < count)
 	{
-		arg = args[i];
-		if (ft_strcmp("-", arg) == 0)
-			{
-				parsing_options = FALSE;
-			}
 		if ((parsing_options))
-		{
-			if (ft_strcmp("--", arg) == 0)
-			{
-				parsing_options = FALSE;
+			if (parse_option(args[i], input, &parsing_options))
 				continue;
-			}
-			if ((arg[0] != '-'))
-				{parsing_options = FALSE;}
-			if (parsing_options)
-				if (try_parse_option(input, arg + 1))
-					continue;
-		}
 		entry_provided = TRUE;
 		input->args_count++;
-		e = try_get_entry(arg);
-		if (is_null_entry(e))
+		if (is_null_entry((e = try_get_entry(args[i]))))
 		{
-			missing_entries[(*missing_entries_count)++] = ft_strdup(arg);
+			missing_entries[(*missing_entries_count)++] = ft_strdup(args[i]);
 			continue;
 		}
-		ft_strcpy(e.full_name.name, arg);
+		ft_strcpy(e.full_name.name, args[i]);
 		parse_arguments_add_entry(input, e);
 	}
 	return (entry_provided);
