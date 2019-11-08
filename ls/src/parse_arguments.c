@@ -169,44 +169,37 @@ BOOL		parse_option(const char *arg, t_input *input, BOOL *parsing_options)
 	return (FALSE);
 }
 
-struct s_parse_params
-{
-	const char **args;
-	int count;
-	t_input *input;
-	int missing_entries_count;
-};
-
-static BOOL		process_args(struct s_parse_params *params, char *missing_entries[])
+static BOOL		process_args(
+				struct s_parse_params *p, char *missing_entries[])
 {
 	BOOL		entry_provided;
 	int			i;
 	BOOL		parsing_options;
 	t_entry		e;
 
-	params->missing_entries_count = 0;
+	p->missing_entries_count = 0;
 	entry_provided = FALSE;
 	parsing_options = TRUE;
 	i = -1;
-	while (++i < params->count)
+	while (++i < p->count)
 	{
 		if ((parsing_options))
-			if (parse_option(params->args[i], params->input, &parsing_options))
+			if (parse_option(p->args[i], p->input, &parsing_options))
 				continue;
 		entry_provided = TRUE;
-		params->input->args_count++;
-		if (is_null_entry((e = try_get_entry(params->args[i]))))
+		p->input->args_count++;
+		if (is_null_entry((e = try_get_entry(p->args[i]))))
 		{
-			missing_entries[params->missing_entries_count++] = ft_strdup(params->args[i]);
+			missing_entries[p->missing_entries_count++] = ft_strdup(p->args[i]);
 			continue;
 		}
-		ft_strcpy(e.full_name.name, params->args[i]);
-		parse_arguments_add_entry(params->input, e);
+		ft_strcpy(e.full_name.name, p->args[i]);
+		parse_arguments_add_entry(p->input, e);
 	}
 	return (entry_provided);
 }
 
-static BOOL	parse_options_and_entries(
+static BOOL		parse_options_and_entries(
 	const char **args, int count, t_input *input)
 {
 	BOOL		entry_provided;
@@ -227,7 +220,7 @@ static BOOL	parse_options_and_entries(
 	return (entry_provided);
 }
 
-t_input	parse_arguments(int c, const char *args[])
+t_input			parse_arguments(int c, const char *args[])
 {
 	t_input		input;
 	BOOL		entry_provided;

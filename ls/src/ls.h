@@ -96,6 +96,14 @@ typedef	struct				s_dir_info
 	size_t					max_minor_len;
 }							t_dir_info;
 
+struct						s_parse_params
+{
+	const char				**args;
+	int						count;
+	t_input					*input;
+	int						missing_entries_count;
+};
+
 t_entry						try_get_target_entry(const char link_path[]);
 char						*get_link_target(char *buf, \
 											const char *name, int size);
