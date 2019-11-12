@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putnbr_fd.c                                        :+:      :+:    :+:   */
+/*   entry_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 16:01:36 by darugula          #+#    #+#             */
-/*   Updated: 2019/07/08 16:01:39 by darugula         ###   ########.fr       */
+/*   Created: 2019/11/08 12:48:19 by darugula          #+#    #+#             */
+/*   Updated: 2019/11/08 12:48:20 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ls.h"
 
-static void	put_nbr_fd_rec(long long n, int fd)
+BOOL		is_null_entry(t_entry e)
 {
-	if (n < 10 && n > -10)
-	{
-		n = n < 0 ? -n : n;
-		ft_putchar_fd('0' + n, fd);
-		return ;
-	}
-	put_nbr_fd_rec(n / 10, fd);
-	put_nbr_fd_rec(n % 10, fd);
+	return (e.is_null);
 }
 
-void		ft_putnbr_fd(long long nb, int fd)
+t_entry		create_null_entry(void)
 {
-	if (nb < 0)
+	t_entry	e;
+
+	e.is_null = TRUE;
+	return (e);
+}
+
+BOOL		need_to_show(t_entry e, t_find_options o)
+{
+	if (o.all)
 	{
-		ft_putchar_fd('-', fd);
+		return (TRUE);
 	}
-	put_nbr_fd_rec(nb, fd);
+	if (ft_starts_with(e.full_name.name, '.'))
+	{
+		return (o.almost_all);
+	}
+	return (TRUE);
 }

@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putnbr_fd.c                                        :+:      :+:    :+:   */
+/*   cur_dir.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 16:01:36 by darugula          #+#    #+#             */
-/*   Updated: 2019/07/08 16:01:39 by darugula         ###   ########.fr       */
+/*   Created: 2019/11/08 12:47:40 by darugula          #+#    #+#             */
+/*   Updated: 2019/11/08 12:47:42 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ls.h"
 
-static void	put_nbr_fd_rec(long long n, int fd)
+t_entry	g_cur_dir;
+
+void	set_cur_dir(const char *dir)
 {
-	if (n < 10 && n > -10)
-	{
-		n = n < 0 ? -n : n;
-		ft_putchar_fd('0' + n, fd);
-		return ;
-	}
-	put_nbr_fd_rec(n / 10, fd);
-	put_nbr_fd_rec(n % 10, fd);
+	g_cur_dir = try_get_entry(dir);
 }
 
-void		ft_putnbr_fd(long long nb, int fd)
+t_entry	get_cur_dir(void)
 {
-	if (nb < 0)
-	{
-		ft_putchar_fd('-', fd);
-	}
-	put_nbr_fd_rec(nb, fd);
+	return (g_cur_dir);
 }

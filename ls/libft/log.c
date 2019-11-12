@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putnbr_fd.c                                        :+:      :+:    :+:   */
+/*   log.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 16:01:36 by darugula          #+#    #+#             */
-/*   Updated: 2019/07/08 16:01:39 by darugula         ###   ########.fr       */
+/*   Created: 2019/11/08 12:37:38 by darugula          #+#    #+#             */
+/*   Updated: 2019/11/08 12:37:40 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static void	put_nbr_fd_rec(long long n, int fd)
+void	log_log(const char *str)
 {
-	if (n < 10 && n > -10)
-	{
-		n = n < 0 ? -n : n;
-		ft_putchar_fd('0' + n, fd);
-		return ;
-	}
-	put_nbr_fd_rec(n / 10, fd);
-	put_nbr_fd_rec(n % 10, fd);
+	FILE	*fp;
+
+	return ;
+	fp = fopen("/Users/darugula/log.txt", "a");
+	fprintf(fp, "%s", str);
+	fclose(fp);
 }
 
-void		ft_putnbr_fd(long long nb, int fd)
+void	log_line(const char *str)
 {
-	if (nb < 0)
-	{
-		ft_putchar_fd('-', fd);
-	}
-	put_nbr_fd_rec(nb, fd);
+	log_log(str);
+	log_log("\n");
 }

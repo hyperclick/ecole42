@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   putnbr_fd.c                                        :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 16:01:36 by darugula          #+#    #+#             */
-/*   Updated: 2019/07/08 16:01:39 by darugula         ###   ########.fr       */
+/*   Created: 2019/11/08 12:48:40 by darugula          #+#    #+#             */
+/*   Updated: 2019/11/08 12:48:42 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ls.h"
 
-static void	put_nbr_fd_rec(long long n, int fd)
+void			print_no_such_file(const char arg[])
 {
-	if (n < 10 && n > -10)
+	ft_putstr_fd("ls: ", STDERR_FILENO);
+	ft_putstr_fd(*arg == 0 ? "fts_open" : arg, STDERR_FILENO);
+	ft_putstr_fd(": No such file or directory\n", STDERR_FILENO);
+	if (*arg == 0)
 	{
-		n = n < 0 ? -n : n;
-		ft_putchar_fd('0' + n, fd);
-		return ;
+		exit(1);
 	}
-	put_nbr_fd_rec(n / 10, fd);
-	put_nbr_fd_rec(n % 10, fd);
 }
 
-void		ft_putnbr_fd(long long nb, int fd)
+void			print_no_such_files(char *files[], int count)
 {
-	if (nb < 0)
+	int		i;
+
+	i = -1;
+	while (++i < count)
 	{
-		ft_putchar_fd('-', fd);
+		print_no_such_file(files[i]);
 	}
-	put_nbr_fd_rec(nb, fd);
 }

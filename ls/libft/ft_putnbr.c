@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_putnbr(int nb)
+void	ft_putnbr(long long nb)
 {
 	ft_putnbr_fd(nb, 1);
 }

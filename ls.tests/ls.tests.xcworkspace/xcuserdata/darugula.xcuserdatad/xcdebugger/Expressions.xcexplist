@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "print_no_such_files:parse_arguments.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "files[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "need_swap:sort.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "ft_strcmp(a.full_name.name, b.full_name.name)">
+            </PersistentString>
+            <PersistentString
+               value = "o.sort_desc == FALSE">
+            </PersistentString>
+            <PersistentString
+               value = "b.full_name.name">
+            </PersistentString>
+            <PersistentString
+               value = "o.sort_desc == TRUE">
+            </PersistentString>
+            <PersistentString
+               value = "a.full_name.name">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "get_col_width:print_entries.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "MIN(start + rows_count, entries_count)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "try_get_entry:entry.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "strerror(errno)">
+            </PersistentString>
+            <PersistentString
+               value = "s.st_dev">
+            </PersistentString>
+            <PersistentString
+               value = "major(s.st_rdev)">
+            </PersistentString>
+            <PersistentString
+               value = "minor(s.st_dev)">
+            </PersistentString>
+            <PersistentString
+               value = "MAJOR(s.st_dev)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "get_link_target:print_entries.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "sizeof(buf)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "parse_arguments:parse_arguments.c">
+      </ContextState>
+      <ContextState
+         contextName = "need_to_show:get_folder_entries.c">
+      </ContextState>
+      <ContextState
+         contextName = "main2:main.c">
+      </ContextState>
+      <ContextState
+         contextName = "print_folder_recursive:main.c">
+      </ContextState>
+      <ContextState
+         contextName = "parse_flag:parse_arguments.c">
+      </ContextState>
+      <ContextState
+         contextName = "get_folder_entries:get_folder_entries.c">
+      </ContextState>
+      <ContextState
+         contextName = "ft_sort_strings:ft_sort_strings.c">
+         <PersistentStrings>
+            <PersistentString
+               value = "a[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "print_entries:print_entries.c">
+      </ContextState>
+      <ContextState
+         contextName = "print_folders:main.c">
+      </ContextState>
+      <ContextState
+         contextName = "find_max_group_len:print_entries.c">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
