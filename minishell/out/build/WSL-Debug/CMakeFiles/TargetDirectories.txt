@@ -1,0 +1,10 @@
+/mnt/c/git/e43/minishell/out/build/WSL-Debug/CMakeFiles/rebuild_cache.dir
+/mnt/c/git/e43/minishell/out/build/WSL-Debug/CMakeFiles/edit_cache.dir
+/mnt/c/git/e43/minishell/out/build/WSL-Debug/minishell/CMakeFiles/rebuild_cache.dir
+/mnt/c/git/e43/minishell/out/build/WSL-Debug/minishell/CMakeFiles/edit_cache.dir
+/mnt/c/git/e43/minishell/out/build/WSL-Debug/minishell/src/CMakeFiles/rebuild_cache.dir
+/mnt/c/git/e43/minishell/out/build/WSL-Debug/minishell/src/CMakeFiles/minishell.dir
+/mnt/c/git/e43/minishell/out/build/WSL-Debug/minishell/src/CMakeFiles/edit_cache.dir
+/mnt/c/git/e43/minishell/out/build/WSL-Debug/minishell/libft/CMakeFiles/rebuild_cache.dir
+/mnt/c/git/e43/minishell/out/build/WSL-Debug/minishell/libft/CMakeFiles/ft.dir
+/mnt/c/git/e43/minishell/out/build/WSL-Debug/minishell/libft/CMakeFiles/edit_cache.dir

@@ -3,7 +3,7 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-project ("CMakeProject4")
+project ("minishell")
 
 # Include sub-projects.
-add_subdirectory ("CMakeProject4")
+add_subdirectory ("minishell")
