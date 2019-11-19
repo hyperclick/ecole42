@@ -92,7 +92,7 @@
 				{
 					"directoryIndex" : 2,
 					"id" : "minishell::@e17c607f8cd7b006903e",
-					"jsonFile" : "target-minishell-Debug-e5804b98e73648286b66.json",
+					"jsonFile" : "target-minishell-Debug-ac79e4ab2dadf7f23ba6.json",
 					"name" : "minishell",
 					"projectIndex" : 0
 				}
@@ -102,8 +102,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/mnt/c/git/e43/minishell/out/build/WSL-Debug",
-		"source" : "/mnt/c/git/e43/minishell"
+		"build" : "/mnt/c/git/e44/minishell/out/build/WSL-Debug",
+		"source" : "/mnt/c/git/e44/minishell"
 	},
 	"version" : 
 	{

@@ -1,8 +1,8 @@
-# Install script for directory: /mnt/c/git/e43/minishell
+# Install script for directory: /mnt/c/git/e44/minishell
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/mnt/c/git/e43/minishell/out/install/WSL-Debug")
+  set(CMAKE_INSTALL_PREFIX "/mnt/c/git/e44/minishell/out/install/WSL-Debug")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/mnt/c/git/e43/minishell/out/build/WSL-Debug/minishell/cmake_install.cmake")
+  include("/mnt/c/git/e44/minishell/out/build/WSL-Debug/minishell/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/mnt/c/git/e43/minishell/out/build/WSL-Debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/mnt/c/git/e44/minishell/out/build/WSL-Debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

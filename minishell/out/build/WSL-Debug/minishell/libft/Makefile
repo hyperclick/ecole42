@@ -48,10 +48,10 @@ RM = /home/darugula/.vs/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/git/e43/minishell
+CMAKE_SOURCE_DIR = /mnt/c/git/e44/minishell
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/git/e43/minishell/out/build/WSL-Debug
+CMAKE_BINARY_DIR = /mnt/c/git/e44/minishell/out/build/WSL-Debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/git/e43/minishell/out/build/WSL-Debug/CMakeFiles /mnt/c/git/e43/minishell/out/build/WSL-Debug/minishell/libft/CMakeFiles/progress.marks
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/libft/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/git/e43/minishell/out/build/WSL-Debug/CMakeFiles 0
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/git/e44/minishell/out/build/WSL-Debug/CMakeFiles /mnt/c/git/e44/minishell/out/build/WSL-Debug/minishell/libft/CMakeFiles/progress.marks
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/libft/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/git/e44/minishell/out/build/WSL-Debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/libft/clean
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/libft/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/libft/preinstall
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/libft/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/libft/preinstall
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/libft/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 minishell/libft/CMakeFiles/ft.dir/rule:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/libft/CMakeFiles/ft.dir/rule
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/libft/CMakeFiles/ft.dir/rule
 .PHONY : minishell/libft/CMakeFiles/ft.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ ft: minishell/libft/CMakeFiles/ft.dir/rule
 
 # fast build rule for target.
 ft/fast:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/build
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/build
 .PHONY : ft/fast
 
 ft_atoi.o: ft_atoi.c.o
@@ -131,7 +131,7 @@ ft_atoi.o: ft_atoi.c.o
 
 # target to build an object file
 ft_atoi.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_atoi.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_atoi.c.o
 .PHONY : ft_atoi.c.o
 
 ft_atoi.i: ft_atoi.c.i
@@ -140,7 +140,7 @@ ft_atoi.i: ft_atoi.c.i
 
 # target to preprocess a source file
 ft_atoi.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_atoi.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_atoi.c.i
 .PHONY : ft_atoi.c.i
 
 ft_atoi.s: ft_atoi.c.s
@@ -149,7 +149,7 @@ ft_atoi.s: ft_atoi.c.s
 
 # target to generate assembly for a file
 ft_atoi.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_atoi.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_atoi.c.s
 .PHONY : ft_atoi.c.s
 
 ft_bzero.o: ft_bzero.c.o
@@ -158,7 +158,7 @@ ft_bzero.o: ft_bzero.c.o
 
 # target to build an object file
 ft_bzero.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_bzero.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_bzero.c.o
 .PHONY : ft_bzero.c.o
 
 ft_bzero.i: ft_bzero.c.i
@@ -167,7 +167,7 @@ ft_bzero.i: ft_bzero.c.i
 
 # target to preprocess a source file
 ft_bzero.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_bzero.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_bzero.c.i
 .PHONY : ft_bzero.c.i
 
 ft_bzero.s: ft_bzero.c.s
@@ -176,7 +176,7 @@ ft_bzero.s: ft_bzero.c.s
 
 # target to generate assembly for a file
 ft_bzero.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_bzero.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_bzero.c.s
 .PHONY : ft_bzero.c.s
 
 ft_contains.o: ft_contains.c.o
@@ -185,7 +185,7 @@ ft_contains.o: ft_contains.c.o
 
 # target to build an object file
 ft_contains.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_contains.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_contains.c.o
 .PHONY : ft_contains.c.o
 
 ft_contains.i: ft_contains.c.i
@@ -194,7 +194,7 @@ ft_contains.i: ft_contains.c.i
 
 # target to preprocess a source file
 ft_contains.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_contains.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_contains.c.i
 .PHONY : ft_contains.c.i
 
 ft_contains.s: ft_contains.c.s
@@ -203,7 +203,7 @@ ft_contains.s: ft_contains.c.s
 
 # target to generate assembly for a file
 ft_contains.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_contains.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_contains.c.s
 .PHONY : ft_contains.c.s
 
 ft_count_words.o: ft_count_words.c.o
@@ -212,7 +212,7 @@ ft_count_words.o: ft_count_words.c.o
 
 # target to build an object file
 ft_count_words.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_count_words.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_count_words.c.o
 .PHONY : ft_count_words.c.o
 
 ft_count_words.i: ft_count_words.c.i
@@ -221,7 +221,7 @@ ft_count_words.i: ft_count_words.c.i
 
 # target to preprocess a source file
 ft_count_words.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_count_words.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_count_words.c.i
 .PHONY : ft_count_words.c.i
 
 ft_count_words.s: ft_count_words.c.s
@@ -230,7 +230,7 @@ ft_count_words.s: ft_count_words.c.s
 
 # target to generate assembly for a file
 ft_count_words.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_count_words.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_count_words.c.s
 .PHONY : ft_count_words.c.s
 
 ft_ends_with.o: ft_ends_with.c.o
@@ -239,7 +239,7 @@ ft_ends_with.o: ft_ends_with.c.o
 
 # target to build an object file
 ft_ends_with.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_ends_with.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_ends_with.c.o
 .PHONY : ft_ends_with.c.o
 
 ft_ends_with.i: ft_ends_with.c.i
@@ -248,7 +248,7 @@ ft_ends_with.i: ft_ends_with.c.i
 
 # target to preprocess a source file
 ft_ends_with.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_ends_with.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_ends_with.c.i
 .PHONY : ft_ends_with.c.i
 
 ft_ends_with.s: ft_ends_with.c.s
@@ -257,7 +257,7 @@ ft_ends_with.s: ft_ends_with.c.s
 
 # target to generate assembly for a file
 ft_ends_with.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_ends_with.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_ends_with.c.s
 .PHONY : ft_ends_with.c.s
 
 ft_is_number.o: ft_is_number.c.o
@@ -266,7 +266,7 @@ ft_is_number.o: ft_is_number.c.o
 
 # target to build an object file
 ft_is_number.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_is_number.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_is_number.c.o
 .PHONY : ft_is_number.c.o
 
 ft_is_number.i: ft_is_number.c.i
@@ -275,7 +275,7 @@ ft_is_number.i: ft_is_number.c.i
 
 # target to preprocess a source file
 ft_is_number.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_is_number.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_is_number.c.i
 .PHONY : ft_is_number.c.i
 
 ft_is_number.s: ft_is_number.c.s
@@ -284,7 +284,7 @@ ft_is_number.s: ft_is_number.c.s
 
 # target to generate assembly for a file
 ft_is_number.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_is_number.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_is_number.c.s
 .PHONY : ft_is_number.c.s
 
 ft_isalnum.o: ft_isalnum.c.o
@@ -293,7 +293,7 @@ ft_isalnum.o: ft_isalnum.c.o
 
 # target to build an object file
 ft_isalnum.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isalnum.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isalnum.c.o
 .PHONY : ft_isalnum.c.o
 
 ft_isalnum.i: ft_isalnum.c.i
@@ -302,7 +302,7 @@ ft_isalnum.i: ft_isalnum.c.i
 
 # target to preprocess a source file
 ft_isalnum.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isalnum.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isalnum.c.i
 .PHONY : ft_isalnum.c.i
 
 ft_isalnum.s: ft_isalnum.c.s
@@ -311,7 +311,7 @@ ft_isalnum.s: ft_isalnum.c.s
 
 # target to generate assembly for a file
 ft_isalnum.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isalnum.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isalnum.c.s
 .PHONY : ft_isalnum.c.s
 
 ft_isalpha.o: ft_isalpha.c.o
@@ -320,7 +320,7 @@ ft_isalpha.o: ft_isalpha.c.o
 
 # target to build an object file
 ft_isalpha.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isalpha.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isalpha.c.o
 .PHONY : ft_isalpha.c.o
 
 ft_isalpha.i: ft_isalpha.c.i
@@ -329,7 +329,7 @@ ft_isalpha.i: ft_isalpha.c.i
 
 # target to preprocess a source file
 ft_isalpha.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isalpha.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isalpha.c.i
 .PHONY : ft_isalpha.c.i
 
 ft_isalpha.s: ft_isalpha.c.s
@@ -338,7 +338,7 @@ ft_isalpha.s: ft_isalpha.c.s
 
 # target to generate assembly for a file
 ft_isalpha.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isalpha.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isalpha.c.s
 .PHONY : ft_isalpha.c.s
 
 ft_isascii.o: ft_isascii.c.o
@@ -347,7 +347,7 @@ ft_isascii.o: ft_isascii.c.o
 
 # target to build an object file
 ft_isascii.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isascii.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isascii.c.o
 .PHONY : ft_isascii.c.o
 
 ft_isascii.i: ft_isascii.c.i
@@ -356,7 +356,7 @@ ft_isascii.i: ft_isascii.c.i
 
 # target to preprocess a source file
 ft_isascii.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isascii.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isascii.c.i
 .PHONY : ft_isascii.c.i
 
 ft_isascii.s: ft_isascii.c.s
@@ -365,7 +365,7 @@ ft_isascii.s: ft_isascii.c.s
 
 # target to generate assembly for a file
 ft_isascii.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isascii.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isascii.c.s
 .PHONY : ft_isascii.c.s
 
 ft_isdigit.o: ft_isdigit.c.o
@@ -374,7 +374,7 @@ ft_isdigit.o: ft_isdigit.c.o
 
 # target to build an object file
 ft_isdigit.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isdigit.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isdigit.c.o
 .PHONY : ft_isdigit.c.o
 
 ft_isdigit.i: ft_isdigit.c.i
@@ -383,7 +383,7 @@ ft_isdigit.i: ft_isdigit.c.i
 
 # target to preprocess a source file
 ft_isdigit.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isdigit.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isdigit.c.i
 .PHONY : ft_isdigit.c.i
 
 ft_isdigit.s: ft_isdigit.c.s
@@ -392,7 +392,7 @@ ft_isdigit.s: ft_isdigit.c.s
 
 # target to generate assembly for a file
 ft_isdigit.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isdigit.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isdigit.c.s
 .PHONY : ft_isdigit.c.s
 
 ft_isprint.o: ft_isprint.c.o
@@ -401,7 +401,7 @@ ft_isprint.o: ft_isprint.c.o
 
 # target to build an object file
 ft_isprint.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isprint.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isprint.c.o
 .PHONY : ft_isprint.c.o
 
 ft_isprint.i: ft_isprint.c.i
@@ -410,7 +410,7 @@ ft_isprint.i: ft_isprint.c.i
 
 # target to preprocess a source file
 ft_isprint.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isprint.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isprint.c.i
 .PHONY : ft_isprint.c.i
 
 ft_isprint.s: ft_isprint.c.s
@@ -419,7 +419,7 @@ ft_isprint.s: ft_isprint.c.s
 
 # target to generate assembly for a file
 ft_isprint.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isprint.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_isprint.c.s
 .PHONY : ft_isprint.c.s
 
 ft_itoa.o: ft_itoa.c.o
@@ -428,7 +428,7 @@ ft_itoa.o: ft_itoa.c.o
 
 # target to build an object file
 ft_itoa.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_itoa.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_itoa.c.o
 .PHONY : ft_itoa.c.o
 
 ft_itoa.i: ft_itoa.c.i
@@ -437,7 +437,7 @@ ft_itoa.i: ft_itoa.c.i
 
 # target to preprocess a source file
 ft_itoa.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_itoa.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_itoa.c.i
 .PHONY : ft_itoa.c.i
 
 ft_itoa.s: ft_itoa.c.s
@@ -446,7 +446,7 @@ ft_itoa.s: ft_itoa.c.s
 
 # target to generate assembly for a file
 ft_itoa.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_itoa.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_itoa.c.s
 .PHONY : ft_itoa.c.s
 
 ft_last_index.o: ft_last_index.c.o
@@ -455,7 +455,7 @@ ft_last_index.o: ft_last_index.c.o
 
 # target to build an object file
 ft_last_index.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_last_index.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_last_index.c.o
 .PHONY : ft_last_index.c.o
 
 ft_last_index.i: ft_last_index.c.i
@@ -464,7 +464,7 @@ ft_last_index.i: ft_last_index.c.i
 
 # target to preprocess a source file
 ft_last_index.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_last_index.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_last_index.c.i
 .PHONY : ft_last_index.c.i
 
 ft_last_index.s: ft_last_index.c.s
@@ -473,7 +473,7 @@ ft_last_index.s: ft_last_index.c.s
 
 # target to generate assembly for a file
 ft_last_index.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_last_index.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_last_index.c.s
 .PHONY : ft_last_index.c.s
 
 ft_lst_count.o: ft_lst_count.c.o
@@ -482,7 +482,7 @@ ft_lst_count.o: ft_lst_count.c.o
 
 # target to build an object file
 ft_lst_count.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_count.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_count.c.o
 .PHONY : ft_lst_count.c.o
 
 ft_lst_count.i: ft_lst_count.c.i
@@ -491,7 +491,7 @@ ft_lst_count.i: ft_lst_count.c.i
 
 # target to preprocess a source file
 ft_lst_count.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_count.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_count.c.i
 .PHONY : ft_lst_count.c.i
 
 ft_lst_count.s: ft_lst_count.c.s
@@ -500,7 +500,7 @@ ft_lst_count.s: ft_lst_count.c.s
 
 # target to generate assembly for a file
 ft_lst_count.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_count.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_count.c.s
 .PHONY : ft_lst_count.c.s
 
 ft_lst_find.o: ft_lst_find.c.o
@@ -509,7 +509,7 @@ ft_lst_find.o: ft_lst_find.c.o
 
 # target to build an object file
 ft_lst_find.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_find.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_find.c.o
 .PHONY : ft_lst_find.c.o
 
 ft_lst_find.i: ft_lst_find.c.i
@@ -518,7 +518,7 @@ ft_lst_find.i: ft_lst_find.c.i
 
 # target to preprocess a source file
 ft_lst_find.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_find.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_find.c.i
 .PHONY : ft_lst_find.c.i
 
 ft_lst_find.s: ft_lst_find.c.s
@@ -527,7 +527,7 @@ ft_lst_find.s: ft_lst_find.c.s
 
 # target to generate assembly for a file
 ft_lst_find.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_find.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_find.c.s
 .PHONY : ft_lst_find.c.s
 
 ft_lst_free.o: ft_lst_free.c.o
@@ -536,7 +536,7 @@ ft_lst_free.o: ft_lst_free.c.o
 
 # target to build an object file
 ft_lst_free.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_free.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_free.c.o
 .PHONY : ft_lst_free.c.o
 
 ft_lst_free.i: ft_lst_free.c.i
@@ -545,7 +545,7 @@ ft_lst_free.i: ft_lst_free.c.i
 
 # target to preprocess a source file
 ft_lst_free.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_free.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_free.c.i
 .PHONY : ft_lst_free.c.i
 
 ft_lst_free.s: ft_lst_free.c.s
@@ -554,7 +554,7 @@ ft_lst_free.s: ft_lst_free.c.s
 
 # target to generate assembly for a file
 ft_lst_free.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_free.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_free.c.s
 .PHONY : ft_lst_free.c.s
 
 ft_lst_free_item.o: ft_lst_free_item.c.o
@@ -563,7 +563,7 @@ ft_lst_free_item.o: ft_lst_free_item.c.o
 
 # target to build an object file
 ft_lst_free_item.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_free_item.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_free_item.c.o
 .PHONY : ft_lst_free_item.c.o
 
 ft_lst_free_item.i: ft_lst_free_item.c.i
@@ -572,7 +572,7 @@ ft_lst_free_item.i: ft_lst_free_item.c.i
 
 # target to preprocess a source file
 ft_lst_free_item.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_free_item.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_free_item.c.i
 .PHONY : ft_lst_free_item.c.i
 
 ft_lst_free_item.s: ft_lst_free_item.c.s
@@ -581,7 +581,7 @@ ft_lst_free_item.s: ft_lst_free_item.c.s
 
 # target to generate assembly for a file
 ft_lst_free_item.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_free_item.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_free_item.c.s
 .PHONY : ft_lst_free_item.c.s
 
 ft_lst_reduce.o: ft_lst_reduce.c.o
@@ -590,7 +590,7 @@ ft_lst_reduce.o: ft_lst_reduce.c.o
 
 # target to build an object file
 ft_lst_reduce.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_reduce.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_reduce.c.o
 .PHONY : ft_lst_reduce.c.o
 
 ft_lst_reduce.i: ft_lst_reduce.c.i
@@ -599,7 +599,7 @@ ft_lst_reduce.i: ft_lst_reduce.c.i
 
 # target to preprocess a source file
 ft_lst_reduce.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_reduce.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_reduce.c.i
 .PHONY : ft_lst_reduce.c.i
 
 ft_lst_reduce.s: ft_lst_reduce.c.s
@@ -608,7 +608,7 @@ ft_lst_reduce.s: ft_lst_reduce.c.s
 
 # target to generate assembly for a file
 ft_lst_reduce.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_reduce.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lst_reduce.c.s
 .PHONY : ft_lst_reduce.c.s
 
 ft_lstadd.o: ft_lstadd.c.o
@@ -617,7 +617,7 @@ ft_lstadd.o: ft_lstadd.c.o
 
 # target to build an object file
 ft_lstadd.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstadd.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstadd.c.o
 .PHONY : ft_lstadd.c.o
 
 ft_lstadd.i: ft_lstadd.c.i
@@ -626,7 +626,7 @@ ft_lstadd.i: ft_lstadd.c.i
 
 # target to preprocess a source file
 ft_lstadd.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstadd.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstadd.c.i
 .PHONY : ft_lstadd.c.i
 
 ft_lstadd.s: ft_lstadd.c.s
@@ -635,7 +635,7 @@ ft_lstadd.s: ft_lstadd.c.s
 
 # target to generate assembly for a file
 ft_lstadd.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstadd.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstadd.c.s
 .PHONY : ft_lstadd.c.s
 
 ft_lstdel.o: ft_lstdel.c.o
@@ -644,7 +644,7 @@ ft_lstdel.o: ft_lstdel.c.o
 
 # target to build an object file
 ft_lstdel.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstdel.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstdel.c.o
 .PHONY : ft_lstdel.c.o
 
 ft_lstdel.i: ft_lstdel.c.i
@@ -653,7 +653,7 @@ ft_lstdel.i: ft_lstdel.c.i
 
 # target to preprocess a source file
 ft_lstdel.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstdel.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstdel.c.i
 .PHONY : ft_lstdel.c.i
 
 ft_lstdel.s: ft_lstdel.c.s
@@ -662,7 +662,7 @@ ft_lstdel.s: ft_lstdel.c.s
 
 # target to generate assembly for a file
 ft_lstdel.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstdel.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstdel.c.s
 .PHONY : ft_lstdel.c.s
 
 ft_lstdelone.o: ft_lstdelone.c.o
@@ -671,7 +671,7 @@ ft_lstdelone.o: ft_lstdelone.c.o
 
 # target to build an object file
 ft_lstdelone.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstdelone.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstdelone.c.o
 .PHONY : ft_lstdelone.c.o
 
 ft_lstdelone.i: ft_lstdelone.c.i
@@ -680,7 +680,7 @@ ft_lstdelone.i: ft_lstdelone.c.i
 
 # target to preprocess a source file
 ft_lstdelone.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstdelone.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstdelone.c.i
 .PHONY : ft_lstdelone.c.i
 
 ft_lstdelone.s: ft_lstdelone.c.s
@@ -689,7 +689,7 @@ ft_lstdelone.s: ft_lstdelone.c.s
 
 # target to generate assembly for a file
 ft_lstdelone.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstdelone.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstdelone.c.s
 .PHONY : ft_lstdelone.c.s
 
 ft_lstiter.o: ft_lstiter.c.o
@@ -698,7 +698,7 @@ ft_lstiter.o: ft_lstiter.c.o
 
 # target to build an object file
 ft_lstiter.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstiter.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstiter.c.o
 .PHONY : ft_lstiter.c.o
 
 ft_lstiter.i: ft_lstiter.c.i
@@ -707,7 +707,7 @@ ft_lstiter.i: ft_lstiter.c.i
 
 # target to preprocess a source file
 ft_lstiter.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstiter.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstiter.c.i
 .PHONY : ft_lstiter.c.i
 
 ft_lstiter.s: ft_lstiter.c.s
@@ -716,7 +716,7 @@ ft_lstiter.s: ft_lstiter.c.s
 
 # target to generate assembly for a file
 ft_lstiter.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstiter.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstiter.c.s
 .PHONY : ft_lstiter.c.s
 
 ft_lstmap.o: ft_lstmap.c.o
@@ -725,7 +725,7 @@ ft_lstmap.o: ft_lstmap.c.o
 
 # target to build an object file
 ft_lstmap.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstmap.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstmap.c.o
 .PHONY : ft_lstmap.c.o
 
 ft_lstmap.i: ft_lstmap.c.i
@@ -734,7 +734,7 @@ ft_lstmap.i: ft_lstmap.c.i
 
 # target to preprocess a source file
 ft_lstmap.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstmap.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstmap.c.i
 .PHONY : ft_lstmap.c.i
 
 ft_lstmap.s: ft_lstmap.c.s
@@ -743,7 +743,7 @@ ft_lstmap.s: ft_lstmap.c.s
 
 # target to generate assembly for a file
 ft_lstmap.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstmap.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstmap.c.s
 .PHONY : ft_lstmap.c.s
 
 ft_lstnew.o: ft_lstnew.c.o
@@ -752,7 +752,7 @@ ft_lstnew.o: ft_lstnew.c.o
 
 # target to build an object file
 ft_lstnew.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstnew.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstnew.c.o
 .PHONY : ft_lstnew.c.o
 
 ft_lstnew.i: ft_lstnew.c.i
@@ -761,7 +761,7 @@ ft_lstnew.i: ft_lstnew.c.i
 
 # target to preprocess a source file
 ft_lstnew.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstnew.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstnew.c.i
 .PHONY : ft_lstnew.c.i
 
 ft_lstnew.s: ft_lstnew.c.s
@@ -770,7 +770,7 @@ ft_lstnew.s: ft_lstnew.c.s
 
 # target to generate assembly for a file
 ft_lstnew.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstnew.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_lstnew.c.s
 .PHONY : ft_lstnew.c.s
 
 ft_memalloc.o: ft_memalloc.c.o
@@ -779,7 +779,7 @@ ft_memalloc.o: ft_memalloc.c.o
 
 # target to build an object file
 ft_memalloc.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memalloc.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memalloc.c.o
 .PHONY : ft_memalloc.c.o
 
 ft_memalloc.i: ft_memalloc.c.i
@@ -788,7 +788,7 @@ ft_memalloc.i: ft_memalloc.c.i
 
 # target to preprocess a source file
 ft_memalloc.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memalloc.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memalloc.c.i
 .PHONY : ft_memalloc.c.i
 
 ft_memalloc.s: ft_memalloc.c.s
@@ -797,7 +797,7 @@ ft_memalloc.s: ft_memalloc.c.s
 
 # target to generate assembly for a file
 ft_memalloc.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memalloc.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memalloc.c.s
 .PHONY : ft_memalloc.c.s
 
 ft_memccpy.o: ft_memccpy.c.o
@@ -806,7 +806,7 @@ ft_memccpy.o: ft_memccpy.c.o
 
 # target to build an object file
 ft_memccpy.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memccpy.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memccpy.c.o
 .PHONY : ft_memccpy.c.o
 
 ft_memccpy.i: ft_memccpy.c.i
@@ -815,7 +815,7 @@ ft_memccpy.i: ft_memccpy.c.i
 
 # target to preprocess a source file
 ft_memccpy.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memccpy.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memccpy.c.i
 .PHONY : ft_memccpy.c.i
 
 ft_memccpy.s: ft_memccpy.c.s
@@ -824,7 +824,7 @@ ft_memccpy.s: ft_memccpy.c.s
 
 # target to generate assembly for a file
 ft_memccpy.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memccpy.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memccpy.c.s
 .PHONY : ft_memccpy.c.s
 
 ft_memchr.o: ft_memchr.c.o
@@ -833,7 +833,7 @@ ft_memchr.o: ft_memchr.c.o
 
 # target to build an object file
 ft_memchr.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memchr.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memchr.c.o
 .PHONY : ft_memchr.c.o
 
 ft_memchr.i: ft_memchr.c.i
@@ -842,7 +842,7 @@ ft_memchr.i: ft_memchr.c.i
 
 # target to preprocess a source file
 ft_memchr.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memchr.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memchr.c.i
 .PHONY : ft_memchr.c.i
 
 ft_memchr.s: ft_memchr.c.s
@@ -851,7 +851,7 @@ ft_memchr.s: ft_memchr.c.s
 
 # target to generate assembly for a file
 ft_memchr.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memchr.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memchr.c.s
 .PHONY : ft_memchr.c.s
 
 ft_memcmp.o: ft_memcmp.c.o
@@ -860,7 +860,7 @@ ft_memcmp.o: ft_memcmp.c.o
 
 # target to build an object file
 ft_memcmp.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memcmp.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memcmp.c.o
 .PHONY : ft_memcmp.c.o
 
 ft_memcmp.i: ft_memcmp.c.i
@@ -869,7 +869,7 @@ ft_memcmp.i: ft_memcmp.c.i
 
 # target to preprocess a source file
 ft_memcmp.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memcmp.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memcmp.c.i
 .PHONY : ft_memcmp.c.i
 
 ft_memcmp.s: ft_memcmp.c.s
@@ -878,7 +878,7 @@ ft_memcmp.s: ft_memcmp.c.s
 
 # target to generate assembly for a file
 ft_memcmp.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memcmp.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memcmp.c.s
 .PHONY : ft_memcmp.c.s
 
 ft_memcpy.o: ft_memcpy.c.o
@@ -887,7 +887,7 @@ ft_memcpy.o: ft_memcpy.c.o
 
 # target to build an object file
 ft_memcpy.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memcpy.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memcpy.c.o
 .PHONY : ft_memcpy.c.o
 
 ft_memcpy.i: ft_memcpy.c.i
@@ -896,7 +896,7 @@ ft_memcpy.i: ft_memcpy.c.i
 
 # target to preprocess a source file
 ft_memcpy.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memcpy.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memcpy.c.i
 .PHONY : ft_memcpy.c.i
 
 ft_memcpy.s: ft_memcpy.c.s
@@ -905,7 +905,7 @@ ft_memcpy.s: ft_memcpy.c.s
 
 # target to generate assembly for a file
 ft_memcpy.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memcpy.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memcpy.c.s
 .PHONY : ft_memcpy.c.s
 
 ft_memdel.o: ft_memdel.c.o
@@ -914,7 +914,7 @@ ft_memdel.o: ft_memdel.c.o
 
 # target to build an object file
 ft_memdel.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memdel.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memdel.c.o
 .PHONY : ft_memdel.c.o
 
 ft_memdel.i: ft_memdel.c.i
@@ -923,7 +923,7 @@ ft_memdel.i: ft_memdel.c.i
 
 # target to preprocess a source file
 ft_memdel.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memdel.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memdel.c.i
 .PHONY : ft_memdel.c.i
 
 ft_memdel.s: ft_memdel.c.s
@@ -932,7 +932,7 @@ ft_memdel.s: ft_memdel.c.s
 
 # target to generate assembly for a file
 ft_memdel.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memdel.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memdel.c.s
 .PHONY : ft_memdel.c.s
 
 ft_memmove.o: ft_memmove.c.o
@@ -941,7 +941,7 @@ ft_memmove.o: ft_memmove.c.o
 
 # target to build an object file
 ft_memmove.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memmove.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memmove.c.o
 .PHONY : ft_memmove.c.o
 
 ft_memmove.i: ft_memmove.c.i
@@ -950,7 +950,7 @@ ft_memmove.i: ft_memmove.c.i
 
 # target to preprocess a source file
 ft_memmove.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memmove.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memmove.c.i
 .PHONY : ft_memmove.c.i
 
 ft_memmove.s: ft_memmove.c.s
@@ -959,7 +959,7 @@ ft_memmove.s: ft_memmove.c.s
 
 # target to generate assembly for a file
 ft_memmove.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memmove.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memmove.c.s
 .PHONY : ft_memmove.c.s
 
 ft_memset.o: ft_memset.c.o
@@ -968,7 +968,7 @@ ft_memset.o: ft_memset.c.o
 
 # target to build an object file
 ft_memset.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memset.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memset.c.o
 .PHONY : ft_memset.c.o
 
 ft_memset.i: ft_memset.c.i
@@ -977,7 +977,7 @@ ft_memset.i: ft_memset.c.i
 
 # target to preprocess a source file
 ft_memset.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memset.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memset.c.i
 .PHONY : ft_memset.c.i
 
 ft_memset.s: ft_memset.c.s
@@ -986,7 +986,7 @@ ft_memset.s: ft_memset.c.s
 
 # target to generate assembly for a file
 ft_memset.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memset.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_memset.c.s
 .PHONY : ft_memset.c.s
 
 ft_putchar.o: ft_putchar.c.o
@@ -995,7 +995,7 @@ ft_putchar.o: ft_putchar.c.o
 
 # target to build an object file
 ft_putchar.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putchar.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putchar.c.o
 .PHONY : ft_putchar.c.o
 
 ft_putchar.i: ft_putchar.c.i
@@ -1004,7 +1004,7 @@ ft_putchar.i: ft_putchar.c.i
 
 # target to preprocess a source file
 ft_putchar.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putchar.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putchar.c.i
 .PHONY : ft_putchar.c.i
 
 ft_putchar.s: ft_putchar.c.s
@@ -1013,7 +1013,7 @@ ft_putchar.s: ft_putchar.c.s
 
 # target to generate assembly for a file
 ft_putchar.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putchar.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putchar.c.s
 .PHONY : ft_putchar.c.s
 
 ft_putchar_fd.o: ft_putchar_fd.c.o
@@ -1022,7 +1022,7 @@ ft_putchar_fd.o: ft_putchar_fd.c.o
 
 # target to build an object file
 ft_putchar_fd.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putchar_fd.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putchar_fd.c.o
 .PHONY : ft_putchar_fd.c.o
 
 ft_putchar_fd.i: ft_putchar_fd.c.i
@@ -1031,7 +1031,7 @@ ft_putchar_fd.i: ft_putchar_fd.c.i
 
 # target to preprocess a source file
 ft_putchar_fd.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putchar_fd.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putchar_fd.c.i
 .PHONY : ft_putchar_fd.c.i
 
 ft_putchar_fd.s: ft_putchar_fd.c.s
@@ -1040,7 +1040,7 @@ ft_putchar_fd.s: ft_putchar_fd.c.s
 
 # target to generate assembly for a file
 ft_putchar_fd.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putchar_fd.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putchar_fd.c.s
 .PHONY : ft_putchar_fd.c.s
 
 ft_putendl.o: ft_putendl.c.o
@@ -1049,7 +1049,7 @@ ft_putendl.o: ft_putendl.c.o
 
 # target to build an object file
 ft_putendl.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putendl.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putendl.c.o
 .PHONY : ft_putendl.c.o
 
 ft_putendl.i: ft_putendl.c.i
@@ -1058,7 +1058,7 @@ ft_putendl.i: ft_putendl.c.i
 
 # target to preprocess a source file
 ft_putendl.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putendl.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putendl.c.i
 .PHONY : ft_putendl.c.i
 
 ft_putendl.s: ft_putendl.c.s
@@ -1067,7 +1067,7 @@ ft_putendl.s: ft_putendl.c.s
 
 # target to generate assembly for a file
 ft_putendl.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putendl.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putendl.c.s
 .PHONY : ft_putendl.c.s
 
 ft_putendl_fd.o: ft_putendl_fd.c.o
@@ -1076,7 +1076,7 @@ ft_putendl_fd.o: ft_putendl_fd.c.o
 
 # target to build an object file
 ft_putendl_fd.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putendl_fd.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putendl_fd.c.o
 .PHONY : ft_putendl_fd.c.o
 
 ft_putendl_fd.i: ft_putendl_fd.c.i
@@ -1085,7 +1085,7 @@ ft_putendl_fd.i: ft_putendl_fd.c.i
 
 # target to preprocess a source file
 ft_putendl_fd.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putendl_fd.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putendl_fd.c.i
 .PHONY : ft_putendl_fd.c.i
 
 ft_putendl_fd.s: ft_putendl_fd.c.s
@@ -1094,7 +1094,7 @@ ft_putendl_fd.s: ft_putendl_fd.c.s
 
 # target to generate assembly for a file
 ft_putendl_fd.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putendl_fd.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putendl_fd.c.s
 .PHONY : ft_putendl_fd.c.s
 
 ft_putnbr.o: ft_putnbr.c.o
@@ -1103,7 +1103,7 @@ ft_putnbr.o: ft_putnbr.c.o
 
 # target to build an object file
 ft_putnbr.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putnbr.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putnbr.c.o
 .PHONY : ft_putnbr.c.o
 
 ft_putnbr.i: ft_putnbr.c.i
@@ -1112,7 +1112,7 @@ ft_putnbr.i: ft_putnbr.c.i
 
 # target to preprocess a source file
 ft_putnbr.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putnbr.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putnbr.c.i
 .PHONY : ft_putnbr.c.i
 
 ft_putnbr.s: ft_putnbr.c.s
@@ -1121,7 +1121,7 @@ ft_putnbr.s: ft_putnbr.c.s
 
 # target to generate assembly for a file
 ft_putnbr.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putnbr.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putnbr.c.s
 .PHONY : ft_putnbr.c.s
 
 ft_putnbr_fd.o: ft_putnbr_fd.c.o
@@ -1130,7 +1130,7 @@ ft_putnbr_fd.o: ft_putnbr_fd.c.o
 
 # target to build an object file
 ft_putnbr_fd.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putnbr_fd.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putnbr_fd.c.o
 .PHONY : ft_putnbr_fd.c.o
 
 ft_putnbr_fd.i: ft_putnbr_fd.c.i
@@ -1139,7 +1139,7 @@ ft_putnbr_fd.i: ft_putnbr_fd.c.i
 
 # target to preprocess a source file
 ft_putnbr_fd.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putnbr_fd.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putnbr_fd.c.i
 .PHONY : ft_putnbr_fd.c.i
 
 ft_putnbr_fd.s: ft_putnbr_fd.c.s
@@ -1148,7 +1148,7 @@ ft_putnbr_fd.s: ft_putnbr_fd.c.s
 
 # target to generate assembly for a file
 ft_putnbr_fd.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putnbr_fd.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putnbr_fd.c.s
 .PHONY : ft_putnbr_fd.c.s
 
 ft_putstr.o: ft_putstr.c.o
@@ -1157,7 +1157,7 @@ ft_putstr.o: ft_putstr.c.o
 
 # target to build an object file
 ft_putstr.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putstr.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putstr.c.o
 .PHONY : ft_putstr.c.o
 
 ft_putstr.i: ft_putstr.c.i
@@ -1166,7 +1166,7 @@ ft_putstr.i: ft_putstr.c.i
 
 # target to preprocess a source file
 ft_putstr.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putstr.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putstr.c.i
 .PHONY : ft_putstr.c.i
 
 ft_putstr.s: ft_putstr.c.s
@@ -1175,7 +1175,7 @@ ft_putstr.s: ft_putstr.c.s
 
 # target to generate assembly for a file
 ft_putstr.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putstr.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putstr.c.s
 .PHONY : ft_putstr.c.s
 
 ft_putstr_fd.o: ft_putstr_fd.c.o
@@ -1184,7 +1184,7 @@ ft_putstr_fd.o: ft_putstr_fd.c.o
 
 # target to build an object file
 ft_putstr_fd.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putstr_fd.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putstr_fd.c.o
 .PHONY : ft_putstr_fd.c.o
 
 ft_putstr_fd.i: ft_putstr_fd.c.i
@@ -1193,7 +1193,7 @@ ft_putstr_fd.i: ft_putstr_fd.c.i
 
 # target to preprocess a source file
 ft_putstr_fd.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putstr_fd.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putstr_fd.c.i
 .PHONY : ft_putstr_fd.c.i
 
 ft_putstr_fd.s: ft_putstr_fd.c.s
@@ -1202,7 +1202,7 @@ ft_putstr_fd.s: ft_putstr_fd.c.s
 
 # target to generate assembly for a file
 ft_putstr_fd.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putstr_fd.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_putstr_fd.c.s
 .PHONY : ft_putstr_fd.c.s
 
 ft_readline.o: ft_readline.c.o
@@ -1211,7 +1211,7 @@ ft_readline.o: ft_readline.c.o
 
 # target to build an object file
 ft_readline.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_readline.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_readline.c.o
 .PHONY : ft_readline.c.o
 
 ft_readline.i: ft_readline.c.i
@@ -1220,7 +1220,7 @@ ft_readline.i: ft_readline.c.i
 
 # target to preprocess a source file
 ft_readline.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_readline.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_readline.c.i
 .PHONY : ft_readline.c.i
 
 ft_readline.s: ft_readline.c.s
@@ -1229,7 +1229,7 @@ ft_readline.s: ft_readline.c.s
 
 # target to generate assembly for a file
 ft_readline.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_readline.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_readline.c.s
 .PHONY : ft_readline.c.s
 
 ft_sort_strings.o: ft_sort_strings.c.o
@@ -1238,7 +1238,7 @@ ft_sort_strings.o: ft_sort_strings.c.o
 
 # target to build an object file
 ft_sort_strings.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_sort_strings.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_sort_strings.c.o
 .PHONY : ft_sort_strings.c.o
 
 ft_sort_strings.i: ft_sort_strings.c.i
@@ -1247,7 +1247,7 @@ ft_sort_strings.i: ft_sort_strings.c.i
 
 # target to preprocess a source file
 ft_sort_strings.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_sort_strings.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_sort_strings.c.i
 .PHONY : ft_sort_strings.c.i
 
 ft_sort_strings.s: ft_sort_strings.c.s
@@ -1256,7 +1256,7 @@ ft_sort_strings.s: ft_sort_strings.c.s
 
 # target to generate assembly for a file
 ft_sort_strings.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_sort_strings.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_sort_strings.c.s
 .PHONY : ft_sort_strings.c.s
 
 ft_split.o: ft_split.c.o
@@ -1265,7 +1265,7 @@ ft_split.o: ft_split.c.o
 
 # target to build an object file
 ft_split.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_split.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_split.c.o
 .PHONY : ft_split.c.o
 
 ft_split.i: ft_split.c.i
@@ -1274,7 +1274,7 @@ ft_split.i: ft_split.c.i
 
 # target to preprocess a source file
 ft_split.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_split.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_split.c.i
 .PHONY : ft_split.c.i
 
 ft_split.s: ft_split.c.s
@@ -1283,7 +1283,7 @@ ft_split.s: ft_split.c.s
 
 # target to generate assembly for a file
 ft_split.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_split.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_split.c.s
 .PHONY : ft_split.c.s
 
 ft_sqrt_up.o: ft_sqrt_up.c.o
@@ -1292,7 +1292,7 @@ ft_sqrt_up.o: ft_sqrt_up.c.o
 
 # target to build an object file
 ft_sqrt_up.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_sqrt_up.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_sqrt_up.c.o
 .PHONY : ft_sqrt_up.c.o
 
 ft_sqrt_up.i: ft_sqrt_up.c.i
@@ -1301,7 +1301,7 @@ ft_sqrt_up.i: ft_sqrt_up.c.i
 
 # target to preprocess a source file
 ft_sqrt_up.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_sqrt_up.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_sqrt_up.c.i
 .PHONY : ft_sqrt_up.c.i
 
 ft_sqrt_up.s: ft_sqrt_up.c.s
@@ -1310,7 +1310,7 @@ ft_sqrt_up.s: ft_sqrt_up.c.s
 
 # target to generate assembly for a file
 ft_sqrt_up.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_sqrt_up.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_sqrt_up.c.s
 .PHONY : ft_sqrt_up.c.s
 
 ft_starts_with.o: ft_starts_with.c.o
@@ -1319,7 +1319,7 @@ ft_starts_with.o: ft_starts_with.c.o
 
 # target to build an object file
 ft_starts_with.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_starts_with.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_starts_with.c.o
 .PHONY : ft_starts_with.c.o
 
 ft_starts_with.i: ft_starts_with.c.i
@@ -1328,7 +1328,7 @@ ft_starts_with.i: ft_starts_with.c.i
 
 # target to preprocess a source file
 ft_starts_with.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_starts_with.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_starts_with.c.i
 .PHONY : ft_starts_with.c.i
 
 ft_starts_with.s: ft_starts_with.c.s
@@ -1337,7 +1337,7 @@ ft_starts_with.s: ft_starts_with.c.s
 
 # target to generate assembly for a file
 ft_starts_with.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_starts_with.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_starts_with.c.s
 .PHONY : ft_starts_with.c.s
 
 ft_str_append.o: ft_str_append.c.o
@@ -1346,7 +1346,7 @@ ft_str_append.o: ft_str_append.c.o
 
 # target to build an object file
 ft_str_append.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_str_append.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_str_append.c.o
 .PHONY : ft_str_append.c.o
 
 ft_str_append.i: ft_str_append.c.i
@@ -1355,7 +1355,7 @@ ft_str_append.i: ft_str_append.c.i
 
 # target to preprocess a source file
 ft_str_append.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_str_append.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_str_append.c.i
 .PHONY : ft_str_append.c.i
 
 ft_str_append.s: ft_str_append.c.s
@@ -1364,7 +1364,7 @@ ft_str_append.s: ft_str_append.c.s
 
 # target to generate assembly for a file
 ft_str_append.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_str_append.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_str_append.c.s
 .PHONY : ft_str_append.c.s
 
 ft_str_remove_at.o: ft_str_remove_at.c.o
@@ -1373,7 +1373,7 @@ ft_str_remove_at.o: ft_str_remove_at.c.o
 
 # target to build an object file
 ft_str_remove_at.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_str_remove_at.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_str_remove_at.c.o
 .PHONY : ft_str_remove_at.c.o
 
 ft_str_remove_at.i: ft_str_remove_at.c.i
@@ -1382,7 +1382,7 @@ ft_str_remove_at.i: ft_str_remove_at.c.i
 
 # target to preprocess a source file
 ft_str_remove_at.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_str_remove_at.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_str_remove_at.c.i
 .PHONY : ft_str_remove_at.c.i
 
 ft_str_remove_at.s: ft_str_remove_at.c.s
@@ -1391,7 +1391,7 @@ ft_str_remove_at.s: ft_str_remove_at.c.s
 
 # target to generate assembly for a file
 ft_str_remove_at.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_str_remove_at.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_str_remove_at.c.s
 .PHONY : ft_str_remove_at.c.s
 
 ft_strcat.o: ft_strcat.c.o
@@ -1400,7 +1400,7 @@ ft_strcat.o: ft_strcat.c.o
 
 # target to build an object file
 ft_strcat.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcat.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcat.c.o
 .PHONY : ft_strcat.c.o
 
 ft_strcat.i: ft_strcat.c.i
@@ -1409,7 +1409,7 @@ ft_strcat.i: ft_strcat.c.i
 
 # target to preprocess a source file
 ft_strcat.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcat.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcat.c.i
 .PHONY : ft_strcat.c.i
 
 ft_strcat.s: ft_strcat.c.s
@@ -1418,7 +1418,7 @@ ft_strcat.s: ft_strcat.c.s
 
 # target to generate assembly for a file
 ft_strcat.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcat.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcat.c.s
 .PHONY : ft_strcat.c.s
 
 ft_strchr.o: ft_strchr.c.o
@@ -1427,7 +1427,7 @@ ft_strchr.o: ft_strchr.c.o
 
 # target to build an object file
 ft_strchr.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strchr.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strchr.c.o
 .PHONY : ft_strchr.c.o
 
 ft_strchr.i: ft_strchr.c.i
@@ -1436,7 +1436,7 @@ ft_strchr.i: ft_strchr.c.i
 
 # target to preprocess a source file
 ft_strchr.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strchr.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strchr.c.i
 .PHONY : ft_strchr.c.i
 
 ft_strchr.s: ft_strchr.c.s
@@ -1445,7 +1445,7 @@ ft_strchr.s: ft_strchr.c.s
 
 # target to generate assembly for a file
 ft_strchr.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strchr.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strchr.c.s
 .PHONY : ft_strchr.c.s
 
 ft_strclr.o: ft_strclr.c.o
@@ -1454,7 +1454,7 @@ ft_strclr.o: ft_strclr.c.o
 
 # target to build an object file
 ft_strclr.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strclr.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strclr.c.o
 .PHONY : ft_strclr.c.o
 
 ft_strclr.i: ft_strclr.c.i
@@ -1463,7 +1463,7 @@ ft_strclr.i: ft_strclr.c.i
 
 # target to preprocess a source file
 ft_strclr.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strclr.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strclr.c.i
 .PHONY : ft_strclr.c.i
 
 ft_strclr.s: ft_strclr.c.s
@@ -1472,7 +1472,7 @@ ft_strclr.s: ft_strclr.c.s
 
 # target to generate assembly for a file
 ft_strclr.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strclr.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strclr.c.s
 .PHONY : ft_strclr.c.s
 
 ft_strcmp.o: ft_strcmp.c.o
@@ -1481,7 +1481,7 @@ ft_strcmp.o: ft_strcmp.c.o
 
 # target to build an object file
 ft_strcmp.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcmp.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcmp.c.o
 .PHONY : ft_strcmp.c.o
 
 ft_strcmp.i: ft_strcmp.c.i
@@ -1490,7 +1490,7 @@ ft_strcmp.i: ft_strcmp.c.i
 
 # target to preprocess a source file
 ft_strcmp.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcmp.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcmp.c.i
 .PHONY : ft_strcmp.c.i
 
 ft_strcmp.s: ft_strcmp.c.s
@@ -1499,7 +1499,7 @@ ft_strcmp.s: ft_strcmp.c.s
 
 # target to generate assembly for a file
 ft_strcmp.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcmp.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcmp.c.s
 .PHONY : ft_strcmp.c.s
 
 ft_strcpy.o: ft_strcpy.c.o
@@ -1508,7 +1508,7 @@ ft_strcpy.o: ft_strcpy.c.o
 
 # target to build an object file
 ft_strcpy.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcpy.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcpy.c.o
 .PHONY : ft_strcpy.c.o
 
 ft_strcpy.i: ft_strcpy.c.i
@@ -1517,7 +1517,7 @@ ft_strcpy.i: ft_strcpy.c.i
 
 # target to preprocess a source file
 ft_strcpy.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcpy.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcpy.c.i
 .PHONY : ft_strcpy.c.i
 
 ft_strcpy.s: ft_strcpy.c.s
@@ -1526,7 +1526,7 @@ ft_strcpy.s: ft_strcpy.c.s
 
 # target to generate assembly for a file
 ft_strcpy.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcpy.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strcpy.c.s
 .PHONY : ft_strcpy.c.s
 
 ft_strdel.o: ft_strdel.c.o
@@ -1535,7 +1535,7 @@ ft_strdel.o: ft_strdel.c.o
 
 # target to build an object file
 ft_strdel.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strdel.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strdel.c.o
 .PHONY : ft_strdel.c.o
 
 ft_strdel.i: ft_strdel.c.i
@@ -1544,7 +1544,7 @@ ft_strdel.i: ft_strdel.c.i
 
 # target to preprocess a source file
 ft_strdel.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strdel.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strdel.c.i
 .PHONY : ft_strdel.c.i
 
 ft_strdel.s: ft_strdel.c.s
@@ -1553,7 +1553,7 @@ ft_strdel.s: ft_strdel.c.s
 
 # target to generate assembly for a file
 ft_strdel.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strdel.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strdel.c.s
 .PHONY : ft_strdel.c.s
 
 ft_strdup.o: ft_strdup.c.o
@@ -1562,7 +1562,7 @@ ft_strdup.o: ft_strdup.c.o
 
 # target to build an object file
 ft_strdup.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strdup.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strdup.c.o
 .PHONY : ft_strdup.c.o
 
 ft_strdup.i: ft_strdup.c.i
@@ -1571,7 +1571,7 @@ ft_strdup.i: ft_strdup.c.i
 
 # target to preprocess a source file
 ft_strdup.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strdup.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strdup.c.i
 .PHONY : ft_strdup.c.i
 
 ft_strdup.s: ft_strdup.c.s
@@ -1580,7 +1580,7 @@ ft_strdup.s: ft_strdup.c.s
 
 # target to generate assembly for a file
 ft_strdup.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strdup.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strdup.c.s
 .PHONY : ft_strdup.c.s
 
 ft_strequ.o: ft_strequ.c.o
@@ -1589,7 +1589,7 @@ ft_strequ.o: ft_strequ.c.o
 
 # target to build an object file
 ft_strequ.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strequ.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strequ.c.o
 .PHONY : ft_strequ.c.o
 
 ft_strequ.i: ft_strequ.c.i
@@ -1598,7 +1598,7 @@ ft_strequ.i: ft_strequ.c.i
 
 # target to preprocess a source file
 ft_strequ.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strequ.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strequ.c.i
 .PHONY : ft_strequ.c.i
 
 ft_strequ.s: ft_strequ.c.s
@@ -1607,7 +1607,7 @@ ft_strequ.s: ft_strequ.c.s
 
 # target to generate assembly for a file
 ft_strequ.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strequ.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strequ.c.s
 .PHONY : ft_strequ.c.s
 
 ft_striter.o: ft_striter.c.o
@@ -1616,7 +1616,7 @@ ft_striter.o: ft_striter.c.o
 
 # target to build an object file
 ft_striter.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_striter.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_striter.c.o
 .PHONY : ft_striter.c.o
 
 ft_striter.i: ft_striter.c.i
@@ -1625,7 +1625,7 @@ ft_striter.i: ft_striter.c.i
 
 # target to preprocess a source file
 ft_striter.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_striter.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_striter.c.i
 .PHONY : ft_striter.c.i
 
 ft_striter.s: ft_striter.c.s
@@ -1634,7 +1634,7 @@ ft_striter.s: ft_striter.c.s
 
 # target to generate assembly for a file
 ft_striter.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_striter.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_striter.c.s
 .PHONY : ft_striter.c.s
 
 ft_striteri.o: ft_striteri.c.o
@@ -1643,7 +1643,7 @@ ft_striteri.o: ft_striteri.c.o
 
 # target to build an object file
 ft_striteri.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_striteri.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_striteri.c.o
 .PHONY : ft_striteri.c.o
 
 ft_striteri.i: ft_striteri.c.i
@@ -1652,7 +1652,7 @@ ft_striteri.i: ft_striteri.c.i
 
 # target to preprocess a source file
 ft_striteri.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_striteri.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_striteri.c.i
 .PHONY : ft_striteri.c.i
 
 ft_striteri.s: ft_striteri.c.s
@@ -1661,7 +1661,7 @@ ft_striteri.s: ft_striteri.c.s
 
 # target to generate assembly for a file
 ft_striteri.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_striteri.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_striteri.c.s
 .PHONY : ft_striteri.c.s
 
 ft_strjoin.o: ft_strjoin.c.o
@@ -1670,7 +1670,7 @@ ft_strjoin.o: ft_strjoin.c.o
 
 # target to build an object file
 ft_strjoin.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strjoin.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strjoin.c.o
 .PHONY : ft_strjoin.c.o
 
 ft_strjoin.i: ft_strjoin.c.i
@@ -1679,7 +1679,7 @@ ft_strjoin.i: ft_strjoin.c.i
 
 # target to preprocess a source file
 ft_strjoin.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strjoin.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strjoin.c.i
 .PHONY : ft_strjoin.c.i
 
 ft_strjoin.s: ft_strjoin.c.s
@@ -1688,7 +1688,7 @@ ft_strjoin.s: ft_strjoin.c.s
 
 # target to generate assembly for a file
 ft_strjoin.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strjoin.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strjoin.c.s
 .PHONY : ft_strjoin.c.s
 
 ft_strlcat.o: ft_strlcat.c.o
@@ -1697,7 +1697,7 @@ ft_strlcat.o: ft_strlcat.c.o
 
 # target to build an object file
 ft_strlcat.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strlcat.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strlcat.c.o
 .PHONY : ft_strlcat.c.o
 
 ft_strlcat.i: ft_strlcat.c.i
@@ -1706,7 +1706,7 @@ ft_strlcat.i: ft_strlcat.c.i
 
 # target to preprocess a source file
 ft_strlcat.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strlcat.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strlcat.c.i
 .PHONY : ft_strlcat.c.i
 
 ft_strlcat.s: ft_strlcat.c.s
@@ -1715,7 +1715,7 @@ ft_strlcat.s: ft_strlcat.c.s
 
 # target to generate assembly for a file
 ft_strlcat.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strlcat.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strlcat.c.s
 .PHONY : ft_strlcat.c.s
 
 ft_strlen.o: ft_strlen.c.o
@@ -1724,7 +1724,7 @@ ft_strlen.o: ft_strlen.c.o
 
 # target to build an object file
 ft_strlen.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strlen.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strlen.c.o
 .PHONY : ft_strlen.c.o
 
 ft_strlen.i: ft_strlen.c.i
@@ -1733,7 +1733,7 @@ ft_strlen.i: ft_strlen.c.i
 
 # target to preprocess a source file
 ft_strlen.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strlen.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strlen.c.i
 .PHONY : ft_strlen.c.i
 
 ft_strlen.s: ft_strlen.c.s
@@ -1742,7 +1742,7 @@ ft_strlen.s: ft_strlen.c.s
 
 # target to generate assembly for a file
 ft_strlen.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strlen.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strlen.c.s
 .PHONY : ft_strlen.c.s
 
 ft_strmap.o: ft_strmap.c.o
@@ -1751,7 +1751,7 @@ ft_strmap.o: ft_strmap.c.o
 
 # target to build an object file
 ft_strmap.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strmap.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strmap.c.o
 .PHONY : ft_strmap.c.o
 
 ft_strmap.i: ft_strmap.c.i
@@ -1760,7 +1760,7 @@ ft_strmap.i: ft_strmap.c.i
 
 # target to preprocess a source file
 ft_strmap.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strmap.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strmap.c.i
 .PHONY : ft_strmap.c.i
 
 ft_strmap.s: ft_strmap.c.s
@@ -1769,7 +1769,7 @@ ft_strmap.s: ft_strmap.c.s
 
 # target to generate assembly for a file
 ft_strmap.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strmap.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strmap.c.s
 .PHONY : ft_strmap.c.s
 
 ft_strmapi.o: ft_strmapi.c.o
@@ -1778,7 +1778,7 @@ ft_strmapi.o: ft_strmapi.c.o
 
 # target to build an object file
 ft_strmapi.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strmapi.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strmapi.c.o
 .PHONY : ft_strmapi.c.o
 
 ft_strmapi.i: ft_strmapi.c.i
@@ -1787,7 +1787,7 @@ ft_strmapi.i: ft_strmapi.c.i
 
 # target to preprocess a source file
 ft_strmapi.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strmapi.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strmapi.c.i
 .PHONY : ft_strmapi.c.i
 
 ft_strmapi.s: ft_strmapi.c.s
@@ -1796,7 +1796,7 @@ ft_strmapi.s: ft_strmapi.c.s
 
 # target to generate assembly for a file
 ft_strmapi.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strmapi.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strmapi.c.s
 .PHONY : ft_strmapi.c.s
 
 ft_strncat.o: ft_strncat.c.o
@@ -1805,7 +1805,7 @@ ft_strncat.o: ft_strncat.c.o
 
 # target to build an object file
 ft_strncat.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncat.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncat.c.o
 .PHONY : ft_strncat.c.o
 
 ft_strncat.i: ft_strncat.c.i
@@ -1814,7 +1814,7 @@ ft_strncat.i: ft_strncat.c.i
 
 # target to preprocess a source file
 ft_strncat.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncat.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncat.c.i
 .PHONY : ft_strncat.c.i
 
 ft_strncat.s: ft_strncat.c.s
@@ -1823,7 +1823,7 @@ ft_strncat.s: ft_strncat.c.s
 
 # target to generate assembly for a file
 ft_strncat.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncat.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncat.c.s
 .PHONY : ft_strncat.c.s
 
 ft_strncmp.o: ft_strncmp.c.o
@@ -1832,7 +1832,7 @@ ft_strncmp.o: ft_strncmp.c.o
 
 # target to build an object file
 ft_strncmp.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncmp.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncmp.c.o
 .PHONY : ft_strncmp.c.o
 
 ft_strncmp.i: ft_strncmp.c.i
@@ -1841,7 +1841,7 @@ ft_strncmp.i: ft_strncmp.c.i
 
 # target to preprocess a source file
 ft_strncmp.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncmp.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncmp.c.i
 .PHONY : ft_strncmp.c.i
 
 ft_strncmp.s: ft_strncmp.c.s
@@ -1850,7 +1850,7 @@ ft_strncmp.s: ft_strncmp.c.s
 
 # target to generate assembly for a file
 ft_strncmp.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncmp.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncmp.c.s
 .PHONY : ft_strncmp.c.s
 
 ft_strncpy.o: ft_strncpy.c.o
@@ -1859,7 +1859,7 @@ ft_strncpy.o: ft_strncpy.c.o
 
 # target to build an object file
 ft_strncpy.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncpy.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncpy.c.o
 .PHONY : ft_strncpy.c.o
 
 ft_strncpy.i: ft_strncpy.c.i
@@ -1868,7 +1868,7 @@ ft_strncpy.i: ft_strncpy.c.i
 
 # target to preprocess a source file
 ft_strncpy.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncpy.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncpy.c.i
 .PHONY : ft_strncpy.c.i
 
 ft_strncpy.s: ft_strncpy.c.s
@@ -1877,7 +1877,7 @@ ft_strncpy.s: ft_strncpy.c.s
 
 # target to generate assembly for a file
 ft_strncpy.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncpy.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strncpy.c.s
 .PHONY : ft_strncpy.c.s
 
 ft_strndup.o: ft_strndup.c.o
@@ -1886,7 +1886,7 @@ ft_strndup.o: ft_strndup.c.o
 
 # target to build an object file
 ft_strndup.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strndup.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strndup.c.o
 .PHONY : ft_strndup.c.o
 
 ft_strndup.i: ft_strndup.c.i
@@ -1895,7 +1895,7 @@ ft_strndup.i: ft_strndup.c.i
 
 # target to preprocess a source file
 ft_strndup.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strndup.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strndup.c.i
 .PHONY : ft_strndup.c.i
 
 ft_strndup.s: ft_strndup.c.s
@@ -1904,7 +1904,7 @@ ft_strndup.s: ft_strndup.c.s
 
 # target to generate assembly for a file
 ft_strndup.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strndup.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strndup.c.s
 .PHONY : ft_strndup.c.s
 
 ft_strnequ.o: ft_strnequ.c.o
@@ -1913,7 +1913,7 @@ ft_strnequ.o: ft_strnequ.c.o
 
 # target to build an object file
 ft_strnequ.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnequ.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnequ.c.o
 .PHONY : ft_strnequ.c.o
 
 ft_strnequ.i: ft_strnequ.c.i
@@ -1922,7 +1922,7 @@ ft_strnequ.i: ft_strnequ.c.i
 
 # target to preprocess a source file
 ft_strnequ.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnequ.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnequ.c.i
 .PHONY : ft_strnequ.c.i
 
 ft_strnequ.s: ft_strnequ.c.s
@@ -1931,7 +1931,7 @@ ft_strnequ.s: ft_strnequ.c.s
 
 # target to generate assembly for a file
 ft_strnequ.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnequ.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnequ.c.s
 .PHONY : ft_strnequ.c.s
 
 ft_strnew.o: ft_strnew.c.o
@@ -1940,7 +1940,7 @@ ft_strnew.o: ft_strnew.c.o
 
 # target to build an object file
 ft_strnew.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnew.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnew.c.o
 .PHONY : ft_strnew.c.o
 
 ft_strnew.i: ft_strnew.c.i
@@ -1949,7 +1949,7 @@ ft_strnew.i: ft_strnew.c.i
 
 # target to preprocess a source file
 ft_strnew.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnew.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnew.c.i
 .PHONY : ft_strnew.c.i
 
 ft_strnew.s: ft_strnew.c.s
@@ -1958,7 +1958,7 @@ ft_strnew.s: ft_strnew.c.s
 
 # target to generate assembly for a file
 ft_strnew.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnew.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnew.c.s
 .PHONY : ft_strnew.c.s
 
 ft_strnstr.o: ft_strnstr.c.o
@@ -1967,7 +1967,7 @@ ft_strnstr.o: ft_strnstr.c.o
 
 # target to build an object file
 ft_strnstr.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnstr.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnstr.c.o
 .PHONY : ft_strnstr.c.o
 
 ft_strnstr.i: ft_strnstr.c.i
@@ -1976,7 +1976,7 @@ ft_strnstr.i: ft_strnstr.c.i
 
 # target to preprocess a source file
 ft_strnstr.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnstr.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnstr.c.i
 .PHONY : ft_strnstr.c.i
 
 ft_strnstr.s: ft_strnstr.c.s
@@ -1985,7 +1985,7 @@ ft_strnstr.s: ft_strnstr.c.s
 
 # target to generate assembly for a file
 ft_strnstr.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnstr.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strnstr.c.s
 .PHONY : ft_strnstr.c.s
 
 ft_strrchr.o: ft_strrchr.c.o
@@ -1994,7 +1994,7 @@ ft_strrchr.o: ft_strrchr.c.o
 
 # target to build an object file
 ft_strrchr.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strrchr.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strrchr.c.o
 .PHONY : ft_strrchr.c.o
 
 ft_strrchr.i: ft_strrchr.c.i
@@ -2003,7 +2003,7 @@ ft_strrchr.i: ft_strrchr.c.i
 
 # target to preprocess a source file
 ft_strrchr.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strrchr.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strrchr.c.i
 .PHONY : ft_strrchr.c.i
 
 ft_strrchr.s: ft_strrchr.c.s
@@ -2012,7 +2012,7 @@ ft_strrchr.s: ft_strrchr.c.s
 
 # target to generate assembly for a file
 ft_strrchr.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strrchr.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strrchr.c.s
 .PHONY : ft_strrchr.c.s
 
 ft_strsplit.o: ft_strsplit.c.o
@@ -2021,7 +2021,7 @@ ft_strsplit.o: ft_strsplit.c.o
 
 # target to build an object file
 ft_strsplit.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strsplit.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strsplit.c.o
 .PHONY : ft_strsplit.c.o
 
 ft_strsplit.i: ft_strsplit.c.i
@@ -2030,7 +2030,7 @@ ft_strsplit.i: ft_strsplit.c.i
 
 # target to preprocess a source file
 ft_strsplit.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strsplit.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strsplit.c.i
 .PHONY : ft_strsplit.c.i
 
 ft_strsplit.s: ft_strsplit.c.s
@@ -2039,7 +2039,7 @@ ft_strsplit.s: ft_strsplit.c.s
 
 # target to generate assembly for a file
 ft_strsplit.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strsplit.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strsplit.c.s
 .PHONY : ft_strsplit.c.s
 
 ft_strstr.o: ft_strstr.c.o
@@ -2048,7 +2048,7 @@ ft_strstr.o: ft_strstr.c.o
 
 # target to build an object file
 ft_strstr.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strstr.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strstr.c.o
 .PHONY : ft_strstr.c.o
 
 ft_strstr.i: ft_strstr.c.i
@@ -2057,7 +2057,7 @@ ft_strstr.i: ft_strstr.c.i
 
 # target to preprocess a source file
 ft_strstr.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strstr.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strstr.c.i
 .PHONY : ft_strstr.c.i
 
 ft_strstr.s: ft_strstr.c.s
@@ -2066,7 +2066,7 @@ ft_strstr.s: ft_strstr.c.s
 
 # target to generate assembly for a file
 ft_strstr.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strstr.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strstr.c.s
 .PHONY : ft_strstr.c.s
 
 ft_strsub.o: ft_strsub.c.o
@@ -2075,7 +2075,7 @@ ft_strsub.o: ft_strsub.c.o
 
 # target to build an object file
 ft_strsub.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strsub.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strsub.c.o
 .PHONY : ft_strsub.c.o
 
 ft_strsub.i: ft_strsub.c.i
@@ -2084,7 +2084,7 @@ ft_strsub.i: ft_strsub.c.i
 
 # target to preprocess a source file
 ft_strsub.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strsub.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strsub.c.i
 .PHONY : ft_strsub.c.i
 
 ft_strsub.s: ft_strsub.c.s
@@ -2093,7 +2093,7 @@ ft_strsub.s: ft_strsub.c.s
 
 # target to generate assembly for a file
 ft_strsub.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strsub.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strsub.c.s
 .PHONY : ft_strsub.c.s
 
 ft_strtrim.o: ft_strtrim.c.o
@@ -2102,7 +2102,7 @@ ft_strtrim.o: ft_strtrim.c.o
 
 # target to build an object file
 ft_strtrim.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strtrim.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strtrim.c.o
 .PHONY : ft_strtrim.c.o
 
 ft_strtrim.i: ft_strtrim.c.i
@@ -2111,7 +2111,7 @@ ft_strtrim.i: ft_strtrim.c.i
 
 # target to preprocess a source file
 ft_strtrim.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strtrim.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strtrim.c.i
 .PHONY : ft_strtrim.c.i
 
 ft_strtrim.s: ft_strtrim.c.s
@@ -2120,7 +2120,7 @@ ft_strtrim.s: ft_strtrim.c.s
 
 # target to generate assembly for a file
 ft_strtrim.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strtrim.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_strtrim.c.s
 .PHONY : ft_strtrim.c.s
 
 ft_tolower.o: ft_tolower.c.o
@@ -2129,7 +2129,7 @@ ft_tolower.o: ft_tolower.c.o
 
 # target to build an object file
 ft_tolower.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_tolower.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_tolower.c.o
 .PHONY : ft_tolower.c.o
 
 ft_tolower.i: ft_tolower.c.i
@@ -2138,7 +2138,7 @@ ft_tolower.i: ft_tolower.c.i
 
 # target to preprocess a source file
 ft_tolower.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_tolower.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_tolower.c.i
 .PHONY : ft_tolower.c.i
 
 ft_tolower.s: ft_tolower.c.s
@@ -2147,7 +2147,7 @@ ft_tolower.s: ft_tolower.c.s
 
 # target to generate assembly for a file
 ft_tolower.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_tolower.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_tolower.c.s
 .PHONY : ft_tolower.c.s
 
 ft_toupper.o: ft_toupper.c.o
@@ -2156,7 +2156,7 @@ ft_toupper.o: ft_toupper.c.o
 
 # target to build an object file
 ft_toupper.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_toupper.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_toupper.c.o
 .PHONY : ft_toupper.c.o
 
 ft_toupper.i: ft_toupper.c.i
@@ -2165,7 +2165,7 @@ ft_toupper.i: ft_toupper.c.i
 
 # target to preprocess a source file
 ft_toupper.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_toupper.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_toupper.c.i
 .PHONY : ft_toupper.c.i
 
 ft_toupper.s: ft_toupper.c.s
@@ -2174,7 +2174,7 @@ ft_toupper.s: ft_toupper.c.s
 
 # target to generate assembly for a file
 ft_toupper.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_toupper.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/ft_toupper.c.s
 .PHONY : ft_toupper.c.s
 
 log.o: log.c.o
@@ -2183,7 +2183,7 @@ log.o: log.c.o
 
 # target to build an object file
 log.c.o:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/log.c.o
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/log.c.o
 .PHONY : log.c.o
 
 log.i: log.c.i
@@ -2192,7 +2192,7 @@ log.i: log.c.i
 
 # target to preprocess a source file
 log.c.i:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/log.c.i
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/log.c.i
 .PHONY : log.c.i
 
 log.s: log.c.s
@@ -2201,7 +2201,7 @@ log.s: log.c.s
 
 # target to generate assembly for a file
 log.c.s:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/log.c.s
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f minishell/libft/CMakeFiles/ft.dir/build.make minishell/libft/CMakeFiles/ft.dir/log.c.s
 .PHONY : log.c.s
 
 # Help Target
@@ -2455,6 +2455,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -48,10 +48,10 @@ RM = /home/darugula/.vs/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/git/e43/minishell
+CMAKE_SOURCE_DIR = /mnt/c/git/e44/minishell
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/git/e43/minishell/out/build/WSL-Debug
+CMAKE_BINARY_DIR = /mnt/c/git/e44/minishell/out/build/WSL-Debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/git/e43/minishell/out/build/WSL-Debug/CMakeFiles /mnt/c/git/e43/minishell/out/build/WSL-Debug/minishell/CMakeFiles/progress.marks
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/git/e43/minishell/out/build/WSL-Debug/CMakeFiles 0
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/git/e44/minishell/out/build/WSL-Debug/CMakeFiles /mnt/c/git/e44/minishell/out/build/WSL-Debug/minishell/CMakeFiles/progress.marks
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/git/e44/minishell/out/build/WSL-Debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/clean
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,17 +97,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/preinstall
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/preinstall
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(MAKE) -f CMakeFiles/Makefile2 minishell/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -129,6 +129,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /mnt/c/git/e43/minishell/out/build/WSL-Debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /mnt/c/git/e44/minishell/out/build/WSL-Debug && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

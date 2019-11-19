@@ -6,5 +6,5 @@ C_FLAGS = -g
 
 C_DEFINES = 
 
-C_INCLUDES = -I/mnt/c/git/e43/minishell/minishell/libft 
+C_INCLUDES = -I/mnt/c/git/e44/minishell/minishell/libft 
 

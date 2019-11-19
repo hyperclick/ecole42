@@ -6,3 +6,19 @@
 
 #IncludeRegexTransform: 
 
+/mnt/c/git/e44/minishell/minishell/libft/libft.h
+unistd.h
+-
+stdlib.h
+-
+limits.h
+-
+string.h
+-
+
+/mnt/c/git/e44/minishell/minishell/src/main.c
+stdio.h
+-
+../libft/libft.h
+/mnt/c/git/e44/minishell/minishell/libft/libft.h
+
