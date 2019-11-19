@@ -16,6 +16,9 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <string.h>
+#include <sys/types.h>
+#include <errno.h>
+#include <sys/wait.h>
 
 # define BOOL int
 # define FALSE 0
