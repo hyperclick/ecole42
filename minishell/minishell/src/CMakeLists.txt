@@ -10,8 +10,9 @@ include_directories(${CMAKE_SOURCE_DIR}/minishell/libft)
 
 #link_directories(${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
 
+file(GLOB src *.c)
 # Add source to this project's executable.
-add_executable (minishell "main.c")
+add_executable (minishell ${src})
 #target_link_libraries(ft debug libft.a)
 #target_link_libraries(libft debug libft.a)
 #target_link_libraries(ft debug libft/libft.a)
