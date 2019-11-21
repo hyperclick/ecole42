@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static void	*ft_free_array(char **r, int n)
+void		*ft_free_array(char **r, int n)
 {
 	while (n-- > 0)
 	{

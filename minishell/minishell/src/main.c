@@ -2,92 +2,43 @@
 #include "../libft/libft.h"
 #include "minishell.h"
 
-void		exec(/*char cmd_line[MAX_CMD_LINE]*/)
+void		ft_exit(int ret_code)
 {
-
-	//char* argv[] = { "jim", "jams", NULL };
-	//char* envp[] = { "some", "environment", NULL };
-	//execve("./sub", argv, envp) == -1);
-	//perror("Could not execve");
-
-
-	pid_t  pid;
-	int status;
-	pid = fork();
-	if (pid == -1) {
-
-		// pid == -1 means error occured 
-		ft_putstr("can't fork, error occured\n");
-		exit(EXIT_FAILURE);
-	}
-	else if (pid == 0) {
-
-		// pid == 0 means child process created 
-		// getpid() returns process id of calling process 
-		printf("child process, pid = %u\n", getpid());
-
-		// the argv list first argument should point to   
-		// filename associated with file being executed 
-		// the array pointer must be terminated by NULL  
-		// pointer 
-		char* argv_list[] = { "/bin/ls", ".", NULL };
-		//char* argv_list[] = { "pwd", NULL };
-
-		// the execv() only return if error occured. 
-		// The return value is -1 
-		execv("/bin/ls", argv_list);
-		exit(0);
-	}
-	else {
-		// a positive number is returned for the pid of 
-		// parent process 
-		// getppid() returns process id of parent of  
-		// calling process 
-		printf("parent process, pid = %u\n", getppid());
-
-		// the parent process calls waitpid() on the child 
-		// waitpid() system call suspends execution of  
-		// calling process until a child specified by pid 
-		// argument has changed state 
-		// see wait() man page for all the flags or options 
-		// used here  
-		if (waitpid(pid, &status, 0) > 0) {
-
-			if (WIFEXITED(status) && !WEXITSTATUS(status))
-				printf("program execution successfull\n");
-
-			else if (WIFEXITED(status) && WEXITSTATUS(status)) {
-				if (WEXITSTATUS(status) == 127) {
-
-					// execv failed 
-					printf("execv failed\n");
-				}
-				else
-					printf("program terminated normally,"
-						" but returned a non-zero status\n");
-			}
-			else
-				printf("program didn't terminate normally\n");
-		}
-		else {
-			// waitpid() failed 
-			printf("waitpid() failed\n");
-		}
-		//exit(0);
-	}
-	//return 0;
-
+	exit(ret_code);
 }
 
 
-int main()
+void		cd(int argc, char** argv)
+{
+	if (argc <= 0)
+	{
+		ft_e_putstr("-minishell: cd: too many arguments");
+		return ;
+		argv[0] = 0;
+	}
+}
+
+
+int main(int argc, char** argv, char** envp)
 {
 	//char		cmd_line[ARG_MAX];
 	char		cmd_line[MAX_CMD_LINE];
 	printf("qqq4\n");
-	//ft_putstr("$\n");
+	char* path = env_extract_value(envp, "PATH=");
+	ft_putstr(path);
+	int count = ft_count_words(path, ":");
+	char		*folders[count + 1];
+	folders[count] = NULL;
+	ft_split(folders, path, count, ":");
+	printf("\npath[0] = '%s'\n", folders[0]);
+	g_data.folders = folders;
+	g_data.folders_count = count;
+	g_data.max_folders_count = count;
 	//log_line("n\n\n\nstarted\n\n");
-
+	if (argc > 1)
+	{
+		cd(argc - 1, argv + 1);
+	}
 	while (TRUE)
 	{
 		ft_putstr("$ ");
@@ -98,12 +49,18 @@ int main()
 		//{
 		//	ft_strcpy(cmd_line, history.pop());
 		//}
+		if (ft_str_is_empty(ft_strtrim(cmd_line)))
+		{
+			continue;
+		}
+		//ft_putstr(cmd_line);
 		if (built_in_processed(cmd_line))
 		{
 			continue;
 		}
-		exec();
+		exec(cmd_line, envp);
 	}
 
-	return 0;
+	ft_exit(0);
+	return (0);
 }

@@ -27,7 +27,7 @@
 # define MIN(a, b) a > b ? b : a
 # define MAX_UNSIGNED_VALUE(T) (T)((T) - 1)
 # define MAX_SIZE_T MAX_UNSIGNED_VALUE(size_t)
-
+# define PATH_SEPARATOR '/'
 
 
 typedef struct	s_list
@@ -48,8 +48,10 @@ int				ft_lst_count(t_list *lst);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
+void			ft_e_putstr(const char* str);
 BOOL			ft_ends_with(const char *str, const char c);
-int				ft_last_index(const char *str, const char to_find);
+char			*env_extract_value(char* env[], char* key);
+int			ft_last_index(const char *str, const char to_find);
 void			*ft_memset (void *ptr, int value, size_t num);
 void			ft_bzero(void *s, size_t n);
 void			*ft_memcpy(void *d, const void *s, size_t n);
@@ -60,6 +62,8 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			ft_readline(char* dst, int size);
 void			ft_sort_strings(char *a[], int count);
 BOOL			ft_starts_with(const char *str, const char c);
+BOOL			ft_str_starts_with(char const* str, const char* start);
+BOOL			ft_str_is_empty(const char* s);
 size_t			ft_strlen(const char *s);
 char			*ft_strdup(const char *s1);
 char			*ft_strndup(const char *s1, size_t len);
