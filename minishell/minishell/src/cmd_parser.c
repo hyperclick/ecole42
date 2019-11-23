@@ -1,17 +1,18 @@
 ﻿
 #include "minishell.h"
 
-BOOL		is_exit(const char str[MAX_CMD_LINE])
-{
-	return (ft_str_equals("exit", ft_strtrim(str)));
-}
 
-BOOL		built_in_processed(const char str[MAX_CMD_LINE])
+
+BOOL		built_in_processed(char * const args[], int count)
 {
-	if (is_exit(str))
+	if (ft_str_equals("exit", args[0]))
 	{
-		//printf("exiting\n");
-		exit(0);
+		ft_exit(0);
+	}
+	if (ft_str_equals("cd", args[0]))
+	{
+		cd(count - 1, args + 1);
+		return (TRUE);
 	}
 	return (FALSE);
 }

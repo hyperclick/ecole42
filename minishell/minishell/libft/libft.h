@@ -12,6 +12,9 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+#include <stdio.h>
+
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
@@ -19,6 +22,8 @@
 #include <sys/types.h>
 #include <errno.h>
 #include <sys/wait.h>
+#include <termios.h>
+#include <signal.h>
 
 # define BOOL int
 # define FALSE 0
@@ -75,7 +80,8 @@ char			*ft_strncat(char *a, const char *b, size_t n);
 size_t			ft_strlcat(char *d, const char *src, size_t s);
 char			*ft_strchr(const char *s, int c);
 char			*ft_strrchr(const char *s, int c);
-int				ft_count_words(const char *str, const char whitespaces[]);
+int			ft_count_words(const char *str, const char whitespaces[]);
+void*		ft_free_array(char** r, int n);
 char			**ft_split(char **r, const char *str, int c, const char *d);
 char			**ft_strsplit(char const *s, char c);
 char			*ft_strstr(const char *haystack, const char *needle);
