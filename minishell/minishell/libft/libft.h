@@ -56,6 +56,7 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void			ft_e_putstr(const char* str);
 BOOL			ft_ends_with(const char *str, const char c);
 char			*env_extract_value(char* env[], char* key);
+void			ft_env(int argc, char* const argv[], char* const env[]);
 int			ft_last_index(const char *str, const char to_find);
 void			*ft_memset (void *ptr, int value, size_t num);
 void			ft_bzero(void *s, size_t n);

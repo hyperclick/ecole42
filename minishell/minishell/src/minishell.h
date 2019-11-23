@@ -10,6 +10,7 @@ typedef struct s_minishell_data
 	char		**folders;
 	int		folders_count;
 	int		max_folders_count;
+	char		** env;
 }				t_data;
 
 t_data		g_data;

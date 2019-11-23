@@ -14,5 +14,10 @@ BOOL		built_in_processed(char * const args[], int count)
 		cd(count - 1, args + 1);
 		return (TRUE);
 	}
+	if (ft_str_equals("env", args[0]))
+	{
+		ft_env(count - 1, args + 1, g_data.env);
+		return (TRUE);
+	}
 	return (FALSE);
 }

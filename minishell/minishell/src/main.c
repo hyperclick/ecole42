@@ -71,26 +71,13 @@ int main(int argc, char** argv, char** envp)
 	g_data.folders = folders;
 	g_data.folders_count = count;
 	g_data.max_folders_count = count;
+
+	g_data.env = envp;
 	//log_line("n\n\n\nstarted\n\n");
 	if (argc > 1)
 	{
 		cd(argc - 1, argv + 1);
 	}
-	ft_putstr("qqq1\n");
-	char ch;
-	while (read(1, &ch, 1) > 0)
-	{
-		ft_putchar(ch);
-		ft_putchar('a');
-		//fflush(stdin);
-		fflush(stdout);
-		//close(STDIN_FILENO);
-		break;
-		ft_putstr("after break\n");
-		ft_putchar_fd('\n', STDIN_FILENO);
-	}
-	ft_putstr("\nqqq2\n");
-	return (1);
 	while (TRUE)
 	{
 		ft_putstr("$ ");

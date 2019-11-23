@@ -28,3 +28,18 @@ char		*env_extract_value(char *env[], char *key)
 	}
 	return (NULL);
 }
+
+void		ft_env(int argc, char* const argv[], char* const env[])
+{
+	if (argc != 0)
+	{
+		ft_e_putstr("-minishell: env: too many arguments");
+		return;
+	}
+	(void)argv;
+	while (*env != NULL)
+	{
+		ft_putstr(*env++);
+		ft_putchar('\n');
+	}
+}
