@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdarg.h>
 # include <string.h>
 #include <sys/types.h>
 #include <errno.h>
@@ -52,11 +53,15 @@ void			*ft_lst_reduce(t_list *lst, void (*f)(t_list*, void*), void *a);
 int				ft_lst_count(t_list *lst);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void		ft_lst_insert_after(t_list* node, t_list* new);
+void		ft_lst_insert_sorted(t_list** list, t_list* new, BOOL(grater_than)(t_list* a, t_list* b));
+
+void		ft_lst_remove_sorted(t_list** list, t_list* to_remove
+	, BOOL(equal)(t_list* a, t_list* b)
+	, void (*free_content)(void*, size_t));
 
 void			ft_e_putstr(const char* str);
 BOOL			ft_ends_with(const char *str, const char c);
-char			*env_extract_value(char* env[], char* key);
-void			ft_env(int argc, char* const argv[], char* const env[]);
 int			ft_last_index(const char *str, const char to_find);
 void			*ft_memset (void *ptr, int value, size_t num);
 void			ft_bzero(void *s, size_t n);
@@ -70,11 +75,13 @@ void			ft_sort_strings(char *a[], int count);
 BOOL			ft_starts_with(const char *str, const char c);
 BOOL			ft_str_starts_with(char const* str, const char* start);
 BOOL			ft_str_is_empty(const char* s);
-size_t			ft_strlen(const char *s);
+int			ft_strlen(const char *s);
 char			*ft_strdup(const char *s1);
-char			*ft_strndup(const char *s1, size_t len);
+char			*ft_strndup(const char *s1, int len);
 char			*ft_strcpy(char *dst, const char *src);
 BOOL			ft_str_equals(const char* a, const char* b);
+char			*ft_str_left_from(const char* s, char c);
+char* ft_str_right_from(const char* s, int c);
 char			*ft_strncpy(char *dst, const char *src, size_t len);
 char			*ft_strcat(char *s1, const char *s2);
 char			*ft_strncat(char *a, const char *b, size_t n);
@@ -112,8 +119,9 @@ char			*ft_strmap(char const *s, char (*f)(char));
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int				ft_strequ(char const *s1, char const *s2);
 int				ft_strnequ(char const *s1, char const *s2, size_t n);
-char			*ft_strsub(char const *s, unsigned int start, size_t len);
+char			*ft_strsub(char const *s, int start, int len);
 char			*ft_strjoin(char const *s1, char const *s2);
+char* ft_strjoin2(int count, ...);
 char			*ft_str_remove_at(char *dst, int n);
 char			*ft_strtrim(char const *s);
 int				ft_sqrt_up(int a);

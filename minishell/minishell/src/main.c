@@ -9,7 +9,7 @@ void		ft_exit(int ret_code)
 	free(g_data.folders);
 	g_data.max_folders_count = 0;
 	g_data.folders_count = 0;
-
+	env_free();
 	//todo: kill waited process
 	exit(ret_code);
 }
@@ -61,6 +61,8 @@ int main(int argc, char** argv, char** envp)
 	//char		cmd_line[ARG_MAX];
 	char		cmd_line[MAX_CMD_LINE];
 	printf("qqq4\n");
+	
+	//ft_putstr("");
 	char* path = env_extract_value(envp, "PATH=");
 	ft_putstr(path);
 	int count = ft_count_words(path, ":");
@@ -72,7 +74,8 @@ int main(int argc, char** argv, char** envp)
 	g_data.folders_count = count;
 	g_data.max_folders_count = count;
 
-	g_data.env = envp;
+	//g_data.env = envp;
+	env_add_all(envp);
 	//log_line("n\n\n\nstarted\n\n");
 	if (argc > 1)
 	{
@@ -109,10 +112,10 @@ int main(int argc, char** argv, char** envp)
 			//free(args);
 			continue;
 		}
-		exec2(args, envp);
+		exec2(args);
 		//ft_putstr("free args before end loop\n");
-			ft_free_array(args, c);
-			//free(args);
+		ft_free_array(args, c);
+		//free(args);
 	}
 
 	ft_exit(0);

@@ -31,3 +31,8 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (ft_strchr(s + 1, c));
 }
+char* ft_str_right_from(const char* s, int c)
+{
+	return (ft_strchr(s, c));
+}
+

@@ -41,7 +41,7 @@ void		wait_child(pid_t  pid)
 	}
 }
 
-void		fork_and_exec(char* argv[], char* const envp[])
+void		fork_and_exec(char* argv[])
 {
 
 	pid_t pid = 0;
@@ -57,7 +57,7 @@ void		fork_and_exec(char* argv[], char* const envp[])
 		// we are in child now
 		//printf("child process, pid = %u\n", getpid());
 
-		if (execve(argv[0], argv, envp) == -1)
+		if (execve(argv[0], argv, env_to_array()) == -1)
 		{
 			perror("Could not execute: ");
 			ft_e_putstr(argv[0]);
@@ -73,7 +73,7 @@ void		fork_and_exec(char* argv[], char* const envp[])
 	
 }
 
-BOOL		try_execute(char* filename, char* argv[], char* const envp[])
+BOOL		try_execute(char* filename, char* argv[])
 {
 	if (access(argv[0], F_OK) == 0)
 	{
@@ -84,16 +84,16 @@ BOOL		try_execute(char* filename, char* argv[], char* const envp[])
 			return (TRUE);
 		}
 
-		fork_and_exec(argv, envp);
+		fork_and_exec(argv);
 			return (TRUE);
 
 	}
 	return (FALSE);
 }
-void		exec2(char* argv[], char* const envp[])
+void		exec2(char* argv[])
 {
 		char* filename = argv[0]; 
-		if (try_execute(filename, argv, envp))
+		if (try_execute(filename, argv))
 		{
 			return;
 		}
@@ -109,7 +109,7 @@ void		exec2(char* argv[], char* const envp[])
 			ft_strcat(path, filename);
 			argv[0] = path;
 			//printf("\ntrying '%s'\n", argv[0]);
-			if (try_execute(filename, argv, envp))
+			if (try_execute(filename, argv))
 			{
 				argv[0] = argv0;
 				return;

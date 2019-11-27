@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft.h"
 
 void	*ft_lst_reduce(t_list *lst, void (f)(t_list*, void*), void *accumulator)
 {

@@ -31,3 +31,42 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	return (ft_strcat(ft_strcat(str, s1), s2));
 }
+
+char	*ft_strjoin2(int count, ...)
+{
+	int	i;
+	int	len;
+
+	char	*str;
+	char *s_i;
+	va_list       s;
+	va_start(s, count);
+	i = -1; 
+	len = 0;
+	while (++i < count)
+	{
+		s_i = va_arg(s, char*);
+		len += ft_strlen(s_i);
+		printf("len = %d, s_i = '%s'\n", len, s_i);
+	} 
+	va_end(s);
+
+	str = ft_strnew(len);
+	if (str == NULL)
+	{
+		printf("len = %d\n", len);
+		return (NULL);
+	}
+
+	va_start(s, count);
+	i = -1; 
+	while (++i < count)
+	{
+		s_i = va_arg(s, char*);
+		ft_strcat(str, s_i);
+	} 
+	va_end(s);
+
+
+	return (str);
+}
