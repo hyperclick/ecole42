@@ -56,9 +56,13 @@ int main(int argc, char** argv, char** envp)
 
 	signal(SIGINT, ft_default_sig_handler);
 	//char		cmd_line[ARG_MAX];
-	char		cmd_line[MAX_CMD_LINE];
+	char		cmd_line[MAX_CMD_LINE] = "\r";
 	printf("qqq4\n");
 	
+	//ft_strtrim2(cmd_line, "\r\n\t ");
+	//printf("cmd_line = '%s', %d\n", cmd_line, ft_contains(cmd_line, '\r'));
+	//exit(0);
+
 	//ft_putstr("");
 
 	//g_data.env = envp;
@@ -78,19 +82,23 @@ int main(int argc, char** argv, char** envp)
 		//{
 		//	ft_strcpy(cmd_line, history.pop());
 		//}
-		if (ft_str_is_empty(ft_strtrim(cmd_line)))
+		char* trimmed = ft_strtrim2(cmd_line, "\r\n\t ");
+
+		if (ft_str_is_empty(trimmed))
 		{
+			free(trimmed);
 			continue;
 		}
-		//ft_putstr(cmd_line);
-
+		//printf("cmd_line = '%s', %d\n", trimmed, ft_contains(trimmed,'\r'));
+		//ft_putchar('\n');
 		int	c;
 
-		c = ft_count_words(cmd_line, " \t");
+		c = ft_count_words(trimmed, " \t");
 
 		char* args[c + 1];// = { "ls", "/", NULL };
 		args[c] = NULL;
-		ft_split(args, cmd_line, c, " \t");
+		ft_split(args, trimmed, c, " \t");
+		free(trimmed);
 		printf("\nargs[1] = '%s'\n", args[1]);
 		if (built_in_processed(args, c))
 		{

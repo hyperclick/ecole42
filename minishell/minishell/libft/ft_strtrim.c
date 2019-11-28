@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <string.h>
 
-static char	*ft_strtrim2(char const *s, char const *whitespaces)
+char	*ft_strtrim2(char const *s, char const *whitespaces)
 {
 	char	*str;
 	int		i;
@@ -27,6 +27,7 @@ static char	*ft_strtrim2(char const *s, char const *whitespaces)
 	{
 		s++;
 	}
+	//printf("   s = '%s'\n", s);
 	len = ft_strlen(s);
 	i = 0;
 	if (len != 0)
@@ -37,6 +38,7 @@ static char	*ft_strtrim2(char const *s, char const *whitespaces)
 		}
 	}
 	str = ft_strndup(s, len - i);
+	//printf("   str = '%s'\n", str);
 	return (str);
 }
 

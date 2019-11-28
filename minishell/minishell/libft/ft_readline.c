@@ -3,7 +3,7 @@
 void		ft_readline(char* dst, int size)
 {
 	char ch;
-	while (read(1, &ch, 1) > 0)
+	while (read(STDIN_FILENO, &ch, 1) > 0)
 	{
 		if (--size == 0)
 		{
