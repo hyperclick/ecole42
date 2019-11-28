@@ -33,6 +33,23 @@ char		*env_extract_value(char *env[], char *key)
 	return (NULL);
 }
 
+char		*env_get_value(const char *key)
+{
+	t_list	*n;
+	char		*str;
+
+	n = g_env;
+	while (n != NULL)
+	{
+		if (ft_str_starts_with((const char *)n->content, key))
+		{
+			str = (char*)n->content;
+			return (str + ft_strlen(key));
+		}
+		n = n->next;
+	}
+	return (NULL);
+}
 char* extract_kvp(t_list *n)
 {
 	return ((char*)n->content);
@@ -127,20 +144,13 @@ void		env_remove(char* const key)
 	ft_e_putstr(key);
 }
 
-void		ft_unset_env(int argc, char* const argv[])
+void ft_unset_env(int argc, char* const argv[])
 {
 	if (argc != 1)
 	{
 		ft_e_putstr("-minishell: unsetenv: expected one argument\n");
 		return;
 	}
-	//t_list* current = ft_lst_find(g_env, argv[0], find);
-	//if (current == NULL)
-	//{
-	//	ft_e_putstr("-minishell: unsetenv: var not found: ");
-	//	ft_e_putstr(argv[0]);
-	//	return;
-	//}
 	env_remove(argv[0]);
 }
 
@@ -151,7 +161,7 @@ void env_replace(t_list *current, const char *kvp)
 	current->content = (void*) kvp;
 }
 
-void		ft_set_env(int argc, char* const argv[])
+void ft_set_env(int argc, char* const argv[])
 {
 	if (argc > 2)
 	{
@@ -170,6 +180,7 @@ void		ft_set_env(int argc, char* const argv[])
 	}
 	int len = ft_strlen(argv[0]) + 1;
 	char key[len];
+	//key = (char*) malloc(sizeof(char) * len);
 	key[len - 1] = 0;
 	ft_strcpy(key, argv[0]);
 	char* new_env = ft_strjoin2(3, argv[0], "=", argv[1]);

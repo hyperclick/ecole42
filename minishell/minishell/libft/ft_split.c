@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void		*ft_free_array(char **r, int n)
+void		ft_free_array(void **r, int n)
 {
 	printf("free n = %d\n", n);
 	while (n-- > 0)
@@ -21,9 +21,24 @@ void		*ft_free_array(char **r, int n)
 		free(r[n]);
 		//ft_putstr("freed\n");
 	}
-	return (NULL);
 }
 
+int		ft_count_null_term_array(void **a)
+{
+	int	count;
+	count = 0;
+	while (*a != NULL)
+	{
+		a++;
+		count++;
+	}
+	return (count);
+}
+
+void		ft_free_null_term_array(void **a)
+{
+	ft_free_array(a, ft_count_null_term_array(a));
+}
 char		**ft_split(char **r, const char *str, int count, const char *sep)
 {
 	int		i;
@@ -34,7 +49,10 @@ char		**ft_split(char **r, const char *str, int count, const char *sep)
 	{
 		dst = malloc((ft_strlen(str) + 1) * sizeof(char));
 		if (dst == NULL)
-			return (ft_free_array(r, i));
+		{
+			ft_free_array((void**)r, i);
+			return (NULL);
+		}
 		r[i++] = dst;
 		while (*str != 0 && ft_contains(sep, *str) == 1 && ++str)
 		{

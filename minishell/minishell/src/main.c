@@ -1,14 +1,10 @@
-﻿#include <stdio.h>
-#include "../libft/libft.h"
-#include "minishell.h"
+﻿#include "minishell.h"
+
 
 void		ft_exit(int ret_code)
 {
 	ft_putstr("arevuar\n");
-	ft_free_array(g_data.folders, g_data.max_folders_count);
-	free(g_data.folders);
-	g_data.max_folders_count = 0;
-	g_data.folders_count = 0;
+	//free_folders();
 	env_free();
 	//todo: kill waited process
 	exit(ret_code);
@@ -56,6 +52,7 @@ void		ft_default_sig_handler(int signum)
 
 int main(int argc, char** argv, char** envp)
 {
+	//log_line("n\n\n\nstarted\n\n");
 
 	signal(SIGINT, ft_default_sig_handler);
 	//char		cmd_line[ARG_MAX];
@@ -63,20 +60,10 @@ int main(int argc, char** argv, char** envp)
 	printf("qqq4\n");
 	
 	//ft_putstr("");
-	char* path = env_extract_value(envp, "PATH=");
-	ft_putstr(path);
-	int count = ft_count_words(path, ":");
-	char		**folders = (char**) malloc((sizeof(char*)) * (count + 1));
-	folders[count] = NULL;
-	ft_split(folders, path, count, ":");
-	printf("\npath[0] = '%s'\n", folders[0]);
-	g_data.folders = folders;
-	g_data.folders_count = count;
-	g_data.max_folders_count = count;
 
 	//g_data.env = envp;
 	env_add_all(envp);
-	//log_line("n\n\n\nstarted\n\n");
+	//update_folders();
 	if (argc > 1)
 	{
 		cd(argc - 1, argv + 1);
@@ -108,13 +95,13 @@ int main(int argc, char** argv, char** envp)
 		if (built_in_processed(args, c))
 		{
 			//ft_putstr("built_in_processed");
-			ft_free_array(args, c);
+			ft_free_array((void**)args, c);
 			//free(args);
 			continue;
 		}
 		exec2(args);
 		//ft_putstr("free args before end loop\n");
-		ft_free_array(args, c);
+		ft_free_array((void**)args, c);
 		//free(args);
 	}
 

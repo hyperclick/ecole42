@@ -101,10 +101,13 @@ void		exec2(char* argv[])
 			//printf("free %s\n", argv[0]);
 			//free(argv[0]);
 		char		path[PATH_MAX];
-		int i = -1;
-		while (++i < g_data.folders_count)
+		char** folders;
+		folders = fill_path_folders();
+		char** start = folders;
+
+		while (*folders != NULL)
 		{
-			ft_strcpy(path, g_data.folders[i]);
+			ft_strcpy(path, *folders);
 			ft_str_append(path, PATH_SEPARATOR);
 			ft_strcat(path, filename);
 			argv[0] = path;
@@ -112,11 +115,17 @@ void		exec2(char* argv[])
 			if (try_execute(filename, argv))
 			{
 				argv[0] = argv0;
+				ft_free_null_term_array((void**)start);
+				//ft_putstr("free folders\n");
+				free(start);
 				return;
 			}
+			folders++;
 		}
 		ft_e_putstr(filename);
 		ft_e_putstr(": command not found\n");
-				argv[0] = argv0;
+		argv[0] = argv0;
+		ft_free_null_term_array((void**)start);
+		free(start);
 		return;
 }

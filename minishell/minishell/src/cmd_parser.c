@@ -1,7 +1,5 @@
 ﻿#include "minishell.h"
 
-
-
 BOOL		built_in_processed(char * const args[], int count)
 {
 	if (ft_str_equals("exit", args[0]))
