@@ -10,15 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_contains(const char *str, char to_find)
+#include "libft.h"
+
+BOOL		ft_contains(const char *str, char to_find)
 {
 	while (*str != 0)
 	{
 		if (*str == to_find)
 		{
-			return (1);
+			return (TRUE);
 		}
 		str++;
 	}
-	return (0);
+	return (FALSE);
+}
+
+BOOL		ft_str_contains(const char* haystack, const char* needle)
+{
+	return (ft_strstr(haystack, needle) != NULL);
 }

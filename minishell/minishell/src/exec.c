@@ -43,7 +43,6 @@ void		wait_child(pid_t  pid)
 
 void		fork_and_exec(char* argv[])
 {
-
 	pid_t pid = 0;
 	pid = fork();
 	if (pid == -1)

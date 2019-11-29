@@ -14,12 +14,54 @@
 
 #define KEY_VALUE_SEPARATOR '='
 
-t_list	*g_env = NULL;
+t_list* g_env = NULL;
 
-char		*env_extract_value(char *env[], char *key)
+const char* env_extract_key(const char* kvp)
+{
+	return (ft_str_left_from(kvp, KEY_VALUE_SEPARATOR));
+}
+
+char** env_replace_vars(char** r, const char** a)
+{
+	char find[1000];
+	while (*a != NULL)
+	{
+		*r = NULL;
+		BOOL		replaced = FALSE;
+		t_list* e = g_env;
+		while (e != NULL)
+		{
+			const char* key = env_extract_key(e->content);
+			find[0] = 0;
+			ft_strcat(ft_strcat(find, "$"), key);
+			if (ft_str_contains(*a, find))
+			{
+				*r = ft_str_replace(*a, find, env_get_value(key));
+				replaced = TRUE;
+				break;
+			}
+			e = e->next;
+		}
+		if (ft_contains(*a, '~'))
+		{
+			*r = ft_str_replace(*a, "~", env_get_value("HOME"));
+			replaced = TRUE;
+		}
+		if (!replaced)
+		{
+			*r = ft_strdup(*a);
+		}
+		r++;
+		a++;
+	}
+	return (r);
+}
+
+
+char* env_extract_value(char* env[], char* key)
 {
 	int	i;
-	char		*str;
+	char* str;
 
 	i = -1;
 	while (env[++i] != NULL)
@@ -33,31 +75,29 @@ char		*env_extract_value(char *env[], char *key)
 	return (NULL);
 }
 
-char		*env_get_value(const char *key)
+char* env_get_value(const char* key)
 {
-	t_list	*n;
-	char		*str;
+	t_list* n;
+	char* str;
+	char find[1000];
 
+	find[0] = 0;
+	ft_strcat(ft_strcat(find, key), "=");
 	n = g_env;
 	while (n != NULL)
 	{
-		if (ft_str_starts_with((const char *)n->content, key))
+		if (ft_str_starts_with((const char*)n->content, find))
 		{
 			str = (char*)n->content;
-			return (str + ft_strlen(key));
+			return (str + ft_strlen(find));
 		}
 		n = n->next;
 	}
 	return (NULL);
 }
-char* extract_kvp(t_list *n)
+char* extract_kvp(t_list* n)
 {
 	return ((char*)n->content);
-}
-
-const char* env_extract_key(const char* kvp)
-{
-	return (ft_str_left_from(kvp, KEY_VALUE_SEPARATOR));
 }
 
 BOOL		env_greater_than(t_list* a, t_list* b)
@@ -88,7 +128,7 @@ void		ft_env(int argc, char* const argv[])
 		return;
 	}
 	(void)argv;
-	t_list *env = g_env;
+	t_list* env = g_env;
 
 	while (env != NULL)
 	{
@@ -98,12 +138,12 @@ void		ft_env(int argc, char* const argv[])
 	}
 }
 
-BOOL		find(t_list *n, void *key)
+BOOL		find(t_list* n, void* key)
 {
 	const char* key_a = env_extract_key((const char*)n->content);
 	//const char* key_b = env_extract_key((const char*)content);
 	BOOL r = ft_strequ(key_a, key);
-	printf("key = '%s' key a = '%s', r = %d\n", (char *)key, key_a, r);
+	//printf("key = '%s' key a = '%s', r = %d\n", (char *)key, key_a, r);
 	free((char*)key_a);
 	//free(key_b);
 	return (r);
@@ -118,12 +158,12 @@ void env_free_one(void* item, size_t size)
 
 void		env_remove(char* const key)
 {
-	t_list *prev;
+	t_list* prev;
 	prev = NULL;
-	t_list *n = g_env;
+	t_list* n = g_env;
 	while (n != NULL)
 	{
-		if (ft_str_equals(key, env_extract_key((const char *)n->content)))
+		if (ft_str_equals(key, env_extract_key((const char*)n->content)))
 		{
 			if (prev == NULL)
 			{
@@ -139,7 +179,7 @@ void		env_remove(char* const key)
 		prev = n;
 		n = n->next;
 	}
-	
+
 	ft_e_putstr("-minishell: unsetenv: var not found: ");
 	ft_e_putstr(key);
 }
@@ -155,10 +195,10 @@ void ft_unset_env(int argc, char* const argv[])
 }
 
 
-void env_replace(t_list *current, const char *kvp)
+void env_replace(t_list* current, const char* kvp)
 {
 	free(current->content);
-	current->content = (void*) kvp;
+	current->content = (void*)kvp;
 }
 
 void ft_set_env(int argc, char* const argv[])
@@ -196,7 +236,7 @@ void ft_set_env(int argc, char* const argv[])
 	}
 }
 
-void		env_add_all(char *env[])
+void		env_add_all(char* env[])
 {
 	if (g_env != NULL)
 	{
@@ -223,7 +263,7 @@ void		env_free()
 char** env_to_array()
 {
 	int i;
-	t_list* env ;
+	t_list* env;
 	int count = ft_lst_count(g_env) + 1;
 	char** a;
 	a = (char**)malloc(sizeof(char*) * count);

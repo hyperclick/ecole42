@@ -15,7 +15,7 @@ void		cd(int argc, char* const argv[])
 {
 	if (argc <= 0)
 	{
-		ft_e_putstr("-minishell: cd: too many arguments");
+		ft_e_putstr("-minishell: cd: too many arguments\n");
 		return ;
 	}
 
@@ -23,7 +23,7 @@ void		cd(int argc, char* const argv[])
 	{
 		ft_e_putstr("-minishell: cd: ");
 		ft_e_putstr(argv[0]);
-		ft_e_putstr(": No such file or directory");
+		ft_e_putstr(": No such file or directory\n");
 		return ;
 	}
 }
@@ -56,16 +56,9 @@ int main(int argc, char** argv, char** envp)
 
 	signal(SIGINT, ft_default_sig_handler);
 	//char		cmd_line[ARG_MAX];
-	char		cmd_line[MAX_CMD_LINE] = "\r";
+	char		cmd_line[MAX_CMD_LINE];
 	printf("qqq4\n");
 	
-	//ft_strtrim2(cmd_line, "\r\n\t ");
-	//printf("cmd_line = '%s', %d\n", cmd_line, ft_contains(cmd_line, '\r'));
-	//exit(0);
-
-	//ft_putstr("");
-
-	//g_data.env = envp;
 	env_add_all(envp);
 	//update_folders();
 	if (argc > 1)
@@ -99,17 +92,17 @@ int main(int argc, char** argv, char** envp)
 		args[c] = NULL;
 		ft_split(args, trimmed, c, " \t");
 		free(trimmed);
-		printf("\nargs[1] = '%s'\n", args[1]);
-		if (built_in_processed(args, c))
-		{
-			//ft_putstr("built_in_processed");
-			ft_free_array((void**)args, c);
-			//free(args);
-			continue;
-		}
-		exec2(args);
-		//ft_putstr("free args before end loop\n");
+		char* replaced_args[c + 1];
+		replaced_args[c] = NULL;
+		env_replace_vars(replaced_args, (const char**) args);
 		ft_free_array((void**)args, c);
+		printf("args = '%s' '%s'\n", replaced_args[0], replaced_args[1]);
+		if (!built_in_processed(replaced_args, c))
+		{
+			exec2(replaced_args);
+		}
+		//ft_putstr("free args before end loop\n");
+		ft_free_array((void**)replaced_args, c);
 		//free(args);
 	}
 

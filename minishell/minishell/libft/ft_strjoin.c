@@ -47,14 +47,14 @@ char	*ft_strjoin2(int count, ...)
 	{
 		s_i = va_arg(s, char*);
 		len += ft_strlen(s_i);
-		printf("len = %d, s_i = '%s'\n", len, s_i);
+		//printf("len = %d, s_i = '%s'\n", len, s_i);
 	} 
 	va_end(s);
 
 	str = ft_strnew(len);
 	if (str == NULL)
 	{
-		printf("len = %d\n", len);
+		//printf("len = %d\n", len);
 		return (NULL);
 	}
 

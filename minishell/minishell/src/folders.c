@@ -33,7 +33,7 @@ char** get_path_folders()
 char** fill_path_folders()
 {
 	//free_folders();
-	const char* path = env_get_value("PATH=");
+	const char* path = env_get_value("PATH");
 	//ft_putstr(path);
 	int count = ft_count_words(path, ":");
 	char **folders = (char**)malloc((sizeof(char*)) * (count + 1));

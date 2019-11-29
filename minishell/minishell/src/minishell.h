@@ -19,6 +19,7 @@ void		env_add_all(char* env[]);
 char* env_get_value(const char* key);
 //char*	env_extract_value(char* env[], char* key);
 void		env_free();
+char** env_replace_vars(char** r, const char** a);
 char** env_to_array();
 void		ft_env(int argc, char* const argv[]); 
 void ft_unset_env(int argc, char* const argv[]);
