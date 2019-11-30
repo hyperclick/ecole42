@@ -1,5 +1,4 @@
-﻿//#include "..\liblibft.h"
-#include <stdio.h>
+﻿#include <stdio.h>
 
 
 

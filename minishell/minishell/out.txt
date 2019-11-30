@@ -1,0 +1,5 @@
+/mnt/c/git/e46/minishell/minishell
+	dbg:	free n = 1
+	dbg:	args = 'pwd' '(null)'
+	dbg:	free n = 24
+	dbg:	free n = 1

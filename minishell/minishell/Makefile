@@ -1,7 +1,7 @@
 
 .PHONY: clean fclean re make all
 
-FILENAMES = cmd_parser.c env.c folders.c exec.c main.c 
+FILENAMES = cmd_parser.c env.c folders.c exec.c shell.c
 
 NAME = minishell
 
@@ -24,7 +24,7 @@ $(LIBFT):
 	@make -C libft
 
 $(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT) 
+	$(CC) $(CFLAGS) src/main.c  -o $(NAME) $(OBJS) $(LIBFT) 
 
 
 clean:
@@ -37,3 +37,5 @@ fclean: clean
 
 re: fclean all
 
+ut:	$(NAME)  tests/*.c 
+	$(CC) tests/*.c $(OBJS) $(LIBFT) -o ut

@@ -42,6 +42,7 @@ typedef struct	s_list
 	size_t			content_size;
 	struct s_list	*next;
 }				t_list;
+
 t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
@@ -60,6 +61,10 @@ void		ft_lst_remove_sorted(t_list** list, t_list* to_remove
 	, BOOL(equal)(t_list* a, t_list* b)
 	, void (*free_content)(void*, size_t));
 
+void		set_out_stream(FILE* stream);
+void		set_out_file(const char* filename, const char* mode);
+void		set_level(int level);
+void			debug_printf(const char* str, ...);
 void			ft_e_putstr(const char* str);
 BOOL			ft_ends_with(const char *str, const char c);
 int			ft_last_index(const char *str, const char to_find);
@@ -71,6 +76,8 @@ void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			ft_readline(char* dst, int size);
+
+int		ft_str_count_chars(const char* str, const char find);
 void			ft_sort_strings(char *a[], int count);
 BOOL			ft_starts_with(const char *str, const char c);
 BOOL			ft_str_starts_with(char const* str, const char* start);

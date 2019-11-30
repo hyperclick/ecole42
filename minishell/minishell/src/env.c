@@ -236,7 +236,7 @@ void ft_set_env(int argc, char* const argv[])
 	}
 }
 
-void		env_add_all(char* env[])
+void		env_from_array(char* env[])
 {
 	if (g_env != NULL)
 	{

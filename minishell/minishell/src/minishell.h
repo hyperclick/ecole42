@@ -4,7 +4,7 @@
 # include "../libft/libft.h"
 
 # define MAX_CMD_LINE	255
-
+/*
 typedef struct s_minishell_data
 {
 	//char		**folders;
@@ -14,8 +14,8 @@ typedef struct s_minishell_data
 }				t_data;
 
 t_data		g_data;
-
-void		env_add_all(char* env[]);
+*/
+void		env_from_array(char* env[]);
 char* env_get_value(const char* key);
 //char*	env_extract_value(char* env[], char* key);
 void		env_free();
@@ -31,10 +31,15 @@ void	ft_set_env(int argc, char* const argv[]);
 char** fill_path_folders();
 
 BOOL		built_in_processed(char * const args[], int count);
-void		cd(int argc, char* const argv[]);
 void fork_and_exec(char* argv[]);
 //void		exec(const char* str, char* const envp[]);
 void		exec2(char* argv[]);
 //BOOL		is_exit(const char str[MAX_CMD_LINE]);
+
 void		ft_exit(int ret_code);
+
+void		cd(int argc, char* const argv[]);
+void		ft_default_sig_handler(int signum);
+
+int	process_command(char* str);
 #endif

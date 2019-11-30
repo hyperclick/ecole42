@@ -14,12 +14,12 @@
 
 void		ft_free_array(void **r, int n)
 {
-	printf("free n = %d\n", n);
+	//debug_printf("free n = %d\n", n);
 	while (n-- > 0)
 	{
-		//printf("free %d: '%s'\n", n, r[n]);
+		//debug_printf("free %d: '%s'\n", n, r[n]);
 		free(r[n]);
-		//ft_putstr("freed\n");
+		//debug_printf("freed\n");
 	}
 }
 
