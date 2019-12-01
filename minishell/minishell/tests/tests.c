@@ -2,32 +2,39 @@
 #include "../src/minishell.h"
 #include <stdio.h>
 
+void		echo_tilde()
+{
+	process_command("echo ~");
+}
+
+void		echo_home()
+{
+	process_command("echo $HOME");
+}
+
 void		pwd()
 {
-
-	//printf("This goes to screen\n");
-	//printf("This goes to out.txt");
-	// call the function we want to collect the stdout from
 	process_command("pwd");
-	//printf("This should go to screen too, but doesn't\n");
 }
-
 void		comment_ignored()
 {
-
+	process_command("#pwd");
 }
-#define BUF_SIZE 1
-BOOL	compare_buffers(FILE* a, int e_read, char e_buf[BUF_SIZE], char a_buf[BUF_SIZE])
+
+#define BUF_SIZE 10
+BOOL	compare_buffers(int e_read, int a_read, char e_buf[BUF_SIZE], char a_buf[BUF_SIZE])
 {
-	int a_read;
-	if ((a_read = fread(a_buf, 1, BUF_SIZE, a)) != e_read)
+	if (a_read != e_read)
 	{
+		printf("here: ''\n");
 		return (FALSE);
 	}
 	e_buf[e_read] = 0;
 	a_buf[a_read] = 0;
+		//printf("e: '%s'(%d) a: '%s'(%d)\n", e_buf, e_read, a_buf, a_read);
 	if (!ft_strequ(e_buf, a_buf))
 	{
+		printf("not eq: e: '%s'(%d) a: '%s'(%d)\n", e_buf, e_read, a_buf, a_read);
 		return (FALSE);
 	}
 	return (TRUE);
@@ -35,7 +42,6 @@ BOOL	compare_buffers(FILE* a, int e_read, char e_buf[BUF_SIZE], char a_buf[BUF_S
 
 BOOL		compare_files(const char* expected_file_name, const char* actual_file_name)
 {
-	printf("read\n");
 	FILE* e = fopen(expected_file_name, "r");
 	if (e == NULL)
 	{
@@ -48,28 +54,47 @@ BOOL		compare_files(const char* expected_file_name, const char* actual_file_name
 		perror(actual_file_name);
 		exit (1);
 	}
+	//printf("e: %s (%p)\na: %s (%p)\n", expected_file_name, e, actual_file_name, a);
 	char e_buf[BUF_SIZE];
 	char a_buf[BUF_SIZE];
+			//
 	int e_read;
-	while ((e_read = fread(e_buf, 1, BUF_SIZE, e)) > 0)
+	while ((e_read = fread(e_buf, 1, BUF_SIZE - 1, e)) > 0)
 	{
-		if (!compare_buffers(a, e_read, e_buf, a_buf))
+		int a_read = fread(a_buf, 1, BUF_SIZE - 1, a);
+		//e_buf[e_read] = 0;
+		//a_buf[a_read] = 0;
+		//printf("e: '%s'(%d) a: '%s'(%d)\n", e_buf, e_read, a_buf, a_read);
+		//exit(1);
+		if (!compare_buffers(e_read, a_read, e_buf, a_buf))
 		{
+	fclose(a);
+	fclose(e);
 			return (FALSE);
 		}
 	}
-	return (compare_buffers(a, e_read, e_buf, a_buf));
+	BOOL r= (compare_buffers(e_read, fread(a_buf, 1, BUF_SIZE, a), e_buf, a_buf));
+	fclose(a);
+	fclose(e);
+	return (r);
 }
 
 void		test(void(*f)(), const char* name)
 {
-	const char* expected_file_name = ft_strjoin2(2, name, "_expected.txt");
-	const char* actual_file_name = ft_strjoin2(2, name, "_actual.txt");
-	FILE* file = freopen(actual_file_name, "w", stdout);
+	const char* expected_file_name = ft_strjoin2(3, "test_cases/", name, "_expected.txt");
+	const char* actual_file_name = ft_strjoin2(3, "test_cases/", name, "_actual.txt");
+	FILE* f_out = freopen(actual_file_name, "w", stdout);
+	FILE* f_err = freopen(actual_file_name, "a", stderr);
 	f();
-	freopen("/dev/tty", "a", stdout);
-	printf("hello\n");
+	//fflush(file);
+	//fflush(stdout);
 	//fclose(file);
+	//fclose(stdout);
+	freopen("/dev/tty", "a", stdout);
+	freopen("/dev/tty", "a", stderr);
+	//printf("hello\n");
+	//char ch[10];
+	//read(STDIN_FILENO, ch, 10);
 	if (compare_files(expected_file_name, actual_file_name))
 	{
 		printf("%s: OK\n", name);
@@ -91,6 +116,10 @@ int main(int argc, char** argv, char** envp)
 	signal(SIGINT, ft_default_sig_handler);
 	env_from_array(envp);
 	ft_putstr("\n\n\n----------------\n\n\n");
+
 	test(pwd, "pwd");
+	test(comment_ignored, "comment_ignored");
+	test(echo_tilde, "echo_tilde");
+	test(echo_home, "echo_home");
 	return (0);
 }

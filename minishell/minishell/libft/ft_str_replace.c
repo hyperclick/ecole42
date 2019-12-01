@@ -35,7 +35,7 @@ char* ft_str_replace2(char* dst, const char* src, const char* find, const char* 
 	len_after_find = len_src - (len_before_find + len_find);
 	ft_memcpy(dst + len_before_find, replace, len_replace);
 	ft_memcpy(dst + len_before_find + len_replace, src + len_before_find + len_find, len_after_find);
-	printf("src = %s, find = %s, replace = %s, dst = %s\n", src, find, replace, dst);
+	debug_printf("src = %s, find = %s, replace = %s, dst = %s\n", src, find, replace, dst);
 
 	return (dst);
 }

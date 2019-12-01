@@ -52,7 +52,6 @@ void		ft_default_sig_handler(int signum)
 
 int	process_command(char *str)
 {
-
 	char* trimmed = ft_strtrim2(str, "\r\n\t ");
 
 	if (ft_str_is_empty(trimmed))
@@ -60,8 +59,10 @@ int	process_command(char *str)
 		free(trimmed);
 		return (0);
 	}
-	//printf("cmd_line = '%s', %d\n", trimmed, ft_contains(trimmed,'\r'));
-	//ft_putchar('\n');
+	if (ft_starts_with(str, '#'))
+	{
+		return (0);
+	}
 	int	c;
 
 	c = ft_count_words(trimmed, " \t");

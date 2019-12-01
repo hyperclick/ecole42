@@ -1,3 +1,7 @@
 	dbg:	level set to 1
 	dbg:	started
 	dbg:	args = 'pwd' '(null)'
+	dbg:	src = ~, find = ~, replace = /home/darugula, dst = /home/darugula
+	dbg:	args = 'echo' '/home/darugula'
+	dbg:	src = $HOME, find = $HOME, replace = /home/darugula, dst = /home/darugula
+	dbg:	args = 'echo' '/home/darugula'
