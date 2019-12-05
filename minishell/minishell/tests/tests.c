@@ -2,16 +2,53 @@
 #include "../src/minishell.h"
 #include <stdio.h>
 
+void		env()
+{
+	process_command("setenv q w"); 
+	process_command("echo $q");
+	process_command("unsetenv q");
+	process_command("echo $q");
+	//process_command("set q=w");
+	//printf("q = '%s'\n", env_get_value("q"));
+	//process_command("set q =q");
+	//printf("q = '%s'\n", env_get_value("q"));
+	//process_command("set q = e");
+	//printf("q = '%s'\n", env_get_value("q"));
+}
+
+void		test_cd()
+{
+	process_command("pwd");
+	process_command("cd -");
+	process_command("cd ~; pwd");
+	process_command("cd -; pwd");
+	process_command("cd; pwd");
+	process_command("cd -; pwd");
+	process_command("cd \\; pwd");
+}
+void		two_commands()
+{
+	//process_command("pwd;");
+	//process_command("cd ..;pwd");
+	//process_command("cd ..;pwd;");
+	process_command("pwd;;pwd");
+	//process_command(";");
+	//process_command("pwd;#;pwd");
+}
+
 void		echo_tilde()
 {
 	process_command("echo ~");
 }
-
 void		echo_home()
 {
 	process_command("echo $HOME");
 }
 
+void		echo_quotes()
+{
+	process_command("echo \"q\"");
+}
 void		pwd()
 {
 	process_command("pwd");
@@ -19,6 +56,8 @@ void		pwd()
 void		comment_ignored()
 {
 	process_command("#pwd");
+	process_command("pwd #");
+	process_command("pwd#");
 }
 
 #define BUF_SIZE 10
@@ -26,7 +65,7 @@ BOOL	compare_buffers(int e_read, int a_read, char e_buf[BUF_SIZE], char a_buf[BU
 {
 	if (a_read != e_read)
 	{
-		printf("here: ''\n");
+		printf("a_read: %d, e_read: %d\n", a_read, e_read);
 		return (FALSE);
 	}
 	e_buf[e_read] = 0;
@@ -121,5 +160,7 @@ int main(int argc, char** argv, char** envp)
 	test(comment_ignored, "comment_ignored");
 	test(echo_tilde, "echo_tilde");
 	test(echo_home, "echo_home");
+	test(two_commands, "two_commands");
+	test(test_cd, "cd");
 	return (0);
 }

@@ -35,10 +35,17 @@ int		ft_count_null_term_array(void **a)
 	return (count);
 }
 
+void		ft_free_array2(void ***r)
+{
+	ft_free_array(**r, ft_count_null_term_array(**r));
+	*r = NULL;
+}
+
 void		ft_free_null_term_array(void **a)
 {
 	ft_free_array(a, ft_count_null_term_array(a));
 }
+
 char		**ft_split(char **r, const char *str, int count, const char *sep)
 {
 	int		i;
@@ -67,6 +74,25 @@ char		**ft_split(char **r, const char *str, int count, const char *sep)
 			*dst++ = *str++;
 		}
 		*dst = 0;
+	}
+	return (r);
+}
+
+char** ft_split2(const char* str, int count, const char* sep)
+{
+	char** r;
+	r = (char**)malloc(sizeof(char**)*(count + 1));
+	if (r == NULL)
+	{
+		ft_e_putstr("ft_split2 malloc failed\n");
+		exit(1);
+	}
+	r[count] = NULL;
+	if (ft_split(r, str, count, sep) == NULL)
+	{
+		ft_e_putstr("ft_split2 malloc2 failed\n");
+		free(r);
+		exit(1);
 	}
 	return (r);
 }

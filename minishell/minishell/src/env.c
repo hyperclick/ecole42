@@ -182,6 +182,7 @@ void		env_remove(char* const key)
 
 	ft_e_putstr("-minishell: unsetenv: var not found: ");
 	ft_e_putstr(key);
+	ft_e_putstr("\n");
 }
 
 void ft_unset_env(int argc, char* const argv[])

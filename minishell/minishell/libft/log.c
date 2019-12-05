@@ -17,7 +17,7 @@ void	log_log(const char *str)
 {
 	FILE	*fp;
 
-	fp = fopen("/Users/darugula/log.txt", "a");
+	fp = fopen("log.txt", "a");
 	fprintf(fp, "%s", str);
 	fclose(fp);
 }

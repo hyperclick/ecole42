@@ -28,6 +28,10 @@ void		set_out_stream(FILE* stream)
 	output_stream = stream;
 	//debug_printf("level set to %d\n", g_level);
 }
+void		close_out_stream()
+{
+	fclose(output_stream);
+}
 
 void		set_out_file(const char* filename, const char *mode)
 {
@@ -49,4 +53,5 @@ void	debug_printf(const char* format, ...)
 	va_start(argptr, format);
 	vfprintf(output_stream, format, argptr);
 	va_end(argptr);
+	fflush(output_stream);
 }

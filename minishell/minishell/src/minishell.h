@@ -35,11 +35,17 @@ void fork_and_exec(char* argv[]);
 //void		exec(const char* str, char* const envp[]);
 void		exec2(char* argv[]);
 //BOOL		is_exit(const char str[MAX_CMD_LINE]);
+pid_t get_awaited_process();
 
 void		ft_exit(int ret_code);
 
 void		cd(int argc, char* const argv[]);
 void		ft_default_sig_handler(int signum);
-
+void print_prompt();
 int	process_command(char* str);
+
+void		clean_buffer();
+void		reset_keypress(void);
+void		read_line_hidden(char* dst, int size);
+
 #endif

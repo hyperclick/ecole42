@@ -1,1 +1,2 @@
 /mnt/c/git/e47/minishell/minishell
+/mnt/c/git/e47/minishell/minishell

@@ -32,7 +32,7 @@ void		wait_child(pid_t  pid)
 					" but returned a non-zero status\n");
 		}
 		else
-			printf("program didn't terminate normally\n");
+			debug_printf("child program didn't terminate normally\n");
 	}
 	else
 	{
@@ -40,10 +40,15 @@ void		wait_child(pid_t  pid)
 		printf("waitpid() failed\n");
 	}
 }
-
+pid_t g_awaited_process = 0;
+pid_t get_awaited_process()
+{
+	return (g_awaited_process);
+}
 void		fork_and_exec(char* argv[])
 {
-	pid_t pid = 0;
+	pid_t pid;
+	pid = 0;
 	pid = fork();
 	if (pid == -1)
 	{
@@ -68,8 +73,9 @@ void		fork_and_exec(char* argv[])
 
 		// we are in initial process
 		//printf("parent process, pid = %u\n", getppid());
+	g_awaited_process = pid;
 	wait_child(pid);
-	
+	g_awaited_process = 0;
 }
 
 BOOL		try_execute(char* filename, char* argv[])

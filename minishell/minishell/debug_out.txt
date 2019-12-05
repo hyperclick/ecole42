@@ -1,7 +1,66 @@
 	dbg:	level set to 1
 	dbg:	started
+	dbg:	
+	dbg:	entered: 'pwd'
+	dbg:	trimmed = pwd
+	dbg:	s = pwd, c = #
+	dbg:	s = pwd, c = #, found = '(null)', n = 994262272
+	dbg:	no comments = pwd
+	dbg:	cmd: 'pwd'
 	dbg:	args = 'pwd' '(null)'
+	dbg:	
+	dbg:	entered: '#pwd'
+	dbg:	trimmed = #pwd
+	dbg:	s = #pwd, c = #
+	dbg:	s = #pwd, c = #, found = '#pwd', n = 0
+	dbg:	s = pwd, c = #
+	dbg:	s = pwd, c = #, found = '(null)', n = 994262271
+	dbg:	no comments = #pwd
+	dbg:	cmd: '#pwd'
+	dbg:	args = '#pwd' '(null)'
+	dbg:	
+	dbg:	entered: 'pwd #'
+	dbg:	trimmed = pwd #
+	dbg:	s = pwd #, c = #
+	dbg:	s = pwd #, c = #, found = '#', n = 4
+	dbg:	no comments = pwd 
+	dbg:	cmd: 'pwd '
+	dbg:	args = 'pwd' '(null)'
+	dbg:	
+	dbg:	entered: 'pwd#'
+	dbg:	trimmed = pwd#
+	dbg:	s = pwd#, c = #
+	dbg:	s = pwd#, c = #, found = '#', n = 3
+	dbg:	s = , c = #
+	dbg:	s = , c = #, found = '(null)', n = 994262268
+	dbg:	no comments = pwd#
+	dbg:	cmd: 'pwd#'
+	dbg:	args = 'pwd#' '(null)'
+	dbg:	
+	dbg:	entered: 'echo ~'
+	dbg:	trimmed = echo ~
+	dbg:	s = echo ~, c = #
+	dbg:	s = echo ~, c = #, found = '(null)', n = 994262272
+	dbg:	no comments = echo ~
+	dbg:	cmd: 'echo ~'
 	dbg:	src = ~, find = ~, replace = /home/darugula, dst = /home/darugula
 	dbg:	args = 'echo' '/home/darugula'
+	dbg:	
+	dbg:	entered: 'echo $HOME'
+	dbg:	trimmed = echo $HOME
+	dbg:	s = echo $HOME, c = #
+	dbg:	s = echo $HOME, c = #, found = '(null)', n = 994262272
+	dbg:	no comments = echo $HOME
+	dbg:	cmd: 'echo $HOME'
 	dbg:	src = $HOME, find = $HOME, replace = /home/darugula, dst = /home/darugula
 	dbg:	args = 'echo' '/home/darugula'
+	dbg:	
+	dbg:	entered: 'pwd;;pwd'
+	dbg:	trimmed = pwd;;pwd
+	dbg:	s = pwd;;pwd, c = #
+	dbg:	s = pwd;;pwd, c = #, found = '(null)', n = 994262272
+	dbg:	no comments = pwd;;pwd
+	dbg:	cmd: 'pwd'
+	dbg:	args = 'pwd' '(null)'
+	dbg:	cmd: 'pwd'
+	dbg:	args = 'pwd' '(null)'

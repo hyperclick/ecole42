@@ -26,7 +26,7 @@ void		ft_lst_remove_sorted_rec(t_list* node, t_list* to_remove
 		ft_lstdelone(&to_remove, free_content);
 		return;
 	}
-	ft_lst_insert_sorted_rec(node->next, new, grater_than);
+	ft_lst_remove_sorted_rec(node->next, to_remove, equal, free_content);
 }
 void		ft_lst_remove_sorted(t_list** list, t_list* to_remove
 	, BOOL(equal)(t_list* a, t_list* b)
@@ -35,8 +35,8 @@ void		ft_lst_remove_sorted(t_list** list, t_list* to_remove
 	if (equal(*list, to_remove))
 	{
 		ft_lstdelone(&to_remove, free_content);
-		*list = *list->next;
+		*list = (*list)->next;
 		return;
 	}
-	ft_lst_remove_sorted_rec(*list, to_remove, equal);
+	ft_lst_remove_sorted_rec(*list, to_remove, equal, free_content);
 }

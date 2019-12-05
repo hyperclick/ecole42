@@ -1,7 +1,7 @@
 
 .PHONY: clean fclean re make all
 
-FILENAMES = cmd_parser.c env.c folders.c exec.c shell.c
+FILENAMES = console_reader.c cmd_parser.c env.c folders.c exec.c shell.c
 
 NAME = minishell
 
@@ -15,7 +15,7 @@ CFLAGS	+= -I includes/
 
 LIBFT = libft/libft.a
 
-all:		$(NAME)
+all:		$(NAME) ut
 
 $(OBJS): %.o: %.c 
 	$(CC) $(CFLAGS) $< -o $@ -c 
@@ -30,6 +30,7 @@ $(NAME): $(LIBFT) $(OBJS)
 clean:
 	@rm -rf $(OBJS)
 	@make clean -C libft
+	rm ut
 
 fclean: clean
 	@make fclean -C libft
