@@ -28,7 +28,7 @@ void		cd(int argc, char* const argv[])
 		return;
 	}
 	ft_strcpy(folder, (argc == 0) ? "~" : argv[0]);
-	printf("exec cd '%s'\n", folder);
+	//printf("exec cd '%s'\n", folder);
 	if (ft_strequ("-", folder))
 	{
 		if (ft_strlen(old_work_dir) == 0)
@@ -76,7 +76,7 @@ char* remove_comment(char* str)
 		}
 		//debug_printf("n = %d, offset = %d\n", n , offset);
 		offset += n + 1;
-		if (offset == 0 || str[offset - 2] == ' ' || str[offset - 2] == '\t')
+		if (offset == 0 || str[offset - 2] == ' ' || str[offset - 2] == '\t' || str[offset - 2] == ';')
 		{
 			return (ft_strsub(str, 0, offset - 1));
 		}

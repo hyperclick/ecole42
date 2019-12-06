@@ -1,2 +1,7 @@
 /mnt/c/git/e47/minishell/minishell
-/mnt/c/git/e47/minishell/minishell
+/mnt/c/git/e47/minishell
+/mnt/c/git/e47
+echo1
+echo2
+echo3
+minishell: syntax error near unexpected token `;'

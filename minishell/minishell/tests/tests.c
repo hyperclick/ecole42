@@ -28,12 +28,12 @@ void		test_cd()
 }
 void		two_commands()
 {
-	//process_command("pwd;");
-	//process_command("cd ..;pwd");
-	//process_command("cd ..;pwd;");
-	process_command("pwd;;pwd");
-	//process_command(";");
-	//process_command("pwd;#;pwd");
+	process_command("pwd;");
+	process_command("cd ..;pwd");
+	process_command("cd ..;pwd;");
+	process_command("echo echo1;;echo echo2");
+	process_command("echo echo3;#;echo echo4");
+	process_command(";");
 }
 
 void		echo_tilde()
