@@ -1,8 +1,0 @@
-/mnt/c/git/e47/minishell/minishell
-/home/darugula
-/home/darugula
-/home/darugula
-/home/darugula
-/home/darugula
-
--minishell: cd: \: No such file or directory

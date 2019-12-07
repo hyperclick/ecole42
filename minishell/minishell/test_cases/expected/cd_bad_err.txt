@@ -1,0 +1,2 @@
+-minishell: cd: OLDPWD not set
+-minishell: cd: \: No such file or directory

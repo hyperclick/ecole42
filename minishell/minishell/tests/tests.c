@@ -1,6 +1,7 @@
 ﻿#include "../libft/libft.h"
 #include "../src/minishell.h"
 #include <stdio.h>
+//#include <copyfile.h>
 
 void		env()
 {
@@ -16,24 +17,42 @@ void		env()
 	//printf("q = '%s'\n", env_get_value("q"));
 }
 
-void		test_cd()
+void		cd_bad()
+{
+	process_command("cd -");
+	process_command("cd \\");
+}
+void		cd_good()
 {
 	process_command("pwd");
+	process_command("cd ~;pwd");
 	process_command("cd -");
-	process_command("cd ~; pwd");
-	process_command("cd -; pwd");
-	process_command("cd; pwd");
-	process_command("cd -; pwd");
-	process_command("cd \\; pwd");
+	//process_command("pwd");
+	//process_command("cd ..");
+	//process_command("cd /////; pwd");
+	//process_command("cd -");
+	//process_command("cd; pwd");
+	//process_command("cd -");
+	//process_command("cd /////; pwd");
+	//process_command("cd ..; pwd");
+	//process_command("cd ..;pwd;");
 }
-void		two_commands()
+
+void		two_commands_good()
 {
 	process_command("pwd;");
-	process_command("cd ..;pwd");
-	process_command("cd ..;pwd;");
 	process_command("echo echo1;;echo echo2");
 	process_command("echo echo3;#;echo echo4");
+	process_command("echo echo5;echo echo6");
+	process_command("echo echo7;echo echo8");
+}
+
+void		two_commands_bad()
+{
 	process_command(";");
+	process_command(";;");
+	process_command(";;;");
+	process_command("; ;");
 }
 
 void		echo_tilde()
@@ -81,7 +100,7 @@ BOOL	compare_buffers(int e_read, int a_read, char e_buf[BUF_SIZE], char a_buf[BU
 
 BOOL		compare_files(const char* expected_file_name, const char* actual_file_name)
 {
-	printf("e: %s \na: %s \n", expected_file_name, actual_file_name);
+	//printf("e: %s \na: %s \n", expected_file_name, actual_file_name);
 	FILE* a = fopen(actual_file_name, "r");
 	if (a == NULL)
 	{
@@ -97,7 +116,6 @@ BOOL		compare_files(const char* expected_file_name, const char* actual_file_name
 	//printf("e: %s (%p)\na: %s (%p)\n", expected_file_name, e, actual_file_name, a);
 	char e_buf[BUF_SIZE];
 	char a_buf[BUF_SIZE];
-			//
 	int e_read;
 	while ((e_read = fread(e_buf, 1, BUF_SIZE - 1, e)) > 0)
 	{
@@ -118,24 +136,9 @@ BOOL		compare_files(const char* expected_file_name, const char* actual_file_name
 	fclose(e);
 	return (r);
 }
-
-void		test(void(*f)(), const char* name)
+void compare_and_free(const char* e, const char *a, const char* name)
 {
-	const char* expected_file_name = ft_strjoin2(3, "test_cases/", name, "_expected.txt");
-	const char* actual_file_name = ft_strjoin2(3, "test_cases/", name, "_actual.txt");
-	FILE* f_out = freopen(actual_file_name, "w", stdout);
-	FILE* f_err = freopen(actual_file_name, "a", stderr);
-	f();
-	//fflush(file);
-	//fflush(stdout);
-	//fclose(file);
-	//fclose(stdout);
-	freopen("/dev/tty", "a", stdout);
-	freopen("/dev/tty", "a", stderr);
-	//printf("hello\n");
-	//char ch[10];
-	//read(STDIN_FILENO, ch, 10);
-	if (compare_files(expected_file_name, actual_file_name))
+	if (compare_files(e, a))
 	{
 		printf("%s: OK\n", name);
 	}
@@ -144,12 +147,55 @@ void		test(void(*f)(), const char* name)
 		printf("%s: failed\n", name);
 		exit(1);
 	}
-	free((char*)actual_file_name);
-	free((char*)expected_file_name);
+	free((char*)e);
+	free((char*)a);
+}
+
+void		test(void(*f)(), const char* name)
+{
+	debug_printf("");
+	debug_printf("testing %s\n", name);
+	const char* expected_out = ft_strjoin2(3, "test_cases/expected/", name, "_out.txt");
+	const char* actual_out = ft_strjoin2(3, "test_cases/actual/", name, "_out.txt");
+	const char* expected_err = ft_strjoin2(3, "test_cases/expected/", name, "_err.txt");
+	const char* actual_err = ft_strjoin2(3, "test_cases/actual/", name, "_err.txt");
+	FILE* f_out = freopen(actual_out, "w", stdout);
+	FILE* f_err = freopen(actual_err, "w", stderr);
+	f();
+	//fflush(file);
+	//fflush(stdout);
+	//fclose(stdout);
+	//char* cmd = ft_strjoin2(4, "cp ", actual_out, " ", ft_strjoin(actual_out, ".copy.txt"));
+	//printf("system(%s)\n", cmd);
+	//printf("press enter...\n");
+	//char ch[10];
+	//read(STDIN_FILENO, ch, 10);
+	//system(cmd);
+	//process_command(cmd);
+	//free(cmd);
+	freopen("/dev/tty", "a", stdout);
+	freopen("/dev/tty", "a", stderr);
+	//fseek(f_out, 0, 0);
+	//int r = fread(ch,1, 9, f_out);
+	//ch[9] = 0;
+	//printf("'%s' r = %d\n", ch, r);
+	//fclose(f_out);
+	compare_and_free(expected_out, actual_out, ft_strjoin(name,"_out"));
+	compare_and_free(expected_err, actual_err, ft_strjoin(name,"_err"));
 }
 
 int main(int argc, char** argv, char** envp)
 {
+////	char name[] = "test_cases/actual/cd_good_out - cannot open.txt";
+//	char name[] = "test_cases/actual/cd_good_out.txt";
+//	FILE* a = fopen(name, "r");
+//	if (a == NULL)
+//	{
+//		perror(name);
+//		exit(1);
+//	}
+//	printf("ok\n");
+//	//return 0;
 	set_out_file("debug_out.txt", "w");
 	set_level(1);
 	debug_printf("%s\n", "started");
@@ -157,13 +203,15 @@ int main(int argc, char** argv, char** envp)
 	env_from_array(envp);
 	ft_putstr("\n\n\n----------------\n\n\n");
 
+	test(cd_bad, "cd_bad");
+	test(cd_good, "cd_good");
 	test(pwd, "pwd");
 	test(comment_ignored, "comment_ignored");
 	test(echo_tilde, "echo_tilde");
 	test(echo_home, "echo_home");
 	test(env, "env");
-	test(test_cd, "cd");
-	test(two_commands, "two_commands");
+	test(two_commands_bad, "two_commands_bad");
+	test(two_commands_good, "two_commands_good");
 	test(echo_quotes, "echo_quotes");
 	return (0);
 }

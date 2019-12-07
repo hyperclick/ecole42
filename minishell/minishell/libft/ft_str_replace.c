@@ -33,9 +33,10 @@ char* ft_str_replace2(char* dst, const char* src, const char* find, const char* 
 	len_find = ft_strlen(find);
 	len_replace = ft_strlen(replace);
 	len_after_find = len_src - (len_before_find + len_find);
+	//debug_printf("len_dst = %d, len_replace = %d, len_after_find = %d\n", ft_strlen(dst), len_replace, len_after_find);
 	ft_memcpy(dst + len_before_find, replace, len_replace);
 	ft_memcpy(dst + len_before_find + len_replace, src + len_before_find + len_find, len_after_find);
-	debug_printf("src = %s, find = %s, replace = %s, dst = %s\n", src, find, replace, dst);
+	//debug_printf("src = '%s', find = '%s', replace = '%s', dst = '%s'\n", src, find, replace, dst);
 
 	return (dst);
 }
@@ -53,6 +54,6 @@ char* ft_str_replace(const char* src, const char* find, const char* replace)
 	len_replace = ft_strlen(replace);
 	len_dst = len_src - len_find + len_replace + 1;
 	dst = (char*)malloc(sizeof(char) * len_dst);
-	dst[len_dst] = 0;
+	dst[len_dst - 1] = 0;
 	return (ft_str_replace2(dst, src, find, replace));
 }

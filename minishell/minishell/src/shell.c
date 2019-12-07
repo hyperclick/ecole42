@@ -27,8 +27,8 @@ void		cd(int argc, char* const argv[])
 		ft_e_putstr("-minishell: cd: too many arguments\n");
 		return;
 	}
-	ft_strcpy(folder, (argc == 0) ? "~" : argv[0]);
-	//printf("exec cd '%s'\n", folder);
+	ft_strcpy(folder, (argc == 0) ? env_get_value("HOME") : argv[0]);
+	debug_printf("exec cd '%s'\n", folder);
 	if (ft_strequ("-", folder))
 	{
 		if (ft_strlen(old_work_dir) == 0)
@@ -37,7 +37,10 @@ void		cd(int argc, char* const argv[])
 			return;
 		}
 		ft_strcpy(folder, old_work_dir);
+		ft_putstr(folder);
+		ft_putstr("\n");
 	}
+	getcwd(old_work_dir, PATH_MAX - 1);
 	if (chdir(folder) != 0)
 	{
 		ft_e_putstr("-minishell: cd: ");
@@ -45,7 +48,9 @@ void		cd(int argc, char* const argv[])
 		ft_e_putstr(": No such file or directory\n");
 		return;
 	}
-	ft_strcpy(old_work_dir, folder);
+	char tmp[255];
+	debug_printf("new curdir = %s\n", getcwd(tmp, 200));
+	//ft_strcpy(old_work_dir, folder);
 }
 
 /* reads from keypress, echoes */
@@ -66,6 +71,11 @@ int getche(void)
 
 char* remove_comment(char* str)
 {
+	//debug_printf("str = %s\n", str);
+	if (*str == '#')
+	{
+		return ft_strdup("");
+	}
 	int offset = 0;
 	while (TRUE)
 	{
@@ -76,7 +86,7 @@ char* remove_comment(char* str)
 		}
 		//debug_printf("n = %d, offset = %d\n", n , offset);
 		offset += n + 1;
-		if (offset == 0 || str[offset - 2] == ' ' || str[offset - 2] == '\t' || str[offset - 2] == ';')
+		if (str[offset - 2] == ' ' || str[offset - 2] == '\t' || str[offset - 2] == ';')
 		{
 			return (ft_strsub(str, 0, offset - 1));
 		}
@@ -111,6 +121,17 @@ void		ft_default_sig_handler(int signum)
 	ft_exit(1);
 }
 
+void		unquote(char *a[])
+{
+	while (*a != NULL)
+	{
+		char* tmp = *a;
+		*a = ft_strtrim2(*a, "\"'");
+		free((char*) tmp);
+		a++;
+	}
+}
+
 int		process_one_command(char* cmd)
 {
 	debug_printf("cmd: '%s'\n", cmd);
@@ -125,13 +146,14 @@ int		process_one_command(char* cmd)
 	}
 
 	int	c;
-
 	c = ft_count_words(trimmed, " \t");
-
 	char* args[c + 1];
 	args[c] = NULL;
 	ft_split(args, trimmed, c, " \t");
 	free(trimmed);
+
+	unquote(args);
+
 	char* replaced_args[c + 1];
 	replaced_args[c] = NULL;
 	env_replace_vars(replaced_args, (const char**)args);

@@ -1,0 +1,3 @@
+/mnt/c/git/e47/minishell/minishell
+/home/darugula
+/mnt/c/git/e47/minishell/minishell

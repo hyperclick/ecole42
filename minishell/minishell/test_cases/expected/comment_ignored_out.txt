@@ -1,2 +1,1 @@
 /mnt/c/git/e47/minishell/minishell
-pwd#: command not found
