@@ -36,46 +36,81 @@
 	dbg:	trimmed = echo $HOME
 	dbg:	no comments = echo $HOME
 	dbg:	cmd: 'echo $HOME'
-	dbg:	src = $HOME, find = $HOME, replace = /home/darugula, dst = /home/darugula
 	dbg:	args = 'echo' '/home/darugula'
 	dbg:	
-	dbg:	entered: 'pwd;'
-	dbg:	trimmed = pwd;
-	dbg:	no comments = pwd;
+	dbg:	entered: 'setenv q w'
+	dbg:	trimmed = setenv q w
+	dbg:	no comments = setenv q w
+	dbg:	cmd: 'setenv q w'
+	dbg:	args = 'setenv' 'q'
+	dbg:	
+	dbg:	entered: 'echo $q'
+	dbg:	trimmed = echo $q
+	dbg:	no comments = echo $q
+	dbg:	cmd: 'echo $q'
+	dbg:	args = 'echo' 'w'
+	dbg:	
+	dbg:	entered: 'unsetenv q'
+	dbg:	trimmed = unsetenv q
+	dbg:	no comments = unsetenv q
+	dbg:	cmd: 'unsetenv q'
+	dbg:	args = 'unsetenv' 'q'
+	dbg:	
+	dbg:	entered: 'echo $q'
+	dbg:	trimmed = echo $q
+	dbg:	no comments = echo $q
+	dbg:	cmd: 'echo $q'
+	dbg:	args = 'echo' '(null)'
+	dbg:	
+	dbg:	entered: 'pwd'
+	dbg:	trimmed = pwd
+	dbg:	no comments = pwd
 	dbg:	cmd: 'pwd'
 	dbg:	args = 'pwd' '(null)'
 	dbg:	
-	dbg:	entered: 'cd ..;pwd'
-	dbg:	trimmed = cd ..;pwd
-	dbg:	no comments = cd ..;pwd
-	dbg:	cmd: 'cd ..'
-	dbg:	args = 'cd' '..'
-	dbg:	cmd: 'pwd'
+	dbg:	entered: 'cd -'
+	dbg:	trimmed = cd -
+	dbg:	no comments = cd -
+	dbg:	cmd: 'cd -'
+	dbg:	args = 'cd' '-'
+	dbg:	
+	dbg:	entered: 'cd ~; pwd'
+	dbg:	trimmed = cd ~; pwd
+	dbg:	no comments = cd ~; pwd
+	dbg:	cmd: 'cd ~'
+	dbg:	src = ~, find = ~, replace = /home/darugula, dst = /home/darugula
+	dbg:	args = 'cd' '/home/darugula'
+	dbg:	cmd: ' pwd'
 	dbg:	args = 'pwd' '(null)'
 	dbg:	
-	dbg:	entered: 'cd ..;pwd;'
-	dbg:	trimmed = cd ..;pwd;
-	dbg:	no comments = cd ..;pwd;
-	dbg:	cmd: 'cd ..'
-	dbg:	args = 'cd' '..'
-	dbg:	cmd: 'pwd'
+	dbg:	entered: 'cd -; pwd'
+	dbg:	trimmed = cd -; pwd
+	dbg:	no comments = cd -; pwd
+	dbg:	cmd: 'cd -'
+	dbg:	args = 'cd' '-'
+	dbg:	cmd: ' pwd'
 	dbg:	args = 'pwd' '(null)'
 	dbg:	
-	dbg:	entered: 'echo echo1;;echo echo2'
-	dbg:	trimmed = echo echo1;;echo echo2
-	dbg:	no comments = echo echo1;;echo echo2
-	dbg:	cmd: 'echo echo1'
-	dbg:	args = 'echo' 'echo1'
-	dbg:	cmd: 'echo echo2'
-	dbg:	args = 'echo' 'echo2'
+	dbg:	entered: 'cd; pwd'
+	dbg:	trimmed = cd; pwd
+	dbg:	no comments = cd; pwd
+	dbg:	cmd: 'cd'
+	dbg:	args = 'cd' '(null)'
+	dbg:	cmd: ' pwd'
+	dbg:	args = 'pwd' '(null)'
 	dbg:	
-	dbg:	entered: 'echo echo3;#;echo echo4'
-	dbg:	trimmed = echo echo3;#;echo echo4
-	dbg:	no comments = echo echo3;
-	dbg:	cmd: 'echo echo3'
-	dbg:	args = 'echo' 'echo3'
+	dbg:	entered: 'cd -; pwd'
+	dbg:	trimmed = cd -; pwd
+	dbg:	no comments = cd -; pwd
+	dbg:	cmd: 'cd -'
+	dbg:	args = 'cd' '-'
+	dbg:	cmd: ' pwd'
+	dbg:	args = 'pwd' '(null)'
 	dbg:	
-	dbg:	entered: ';'
-	dbg:	trimmed = ;
-	dbg:	no comments = ;
-	dbg:	minishell: syntax error near unexpected token `;'
+	dbg:	entered: 'cd \; pwd'
+	dbg:	trimmed = cd \; pwd
+	dbg:	no comments = cd \; pwd
+	dbg:	cmd: 'cd \'
+	dbg:	args = 'cd' '\'
+	dbg:	cmd: ' pwd'
+	dbg:	args = 'pwd' '(null)'

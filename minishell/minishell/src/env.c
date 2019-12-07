@@ -21,39 +21,40 @@ const char* env_extract_key(const char* kvp)
 	return (ft_str_left_from(kvp, KEY_VALUE_SEPARATOR));
 }
 
+
 char** env_replace_vars(char** r, const char** a)
 {
-	char find[1000];
 	while (*a != NULL)
 	{
 		*r = NULL;
-		BOOL		replaced = FALSE;
-		t_list* e = g_env;
-		while (e != NULL)
+		if (ft_starts_with(*a, '$'))
 		{
-			const char* key = env_extract_key(e->content);
-			find[0] = 0;
-			ft_strcat(ft_strcat(find, "$"), key);
-			if (ft_str_contains(*a, find))
+			//debug_printf("env_get_value(%s) = %s\n", (*a + 1), env_get_value((*a + 1)));
+			char* value = env_get_value((*a + 1));
+			if (value != NULL)
 			{
-				*r = ft_str_replace(*a, find, env_get_value(key));
-				replaced = TRUE;
-				break;
+*r = ft_strdup(value);
 			}
-			e = e->next;
+			else
+			{
+				a++;
+				continue;
+			}
 		}
-		if (ft_contains(*a, '~'))
+		char* tmp = ft_strdup(*r == NULL ? *a : *r);
+		if (ft_contains(tmp, '~'))
 		{
-			*r = ft_str_replace(*a, "~", env_get_value("HOME"));
-			replaced = TRUE;
+			*r = ft_str_replace(tmp, "~", env_get_value("HOME"));
 		}
-		if (!replaced)
+		free(tmp);
+		if (*r == NULL)
 		{
 			*r = ft_strdup(*a);
 		}
 		r++;
 		a++;
 	}
+	*r = NULL;
 	return (r);
 }
 

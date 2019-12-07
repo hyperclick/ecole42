@@ -137,6 +137,7 @@ int		process_one_command(char* cmd)
 	env_replace_vars(replaced_args, (const char**)args);
 	ft_free_array((void**)args, c);
 	debug_printf("args = '%s' '%s'\n", replaced_args[0], replaced_args[1]);
+	//ft_str_remove_empty_strings(replaced_args)
 	if (!built_in_processed(replaced_args, c))
 	{
 		exec2(replaced_args);

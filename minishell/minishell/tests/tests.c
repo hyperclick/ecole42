@@ -81,16 +81,17 @@ BOOL	compare_buffers(int e_read, int a_read, char e_buf[BUF_SIZE], char a_buf[BU
 
 BOOL		compare_files(const char* expected_file_name, const char* actual_file_name)
 {
-	FILE* e = fopen(expected_file_name, "r");
-	if (e == NULL)
-	{
-		perror(expected_file_name);
-		exit (1);
-	}
+	printf("e: %s \na: %s \n", expected_file_name, actual_file_name);
 	FILE* a = fopen(actual_file_name, "r");
 	if (a == NULL)
 	{
 		perror(actual_file_name);
+		exit (1);
+	}
+	FILE* e = fopen(expected_file_name, "r");
+	if (e == NULL)
+	{
+		perror(expected_file_name);
 		exit (1);
 	}
 	//printf("e: %s (%p)\na: %s (%p)\n", expected_file_name, e, actual_file_name, a);
@@ -160,7 +161,9 @@ int main(int argc, char** argv, char** envp)
 	test(comment_ignored, "comment_ignored");
 	test(echo_tilde, "echo_tilde");
 	test(echo_home, "echo_home");
-	test(two_commands, "two_commands");
+	test(env, "env");
 	test(test_cd, "cd");
+	test(two_commands, "two_commands");
+	test(echo_quotes, "echo_quotes");
 	return (0);
 }
