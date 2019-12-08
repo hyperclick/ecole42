@@ -149,6 +149,7 @@ void compare_and_free(const char* e, const char *a, const char* name)
 	}
 	free((char*)e);
 	free((char*)a);
+	free((char*)name);
 }
 
 void		test(void(*f)(), const char* name)
@@ -195,7 +196,8 @@ int main(int argc, char** argv, char** envp)
 //		exit(1);
 //	}
 //	printf("ok\n");
-//	//return 0;
+	//process_command("pwd");
+//return 0;
 	set_out_file("debug_out.txt", "w");
 	set_level(1);
 	debug_printf("%s\n", "started");
@@ -203,15 +205,17 @@ int main(int argc, char** argv, char** envp)
 	env_from_array(envp);
 	ft_putstr("\n\n\n----------------\n\n\n");
 
+	//return 0;
 	test(cd_bad, "cd_bad");
 	test(cd_good, "cd_good");
 	test(pwd, "pwd");
 	test(comment_ignored, "comment_ignored");
 	test(echo_tilde, "echo_tilde");
 	test(echo_home, "echo_home");
+	//return 0;
 	test(env, "env");
 	test(two_commands_bad, "two_commands_bad");
 	test(two_commands_good, "two_commands_good");
 	test(echo_quotes, "echo_quotes");
-	return (0);
+	//return (0);
 }

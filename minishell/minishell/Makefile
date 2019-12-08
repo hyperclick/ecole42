@@ -11,7 +11,7 @@ OBJS			= $(SRCS:%.c=%.o)
 
 CC		= gcc
 CFLAGS	+= -Wall -Wextra -Werror
-CFLAGS	+= -I includes/
+CFLAGS	+= -g -I includes/
 
 LIBFT = libft/libft.a
 

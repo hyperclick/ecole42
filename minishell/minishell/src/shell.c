@@ -200,6 +200,7 @@ int	process_command(char* str)
 	{
 		ft_e_putstr("minishell: syntax error near unexpected token `;'\n");
 		debug_printf("minishell: syntax error near unexpected token `;'\n");
+		free(no_comments); 
 		return (1);
 	}
 	char* commands[count + 1];

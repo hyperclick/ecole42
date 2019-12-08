@@ -164,7 +164,10 @@ void		env_remove(char* const key)
 	t_list* n = g_env;
 	while (n != NULL)
 	{
-		if (ft_str_equals(key, env_extract_key((const char*)n->content)))
+		const char* current_key = env_extract_key((const char*)n->content);
+		BOOL b = ft_str_equals(key, current_key);
+		free((char*)current_key);
+		if (b)
 		{
 			if (prev == NULL)
 			{
