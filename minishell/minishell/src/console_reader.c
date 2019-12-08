@@ -1,5 +1,6 @@
 #include "minishell.h"
 #include <ctype.h>
+#include "key_constants.h"
 
 static struct termios stored_settings;
 
@@ -23,13 +24,8 @@ void reset_keypress(void)
 {
 	tcsetattr(STDIN_FILENO, TCSANOW, &stored_settings);
 }
-const char KEY_UP[] = "\e[A";
-const char KEY_DOWN[] = "\e[B";
-const char KEY_RIGHT[] = "\e[C";
-const char KEY_LEFT[] = "\e[D";
-const char KEY_DELETE[] = "\e[3~";
-const char KEY_TAB = 9;
-const char KEY_BACKSPACE = 127;
+
+
 BOOL		processed(char		control[10])
 {
 	if (ft_strlen(control) > 4)
