@@ -30,7 +30,7 @@ $(NAME): $(LIBFT) $(OBJS)
 clean:
 	@rm -rf $(OBJS)
 	@make clean -C libft
-	rm ut
+	#rm ut
 
 fclean: clean
 	@make fclean -C libft

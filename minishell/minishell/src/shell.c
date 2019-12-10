@@ -173,7 +173,8 @@ int		process_one_command(char* cmd)
 
 int	process_command(char* str)
 {
-	debug_printf("\n");
+	debug_printf("");
+	debug_printf("-----------------------");
 	debug_printf("entered: '%s'\n", str);
 	char* trimmed = ft_strtrim2(str, "\t ");
 
@@ -221,5 +222,8 @@ int	process_command(char* str)
 
 	ft_free_array((void**)commands, count);
 
+	debug_printf("command processed: '%s'\n", str);
+	debug_printf("-------------------------\n");
+	debug_printf("\n");
 	return (0);
 }

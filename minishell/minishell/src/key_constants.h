@@ -9,7 +9,7 @@
 #define KEY_BACKSPACE 127
 
 
-#define KEY_ESC "\e"
+#define KEY_ESC '\e'
 #define KEY_CTRL_A "\x1"
 #define KEY_CTRL_B "\x2"
 #define KEY_CTRL_C "\x3"

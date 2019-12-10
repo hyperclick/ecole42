@@ -16,6 +16,12 @@ void		env()
 	//process_command("set q = e");
 	//printf("q = '%s'\n", env_get_value("q"));
 }
+void		ls()
+{
+	process_command("ls");
+	//process_command("ls -la");
+	process_command("ls -la src");
+}
 
 void		cd_bad()
 {
@@ -206,6 +212,7 @@ int main(int argc, char** argv, char** envp)
 	ft_putstr("\n\n\n----------------\n\n\n");
 
 	//return 0;
+	test(ls, "ls");
 	test(cd_bad, "cd_bad");
 	test(cd_good, "cd_good");
 	test(pwd, "pwd");

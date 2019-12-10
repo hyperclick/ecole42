@@ -3,6 +3,7 @@
 #include "key_constants.h"
 
 static struct termios stored_settings;
+static int g_buf_len;
 
 void set_keypress(void)
 {
@@ -26,6 +27,46 @@ void reset_keypress(void)
 }
 
 
+
+void backspace(int x)
+{
+	int i;
+
+	i = -1;
+	while (++i < x)
+	{
+		ft_putstr(KEY_LEFT);
+	}
+	i = -1;
+	while (++i < x)
+	{
+		ft_putstr(" ");
+	}
+	i = -1;
+	while (++i < x)
+	{
+		ft_putstr(KEY_LEFT);
+	}
+}
+
+BOOL		process_esc(int len)
+{
+	debug_printf("len = %d\n", len);
+	backspace(len);
+	clean_buffer();
+	return (TRUE);
+}
+
+BOOL		process_backspace()
+{
+	if (g_buf_len > -1)
+	{
+		backspace(1);
+		g_buf_len--;
+	}
+	return (TRUE);
+}
+
 BOOL		processed(char		control[10])
 {
 	if (ft_strlen(control) > 4)
@@ -38,9 +79,7 @@ BOOL		processed(char		control[10])
 		}
 		return (TRUE);
 	}
-	if (control[0] == KEY_TAB
-		|| control[0] == KEY_BACKSPACE
-		|| ft_strequ(control, KEY_UP)
+	if (ft_strequ(control, KEY_UP)
 		|| ft_strequ(control, KEY_DOWN)
 		|| ft_strequ(control, KEY_RIGHT)
 		|| ft_strequ(control, KEY_LEFT)
@@ -49,6 +88,14 @@ BOOL		processed(char		control[10])
 		ft_putstr(control);
 		return (TRUE);
 	}
+	if (control[0] == KEY_BACKSPACE)
+	{
+		return (process_backspace());
+	}
+	//if (control[0] == KEY_ESC)
+	//{
+	//	return (process_esc(buf_len));
+	//}
 	return (FALSE);
 }
 
@@ -61,12 +108,14 @@ void		process_not_printable(char		control[10], int c)
 		control[0] = 0;
 	}
 }
+char g_buffer[PATH_MAX];
 
-BOOL		g_clean_buffer;
+//BOOL		g_clean_buffer;
 
 void		clean_buffer()
 {
-	g_clean_buffer = TRUE;
+	//g_clean_buffer = TRUE;
+	g_buf_len = -1;
 }
 
 void		read_line_hidden(char* dst, int size)
@@ -75,32 +124,26 @@ void		read_line_hidden(char* dst, int size)
 	char		control[10];
 	control[0] = 0;
 	char c;
-	int i;
-
-	i = -1;
-	g_clean_buffer = FALSE;
+	
+	g_buf_len = -1;
 	set_keypress();
 	while ((r = read(STDIN_FILENO, &c, 1)) > 0)
 	{
 		debug_printf("\nentered:\n%d ('%c')\n", c, c);
-		if (g_clean_buffer)
-		{
-			i = -1;
-			g_clean_buffer = FALSE;
-		}
+
 		if (ft_strlen(control) == 0)
 		{
 			if (ft_isprint(c))
 			{
 				ft_putchar(c);
-				if (i > size)
+				if (g_buf_len > size)
 				{
 					ft_e_putstr("\nbuffer is too small\n");
 					debug_printf("buffer is too small\n");
 					reset_keypress();
 					exit(1);
 				}
-				dst[++i] = c;
+				dst[++g_buf_len] = c;
 				continue;
 			}
 			if (c == '\n')
@@ -112,6 +155,11 @@ void		read_line_hidden(char* dst, int size)
 		process_not_printable(control, c);
 	}
 	debug_printf("r = %d\n", r);
-	dst[++i] = 0;
+	dst[++g_buf_len] = 0;
 	reset_keypress();
+	if (r == 0)
+	{
+		printf("std in is all\n");
+		exit(1);
+	}
 }
