@@ -111,21 +111,13 @@ void backspace(int x)
 //	return (TRUE);
 //}
 
-BOOL		process_backspace()
-{
-	if (g_buf_len > -1)
-	{
-		backspace(1);
-		g_buf_len--;
-	}
-	return (TRUE);
-}
 
 void inc_cursor_pos()
 {
 	if (g_x > g_buf_len)
 	{
 		ft_e_putstr("inc_cursor_pos: g_x >= g_buf_len");
+		reset_keypress();
 		exit(1);
 	}
 	++g_x;
@@ -136,6 +128,7 @@ void dec_cursor_pos()
 	if (g_x < 1)
 	{
 		ft_e_putstr("process_key_left: g_x <= 1");
+		reset_keypress();
 		exit(1);
 	}
 
@@ -162,6 +155,116 @@ BOOL		process_key_right()
 	return (TRUE);
 }
 
+
+void increase_buffer()
+{
+	if (g_buf_len++ > PATH_MAX - 1)
+	{
+		ft_e_putstr("buffer is too small\n");
+		debug_printf("buffer is too small\n");
+		reset_keypress();
+		exit(1);
+	}
+	g_buffer[g_buf_len] = 0;
+}
+
+void decrease_buffer()
+{
+	if (--g_buf_len < 0)
+	{
+		ft_e_putstr("buffer is negative\n");
+		debug_printf("buffer is negative\n");
+		reset_keypress();
+		exit(1);
+	}
+	g_buffer[g_buf_len] = 0;
+}
+void		clean_buffer()
+{
+	g_buf_len = 0;
+	g_buffer[g_buf_len] = 0;
+}
+
+void	 clean_printed_text()
+{
+	move_cursor_left(g_x);
+	int i = -1;
+	while (++i < g_buf_len)
+	{
+		ft_putchar(' ');
+		debug_printf("_\n");
+	}
+}
+
+char read_key()
+{
+	char c;
+	read(STDIN_FILENO, &c, 1);
+	return c;
+}
+
+//BOOL		is_buffer_change(char		control[10], char c)
+//{
+//	return (
+//		(ft_strlen(control) == 1 && ft_isprint(c))
+//		|| (ft_strlen(control) == 1 && c == KEY_BACKSPACE)
+//		|| ft_str_equals(control, KEY_DELETE));
+//}
+
+void buffer_delete()
+{
+	if (g_x < g_buf_len)
+	{
+		ft_str_remove_at(g_buffer, g_x);
+		decrease_buffer();
+	}
+}
+
+void buffer_backspace()
+{
+	if (g_x > 0)
+	{
+		decrease_buffer();
+		ft_str_remove_at(g_buffer, g_x - 1);
+		dec_cursor_pos();
+	}
+}
+
+void buffer_insert(char c)
+{
+	increase_buffer();
+	ft_str_insert_at(g_buffer, g_x, c);
+	inc_cursor_pos();
+}
+
+void		buffer_print()
+{
+	debug_printf("g_x: %d, g_buf_len = %d, g_buffer = '%s'\n", g_x, g_buf_len, g_buffer);
+	ft_putstr(g_buffer);
+	move_cursor_left(g_buf_len);
+	move_cursor_right(g_x);
+}
+void clean_printed_text_and_move_cursor_left()
+{
+	debug_printf("g_x: %d, g_buf_len = %d, g_buffer = '%s'\n", g_x, g_buf_len, g_buffer);
+	clean_printed_text();
+	move_cursor_left(g_buf_len);
+}
+
+BOOL		process_backspace()
+{
+	clean_printed_text_and_move_cursor_left();
+	buffer_backspace();
+	buffer_print();
+	return (TRUE);
+}
+BOOL		process_delete()
+{
+	clean_printed_text_and_move_cursor_left();
+	buffer_delete();
+	buffer_print();
+	return (TRUE);
+}
 BOOL		processed(char		control[10])
 {
 	if (ft_strlen(control) > 4)
@@ -183,11 +286,14 @@ BOOL		processed(char		control[10])
 		return (process_key_right());
 	}
 	if (ft_strequ(control, KEY_UP)
-		|| ft_strequ(control, KEY_DOWN)
-		|| ft_strequ(control, KEY_DELETE))
+		|| ft_strequ(control, KEY_DOWN))
 	{
 		ft_putstr(control);
 		return (TRUE);
+	}
+	if (ft_strequ(control, KEY_DELETE))
+	{
+		return (process_delete());
 	}
 	if (control[0] == KEY_BACKSPACE)
 	{
@@ -209,64 +315,6 @@ void		process_not_printable(char		control[10], int c)
 		control[0] = 0;
 	}
 }
-
-void increase_buffer()
-{
-	if (g_buf_len++ > PATH_MAX - 1)
-	{
-		ft_e_putstr("buffer is too small\n");
-		debug_printf("buffer is too small\n");
-		reset_keypress();
-		exit(1);
-	}
-	g_buffer[g_buf_len] = 0;
-}
-
-void		clean_buffer()
-{
-	//g_clean_buffer = TRUE;
-	g_buf_len = 0;
-	g_buffer[g_buf_len] = 0;
-}
-
-void	 clean_printed_text()
-{
-	move_cursor_left(g_x);
-	int i = -1;
-	while (++i < g_buf_len)
-	{
-		ft_putchar(' ');
-		debug_printf("_\n");
-	}
-	//move_cursor_right(g_x);
-}
-char read_key()
-{
-	char c;
-	read(STDIN_FILENO, &c, 1);
-	return c;
-}
-void print_buffer()
-{
-	debug_printf("before text clean\n");
-	debug_printf("press any key\n");
-	read_key();
-
-	clean_printed_text();
-
-	debug_printf("text cleaned\n");
-	debug_printf("press any key\n");
-	read_key();
-
-	move_cursor_left(g_x);
-
-	debug_printf("cursor moved\n");
-	debug_printf("press any key\n");
-	read_key();
-	ft_putstr(g_buffer);
-	//move_cursor_right(g_x);
-}
-
 const char* read_line_hidden()
 {
 	int r;
@@ -279,44 +327,21 @@ const char* read_line_hidden()
 	set_keypress();
 	while ((r = read(STDIN_FILENO, &c, 1)) > 0)
 	{
-		debug_printf("\nentered:\n%d ('%c')\n", c, c);
-
-		if (ft_strlen(control) == 0)
+		debug_printf("\n");
+		debug_printf("entered:\n%d ('%c'), control = '%s'\n", c, c, control);
+		if (ft_strlen(control) == 0 && c == '\n')
 		{
-			if (c == '\n')
-			{
-				ft_putchar(c);
-				break;
-			}
-			if (ft_isprint(c))
-			{
-				debug_printf("g_x: %d, g_buf_len = %d, g_buffer = '%s'\n", g_x, g_buf_len, g_buffer);
-				debug_printf("before text clean\n");
-				//debug_printf("press any key\n");
-				//read_key();
-
-				clean_printed_text();
-
-				debug_printf("text cleaned\n");
-				//debug_printf("press any key\n");
-				//read_key();
-
-				move_cursor_left(g_buf_len);
-
-				debug_printf("cursor moved\n");
-				//debug_printf("press any key\n");
-				//read_key();
-
-				increase_buffer();
-				ft_str_insert_at(g_buffer, g_x, c);
-
-				ft_putstr(g_buffer);
-				inc_cursor_pos();
-				move_cursor_left(g_buf_len);
-				move_cursor_right(g_x);
-				continue;
-			}
+			ft_putchar(c);
+			break;
 		}
+		if (ft_strlen(control) == 0 && ft_isprint(c))
+		{
+			clean_printed_text_and_move_cursor_left();
+			buffer_insert(c);
+			buffer_print();
+			continue;
+		}
+
 		process_not_printable(control, c);
 	}
 	debug_printf("r = %d\n", r);

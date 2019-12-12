@@ -2,3 +2,504 @@
 	dbg:	started
 	dbg:	agrc = 1
 	dbg:	agrv[1] = (null)
+	dbg:	
+	dbg:	entered:
+49 ('1'), control = ''
+	dbg:	g_x: 0, g_buf_len = 0, g_buffer = ''
+	dbg:	dst = '1', n = 0, dst + n = '1', len = 0, right = ''
+	dbg:	gx = 1
+	dbg:	g_x: 1, g_buf_len = 1, g_buffer = '1'
+	dbg:	<
+	dbg:	
+	dbg:	entered:
+50 ('2'), control = ''
+	dbg:	g_x: 1, g_buf_len = 1, g_buffer = '1'
+	dbg:	<
+	dbg:	_
+	dbg:	<
+	dbg:	dst = '12', n = 1, dst + n = '2', len = 1, right = ''
+	dbg:	gx = 2
+	dbg:	g_x: 2, g_buf_len = 2, g_buffer = '12'
+	dbg:	<
+	dbg:	<
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+68 ('D'), control = '['
+	dbg:	<
+	dbg:	gx = 1
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+68 ('D'), control = '['
+	dbg:	<
+	dbg:	gx = 0
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+51 ('3'), control = '['
+	dbg:	
+	dbg:	entered:
+126 ('~'), control = '[3'
+	dbg:	g_x: 0, g_buf_len = 2, g_buffer = '12'
+	dbg:	_
+	dbg:	_
+	dbg:	<
+	dbg:	<
+	dbg:	g_x: 0, g_buf_len = 1, g_buffer = '2'
+	dbg:	<
+	dbg:	
+	dbg:	entered:
+10 ('
+'), control = ''
+	dbg:	r = 1
+	dbg:		dbg:	-----------------------	dbg:	entered: '2'
+	dbg:	trimmed = 2
+	dbg:	no comments = 2
+	dbg:	cmd: '2'
+	dbg:	args = '2' '(null)'
+	dbg:	command processed: '2'
+	dbg:	-------------------------
+	dbg:	
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+65 ('A'), control = '['
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+66 ('B'), control = '['
+	dbg:	
+	dbg:	entered:
+49 ('1'), control = ''
+	dbg:	g_x: 0, g_buf_len = 0, g_buffer = ''
+	dbg:	dst = '1', n = 0, dst + n = '1', len = 0, right = ''
+	dbg:	gx = 1
+	dbg:	g_x: 1, g_buf_len = 1, g_buffer = '1'
+	dbg:	<
+	dbg:	
+	dbg:	entered:
+50 ('2'), control = ''
+	dbg:	g_x: 1, g_buf_len = 1, g_buffer = '1'
+	dbg:	<
+	dbg:	_
+	dbg:	<
+	dbg:	dst = '12', n = 1, dst + n = '2', len = 1, right = ''
+	dbg:	gx = 2
+	dbg:	g_x: 2, g_buf_len = 2, g_buffer = '12'
+	dbg:	<
+	dbg:	<
+	dbg:	
+	dbg:	entered:
+51 ('3'), control = ''
+	dbg:	g_x: 2, g_buf_len = 2, g_buffer = '12'
+	dbg:	<
+	dbg:	<
+	dbg:	_
+	dbg:	_
+	dbg:	<
+	dbg:	<
+	dbg:	dst = '123', n = 2, dst + n = '3', len = 2, right = ''
+	dbg:	gx = 3
+	dbg:	g_x: 3, g_buf_len = 3, g_buffer = '123'
+	dbg:	<
+	dbg:	<
+	dbg:	<
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+68 ('D'), control = '['
+	dbg:	<
+	dbg:	gx = 2
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+68 ('D'), control = '['
+	dbg:	<
+	dbg:	gx = 1
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+51 ('3'), control = '['
+	dbg:	
+	dbg:	entered:
+126 ('~'), control = '[3'
+	dbg:	g_x: 1, g_buf_len = 3, g_buffer = '123'
+	dbg:	<
+	dbg:	_
+	dbg:	_
+	dbg:	_
+	dbg:	<
+	dbg:	<
+	dbg:	<
+	dbg:	g_x: 1, g_buf_len = 2, g_buffer = '13'
+	dbg:	<
+	dbg:	<
+	dbg:	
+	dbg:	entered:
+10 ('
+'), control = ''
+	dbg:	r = 1
+	dbg:		dbg:	-----------------------	dbg:	entered: '13'
+	dbg:	trimmed = 13
+	dbg:	no comments = 13
+	dbg:	cmd: '13'
+	dbg:	args = '13' '(null)'
+	dbg:	command processed: '13'
+	dbg:	-------------------------
+	dbg:	
+	dbg:	
+	dbg:	entered:
+49 ('1'), control = ''
+	dbg:	g_x: 0, g_buf_len = 0, g_buffer = ''
+	dbg:	dst = '1', n = 0, dst + n = '1', len = 0, right = ''
+	dbg:	gx = 1
+	dbg:	g_x: 1, g_buf_len = 1, g_buffer = '1'
+	dbg:	<
+	dbg:	
+	dbg:	entered:
+50 ('2'), control = ''
+	dbg:	g_x: 1, g_buf_len = 1, g_buffer = '1'
+	dbg:	<
+	dbg:	_
+	dbg:	<
+	dbg:	dst = '12', n = 1, dst + n = '2', len = 1, right = ''
+	dbg:	gx = 2
+	dbg:	g_x: 2, g_buf_len = 2, g_buffer = '12'
+	dbg:	<
+	dbg:	<
+	dbg:	
+	dbg:	entered:
+51 ('3'), control = ''
+	dbg:	g_x: 2, g_buf_len = 2, g_buffer = '12'
+	dbg:	<
+	dbg:	<
+	dbg:	_
+	dbg:	_
+	dbg:	<
+	dbg:	<
+	dbg:	dst = '123', n = 2, dst + n = '3', len = 2, right = ''
+	dbg:	gx = 3
+	dbg:	g_x: 3, g_buf_len = 3, g_buffer = '123'
+	dbg:	<
+	dbg:	<
+	dbg:	<
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+68 ('D'), control = '['
+	dbg:	<
+	dbg:	gx = 2
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+68 ('D'), control = '['
+	dbg:	<
+	dbg:	gx = 1
+	dbg:	
+	dbg:	entered:
+49 ('1'), control = ''
+	dbg:	g_x: 1, g_buf_len = 3, g_buffer = '123'
+	dbg:	<
+	dbg:	_
+	dbg:	_
+	dbg:	_
+	dbg:	<
+	dbg:	<
+	dbg:	<
+	dbg:	dst = '1123', n = 1, dst + n = '123', len = 3, right = '23'
+	dbg:	gx = 2
+	dbg:	g_x: 2, g_buf_len = 4, g_buffer = '1123'
+	dbg:	<
+	dbg:	<
+	dbg:	<
+	dbg:	<
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+68 ('D'), control = '['
+	dbg:	<
+	dbg:	gx = 1
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+68 ('D'), control = '['
+	dbg:	<
+	dbg:	gx = 0
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+51 ('3'), control = '['
+	dbg:	
+	dbg:	entered:
+126 ('~'), control = '[3'
+	dbg:	g_x: 0, g_buf_len = 4, g_buffer = '1123'
+	dbg:	_
+	dbg:	_
+	dbg:	_
+	dbg:	_
+	dbg:	<
+	dbg:	<
+	dbg:	<
+	dbg:	<
+	dbg:	g_x: 0, g_buf_len = 3, g_buffer = '123'
+	dbg:	<
+	dbg:	<
+	dbg:	<
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+67 ('C'), control = '['
+	dbg:	gx = 1
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+67 ('C'), control = '['
+	dbg:	gx = 2
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+67 ('C'), control = '['
+	dbg:	gx = 3
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+68 ('D'), control = '['
+	dbg:	<
+	dbg:	gx = 2
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+67 ('C'), control = '['
+	dbg:	gx = 3
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+67 ('C'), control = '['
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+67 ('C'), control = '['
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+67 ('C'), control = '['
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+68 ('D'), control = '['
+	dbg:	<
+	dbg:	gx = 2
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+68 ('D'), control = '['
+	dbg:	<
+	dbg:	gx = 1
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+68 ('D'), control = '['
+	dbg:	<
+	dbg:	gx = 0
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+68 ('D'), control = '['
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+67 ('C'), control = '['
+	dbg:	gx = 1
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+67 ('C'), control = '['
+	dbg:	gx = 2
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+67 ('C'), control = '['
+	dbg:	gx = 3
+	dbg:	
+	dbg:	entered:
+27 (''), control = ''
+	dbg:	
+	dbg:	entered:
+91 ('['), control = ''
+	dbg:	
+	dbg:	entered:
+67 ('C'), control = '['
+	dbg:	
+	dbg:	entered:
+52 ('4'), control = ''
+	dbg:	g_x: 3, g_buf_len = 3, g_buffer = '123'
+	dbg:	<
+	dbg:	<
+	dbg:	<
+	dbg:	_
+	dbg:	_
+	dbg:	_
+	dbg:	<
+	dbg:	<
+	dbg:	<
+	dbg:	dst = '1234', n = 3, dst + n = '4', len = 3, right = ''
+	dbg:	gx = 4
+	dbg:	g_x: 4, g_buf_len = 4, g_buffer = '1234'
+	dbg:	<
+	dbg:	<
+	dbg:	<
+	dbg:	<
+	dbg:	
+	dbg:	entered:
+10 ('
+'), control = ''
+	dbg:	r = 1
+	dbg:		dbg:	-----------------------	dbg:	entered: '1234'
+	dbg:	trimmed = 1234
+	dbg:	no comments = 1234
+	dbg:	cmd: '1234'
+	dbg:	args = '1234' '(null)'
+	dbg:	command processed: '1234'
+	dbg:	-------------------------
+	dbg:	
