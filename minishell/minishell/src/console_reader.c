@@ -224,8 +224,8 @@ void buffer_backspace()
 {
 	if (g_x > 0)
 	{
-		decrease_buffer();
 		ft_str_remove_at(g_buffer, g_x - 1);
+		decrease_buffer();
 		dec_cursor_pos();
 	}
 }
@@ -328,7 +328,7 @@ const char* read_line_hidden()
 	while ((r = read(STDIN_FILENO, &c, 1)) > 0)
 	{
 		debug_printf("\n");
-		debug_printf("entered:\n%d ('%c'), control = '%s'\n", c, c, control);
+		debug_printf("entered:\t%d ('%c'), control = '%s'\n", c, c, control);
 		if (ft_strlen(control) == 0 && c == '\n')
 		{
 			ft_putchar(c);
