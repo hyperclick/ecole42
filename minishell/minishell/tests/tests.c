@@ -20,7 +20,7 @@ void		ls()
 {
 	process_command("ls");
 	//process_command("ls -la");
-	process_command("ls -la src");
+	//process_command("ls -la src");
 }
 
 void		cd_bad()

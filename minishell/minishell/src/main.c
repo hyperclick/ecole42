@@ -17,18 +17,10 @@ int main(int argc, char** argv, char** envp)
 	{
 		cd(argc - 1, argv + 1);
 	}
-	char		cmd_line[MAX_CMD_LINE];
 	while (TRUE)
 	{
 		print_prompt();
-		read_line_hidden(cmd_line, MAX_CMD_LINE);
-		//printf("read: '%s'\n", cmd_line);
-		//history.push
-		//if (is_up_arrow(cmd_line))
-		//{
-		//	ft_strcpy(cmd_line, history.pop());
-		//}
-		process_command(cmd_line);
+		process_command(read_line_hidden());
 	}
 
 	ft_exit(0);

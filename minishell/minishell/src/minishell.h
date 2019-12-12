@@ -42,10 +42,10 @@ void		ft_exit(int ret_code);
 void		cd(int argc, char* const argv[]);
 void		ft_default_sig_handler(int signum);
 void print_prompt();
-int	process_command(char* str);
+int	process_command(const char* str);
 
 void		clean_buffer();
 void		reset_keypress(void);
-void		read_line_hidden(char* dst, int size);
+const char* read_line_hidden(void);
 
 #endif

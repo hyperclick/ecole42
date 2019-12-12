@@ -171,7 +171,7 @@ int		process_one_command(char* cmd)
 	return (0);
 }
 
-int	process_command(char* str)
+int	process_command(const char* str)
 {
 	debug_printf("");
 	debug_printf("-----------------------");
