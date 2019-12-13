@@ -3,6 +3,73 @@
 #include <stdio.h>
 //#include <copyfile.h>
 
+void  test_pipe()
+{
+	process_command("ls | cat -e");
+}
+
+void history()
+{
+	if (h_has_previous())
+	{
+		printf("has previous\n");
+		exit(1);
+	}
+
+	if (h_has_next())
+	{
+		printf("has next\n");
+		exit(1);
+	}
+
+	//if (h_get_current() != NULL)
+	//{
+	//	printf("h_get_current() != NULL\n");
+	//	exit(1);
+	//}
+
+	h_append("1");
+	//if (!ft_strequ("1", h_get_current()))
+	//{
+	//	printf("1!=h_get_current()\n");
+	//	exit(1);
+	//}
+
+	if (!h_has_previous())
+	{
+		printf("!has previous\n");
+		exit(1);
+	}
+
+	if (h_has_next())
+	{
+		printf("has next\n");
+		exit(1);
+	}
+	h_append("2");
+	//if (!ft_strequ("2", h_get_current()))
+	//{
+	//	printf("2!=h_get_current() = '%s'\n", h_get_current());
+	//	exit(1);
+	//}
+	if (!ft_strequ("2", h_get_previous()))
+	{
+		printf("2!=h_get_previous()\n");
+		exit(1);
+	}
+	if (!ft_strequ("2", h_get_current()))
+	{
+		printf("2!=h_get_current2()\n");
+		exit(1);
+	}
+	if (h_has_next())
+	{
+		printf("has next2\n");
+		exit(1);
+	}
+	printf("all passed\n");
+}
+
 void		env()
 {
 	process_command("setenv q w"); 
@@ -211,6 +278,7 @@ int main(int argc, char** argv, char** envp)
 	env_from_array(envp);
 	ft_putstr("\n\n\n----------------\n\n\n");
 
+	test(history, "history");
 	//return 0;
 	test(ls, "ls");
 	test(cd_bad, "cd_bad");

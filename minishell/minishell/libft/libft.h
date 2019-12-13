@@ -43,7 +43,14 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
-t_list			*ft_lstnew(void const *content, size_t content_size);
+typedef struct	s_double_list
+{
+	struct	s_list list;
+	struct s_double_list*prev;
+}				t_d_list;
+
+t_list* ft_lst_new(void const* content, size_t content_size);
+t_d_list* ft_dlst_new(void const* content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);

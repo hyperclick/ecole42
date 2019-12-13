@@ -1,7 +1,7 @@
 
 .PHONY: clean fclean re make all
 
-FILENAMES = console_reader.c cmd_parser.c env.c folders.c exec.c shell.c
+FILENAMES = console_reader.c cmd_parser.c env.c exec.c folders.c history.c shell.c
 
 NAME = minishell
 

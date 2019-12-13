@@ -233,7 +233,7 @@ void ft_set_env(int argc, char* const argv[])
 	t_list* current = ft_lst_find(g_env, key, find);
 	if (current == NULL)
 	{
-		env_add_new(ft_lstnew(new_env, -1));
+		env_add_new(ft_lst_new(new_env, -1));
 	}
 	else
 	{
@@ -250,7 +250,7 @@ void		env_from_array(char* env[])
 	}
 	while (*env != NULL)
 	{
-		env_add_new(ft_lstnew(ft_strdup(*env), -1));
+		env_add_new(ft_lst_new(ft_strdup(*env), -1));
 		env++;
 	}
 

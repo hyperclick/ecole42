@@ -48,4 +48,13 @@ void		clean_buffer();
 void		reset_keypress(void);
 const char* read_line_hidden(void);
 
+
+
+void		h_free();
+BOOL		h_has_previous();
+BOOL		h_has_next();
+const char* h_get_current();
+const char* h_get_previous();
+const char* h_get_next();
+void h_append(const char* content);
 #endif

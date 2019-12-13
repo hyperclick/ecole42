@@ -183,6 +183,7 @@ void		clean_buffer()
 {
 	g_buf_len = 0;
 	g_buffer[g_buf_len] = 0;
+	g_x = 0;
 }
 
 void	 clean_printed_text()
@@ -265,6 +266,33 @@ BOOL		process_delete()
 	buffer_print();
 	return (TRUE);
 }
+void buffer_set(const char* new_value)
+{
+	clean_printed_text_and_move_cursor_left();
+	ft_strcpy(g_buffer, new_value);
+	g_buf_len = ft_strlen(g_buffer);
+	g_x = g_buf_len;
+
+}
+BOOL		process_key_down()
+{
+	if (h_has_next())
+	{
+		buffer_set(h_get_next());
+		buffer_print();
+	}
+	return (TRUE);
+}
+BOOL		process_key_up()
+{
+	if (h_has_previous())
+	{
+		buffer_set(h_get_previous());
+		buffer_print();
+	}
+	return (TRUE);
+}
+
 BOOL		processed(char		control[10])
 {
 	if (ft_strlen(control) > 4)
@@ -285,11 +313,13 @@ BOOL		processed(char		control[10])
 	{
 		return (process_key_right());
 	}
-	if (ft_strequ(control, KEY_UP)
-		|| ft_strequ(control, KEY_DOWN))
+	if (ft_strequ(control, KEY_UP))
 	{
-		ft_putstr(control);
-		return (TRUE);
+		return (process_key_up());
+	}
+	if (ft_strequ(control, KEY_DOWN))
+	{
+		return (process_key_down());
 	}
 	if (ft_strequ(control, KEY_DELETE))
 	{
@@ -350,6 +380,10 @@ const char* read_line_hidden()
 	{
 		printf("std in is all\n");
 		exit(1);
+	}
+	if (g_buf_len > 0)
+	{
+		h_append(ft_strdup(g_buffer));
 	}
 	return (g_buffer);
 }

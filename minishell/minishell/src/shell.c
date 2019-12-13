@@ -7,7 +7,11 @@ void		ft_exit(int ret_code)
 	reset_keypress();
 	//free_folders();
 	env_free();
-	//todo: kill waited process
+	h_free();
+	if (get_awaited_process() != 0)
+	{
+		kill(get_awaited_process(), SIGABRT);
+	}
 	//close_out_stream();
 	exit(ret_code);
 }
@@ -51,22 +55,6 @@ void		cd(int argc, char* const argv[])
 	char tmp[255];
 	debug_printf("new curdir = %s\n", getcwd(tmp, 200));
 	//ft_strcpy(old_work_dir, folder);
-}
-
-/* reads from keypress, echoes */
-int getche(void)
-{
-	struct termios oldattr, newattr;
-	tcgetattr(STDIN_FILENO, &oldattr);
-	newattr = oldattr;
-	newattr.c_lflag &= ~(ICANON | ECHO);
-	tcsetattr(STDIN_FILENO, TCSANOW, &newattr);
-	//system("stty -echo");
-	char ch;
-	read(1, &ch, 1);
-	//system("stty echo");
-	tcsetattr(STDIN_FILENO, TCSANOW, &oldattr);
-	return ch;
 }
 
 char* remove_comment(char* str)
