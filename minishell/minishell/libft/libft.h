@@ -68,10 +68,16 @@ void		ft_lst_remove_sorted(t_list** list, t_list* to_remove
 	, BOOL(equal)(t_list* a, t_list* b)
 	, void (*free_content)(void*, size_t));
 
+void		close_fd(int fd);
+void redirect(int from, int to);
+
+void		close_out_stream();
 void		set_out_stream(FILE* stream);
 void		set_out_file(const char* filename, const char* mode);
 void		set_level(int level);
+void debug_set_pname(const char name[]);
 void			debug_printf(const char* str, ...);
+void		debug_print_zt_array(const char* a[]);
 void			ft_e_putstr(const char* str);
 BOOL			ft_ends_with(const char *str, const char c);
 int			ft_last_index(const char *str, const char to_find);
@@ -109,10 +115,11 @@ char* ft_str_replace(const char* src, const char* find, const char* replace);
 int			ft_count_words(const char *str, const char whitespaces[]);
 void		ft_free_array(void** r, int n);
 void		ft_free_array2(void*** r);
-void		 ft_free_null_term_array(void** a);
-int ft_count_null_term_array(void** a);
+void			 ft_free_null_term_array(void** a);
+int			 ft_count_null_term_array(void** a);
 char			**ft_split(char **r, const char *str, int c, const char *d);
-char** ft_split2(const char* str, int count, const char* sep);
+char**		ft_split2(const char* str, int count, const char* sep);
+char**		ft_split3(const char* str, const char* sep);
 char			**ft_strsplit(char const *s, char c);
 char			*ft_strstr(const char *haystack, const char *needle);
 char			*ft_strnstr(const char *haystack, const char *needle, size_t l);

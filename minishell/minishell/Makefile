@@ -1,7 +1,7 @@
 
 .PHONY: clean fclean re make all
 
-FILENAMES = console_reader.c cmd_parser.c env.c exec.c folders.c history.c shell.c
+FILENAMES = console_reader.c cmd_parser.c env.c exec.c folders.c history.c pipe_exec.c pipe_parse.c shell.c
 
 NAME = minishell
 
@@ -39,4 +39,4 @@ fclean: clean
 re: fclean all
 
 ut:	$(NAME)  tests/*.c 
-	$(CC) tests/*.c $(OBJS) $(LIBFT) -o ut
+	$(CC) tests/*.c $(OBJS) $(LIBFT) -g -o ut

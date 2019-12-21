@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_free_item.c                                 :+:      :+:    :+:   */
+/*   ft_file.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/05 11:39:45 by darugula          #+#    #+#             */
-/*   Updated: 2019/10/05 11:39:47 by darugula         ###   ########.fr       */
+/*   Created: 2019/09/06 10:17:30 by darugula          #+#    #+#             */
+/*   Updated: 2019/09/06 10:17:32 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "libft.h"
 
-void	ft_lst_free_item(void *item, size_t size)
+void		close_fd(int fd)
 {
-	if (size == 0)
-	{
-		exit(1);
-	}
-	debug_printf("free item: '%s' (%p)\n", (char*)item, item);
-	free(item);
-	//printf("freed\n");
+	debug_printf("close(%d)\n", fd);
+	close(fd);
+}
+void redirect(int a, int b)
+{
+	dup2(a, b);
+	debug_printf("redirect: %d->%d\n", b, a);
 }

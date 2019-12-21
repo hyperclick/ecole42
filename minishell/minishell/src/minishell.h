@@ -32,10 +32,13 @@ char** fill_path_folders();
 
 BOOL		built_in_processed(char * const args[], int count);
 void fork_and_exec(char* argv[]);
-//void		exec(const char* str, char* const envp[]);
+BOOL		is_child(int pid);
 void		exec2(char* argv[]);
 //BOOL		is_exit(const char str[MAX_CMD_LINE]);
-pid_t get_awaited_process();
+
+pid_t get_awaited_process(); 
+void set_awaited_process(pid_t pid);
+void		wait_child(pid_t  pid);
 
 void		ft_exit(int ret_code);
 
@@ -43,6 +46,7 @@ void		cd(int argc, char* const argv[]);
 void		ft_default_sig_handler(int signum);
 void print_prompt();
 int	process_command(const char* str);
+int		process_one_command(char* cmd);
 
 void		clean_buffer();
 void		reset_keypress(void);
@@ -57,4 +61,13 @@ const char* h_get_current();
 const char* h_get_previous();
 const char* h_get_next();
 void h_append(const char* content);
+
+void pipe_free(t_list** pipe);
+t_list* pipe_parse2(const char** cmds);
+t_list* pipe_parse(const char* str);
+void	ft_pipe(int* r, int* w);
+void pipe_exec(t_list* pipe);
+pid_t	ft_fork();
+void		exec_ve(char* argv[]);
+void		exec_ve2(const char* str);
 #endif

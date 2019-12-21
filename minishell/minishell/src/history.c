@@ -1,14 +1,9 @@
 ﻿#include "../libft/libft.h"
 
-t_d_list		*g_head = NULL;
-t_d_list		*g_current = NULL;
-t_d_list		*g_last = NULL;
+t_d_list* g_head = NULL;
+t_d_list* g_current = NULL;
+t_d_list* g_last = NULL;
 
-void  free_node(void *content, size_t size)
-{
-	free((char*)content);
-	(void)size;
-}
 
 void		h_free()
 {
@@ -16,7 +11,7 @@ void		h_free()
 	{
 		return;
 	}
-	ft_lstdel((t_list**)&g_head, free_node);
+	ft_lst_free((t_list**)&g_head);
 }
 
 BOOL		h_has_previous()
@@ -30,22 +25,22 @@ BOOL		h_has_next()
 }
 const char* h_get_current()
 {
-	return((const char		*)g_current->list.content);
+	return((const char*)g_current->list.content);
 }
-const char		*h_get_previous()
+const char* h_get_previous()
 {
 	g_current = g_current == NULL ? g_last : g_current->prev;
 	return (h_get_current());
 }
-const char		*h_get_next()
+const char* h_get_next()
 {
-	g_current =  (t_d_list*)g_current->list.next;
+	g_current = (t_d_list*)g_current->list.next;
 	return (h_get_current());
 }
 
 void h_append(const char* content)
 {
-	t_d_list *l = ft_dlst_new(content, -1);
+	t_d_list* l = ft_dlst_new(content, -1);
 	l->prev = g_last;
 	if (g_last == NULL)
 	{
@@ -55,5 +50,5 @@ void h_append(const char* content)
 	}
 	g_last->list.next = (t_list*)l;
 	g_last = l;
-		g_current = NULL;
+	g_current = NULL;
 }

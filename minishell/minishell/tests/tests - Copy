@@ -7,7 +7,7 @@ void  test_pipe()
 {
 	//pipe_exec(pipe_parse("sort"));
 	//return;
-	pipe_exec(pipe_parse("ls | sort"));
+	pipe_exec(pipe_parse("/bin/ls | /usr/bin/sort"));
 	debug_printf("test_pipe OK\n");
 	return;
 	pipe_exec(pipe_parse("ls"));
@@ -317,138 +317,59 @@ void		test(void(*f)(), const char* name)
 }
 void test_pipe2()
 {
-	//execl("/bin/ls", "-l", NULL);
-	//return;
-	int fd[2];
-	pipe(fd);
-	int r = fd[0];
-	int w = fd[1];
-
-	if (fork() == 0) {
-		dup2(w, STDOUT_FILENO);
-		close(r); // just for safety
-		execl("/bin/ls", "-l", NULL);
-	}
-
-	dup2(r, STDIN_FILENO);
-	close(w); // just for safety
-	execl("/usr/bin/sort", "", NULL);
-}
-
-void redirect_and_exec(int to, int from, const char* cmd, int to_close)
-{
-	redirect(to, from);
-	close_fd(to_close);
-	exec_ve2(cmd);
-}
-void exec_write(const char* cmd, int r, int w)
-{
-	int pid = ft_fork();
-	if (is_child(pid))
-	{
-		debug_set_pname(cmd);
-		redirect_and_exec(w, STDOUT_FILENO, cmd, r);
-	}
-	debug_printf("waiting %s > %d to finish\n", cmd, w);
-	wait_child(pid);
-	debug_printf("%s finished\n", cmd);
-	close_fd(w);
-}
-
-void exec_read(const char* cmd, int r, int w)
-{
-	int pid = ft_fork();
-	if (is_child(pid))
-	{
-		debug_set_pname(cmd);
-		redirect_and_exec(r, STDIN_FILENO, cmd, w);
-	}
-	debug_printf("waiting %s > %d to finish\n", cmd, w);
-	wait_child(pid);
-	debug_printf("%s finished\n", cmd);
-	close_fd(r);
-}
-
-void test_pipe4()
-{
 	int r;
 	int w;
 	ft_pipe(&r, &w);
-	int pid = ft_fork();
-	if (!is_child(pid))
+	if (ft_fork() == 0) 
 	{
-		exec_read("/usr/bin/sort", r, w);
+	redirect(r, STDIN_FILENO);
+	close_fd(w); // just for safety
+	exec_ve2("/usr/bin/sort");
 	}
-	else
-	{
-		exec_write("/bin/ls", r, w);
-	}
-
-}
-
-void test_pipe5()
-{
-	int pid = ft_fork();
-	if (is_child(pid))
-	{
-		test_pipe4();
-	}
-	wait_child(pid);
-}
-
-void test_pipe6()
-{
-	int r, w;
-	ft_pipe(&r, &w);
-	exec_write("/bin/ls", r, w);
-	exec_read("/usr/bin/sort", r, w);
-}
-
-void pe2(const char* cmd, int r, int w, int to_close)
-{
-	int pid = ft_fork();
-	if (is_child(pid))
-	{
-		debug_set_pname(cmd);
-		redirect(r, STDIN_FILENO);
 		redirect(w, STDOUT_FILENO);
-		close_fd(to_close);
-		exec_ve2(cmd);
-	}
-	debug_printf("waiting %d > %s > %d to finish\n", r, cmd, w);
-	wait_child(pid);
-	debug_printf("%s finished\n", cmd);
-	close_fd(w);
+		close_fd(r); // just for safety
+		exec_ve2("/bin/ls -l");
 }
 
-void pe(t_list *p, int prev_r)
+
+void test_pipe4()
 {
-	if (p->next == NULL)
+	int pid = ft_fork();
+	if (pid == 0)
 	{
-		pe2((char*)p->content, prev_r, STDOUT_FILENO, -1);
-		return;
+		int r;
+		int w;
+		ft_pipe(&r, &w);
+		if (ft_fork() == 0)
+		{
+		redirect(w, STDOUT_FILENO);
+		close_fd(r); // just for safety
+		exec_ve2("/bin/ls -l");
+		}
+			redirect(r, STDIN_FILENO);
+			close_fd(w); // just for safety
+			exec_ve2("/usr/bin/sort");
 	}
-	int r, w;
+	wait_child(pid);
+}
+
+void test_pipe5(char* cmds[])
+{
+
+	int r;
+	int w;
 	ft_pipe(&r, &w);
-	pe2((char*)p->content, prev_r, w, r);
-	pe(p->next, r);
-}
+	if (ft_fork() == 0)
+	{
+		redirect(r, STDIN_FILENO);
+		close_fd(w); // just for safety
+		exec_ve2("/usr/bin/sort");
+	}
+	redirect(w, STDOUT_FILENO);
+	close_fd(r); // just for safety
+	exec_ve2("/bin/ls -l");
 
-void test_pipe7()
-{
-	//t_list* p = pipe_parse("/bin/ls|/usr/bin/sort|/bin/cat -e");
-	t_list* p = pipe_parse("/bin/ls | /bin/cat -e | /usr/bin/sort");
-	pe(p, STDIN_FILENO);
-	pipe_free(&p);
 }
-
-void test_pipe8()
-{
-	t_list* p = pipe_parse("/bin/echo 1 2 3 | /usr/bin/wc");
-	pe(p, STDIN_FILENO);
-	pipe_free(&p);
-}
-
 
 int main(int argc, char** argv, char** envp)
 {
@@ -470,10 +391,16 @@ int main(int argc, char** argv, char** envp)
 	env_from_array(envp);
 	ft_putstr("\n\n\n----------------\n\n\n");
 
-	//	test_pipe();
-		test_pipe8();
-	//test_pipe6();
+
+
+	test_pipe2();
 	ft_exit(0);
+	char** cmds = ft_split3("ls|sort", "|");
+	test_pipe5(cmds);
+	ft_free_null_term_array((void**)cmds);
+	free(cmds);
+	ft_exit(0);
+	//	test_pipe2();
 
 	test(test_pipe_parse, "test_pipe_parse");
 	history();

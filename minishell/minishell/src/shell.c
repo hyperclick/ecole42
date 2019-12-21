@@ -3,7 +3,7 @@
 
 void		ft_exit(int ret_code)
 {
-	ft_putstr("arevuar\n");
+	debug_printf("exit process (%d)\n", ret_code);
 	reset_keypress();
 	//free_folders();
 	env_free();
@@ -12,7 +12,7 @@ void		ft_exit(int ret_code)
 	{
 		kill(get_awaited_process(), SIGABRT);
 	}
-	//close_out_stream();
+	close_out_stream();
 	exit(ret_code);
 }
 
@@ -57,6 +57,60 @@ void		cd(int argc, char* const argv[])
 	//ft_strcpy(old_work_dir, folder);
 }
 
+
+
+pid_t g_awaited_process = 0;
+pid_t get_awaited_process()
+{
+	return (g_awaited_process);
+}
+
+void set_awaited_process(pid_t pid)
+{
+	debug_printf("change g_awaited_process from %d to %d\n", g_awaited_process, pid);
+	if ((g_awaited_process != 0 && pid != 0) || g_awaited_process == pid)
+	{
+		exit(1);
+	}
+	g_awaited_process = pid;
+}
+
+void		wait_child(pid_t pid)
+{
+	int status;
+	// the parent process calls waitpid() on the child 
+	// waitpid() system call suspends execution of  
+	// calling process until a child specified by pid 
+	// argument has changed state 
+	debug_printf("wait %d to stop\n", pid);
+	if (waitpid(pid, &status, 0) > 0)
+	{
+		if (WIFEXITED(status) && !WEXITSTATUS(status))
+		{
+			//	printf("program execution successfull\n");
+		}
+		else if (WIFEXITED(status) && WEXITSTATUS(status))
+		{
+			if (WEXITSTATUS(status) == 127)
+			{
+				// execv failed 
+				printf("execv failed\n");
+			}
+			else
+				debug_printf("program terminated normally,"
+					" but returned a non-zero status\n");
+		}
+		else
+			debug_printf("child program didn't terminate normally\n");
+	}
+	else
+	{
+		// waitpid() failed 
+		printf("waitpid() failed\n");
+	}
+	debug_printf("waitpid(%d) returned\n", pid);
+}
+
 char* remove_comment(char* str)
 {
 	//debug_printf("str = %s\n", str);
@@ -90,7 +144,7 @@ void		ft_default_sig_handler(int signum)
 {
 	if (signum == SIGINT)
 	{
-		if (get_awaited_process()!=0)
+		if (get_awaited_process() != 0)
 		{
 			kill(get_awaited_process(), signum);
 			ft_putchar('\n');
@@ -109,13 +163,13 @@ void		ft_default_sig_handler(int signum)
 	ft_exit(1);
 }
 
-void		unquote(char *a[])
+void		unquote(char* a[])
 {
 	while (*a != NULL)
 	{
 		char* tmp = *a;
 		*a = ft_strtrim2(*a, "\"'");
-		free((char*) tmp);
+		free((char*)tmp);
 		a++;
 	}
 }
@@ -189,7 +243,7 @@ int	process_command(const char* str)
 	{
 		ft_e_putstr("minishell: syntax error near unexpected token `;'\n");
 		debug_printf("minishell: syntax error near unexpected token `;'\n");
-		free(no_comments); 
+		free(no_comments);
 		return (1);
 	}
 	char* commands[count + 1];

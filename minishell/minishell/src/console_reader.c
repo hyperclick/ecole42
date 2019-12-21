@@ -6,11 +6,7 @@ static struct termios stored_settings;
 static int g_buf_len;
 static char g_buffer[PATH_MAX];
 static int g_x;
-typedef struct s_input
-{
-
-}	t_input;
-
+static BOOL g_set = FALSE;
 void set_keypress(void)
 {
 	struct termios new_settings;
@@ -24,12 +20,17 @@ void set_keypress(void)
 	new_settings.c_cc[VMIN] = 1;
 
 	tcsetattr(0, TCSANOW, &new_settings);
+	g_set = TRUE;
 	return;
 }
 
 void reset_keypress(void)
 {
-	tcsetattr(STDIN_FILENO, TCSANOW, &stored_settings);
+	if (g_set)
+	{
+		tcsetattr(STDIN_FILENO, TCSANOW, &stored_settings);
+		g_set = FALSE;
+	}
 }
 
 void move_cursor_left(int x)

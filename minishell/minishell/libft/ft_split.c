@@ -96,3 +96,8 @@ char** ft_split2(const char* str, int count, const char* sep)
 	}
 	return (r);
 }
+
+char** ft_split3(const char* str, const char* sep)
+{
+	return(ft_split2(str, ft_count_words(str, sep), sep));
+}

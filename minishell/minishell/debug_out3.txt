@@ -1,0 +1,30 @@
+dbg:	[main]	level set to 1
+dbg:	[main]	started
+dbg:	[main]	pipe_parse(/bin/echo 1 2 3 | /bin/wc)
+dbg:	[main]	cmd[0] = '/bin/echo 1 2 3 '
+dbg:	[main]	new pipe: r=4, w=5
+dbg:	[main]	fork
+dbg:	[main]	waiting 0 > /bin/echo 1 2 3 > 5 to finish
+dbg:	[main]	wait 8807 to stop
+ dbg:	[/bin/echo 1 2 3]	redirect: 0->0
+ dbg:	[/bin/echo 1 2 3]	redirect: 1->5
+ dbg:	[/bin/echo 1 2 3]	close(4)
+ dbg:	[/bin/echo 1 2 3]	exec(/bin/echo)
+dbg:	[main]	waitpid(8807) returned
+dbg:	[main]	/bin/echo 1 2 3 finished
+dbg:	[main]	close(5)
+dbg:	[main]	fork
+dbg:	[main]	waiting 4 > /bin/wc > 1 to finish
+dbg:	[main]	wait 8808 to stop
+  dbg:	[/bin/wc]	redirect: 0->4
+  dbg:	[/bin/wc]	redirect: 1->1
+  dbg:	[/bin/wc]	close(-1)
+  dbg:	[/bin/wc]	exec(/bin/wc)
+  dbg:	[/bin/wc]	exit process (1)
+dbg:	[main]	program terminated normally, but returned a non-zero status
+dbg:	[main]	waitpid(8808) returned
+dbg:	[main]	/bin/wc finished
+dbg:	[main]	close(1)
+dbg:	[main]	free item: '/bin/echo 1 2 3' (0x7fffd44de330)
+dbg:	[main]	free item: '/bin/wc' (0x7fffd44de370)
+dbg:	[main]	exit process (0)
