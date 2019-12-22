@@ -3,7 +3,7 @@
 int main(int argc, char** argv, char** envp)
 {
 
-	set_out_file("debug_out.txt", "w");
+	set_out_file("debug_out4.txt", "w");
 	set_level(1);
 	debug_printf("%s\n", "started");
 	debug_printf("agrc = %d\n", argc);

@@ -215,9 +215,9 @@ int		process_one_command(char* cmd)
 
 int	process_command(const char* str)
 {
-	debug_printf("");
-	debug_printf("-----------------------");
-	debug_printf("entered: '%s'\n", str);
+	debug_printf("\n");
+	debug_printf("-----------------------\n");
+	debug_printf("process command: '%s'\n", str);
 	char* trimmed = ft_strtrim2(str, "\t ");
 
 	if (ft_str_is_empty(trimmed))

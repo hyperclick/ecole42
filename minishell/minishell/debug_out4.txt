@@ -1,0 +1,4 @@
+dbg:	[main]	level set to 1
+dbg:	[main]	started
+dbg:	[main]	agrc = 1
+dbg:	[main]	agrv[1] = (null)

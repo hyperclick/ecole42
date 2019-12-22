@@ -449,6 +449,26 @@ void test_pipe8()
 	pipe_free(&p);
 }
 
+void test_pipe9()
+{
+	process_command("setenv | sort");
+	process_command("\"setenv\" | \"sort\"");
+	return;
+	process_command("echo \"No dollar character\" 1 > &2 | cat -e");
+	process_command("cat <<src");
+	process_command("cat <<src | rev");
+	process_command(" cat < out.txt <<src | rev");
+	process_command("cat <out.txt | rev");
+	process_command("cat <<src <out.txt | rev");
+	process_command("ls | cat -e");
+	process_command("ls | sort | cat -e");
+	process_command("rm -rf t; mkdir t ; cd t ; ls -a ; ls | cat | wc -c > fifi ; cat fifi");
+	process_command("base64 /dev/urandom | head -c1000 | grep 42 | wc -l | sed -e 's/1/Yes/g' -e 's/0/No/g'");
+	process_command("echo \"Testing redirections, \" > /tmp/test.txt; cat -e /tmp/test.txt");
+	process_command("echo \"with multiple lines \" >> /tmp/test.txt; cat -e /tmp/test.txt");
+	process_command("wc -c < /tmp/test.txt");
+	process_command("rmdir \"dir with spaces\"; mkdir \"dir with spaces\"");
+}
 
 int main(int argc, char** argv, char** envp)
 {
@@ -471,7 +491,7 @@ int main(int argc, char** argv, char** envp)
 	ft_putstr("\n\n\n----------------\n\n\n");
 
 	//	test_pipe();
-		test_pipe8();
+		test_pipe9();
 	//test_pipe6();
 	ft_exit(0);
 
