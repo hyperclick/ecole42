@@ -52,28 +52,37 @@ void pipe_exec2(t_list* p)
 	ft_exit(0);
 }
 
-
-void pipe_exec(t_list* pipe)
+void pe2(const char* cmd, int r, int w, int to_close)
 {
-	pid_t pid;
-	pid = 0;
-	pid = fork();
-	if (pid == -1)
-	{
-		// pid == -1 means error occured
-		ft_e_putstr("can't fork, error occured\n");
-		ft_exit(EXIT_FAILURE);
-	}
+	int pid = ft_fork();
 	if (is_child(pid))
 	{
-		pipe_exec2(pipe);
-		debug_printf("should not be here!\n");
-		exit(1);
+		debug_set_pname(cmd);
+		redirect(r, STDIN_FILENO);
+		redirect(w, STDOUT_FILENO);
+		close_fd(to_close);
+		//exec_ve2(cmd);
+		exec(cmd);
 	}
-	pipe_free(&pipe);
-
-	set_awaited_process(pid);
-	//debug_printf();
+	debug_printf("waiting %d > %s > %d to finish\n", r, cmd, w);
 	wait_child(pid);
-	set_awaited_process(0);
+	debug_printf("%s finished\n", cmd);
+	if (w!=STDOUT_FILENO)
+	{
+		close_fd(w);
+	}
+}
+
+void pipe_exec(t_list* p, int prev_r)
+{
+	if (p->next == NULL)
+	{
+		pe2((char*)p->content, prev_r, STDOUT_FILENO, -1);
+		return;
+	}
+	int r, w;
+	ft_pipe(&r, &w);
+	pe2((char*)p->content, prev_r, w, r);
+	pipe_exec(p->next, r);
+	pipe_free(&p);
 }

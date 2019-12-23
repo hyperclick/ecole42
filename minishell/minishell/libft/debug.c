@@ -30,7 +30,7 @@ void		set_out_stream(FILE* stream)
 	if (main_pid == -1)
 	{
 		main_pid = getpid();
-		ft_strcpy(p_name,"main");
+		ft_strcpy(p_name, "main");
 	}
 	output_stream = stream;
 	//debug_printf("level set to %d\n", g_level);
@@ -49,7 +49,7 @@ void		set_out_file(const char* filename, const char* mode)
 
 void debug_set_pname(const char name[])
 {
-	ft_strcpy(p_name,name);
+	ft_strcpy(p_name, name);
 }
 
 void print_prefix()
@@ -89,4 +89,21 @@ void	debug_print_zt_array(const char* a[])
 		++a;
 	}
 	fprintf(output_stream, "\n");
+}
+
+void debug_print_dic(t_list* dic)
+{
+	t_kvp** kvps;
+	t_kvp** kvps_start;
+	debug_printf("dic count = %d\n", dic_get_count(dic));
+	kvps = dic_get_kvps(dic);
+	kvps_start = kvps;
+	//	debug_printf("kvps = %p\n", kvps);
+	while (*kvps != NULL)
+	{
+		debug_printf("'%s'\t->\t'%s'\n", (*kvps)->key, (char*)(*kvps)->value);
+		++(kvps);
+	}
+	free(kvps_start);
+	//ft_free_null_term_array((voi));
 }

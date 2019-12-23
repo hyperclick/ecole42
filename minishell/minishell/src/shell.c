@@ -7,6 +7,7 @@ void		ft_exit(int ret_code)
 	reset_keypress();
 	//free_folders();
 	env_free();
+	free_quoted_params();
 	h_free();
 	if (get_awaited_process() != 0)
 	{
@@ -187,29 +188,8 @@ int		process_one_command(char* cmd)
 		return (1);
 	}
 
-	int	c;
-	c = ft_count_words(trimmed, " \t");
-	char* args[c + 1];
-	args[c] = NULL;
-	ft_split(args, trimmed, c, " \t");
-	free(trimmed);
+	pipe_exec(pipe_parse(trimmed), STDIN_FILENO);
 
-	unquote(args);
-
-	char* replaced_args[c + 1];
-	replaced_args[c] = NULL;
-	env_replace_vars(replaced_args, (const char**)args);
-	ft_free_array((void**)args, c);
-	debug_printf("args = '%s' '%s'\n", replaced_args[0], replaced_args[1]);
-	//ft_str_remove_empty_strings(replaced_args)
-	if (!built_in_processed(replaced_args, c))
-	{
-		exec2(replaced_args);
-	}
-	//ft_putstr("free args before end loop\n");
-	ft_free_array((void**)replaced_args, c);
-	//free(args);
-	//debug_printf("command processed: '%s'\n\n", str);
 	return (0);
 }
 
@@ -218,7 +198,12 @@ int	process_command(const char* str)
 	debug_printf("\n");
 	debug_printf("-----------------------\n");
 	debug_printf("process command: '%s'\n", str);
-	char* trimmed = ft_strtrim2(str, "\t ");
+
+	char *str2 = replace_quoted(str);
+	debug_printf("quotes replaced: '%s'\n", str2);
+	
+	char* trimmed = ft_strtrim2(str2, "\t ");
+	free(str2);
 
 	if (ft_str_is_empty(trimmed))
 	{
@@ -268,4 +253,41 @@ int	process_command(const char* str)
 	debug_printf("-------------------------\n");
 	debug_printf("\n");
 	return (0);
+}
+
+
+void exec(const char *str)
+{
+
+	char** args;
+	args = ft_split3(str, " \t");
+	//free(str);
+
+	int c = ft_count_null_term_array((void*)args);
+	char* replaced_args[c + 1];
+	replaced_args[c] = NULL;
+	env_replace_vars(replaced_args, (const char**)args);
+	ft_free_null_term_array((void**)args);
+
+
+	//parse heredoc
+	//parse redirections
+
+	//unquote(replaced_args);
+	//debug_printf("before replace\n");
+	//debug_print_zt_array((const char**)replaced_args);
+	replace_back(replaced_args);
+	free_quoted_params();
+	debug_printf("after replace\n");
+	debug_print_zt_array((const char**)replaced_args);
+	//ft_str_remove_empty_strings(replaced_args)
+	if (!built_in_processed(replaced_args, c))
+	{
+		exec2(replaced_args);
+	}
+	//ft_putstr("free args before end loop\n");
+	ft_free_array((void**)replaced_args, c);
+	//free(args);
+	//debug_printf("command processed: '%s'\n\n", str);
+	ft_exit(0);
 }

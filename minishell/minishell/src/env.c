@@ -33,7 +33,7 @@ char** env_replace_vars(char** r, const char** a)
 			char* value = env_get_value((*a + 1));
 			if (value != NULL)
 			{
-*r = ft_strdup(value);
+				*r = ft_strdup(value);
 			}
 			else
 			{

@@ -63,21 +63,51 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void		ft_lst_insert_after(t_list* node, t_list* new);
 void		ft_lst_insert_sorted(t_list** list, t_list* new, BOOL(grater_than)(t_list* a, t_list* b));
-
 void		ft_lst_remove_sorted(t_list** list, t_list* to_remove
 	, BOOL(equal)(t_list* a, t_list* b)
 	, void (*free_content)(void*, size_t));
 
+
+typedef struct	s_key_value_pair
+{
+	char			*key;
+	void			*value;
+}				t_kvp;
+BOOL dic_is_empty(t_list* dic);
+int dic_get_count(t_list* dic);
+//t_kvp* get_kvp(t_list* n);
+t_list* dic_find(t_list* dic, const char* key);
+BOOL dic_contains_key(t_list* dic, const char* key);
+BOOL ft_str_greater_than(const char* a, const char* b);
+t_list* dic_add(t_list* dic, const char* key, const char* value);
+void dic_free(t_list** dic);
+t_list* dic_remove(t_list* dic, const char* key);
+void dic_replace(t_list* dic, const char* key, const char* value);
+const char* dic_get_value(t_list* dic, const char* key);
+char		**dic_get_keys(t_list* dic);
+t_kvp	**dic_get_kvps(t_list* dic);
+
 void		close_fd(int fd);
 void redirect(int from, int to);
 
+
+void assert_is_null(void* p);
+void assert_is_not_null(void* p);
+void assert_true(BOOL b);
+void assert_false(BOOL b);
+void assert_int_equals(int e, int a);
+void assert_str_equals(const char* e, const char* a);
+
+int	int_lg(int n);
 void		close_out_stream();
 void		set_out_stream(FILE* stream);
 void		set_out_file(const char* filename, const char* mode);
 void		set_level(int level);
-void debug_set_pname(const char name[]);
+void		debug_set_pname(const char name[]);
 void			debug_printf(const char* str, ...);
 void		debug_print_zt_array(const char* a[]);
+void debug_print_dic(t_list* dic);
+
 void			ft_e_putstr(const char* str);
 BOOL			ft_ends_with(const char *str, const char c);
 int			ft_last_index(const char *str, const char to_find);

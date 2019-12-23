@@ -67,7 +67,10 @@ BOOL		try_execute(char* filename, char* argv[])
 			debug_printf("%s: command found but has no exec rigths\n", filename);
 			return (TRUE);
 		}
-		fork_and_exec(argv);
+		//fork_and_exec(argv);
+		exec_ve(argv);
+		ft_e_putstr("execve succeeded\n");
+		ft_exit(2);
 		return (TRUE);
 	}
 	return (FALSE);

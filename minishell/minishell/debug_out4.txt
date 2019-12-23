@@ -1,4 +1,42 @@
-dbg:	[main]	level set to 1
-dbg:	[main]	started
-dbg:	[main]	agrc = 1
-dbg:	[main]	agrv[1] = (null)
+[main]	level set to 1
+[main]	started
+[main]	
+[main]	-----------------------
+[main]	process command: 'setenv | sort'
+[main]	dic count = 0
+[main]	quotes replaced: 'setenv | sort'
+[main]	trimmed = setenv | sort
+[main]	no comments = setenv | sort
+[main]	cmd: 'setenv | sort'
+[main]	pipe_parse(setenv | sort)
+[main]	cmd[0] = 'setenv '
+[main]	new pipe: r=4, w=5
+[main]	fork
+[main]	waiting 0 > setenv > 5 to finish
+[main]	wait 18124 to stop
+ [setenv]	redirect: 0->0
+ [setenv]	redirect: 1->5
+ [setenv]	close(4)
+ [setenv]	after replace
+'setenv'	
+ [setenv]	exit process (0)
+[main]	waitpid(18124) returned
+[main]	setenv finished
+[main]	close(5)
+[main]	fork
+[main]	waiting 4 > sort > 1 to finish
+[main]	wait 18125 to stop
+  [sort]	redirect: 0->4
+  [sort]	redirect: 1->1
+  [sort]	close(-1)
+  [sort]	after replace
+'sort'	
+  [sort]	exec(/usr/bin/sort)
+[main]	waitpid(18125) returned
+[main]	sort finished
+[main]	free item: 'setenv' (0x7fffdc4f53a0)
+[main]	free item: 'sort' (0x7fffdc4f5340)
+[main]	command processed: 'setenv | sort'
+[main]	-------------------------
+[main]	
+[main]	exit process (0)

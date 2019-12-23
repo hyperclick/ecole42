@@ -2,22 +2,7 @@
 #include "../src/minishell.h"
 #include <stdio.h>
 //#include <copyfile.h>
-
-void  test_pipe()
-{
-	//pipe_exec(pipe_parse("sort"));
-	//return;
-	pipe_exec(pipe_parse("ls | sort"));
-	debug_printf("test_pipe OK\n");
-	return;
-	pipe_exec(pipe_parse("ls"));
-	ft_putstr("\n");
-	pipe_exec(pipe_parse("ls | cat -e"));
-	ft_putstr("\n");
-	pipe_exec(pipe_parse("ls | cat -e | sort"));
-	ft_putstr("\n");
-}
-
+ 
 void test_pipe_parse()
 {
 	t_list* pipe = pipe_parse("ls -l | sort | cat -e");
@@ -49,8 +34,8 @@ void test_pipe_parse()
 	}
 	printf("pipe_parse: OK\n");
 
-	pipe_exec(pipe);
-	//pipe_free(&pipe);
+	//pipe_exec(pipe);
+	pipe_free(&pipe);
 }
 //
 //void test_pipe_exec()
@@ -404,56 +389,89 @@ void test_pipe6()
 	exec_read("/usr/bin/sort", r, w);
 }
 
-void pe2(const char* cmd, int r, int w, int to_close)
-{
-	int pid = ft_fork();
-	if (is_child(pid))
-	{
-		debug_set_pname(cmd);
-		redirect(r, STDIN_FILENO);
-		redirect(w, STDOUT_FILENO);
-		close_fd(to_close);
-		exec_ve2(cmd);
-	}
-	debug_printf("waiting %d > %s > %d to finish\n", r, cmd, w);
-	wait_child(pid);
-	debug_printf("%s finished\n", cmd);
-	close_fd(w);
-}
-
-void pe(t_list *p, int prev_r)
-{
-	if (p->next == NULL)
-	{
-		pe2((char*)p->content, prev_r, STDOUT_FILENO, -1);
-		return;
-	}
-	int r, w;
-	ft_pipe(&r, &w);
-	pe2((char*)p->content, prev_r, w, r);
-	pe(p->next, r);
-}
 
 void test_pipe7()
 {
 	//t_list* p = pipe_parse("/bin/ls|/usr/bin/sort|/bin/cat -e");
-	t_list* p = pipe_parse("/bin/ls | /bin/cat -e | /usr/bin/sort");
-	pe(p, STDIN_FILENO);
-	pipe_free(&p);
+	pipe_exec(pipe_parse("/bin/ls | /bin/cat -e | /usr/bin/sort"), STDIN_FILENO);
 }
 
 void test_pipe8()
 {
-	t_list* p = pipe_parse("/bin/echo 1 2 3 | /usr/bin/wc");
-	pe(p, STDIN_FILENO);
-	pipe_free(&p);
+	pipe_exec(pipe_parse("/bin/echo 1 2 3 | /usr/bin/wc"), STDIN_FILENO);
 }
+
+//void test_replace_quotes()
+//{
+//	char* str = replace_quotes("   \"   \"   \"\"");
+//	if (!ft_str_equals(str, "   #quoted_param_1#   #quoted_param_2#"))
+//	{
+//		printf("expected: %s actual: %s\n","   #quoted_param_1#   #quoted_param_2#",str);
+//		exit(1);
+//	}
+//	char* str2 = replace_quotes_back("#quoted_param_2# #quoted_param_1# #quoted_param_2#");
+//	if (!ft_str_equals(str2, "\"\" \"   \" \"\""))
+//	{
+//		printf("expected: %s actual: %s\n", "\"\" \"   \" \"\"",str2);
+//		exit(1);
+//	}
+//}
+
+void dic()
+{
+	t_list* dic = NULL;
+	assert_true(dic_is_empty(dic));
+	assert_int_equals(0, dic_get_count(dic));
+	dic_free(&dic);
+	assert_false(dic_contains_key(dic, ""));
+	assert_false(dic_contains_key(dic, NULL));
+	dic = dic_add(dic, "key2", "value2");
+	assert_int_equals(1, dic_get_count(dic));
+
+	dic = dic_add(dic, "key1", "value1");
+	assert_int_equals(2, dic_get_count(dic));
+	assert_true(dic_contains_key(dic, "key2"));
+
+	assert_str_equals("value2", dic_get_value(dic, "key2"));
+	dic_replace(dic, "key2", "value_2");
+	assert_str_equals("value_2", dic_get_value(dic, "key2"));
+
+	assert_true(dic_contains_key(dic, "key1"));
+	assert_str_equals("value1", dic_get_value(dic, "key1"));
+	dic_replace(dic, "key1", "value_1");
+	assert_str_equals("value_1", dic_get_value(dic, "key1"));
+	dic = dic_remove(dic, "key1");
+	assert_int_equals(1, dic_get_count(dic));
+	assert_false(dic_contains_key(dic, "key1"));
+	assert_true(dic_contains_key(dic, "key2"));
+
+
+	dic_free(&dic);
+	assert_is_null(dic);
+	assert_true(dic_is_empty(dic));
+	assert_int_equals(0, dic_get_count(dic));
+
+	printf("dic: OK\n");
+}
+
+
+void test_lg()
+{
+	assert_int_equals(0, int_lg(1));
+	assert_int_equals(1, int_lg(10));
+	assert_int_equals(1, int_lg(19));
+	assert_int_equals(2, int_lg(100));
+	printf("int_lg: OK\n");
+}
+
+
 
 void test_pipe9()
 {
 	process_command("setenv | sort");
-	process_command("\"setenv\" | \"sort\"");
 	return;
+	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\"");
+	process_command("\"setenv\" | \"sort\"");
 	process_command("echo \"No dollar character\" 1 > &2 | cat -e");
 	process_command("cat <<src");
 	process_command("cat <<src | rev");
@@ -467,7 +485,10 @@ void test_pipe9()
 	process_command("echo \"Testing redirections, \" > /tmp/test.txt; cat -e /tmp/test.txt");
 	process_command("echo \"with multiple lines \" >> /tmp/test.txt; cat -e /tmp/test.txt");
 	process_command("wc -c < /tmp/test.txt");
-	process_command("rmdir \"dir with spaces\"; mkdir \"dir with spaces\"");
+
+	process_command("ls | sort");
+	process_command("ls | cat -e");
+	process_command("ls | cat -e | sort");
 }
 
 int main(int argc, char** argv, char** envp)
@@ -483,13 +504,14 @@ int main(int argc, char** argv, char** envp)
 	//	printf("ok\n");
 		//process_command("pwd");
 	//return 0;
-	set_out_file("debug_out3.txt", "w");
+	set_out_file("debug_out4.txt", "w");
 	set_level(1);
 	debug_printf("%s\n", "started");
 	signal(SIGINT, ft_default_sig_handler);
 	env_from_array(envp);
 	ft_putstr("\n\n\n----------------\n\n\n");
-
+	test_lg();
+	dic();
 	//	test_pipe();
 		test_pipe9();
 	//test_pipe6();
