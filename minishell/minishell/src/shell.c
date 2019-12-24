@@ -194,6 +194,8 @@ int		process_one_command(char* cmd)
 	return (0);
 }
 
+char** g_commands = NULL;
+
 int	process_command(const char* str)
 {
 	debug_printf("\n");
@@ -235,6 +237,12 @@ int	process_command(const char* str)
 
 	char** commands = ft_split3(no_comments, ";");
 	free(no_comments);
+	if (g_commands != NULL)
+	{
+		ft_e_putstr("g_commands != NULL\n");
+		exit(1);
+	}
+	g_commands = commands;
 	char** cmds = commands;
 	while (*cmds != NULL)
 	{
@@ -248,6 +256,7 @@ int	process_command(const char* str)
 	
 	free_quoted_params();
 	ft_free_null_term_array((void**)commands);
+	g_commands = NULL;
 
 	debug_printf("command processed: '%s'\n", str);
 	debug_printf("-------------------------\n");
@@ -259,6 +268,8 @@ int	process_command(const char* str)
 
 void exec(char* str)
 {
+	ft_free_null_term_array((void**)g_commands);
+	g_commands = NULL;
 
 	char** args;
 	args = ft_split3(str, " \t");

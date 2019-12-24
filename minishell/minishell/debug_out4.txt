@@ -5,14 +5,14 @@
 [main]	dic_add:	kvp->key = '%paired_quote%2', &kvp->key = 0x52371d0, kvp = 0x5237180
 [main]	
 [main]	-----------------------
-[main]	process command: '"echo 1"'
+[main]	process command: '"cd"'
 [main]	replace_quoted:56: dst = '' (0x52372d0) (0)
-[main]	count = 43, &dst = 0x52372d0, count * sizeof(char) = 43
+[main]	count = 39, &dst = 0x52372d0, count * sizeof(char) = 39
 [main]	add_quote:25: dst = '' (0x52372d0) (0)
 [main]	key = %paired_quote%1 (0x1ffeffffa0) (15)
 [main]	after copy
 [main]	dst = %paired_quote%1 (0x52372d0), key = %paired_quote%1 (0x1ffeffffa0)
-[main]	quote replaced: 'echo 1' -> '%paired_quote%1'
+[main]	quote replaced: 'cd' -> '%paired_quote%1'
 [main]	quotes replaced: '%paired_quote%1'
 [main]	trimmed = %paired_quote%1
 [main]	no comments = %paired_quote%1
@@ -21,20 +21,21 @@
 [main]	cmd[0] = '%paired_quote%1'
 [main]	fork
 [main]	waiting 0 > %paired_quote%1 > 1 to finish
-[main]	wait 22499 to stop
+[main]	wait 22571 to stop
  [%paired_quote%1]	redirect: 0->0
  [%paired_quote%1]	redirect: 1->1
  [%paired_quote%1]	close(-1)
  [%paired_quote%1]	free item: '%paired_quote%1' (0x5237710)
- [%paired_quote%1]	replace %paired_quote%1 -> echo 1
+ [%paired_quote%1]	replace %paired_quote%1 -> cd
  [%paired_quote%1]	after replace
-'echo 1'	
- [%paired_quote%1]	echo 1: command not found
+'cd'	
+ [%paired_quote%1]	exec cd '/home/darugula'
+ [%paired_quote%1]	new curdir = /home/darugula
  [%paired_quote%1]	exit process (0)
-[main]	waitpid(22499) returned
+[main]	waitpid(22571) returned
 [main]	%paired_quote%1 finished
 [main]	free item: '%paired_quote%1' (0x5237710)
-[main]	command processed: '"echo 1"'
+[main]	command processed: '"cd"'
 [main]	-------------------------
 [main]	
 [main]	exit process (0)

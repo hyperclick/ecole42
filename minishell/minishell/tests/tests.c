@@ -490,7 +490,7 @@ void test_lg()
 
 void test_pipe9()
 {
-	process_command("\"echo 1\"");
+	process_command("\"cd\"");
 	//process_command("\"setenv\"");
 	return;
 	process_command("\"setenv\" | \"sort\"");
