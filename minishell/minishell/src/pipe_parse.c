@@ -1,6 +1,6 @@
 ﻿#include "minishell.h"
 
-void pipe_free(t_list* *pipe)
+void pipe_free(t_list **pipe)
 {
 	ft_lst_free(pipe);
 }
@@ -36,7 +36,7 @@ t_list *pipe_parse(const char *str)
 	t_list* list = pipe_parse2((const char**)cmds);
 
 	ft_free_null_term_array((void**)cmds);
-	free(cmds);
+	//free(cmds);
 	return (list);
 }
 

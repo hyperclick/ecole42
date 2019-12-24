@@ -9,20 +9,31 @@ int get_target_len(const char* str)
 {
 	int quotes_count = ft_str_count_chars(str, '\"');
 	int digits_count = int_lg(quotes_count) + 1;
-	int tokens_count = quotes_count / 2 + 1 + digits_count;
-	return (tokens_count);
+	int tokens_count = quotes_count / 2 + 1;
+
+	int tokens_len = ft_strlen(unpaired_quote) + digits_count;
+	return (ft_strlen(str) + tokens_len * tokens_count);
 }
 
 char* add_quote(char* dst, const char* prefix, const char* value)
 {
+	char* itoa;
 	int count = dic_get_count(g_quoted_params) + 1;
-	char key[20];
+	char key[200];
 	ft_strcpy(key, prefix);
-	ft_strcpy(key + ft_strlen(prefix), ft_itoa(count));
+	itoa = ft_itoa(count);
+	ft_strcpy(key + ft_strlen(prefix), itoa);
+	free(itoa);
 	g_quoted_params = dic_add(g_quoted_params, key, value);
-
-	ft_strcpy(dst, key);
-	//debug_printf("quote replaced: '%s'\n", dst);
+	debug_printf("add_quote:25: dst = '%s' (%p) (%d)\n", dst, dst, strlen(dst)); 
+	debug_printf("key = %s (%p) (%d)\n", key, key, strlen(key)); 
+	//debug_print_dic(g_quoted_params); 
+	//ft_strcpy(dst, key);
+	strcpy(dst, key);
+	debug_printf("after copy\n"); 
+	debug_printf("dst = %s (%p), key = %s (%p)\n", dst, dst, key, key); 
+	//debug_print_dic(g_quoted_params);
+	debug_printf("quote replaced: '%s' -> '%s'\n", dic_get_value(g_quoted_params, key), key);
 	return (dst + ft_strlen(key));
 }
 char* add_unpaired_quote(char* dst, const char* value)
@@ -41,7 +52,13 @@ char* replace_quoted(const char* str)
 	char* param_start = param_buffer;
 	char* p = param_buffer;
 	char* dst;
-	dst = (char*)malloc(get_target_len(str) * sizeof(char));
+	int count;
+	count = get_target_len(str) + 1;
+	//dst = (char*)malloc(count * sizeof(char));
+	dst = ft_strnew(count * sizeof(char));
+	dst[count - 1] = 0;
+	debug_printf("replace_quoted:56: dst = '%s' (%p) (%d)\n", dst, dst, strlen(dst));
+	debug_printf("count = %d, &dst = %p, count * sizeof(char) = %d\n", count, dst, count * sizeof(char));
 	char* dst_start = dst;
 	while (*str != 0)
 	{
@@ -65,7 +82,7 @@ char* replace_quoted(const char* str)
 		*dst++ = *str++;
 	}
 	*dst++ = 0;
-	debug_print_dic(g_quoted_params);
+	//debug_print_dic(g_quoted_params);
 	return (dst_start);
 }
 
@@ -87,4 +104,9 @@ void		replace_back(char* a[])
 void		free_quoted_params()
 {
 	dic_free(&g_quoted_params);
+	if (g_quoted_params != NULL)
+	{
+		debug_printf("ERROR\n");
+		exit(1);
+	}
 }

@@ -38,12 +38,14 @@ int		ft_count_null_term_array(void **a)
 void		ft_free_array2(void ***r)
 {
 	ft_free_array(**r, ft_count_null_term_array(**r));
+	free(*r);
 	*r = NULL;
 }
 
 void		ft_free_null_term_array(void **a)
 {
 	ft_free_array(a, ft_count_null_term_array(a));
+	free(a);
 }
 
 char		**ft_split(char **r, const char *str, int count, const char *sep)

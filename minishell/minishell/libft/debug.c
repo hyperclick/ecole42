@@ -95,13 +95,20 @@ void debug_print_dic(t_list* dic)
 {
 	t_kvp** kvps;
 	t_kvp** kvps_start;
-	debug_printf("dic count = %d\n", dic_get_count(dic));
+	int count;
+
+	count = dic_get_count(dic);
+	debug_printf("dic count = %d\n", count);
+	if (count == 0)
+	{
+		return;
+	}
 	kvps = dic_get_kvps(dic);
 	kvps_start = kvps;
 	//	debug_printf("kvps = %p\n", kvps);
 	while (*kvps != NULL)
 	{
-		debug_printf("'%s'\t->\t'%s'\n", (*kvps)->key, (char*)(*kvps)->value);
+		debug_printf("'%s' (%p)\t->\t'%s'\t(%p)\n", (*kvps)->key, (*kvps)->key, (char*)(*kvps)->value, *kvps);
 		++(kvps);
 	}
 	free(kvps_start);

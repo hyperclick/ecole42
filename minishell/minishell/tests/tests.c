@@ -393,12 +393,12 @@ void test_pipe6()
 void test_pipe7()
 {
 	//t_list* p = pipe_parse("/bin/ls|/usr/bin/sort|/bin/cat -e");
-	pipe_exec(pipe_parse("/bin/ls | /bin/cat -e | /usr/bin/sort"), STDIN_FILENO);
+	pipe_exec("/bin/ls | /bin/cat -e | /usr/bin/sort");
 }
 
 void test_pipe8()
 {
-	pipe_exec(pipe_parse("/bin/echo 1 2 3 | /usr/bin/wc"), STDIN_FILENO);
+	pipe_exec("/bin/echo 1 2 3 | /usr/bin/wc");
 }
 
 //void test_replace_quotes()
@@ -426,9 +426,20 @@ void dic()
 	assert_false(dic_contains_key(dic, ""));
 	assert_false(dic_contains_key(dic, NULL));
 	dic = dic_add(dic, "key2", "value2");
+
+	 
+
+
+
 	assert_int_equals(1, dic_get_count(dic));
 
 	dic = dic_add(dic, "key1", "value1");
+
+
+	//dic_free(&dic);
+	//ft_exit(1);
+	
+	
 	assert_int_equals(2, dic_get_count(dic));
 	assert_true(dic_contains_key(dic, "key2"));
 
@@ -451,7 +462,18 @@ void dic()
 	assert_true(dic_is_empty(dic));
 	assert_int_equals(0, dic_get_count(dic));
 
+
+	dic = dic_add(dic, "%paired_quote%1", "setenv");
+	dic = dic_add(dic, "%paired_quote%2", "sort");
+
+	dic_free(&dic);
+	dic = dic_add(dic, "%paired_quote%1", "dir  with  spaces");
+	dic = dic_add(dic, "%paired_quote%2", "mkdir");
+	assert_true(dic_contains_key(dic, "%paired_quote%2"));
+
+	dic_free(&dic);
 	printf("dic: OK\n");
+	//ft_exit(1);
 }
 
 
@@ -468,10 +490,16 @@ void test_lg()
 
 void test_pipe9()
 {
-	process_command("setenv | sort");
+	process_command("\"echo 1\"");
+	//process_command("\"setenv\"");
 	return;
-	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\"");
 	process_command("\"setenv\" | \"sort\"");
+	process_command("\"setenv\" | \"sort\"");
+	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\"");
+	process_command("ls | cat -e | sort");
+	process_command("ls | sort");
+	process_command("ls | cat -e");
+	process_command("setenv | sort");
 	process_command("echo \"No dollar character\" 1 > &2 | cat -e");
 	process_command("cat <<src");
 	process_command("cat <<src | rev");
@@ -486,9 +514,6 @@ void test_pipe9()
 	process_command("echo \"with multiple lines \" >> /tmp/test.txt; cat -e /tmp/test.txt");
 	process_command("wc -c < /tmp/test.txt");
 
-	process_command("ls | sort");
-	process_command("ls | cat -e");
-	process_command("ls | cat -e | sort");
 }
 
 int main(int argc, char** argv, char** envp)
@@ -512,6 +537,8 @@ int main(int argc, char** argv, char** envp)
 	ft_putstr("\n\n\n----------------\n\n\n");
 	test_lg();
 	dic();
+
+
 	//	test_pipe();
 		test_pipe9();
 	//test_pipe6();

@@ -43,7 +43,7 @@ char** dic_get_keys(t_list* dic)
 t_kvp** dic_get_kvps(t_list* dic)
 {
 	t_kvp** a_start;
-	t_kvp** a = (t_kvp**) malloc(sizeof(t_kvp*) * dic_get_count(dic) + 1);
+	t_kvp** a = (t_kvp**) malloc(sizeof(t_kvp**) * dic_get_count(dic) + 1);
 	a_start = a;
 	while (dic != NULL)
 	{
@@ -97,13 +97,13 @@ t_list* dic_add(t_list* dic, const char* key, const char* value)
 	kvp = (t_kvp*)malloc(sizeof(t_kvp));
 	kvp->key = ft_strdup(key);
 	kvp->value = ft_strdup(value);
-
 	t_list* n = ft_lst_new(kvp, -1);
 	if (dic == NULL)
 	{
 		return (n);
 	}
 	ft_lst_insert_sorted(&dic, n, t_list_greater_than);
+	debug_printf("dic_add:\tkvp->key = '%s', &kvp->key = %p, kvp = %p\n", kvp->key, kvp->key, kvp);
 	return(dic);
 }
 

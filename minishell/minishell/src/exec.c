@@ -31,7 +31,7 @@ void		exec_ve2(const char* str)
 	exec_ve(args);
 	debug_printf("should not be here\n");
 	ft_free_null_term_array((void**)args);
-	free(args);
+	//free(args);
 }
 
 BOOL		is_child(int pid)
@@ -103,7 +103,7 @@ void		exec2(char* argv[])
 			argv[0] = argv0;
 			ft_free_null_term_array((void**)start);
 			debug_printf("executed: %s\n", path);
-			free(start);
+			//free(start);
 			return;
 		}
 		folders++;
@@ -113,6 +113,6 @@ void		exec2(char* argv[])
 	debug_printf("%s: command not found\n", filename);
 	argv[0] = argv0;
 	ft_free_null_term_array((void**)start);
-	free(start);
+	//free(start);
 	return;
 }

@@ -66,11 +66,12 @@ void pipe_free(t_list** pipe);
 t_list* pipe_parse2(const char** cmds);
 t_list* pipe_parse(const char* str);
 void	ft_pipe(int* r, int* w);
-void pipe_exec(t_list* p, int prev_r);
+void pipe_exec2(t_list* p, int prev_r);
+void pipe_exec(char* str);
 pid_t	ft_fork();
 void		exec_ve(char* argv[]);
 void		exec_ve2(const char* str);
-void exec(const char* str);
+void exec(char* str);
 
 
 char	* replace_quoted(const char* str); 

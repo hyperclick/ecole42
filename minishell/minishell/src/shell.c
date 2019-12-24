@@ -188,7 +188,8 @@ int		process_one_command(char* cmd)
 		return (1);
 	}
 
-	pipe_exec(pipe_parse(trimmed), STDIN_FILENO);
+	pipe_exec(trimmed);
+	//free(trimmed);
 
 	return (0);
 }
@@ -199,9 +200,9 @@ int	process_command(const char* str)
 	debug_printf("-----------------------\n");
 	debug_printf("process command: '%s'\n", str);
 
-	char *str2 = replace_quoted(str);
+	char* str2 = replace_quoted(str);
 	debug_printf("quotes replaced: '%s'\n", str2);
-	
+
 	char* trimmed = ft_strtrim2(str2, "\t ");
 	free(str2);
 
@@ -231,11 +232,10 @@ int	process_command(const char* str)
 		free(no_comments);
 		return (1);
 	}
-	char* commands[count + 1];
-	commands[count] = NULL;
-	ft_split(commands, no_comments, count, ";");
-	char** cmds = commands;
+
+	char** commands = ft_split3(no_comments, ";");
 	free(no_comments);
+	char** cmds = commands;
 	while (*cmds != NULL)
 	{
 		int r = process_one_command(*cmds);
@@ -245,23 +245,24 @@ int	process_command(const char* str)
 		}
 		cmds++;
 	}
-
-
-	ft_free_array((void**)commands, count);
+	
+	free_quoted_params();
+	ft_free_null_term_array((void**)commands);
 
 	debug_printf("command processed: '%s'\n", str);
 	debug_printf("-------------------------\n");
 	debug_printf("\n");
+	//ft_exit(1);
 	return (0);
 }
 
 
-void exec(const char *str)
+void exec(char* str)
 {
 
 	char** args;
 	args = ft_split3(str, " \t");
-	//free(str);
+	free(str);
 
 	int c = ft_count_null_term_array((void*)args);
 	char* replaced_args[c + 1];
@@ -277,7 +278,7 @@ void exec(const char *str)
 	//debug_printf("before replace\n");
 	//debug_print_zt_array((const char**)replaced_args);
 	replace_back(replaced_args);
-	free_quoted_params();
+	//free_quoted_params();
 	debug_printf("after replace\n");
 	debug_print_zt_array((const char**)replaced_args);
 	//ft_str_remove_empty_strings(replaced_args)
