@@ -1,6 +1,5 @@
 ﻿#include "minishell.h"
 
-
 void		ft_exit(int ret_code)
 {
 	debug_printf("exit process (%d)\n", ret_code);
@@ -15,6 +14,21 @@ void		ft_exit(int ret_code)
 	}
 	close_out_stream();
 	exit(ret_code);
+}
+
+void		init(int argc, char** argv, char** envp)
+{
+	save_stdin();
+	save_stdout();
+	set_out_file("debug_out4.txt", "w");
+	set_level(1);
+	debug_printf("%s\n", "started");
+	debug_printf("agrc = %d\n", argc);
+	debug_printf("agrv[1] = %s\n", argv[1]);
+	log_line("n\n\n\nstarted\n\n");
+	//parse args
+	signal(SIGINT, ft_default_sig_handler);
+	env_from_array(envp);
 }
 
 
@@ -41,7 +55,9 @@ void		cd(int argc, char* const argv[])
 			ft_e_putstr("-minishell: cd: OLDPWD not set\n");
 			return;
 		}
+		debug_printf("old_work_dir = '%s'\n", old_work_dir);
 		ft_strcpy(folder, old_work_dir);
+		debug_printf("exec cd '%s'\n", folder);
 		ft_putstr(folder);
 		ft_putstr("\n");
 	}
@@ -268,8 +284,8 @@ int	process_command(const char* str)
 
 void exec(char* str)
 {
-	ft_free_null_term_array((void**)g_commands);
-	g_commands = NULL;
+	///ft_free_null_term_array((void**)g_commands);
+	///g_commands = NULL;
 
 	char** args;
 	args = ft_split3(str, " \t");
@@ -297,9 +313,6 @@ void exec(char* str)
 	{
 		exec2(replaced_args);
 	}
-	//ft_putstr("free args before end loop\n");
-	ft_free_array((void**)replaced_args, c);
-	//free(args);
-	//debug_printf("command processed: '%s'\n\n", str);
-	ft_exit(0);
+	///ft_free_array((void**)replaced_args, c);
+	///ft_exit(0);
 }

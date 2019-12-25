@@ -1,41 +1,31 @@
 [main]	level set to 1
 [main]	started
-[main]	dic_add:	kvp->key = 'key1', &kvp->key = 0x5236be0, kvp = 0x5236b90
-[main]	dic_add:	kvp->key = '%paired_quote%2', &kvp->key = 0x5236f20, kvp = 0x5236ed0
-[main]	dic_add:	kvp->key = '%paired_quote%2', &kvp->key = 0x52371d0, kvp = 0x5237180
+[main]	agrc = 1
+[main]	agrv[1] = (null)
 [main]	
 [main]	-----------------------
-[main]	process command: '"cd"'
-[main]	replace_quoted:56: dst = '' (0x52372d0) (0)
-[main]	count = 39, &dst = 0x52372d0, count * sizeof(char) = 39
-[main]	add_quote:25: dst = '' (0x52372d0) (0)
-[main]	key = %paired_quote%1 (0x1ffeffffa0) (15)
-[main]	after copy
-[main]	dst = %paired_quote%1 (0x52372d0), key = %paired_quote%1 (0x1ffeffffa0)
-[main]	quote replaced: 'cd' -> '%paired_quote%1'
-[main]	quotes replaced: '%paired_quote%1'
-[main]	trimmed = %paired_quote%1
-[main]	no comments = %paired_quote%1
-[main]	cmd: '%paired_quote%1'
-[main]	pipe_parse(%paired_quote%1)
-[main]	cmd[0] = '%paired_quote%1'
+[main]	process command: 'pwd'
+[main]	quotes replaced: 'pwd'
+[main]	trimmed = pwd
+[main]	no comments = pwd
+[main]	cmd: 'pwd'
+[main]	pipe_parse(pwd)
+[main]	cmd[0] = 'pwd'
+[main]	redirect: 0->0
+[main]	redirect: 1->1
+[main]	close(-1)
+[main]	after replace
+'pwd'	
 [main]	fork
-[main]	waiting 0 > %paired_quote%1 > 1 to finish
-[main]	wait 22571 to stop
- [%paired_quote%1]	redirect: 0->0
- [%paired_quote%1]	redirect: 1->1
- [%paired_quote%1]	close(-1)
- [%paired_quote%1]	free item: '%paired_quote%1' (0x5237710)
- [%paired_quote%1]	replace %paired_quote%1 -> cd
- [%paired_quote%1]	after replace
-'cd'	
- [%paired_quote%1]	exec cd '/home/darugula'
- [%paired_quote%1]	new curdir = /home/darugula
- [%paired_quote%1]	exit process (0)
-[main]	waitpid(22571) returned
-[main]	%paired_quote%1 finished
-[main]	free item: '%paired_quote%1' (0x5237710)
-[main]	command processed: '"cd"'
+[main]	waiting /bin/pwd to finish
+[main]	change g_awaited_process from 0 to 26872
+[main]	wait 26872 to stop
+ [/bin/pwd]	exec(/bin/pwd)
+[main]	waitpid(26872) returned
+[main]	change g_awaited_process from 26872 to 0
+[main]	executed: /bin/pwd
+[main]	free item: 'pwd' (0x7fffbfeb6590)
+[main]	command processed: 'pwd'
 [main]	-------------------------
 [main]	
 [main]	exit process (0)

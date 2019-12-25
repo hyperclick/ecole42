@@ -19,30 +19,30 @@ void	ft_pipe(int* r, int* w)
 	log_pipe(*r, *w);
 }
 
-void pe2(char* cmd, int r, int w, int to_close, t_list *p)
+static void pe2(char* cmd, int r, int w, int to_close, t_list *p)
 {
-	int pid = ft_fork();
-	if (is_child(pid))
-	{
-		debug_set_pname(cmd);
+	//int pid = ft_fork();
+	//if (is_child(pid))
+	//{
+		//debug_set_pname(cmd);
 		redirect(r, STDIN_FILENO);
 		redirect(w, STDOUT_FILENO);
 		close_fd(to_close);
-		pipe_free(&p);
-		//exec_ve2(cmd);
+		///pipe_free(&p);
+		(void)p;
 		exec(cmd);
-	}
-	debug_printf("waiting %d > %s > %d to finish\n", r, cmd, w);
-	wait_child(pid);
-	debug_printf("%s finished\n", cmd);
-	free(cmd);
+	//}
+	//debug_printf("waiting %d > %s > %d to finish\n", r, cmd, w);
+	//wait_child(pid);
+	//debug_printf("%s finished\n", cmd);
+	//free(cmd);
 	if (w!=STDOUT_FILENO)
 	{
 		close_fd(w);
 	}
 }
 
-void pipe_exec2(t_list* p, int prev_r)
+static void pipe_exec2(t_list* p, int prev_r)
 {
 	if (p->next == NULL)
 	{

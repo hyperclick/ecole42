@@ -41,7 +41,7 @@ void set_awaited_process(pid_t pid);
 void		wait_child(pid_t  pid);
 
 void		ft_exit(int ret_code);
-
+void		init(int argc, char** argv, char** envp);
 void		cd(int argc, char* const argv[]);
 void		ft_default_sig_handler(int signum);
 void print_prompt();
@@ -66,7 +66,7 @@ void pipe_free(t_list** pipe);
 t_list* pipe_parse2(const char** cmds);
 t_list* pipe_parse(const char* str);
 void	ft_pipe(int* r, int* w);
-void pipe_exec2(t_list* p, int prev_r);
+//void pipe_exec2(t_list* p, int prev_r);
 void pipe_exec(char* str);
 pid_t	ft_fork();
 void		exec_ve(char* argv[]);

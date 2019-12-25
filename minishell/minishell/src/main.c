@@ -2,16 +2,7 @@
 
 int main(int argc, char** argv, char** envp)
 {
-
-	set_out_file("debug_out4.txt", "w");
-	set_level(1);
-	debug_printf("%s\n", "started");
-	debug_printf("agrc = %d\n", argc);
-	debug_printf("agrv[1] = %s\n", argv[1]);
-	log_line("n\n\n\nstarted\n\n");
-	//parse args
-	signal(SIGINT, ft_default_sig_handler);
-	env_from_array(envp);
+	init(argc, argv, envp);
 	//atexit()
 	if (argc > 1)
 	{

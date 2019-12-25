@@ -25,14 +25,9 @@ char* add_quote(char* dst, const char* prefix, const char* value)
 	ft_strcpy(key + ft_strlen(prefix), itoa);
 	free(itoa);
 	g_quoted_params = dic_add(g_quoted_params, key, value);
-	debug_printf("add_quote:25: dst = '%s' (%p) (%d)\n", dst, dst, strlen(dst)); 
-	debug_printf("key = %s (%p) (%d)\n", key, key, strlen(key)); 
-	//debug_print_dic(g_quoted_params); 
-	//ft_strcpy(dst, key);
-	strcpy(dst, key);
-	debug_printf("after copy\n"); 
-	debug_printf("dst = %s (%p), key = %s (%p)\n", dst, dst, key, key); 
-	//debug_print_dic(g_quoted_params);
+
+	ft_strcpy(dst, key);
+
 	debug_printf("quote replaced: '%s' -> '%s'\n", dic_get_value(g_quoted_params, key), key);
 	return (dst + ft_strlen(key));
 }
@@ -57,8 +52,8 @@ char* replace_quoted(const char* str)
 	//dst = (char*)malloc(count * sizeof(char));
 	dst = ft_strnew(count * sizeof(char));
 	dst[count - 1] = 0;
-	debug_printf("replace_quoted:56: dst = '%s' (%p) (%d)\n", dst, dst, strlen(dst));
-	debug_printf("count = %d, &dst = %p, count * sizeof(char) = %d\n", count, dst, count * sizeof(char));
+	//debug_printf("replace_quoted:56: dst = '%s' (%p) (%d)\n", dst, dst, strlen(dst));
+	//debug_printf("count = %d, &dst = %p, count * sizeof(char) = %d\n", count, dst, count * sizeof(char));
 	char* dst_start = dst;
 	while (*str != 0)
 	{

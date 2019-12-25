@@ -32,10 +32,10 @@ void test_pipe_parse()
 		printf("p->next!=NULL\n");
 		exit(1);
 	}
-	printf("pipe_parse: OK\n");
-
 	//pipe_exec(pipe);
 	pipe_free(&pipe);
+	printf("pipe_parse: OK\n");
+
 }
 //
 //void test_pipe_exec()
@@ -300,105 +300,63 @@ void		test(void(*f)(), const char* name)
 	compare_and_free(expected_out, actual_out, ft_strjoin(name, "_out"));
 	compare_and_free(expected_err, actual_err, ft_strjoin(name, "_err"));
 }
-void test_pipe2()
-{
-	//execl("/bin/ls", "-l", NULL);
-	//return;
-	int fd[2];
-	pipe(fd);
-	int r = fd[0];
-	int w = fd[1];
 
-	if (fork() == 0) {
-		dup2(w, STDOUT_FILENO);
-		close(r); // just for safety
-		execl("/bin/ls", "-l", NULL);
-	}
 
-	dup2(r, STDIN_FILENO);
-	close(w); // just for safety
-	execl("/usr/bin/sort", "", NULL);
-}
-
-void redirect_and_exec(int to, int from, const char* cmd, int to_close)
+void pe2(char* cmd, int r, int w, int to_close, t_list* p)
 {
-	redirect(to, from);
-	close_fd(to_close);
-	exec_ve2(cmd);
-}
-void exec_write(const char* cmd, int r, int w)
-{
-	int pid = ft_fork();
-	if (is_child(pid))
+	//int pid = ft_fork();
+	//if (is_child(pid))
+	//{
+	//debug_set_pname(cmd);
+	restore_stdin();
+	restore_stdout();
+	redirect(r, STDIN_FILENO);
+	redirect(w, STDOUT_FILENO);
+	///close_fd(to_close);
+	///pipe_free(&p);
+	(void)p;
+	//exec_ve2(cmd);
+	exec(cmd);
+	//}
+	//debug_printf("waiting %d > %s > %d to finish\n", r, cmd, w);
+	//wait_child(pid);
+	//debug_printf("%s finished\n", cmd);
+	//free(cmd);
+	if (w != STDOUT_FILENO)
 	{
-		debug_set_pname(cmd);
-		redirect_and_exec(w, STDOUT_FILENO, cmd, r);
+		close_fd(w);
 	}
-	debug_printf("waiting %s > %d to finish\n", cmd, w);
-	wait_child(pid);
-	debug_printf("%s finished\n", cmd);
-	close_fd(w);
 }
 
-void exec_read(const char* cmd, int r, int w)
+void pipe_exec2(t_list* p, int prev_r)
 {
-	int pid = ft_fork();
-	if (is_child(pid))
+	if (p->next == NULL)
 	{
-		debug_set_pname(cmd);
-		redirect_and_exec(r, STDIN_FILENO, cmd, w);
+		pe2(ft_strdup((char*)p->content), prev_r, STDOUT_FILENO, -1, p);
+		return;
 	}
-	debug_printf("waiting %s > %d to finish\n", cmd, w);
-	wait_child(pid);
-	debug_printf("%s finished\n", cmd);
-	close_fd(r);
-}
-
-void test_pipe4()
-{
-	int r;
-	int w;
-	ft_pipe(&r, &w);
-	int pid = ft_fork();
-	if (!is_child(pid))
-	{
-		exec_read("/usr/bin/sort", r, w);
-	}
-	else
-	{
-		exec_write("/bin/ls", r, w);
-	}
-
-}
-
-void test_pipe5()
-{
-	int pid = ft_fork();
-	if (is_child(pid))
-	{
-		test_pipe4();
-	}
-	wait_child(pid);
-}
-
-void test_pipe6()
-{
 	int r, w;
 	ft_pipe(&r, &w);
-	exec_write("/bin/ls", r, w);
-	exec_read("/usr/bin/sort", r, w);
+	pe2(ft_strdup((char*)p->content), prev_r, w, r, p);
+	pipe_exec2(p->next, r);
+	debug_printf("pipe_exec finished\n");
 }
 
-
-void test_pipe7()
+void test_pipe_exec(char* str)
 {
-	//t_list* p = pipe_parse("/bin/ls|/usr/bin/sort|/bin/cat -e");
-	pipe_exec("/bin/ls | /bin/cat -e | /usr/bin/sort");
+	t_list* p;
+	p = pipe_parse(str);
+	//free(str);
+	pipe_exec2(p, STDIN_FILENO);
+	pipe_free(&p);
+	restore_stdin();
+	restore_stdout();
 }
-
-void test_pipe8()
+void test_pipe_1()
 {
-	pipe_exec("/bin/echo 1 2 3 | /usr/bin/wc");
+
+	test_pipe_exec("cd ~|pwd");
+	test_pipe_exec("cd -");
 }
 
 //void test_replace_quotes()
@@ -486,13 +444,15 @@ void test_lg()
 	printf("int_lg: OK\n");
 }
 
+void test_set_env()
+{
+	process_command("\"setenv\"");
 
+}
 
 void test_pipe9()
 {
 	process_command("\"cd\"");
-	//process_command("\"setenv\"");
-	return;
 	process_command("\"setenv\" | \"sort\"");
 	process_command("\"setenv\" | \"sort\"");
 	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\"");
@@ -500,6 +460,7 @@ void test_pipe9()
 	process_command("ls | sort");
 	process_command("ls | cat -e");
 	process_command("setenv | sort");
+	return;
 	process_command("echo \"No dollar character\" 1 > &2 | cat -e");
 	process_command("cat <<src");
 	process_command("cat <<src | rev");
@@ -518,37 +479,46 @@ void test_pipe9()
 
 int main(int argc, char** argv, char** envp)
 {
-	////	char name[] = "test_cases/actual/cd_good_out - cannot open.txt";
-	//	char name[] = "test_cases/actual/cd_good_out.txt";
-	//	FILE* a = fopen(name, "r");
-	//	if (a == NULL)
-	//	{
-	//		perror(name);
-	//		exit(1);
-	//	}
-	//	printf("ok\n");
-		//process_command("pwd");
-	//return 0;
+	/*
 	set_out_file("debug_out4.txt", "w");
 	set_level(1);
 	debug_printf("%s\n", "started");
 	signal(SIGINT, ft_default_sig_handler);
 	env_from_array(envp);
 	ft_putstr("\n\n\n----------------\n\n\n");
-	test_lg();
-	dic();
+	*/
+	init(argc, argv, envp);
 
-
-	//	test_pipe();
-		test_pipe9();
-	//test_pipe6();
+	process_command("pwd");
+	ft_exit(0);
+	test_pipe_1();
 	ft_exit(0);
 
-	test(test_pipe_parse, "test_pipe_parse");
+	//close_fd(STDOUT_FILENO);
+	//ft_putstr("closed\n");
+
+	int r, w;
+	ft_pipe(&r, &w);
+	redirect(STDOUT_FILENO, w);
+	close_fd(r);
+
+
+
+	process_command("cd ~| cd -");
+	ft_exit(0);
+
+
+	test(ls, "ls");
+
+	test_lg();
+	dic();
+	test(test_set_env, "set_env");
+//		test_pipe9();
+	test_pipe_parse();
+	//test(test_pipe_parse, "test_pipe_parse");
 	history();
 	//	test(history, "history");
 		//return 0;
-	test(ls, "ls");
 	test(cd_bad, "cd_bad");
 	test(cd_good, "cd_good");
 	test(pwd, "pwd");

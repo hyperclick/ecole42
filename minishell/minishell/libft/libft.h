@@ -89,7 +89,10 @@ t_kvp	**dic_get_kvps(t_list* dic);
 
 void		close_fd(int fd);
 void redirect(int from, int to);
-
+void save_stdin();
+void	restore_stdin();
+void	restore_stdout();
+void save_stdout();
 
 void assert_is_null(void* p);
 void assert_is_not_null(void* p);

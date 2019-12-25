@@ -17,12 +17,16 @@ pid_t	ft_fork()
 void		exec_ve(char* argv[])
 {
 	debug_printf("exec(%s)\n", argv[0]);
-	if (execve(argv[0], argv, env_to_array()) == -1)
+	int r;
+	r = execve(argv[0], argv, env_to_array());
+	if (r == -1)
 	{
 		perror("Could not execute: ");
 		ft_e_putstr(argv[0]);
 		ft_exit(1);
 	}
+	debug_printf("execve returned: %d\n", r);
+	ft_exit(2);
 }
 
 void		exec_ve2(const char* str)
@@ -45,12 +49,11 @@ void		fork_and_exec(char* argv[])
 	pid = ft_fork();
 	if (is_child(pid))
 	{
+		debug_set_pname(argv[0]);
 		exec_ve(argv);
-		ft_putstr("execve succeeded\n");
-		ft_exit(2);
 	}
 
-	// we are in initial process
+	debug_printf("waiting %s to finish\n", argv[0]);
 	set_awaited_process(pid);
 	wait_child(pid);
 	set_awaited_process(0);
@@ -67,10 +70,10 @@ BOOL		try_execute(char* filename, char* argv[])
 			debug_printf("%s: command found but has no exec rigths\n", filename);
 			return (TRUE);
 		}
-		//fork_and_exec(argv);
-		exec_ve(argv);
-		ft_e_putstr("execve succeeded\n");
-		ft_exit(2);
+		fork_and_exec(argv);
+		//exec_ve(argv);
+		//ft_e_putstr("execve succeeded\n");
+		//ft_exit(2);
 		return (TRUE);
 	}
 	return (FALSE);
