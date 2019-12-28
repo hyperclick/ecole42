@@ -264,15 +264,12 @@ int	process_command(const char* str)
 	while (*cmds != NULL)
 	{
 		int r = process_one_command(*cmds);
-	debug_printf("2\n");
 		if (r != 0)
 		{
 			break;
 		}
 		cmds++;
 	}
-
-	debug_printf("1\n");
 	free_quoted_params();
 	//if (g_commands != NULL)
 	//{

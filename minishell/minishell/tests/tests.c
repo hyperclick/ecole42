@@ -285,10 +285,14 @@ void		test(void(*f)(), const char* name)
 		save_stdin();
 		save_stdout();
 		f();
+		debug_set_pname("test");
+		debug_printf("%s finished\n", name);
 		//fflush(file);
 		fflush(stdout);
 		fclose(stdout);
-		fclose(f_out);
+		//debug_printf("1\n");
+		//fclose(f_out);
+		//debug_printf("2\n");
 		//debug_printf("restore stdout\n");
 		//redirect(out, STDOUT_FILENO);
 		//restore_stdin();
@@ -403,6 +407,7 @@ void test_set_env()
 
 void test_pipe9()
 {
+	return;
 	process_command("\"cd\"");
 	process_command("\"setenv\" | \"sort\"");
 	process_command("\"setenv\" | \"sort\"");
@@ -412,7 +417,6 @@ void test_pipe9()
 	process_command("ls | sort | cat -e");
 	process_command("ls | cat -e | sort");
 	process_command("setenv | sort");
-	return;
 	process_command("echo \"No dollar character\" 1 > &2 | cat -e");
 	process_command("cat <<src");
 	process_command("cat <<src | rev");
@@ -506,6 +510,8 @@ int main(int argc, char** argv, char** envp)
 	ft_putstr("\n\n\n----------------\n\n\n");
 	*/
 	init(argc, argv, envp);
+
+	//process_command("cd");
 	//process_command("ls | head -c20");
 	//ft_exit(0);
 
@@ -521,6 +527,7 @@ int main(int argc, char** argv, char** envp)
 	//test(pwd2, "pwd2");
 
 	//ft_exit(0);
+	test(ls, "ls");
 	test(pwd, "pwd");
 	test_lg();
 	dic();
@@ -537,7 +544,6 @@ int main(int argc, char** argv, char** envp)
 	test(env, "env");
 	test(echo_quotes, "echo_quotes");
 	test(test_set_env, "set_env");
-	test(ls, "ls");
 	//test(test_pipe_parse, "test_pipe_parse");
 	//	test(history, "history");
 		//return 0;
