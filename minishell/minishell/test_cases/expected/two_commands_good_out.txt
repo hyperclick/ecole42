@@ -1,4 +1,4 @@
-/mnt/c/git/e49/minishell/minishell
+/mnt/c/git/e47/minishell/minishell
 echo1
 echo2
 echo3

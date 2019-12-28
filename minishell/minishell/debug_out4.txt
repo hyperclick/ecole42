@@ -4,46 +4,863 @@
 [main]	started
 [main]	agrc = 1
 [main]	agrv[1] = (null)
-[main]	
-[main]	-----------------------
-[main]	process command: 'ls | sort'
-[main]	quotes replaced: 'ls | sort'
-[main]	trimmed = ls | sort
-[main]	no comments = ls | sort
-[main]	cmd: 'ls | sort'
-[main]	pipe_parse(ls | sort)
-[main]	cmd[0] = 'ls '
-[ls | sort]	new pipe: r=6, w=7
-[ls | sort]	exec 0 > ls > 7
-[ls | sort]	restore stdin
-[ls | sort]	redirect: 0->4
-[ls | sort]	restore stdout
-[ls | sort]	redirect: 1->5
-[ls | sort]	redirect: 0->0
-[ls | sort]	redirect: 1->7
-[ls | sort]	after replace
-'ls'	
-[ls | sort]	fork
-[ls | sort]	fork_and_exec:	/bin/ls launched
-[ls | sort]	exec2:	executed: /bin/ls
-[ls | sort]	exec 6 > sort > 1
-[ls | sort]	restore stdin
-[ls | sort]	redirect: 0->4
-[ls | sort]	restore stdout
-[ls | sort]	redirect: 1->5
-[ls | sort]	redirect: 0->6
-[ls | sort]	redirect: 1->1
-[ls | sort]	after replace
-'sort'	
-[ls | sort]	fork
- [/bin/ls]	fork_and_exec:	about to launch /bin/ls
- [/bin/ls]	exec(/bin/ls)
-[ls | sort]	fork_and_exec:	/usr/bin/sort launched
-[ls | sort]	exec2:	executed: /usr/bin/sort
-[ls | sort]	pipe_exec2 returned: 5281
-[ls | sort]	free item: 'ls' (0x7fffcd5f05e0)
-[ls | sort]	free item: 'sort' (0x7fffcd5f0620)
-[ls | sort]	waiting ls | sort to finish
-[ls | sort]	wait 5281 to stop
-  [/usr/bin/sort]	fork_and_exec:	about to launch /usr/bin/sort
-  [/usr/bin/sort]	exec(/usr/bin/sort)
+[test]	testing pwd
+[test]	duplicated stdin to 7
+[test]	duplicated stdout to 8
+[test]	
+[test]	-----------------------
+[test]	process command: 'pwd'
+[test]	quotes replaced: 'pwd'
+[test]	trimmed = pwd
+[test]	no comments = pwd
+[test]	cmd: 'pwd'
+[test]	pipe_parse(pwd)
+[test]	cmd[0] = 'pwd'
+[pwd]	exec 0 > pwd > 1
+[pwd]	restore stdin
+[pwd]	redirect: 0->7
+[pwd]	restore stdout
+[pwd]	redirect: 1->8
+[pwd]	redirect: 0->0
+[pwd]	redirect: 1->1
+[pwd]	after replace
+'pwd'	
+[pwd]	fork
+[pwd]	fork_and_exec:	/bin/pwd = 628 launched
+[pwd]	exec2:	executed: /bin/pwd
+[pwd]	pipe_exec2 returned: 628
+[pwd]	free item: 'pwd' (0x7fffdb2205a0)
+[pwd]	waiting pwd to finish
+[pwd]	wait 628 to stop
+ [/bin/pwd]	close_g_fd_to_close [/bin/pwd]	close(-11)
+ [/bin/pwd]	fork_and_exec:	about to launch /bin/pwd
+ [/bin/pwd]	exec(/bin/pwd)
+[pwd]	waitpid(628) returned
+[pwd]	pwd finished
+[pwd]	2
+[pwd]	1
+[pwd]	command processed: 'pwd'
+[pwd]	-------------------------
+[pwd]	
+[pwd]	close(1)
+[pwd]	dic_add:	kvp->key = 'key1', &kvp->key = 0x7fffdb220580, kvp = 0x7fffdb2205a0
+[pwd]	dic_add:	kvp->key = '%paired_quote%2', &kvp->key = 0x7fffdb2205e0, kvp = 0x7fffdb2205a0
+[pwd]	dic_add:	kvp->key = '%paired_quote%2', &kvp->key = 0x7fffdb220580, kvp = 0x7fffdb2205a0
+[test]	testing cd_bad
+[test]	duplicated stdin to 10
+[test]	duplicated stdout to 11
+[test]	
+[test]	-----------------------
+[test]	process command: 'cd -'
+[test]	quotes replaced: 'cd -'
+[test]	trimmed = cd -
+[test]	no comments = cd -
+[test]	cmd: 'cd -'
+[test]	pipe_parse(cd -)
+[test]	cmd[0] = 'cd -'
+[cd -]	exec 0 > cd - > 1
+[cd -]	restore stdin
+[cd -]	redirect: 0->10
+[cd -]	restore stdout
+[cd -]	redirect: 1->11
+[cd -]	redirect: 0->0
+[cd -]	redirect: 1->1
+[cd -]	after replace
+'cd'	'-'	
+[cd -]	exec cd '-'
+[cd -]	pipe_exec2 returned: 0
+[cd -]	free item: 'cd -' (0x7fffdb2205c0)
+[cd -]	2
+[cd -]	1
+[cd -]	command processed: 'cd -'
+[cd -]	-------------------------
+[cd -]	
+[cd -]	
+[cd -]	-----------------------
+[cd -]	process command: 'cd \'
+[cd -]	quotes replaced: 'cd \'
+[cd -]	trimmed = cd \
+[cd -]	no comments = cd \
+[cd -]	cmd: 'cd \'
+[cd -]	pipe_parse(cd \)
+[cd -]	cmd[0] = 'cd \'
+[cd \]	exec 0 > cd \ > 1
+[cd \]	restore stdin
+[cd \]	redirect: 0->10
+[cd \]	restore stdout
+[cd \]	redirect: 1->11
+[cd \]	redirect: 0->0
+[cd \]	redirect: 1->1
+[cd \]	after replace
+'cd'	'\'	
+[cd \]	exec cd '\'
+[cd \]	pipe_exec2 returned: 0
+[cd \]	free item: 'cd \' (0x7fffdb222370)
+[cd \]	2
+[cd \]	1
+[cd \]	command processed: 'cd \'
+[cd \]	-------------------------
+[cd \]	
+[cd \]	close(1)
+[cd \]	pipe_parse(ls -l | sort | cat -e)
+[cd \]	cmd[0] = 'ls -l '
+[cd \]	free item: 'ls -l' (0x7fffdb2205a0)
+[cd \]	free item: 'sort' (0x7fffdb223360)
+[cd \]	free item: 'cat -e' (0x7fffdb222350)
+[test]	testing comment_ignored
+[test]	duplicated stdin to 13
+[test]	duplicated stdout to 14
+[test]	
+[test]	-----------------------
+[test]	process command: '#pwd'
+[test]	quotes replaced: '#pwd'
+[test]	trimmed = #pwd
+[test]	no comments = 
+[test]	
+[test]	-----------------------
+[test]	process command: 'pwd #'
+[test]	quotes replaced: 'pwd #'
+[test]	trimmed = pwd #
+[test]	no comments = pwd 
+[test]	cmd: 'pwd '
+[test]	pipe_parse(pwd)
+[test]	cmd[0] = 'pwd'
+[pwd]	exec 0 > pwd > 1
+[pwd]	restore stdin
+[pwd]	redirect: 0->13
+[pwd]	restore stdout
+[pwd]	redirect: 1->14
+[pwd]	redirect: 0->0
+[pwd]	redirect: 1->1
+[pwd]	after replace
+'pwd'	
+[pwd]	fork
+[pwd]	fork_and_exec:	/bin/pwd = 629 launched
+[pwd]	exec2:	executed: /bin/pwd
+[pwd]	pipe_exec2 returned: 629
+[pwd]	free item: 'pwd' (0x7fffdb222370)
+[pwd]	waiting pwd to finish
+[pwd]	wait 629 to stop
+  [/bin/pwd]	close_g_fd_to_close  [/bin/pwd]	close(-11)
+  [/bin/pwd]	fork_and_exec:	about to launch /bin/pwd
+  [/bin/pwd]	exec(/bin/pwd)
+[pwd]	waitpid(629) returned
+[pwd]	pwd finished
+[pwd]	2
+[pwd]	1
+[pwd]	command processed: 'pwd #'
+[pwd]	-------------------------
+[pwd]	
+[pwd]	
+[pwd]	-----------------------
+[pwd]	process command: 'pwd#'
+[pwd]	quotes replaced: 'pwd#'
+[pwd]	trimmed = pwd#
+[pwd]	no comments = pwd#
+[pwd]	cmd: 'pwd#'
+[pwd]	pipe_parse(pwd#)
+[pwd]	cmd[0] = 'pwd#'
+[pwd#]	exec 0 > pwd# > 1
+[pwd#]	restore stdin
+[pwd#]	redirect: 0->13
+[pwd#]	restore stdout
+[pwd#]	redirect: 1->14
+[pwd#]	redirect: 0->0
+[pwd#]	redirect: 1->1
+[pwd#]	after replace
+'pwd#'	
+[pwd#]	pwd#: command not found
+[pwd#]	pipe_exec2 returned: 0
+[pwd#]	free item: 'pwd#' (0x7fffdb222390)
+[pwd#]	2
+[pwd#]	1
+[pwd#]	command processed: 'pwd#'
+[pwd#]	-------------------------
+[pwd#]	
+[pwd#]	close(1)
+[test]	testing two_commands_bad
+[test]	duplicated stdin to 16
+[test]	duplicated stdout to 17
+[test]	
+[test]	-----------------------
+[test]	process command: ';'
+[test]	quotes replaced: ';'
+[test]	trimmed = ;
+[test]	no comments = ;
+[test]	minishell: syntax error near unexpected token `;'
+[test]	
+[test]	-----------------------
+[test]	process command: ';;'
+[test]	quotes replaced: ';;'
+[test]	trimmed = ;;
+[test]	no comments = ;;
+[test]	minishell: syntax error near unexpected token `;'
+[test]	
+[test]	-----------------------
+[test]	process command: ';;;'
+[test]	quotes replaced: ';;;'
+[test]	trimmed = ;;;
+[test]	no comments = ;;;
+[test]	minishell: syntax error near unexpected token `;'
+[test]	
+[test]	-----------------------
+[test]	process command: '; ;'
+[test]	quotes replaced: '; ;'
+[test]	trimmed = ; ;
+[test]	no comments = ; ;
+[test]	cmd: ' '
+[test]	minishell: syntax error near unexpected token `;'
+[test]	2
+[test]	1
+[test]	command processed: '; ;'
+[test]	-------------------------
+[test]	
+[test]	close(1)
+[test]	testing two_commands_good
+[test]	duplicated stdin to 19
+[test]	duplicated stdout to 20
+[test]	
+[test]	-----------------------
+[test]	process command: 'pwd;'
+[test]	quotes replaced: 'pwd;'
+[test]	trimmed = pwd;
+[test]	no comments = pwd;
+[test]	cmd: 'pwd'
+[test]	pipe_parse(pwd)
+[test]	cmd[0] = 'pwd'
+[pwd]	exec 0 > pwd > 1
+[pwd]	restore stdin
+[pwd]	redirect: 0->19
+[pwd]	restore stdout
+[pwd]	redirect: 1->20
+[pwd]	redirect: 0->0
+[pwd]	redirect: 1->1
+[pwd]	after replace
+'pwd'	
+[pwd]	fork
+[pwd]	fork_and_exec:	/bin/pwd = 630 launched
+[pwd]	exec2:	executed: /bin/pwd
+[pwd]	pipe_exec2 returned: 630
+[pwd]	free item: 'pwd' (0x7fffdb222370)
+[pwd]	waiting pwd to finish
+[pwd]	wait 630 to stop
+   [/bin/pwd]	close_g_fd_to_close   [/bin/pwd]	close(-11)
+   [/bin/pwd]	fork_and_exec:	about to launch /bin/pwd
+   [/bin/pwd]	exec(/bin/pwd)
+[pwd]	waitpid(630) returned
+[pwd]	pwd finished
+[pwd]	2
+[pwd]	1
+[pwd]	command processed: 'pwd;'
+[pwd]	-------------------------
+[pwd]	
+[pwd]	
+[pwd]	-----------------------
+[pwd]	process command: 'echo echo1;;echo echo2'
+[pwd]	quotes replaced: 'echo echo1;;echo echo2'
+[pwd]	trimmed = echo echo1;;echo echo2
+[pwd]	no comments = echo echo1;;echo echo2
+[pwd]	cmd: 'echo echo1'
+[pwd]	pipe_parse(echo echo1)
+[pwd]	cmd[0] = 'echo echo1'
+[echo echo1]	exec 0 > echo echo1 > 1
+[echo echo1]	restore stdin
+[echo echo1]	redirect: 0->19
+[echo echo1]	restore stdout
+[echo echo1]	redirect: 1->20
+[echo echo1]	redirect: 0->0
+[echo echo1]	redirect: 1->1
+[echo echo1]	after replace
+'echo'	'echo1'	
+[echo echo1]	fork
+[echo echo1]	fork_and_exec:	/bin/echo = 631 launched
+[echo echo1]	exec2:	executed: /bin/echo
+[echo echo1]	pipe_exec2 returned: 631
+[echo echo1]	free item: 'echo echo1' (0x7fffdb2205e0)
+[echo echo1]	waiting echo echo1 to finish
+[echo echo1]	wait 631 to stop
+    [/bin/echo]	close_g_fd_to_close    [/bin/echo]	close(-11)
+    [/bin/echo]	fork_and_exec:	about to launch /bin/echo
+    [/bin/echo]	exec(/bin/echo)
+[echo echo1]	waitpid(631) returned
+[echo echo1]	echo echo1 finished
+[echo echo1]	2
+[echo echo1]	cmd: 'echo echo2'
+[echo echo1]	pipe_parse(echo echo2)
+[echo echo1]	cmd[0] = 'echo echo2'
+[echo echo2]	exec 0 > echo echo2 > 1
+[echo echo2]	restore stdin
+[echo echo2]	redirect: 0->19
+[echo echo2]	restore stdout
+[echo echo2]	redirect: 1->20
+[echo echo2]	redirect: 0->0
+[echo echo2]	redirect: 1->1
+[echo echo2]	after replace
+'echo'	'echo2'	
+[echo echo2]	fork
+[echo echo2]	fork_and_exec:	/bin/echo = 632 launched
+[echo echo2]	exec2:	executed: /bin/echo
+[echo echo2]	pipe_exec2 returned: 632
+[echo echo2]	free item: 'echo echo2' (0x7fffdb222390)
+[echo echo2]	waiting echo echo2 to finish
+[echo echo2]	wait 632 to stop
+     [/bin/echo]	close_g_fd_to_close     [/bin/echo]	close(-11)
+     [/bin/echo]	fork_and_exec:	about to launch /bin/echo
+     [/bin/echo]	exec(/bin/echo)
+[echo echo2]	waitpid(632) returned
+[echo echo2]	echo echo2 finished
+[echo echo2]	2
+[echo echo2]	1
+[echo echo2]	command processed: 'echo echo1;;echo echo2'
+[echo echo2]	-------------------------
+[echo echo2]	
+[echo echo2]	
+[echo echo2]	-----------------------
+[echo echo2]	process command: 'echo echo3;#;echo echo4'
+[echo echo2]	quotes replaced: 'echo echo3;#;echo echo4'
+[echo echo2]	trimmed = echo echo3;#;echo echo4
+[echo echo2]	no comments = echo echo3;
+[echo echo2]	cmd: 'echo echo3'
+[echo echo2]	pipe_parse(echo echo3)
+[echo echo2]	cmd[0] = 'echo echo3'
+[echo echo3]	exec 0 > echo echo3 > 1
+[echo echo3]	restore stdin
+[echo echo3]	redirect: 0->19
+[echo echo3]	restore stdout
+[echo echo3]	redirect: 1->20
+[echo echo3]	redirect: 0->0
+[echo echo3]	redirect: 1->1
+[echo echo3]	after replace
+'echo'	'echo3'	
+[echo echo3]	fork
+[echo echo3]	fork_and_exec:	/bin/echo = 633 launched
+[echo echo3]	exec2:	executed: /bin/echo
+[echo echo3]	pipe_exec2 returned: 633
+[echo echo3]	free item: 'echo echo3' (0x7fffdb222550)
+[echo echo3]	waiting echo echo3 to finish
+[echo echo3]	wait 633 to stop
+      [/bin/echo]	close_g_fd_to_close      [/bin/echo]	close(-11)
+      [/bin/echo]	fork_and_exec:	about to launch /bin/echo
+      [/bin/echo]	exec(/bin/echo)
+[echo echo3]	waitpid(633) returned
+[echo echo3]	echo echo3 finished
+[echo echo3]	2
+[echo echo3]	1
+[echo echo3]	command processed: 'echo echo3;#;echo echo4'
+[echo echo3]	-------------------------
+[echo echo3]	
+[echo echo3]	
+[echo echo3]	-----------------------
+[echo echo3]	process command: 'echo echo5;echo echo6'
+[echo echo3]	quotes replaced: 'echo echo5;echo echo6'
+[echo echo3]	trimmed = echo echo5;echo echo6
+[echo echo3]	no comments = echo echo5;echo echo6
+[echo echo3]	cmd: 'echo echo5'
+[echo echo3]	pipe_parse(echo echo5)
+[echo echo3]	cmd[0] = 'echo echo5'
+[echo echo5]	exec 0 > echo echo5 > 1
+[echo echo5]	restore stdin
+[echo echo5]	redirect: 0->19
+[echo echo5]	restore stdout
+[echo echo5]	redirect: 1->20
+[echo echo5]	redirect: 0->0
+[echo echo5]	redirect: 1->1
+[echo echo5]	after replace
+'echo'	'echo5'	
+[echo echo5]	fork
+[echo echo5]	fork_and_exec:	/bin/echo = 634 launched
+[echo echo5]	exec2:	executed: /bin/echo
+[echo echo5]	pipe_exec2 returned: 634
+[echo echo5]	free item: 'echo echo5' (0x7fffdb220540)
+[echo echo5]	waiting echo echo5 to finish
+[echo echo5]	wait 634 to stop
+       [/bin/echo]	close_g_fd_to_close       [/bin/echo]	close(-11)
+       [/bin/echo]	fork_and_exec:	about to launch /bin/echo
+       [/bin/echo]	exec(/bin/echo)
+[echo echo5]	waitpid(634) returned
+[echo echo5]	echo echo5 finished
+[echo echo5]	2
+[echo echo5]	cmd: 'echo echo6'
+[echo echo5]	pipe_parse(echo echo6)
+[echo echo5]	cmd[0] = 'echo echo6'
+[echo echo6]	exec 0 > echo echo6 > 1
+[echo echo6]	restore stdin
+[echo echo6]	redirect: 0->19
+[echo echo6]	restore stdout
+[echo echo6]	redirect: 1->20
+[echo echo6]	redirect: 0->0
+[echo echo6]	redirect: 1->1
+[echo echo6]	after replace
+'echo'	'echo6'	
+[echo echo6]	fork
+[echo echo6]	fork_and_exec:	/bin/echo = 635 launched
+[echo echo6]	exec2:	executed: /bin/echo
+[echo echo6]	pipe_exec2 returned: 635
+[echo echo6]	free item: 'echo echo6' (0x7fffdb223360)
+[echo echo6]	waiting echo echo6 to finish
+[echo echo6]	wait 635 to stop
+        [/bin/echo]	close_g_fd_to_close        [/bin/echo]	close(-11)
+        [/bin/echo]	fork_and_exec:	about to launch /bin/echo
+        [/bin/echo]	exec(/bin/echo)
+[echo echo6]	waitpid(635) returned
+[echo echo6]	echo echo6 finished
+[echo echo6]	2
+[echo echo6]	1
+[echo echo6]	command processed: 'echo echo5;echo echo6'
+[echo echo6]	-------------------------
+[echo echo6]	
+[echo echo6]	
+[echo echo6]	-----------------------
+[echo echo6]	process command: 'echo echo7;echo echo8'
+[echo echo6]	quotes replaced: 'echo echo7;echo echo8'
+[echo echo6]	trimmed = echo echo7;echo echo8
+[echo echo6]	no comments = echo echo7;echo echo8
+[echo echo6]	cmd: 'echo echo7'
+[echo echo6]	pipe_parse(echo echo7)
+[echo echo6]	cmd[0] = 'echo echo7'
+[echo echo7]	exec 0 > echo echo7 > 1
+[echo echo7]	restore stdin
+[echo echo7]	redirect: 0->19
+[echo echo7]	restore stdout
+[echo echo7]	redirect: 1->20
+[echo echo7]	redirect: 0->0
+[echo echo7]	redirect: 1->1
+[echo echo7]	after replace
+'echo'	'echo7'	
+[echo echo7]	fork
+[echo echo7]	fork_and_exec:	/bin/echo = 636 launched
+[echo echo7]	exec2:	executed: /bin/echo
+[echo echo7]	pipe_exec2 returned: 636
+[echo echo7]	free item: 'echo echo7' (0x7fffdb222650)
+[echo echo7]	waiting echo echo7 to finish
+[echo echo7]	wait 636 to stop
+         [/bin/echo]	close_g_fd_to_close         [/bin/echo]	close(-11)
+         [/bin/echo]	fork_and_exec:	about to launch /bin/echo
+         [/bin/echo]	exec(/bin/echo)
+[echo echo7]	waitpid(636) returned
+[echo echo7]	echo echo7 finished
+[echo echo7]	2
+[echo echo7]	cmd: 'echo echo8'
+[echo echo7]	pipe_parse(echo echo8)
+[echo echo7]	cmd[0] = 'echo echo8'
+[echo echo8]	exec 0 > echo echo8 > 1
+[echo echo8]	restore stdin
+[echo echo8]	redirect: 0->19
+[echo echo8]	restore stdout
+[echo echo8]	redirect: 1->20
+[echo echo8]	redirect: 0->0
+[echo echo8]	redirect: 1->1
+[echo echo8]	after replace
+'echo'	'echo8'	
+[echo echo8]	fork
+[echo echo8]	fork_and_exec:	/bin/echo = 637 launched
+[echo echo8]	exec2:	executed: /bin/echo
+[echo echo8]	pipe_exec2 returned: 637
+[echo echo8]	free item: 'echo echo8' (0x7fffdb222610)
+[echo echo8]	waiting echo echo8 to finish
+[echo echo8]	wait 637 to stop
+          [/bin/echo]	close_g_fd_to_close          [/bin/echo]	close(-11)
+          [/bin/echo]	fork_and_exec:	about to launch /bin/echo
+          [/bin/echo]	exec(/bin/echo)
+[echo echo8]	waitpid(637) returned
+[echo echo8]	echo echo8 finished
+[echo echo8]	2
+[echo echo8]	1
+[echo echo8]	command processed: 'echo echo7;echo echo8'
+[echo echo8]	-------------------------
+[echo echo8]	
+[echo echo8]	close(1)
+[test]	testing cd_good
+[test]	duplicated stdin to 22
+[test]	duplicated stdout to 23
+[test]	
+[test]	-----------------------
+[test]	process command: 'pwd'
+[test]	quotes replaced: 'pwd'
+[test]	trimmed = pwd
+[test]	no comments = pwd
+[test]	cmd: 'pwd'
+[test]	pipe_parse(pwd)
+[test]	cmd[0] = 'pwd'
+[pwd]	exec 0 > pwd > 1
+[pwd]	restore stdin
+[pwd]	redirect: 0->22
+[pwd]	restore stdout
+[pwd]	redirect: 1->23
+[pwd]	redirect: 0->0
+[pwd]	redirect: 1->1
+[pwd]	after replace
+'pwd'	
+[pwd]	fork
+[pwd]	fork_and_exec:	/bin/pwd = 638 launched
+[pwd]	exec2:	executed: /bin/pwd
+[pwd]	pipe_exec2 returned: 638
+[pwd]	free item: 'pwd' (0x7fffdb222690)
+[pwd]	waiting pwd to finish
+[pwd]	wait 638 to stop
+           [/bin/pwd]	close_g_fd_to_close           [/bin/pwd]	close(-11)
+           [/bin/pwd]	fork_and_exec:	about to launch /bin/pwd
+           [/bin/pwd]	exec(/bin/pwd)
+[pwd]	waitpid(638) returned
+[pwd]	pwd finished
+[pwd]	2
+[pwd]	1
+[pwd]	command processed: 'pwd'
+[pwd]	-------------------------
+[pwd]	
+[pwd]	
+[pwd]	-----------------------
+[pwd]	process command: 'cd ~;pwd'
+[pwd]	quotes replaced: 'cd ~;pwd'
+[pwd]	trimmed = cd ~;pwd
+[pwd]	no comments = cd ~;pwd
+[pwd]	cmd: 'cd ~'
+[pwd]	pipe_parse(cd ~)
+[pwd]	cmd[0] = 'cd ~'
+[cd ~]	exec 0 > cd ~ > 1
+[cd ~]	restore stdin
+[cd ~]	redirect: 0->22
+[cd ~]	restore stdout
+[cd ~]	redirect: 1->23
+[cd ~]	redirect: 0->0
+[cd ~]	redirect: 1->1
+[cd ~]	after replace
+'cd'	'/home/darugula'	
+[cd ~]	exec cd '/home/darugula'
+[cd ~]	new curdir = /home/darugula
+[cd ~]	pipe_exec2 returned: 0
+[cd ~]	free item: 'cd ~' (0x7fffdb2225f0)
+[cd ~]	2
+[cd ~]	cmd: 'pwd'
+[cd ~]	pipe_parse(pwd)
+[cd ~]	cmd[0] = 'pwd'
+[pwd]	exec 0 > pwd > 1
+[pwd]	restore stdin
+[pwd]	redirect: 0->22
+[pwd]	restore stdout
+[pwd]	redirect: 1->23
+[pwd]	redirect: 0->0
+[pwd]	redirect: 1->1
+[pwd]	after replace
+'pwd'	
+[pwd]	fork
+[pwd]	fork_and_exec:	/bin/pwd = 639 launched
+[pwd]	exec2:	executed: /bin/pwd
+[pwd]	pipe_exec2 returned: 639
+[pwd]	free item: 'pwd' (0x7fffdb222550)
+[pwd]	waiting pwd to finish
+[pwd]	wait 639 to stop
+            [/bin/pwd]	close_g_fd_to_close            [/bin/pwd]	close(-11)
+            [/bin/pwd]	fork_and_exec:	about to launch /bin/pwd
+            [/bin/pwd]	exec(/bin/pwd)
+[pwd]	waitpid(639) returned
+[pwd]	pwd finished
+[pwd]	2
+[pwd]	1
+[pwd]	command processed: 'cd ~;pwd'
+[pwd]	-------------------------
+[pwd]	
+[pwd]	
+[pwd]	-----------------------
+[pwd]	process command: 'cd -'
+[pwd]	quotes replaced: 'cd -'
+[pwd]	trimmed = cd -
+[pwd]	no comments = cd -
+[pwd]	cmd: 'cd -'
+[pwd]	pipe_parse(cd -)
+[pwd]	cmd[0] = 'cd -'
+[cd -]	exec 0 > cd - > 1
+[cd -]	restore stdin
+[cd -]	redirect: 0->22
+[cd -]	restore stdout
+[cd -]	redirect: 1->23
+[cd -]	redirect: 0->0
+[cd -]	redirect: 1->1
+[cd -]	after replace
+'cd'	'-'	
+[cd -]	exec cd '-'
+[cd -]	old_work_dir = '/mnt/c/git/e47/minishell/minishell'
+[cd -]	exec cd '/mnt/c/git/e47/minishell/minishell'
+[cd -]	new curdir = /mnt/c/git/e47/minishell/minishell
+[cd -]	pipe_exec2 returned: 0
+[cd -]	free item: 'cd -' (0x7fffdb222760)
+[cd -]	2
+[cd -]	1
+[cd -]	command processed: 'cd -'
+[cd -]	-------------------------
+[cd -]	
+[cd -]	close(1)
+[test]	testing echo_tilde
+[test]	duplicated stdin to 25
+[test]	duplicated stdout to 26
+[test]	
+[test]	-----------------------
+[test]	process command: 'echo ~'
+[test]	quotes replaced: 'echo ~'
+[test]	trimmed = echo ~
+[test]	no comments = echo ~
+[test]	cmd: 'echo ~'
+[test]	pipe_parse(echo ~)
+[test]	cmd[0] = 'echo ~'
+[echo ~]	exec 0 > echo ~ > 1
+[echo ~]	restore stdin
+[echo ~]	redirect: 0->25
+[echo ~]	restore stdout
+[echo ~]	redirect: 1->26
+[echo ~]	redirect: 0->0
+[echo ~]	redirect: 1->1
+[echo ~]	after replace
+'echo'	'/home/darugula'	
+[echo ~]	fork
+[echo ~]	fork_and_exec:	/bin/echo = 640 launched
+[echo ~]	exec2:	executed: /bin/echo
+[echo ~]	pipe_exec2 returned: 640
+[echo ~]	free item: 'echo ~' (0x7fffdb220580)
+[echo ~]	waiting echo ~ to finish
+[echo ~]	wait 640 to stop
+             [/bin/echo]	close_g_fd_to_close             [/bin/echo]	close(-11)
+             [/bin/echo]	fork_and_exec:	about to launch /bin/echo
+             [/bin/echo]	exec(/bin/echo)
+[echo ~]	waitpid(640) returned
+[echo ~]	echo ~ finished
+[echo ~]	2
+[echo ~]	1
+[echo ~]	command processed: 'echo ~'
+[echo ~]	-------------------------
+[echo ~]	
+[echo ~]	close(1)
+[test]	testing echo_home
+[test]	duplicated stdin to 28
+[test]	duplicated stdout to 29
+[test]	
+[test]	-----------------------
+[test]	process command: 'echo $HOME'
+[test]	quotes replaced: 'echo $HOME'
+[test]	trimmed = echo $HOME
+[test]	no comments = echo $HOME
+[test]	cmd: 'echo $HOME'
+[test]	pipe_parse(echo $HOME)
+[test]	cmd[0] = 'echo $HOME'
+[echo $HOME]	exec 0 > echo $HOME > 1
+[echo $HOME]	restore stdin
+[echo $HOME]	redirect: 0->28
+[echo $HOME]	restore stdout
+[echo $HOME]	redirect: 1->29
+[echo $HOME]	redirect: 0->0
+[echo $HOME]	redirect: 1->1
+[echo $HOME]	after replace
+'echo'	'/home/darugula'	
+[echo $HOME]	fork
+[echo $HOME]	fork_and_exec:	/bin/echo = 641 launched
+[echo $HOME]	exec2:	executed: /bin/echo
+[echo $HOME]	pipe_exec2 returned: 641
+[echo $HOME]	free item: 'echo $HOME' (0x7fffdb222780)
+[echo $HOME]	waiting echo $HOME to finish
+[echo $HOME]	wait 641 to stop
+              [/bin/echo]	close_g_fd_to_close              [/bin/echo]	close(-11)
+              [/bin/echo]	fork_and_exec:	about to launch /bin/echo
+              [/bin/echo]	exec(/bin/echo)
+[echo $HOME]	waitpid(641) returned
+[echo $HOME]	echo $HOME finished
+[echo $HOME]	2
+[echo $HOME]	1
+[echo $HOME]	command processed: 'echo $HOME'
+[echo $HOME]	-------------------------
+[echo $HOME]	
+[echo $HOME]	close(1)
+[test]	testing env
+[test]	duplicated stdin to 31
+[test]	duplicated stdout to 32
+[test]	
+[test]	-----------------------
+[test]	process command: 'setenv q w'
+[test]	quotes replaced: 'setenv q w'
+[test]	trimmed = setenv q w
+[test]	no comments = setenv q w
+[test]	cmd: 'setenv q w'
+[test]	pipe_parse(setenv q w)
+[test]	cmd[0] = 'setenv q w'
+[setenv q w]	exec 0 > setenv q w > 1
+[setenv q w]	restore stdin
+[setenv q w]	redirect: 0->31
+[setenv q w]	restore stdout
+[setenv q w]	redirect: 1->32
+[setenv q w]	redirect: 0->0
+[setenv q w]	redirect: 1->1
+[setenv q w]	after replace
+'setenv'	'q'	'w'	
+[setenv q w]	pipe_exec2 returned: 0
+[setenv q w]	free item: 'setenv q w' (0x7fffdb2227c0)
+[setenv q w]	2
+[setenv q w]	1
+[setenv q w]	command processed: 'setenv q w'
+[setenv q w]	-------------------------
+[setenv q w]	
+[setenv q w]	
+[setenv q w]	-----------------------
+[setenv q w]	process command: 'echo $q'
+[setenv q w]	quotes replaced: 'echo $q'
+[setenv q w]	trimmed = echo $q
+[setenv q w]	no comments = echo $q
+[setenv q w]	cmd: 'echo $q'
+[setenv q w]	pipe_parse(echo $q)
+[setenv q w]	cmd[0] = 'echo $q'
+[echo $q]	exec 0 > echo $q > 1
+[echo $q]	restore stdin
+[echo $q]	redirect: 0->31
+[echo $q]	restore stdout
+[echo $q]	redirect: 1->32
+[echo $q]	redirect: 0->0
+[echo $q]	redirect: 1->1
+[echo $q]	after replace
+'echo'	'w'	
+[echo $q]	fork
+[echo $q]	fork_and_exec:	/bin/echo = 642 launched
+[echo $q]	exec2:	executed: /bin/echo
+[echo $q]	pipe_exec2 returned: 642
+[echo $q]	free item: 'echo $q' (0x7fffdb222860)
+[echo $q]	waiting echo $q to finish
+[echo $q]	wait 642 to stop
+               [/bin/echo]	close_g_fd_to_close               [/bin/echo]	close(-11)
+               [/bin/echo]	fork_and_exec:	about to launch /bin/echo
+               [/bin/echo]	exec(/bin/echo)
+[echo $q]	waitpid(642) returned
+[echo $q]	echo $q finished
+[echo $q]	2
+[echo $q]	1
+[echo $q]	command processed: 'echo $q'
+[echo $q]	-------------------------
+[echo $q]	
+[echo $q]	
+[echo $q]	-----------------------
+[echo $q]	process command: 'unsetenv q'
+[echo $q]	quotes replaced: 'unsetenv q'
+[echo $q]	trimmed = unsetenv q
+[echo $q]	no comments = unsetenv q
+[echo $q]	cmd: 'unsetenv q'
+[echo $q]	pipe_parse(unsetenv q)
+[echo $q]	cmd[0] = 'unsetenv q'
+[unsetenv q]	exec 0 > unsetenv q > 1
+[unsetenv q]	restore stdin
+[unsetenv q]	redirect: 0->31
+[unsetenv q]	restore stdout
+[unsetenv q]	redirect: 1->32
+[unsetenv q]	redirect: 0->0
+[unsetenv q]	redirect: 1->1
+[unsetenv q]	after replace
+'unsetenv'	'q'	
+[unsetenv q]	pipe_exec2 returned: 0
+[unsetenv q]	free item: 'unsetenv q' (0x7fffdb222690)
+[unsetenv q]	2
+[unsetenv q]	1
+[unsetenv q]	command processed: 'unsetenv q'
+[unsetenv q]	-------------------------
+[unsetenv q]	
+[unsetenv q]	
+[unsetenv q]	-----------------------
+[unsetenv q]	process command: 'echo $q'
+[unsetenv q]	quotes replaced: 'echo $q'
+[unsetenv q]	trimmed = echo $q
+[unsetenv q]	no comments = echo $q
+[unsetenv q]	cmd: 'echo $q'
+[unsetenv q]	pipe_parse(echo $q)
+[unsetenv q]	cmd[0] = 'echo $q'
+[echo $q]	exec 0 > echo $q > 1
+[echo $q]	restore stdin
+[echo $q]	redirect: 0->31
+[echo $q]	restore stdout
+[echo $q]	redirect: 1->32
+[echo $q]	redirect: 0->0
+[echo $q]	redirect: 1->1
+[echo $q]	after replace
+'echo'	
+[echo $q]	fork
+[echo $q]	fork_and_exec:	/bin/echo = 643 launched
+[echo $q]	exec2:	executed: /bin/echo
+[echo $q]	pipe_exec2 returned: 643
+[echo $q]	free item: 'echo $q' (0x7fffdb222800)
+[echo $q]	waiting echo $q to finish
+[echo $q]	wait 643 to stop
+                [/bin/echo]	close_g_fd_to_close                [/bin/echo]	close(-11)
+                [/bin/echo]	fork_and_exec:	about to launch /bin/echo
+                [/bin/echo]	exec(/bin/echo)
+[echo $q]	waitpid(643) returned
+[echo $q]	echo $q finished
+[echo $q]	2
+[echo $q]	1
+[echo $q]	command processed: 'echo $q'
+[echo $q]	-------------------------
+[echo $q]	
+[echo $q]	close(1)
+[test]	testing echo_quotes
+[test]	duplicated stdin to 34
+[test]	duplicated stdout to 35
+[test]	
+[test]	-----------------------
+[test]	process command: 'echo "q"'
+[test]	quote replaced: 'q' -> '%paired_quote%1'
+[test]	quotes replaced: 'echo %paired_quote%1'
+[test]	trimmed = echo %paired_quote%1
+[test]	no comments = echo %paired_quote%1
+[test]	cmd: 'echo %paired_quote%1'
+[test]	pipe_parse(echo %paired_quote%1)
+[test]	cmd[0] = 'echo %paired_quote%1'
+[echo %paired_quote%1]	exec 0 > echo %paired_quote%1 > 1
+[echo %paired_quote%1]	restore stdin
+[echo %paired_quote%1]	redirect: 0->34
+[echo %paired_quote%1]	restore stdout
+[echo %paired_quote%1]	redirect: 1->35
+[echo %paired_quote%1]	redirect: 0->0
+[echo %paired_quote%1]	redirect: 1->1
+[echo %paired_quote%1]	replace %paired_quote%1 -> q
+[echo %paired_quote%1]	after replace
+'echo'	'q'	
+[echo %paired_quote%1]	fork
+[echo %paired_quote%1]	fork_and_exec:	/bin/echo = 644 launched
+[echo %paired_quote%1]	exec2:	executed: /bin/echo
+[echo %paired_quote%1]	pipe_exec2 returned: 644
+[echo %paired_quote%1]	free item: 'echo %paired_quote%1' (0x7fffdb222550)
+[echo %paired_quote%1]	waiting echo %paired_quote%1 to finish
+                 [/bin/echo]	close_g_fd_to_close[echo %paired_quote%1]	wait 644 to stop
+                 [/bin/echo]	close(-11)
+                 [/bin/echo]	fork_and_exec:	about to launch /bin/echo
+                 [/bin/echo]	exec(/bin/echo)
+[echo %paired_quote%1]	waitpid(644) returned
+[echo %paired_quote%1]	echo %paired_quote%1 finished
+[echo %paired_quote%1]	2
+[echo %paired_quote%1]	1
+[echo %paired_quote%1]	command processed: 'echo "q"'
+[echo %paired_quote%1]	-------------------------
+[echo %paired_quote%1]	
+[echo %paired_quote%1]	close(1)
+[test]	testing set_env
+[test]	duplicated stdin to 37
+[test]	duplicated stdout to 38
+[test]	
+[test]	-----------------------
+[test]	process command: '"setenv"'
+[test]	quote replaced: 'setenv' -> '%paired_quote%1'
+[test]	quotes replaced: '%paired_quote%1'
+[test]	trimmed = %paired_quote%1
+[test]	no comments = %paired_quote%1
+[test]	cmd: '%paired_quote%1'
+[test]	pipe_parse(%paired_quote%1)
+[test]	cmd[0] = '%paired_quote%1'
+[%paired_quote%1]	exec 0 > %paired_quote%1 > 1
+[%paired_quote%1]	restore stdin
+[%paired_quote%1]	redirect: 0->37
+[%paired_quote%1]	restore stdout
+[%paired_quote%1]	redirect: 1->38
+[%paired_quote%1]	redirect: 0->0
+[%paired_quote%1]	redirect: 1->1
+[%paired_quote%1]	replace %paired_quote%1 -> setenv
+[%paired_quote%1]	after replace
+'setenv'	
+[%paired_quote%1]	pipe_exec2 returned: 0
+[%paired_quote%1]	free item: '%paired_quote%1' (0x7fffdb222800)
+[%paired_quote%1]	2
+[%paired_quote%1]	1
+[%paired_quote%1]	command processed: '"setenv"'
+[%paired_quote%1]	-------------------------
+[%paired_quote%1]	
+[%paired_quote%1]	close(1)

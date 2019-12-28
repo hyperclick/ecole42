@@ -506,9 +506,11 @@ int main(int argc, char** argv, char** envp)
 	ft_putstr("\n\n\n----------------\n\n\n");
 	*/
 	init(argc, argv, envp);
+	//process_command("ls | head -c20");
+	//ft_exit(0);
 
-	process_command("ls | sort");
-		ft_exit(0);
+	//process_command("ls | sort");
+		//ft_exit(0);
 	//	process_command("base64 /dev/urandom | head -c100");
 	//	ft_exit(0);
 	//process_command("base64 /dev/urandom | head -c1000 | grep 42 | wc -l | sed -e 's/1/Yes/g' -e 's/0/No/g'");
@@ -530,12 +532,12 @@ int main(int argc, char** argv, char** envp)
 	test(two_commands_good, "two_commands_good");
 
 	test(cd_good, "cd_good");
-	test(ls, "ls");
 	test(echo_tilde, "echo_tilde");
 	test(echo_home, "echo_home");
 	test(env, "env");
 	test(echo_quotes, "echo_quotes");
 	test(test_set_env, "set_env");
+	test(ls, "ls");
 	//test(test_pipe_parse, "test_pipe_parse");
 	//	test(history, "history");
 		//return 0;

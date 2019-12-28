@@ -50,12 +50,13 @@ void		fork_and_exec(char* argv[], pid_t* ppid)
 	if (is_child(*ppid))
 	{
 		debug_set_pname(argv[0]);
+		close_g_fd_to_close();
 		debug_printf("fork_and_exec:\tabout to launch %s\n", argv[0]);
 		exec_ve(argv);
 		debug_printf("!!!should not be here!!!\n");
 	}
 
-	debug_printf("fork_and_exec:\t%s launched\n", argv[0]);
+	debug_printf("fork_and_exec:\t%s = %d launched\n", argv[0], *ppid);
 	//set_awaited_process(pid);
 	//wait_child(pid);
 	//set_awaited_process(0);

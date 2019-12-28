@@ -68,6 +68,7 @@ t_list* pipe_parse(const char* str);
 void	ft_pipe(int* r, int* w); 
 //pid_t pipe_exec2(t_list* p, int prev_r);
 void pipe_exec(char* str);
+void	close_g_fd_to_close();
 pid_t	ft_fork();
 void		exec_ve(char* argv[]);
 void		exec_ve2(const char* str);

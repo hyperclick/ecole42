@@ -159,6 +159,7 @@ void print_prompt()
 
 void		ft_default_sig_handler(int signum)
 {
+	debug_printf("signal: %d\n", signum);
 	if (signum == SIGINT)
 	{
 		if (get_awaited_process() != 0)

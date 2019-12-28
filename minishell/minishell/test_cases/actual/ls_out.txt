@@ -2,17 +2,13 @@
 CMakeLists.txt
 Makefile
 author
-d
 debug_out4.txt
-dir
-dir  with  spaces
 dir w spaces
 libft
 log.txt
 minishell
 out.txt
 out2.txt
-spaces
 src
 tee
 termux2.ppk
@@ -21,4 +17,3 @@ termux2.pub.pub
 test_cases
 tests
 ut
-with

@@ -19,10 +19,18 @@ void	ft_pipe(int* r, int* w)
 	log_pipe(*r, *w);
 }
 
+int g_fd_to_close = -11;
+void	close_g_fd_to_close()
+{
+	debug_printf("close_g_fd_to_close");
+	close_fd(g_fd_to_close);
+	g_fd_to_close = -2;
+}
 
 pid_t pe2(char* cmd, int r, int w, t_list** p)
 {
-	//int pid = ft_fork();
+	pid_t pid;
+	// pid = ft_fork();
 	//if (is_child(pid))
 	//{
 	//debug_set_pname(cmd);
@@ -34,9 +42,8 @@ pid_t pe2(char* cmd, int r, int w, t_list** p)
 	///close_fd(to_close);
 	(void)p;
 	//pipe_free(p);
-	///(void)p;
 	//exec_ve2(cmd);
-	return (exec(cmd));
+	pid = (exec(cmd));
 	//}
 	//debug_printf("waiting %d > %s > %d to finish\n", r, cmd, w);
 	//wait_child(pid);
@@ -45,8 +52,9 @@ pid_t pe2(char* cmd, int r, int w, t_list** p)
 
 	if (w != STDOUT_FILENO)
 	{
-		////close_fd(w);
+		close_fd(w);
 	}
+	return (pid);
 }
 
 pid_t pipe_exec2(t_list* p, int prev_r)
@@ -57,6 +65,7 @@ pid_t pipe_exec2(t_list* p, int prev_r)
 	}
 	int r, w;
 	ft_pipe(&r, &w);
+	g_fd_to_close = r;
 	pe2(ft_strdup((char*)p->content), prev_r, w, &p);
 	return (pipe_exec2(p->next, r));
 }
