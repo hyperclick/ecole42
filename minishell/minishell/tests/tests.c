@@ -276,11 +276,8 @@ void		test(void(*f)(), const char* name)
 	const char* actual_out = ft_strjoin2(3, "test_cases/actual/", name, "_out.txt");
 	const char* expected_err = ft_strjoin2(3, "test_cases/expected/", name, "_err.txt");
 	const char* actual_err = ft_strjoin2(3, "test_cases/actual/", name, "_err.txt");
-	int pid = ft_fork();
-	if (is_child(pid))
-	{
+
 		debug_set_pname("test");
-		debug_printf("");
 		debug_printf("testing %s\n", name);
 		int out = dup(STDOUT_FILENO);
 		FILE* f_out = freopen(actual_out, "w", stdout);
@@ -298,13 +295,11 @@ void		test(void(*f)(), const char* name)
 		//restore_stdout();
 		////close_fd(STDIN_FILENO);
 		close_fd(STDOUT_FILENO);
-		//freopen("/dev/tty", "a", stdout);
-		//freopen("/dev/tty", "a", stderr);
+		freopen("/dev/tty", "a", stdout);
+		freopen("/dev/tty", "a", stderr);
 		//save_stdin();
 		//save_stdout();
-		ft_exit(0);
-	}
-	wait_child(pid);
+
 	compare_and_free(expected_out, actual_out, ft_strjoin(name, "_out"));
 	compare_and_free(expected_err, actual_err, ft_strjoin(name, "_err"));
 }
@@ -431,28 +426,72 @@ void test_pipe9()
 	process_command("wc -c < /tmp/test.txt");
 }
 
-void pwd2()
+void		fe(char* argv[])
 {
-	pipe_exec("pwd");
-	
-	ft_exit(0);
-	int pid = ft_fork();
+	pid_t pid;
+	pid = ft_fork();
 	if (is_child(pid))
 	{
-		//int r, w;
-		//ft_pipe(&r, &w);
-		char** args = ft_split3("pwd", "|");
-		restore_stdin();
-		restore_stdout();
-		redirect(STDIN_FILENO, STDIN_FILENO);
-		redirect(STDOUT_FILENO, STDOUT_FILENO);
-		//built_in_processed(args, 1);
-		exec(args[0]);
-
-		ft_free_null_term_array((void**)args);
-		ft_exit(0);
+		debug_set_pname(argv[0]);
+		exec_ve(argv);
+		debug_printf("!!!should not be here!!!\n");
 	}
 
+	debug_printf("%s launched\n", argv[0]);
+	//wait_child(pid);
+}
+void pwd2()
+{
+	pipe_exec(ft_strdup("pwd"));
+	return;
+	pid_t pid;
+	char** args = ft_split3("/bin/pwd", "|");
+
+	
+	fe(args);
+	return;
+	pid = ft_fork();
+	if (is_child(pid))
+	{
+		debug_set_pname(args[0]);
+		exec_ve(args);
+		debug_printf("!!!should not be here!!!\n");
+	}
+	ft_free_null_term_array((void**)args);
+	wait_child(pid);
+	return;
+
+		fork_and_exec(args, &pid);
+	return;
+
+
+	//
+	//ft_exit(0);
+
+	t_list* p;
+	p = pipe_parse("pwd");
+
+		//pipe_exec2(p, STDIN_FILENO);
+		//ft_exit(0);
+
+		//restore_stdin();
+		//restore_stdout();
+		//redirect(STDIN_FILENO, STDIN_FILENO);
+		//redirect(STDOUT_FILENO, STDOUT_FILENO);
+		//built_in_processed(args, 1);
+		//exec(args[0]);
+		//exec2(args);
+		//try_execute(args[0], args);
+		//fork_and_exec(args);
+		pid = ft_fork();
+		if (is_child(pid))
+		{
+			debug_set_pname(args[0]);
+			exec_ve(args);
+			debug_printf("!!!should not be here!!!\n");
+		}
+		ft_free_null_term_array((void**)args);
+		
 }
 
 
@@ -468,6 +507,8 @@ int main(int argc, char** argv, char** envp)
 	*/
 	init(argc, argv, envp);
 
+	process_command("ls | sort");
+		ft_exit(0);
 	//	process_command("base64 /dev/urandom | head -c100");
 	//	ft_exit(0);
 	//process_command("base64 /dev/urandom | head -c1000 | grep 42 | wc -l | sed -e 's/1/Yes/g' -e 's/0/No/g'");
@@ -475,9 +516,9 @@ int main(int argc, char** argv, char** envp)
 
 		//test_pipe_1();
 
-	test(pwd2, "pwd2");
+	//test(pwd2, "pwd2");
 
-	ft_exit(0);
+	//ft_exit(0);
 	test(pwd, "pwd");
 	test_lg();
 	dic();

@@ -20,7 +20,7 @@ void	ft_pipe(int* r, int* w)
 }
 
 
-void pe2(char* cmd, int r, int w, t_list **p)
+pid_t pe2(char* cmd, int r, int w, t_list** p)
 {
 	//int pid = ft_fork();
 	//if (is_child(pid))
@@ -32,10 +32,11 @@ void pe2(char* cmd, int r, int w, t_list **p)
 	redirect(r, STDIN_FILENO);
 	redirect(w, STDOUT_FILENO);
 	///close_fd(to_close);
-	pipe_free(p);
+	(void)p;
+	//pipe_free(p);
 	///(void)p;
 	//exec_ve2(cmd);
-	exec(cmd);
+	return (exec(cmd));
 	//}
 	//debug_printf("waiting %d > %s > %d to finish\n", r, cmd, w);
 	//wait_child(pid);
@@ -48,37 +49,40 @@ void pe2(char* cmd, int r, int w, t_list **p)
 	}
 }
 
-void pipe_exec2(t_list* p, int prev_r)
+pid_t pipe_exec2(t_list* p, int prev_r)
 {
 	if (p->next == NULL)
 	{
-		pe2(ft_strdup((char*)p->content), prev_r, STDOUT_FILENO, &p);
-		return;
+		return pe2(ft_strdup((char*)p->content), prev_r, STDOUT_FILENO, &p);
 	}
 	int r, w;
 	ft_pipe(&r, &w);
 	pe2(ft_strdup((char*)p->content), prev_r, w, &p);
-	pipe_exec2(p->next, r);
-	debug_printf("pipe_exec finished\n");
+	return (pipe_exec2(p->next, r));
 }
 
 void pipe_exec(char* str)
 {
+	pid_t pid;
 	t_list* p;
 	p = pipe_parse(str);
-	int pid = ft_fork();
-	if (is_child(pid))
-	{
-		debug_set_pname(str);
-		free(str);
-		pipe_exec2(p, STDIN_FILENO);
-		ft_exit(0);
-	}
+	//pid = ft_fork();
+	//if (is_child(pid))
+	//{
+	debug_set_pname(str);
+	//free(str);
+	pid = pipe_exec2(p, STDIN_FILENO);
+	debug_printf("pipe_exec2 returned: %d\n", pid);
+	//	ft_exit(0);
+	//}
 	pipe_free(&p);
 	//restore_stdin();
 	//restore_stdout();
-	debug_printf("waiting %s to finish\n", str);
-	wait_child(pid);
-	debug_printf("%s finished\n", str);
+	if (pid > 0)
+	{
+		debug_printf("waiting %s to finish\n", str);
+		wait_child(pid);
+		debug_printf("%s finished\n", str);
+	}
 	free(str);
 }

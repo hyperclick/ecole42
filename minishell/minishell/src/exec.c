@@ -38,29 +38,31 @@ void		exec_ve2(const char* str)
 	//free(args);
 }
 
-BOOL		is_child(int pid)
+BOOL		is_child(pid_t pid)
 {
 	return (pid == 0);
 }
 
-void		fork_and_exec(char* argv[])
+void		fork_and_exec(char* argv[], pid_t* ppid)
 {
-	pid_t pid;
-	pid = ft_fork();
-	if (is_child(pid))
+	//pid_t pid;
+	*ppid = ft_fork();
+	if (is_child(*ppid))
 	{
 		debug_set_pname(argv[0]);
+		debug_printf("fork_and_exec:\tabout to launch %s\n", argv[0]);
 		exec_ve(argv);
+		debug_printf("!!!should not be here!!!\n");
 	}
 
-	debug_printf("%s launched\n", argv[0]);
+	debug_printf("fork_and_exec:\t%s launched\n", argv[0]);
 	//set_awaited_process(pid);
 	//wait_child(pid);
 	//set_awaited_process(0);
 	//add awaited process
 }
 
-BOOL		try_execute(char* filename, char* argv[])
+BOOL		try_execute(char* filename, char* argv[], pid_t* ppid)
 {
 	if (access(argv[0], F_OK) == 0)
 	{
@@ -71,7 +73,7 @@ BOOL		try_execute(char* filename, char* argv[])
 			debug_printf("%s: command found but has no exec rigths\n", argv[0]);
 			return (TRUE);
 		}
-		fork_and_exec(argv);
+		fork_and_exec(argv, ppid);
 		//exec_ve(argv);
 		//ft_e_putstr("execve succeeded\n");
 		//ft_exit(2);
@@ -80,12 +82,13 @@ BOOL		try_execute(char* filename, char* argv[])
 	return (FALSE);
 }
 
-void		exec2(char* argv[])
+pid_t		exec2(char* argv[])
 {
 	char* filename = argv[0];
-	if (try_execute(filename, argv))
+	pid_t pid;
+	if (try_execute(filename, argv, &pid))
 	{
-		return;
+		return (pid);
 	}
 	char* argv0 = argv[0];
 	//printf("free %s\n", argv[0]);
@@ -102,13 +105,13 @@ void		exec2(char* argv[])
 		ft_strcat(path, filename);
 		argv[0] = path;
 		//debug_printf("trying '%s'\n", argv[0]);
-		if (try_execute(filename, argv))
+		if (try_execute(filename, argv, &pid))
 		{
 			argv[0] = argv0;
 			ft_free_null_term_array((void**)start);
-			debug_printf("executed: %s\n", path);
+			debug_printf("exec2:\texecuted: %s\n", path);
 			//free(start);
-			return;
+			return (pid);
 		}
 		folders++;
 	}
@@ -118,5 +121,5 @@ void		exec2(char* argv[])
 	argv[0] = argv0;
 	ft_free_null_term_array((void**)start);
 	//free(start);
-	return;
+	return (0);
 }

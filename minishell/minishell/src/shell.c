@@ -263,16 +263,21 @@ int	process_command(const char* str)
 	while (*cmds != NULL)
 	{
 		int r = process_one_command(*cmds);
+	debug_printf("2\n");
 		if (r != 0)
 		{
 			break;
 		}
 		cmds++;
 	}
-	
+
+	debug_printf("1\n");
 	free_quoted_params();
-	ft_free_null_term_array((void**)commands);
-	g_commands = NULL;
+	//if (g_commands != NULL)
+	//{
+		ft_free_null_term_array((void**)commands);
+		g_commands = NULL;
+	//}
 
 	debug_printf("command processed: '%s'\n", str);
 	debug_printf("-------------------------\n");
@@ -282,10 +287,13 @@ int	process_command(const char* str)
 }
 
 
-void exec(char* str)
+pid_t exec(char* str)
 {
-	ft_free_null_term_array((void**)g_commands);
-	g_commands = NULL;
+	//if (g_commands != NULL)
+	//{
+	//	ft_free_null_term_array((void**)g_commands);
+	//	g_commands = NULL;
+	//}
 
 	char** args;
 	args = ft_split3(str, " \t");
@@ -311,11 +319,11 @@ void exec(char* str)
 	//ft_str_remove_empty_strings(replaced_args)
 	if (!built_in_processed(replaced_args, c))
 	{
-		exec2(replaced_args);
+		return (exec2(replaced_args));
 	}
 	ft_free_array((void**)replaced_args, c);
-	
-	close_fd(STDOUT_FILENO);
+	return (0);
+	//close_fd(STDOUT_FILENO);
 	//freopen("/dev/tty", "a", stdout);
 	//freopen("/dev/tty", "a", stderr);
 	//ft_exit(0);

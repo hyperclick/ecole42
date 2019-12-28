@@ -30,11 +30,11 @@ void	ft_set_env(int argc, char* const argv[]);
 //char** get_path_folders();
 char** fill_path_folders();
 
+BOOL		is_child(pid_t pid);
 BOOL		built_in_processed(char * const args[], int count);
-void fork_and_exec(char* argv[]);
-BOOL		is_child(int pid);
-void		exec2(char* argv[]);
-//BOOL		is_exit(const char str[MAX_CMD_LINE]);
+void fork_and_exec(char* argv[], pid_t* ppid);
+BOOL		try_execute(char* filename, char* argv[], pid_t* ppid);
+pid_t		exec2(char* argv[]);
 
 pid_t get_awaited_process(); 
 void set_awaited_process(pid_t pid);
@@ -65,13 +65,13 @@ void h_append(const char* content);
 void pipe_free(t_list** pipe);
 t_list* pipe_parse2(const char** cmds);
 t_list* pipe_parse(const char* str);
-void	ft_pipe(int* r, int* w);
-//void pipe_exec2(t_list* p, int prev_r);
+void	ft_pipe(int* r, int* w); 
+//pid_t pipe_exec2(t_list* p, int prev_r);
 void pipe_exec(char* str);
 pid_t	ft_fork();
 void		exec_ve(char* argv[]);
 void		exec_ve2(const char* str);
-void exec(char* str);
+pid_t exec(char* str);
 
 
 char	* replace_quoted(const char* str); 
