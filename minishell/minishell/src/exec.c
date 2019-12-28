@@ -53,10 +53,11 @@ void		fork_and_exec(char* argv[])
 		exec_ve(argv);
 	}
 
-	debug_printf("waiting %s to finish\n", argv[0]);
-	set_awaited_process(pid);
-	wait_child(pid);
-	set_awaited_process(0);
+	debug_printf("%s launched\n", argv[0]);
+	//set_awaited_process(pid);
+	//wait_child(pid);
+	//set_awaited_process(0);
+	//add awaited process
 }
 
 BOOL		try_execute(char* filename, char* argv[])
@@ -66,8 +67,8 @@ BOOL		try_execute(char* filename, char* argv[])
 		if (-1 == access(argv[0], X_OK))
 		{
 			ft_e_putstr(filename);
-			ft_e_putstr(": command not found\n");
-			debug_printf("%s: command found but has no exec rigths\n", filename);
+			ft_e_putstr(": command found but has no exec rigths\n");
+			debug_printf("%s: command found but has no exec rigths\n", argv[0]);
 			return (TRUE);
 		}
 		fork_and_exec(argv);

@@ -1,0 +1,1 @@
+-minishell: unsetenv: var not found: q

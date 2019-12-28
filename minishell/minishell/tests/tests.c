@@ -2,7 +2,7 @@
 #include "../src/minishell.h"
 #include <stdio.h>
 //#include <copyfile.h>
- 
+
 void test_pipe_parse()
 {
 	t_list* pipe = pipe_parse("ls -l | sort | cat -e");
@@ -261,6 +261,8 @@ void compare_and_free(const char* e, const char* a, const char* name)
 	else
 	{
 		printf("%s: failed\n", name);
+		printf("e: %s\n", e);
+		printf("a: %s\n", a);
 		exit(1);
 	}
 	free((char*)e);
@@ -270,93 +272,48 @@ void compare_and_free(const char* e, const char* a, const char* name)
 
 void		test(void(*f)(), const char* name)
 {
-	debug_printf("");
-	debug_printf("testing %s\n", name);
 	const char* expected_out = ft_strjoin2(3, "test_cases/expected/", name, "_out.txt");
 	const char* actual_out = ft_strjoin2(3, "test_cases/actual/", name, "_out.txt");
 	const char* expected_err = ft_strjoin2(3, "test_cases/expected/", name, "_err.txt");
 	const char* actual_err = ft_strjoin2(3, "test_cases/actual/", name, "_err.txt");
-	FILE* f_out = freopen(actual_out, "w", stdout);
-	FILE* f_err = freopen(actual_err, "w", stderr);
-	f();
-	//fflush(file);
-	//fflush(stdout);
-	//fclose(stdout);
-	//char* cmd = ft_strjoin2(4, "cp ", actual_out, " ", ft_strjoin(actual_out, ".copy.txt"));
-	//printf("system(%s)\n", cmd);
-	//printf("press enter...\n");
-	//char ch[10];
-	//read(STDIN_FILENO, ch, 10);
-	//system(cmd);
-	//process_command(cmd);
-	//free(cmd);
-	freopen("/dev/tty", "a", stdout);
-	freopen("/dev/tty", "a", stderr);
-	//fseek(f_out, 0, 0);
-	//int r = fread(ch,1, 9, f_out);
-	//ch[9] = 0;
-	//printf("'%s' r = %d\n", ch, r);
-	//fclose(f_out);
+	int pid = ft_fork();
+	if (is_child(pid))
+	{
+		debug_set_pname("test");
+		debug_printf("");
+		debug_printf("testing %s\n", name);
+		int out = dup(STDOUT_FILENO);
+		FILE* f_out = freopen(actual_out, "w", stdout);
+		FILE* f_err = freopen(actual_err, "w", stderr);
+		save_stdin();
+		save_stdout();
+		f();
+		//fflush(file);
+		fflush(stdout);
+		fclose(stdout);
+		fclose(f_out);
+		//debug_printf("restore stdout\n");
+		//redirect(out, STDOUT_FILENO);
+		//restore_stdin();
+		//restore_stdout();
+		////close_fd(STDIN_FILENO);
+		close_fd(STDOUT_FILENO);
+		//freopen("/dev/tty", "a", stdout);
+		//freopen("/dev/tty", "a", stderr);
+		//save_stdin();
+		//save_stdout();
+		ft_exit(0);
+	}
+	wait_child(pid);
 	compare_and_free(expected_out, actual_out, ft_strjoin(name, "_out"));
 	compare_and_free(expected_err, actual_err, ft_strjoin(name, "_err"));
 }
 
-
-void pe2(char* cmd, int r, int w, int to_close, t_list* p)
-{
-	//int pid = ft_fork();
-	//if (is_child(pid))
-	//{
-	//debug_set_pname(cmd);
-	restore_stdin();
-	restore_stdout();
-	redirect(r, STDIN_FILENO);
-	redirect(w, STDOUT_FILENO);
-	///close_fd(to_close);
-	///pipe_free(&p);
-	(void)p;
-	//exec_ve2(cmd);
-	exec(cmd);
-	//}
-	//debug_printf("waiting %d > %s > %d to finish\n", r, cmd, w);
-	//wait_child(pid);
-	//debug_printf("%s finished\n", cmd);
-	//free(cmd);
-	if (w != STDOUT_FILENO)
-	{
-		close_fd(w);
-	}
-}
-
-void pipe_exec2(t_list* p, int prev_r)
-{
-	if (p->next == NULL)
-	{
-		pe2(ft_strdup((char*)p->content), prev_r, STDOUT_FILENO, -1, p);
-		return;
-	}
-	int r, w;
-	ft_pipe(&r, &w);
-	pe2(ft_strdup((char*)p->content), prev_r, w, r, p);
-	pipe_exec2(p->next, r);
-	debug_printf("pipe_exec finished\n");
-}
-
-void test_pipe_exec(char* str)
-{
-	t_list* p;
-	p = pipe_parse(str);
-	//free(str);
-	pipe_exec2(p, STDIN_FILENO);
-	pipe_free(&p);
-	restore_stdin();
-	restore_stdout();
-}
 void test_pipe_1()
 {
 
-	test_pipe_exec("cd ~|pwd");
-	test_pipe_exec("cd -");
+	pipe_exec("cd ~|pwd");
+	pipe_exec("cd -");
 }
 
 //void test_replace_quotes()
@@ -385,7 +342,7 @@ void dic()
 	assert_false(dic_contains_key(dic, NULL));
 	dic = dic_add(dic, "key2", "value2");
 
-	 
+
 
 
 
@@ -396,8 +353,8 @@ void dic()
 
 	//dic_free(&dic);
 	//ft_exit(1);
-	
-	
+
+
 	assert_int_equals(2, dic_get_count(dic));
 	assert_true(dic_contains_key(dic, "key2"));
 
@@ -447,7 +404,6 @@ void test_lg()
 void test_set_env()
 {
 	process_command("\"setenv\"");
-
 }
 
 void test_pipe9()
@@ -456,9 +412,10 @@ void test_pipe9()
 	process_command("\"setenv\" | \"sort\"");
 	process_command("\"setenv\" | \"sort\"");
 	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\"");
-	process_command("ls | cat -e | sort");
 	process_command("ls | sort");
 	process_command("ls | cat -e");
+	process_command("ls | sort | cat -e");
+	process_command("ls | cat -e | sort");
 	process_command("setenv | sort");
 	return;
 	process_command("echo \"No dollar character\" 1 > &2 | cat -e");
@@ -467,15 +424,37 @@ void test_pipe9()
 	process_command(" cat < out.txt <<src | rev");
 	process_command("cat <out.txt | rev");
 	process_command("cat <<src <out.txt | rev");
-	process_command("ls | cat -e");
-	process_command("ls | sort | cat -e");
 	process_command("rm -rf t; mkdir t ; cd t ; ls -a ; ls | cat | wc -c > fifi ; cat fifi");
 	process_command("base64 /dev/urandom | head -c1000 | grep 42 | wc -l | sed -e 's/1/Yes/g' -e 's/0/No/g'");
 	process_command("echo \"Testing redirections, \" > /tmp/test.txt; cat -e /tmp/test.txt");
 	process_command("echo \"with multiple lines \" >> /tmp/test.txt; cat -e /tmp/test.txt");
 	process_command("wc -c < /tmp/test.txt");
+}
+
+void pwd2()
+{
+	pipe_exec("pwd");
+	
+	ft_exit(0);
+	int pid = ft_fork();
+	if (is_child(pid))
+	{
+		//int r, w;
+		//ft_pipe(&r, &w);
+		char** args = ft_split3("pwd", "|");
+		restore_stdin();
+		restore_stdout();
+		redirect(STDIN_FILENO, STDIN_FILENO);
+		redirect(STDOUT_FILENO, STDOUT_FILENO);
+		//built_in_processed(args, 1);
+		exec(args[0]);
+
+		ft_free_null_term_array((void**)args);
+		ft_exit(0);
+	}
 
 }
+
 
 int main(int argc, char** argv, char** envp)
 {
@@ -489,47 +468,40 @@ int main(int argc, char** argv, char** envp)
 	*/
 	init(argc, argv, envp);
 
-	process_command("pwd");
+	//	process_command("base64 /dev/urandom | head -c100");
+	//	ft_exit(0);
+	//process_command("base64 /dev/urandom | head -c1000 | grep 42 | wc -l | sed -e 's/1/Yes/g' -e 's/0/No/g'");
+	//	ft_exit(0);
+
+		//test_pipe_1();
+
+	test(pwd2, "pwd2");
+
 	ft_exit(0);
-	test_pipe_1();
-	ft_exit(0);
-
-	//close_fd(STDOUT_FILENO);
-	//ft_putstr("closed\n");
-
-	int r, w;
-	ft_pipe(&r, &w);
-	redirect(STDOUT_FILENO, w);
-	close_fd(r);
-
-
-
-	process_command("cd ~| cd -");
-	ft_exit(0);
-
-
-	test(ls, "ls");
-
+	test(pwd, "pwd");
 	test_lg();
 	dic();
-	test(test_set_env, "set_env");
-//		test_pipe9();
-	test_pipe_parse();
-	//test(test_pipe_parse, "test_pipe_parse");
 	history();
-	//	test(history, "history");
-		//return 0;
 	test(cd_bad, "cd_bad");
-	test(cd_good, "cd_good");
-	test(pwd, "pwd");
+	test_pipe_parse();
 	test(comment_ignored, "comment_ignored");
-	test(echo_tilde, "echo_tilde");
-	test(echo_home, "echo_home");
-	//return 0;
-	test(env, "env");
 	test(two_commands_bad, "two_commands_bad");
 	test(two_commands_good, "two_commands_good");
+
+	test(cd_good, "cd_good");
+	test(ls, "ls");
+	test(echo_tilde, "echo_tilde");
+	test(echo_home, "echo_home");
+	test(env, "env");
 	test(echo_quotes, "echo_quotes");
-	//return (0);
+	test(test_set_env, "set_env");
+	//test(test_pipe_parse, "test_pipe_parse");
+	//	test(history, "history");
+		//return 0;
+	//return 0;
+
+
+	test_pipe9();
+	printf("all tests passed\n");
 	ft_exit(0);
 }

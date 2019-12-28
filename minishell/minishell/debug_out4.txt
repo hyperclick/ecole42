@@ -1,31 +1,22 @@
 [main]	level set to 1
+[main]	duplicated stdin to 4
+[main]	duplicated stdout to 5
 [main]	started
 [main]	agrc = 1
 [main]	agrv[1] = (null)
-[main]	
-[main]	-----------------------
-[main]	process command: 'pwd'
-[main]	quotes replaced: 'pwd'
-[main]	trimmed = pwd
-[main]	no comments = pwd
-[main]	cmd: 'pwd'
-[main]	pipe_parse(pwd)
-[main]	cmd[0] = 'pwd'
-[main]	redirect: 0->0
-[main]	redirect: 1->1
-[main]	close(-1)
-[main]	after replace
-'pwd'	
 [main]	fork
-[main]	waiting /bin/pwd to finish
-[main]	change g_awaited_process from 0 to 26872
-[main]	wait 26872 to stop
- [/bin/pwd]	exec(/bin/pwd)
-[main]	waitpid(26872) returned
-[main]	change g_awaited_process from 26872 to 0
-[main]	executed: /bin/pwd
-[main]	free item: 'pwd' (0x7fffbfeb6590)
-[main]	command processed: 'pwd'
-[main]	-------------------------
-[main]	
-[main]	exit process (0)
+[main]	wait 2688 to stop
+ [test]	 [test]	testing pwd2
+ [test]	duplicated stdin to 7
+ [test]	duplicated stdout to 8
+ [test]	pipe_parse(pwd)
+ [test]	cmd[0] = 'pwd'
+ [test]	fork
+ [test]	free item: 'pwd' (0x7fffbf27f5f0)
+ [test]	waiting pwd to finish
+ [test]	wait 2689 to stop
+ [test]	child program didn't terminate normally
+ [test]	waitpid(2689) returned
+ [test]	pwd finished
+[main]	child program didn't terminate normally
+[main]	waitpid(2688) returned

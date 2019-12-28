@@ -21,12 +21,14 @@ void save_stdin()
 }
 void	restore_stdin()
 {
+	debug_printf("restore stdin\n");
 	//close_fd(STDIN_FILENO);
 	redirect(g_stdin, STDIN_FILENO);
 }
 void	restore_stdout()
 {
-	redirect(g_stdin, STDOUT_FILENO);
+	debug_printf("restore stdout\n");
+	redirect(g_stdout, STDOUT_FILENO);
 }
 void save_stdout()
 {
