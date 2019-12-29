@@ -7,6 +7,7 @@ dir w spaces
 libft
 log.txt
 minishell
+minishell.dSYM
 out.txt
 out2.txt
 src
@@ -17,3 +18,4 @@ termux2.pub.pub
 test_cases
 tests
 ut
+ut.dSYM
