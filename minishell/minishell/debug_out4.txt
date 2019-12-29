@@ -26,16 +26,16 @@
 [ls]	after replace
 'ls'	
 [ls]	fork
-[ls]	fork_and_exec:	/bin/ls = 99747 launched
+[ls]	fork_and_exec:	/bin/ls = 4713 launched
 [ls]	exec2:	executed: /bin/ls
-[ls]	pipe_exec2 returned: 99747
-[ls]	free item: 'ls' (0x7fbc79d00870)
+[ls]	pipe_exec2 returned: 4713
+[ls]	free item: 'ls' (0x7fa54fe00050)
 [ls]	waiting ls to finish
-[ls]	wait 99747 to stop
+[ls]	wait 4713 to stop
  [/bin/ls]	close_g_fd_to_close [/bin/ls]	close(-11)
  [/bin/ls]	fork_and_exec:	about to launch /bin/ls
  [/bin/ls]	exec(/bin/ls)
-[ls]	waitpid(99747) returned
+[ls]	waitpid(4713) returned
 [ls]	ls finished
 [ls]	command processed: 'ls'
 [ls]	-------------------------
@@ -64,25 +64,25 @@
 [pwd]	after replace
 'pwd'	
 [pwd]	fork
-[pwd]	fork_and_exec:	/bin/pwd = 99748 launched
+[pwd]	fork_and_exec:	/bin/pwd = 4714 launched
 [pwd]	exec2:	executed: /bin/pwd
-[pwd]	pipe_exec2 returned: 99748
-[pwd]	free item: 'pwd' (0x7fbc79e000d0)
+[pwd]	pipe_exec2 returned: 4714
+[pwd]	free item: 'pwd' (0x7fa54fd00870)
 [pwd]	waiting pwd to finish
-[pwd]	wait 99748 to stop
+[pwd]	wait 4714 to stop
   [/bin/pwd]	close_g_fd_to_close  [/bin/pwd]	close(-11)
   [/bin/pwd]	fork_and_exec:	about to launch /bin/pwd
   [/bin/pwd]	exec(/bin/pwd)
-[pwd]	waitpid(99748) returned
+[pwd]	waitpid(4714) returned
 [pwd]	pwd finished
 [pwd]	command processed: 'pwd'
 [pwd]	-------------------------
 [pwd]	
 [test]	pwd finished
 [test]	close(1)
-[test]	dic_add:	kvp->key = 'key1', &kvp->key = 0x7fbc79e00060, kvp = 0x7fbc79e00050
-[test]	dic_add:	kvp->key = '%paired_quote%2', &kvp->key = 0x7fbc79e00060, kvp = 0x7fbc79e00050
-[test]	dic_add:	kvp->key = '%paired_quote%2', &kvp->key = 0x7fbc79e00070, kvp = 0x7fbc79e00020
+[test]	dic_add:	kvp->key = 'key1', &kvp->key = 0x7fa54fc025f0, kvp = 0x7fa54fc025e0
+[test]	dic_add:	kvp->key = '%paired_quote%2', &kvp->key = 0x7fa54fc025f0, kvp = 0x7fa54fc025e0
+[test]	dic_add:	kvp->key = '%paired_quote%2', &kvp->key = 0x7fa54fc02600, kvp = 0x7fa54fc025b0
 [test]	testing cd_bad
 [test]	duplicated stdin to 13
 [test]	duplicated stdout to 14
@@ -106,7 +106,7 @@
 'cd'	'-'	
 [cd -]	exec cd '-'
 [cd -]	pipe_exec2 returned: 0
-[cd -]	free item: 'cd -' (0x7fbc79e00180)
+[cd -]	free item: 'cd -' (0x7fa54fc02700)
 [cd -]	command processed: 'cd -'
 [cd -]	-------------------------
 [cd -]	
@@ -130,7 +130,7 @@
 'cd'	'\'	
 [cd \]	exec cd '\'
 [cd \]	pipe_exec2 returned: 0
-[cd \]	free item: 'cd \' (0x7fbc79e00180)
+[cd \]	free item: 'cd \' (0x7fa54fc02700)
 [cd \]	command processed: 'cd \'
 [cd \]	-------------------------
 [cd \]	
@@ -138,9 +138,9 @@
 [test]	close(1)
 [test]	pipe_parse(ls -l | sort | cat -e)
 [test]	cmd[0] = 'ls -l '
-[test]	free item: 'ls -l' (0x7fbc79f00060)
-[test]	free item: 'sort' (0x7fbc79f00090)
-[test]	free item: 'cat -e' (0x7fbc79f000c0)
+[test]	free item: 'ls -l' (0x7fa54fc02640)
+[test]	free item: 'sort' (0x7fa54fc02670)
+[test]	free item: 'cat -e' (0x7fa54fc02680)
 [test]	testing comment_ignored
 [test]	duplicated stdin to 16
 [test]	duplicated stdout to 17
@@ -169,16 +169,16 @@
 [pwd]	after replace
 'pwd'	
 [pwd]	fork
-[pwd]	fork_and_exec:	/bin/pwd = 99749 launched
+[pwd]	fork_and_exec:	/bin/pwd = 4715 launched
 [pwd]	exec2:	executed: /bin/pwd
-[pwd]	pipe_exec2 returned: 99749
-[pwd]	free item: 'pwd' (0x7fbc79f00110)
+[pwd]	pipe_exec2 returned: 4715
+[pwd]	free item: 'pwd' (0x7fa54fc02670)
 [pwd]	waiting pwd to finish
-[pwd]	wait 99749 to stop
+[pwd]	wait 4715 to stop
    [/bin/pwd]	close_g_fd_to_close   [/bin/pwd]	close(-11)
    [/bin/pwd]	fork_and_exec:	about to launch /bin/pwd
    [/bin/pwd]	exec(/bin/pwd)
-[pwd]	waitpid(99749) returned
+[pwd]	waitpid(4715) returned
 [pwd]	pwd finished
 [pwd]	command processed: 'pwd #'
 [pwd]	-------------------------
@@ -203,7 +203,7 @@
 'pwd#'	
 [pwd#]	pwd#: command not found
 [pwd#]	pipe_exec2 returned: 0
-[pwd#]	free item: 'pwd#' (0x7fbc79e000c0)
+[pwd#]	free item: 'pwd#' (0x7fa54fe00060)
 [pwd#]	command processed: 'pwd#'
 [pwd#]	-------------------------
 [pwd#]	
@@ -268,16 +268,16 @@
 [pwd]	after replace
 'pwd'	
 [pwd]	fork
-[pwd]	fork_and_exec:	/bin/pwd = 99750 launched
+[pwd]	fork_and_exec:	/bin/pwd = 4716 launched
 [pwd]	exec2:	executed: /bin/pwd
-[pwd]	pipe_exec2 returned: 99750
-[pwd]	free item: 'pwd' (0x7fbc79d00820)
+[pwd]	pipe_exec2 returned: 4716
+[pwd]	free item: 'pwd' (0x7fa54fe00070)
 [pwd]	waiting pwd to finish
-[pwd]	wait 99750 to stop
+[pwd]	wait 4716 to stop
     [/bin/pwd]	close_g_fd_to_close    [/bin/pwd]	close(-11)
     [/bin/pwd]	fork_and_exec:	about to launch /bin/pwd
     [/bin/pwd]	exec(/bin/pwd)
-[pwd]	waitpid(99750) returned
+[pwd]	waitpid(4716) returned
 [pwd]	pwd finished
 [pwd]	command processed: 'pwd;'
 [pwd]	-------------------------
@@ -301,16 +301,16 @@
 [echo echo1]	after replace
 'echo'	'echo1'	
 [echo echo1]	fork
-[echo echo1]	fork_and_exec:	/bin/echo = 99751 launched
+[echo echo1]	fork_and_exec:	/bin/echo = 4717 launched
 [echo echo1]	exec2:	executed: /bin/echo
-[echo echo1]	pipe_exec2 returned: 99751
-[echo echo1]	free item: 'echo echo1' (0x7fbc79e00120)
+[echo echo1]	pipe_exec2 returned: 4717
+[echo echo1]	free item: 'echo echo1' (0x7fa54fe000d0)
 [echo echo1]	waiting echo echo1 to finish
-[echo echo1]	wait 99751 to stop
+[echo echo1]	wait 4717 to stop
      [/bin/echo]	close_g_fd_to_close     [/bin/echo]	close(-11)
      [/bin/echo]	fork_and_exec:	about to launch /bin/echo
      [/bin/echo]	exec(/bin/echo)
-[echo echo1]	waitpid(99751) returned
+[echo echo1]	waitpid(4717) returned
 [echo echo1]	echo echo1 finished
 [echo echo1]	cmd: 'echo echo2'
 [echo echo1]	pipe_parse(echo echo2)
@@ -325,16 +325,16 @@
 [echo echo2]	after replace
 'echo'	'echo2'	
 [echo echo2]	fork
-[echo echo2]	fork_and_exec:	/bin/echo = 99752 launched
+[echo echo2]	fork_and_exec:	/bin/echo = 4718 launched
 [echo echo2]	exec2:	executed: /bin/echo
-[echo echo2]	pipe_exec2 returned: 99752
-[echo echo2]	free item: 'echo echo2' (0x7fbc79d00810)
+[echo echo2]	pipe_exec2 returned: 4718
+[echo echo2]	free item: 'echo echo2' (0x7fa54fd00850)
 [echo echo2]	waiting echo echo2 to finish
-[echo echo2]	wait 99752 to stop
+[echo echo2]	wait 4718 to stop
       [/bin/echo]	close_g_fd_to_close      [/bin/echo]	close(-11)
       [/bin/echo]	fork_and_exec:	about to launch /bin/echo
       [/bin/echo]	exec(/bin/echo)
-[echo echo2]	waitpid(99752) returned
+[echo echo2]	waitpid(4718) returned
 [echo echo2]	echo echo2 finished
 [echo echo2]	command processed: 'echo echo1;;echo echo2'
 [echo echo2]	-------------------------
@@ -358,16 +358,16 @@
 [echo echo3]	after replace
 'echo'	'echo3'	
 [echo echo3]	fork
-[echo echo3]	fork_and_exec:	/bin/echo = 99753 launched
+[echo echo3]	fork_and_exec:	/bin/echo = 4719 launched
 [echo echo3]	exec2:	executed: /bin/echo
-[echo echo3]	pipe_exec2 returned: 99753
-[echo echo3]	free item: 'echo echo3' (0x7fbc79d00810)
+[echo echo3]	pipe_exec2 returned: 4719
+[echo echo3]	free item: 'echo echo3' (0x7fa54fe00080)
 [echo echo3]	waiting echo echo3 to finish
-[echo echo3]	wait 99753 to stop
+[echo echo3]	wait 4719 to stop
        [/bin/echo]	close_g_fd_to_close       [/bin/echo]	close(-11)
        [/bin/echo]	fork_and_exec:	about to launch /bin/echo
        [/bin/echo]	exec(/bin/echo)
-[echo echo3]	waitpid(99753) returned
+[echo echo3]	waitpid(4719) returned
 [echo echo3]	echo echo3 finished
 [echo echo3]	command processed: 'echo echo3;#;echo echo4'
 [echo echo3]	-------------------------
@@ -391,16 +391,16 @@
 [echo echo5]	after replace
 'echo'	'echo5'	
 [echo echo5]	fork
-[echo echo5]	fork_and_exec:	/bin/echo = 99754 launched
+[echo echo5]	fork_and_exec:	/bin/echo = 4720 launched
 [echo echo5]	exec2:	executed: /bin/echo
-[echo echo5]	pipe_exec2 returned: 99754
-[echo echo5]	free item: 'echo echo5' (0x7fbc79d00960)
+[echo echo5]	pipe_exec2 returned: 4720
+[echo echo5]	free item: 'echo echo5' (0x7fa54ff00160)
 [echo echo5]	waiting echo echo5 to finish
-[echo echo5]	wait 99754 to stop
+[echo echo5]	wait 4720 to stop
         [/bin/echo]	close_g_fd_to_close        [/bin/echo]	close(-11)
         [/bin/echo]	fork_and_exec:	about to launch /bin/echo
         [/bin/echo]	exec(/bin/echo)
-[echo echo5]	waitpid(99754) returned
+[echo echo5]	waitpid(4720) returned
 [echo echo5]	echo echo5 finished
 [echo echo5]	cmd: 'echo echo6'
 [echo echo5]	pipe_parse(echo echo6)
@@ -415,16 +415,16 @@
 [echo echo6]	after replace
 'echo'	'echo6'	
 [echo echo6]	fork
-[echo echo6]	fork_and_exec:	/bin/echo = 99755 launched
+[echo echo6]	fork_and_exec:	/bin/echo = 4721 launched
 [echo echo6]	exec2:	executed: /bin/echo
-[echo echo6]	pipe_exec2 returned: 99755
-[echo echo6]	free item: 'echo echo6' (0x7fbc79c025c0)
+[echo echo6]	pipe_exec2 returned: 4721
+[echo echo6]	free item: 'echo echo6' (0x7fa54ff00150)
 [echo echo6]	waiting echo echo6 to finish
-[echo echo6]	wait 99755 to stop
+[echo echo6]	wait 4721 to stop
          [/bin/echo]	close_g_fd_to_close         [/bin/echo]	close(-11)
          [/bin/echo]	fork_and_exec:	about to launch /bin/echo
          [/bin/echo]	exec(/bin/echo)
-[echo echo6]	waitpid(99755) returned
+[echo echo6]	waitpid(4721) returned
 [echo echo6]	echo echo6 finished
 [echo echo6]	command processed: 'echo echo5;echo echo6'
 [echo echo6]	-------------------------
@@ -448,16 +448,16 @@
 [echo echo7]	after replace
 'echo'	'echo7'	
 [echo echo7]	fork
-[echo echo7]	fork_and_exec:	/bin/echo = 99756 launched
+[echo echo7]	fork_and_exec:	/bin/echo = 4722 launched
 [echo echo7]	exec2:	executed: /bin/echo
-[echo echo7]	pipe_exec2 returned: 99756
-[echo echo7]	free item: 'echo echo7' (0x7fbc79c02650)
+[echo echo7]	pipe_exec2 returned: 4722
+[echo echo7]	free item: 'echo echo7' (0x7fa54fc026a0)
 [echo echo7]	waiting echo echo7 to finish
-[echo echo7]	wait 99756 to stop
+[echo echo7]	wait 4722 to stop
           [/bin/echo]	close_g_fd_to_close          [/bin/echo]	close(-11)
           [/bin/echo]	fork_and_exec:	about to launch /bin/echo
           [/bin/echo]	exec(/bin/echo)
-[echo echo7]	waitpid(99756) returned
+[echo echo7]	waitpid(4722) returned
 [echo echo7]	echo echo7 finished
 [echo echo7]	cmd: 'echo echo8'
 [echo echo7]	pipe_parse(echo echo8)
@@ -472,16 +472,16 @@
 [echo echo8]	after replace
 'echo'	'echo8'	
 [echo echo8]	fork
-[echo echo8]	fork_and_exec:	/bin/echo = 99757 launched
+[echo echo8]	fork_and_exec:	/bin/echo = 4723 launched
 [echo echo8]	exec2:	executed: /bin/echo
-[echo echo8]	pipe_exec2 returned: 99757
-[echo echo8]	free item: 'echo echo8' (0x7fbc79e000e0)
+[echo echo8]	pipe_exec2 returned: 4723
+[echo echo8]	free item: 'echo echo8' (0x7fa54fc02690)
 [echo echo8]	waiting echo echo8 to finish
-[echo echo8]	wait 99757 to stop
+[echo echo8]	wait 4723 to stop
            [/bin/echo]	close_g_fd_to_close           [/bin/echo]	close(-11)
            [/bin/echo]	fork_and_exec:	about to launch /bin/echo
            [/bin/echo]	exec(/bin/echo)
-[echo echo8]	waitpid(99757) returned
+[echo echo8]	waitpid(4723) returned
 [echo echo8]	echo echo8 finished
 [echo echo8]	command processed: 'echo echo7;echo echo8'
 [echo echo8]	-------------------------
@@ -510,16 +510,16 @@
 [pwd]	after replace
 'pwd'	
 [pwd]	fork
-[pwd]	fork_and_exec:	/bin/pwd = 99758 launched
+[pwd]	fork_and_exec:	/bin/pwd = 4724 launched
 [pwd]	exec2:	executed: /bin/pwd
-[pwd]	pipe_exec2 returned: 99758
-[pwd]	free item: 'pwd' (0x7fbc79d00900)
+[pwd]	pipe_exec2 returned: 4724
+[pwd]	free item: 'pwd' (0x7fa54fc026c0)
 [pwd]	waiting pwd to finish
-[pwd]	wait 99758 to stop
+[pwd]	wait 4724 to stop
             [/bin/pwd]	close_g_fd_to_close            [/bin/pwd]	close(-11)
             [/bin/pwd]	fork_and_exec:	about to launch /bin/pwd
             [/bin/pwd]	exec(/bin/pwd)
-[pwd]	waitpid(99758) returned
+[pwd]	waitpid(4724) returned
 [pwd]	pwd finished
 [pwd]	command processed: 'pwd'
 [pwd]	-------------------------
@@ -545,7 +545,7 @@
 [cd ~]	exec cd '/Users/darugula'
 [cd ~]	new curdir = /Users/darugula
 [cd ~]	pipe_exec2 returned: 0
-[cd ~]	free item: 'cd ~' (0x7fbc79e000e0)
+[cd ~]	free item: 'cd ~' (0x7fa54fe00070)
 [cd ~]	cmd: 'pwd'
 [cd ~]	pipe_parse(pwd)
 [cd ~]	cmd[0] = 'pwd'
@@ -559,16 +559,16 @@
 [pwd]	after replace
 'pwd'	
 [pwd]	fork
-[pwd]	fork_and_exec:	/bin/pwd = 99759 launched
+[pwd]	fork_and_exec:	/bin/pwd = 4725 launched
 [pwd]	exec2:	executed: /bin/pwd
-[pwd]	pipe_exec2 returned: 99759
-[pwd]	free item: 'pwd' (0x7fbc79e000e0)
+[pwd]	pipe_exec2 returned: 4725
+[pwd]	free item: 'pwd' (0x7fa54fe00070)
 [pwd]	waiting pwd to finish
-[pwd]	wait 99759 to stop
+[pwd]	wait 4725 to stop
              [/bin/pwd]	close_g_fd_to_close             [/bin/pwd]	close(-11)
              [/bin/pwd]	fork_and_exec:	about to launch /bin/pwd
              [/bin/pwd]	exec(/bin/pwd)
-[pwd]	waitpid(99759) returned
+[pwd]	waitpid(4725) returned
 [pwd]	pwd finished
 [pwd]	command processed: 'cd ~;pwd'
 [pwd]	-------------------------
@@ -596,7 +596,7 @@
 [cd -]	exec cd '/Users/darugula/git/e57/minishell/minishell'
 [cd -]	new curdir = /Users/darugula/git/e57/minishell/minishell
 [cd -]	pipe_exec2 returned: 0
-[cd -]	free item: 'cd -' (0x7fbc79c025d0)
+[cd -]	free item: 'cd -' (0x7fa54fc026d0)
 [cd -]	command processed: 'cd -'
 [cd -]	-------------------------
 [cd -]	
@@ -624,16 +624,16 @@
 [echo ~]	after replace
 'echo'	'/Users/darugula'	
 [echo ~]	fork
-[echo ~]	fork_and_exec:	/bin/echo = 99760 launched
+[echo ~]	fork_and_exec:	/bin/echo = 4726 launched
 [echo ~]	exec2:	executed: /bin/echo
-[echo ~]	pipe_exec2 returned: 99760
-[echo ~]	free item: 'echo ~' (0x7fbc79c026e0)
+[echo ~]	pipe_exec2 returned: 4726
+[echo ~]	free item: 'echo ~' (0x7fa54fc026d0)
 [echo ~]	waiting echo ~ to finish
-[echo ~]	wait 99760 to stop
+[echo ~]	wait 4726 to stop
               [/bin/echo]	close_g_fd_to_close              [/bin/echo]	close(-11)
               [/bin/echo]	fork_and_exec:	about to launch /bin/echo
               [/bin/echo]	exec(/bin/echo)
-[echo ~]	waitpid(99760) returned
+[echo ~]	waitpid(4726) returned
 [echo ~]	echo ~ finished
 [echo ~]	command processed: 'echo ~'
 [echo ~]	-------------------------
@@ -662,16 +662,16 @@
 [echo $HOME]	after replace
 'echo'	'/Users/darugula'	
 [echo $HOME]	fork
-[echo $HOME]	fork_and_exec:	/bin/echo = 99761 launched
+[echo $HOME]	fork_and_exec:	/bin/echo = 4727 launched
 [echo $HOME]	exec2:	executed: /bin/echo
-[echo $HOME]	pipe_exec2 returned: 99761
-[echo $HOME]	free item: 'echo $HOME' (0x7fbc79c025b0)
+[echo $HOME]	pipe_exec2 returned: 4727
+[echo $HOME]	free item: 'echo $HOME' (0x7fa54fd008e0)
 [echo $HOME]	waiting echo $HOME to finish
-[echo $HOME]	wait 99761 to stop
+[echo $HOME]	wait 4727 to stop
                [/bin/echo]	close_g_fd_to_close               [/bin/echo]	close(-11)
                [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                [/bin/echo]	exec(/bin/echo)
-[echo $HOME]	waitpid(99761) returned
+[echo $HOME]	waitpid(4727) returned
 [echo $HOME]	echo $HOME finished
 [echo $HOME]	command processed: 'echo $HOME'
 [echo $HOME]	-------------------------
@@ -700,7 +700,7 @@
 [setenv q w]	after replace
 'setenv'	'q'	'w'	
 [setenv q w]	pipe_exec2 returned: 0
-[setenv q w]	free item: 'setenv q w' (0x7fbc79f000e0)
+[setenv q w]	free item: 'setenv q w' (0x7fa54fe00030)
 [setenv q w]	command processed: 'setenv q w'
 [setenv q w]	-------------------------
 [setenv q w]	
@@ -723,16 +723,16 @@
 [echo $q]	after replace
 'echo'	'w'	
 [echo $q]	fork
-[echo $q]	fork_and_exec:	/bin/echo = 99762 launched
+[echo $q]	fork_and_exec:	/bin/echo = 4728 launched
 [echo $q]	exec2:	executed: /bin/echo
-[echo $q]	pipe_exec2 returned: 99762
-[echo $q]	free item: 'echo $q' (0x7fbc79f000f0)
+[echo $q]	pipe_exec2 returned: 4728
+[echo $q]	free item: 'echo $q' (0x7fa54fe00070)
 [echo $q]	waiting echo $q to finish
-[echo $q]	wait 99762 to stop
+[echo $q]	wait 4728 to stop
                 [/bin/echo]	close_g_fd_to_close                [/bin/echo]	close(-11)
                 [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                 [/bin/echo]	exec(/bin/echo)
-[echo $q]	waitpid(99762) returned
+[echo $q]	waitpid(4728) returned
 [echo $q]	echo $q finished
 [echo $q]	command processed: 'echo $q'
 [echo $q]	-------------------------
@@ -756,7 +756,7 @@
 [unsetenv q]	after replace
 'unsetenv'	'q'	
 [unsetenv q]	pipe_exec2 returned: 0
-[unsetenv q]	free item: 'unsetenv q' (0x7fbc79e000d0)
+[unsetenv q]	free item: 'unsetenv q' (0x7fa54fd007d0)
 [unsetenv q]	command processed: 'unsetenv q'
 [unsetenv q]	-------------------------
 [unsetenv q]	
@@ -779,16 +779,16 @@
 [echo $q]	after replace
 'echo'	
 [echo $q]	fork
-[echo $q]	fork_and_exec:	/bin/echo = 99763 launched
+[echo $q]	fork_and_exec:	/bin/echo = 4729 launched
 [echo $q]	exec2:	executed: /bin/echo
-[echo $q]	pipe_exec2 returned: 99763
-[echo $q]	free item: 'echo $q' (0x7fbc79e000d0)
+[echo $q]	pipe_exec2 returned: 4729
+[echo $q]	free item: 'echo $q' (0x7fa54fd007d0)
 [echo $q]	waiting echo $q to finish
-[echo $q]	wait 99763 to stop
+[echo $q]	wait 4729 to stop
                  [/bin/echo]	close_g_fd_to_close                 [/bin/echo]	close(-11)
                  [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                  [/bin/echo]	exec(/bin/echo)
-[echo $q]	waitpid(99763) returned
+[echo $q]	waitpid(4729) returned
 [echo $q]	echo $q finished
 [echo $q]	command processed: 'echo $q'
 [echo $q]	-------------------------
@@ -819,16 +819,16 @@
 [echo %paired_quote%1]	after replace
 'echo'	'q'	
 [echo %paired_quote%1]	fork
-[echo %paired_quote%1]	fork_and_exec:	/bin/echo = 99764 launched
+[echo %paired_quote%1]	fork_and_exec:	/bin/echo = 4730 launched
 [echo %paired_quote%1]	exec2:	executed: /bin/echo
-[echo %paired_quote%1]	pipe_exec2 returned: 99764
-[echo %paired_quote%1]	free item: 'echo %paired_quote%1' (0x7fbc79c026e0)
+[echo %paired_quote%1]	pipe_exec2 returned: 4730
+[echo %paired_quote%1]	free item: 'echo %paired_quote%1' (0x7fa54fd009b0)
 [echo %paired_quote%1]	waiting echo %paired_quote%1 to finish
-[echo %paired_quote%1]	wait 99764 to stop
+[echo %paired_quote%1]	wait 4730 to stop
                   [/bin/echo]	close_g_fd_to_close                  [/bin/echo]	close(-11)
                   [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                   [/bin/echo]	exec(/bin/echo)
-[echo %paired_quote%1]	waitpid(99764) returned
+[echo %paired_quote%1]	waitpid(4730) returned
 [echo %paired_quote%1]	echo %paired_quote%1 finished
 [echo %paired_quote%1]	command processed: 'echo "q"'
 [echo %paired_quote%1]	-------------------------
@@ -859,12 +859,12 @@
 [%paired_quote%1]	after replace
 'setenv'	
 [%paired_quote%1]	pipe_exec2 returned: 0
-[%paired_quote%1]	free item: '%paired_quote%1' (0x7fbc79d007f0)
+[%paired_quote%1]	free item: '%paired_quote%1' (0x7fa54fd00980)
 [%paired_quote%1]	command processed: '"setenv"'
 [%paired_quote%1]	-------------------------
 [%paired_quote%1]	
 [test]	set_env finished
 [test]	close(1)
 [test]	exit process (0)
-[test]	free item: '1' (0x7fbc79e00070)
-[test]	free item: '2' (0x7fbc79e00080)
+[test]	free item: '1' (0x7fa54fc00350)
+[test]	free item: '2' (0x7fa54fc025a0)

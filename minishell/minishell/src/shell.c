@@ -1,4 +1,4 @@
-﻿#include "minishell.h"
+#include "minishell.h"
 
 void		ft_exit(int ret_code)
 {
@@ -122,8 +122,9 @@ void		wait_child(pid_t pid)
 	}
 	else
 	{
-		// waitpid() failed 
+		// waitpid() failed
 		printf("waitpid() failed\n");
+		debug_printf("waitpid() failed\n");
 	}
 	debug_printf("waitpid(%d) returned\n", pid);
 }

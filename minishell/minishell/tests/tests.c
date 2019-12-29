@@ -1,4 +1,4 @@
-﻿#include "../libft/libft.h"
+#include "../libft/libft.h"
 #include "../src/minishell.h"
 #include <stdio.h>
 //#include <copyfile.h>
@@ -200,7 +200,8 @@ BOOL	compare_buffers(int e_read, int a_read, char e_buf[BUF_SIZE], char a_buf[BU
 {
 	if (a_read != e_read)
 	{
-		printf("a_read: %d, e_read: %d\n", a_read, e_read);
+		printf("e_read: %d, a_read: %d\n", e_read, a_read);
+		printf("not eq: e: '%s'(%d) a: '%s'(%d)\n", e_buf, e_read, a_buf, a_read);
 		return (FALSE);
 	}
 	e_buf[e_read] = 0;
@@ -276,7 +277,7 @@ void		test(void(*f)(), const char* name)
 	const char* actual_out = ft_strjoin2(3, "test_cases/actual/", name, "_out.txt");
 	const char* expected_err = ft_strjoin2(3, "test_cases/expected/", name, "_err.txt");
 	const char* actual_err = ft_strjoin2(3, "test_cases/actual/", name, "_err.txt");
-
+	
 		debug_set_pname("test");
 		debug_printf("testing %s\n", name);
 		int out = dup(STDOUT_FILENO);

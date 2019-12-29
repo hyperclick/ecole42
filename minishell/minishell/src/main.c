@@ -1,6 +1,6 @@
-﻿#include "minishell.h"
+#include "minishell.h"
 
-int main(int argc, char** argv, char** envp)
+int main2(int argc, char** argv, char** envp)
 {
 	init(argc, argv, envp);
 	//atexit()
@@ -13,7 +13,4 @@ int main(int argc, char** argv, char** envp)
 		print_prompt();
 		process_command(read_line_hidden());
 	}
-
-	ft_exit(0);
-	return (0);
 }
