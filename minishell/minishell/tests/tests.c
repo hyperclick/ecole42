@@ -143,6 +143,7 @@ void		cd_good()
 	process_command("pwd");
 	process_command("cd ~;pwd");
 	process_command("cd -");
+	process_command("\"cd\"");
 	//process_command("pwd");
 	//process_command("cd ..");
 	//process_command("cd /////; pwd");
@@ -311,9 +312,10 @@ void		test(void(*f)(), const char* name)
 
 void test_pipe_1()
 {
+	process_command("echo 123 |rev");
+	process_command("echo 123 | cat -e |rev");
+	process_command("echo 123456789 | head -c3");
 
-	pipe_exec("cd ~|pwd");
-	pipe_exec("cd -");
 }
 
 //void test_replace_quotes()
@@ -406,18 +408,24 @@ void test_set_env()
 	process_command("\"setenv\"");
 }
 
+void quotes()
+{	
+	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\" ; ls -l \"dir  with  spaces\"");
+
+//	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\" ; cd \"dir  with  spaces\"; #pwd");
+}
+
 void test_pipe9()
 {
-	return;
-	process_command("\"cd\"");
 	process_command("\"setenv\" | \"sort\"");
 	process_command("\"setenv\" | \"sort\"");
-	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\"");
 	process_command("ls | sort");
 	process_command("ls | cat -e");
 	process_command("ls | sort | cat -e");
 	process_command("ls | cat -e | sort");
 	process_command("setenv | sort");
+	process_command("base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e \"s/1/Yes/g\" -e \"s/0/No/g\"");
+	return;
 	process_command("echo \"No dollar character\" 1 > &2 | cat -e");
 	process_command("cat <<src");
 	process_command("cat <<src | rev");
@@ -425,7 +433,6 @@ void test_pipe9()
 	process_command("cat <out.txt | rev");
 	process_command("cat <<src <out.txt | rev");
 	process_command("rm -rf t; mkdir t ; cd t ; ls -a ; ls | cat | wc -c > fifi ; cat fifi");
-	process_command("base64 /dev/urandom | head -c1000 | grep 42 | wc -l | sed -e 's/1/Yes/g' -e 's/0/No/g'");
 	process_command("echo \"Testing redirections, \" > /tmp/test.txt; cat -e /tmp/test.txt");
 	process_command("echo \"with multiple lines \" >> /tmp/test.txt; cat -e /tmp/test.txt");
 	process_command("wc -c < /tmp/test.txt");
@@ -512,7 +519,7 @@ int main(int argc, char** argv, char** envp)
 	*/
 	init(argc, argv, envp);
 
-	//process_command("cd");
+	//process_command(" echo 1 | sed -e 's/1/Yes/g'");
 	//process_command("ls | head -c20");
 	//ft_exit(0);
 
@@ -527,31 +534,37 @@ int main(int argc, char** argv, char** envp)
 
 	//test(pwd2, "pwd2");
 
+	test(quotes, "quotes");
+	test(test_pipe_1, "test_pipe_1");
 	//ft_exit(0);
-	test(ls, "ls");
-	test(pwd, "pwd");
 	test_lg();
 	dic();
 	history();
 	test(cd_bad, "cd_bad");
 	test_pipe_parse();
-	test(comment_ignored, "comment_ignored");
 	test(two_commands_bad, "two_commands_bad");
-	test(two_commands_good, "two_commands_good");
 
-	test(cd_good, "cd_good");
-	test(echo_tilde, "echo_tilde");
-	test(echo_home, "echo_home");
-	test(env, "env");
 	test(echo_quotes, "echo_quotes");
+
+
+	test_pipe9();
+
+	test(env, "env");
+	test(ls, "ls");
+
+	test(echo_home, "echo_home");
+	test(echo_tilde, "echo_tilde");
 	test(test_set_env, "set_env");
+	test(pwd, "pwd");
+	test(comment_ignored, "comment_ignored");
+	test(two_commands_good, "two_commands_good");
+	test(cd_good, "cd_good");
 	//test(test_pipe_parse, "test_pipe_parse");
 	//	test(history, "history");
 		//return 0;
 	//return 0;
 
 
-	test_pipe9();
 	printf("all tests passed\n");
 	ft_exit(0);
 }

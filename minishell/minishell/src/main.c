@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-int main2(int argc, char** argv, char** envp)
+int main(int argc, char** argv, char** envp)
 {
 	init(argc, argv, envp);
 	//atexit()
