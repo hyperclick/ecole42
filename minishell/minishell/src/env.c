@@ -14,15 +14,15 @@
 
 #define KEY_VALUE_SEPARATOR '='
 
-t_list* g_env = NULL;
+t_list *g_env = NULL;
 
-const char* env_extract_key(const char* kvp)
+const char	*env_extract_key(const char *kvp)
 {
 	return (ft_str_left_from(kvp, KEY_VALUE_SEPARATOR));
 }
 
 
-char** env_replace_vars(char** r, const char** a)
+char		**env_replace_vars(char **r, const char **a)
 {
 	while (*a != NULL)
 	{

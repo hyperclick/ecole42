@@ -1,4 +1,4 @@
-﻿#include "minishell.h"
+#include "minishell.h"
 
 BOOL		built_in_processed(char * const args[], int count)
 {
@@ -6,9 +6,6 @@ BOOL		built_in_processed(char * const args[], int count)
 	{
 		ft_exit(0);
 	}
-	//pid_t pid;
-	//pid = ft_fork();
-
 	if (ft_str_equals("cd", args[0]))
 	{
 		cd(count - 1, args + 1);
