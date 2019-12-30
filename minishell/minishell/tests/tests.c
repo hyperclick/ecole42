@@ -171,7 +171,7 @@ void		ls()
 	process_command("echo ls:;ls");
 	process_command("echo not empty dir: ;rm -r \"not empty dir ls\"; mkdir \"not empty dir ls\"; mkdir \"not empty dir ls\"/dir1; touch \"not empty dir ls\"/file1");
 	//process_command("ls -la");
-	process_command("echo ls -l;ls -l \"not empty dir ls\"");
+	process_command("echo ls ;ls \"not empty dir ls\"");
 }
 
 void		cd_bad()
@@ -455,6 +455,12 @@ void test_lg()
 void test_set_env()
 {
 	process_command("\"setenv\"");
+	process_command("setenv q w");
+	process_command("echo $q");
+	process_command("/usr/bin/env");
+	process_command("unsetenv q");
+	process_command("echo $q");
+	process_command("/usr/bin/env");
 }
 
 void quotes()
