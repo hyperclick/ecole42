@@ -1,4 +1,4 @@
-/*_**************************************************************************_*/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   dic.c                                             :+:      :+:    :+:   */
@@ -8,7 +8,7 @@
 /*   Created: 2019/07/09 01:51:27 by darugula          #+#    #+#             */
 /*   Updated: 2019/07/09 01:51:31 by darugula         ###   ########.fr       */
 /*                                                                            */
-/*_**************************************************************************_*/
+/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -26,11 +26,11 @@ t_kvp* get_kvp(t_list* n)
 {
 	return ((t_kvp*)n->content);
 }
-char** dic_get_keys(t_list* dic)
+char **dic_get_keys(t_list* dic)
 {
 	char **start;
 	int count = dic_get_count(dic);
-	char** a = (char**) malloc(sizeof(char**) * (count + 1));
+	char **a = (char**) malloc(sizeof(char**) * (count + 1));
 	start = a;
 	while (dic != NULL)
 	{
@@ -42,10 +42,10 @@ char** dic_get_keys(t_list* dic)
 	return (start);
 }
 
-t_kvp** dic_get_kvps(t_list* dic)
+t_kvp **dic_get_kvps(t_list* dic)
 {
-	t_kvp** a_start;
-	t_kvp** a = (t_kvp**) malloc(sizeof(t_kvp**) * dic_get_count(dic) + 1);
+	t_kvp **a_start;
+	t_kvp **a = (t_kvp**) malloc(sizeof(t_kvp**) * dic_get_count(dic) + 1);
 	a_start = a;
 	while (dic != NULL)
 	{
@@ -118,7 +118,7 @@ void dic_free_one_item(void* content, size_t size)
 	free(kvp);
 }
 
-void dic_free(t_list** dic)
+void dic_free(t_list **dic)
 {
 	//if (*dic == NULL)
 	//{

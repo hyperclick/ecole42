@@ -51,9 +51,9 @@ void test_pipe_parse()
 //void test_pipe_exec()
 //{
 //	char str[] = "echo 1";
-//	const char** splitted = (const char**) ft_split3(str, " \t");
+//	const char **splitted = (const char**) ft_split3(str, " \t");
 //	debug_print_zt_array(splitted);
-//	char const** pipes[1];
+//	char const **pipes[1];
 // pipes[0] = splitted;
 // pipes[1] = NULL;
 //	t_list* pipe = pipe_create(pipes);
@@ -572,7 +572,7 @@ void pwd2()
 	pipe_exec(ft_strdup("pwd"));
 	return;
 	pid_t pid;
-	char** args = ft_split3("/bin/pwd", "|");
+	char **args = ft_split3("/bin/pwd", "|");
 
 
 	fe(args);
@@ -622,7 +622,7 @@ void pwd2()
 }
 
 
-int main(int argc, char** argv, char** envp)
+int main(int argc, char **argv, char **envp)
 {
 	/*
 	set_out_file("debug_out4.txt", "w");

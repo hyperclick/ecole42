@@ -1,4 +1,4 @@
-/*_**************************************************************************_*/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_lst_remove_sorted.c                             :+:      :+:    :+:   */
@@ -8,7 +8,7 @@
 /*   Created: 2019/09/16 21:20:12 by darugula          #+#    #+#             */
 /*   Updated: 2019/09/16 21:20:14 by darugula         ###   ########.fr       */
 /*                                                                            */
-/*_**************************************************************************_*/
+/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -28,7 +28,7 @@ void		ft_lst_remove_sorted_rec(t_list* node, t_list* to_remove
 	}
 	ft_lst_remove_sorted_rec(node->next, to_remove, equal, free_content);
 }
-void		ft_lst_remove_sorted(t_list** list, t_list* to_remove
+void		ft_lst_remove_sorted(t_list **list, t_list* to_remove
 	, BOOL(equal)(t_list* a, t_list* b)
 	, void (*free_content)(void*, size_t))
 {

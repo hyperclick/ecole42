@@ -267,12 +267,12 @@ void		env_free()
 	ft_lstdel(&g_env, env_free_one);
 }
 
-char** env_to_array()
+char **env_to_array()
 {
 	int i;
 	t_list* env;
 	int count = ft_lst_count(g_env) + 1;
-	char** a;
+	char **a;
 	a = (char**)malloc(sizeof(char*) * count);
 	if (a == NULL)
 	{

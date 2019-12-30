@@ -62,8 +62,8 @@ int				ft_lst_count(t_list *lst);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void		ft_lst_insert_after(t_list* node, t_list* new);
-void		ft_lst_insert_sorted(t_list** list, t_list* new, BOOL(grater_than)(t_list* a, t_list* b));
-void		ft_lst_remove_sorted(t_list** list, t_list* to_remove
+void		ft_lst_insert_sorted(t_list **list, t_list* new, BOOL(grater_than)(t_list* a, t_list* b));
+void		ft_lst_remove_sorted(t_list **list, t_list* to_remove
 	, BOOL(equal)(t_list* a, t_list* b)
 	, void (*free_content)(void*, size_t));
 t_list* ft_lst_get_last(t_list* n);
@@ -82,7 +82,7 @@ t_list* dic_find(t_list* dic, const char* key);
 BOOL dic_contains_key(t_list* dic, const char* key);
 BOOL ft_str_greater_than(const char* a, const char* b);
 t_list* dic_add(t_list* dic, const char* key, const char* value);
-void dic_free(t_list** dic);
+void dic_free(t_list **dic);
 t_list* dic_remove(t_list* dic, const char* key);
 void dic_replace(t_list* dic, const char* key, const char* value);
 const char* dic_get_value(t_list* dic, const char* key);
@@ -148,10 +148,10 @@ char			*ft_strrchr(const char *s, int c);
 char* ft_str_replace2(char* dst, const char* src, const char* find, const char* replace);
 char* ft_str_replace(const char* src, const char* find, const char* replace);
 int			ft_count_words(const char *str, const char whitespaces[]);
-void		ft_free_array(void** r, int n);
-void		ft_free_array2(void*** r);
-void			 ft_free_null_term_array(void** a);
-int			 ft_count_null_term_array(void** a);
+void		ft_free_array(void **r, int n);
+void		ft_free_array2(void* **r);
+void			 ft_free_null_term_array(void **a);
+int			 ft_count_null_term_array(void **a);
 char			**ft_split(char **r, const char *str, int c, const char *d);
 char**		ft_split2(const char* str, int count, const char* sep);
 char**		ft_split3(const char* str, const char* sep);
