@@ -484,24 +484,31 @@ void test_set_env_e()
 {
 
 	process_command("env");
-	system("setenv q w");
-	//system("echo $q");
-	//system("/usr/bin/env");
-	//system("unsetenv q");
-	//system("echo $q");
-	//system("/usr/bin/env");
+
+	process_command("echo ; echo env finished");
+
+	process_command("setenv q w");
+	process_command("echo ; echo q = $q");
+	return;
+	process_command("env");
+	process_command("unset q");
+	process_command("echo $q");
+	process_command("env");
 
 }
 
 void test_set_env_a()
 {
+	process_command("unsetenv q");
 	process_command("\"setenv\"");
+	process_command("echo ; echo env finished");
 	process_command("setenv q w");
-	//process_command("echo $q");
-	//process_command("/usr/bin/env");
-	//process_command("unsetenv q");
-	//process_command("echo $q");
-	//process_command("/usr/bin/env");
+	process_command("echo ; echo q = $q");
+	return;
+	process_command("env");
+	process_command("unsetenv q");
+	process_command("echo $q");
+	process_command("env");
 
 }
 

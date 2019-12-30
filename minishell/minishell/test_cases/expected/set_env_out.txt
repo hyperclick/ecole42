@@ -17,3 +17,7 @@ WSLENV=
 WSL_DISTRO_NAME=Ubuntu-18.04
 XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
 _=./ut
+
+env finished
+
+q = w
