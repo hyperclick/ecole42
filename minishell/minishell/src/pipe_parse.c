@@ -5,7 +5,7 @@ void pipe_free(t_list **pipe)
 	ft_lst_free(pipe);
 }
 
-t_list* pipe_parse2(const char** cmds)
+t_list* pipe_parse2(const char **cmds)
 {
 	t_list* head = NULL;
 	t_list* prev = NULL;
@@ -31,7 +31,7 @@ t_list* pipe_parse2(const char** cmds)
 t_list *pipe_parse(const char *str)
 {
 	debug_printf("pipe_parse(%s)\n", str);
-	char** cmds = ft_split3(str, "|");
+	char **cmds = ft_split3(str, "|");
 	debug_printf("cmd[0] = '%s'\n", cmds[0]);
 	t_list* list = pipe_parse2((const char**)cmds);
 

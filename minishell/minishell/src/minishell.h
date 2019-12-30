@@ -10,7 +10,7 @@ typedef struct s_minishell_data
 	//char		**folders;
 	//int		folders_count;
 	//int		max_folders_count;
-	//char		** env;
+	//char		 **env;
 }				t_data;
 
 t_data		g_data;
@@ -19,16 +19,16 @@ void		env_from_array(char* env[]);
 char* env_get_value(const char* key);
 //char*	env_extract_value(char* env[], char* key);
 void		env_free();
-char** env_replace_vars(char** r, const char** a);
-char** env_to_array();
+char **env_replace_vars(char **r, const char **a);
+char **env_to_array();
 void		ft_env(int argc, char* const argv[]); 
 void ft_unset_env(int argc, char* const argv[]);
 void	ft_set_env(int argc, char* const argv[]);
 
 //void		free_folders();
 //void		update_folders();
-//char** get_path_folders();
-char** fill_path_folders();
+//char **get_path_folders();
+char **fill_path_folders();
 
 BOOL		is_child(pid_t pid);
 BOOL		built_in_processed(char * const args[], int count);
@@ -41,7 +41,7 @@ void set_awaited_process(pid_t pid);
 void		wait_child(pid_t  pid);
 
 void		ft_exit(int ret_code);
-void		init(int argc, char** argv, char** envp);
+void		init(int argc, char **argv, char **envp);
 void		cd(int argc, char* const argv[]);
 void		ft_default_sig_handler(int signum);
 void print_prompt();
@@ -62,8 +62,8 @@ const char* h_get_previous();
 const char* h_get_next();
 void h_append(const char* content);
 
-void pipe_free(t_list** pipe);
-t_list* pipe_parse2(const char** cmds);
+void pipe_free(t_list **pipe);
+t_list* pipe_parse2(const char **cmds);
 t_list* pipe_parse(const char* str);
 void	ft_pipe(int* r, int* w); 
 //pid_t pipe_exec2(t_list* p, int prev_r);

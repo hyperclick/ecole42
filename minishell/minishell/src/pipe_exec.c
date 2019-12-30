@@ -27,7 +27,7 @@ void	close_g_fd_to_close()
 	g_fd_to_close = -2;
 }
 
-pid_t pe2(char* cmd, int r, int w, t_list** p)
+pid_t pe2(char* cmd, int r, int w, t_list **p)
 {
 	pid_t pid;
 	// pid = ft_fork();

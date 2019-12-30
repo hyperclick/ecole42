@@ -31,7 +31,7 @@ void		exec_ve(char* argv[])
 
 void		exec_ve2(const char* str)
 {
-	char** args = ft_split3(str, " \t");
+	char **args = ft_split3(str, " \t");
 	exec_ve(args);
 	debug_printf("should not be here\n");
 	ft_free_null_term_array((void**)args);
@@ -95,9 +95,9 @@ pid_t		exec2(char* argv[])
 	//printf("free %s\n", argv[0]);
 	//free(argv[0]);
 	char		path[PATH_MAX];
-	char** folders;
+	char **folders;
 	folders = fill_path_folders();
-	char** start = folders;
+	char **start = folders;
 
 	while (*folders != NULL)
 	{

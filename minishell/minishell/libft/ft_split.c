@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/*_**************************************************************************_*/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
@@ -8,7 +8,7 @@
 /*   Created: 2019/09/10 11:59:02 by darugula          #+#    #+#             */
 /*   Updated: 2019/09/10 11:59:04 by darugula         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/*_**************************************************************************_*/
 
 #include "libft.h"
 
@@ -80,9 +80,9 @@ char		**ft_split(char **r, const char *str, int count, const char *sep)
 	return (r);
 }
 
-char** ft_split2(const char* str, int count, const char* sep)
+char **ft_split2(const char* str, int count, const char* sep)
 {
-	char** r;
+	char **r;
 	r = (char**)malloc(sizeof(char**)*(count + 1));
 	if (r == NULL)
 	{

@@ -25,12 +25,12 @@ void		update_folders()
 	printf("\npath[0] = '%s'\n", folders[0]);
 }
 
-char** get_path_folders()
+char **get_path_folders()
 {
 	return (g_folders);
 }
 */
-char** fill_path_folders()
+char **fill_path_folders()
 {
 	//free_folders();
 	const char* path = env_get_value("PATH");
