@@ -6,7 +6,10 @@
 void test_exec()
 {
 	process_command("foo");
+	process_command("echo 1   2    \t3");
 	
+	process_command("");
+	process_command("\t ");
 }
 
 
@@ -463,6 +466,17 @@ void test_set_env()
 	process_command("/usr/bin/env");
 }
 
+void	path_is_used()
+{
+	process_command("echo path = $PATH");
+	process_command("unsetenv PATH");
+	process_command("echo path = $PATH");
+	process_command("setenv PATH /bin:/usr/bin");
+	process_command("echo path = $PATH");
+	
+	
+}
+
 void quotes()
 {
 	//process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\" ; ls");
@@ -595,6 +609,8 @@ int main(int argc, char** argv, char** envp)
 	test_pipe9();
 	
 	
+	test(test_set_env, "set_env");
+	test(path_is_used,"path_is_used");
 	test(test_exec,"test_exec");
 	
 	test(test_pipe_1, "test_pipe_1");
@@ -617,7 +633,6 @@ int main(int argc, char** argv, char** envp)
 	test(echo_home, "echo_home");
 	test(echo_tilde, "echo_tilde");
 	test(echo_three_args, "echo_three_args");
-	test(test_set_env, "set_env");
 	test(pwd, "pwd");
 	test(comment_ignored, "comment_ignored");
 	test(two_commands_good, "two_commands_good");
@@ -630,4 +645,5 @@ int main(int argc, char** argv, char** envp)
 
 	printf("all tests passed\n");
 	ft_exit(0);
+	return (1);
 }

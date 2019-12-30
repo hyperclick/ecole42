@@ -155,6 +155,7 @@ char* remove_comment(char* str)
 
 void print_prompt()
 {
+	//debug_printf("print prompt\n");
 	ft_putstr("$> ");
 }
 
@@ -166,10 +167,12 @@ void		ft_default_sig_handler(int signum)
 		if (get_awaited_process() != 0)
 		{
 			kill(get_awaited_process(), signum);
+			set_awaited_process(0);
 			ft_putchar('\n');
 		}
 		else
 		{
+			debug_printf("no waited process\n");
 			//char c = '\n';
 			//write(STDIN_FILENO, &c, 1);
 			clean_buffer();

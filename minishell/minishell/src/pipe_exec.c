@@ -1,4 +1,4 @@
-﻿#include "minishell.h"
+#include "minishell.h"
 
 void log_pipe(int r, int w)
 {
@@ -90,8 +90,10 @@ void pipe_exec(char* str)
 	if (pid > 0)
 	{
 		debug_printf("waiting %s to finish\n", str);
+		set_awaited_process(pid);
 		wait_child(pid);
 		debug_printf("%s finished\n", str);
+		set_awaited_process(0);
 	}
 	free(str);
 }
