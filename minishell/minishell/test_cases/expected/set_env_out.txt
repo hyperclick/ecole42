@@ -1,6 +1,10 @@
+GLIBCPP_FORCE_NEW=1
+GLIBCXX_FORCE_NEW=1
 HOME=/home/darugula
 HOSTTYPE=x86_64
 LANG=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/debug
+LD_PRELOAD=
 LESSCLOSE=/usr/bin/lesspipe %s %s
 LESSOPEN=| /usr/bin/lesspipe %s
 LOGNAME=darugula
@@ -16,14 +20,18 @@ USER=darugula
 WSLENV=
 WSL_DISTRO_NAME=Ubuntu-18.04
 XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
-_=./ut
+_=/usr/bin/valgrind
 
 env finished
 
 q = w
+GLIBCPP_FORCE_NEW=1
+GLIBCXX_FORCE_NEW=1
 HOME=/home/darugula
 HOSTTYPE=x86_64
 LANG=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/debug
+LD_PRELOAD=
 LESSCLOSE=/usr/bin/lesspipe %s %s
 LESSOPEN=| /usr/bin/lesspipe %s
 LOGNAME=darugula
@@ -39,13 +47,17 @@ USER=darugula
 WSLENV=
 WSL_DISTRO_NAME=Ubuntu-18.04
 XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
-_=./ut
+_=/usr/bin/valgrind
 q=w
 
 q =
+GLIBCPP_FORCE_NEW=1
+GLIBCXX_FORCE_NEW=1
 HOME=/home/darugula
 HOSTTYPE=x86_64
 LANG=C.UTF-8
+LD_LIBRARY_PATH=/usr/lib/debug
+LD_PRELOAD=
 LESSCLOSE=/usr/bin/lesspipe %s %s
 LESSOPEN=| /usr/bin/lesspipe %s
 LOGNAME=darugula
@@ -61,4 +73,4 @@ USER=darugula
 WSLENV=
 WSL_DISTRO_NAME=Ubuntu-18.04
 XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/snapd/desktop
-_=./ut
+_=/usr/bin/valgrind

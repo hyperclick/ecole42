@@ -572,7 +572,7 @@ void pwd2()
 	pipe_exec(ft_strdup("pwd"));
 	return;
 	pid_t pid;
-	char **args = ft_split3("/bin/pwd", "|");
+	char** args = ft_split3("/bin/pwd", "|");
 
 
 	fe(args);
@@ -622,7 +622,7 @@ void pwd2()
 }
 
 
-int main(int argc, char **argv, char **envp)
+int main(int argc, char** argv, char** envp)
 {
 	/*
 	set_out_file("debug_out4.txt", "w");
@@ -635,11 +635,10 @@ int main(int argc, char **argv, char **envp)
 	init(argc, argv, envp);
 
 	//process_command(" echo 1 | sed -e 's/1/Yes/g'");
-	//process_command("echo 1");
 	//debug_print_zt_array((const char**)env_to_array());
 
 	//system("env");
-	//ft_exit(0);
+	//process_command("echo 1");
 
 	//process_command("ls | sort");
 		//ft_exit(0);
@@ -692,7 +691,22 @@ int main(int argc, char **argv, char **envp)
 		//return 0;
 	//return 0;
 
+
+
+	char* restore_ld_preload = ft_strjoin("setenv LD_PRELOAD ", env_get_value("LD_PRELOAD"));
+	process_command("setenv LD_PRELOAD \"\"");
 	test2(test_set_env_e, test_set_env_a, "set_env");
+	if (restore_ld_preload != NULL)
+	{
+		printf("restore_ld_preload = %s\n", restore_ld_preload);
+
+		process_command(restore_ld_preload);
+		debug_set_pname("tests");
+		free(restore_ld_preload);
+	}
+	printf("2222\n");
+
+
 	printf("all tests passed\n");
 	ft_exit(0);
 	return (1);

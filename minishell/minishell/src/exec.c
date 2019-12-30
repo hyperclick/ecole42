@@ -111,7 +111,6 @@ pid_t		exec2(char* argv[])
 			argv[0] = argv0;
 			ft_free_null_term_array((void**)start);
 			debug_printf("exec2:\texecuted: %s\n", path);
-			//free(start);
 			return (pid);
 		}
 		folders++;
@@ -121,6 +120,5 @@ pid_t		exec2(char* argv[])
 	debug_printf("%s: command not found\n", filename);
 	argv[0] = argv0;
 	ft_free_null_term_array((void**)start);
-	//free(start);
 	return (0);
 }
