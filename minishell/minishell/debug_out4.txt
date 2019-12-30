@@ -57,20 +57,20 @@
 [%paired_quote%1 | %paired_quote%2]	after replace
 'sort'	
 [%paired_quote%1 | %paired_quote%2]	fork
-[%paired_quote%1 | %paired_quote%2]	fork_and_exec:	/usr/bin/sort = 4676 launched
+[%paired_quote%1 | %paired_quote%2]	fork_and_exec:	/usr/bin/sort = 5040 launched
 [%paired_quote%1 | %paired_quote%2]	exec2:	executed: /usr/bin/sort
-[%paired_quote%1 | %paired_quote%2]	pipe_exec2 returned: 4676
-[%paired_quote%1 | %paired_quote%2]	free item: '%paired_quote%1' (0x7ffff35e8670)
-[%paired_quote%1 | %paired_quote%2]	free item: '%paired_quote%2' (0x7ffff35e86b0)
+[%paired_quote%1 | %paired_quote%2]	pipe_exec2 returned: 5040
+[%paired_quote%1 | %paired_quote%2]	free item: '%paired_quote%1' (0x7fffe0071670)
+[%paired_quote%1 | %paired_quote%2]	free item: '%paired_quote%2' (0x7fffe00716b0)
 [%paired_quote%1 | %paired_quote%2]	waiting %paired_quote%1 | %paired_quote%2 to finish
-[%paired_quote%1 | %paired_quote%2]	change g_awaited_process from 0 to 4676
-[%paired_quote%1 | %paired_quote%2]	wait 4676 to stop
+[%paired_quote%1 | %paired_quote%2]	change g_awaited_process from 0 to 5040
+[%paired_quote%1 | %paired_quote%2]	wait 5040 to stop
  [/usr/bin/sort]	close_g_fd_to_close [/usr/bin/sort]	close(6)
  [/usr/bin/sort]	fork_and_exec:	about to launch /usr/bin/sort
  [/usr/bin/sort]	exec(/usr/bin/sort)
-[%paired_quote%1 | %paired_quote%2]	waitpid(4676) returned
+[%paired_quote%1 | %paired_quote%2]	waitpid(5040) returned
 [%paired_quote%1 | %paired_quote%2]	%paired_quote%1 | %paired_quote%2 finished
-[%paired_quote%1 | %paired_quote%2]	change g_awaited_process from 4676 to 0
+[%paired_quote%1 | %paired_quote%2]	change g_awaited_process from 5040 to 0
 [%paired_quote%1 | %paired_quote%2]	command processed: '"setenv" | "sort"'
 [%paired_quote%1 | %paired_quote%2]	-------------------------
 [%paired_quote%1 | %paired_quote%2]	
@@ -108,20 +108,20 @@
 [%paired_quote%1 | %paired_quote%2]	after replace
 'sort'	
 [%paired_quote%1 | %paired_quote%2]	fork
-[%paired_quote%1 | %paired_quote%2]	fork_and_exec:	/usr/bin/sort = 4677 launched
+[%paired_quote%1 | %paired_quote%2]	fork_and_exec:	/usr/bin/sort = 5041 launched
 [%paired_quote%1 | %paired_quote%2]	exec2:	executed: /usr/bin/sort
-[%paired_quote%1 | %paired_quote%2]	pipe_exec2 returned: 4677
-[%paired_quote%1 | %paired_quote%2]	free item: '%paired_quote%1' (0x7ffff35e8450)
-[%paired_quote%1 | %paired_quote%2]	free item: '%paired_quote%2' (0x7ffff35e8430)
+[%paired_quote%1 | %paired_quote%2]	pipe_exec2 returned: 5041
+[%paired_quote%1 | %paired_quote%2]	free item: '%paired_quote%1' (0x7fffe0071450)
+[%paired_quote%1 | %paired_quote%2]	free item: '%paired_quote%2' (0x7fffe0071430)
 [%paired_quote%1 | %paired_quote%2]	waiting %paired_quote%1 | %paired_quote%2 to finish
-  [/usr/bin/sort]	close_g_fd_to_close[%paired_quote%1 | %paired_quote%2]	change g_awaited_process from 0 to 4677
-  [/usr/bin/sort]	close(7)
-[%paired_quote%1 | %paired_quote%2]	wait 4677 to stop
+[%paired_quote%1 | %paired_quote%2]	change g_awaited_process from 0 to 5041
+[%paired_quote%1 | %paired_quote%2]	wait 5041 to stop
+  [/usr/bin/sort]	close_g_fd_to_close  [/usr/bin/sort]	close(7)
   [/usr/bin/sort]	fork_and_exec:	about to launch /usr/bin/sort
   [/usr/bin/sort]	exec(/usr/bin/sort)
-[%paired_quote%1 | %paired_quote%2]	waitpid(4677) returned
+[%paired_quote%1 | %paired_quote%2]	waitpid(5041) returned
 [%paired_quote%1 | %paired_quote%2]	%paired_quote%1 | %paired_quote%2 finished
-[%paired_quote%1 | %paired_quote%2]	change g_awaited_process from 4677 to 0
+[%paired_quote%1 | %paired_quote%2]	change g_awaited_process from 5041 to 0
 [%paired_quote%1 | %paired_quote%2]	command processed: '"setenv" | "sort"'
 [%paired_quote%1 | %paired_quote%2]	-------------------------
 [%paired_quote%1 | %paired_quote%2]	
@@ -146,7 +146,7 @@
 [ls | sort]	after replace
 'ls'	
 [ls | sort]	fork
-[ls | sort]	fork_and_exec:	/bin/ls = 4678 launched
+[ls | sort]	fork_and_exec:	/bin/ls = 5042 launched
 [ls | sort]	exec2:	executed: /bin/ls
 [ls | sort]	close(9)
 [ls | sort]	exec 8 > sort > 1
@@ -156,27 +156,27 @@
 [ls | sort]	redirect: 1->5
 [ls | sort]	redirect: 0->8
 [ls | sort]	redirect: 1->1
-[ls | sort]	processing sort
+   [/bin/ls]	close_g_fd_to_close[ls | sort]	processing sort
+   [/bin/ls]	close(8)
 [ls | sort]	after replace
-   [/bin/ls]	close_g_fd_to_close   [/bin/ls]	close(8)
    [/bin/ls]	fork_and_exec:	about to launch /bin/ls
    [/bin/ls]	exec(/bin/ls)
 'sort'	
 [ls | sort]	fork
-[ls | sort]	fork_and_exec:	/usr/bin/sort = 4679 launched
+[ls | sort]	fork_and_exec:	/usr/bin/sort = 5043 launched
 [ls | sort]	exec2:	executed: /usr/bin/sort
-[ls | sort]	pipe_exec2 returned: 4679
-[ls | sort]	free item: 'ls' (0x7ffff35ea450)
-[ls | sort]	free item: 'sort' (0x7ffff35e8730)
+[ls | sort]	pipe_exec2 returned: 5043
+[ls | sort]	free item: 'ls' (0x7fffe0073450)
+[ls | sort]	free item: 'sort' (0x7fffe0071730)
 [ls | sort]	waiting ls | sort to finish
-[ls | sort]	change g_awaited_process from 0 to 4679
-[ls | sort]	wait 4679 to stop
+[ls | sort]	change g_awaited_process from 0 to 5043
+[ls | sort]	wait 5043 to stop
     [/usr/bin/sort]	close_g_fd_to_close    [/usr/bin/sort]	close(8)
     [/usr/bin/sort]	fork_and_exec:	about to launch /usr/bin/sort
     [/usr/bin/sort]	exec(/usr/bin/sort)
-[ls | sort]	waitpid(4679) returned
+[ls | sort]	waitpid(5043) returned
 [ls | sort]	ls | sort finished
-[ls | sort]	change g_awaited_process from 4679 to 0
+[ls | sort]	change g_awaited_process from 5043 to 0
 [ls | sort]	command processed: 'ls | sort'
 [ls | sort]	-------------------------
 [ls | sort]	
@@ -201,7 +201,7 @@
 [ls | cat -e]	after replace
 'ls'	
 [ls | cat -e]	fork
-[ls | cat -e]	fork_and_exec:	/bin/ls = 4680 launched
+[ls | cat -e]	fork_and_exec:	/bin/ls = 5044 launched
 [ls | cat -e]	exec2:	executed: /bin/ls
 [ls | cat -e]	close(10)
 [ls | cat -e]	exec 9 > cat -e > 1
@@ -211,28 +211,28 @@
 [ls | cat -e]	redirect: 1->5
 [ls | cat -e]	redirect: 0->9
 [ls | cat -e]	redirect: 1->1
-     [/bin/ls]	close_g_fd_to_close[ls | cat -e]	processing cat
-     [/bin/ls]	close(9)
+[ls | cat -e]	processing cat
 [ls | cat -e]	processing -e
-     [/bin/ls]	fork_and_exec:	about to launch /bin/ls
 [ls | cat -e]	after replace
+     [/bin/ls]	close_g_fd_to_close     [/bin/ls]	close(9)
+     [/bin/ls]	fork_and_exec:	about to launch /bin/ls
      [/bin/ls]	exec(/bin/ls)
 'cat'	'-e'	
 [ls | cat -e]	fork
-[ls | cat -e]	fork_and_exec:	/bin/cat = 4681 launched
+[ls | cat -e]	fork_and_exec:	/bin/cat = 5045 launched
 [ls | cat -e]	exec2:	executed: /bin/cat
-[ls | cat -e]	pipe_exec2 returned: 4681
-[ls | cat -e]	free item: 'ls' (0x7ffff35e8650)
-[ls | cat -e]	free item: 'cat -e' (0x7ffff35e84e0)
-[ls | cat -e]	waiting ls | cat -e to finish
-      [/bin/cat]	close_g_fd_to_close[ls | cat -e]	change g_awaited_process from 0 to 4681
+[ls | cat -e]	pipe_exec2 returned: 5045
+      [/bin/cat]	close_g_fd_to_close[ls | cat -e]	free item: 'ls' (0x7fffe0071650)
       [/bin/cat]	close(9)
-[ls | cat -e]	wait 4681 to stop
+[ls | cat -e]	free item: 'cat -e' (0x7fffe00714e0)
       [/bin/cat]	fork_and_exec:	about to launch /bin/cat
+[ls | cat -e]	waiting ls | cat -e to finish
+[ls | cat -e]	change g_awaited_process from 0 to 5045
+[ls | cat -e]	wait 5045 to stop
       [/bin/cat]	exec(/bin/cat)
-[ls | cat -e]	waitpid(4681) returned
+[ls | cat -e]	waitpid(5045) returned
 [ls | cat -e]	ls | cat -e finished
-[ls | cat -e]	change g_awaited_process from 4681 to 0
+[ls | cat -e]	change g_awaited_process from 5045 to 0
 [ls | cat -e]	command processed: 'ls | cat -e'
 [ls | cat -e]	-------------------------
 [ls | cat -e]	
@@ -257,25 +257,25 @@
 [ls | sort | cat -e]	after replace
 'ls'	
 [ls | sort | cat -e]	fork
-[ls | sort | cat -e]	fork_and_exec:	/bin/ls = 4682 launched
+[ls | sort | cat -e]	fork_and_exec:	/bin/ls = 5046 launched
 [ls | sort | cat -e]	exec2:	executed: /bin/ls
 [ls | sort | cat -e]	close(11)
 [ls | sort | cat -e]	new pipe: r=11, w=12
-[ls | sort | cat -e]	exec 10 > sort > 12
+       [/bin/ls]	close_g_fd_to_close[ls | sort | cat -e]	exec 10 > sort > 12
+       [/bin/ls]	close(10)
 [ls | sort | cat -e]	restore stdin
+       [/bin/ls]	fork_and_exec:	about to launch /bin/ls
 [ls | sort | cat -e]	redirect: 0->4
+       [/bin/ls]	exec(/bin/ls)
 [ls | sort | cat -e]	restore stdout
 [ls | sort | cat -e]	redirect: 1->5
 [ls | sort | cat -e]	redirect: 0->10
 [ls | sort | cat -e]	redirect: 1->12
-       [/bin/ls]	close_g_fd_to_close[ls | sort | cat -e]	processing sort
+[ls | sort | cat -e]	processing sort
 [ls | sort | cat -e]	after replace
-       [/bin/ls]	close(10)
-       [/bin/ls]	fork_and_exec:	about to launch /bin/ls
-       [/bin/ls]	exec(/bin/ls)
 'sort'	
 [ls | sort | cat -e]	fork
-[ls | sort | cat -e]	fork_and_exec:	/usr/bin/sort = 4683 launched
+[ls | sort | cat -e]	fork_and_exec:	/usr/bin/sort = 5047 launched
 [ls | sort | cat -e]	exec2:	executed: /usr/bin/sort
 [ls | sort | cat -e]	close(12)
 [ls | sort | cat -e]	exec 11 > cat -e > 1
@@ -283,31 +283,31 @@
 [ls | sort | cat -e]	redirect: 0->4
 [ls | sort | cat -e]	restore stdout
 [ls | sort | cat -e]	redirect: 1->5
-[ls | sort | cat -e]	redirect: 0->11
-        [/usr/bin/sort]	close_g_fd_to_close[ls | sort | cat -e]	redirect: 1->1
+        [/usr/bin/sort]	close_g_fd_to_close[ls | sort | cat -e]	redirect: 0->11
         [/usr/bin/sort]	close(11)
+[ls | sort | cat -e]	redirect: 1->1
+        [/usr/bin/sort]	fork_and_exec:	about to launch /usr/bin/sort
+        [/usr/bin/sort]	exec(/usr/bin/sort)
 [ls | sort | cat -e]	processing cat
 [ls | sort | cat -e]	processing -e
 [ls | sort | cat -e]	after replace
-        [/usr/bin/sort]	fork_and_exec:	about to launch /usr/bin/sort
-        [/usr/bin/sort]	exec(/usr/bin/sort)
 'cat'	'-e'	
 [ls | sort | cat -e]	fork
-[ls | sort | cat -e]	fork_and_exec:	/bin/cat = 4684 launched
+[ls | sort | cat -e]	fork_and_exec:	/bin/cat = 5048 launched
 [ls | sort | cat -e]	exec2:	executed: /bin/cat
-[ls | sort | cat -e]	pipe_exec2 returned: 4684
-[ls | sort | cat -e]	free item: 'ls' (0x7ffff35e8450)
-[ls | sort | cat -e]	free item: 'sort' (0x7ffff35e8690)
-[ls | sort | cat -e]	free item: 'cat -e' (0x7ffff35ea450)
+[ls | sort | cat -e]	pipe_exec2 returned: 5048
+[ls | sort | cat -e]	free item: 'ls' (0x7fffe0071450)
+[ls | sort | cat -e]	free item: 'sort' (0x7fffe0071690)
+[ls | sort | cat -e]	free item: 'cat -e' (0x7fffe0073450)
 [ls | sort | cat -e]	waiting ls | sort | cat -e to finish
-[ls | sort | cat -e]	change g_awaited_process from 0 to 4684
-[ls | sort | cat -e]	wait 4684 to stop
+[ls | sort | cat -e]	change g_awaited_process from 0 to 5048
+[ls | sort | cat -e]	wait 5048 to stop
          [/bin/cat]	close_g_fd_to_close         [/bin/cat]	close(11)
          [/bin/cat]	fork_and_exec:	about to launch /bin/cat
          [/bin/cat]	exec(/bin/cat)
-[ls | sort | cat -e]	waitpid(4684) returned
+[ls | sort | cat -e]	waitpid(5048) returned
 [ls | sort | cat -e]	ls | sort | cat -e finished
-[ls | sort | cat -e]	change g_awaited_process from 4684 to 0
+[ls | sort | cat -e]	change g_awaited_process from 5048 to 0
 [ls | sort | cat -e]	command processed: 'ls | sort | cat -e'
 [ls | sort | cat -e]	-------------------------
 [ls | sort | cat -e]	
@@ -332,7 +332,7 @@
 [ls | cat -e | sort]	after replace
 'ls'	
 [ls | cat -e | sort]	fork
-[ls | cat -e | sort]	fork_and_exec:	/bin/ls = 4685 launched
+[ls | cat -e | sort]	fork_and_exec:	/bin/ls = 5049 launched
 [ls | cat -e | sort]	exec2:	executed: /bin/ls
 [ls | cat -e | sort]	close(13)
 [ls | cat -e | sort]	new pipe: r=13, w=14
@@ -340,18 +340,18 @@
 [ls | cat -e | sort]	restore stdin
 [ls | cat -e | sort]	redirect: 0->4
 [ls | cat -e | sort]	restore stdout
-          [/bin/ls]	close_g_fd_to_close[ls | cat -e | sort]	redirect: 1->5
-          [/bin/ls]	close(12)
+[ls | cat -e | sort]	redirect: 1->5
 [ls | cat -e | sort]	redirect: 0->12
-          [/bin/ls]	fork_and_exec:	about to launch /bin/ls
 [ls | cat -e | sort]	redirect: 1->14
-          [/bin/ls]	exec(/bin/ls)
 [ls | cat -e | sort]	processing cat
 [ls | cat -e | sort]	processing -e
 [ls | cat -e | sort]	after replace
+          [/bin/ls]	close_g_fd_to_close          [/bin/ls]	close(12)
+          [/bin/ls]	fork_and_exec:	about to launch /bin/ls
+          [/bin/ls]	exec(/bin/ls)
 'cat'	'-e'	
 [ls | cat -e | sort]	fork
-[ls | cat -e | sort]	fork_and_exec:	/bin/cat = 4686 launched
+[ls | cat -e | sort]	fork_and_exec:	/bin/cat = 5050 launched
 [ls | cat -e | sort]	exec2:	executed: /bin/cat
 [ls | cat -e | sort]	close(14)
 [ls | cat -e | sort]	exec 13 > sort > 1
@@ -365,24 +365,24 @@
 [ls | cat -e | sort]	after replace
            [/bin/cat]	close_g_fd_to_close           [/bin/cat]	close(13)
            [/bin/cat]	fork_and_exec:	about to launch /bin/cat
-           [/bin/cat]	exec(/bin/cat)
 'sort'	
 [ls | cat -e | sort]	fork
-[ls | cat -e | sort]	fork_and_exec:	/usr/bin/sort = 4687 launched
+           [/bin/cat]	exec(/bin/cat)
+[ls | cat -e | sort]	fork_and_exec:	/usr/bin/sort = 5051 launched
 [ls | cat -e | sort]	exec2:	executed: /usr/bin/sort
-[ls | cat -e | sort]	pipe_exec2 returned: 4687
-[ls | cat -e | sort]	free item: 'ls' (0x7ffff35ea4b0)
-[ls | cat -e | sort]	free item: 'cat -e' (0x7ffff35ea450)
-[ls | cat -e | sort]	free item: 'sort' (0x7ffff35e8430)
+[ls | cat -e | sort]	pipe_exec2 returned: 5051
+[ls | cat -e | sort]	free item: 'ls' (0x7fffe00734b0)
+[ls | cat -e | sort]	free item: 'cat -e' (0x7fffe0073450)
+[ls | cat -e | sort]	free item: 'sort' (0x7fffe0071430)
 [ls | cat -e | sort]	waiting ls | cat -e | sort to finish
-[ls | cat -e | sort]	change g_awaited_process from 0 to 4687
-[ls | cat -e | sort]	wait 4687 to stop
+[ls | cat -e | sort]	change g_awaited_process from 0 to 5051
+[ls | cat -e | sort]	wait 5051 to stop
             [/usr/bin/sort]	close_g_fd_to_close            [/usr/bin/sort]	close(13)
             [/usr/bin/sort]	fork_and_exec:	about to launch /usr/bin/sort
             [/usr/bin/sort]	exec(/usr/bin/sort)
-[ls | cat -e | sort]	waitpid(4687) returned
+[ls | cat -e | sort]	waitpid(5051) returned
 [ls | cat -e | sort]	ls | cat -e | sort finished
-[ls | cat -e | sort]	change g_awaited_process from 4687 to 0
+[ls | cat -e | sort]	change g_awaited_process from 5051 to 0
 [ls | cat -e | sort]	command processed: 'ls | cat -e | sort'
 [ls | cat -e | sort]	-------------------------
 [ls | cat -e | sort]	
@@ -418,20 +418,20 @@
 [setenv | sort]	after replace
 'sort'	
 [setenv | sort]	fork
-[setenv | sort]	fork_and_exec:	/usr/bin/sort = 4688 launched
+[setenv | sort]	fork_and_exec:	/usr/bin/sort = 5052 launched
 [setenv | sort]	exec2:	executed: /usr/bin/sort
-[setenv | sort]	pipe_exec2 returned: 4688
-[setenv | sort]	free item: 'setenv' (0x7ffff35ea510)
-[setenv | sort]	free item: 'sort' (0x7ffff35e8650)
+[setenv | sort]	pipe_exec2 returned: 5052
+[setenv | sort]	free item: 'setenv' (0x7fffe0073510)
+             [/usr/bin/sort]	close_g_fd_to_close[setenv | sort]	free item: 'sort' (0x7fffe0071650)
+             [/usr/bin/sort]	close(14)
 [setenv | sort]	waiting setenv | sort to finish
-[setenv | sort]	change g_awaited_process from 0 to 4688
-[setenv | sort]	wait 4688 to stop
-             [/usr/bin/sort]	close_g_fd_to_close             [/usr/bin/sort]	close(14)
              [/usr/bin/sort]	fork_and_exec:	about to launch /usr/bin/sort
              [/usr/bin/sort]	exec(/usr/bin/sort)
-[setenv | sort]	waitpid(4688) returned
+[setenv | sort]	change g_awaited_process from 0 to 5052
+[setenv | sort]	wait 5052 to stop
+[setenv | sort]	waitpid(5052) returned
 [setenv | sort]	setenv | sort finished
-[setenv | sort]	change g_awaited_process from 4688 to 0
+[setenv | sort]	change g_awaited_process from 5052 to 0
 [setenv | sort]	command processed: 'setenv | sort'
 [setenv | sort]	-------------------------
 [setenv | sort]	
@@ -459,36 +459,36 @@
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	after replace
 'base64'	'/dev/urandom'	
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork_and_exec:	/usr/bin/base64 = 4689 launched
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork_and_exec:	/usr/bin/base64 = 5053 launched
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec2:	executed: /usr/bin/base64
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	close(16)
+              [/usr/bin/base64]	close_g_fd_to_close              [/usr/bin/base64]	close(15)
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	new pipe: r=16, w=17
+              [/usr/bin/base64]	fork_and_exec:	about to launch /usr/bin/base64
+              [/usr/bin/base64]	exec(/usr/bin/base64)
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec 15 > head -c100 > 17
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdin
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->4
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdout
-              [/usr/bin/base64]	close_g_fd_to_close[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->5
-              [/usr/bin/base64]	close(15)
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->5
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->15
-              [/usr/bin/base64]	fork_and_exec:	about to launch /usr/bin/base64
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->17
-              [/usr/bin/base64]	exec(/usr/bin/base64)
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	processing head
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	processing -c100
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	after replace
 'head'	'-c100'	
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork_and_exec:	/usr/bin/head = 4690 launched
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork_and_exec:	/usr/bin/head = 5054 launched
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec2:	executed: /usr/bin/head
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	close(17)
+               [/usr/bin/head]	close_g_fd_to_close               [/usr/bin/head]	close(16)
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	new pipe: r=17, w=18
-               [/usr/bin/head]	close_g_fd_to_close[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec 16 > grep 42 > 18
-               [/usr/bin/head]	close(16)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdin
                [/usr/bin/head]	fork_and_exec:	about to launch /usr/bin/head
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec 16 > grep 42 > 18
+               [/usr/bin/head]	exec(/usr/bin/head)
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdin
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->4
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdout
-               [/usr/bin/head]	exec(/usr/bin/head)
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->5
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->16
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->18
@@ -497,7 +497,7 @@
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	after replace
 'grep'	'42'	
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork_and_exec:	/bin/grep = 4691 launched
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork_and_exec:	/bin/grep = 5055 launched
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec2:	executed: /bin/grep
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	close(18)
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	new pipe: r=18, w=19
@@ -506,17 +506,20 @@
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->4
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdout
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->5
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->17
+                [/bin/grep]	close_g_fd_to_close[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->17
+                [/bin/grep]	close(17)
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->19
-                [/bin/grep]	close_g_fd_to_close                [/bin/grep]	close(17)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	processing wc
                 [/bin/grep]	fork_and_exec:	about to launch /bin/grep
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	processing wc
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	processing -l
-                [/bin/grep]	exec(/bin/grep)
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	after replace
+                [/bin/grep]	exec(/bin/grep)
 'wc'	'-l'	
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork_and_exec:	/usr/bin/wc = 4692 launched
+                 [/usr/bin/wc]	close_g_fd_to_close                 [/usr/bin/wc]	close(18)
+                 [/usr/bin/wc]	fork_and_exec:	about to launch /usr/bin/wc
+                 [/usr/bin/wc]	exec(/usr/bin/wc)
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork_and_exec:	/usr/bin/wc = 5056 launched
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec2:	executed: /usr/bin/wc
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	close(19)
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec 18 > sed -e %paired_quote%1 -e %paired_quote%2 > 1
@@ -532,28 +535,25 @@
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	processing -e
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	processing %paired_quote%2
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	after replace
-                 [/usr/bin/wc]	close_g_fd_to_close                 [/usr/bin/wc]	close(18)
-                 [/usr/bin/wc]	fork_and_exec:	about to launch /usr/bin/wc
-                 [/usr/bin/wc]	exec(/usr/bin/wc)
 'sed'	'-e'	's/1/Yes/g'	'-e'	's/0/No/g'	
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork_and_exec:	/bin/sed = 4693 launched
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork_and_exec:	/bin/sed = 5057 launched
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec2:	executed: /bin/sed
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	pipe_exec2 returned: 4693
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	free item: 'base64 /dev/urandom' (0x7ffff35ea450)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	free item: 'head -c100' (0x7ffff35ea810)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	free item: 'grep 42' (0x7ffff35ea850)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	free item: 'wc -l' (0x7ffff35ea890)
-                  [/bin/sed]	close_g_fd_to_close[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	free item: 'sed -e %paired_quote%1 -e %paired_quote%2' (0x7ffff35ea8d0)
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	pipe_exec2 returned: 5057
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	free item: 'base64 /dev/urandom' (0x7fffe0073450)
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	free item: 'head -c100' (0x7fffe0073810)
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	free item: 'grep 42' (0x7fffe0073850)
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	free item: 'wc -l' (0x7fffe0073890)
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	free item: 'sed -e %paired_quote%1 -e %paired_quote%2' (0x7fffe00738d0)
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	waiting base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2 to finish
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	change g_awaited_process from 0 to 4693
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	wait 4693 to stop
-                  [/bin/sed]	close(18)
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	change g_awaited_process from 0 to 5057
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	wait 5057 to stop
+                  [/bin/sed]	close_g_fd_to_close                  [/bin/sed]	close(18)
                   [/bin/sed]	fork_and_exec:	about to launch /bin/sed
                   [/bin/sed]	exec(/bin/sed)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	waitpid(4693) returned
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	waitpid(5057) returned
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2 finished
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	change g_awaited_process from 4693 to 0
+[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	change g_awaited_process from 5057 to 0
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	command processed: 'base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e "s/1/Yes/g" -e "s/0/No/g"'
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	-------------------------
 [base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	
@@ -581,7 +581,7 @@
 [unsetenv PATH]	after replace
 'unsetenv'	'PATH'	
 [unsetenv PATH]	pipe_exec2 returned: 0
-[unsetenv PATH]	free item: 'unsetenv PATH' (0x7ffff35eab10)
+[unsetenv PATH]	free item: 'unsetenv PATH' (0x7fffe0073b10)
 [unsetenv PATH]	command processed: 'unsetenv PATH'
 [unsetenv PATH]	-------------------------
 [unsetenv PATH]	
@@ -608,7 +608,7 @@
 'echo'	'path'	'='	
 [echo path = $PATH]	echo: command not found
 [echo path = $PATH]	pipe_exec2 returned: 0
-[echo path = $PATH]	free item: 'echo path = $PATH' (0x7ffff35e8690)
+[echo path = $PATH]	free item: 'echo path = $PATH' (0x7fffe0071690)
 [echo path = $PATH]	command processed: 'echo path = $PATH'
 [echo path = $PATH]	-------------------------
 [echo path = $PATH]	
@@ -634,7 +634,7 @@
 [setenv PATH /bin:/usr/bin]	after replace
 'setenv'	'PATH'	'/bin:/usr/bin'	
 [setenv PATH /bin:/usr/bin]	pipe_exec2 returned: 0
-[setenv PATH /bin:/usr/bin]	free item: 'setenv PATH /bin:/usr/bin' (0x7ffff35eabb0)
+[setenv PATH /bin:/usr/bin]	free item: 'setenv PATH /bin:/usr/bin' (0x7fffe0073bb0)
 [setenv PATH /bin:/usr/bin]	command processed: 'setenv PATH /bin:/usr/bin'
 [setenv PATH /bin:/usr/bin]	-------------------------
 [setenv PATH /bin:/usr/bin]	
@@ -661,19 +661,19 @@
 [echo path = $PATH]	after replace
 'echo'	'path'	'='	'/bin:/usr/bin'	
 [echo path = $PATH]	fork
-[echo path = $PATH]	fork_and_exec:	/bin/echo = 4694 launched
+[echo path = $PATH]	fork_and_exec:	/bin/echo = 5058 launched
 [echo path = $PATH]	exec2:	executed: /bin/echo
-[echo path = $PATH]	pipe_exec2 returned: 4694
-[echo path = $PATH]	free item: 'echo path = $PATH' (0x7ffff35e8540)
+[echo path = $PATH]	pipe_exec2 returned: 5058
+[echo path = $PATH]	free item: 'echo path = $PATH' (0x7fffe0071540)
 [echo path = $PATH]	waiting echo path = $PATH to finish
-[echo path = $PATH]	change g_awaited_process from 0 to 4694
-[echo path = $PATH]	wait 4694 to stop
+[echo path = $PATH]	change g_awaited_process from 0 to 5058
+[echo path = $PATH]	wait 5058 to stop
                    [/bin/echo]	close_g_fd_to_close                   [/bin/echo]	close(18)
                    [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                    [/bin/echo]	exec(/bin/echo)
-[echo path = $PATH]	waitpid(4694) returned
+[echo path = $PATH]	waitpid(5058) returned
 [echo path = $PATH]	echo path = $PATH finished
-[echo path = $PATH]	change g_awaited_process from 4694 to 0
+[echo path = $PATH]	change g_awaited_process from 5058 to 0
 [echo path = $PATH]	command processed: 'echo path = $PATH'
 [echo path = $PATH]	-------------------------
 [echo path = $PATH]	
@@ -702,7 +702,7 @@
 'foo'	
 [foo]	foo: command not found
 [foo]	pipe_exec2 returned: 0
-[foo]	free item: 'foo' (0x7ffff35eaaf0)
+[foo]	free item: 'foo' (0x7fffe0073af0)
 [foo]	command processed: 'foo'
 [foo]	-------------------------
 [foo]	
@@ -729,19 +729,19 @@
 [echo 1   2    	3]	after replace
 'echo'	'1'	'2'	'3'	
 [echo 1   2    	3]	fork
-[echo 1   2    	3]	fork_and_exec:	/bin/echo = 4695 launched
+[echo 1   2    	3]	fork_and_exec:	/bin/echo = 5059 launched
 [echo 1   2    	3]	exec2:	executed: /bin/echo
-[echo 1   2    	3]	pipe_exec2 returned: 4695
-[echo 1   2    	3]	free item: 'echo 1   2    	3' (0x7ffff35e8430)
+[echo 1   2    	3]	pipe_exec2 returned: 5059
+[echo 1   2    	3]	free item: 'echo 1   2    	3' (0x7fffe0071430)
 [echo 1   2    	3]	waiting echo 1   2    	3 to finish
-[echo 1   2    	3]	change g_awaited_process from 0 to 4695
-[echo 1   2    	3]	wait 4695 to stop
+[echo 1   2    	3]	change g_awaited_process from 0 to 5059
+[echo 1   2    	3]	wait 5059 to stop
                     [/bin/echo]	close_g_fd_to_close                    [/bin/echo]	close(18)
                     [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                     [/bin/echo]	exec(/bin/echo)
-[echo 1   2    	3]	waitpid(4695) returned
+[echo 1   2    	3]	waitpid(5059) returned
 [echo 1   2    	3]	echo 1   2    	3 finished
-[echo 1   2    	3]	change g_awaited_process from 4695 to 0
+[echo 1   2    	3]	change g_awaited_process from 5059 to 0
 [echo 1   2    	3]	command processed: 'echo 1   2    	3'
 [echo 1   2    	3]	-------------------------
 [echo 1   2    	3]	
@@ -779,7 +779,7 @@
 [echo 123 |rev]	after replace
 'echo'	'123'	
 [echo 123 |rev]	fork
-[echo 123 |rev]	fork_and_exec:	/bin/echo = 4696 launched
+[echo 123 |rev]	fork_and_exec:	/bin/echo = 5060 launched
 [echo 123 |rev]	exec2:	executed: /bin/echo
 [echo 123 |rev]	close(29)
 [echo 123 |rev]	exec 28 > rev > 1
@@ -792,24 +792,24 @@
 [echo 123 |rev]	processing rev
 [echo 123 |rev]	after replace
                      [/bin/echo]	close_g_fd_to_close                     [/bin/echo]	close(28)
-                     [/bin/echo]	fork_and_exec:	about to launch /bin/echo
-                     [/bin/echo]	exec(/bin/echo)
 'rev'	
 [echo 123 |rev]	fork
-[echo 123 |rev]	fork_and_exec:	/usr/bin/rev = 4697 launched
+                     [/bin/echo]	fork_and_exec:	about to launch /bin/echo
+                     [/bin/echo]	exec(/bin/echo)
+[echo 123 |rev]	fork_and_exec:	/usr/bin/rev = 5061 launched
 [echo 123 |rev]	exec2:	executed: /usr/bin/rev
-[echo 123 |rev]	pipe_exec2 returned: 4697
-[echo 123 |rev]	free item: 'echo 123' (0x7ffff35e85b0)
-[echo 123 |rev]	free item: 'rev' (0x7ffff35eaaf0)
+[echo 123 |rev]	pipe_exec2 returned: 5061
+[echo 123 |rev]	free item: 'echo 123' (0x7fffe00715b0)
+[echo 123 |rev]	free item: 'rev' (0x7fffe0073af0)
 [echo 123 |rev]	waiting echo 123 |rev to finish
-[echo 123 |rev]	change g_awaited_process from 0 to 4697
-[echo 123 |rev]	wait 4697 to stop
+[echo 123 |rev]	change g_awaited_process from 0 to 5061
+[echo 123 |rev]	wait 5061 to stop
                       [/usr/bin/rev]	close_g_fd_to_close                      [/usr/bin/rev]	close(28)
                       [/usr/bin/rev]	fork_and_exec:	about to launch /usr/bin/rev
                       [/usr/bin/rev]	exec(/usr/bin/rev)
-[echo 123 |rev]	waitpid(4697) returned
+[echo 123 |rev]	waitpid(5061) returned
 [echo 123 |rev]	echo 123 |rev finished
-[echo 123 |rev]	change g_awaited_process from 4697 to 0
+[echo 123 |rev]	change g_awaited_process from 5061 to 0
 [echo 123 |rev]	command processed: 'echo 123 |rev'
 [echo 123 |rev]	-------------------------
 [echo 123 |rev]	
@@ -835,18 +835,15 @@
 [echo 123 | cat -e |rev]	after replace
 'echo'	'123'	
 [echo 123 | cat -e |rev]	fork
-[echo 123 | cat -e |rev]	fork_and_exec:	/bin/echo = 4698 launched
+[echo 123 | cat -e |rev]	fork_and_exec:	/bin/echo = 5062 launched
 [echo 123 | cat -e |rev]	exec2:	executed: /bin/echo
 [echo 123 | cat -e |rev]	close(30)
 [echo 123 | cat -e |rev]	new pipe: r=30, w=31
-                       [/bin/echo]	close_g_fd_to_close[echo 123 | cat -e |rev]	exec 29 > cat -e > 31
+[echo 123 | cat -e |rev]	exec 29 > cat -e > 31
 [echo 123 | cat -e |rev]	restore stdin
-                       [/bin/echo]	close(29)
 [echo 123 | cat -e |rev]	redirect: 0->26
 [echo 123 | cat -e |rev]	restore stdout
-                       [/bin/echo]	fork_and_exec:	about to launch /bin/echo
 [echo 123 | cat -e |rev]	redirect: 1->27
-                       [/bin/echo]	exec(/bin/echo)
 [echo 123 | cat -e |rev]	redirect: 0->29
 [echo 123 | cat -e |rev]	redirect: 1->31
 [echo 123 | cat -e |rev]	processing cat
@@ -854,7 +851,10 @@
 [echo 123 | cat -e |rev]	after replace
 'cat'	'-e'	
 [echo 123 | cat -e |rev]	fork
-[echo 123 | cat -e |rev]	fork_and_exec:	/bin/cat = 4699 launched
+                       [/bin/echo]	close_g_fd_to_close                       [/bin/echo]	close(29)
+                       [/bin/echo]	fork_and_exec:	about to launch /bin/echo
+                       [/bin/echo]	exec(/bin/echo)
+[echo 123 | cat -e |rev]	fork_and_exec:	/bin/cat = 5063 launched
 [echo 123 | cat -e |rev]	exec2:	executed: /bin/cat
 [echo 123 | cat -e |rev]	close(31)
 [echo 123 | cat -e |rev]	exec 30 > rev > 1
@@ -863,29 +863,29 @@
 [echo 123 | cat -e |rev]	restore stdout
 [echo 123 | cat -e |rev]	redirect: 1->27
 [echo 123 | cat -e |rev]	redirect: 0->30
-                        [/bin/cat]	close_g_fd_to_close[echo 123 | cat -e |rev]	redirect: 1->1
+[echo 123 | cat -e |rev]	redirect: 1->1
 [echo 123 | cat -e |rev]	processing rev
 [echo 123 | cat -e |rev]	after replace
-                        [/bin/cat]	close(30)
-                        [/bin/cat]	fork_and_exec:	about to launch /bin/cat
-                        [/bin/cat]	exec(/bin/cat)
 'rev'	
 [echo 123 | cat -e |rev]	fork
-[echo 123 | cat -e |rev]	fork_and_exec:	/usr/bin/rev = 4700 launched
+                        [/bin/cat]	close_g_fd_to_close                        [/bin/cat]	close(30)
+                        [/bin/cat]	fork_and_exec:	about to launch /bin/cat
+                        [/bin/cat]	exec(/bin/cat)
+[echo 123 | cat -e |rev]	fork_and_exec:	/usr/bin/rev = 5064 launched
 [echo 123 | cat -e |rev]	exec2:	executed: /usr/bin/rev
-[echo 123 | cat -e |rev]	pipe_exec2 returned: 4700
-[echo 123 | cat -e |rev]	free item: 'echo 123' (0x7ffff35eac80)
-[echo 123 | cat -e |rev]	free item: 'cat -e' (0x7ffff35e8430)
-[echo 123 | cat -e |rev]	free item: 'rev' (0x7ffff35eacc0)
+[echo 123 | cat -e |rev]	pipe_exec2 returned: 5064
+[echo 123 | cat -e |rev]	free item: 'echo 123' (0x7fffe0073c80)
+[echo 123 | cat -e |rev]	free item: 'cat -e' (0x7fffe0071430)
+[echo 123 | cat -e |rev]	free item: 'rev' (0x7fffe0073cc0)
 [echo 123 | cat -e |rev]	waiting echo 123 | cat -e |rev to finish
-[echo 123 | cat -e |rev]	change g_awaited_process from 0 to 4700
-[echo 123 | cat -e |rev]	wait 4700 to stop
+[echo 123 | cat -e |rev]	change g_awaited_process from 0 to 5064
+[echo 123 | cat -e |rev]	wait 5064 to stop
                          [/usr/bin/rev]	close_g_fd_to_close                         [/usr/bin/rev]	close(30)
                          [/usr/bin/rev]	fork_and_exec:	about to launch /usr/bin/rev
                          [/usr/bin/rev]	exec(/usr/bin/rev)
-[echo 123 | cat -e |rev]	waitpid(4700) returned
+[echo 123 | cat -e |rev]	waitpid(5064) returned
 [echo 123 | cat -e |rev]	echo 123 | cat -e |rev finished
-[echo 123 | cat -e |rev]	change g_awaited_process from 4700 to 0
+[echo 123 | cat -e |rev]	change g_awaited_process from 5064 to 0
 [echo 123 | cat -e |rev]	command processed: 'echo 123 | cat -e |rev'
 [echo 123 | cat -e |rev]	-------------------------
 [echo 123 | cat -e |rev]	
@@ -911,7 +911,7 @@
 [echo 123456789 | head -c3]	after replace
 'echo'	'123456789'	
 [echo 123456789 | head -c3]	fork
-[echo 123456789 | head -c3]	fork_and_exec:	/bin/echo = 4701 launched
+[echo 123456789 | head -c3]	fork_and_exec:	/bin/echo = 5065 launched
 [echo 123456789 | head -c3]	exec2:	executed: /bin/echo
 [echo 123456789 | head -c3]	close(32)
 [echo 123456789 | head -c3]	exec 31 > head -c3 > 1
@@ -926,23 +926,23 @@
 [echo 123456789 | head -c3]	after replace
                           [/bin/echo]	close_g_fd_to_close                          [/bin/echo]	close(31)
                           [/bin/echo]	fork_and_exec:	about to launch /bin/echo
-                          [/bin/echo]	exec(/bin/echo)
 'head'	'-c3'	
 [echo 123456789 | head -c3]	fork
-[echo 123456789 | head -c3]	fork_and_exec:	/usr/bin/head = 4702 launched
+                          [/bin/echo]	exec(/bin/echo)
+[echo 123456789 | head -c3]	fork_and_exec:	/usr/bin/head = 5066 launched
 [echo 123456789 | head -c3]	exec2:	executed: /usr/bin/head
-[echo 123456789 | head -c3]	pipe_exec2 returned: 4702
-[echo 123456789 | head -c3]	free item: 'echo 123456789' (0x7ffff35eac80)
-[echo 123456789 | head -c3]	free item: 'head -c3' (0x7ffff35ead40)
+[echo 123456789 | head -c3]	pipe_exec2 returned: 5066
+[echo 123456789 | head -c3]	free item: 'echo 123456789' (0x7fffe0073c80)
+[echo 123456789 | head -c3]	free item: 'head -c3' (0x7fffe0073d40)
 [echo 123456789 | head -c3]	waiting echo 123456789 | head -c3 to finish
-[echo 123456789 | head -c3]	change g_awaited_process from 0 to 4702
-[echo 123456789 | head -c3]	wait 4702 to stop
+[echo 123456789 | head -c3]	change g_awaited_process from 0 to 5066
+[echo 123456789 | head -c3]	wait 5066 to stop
                            [/usr/bin/head]	close_g_fd_to_close                           [/usr/bin/head]	close(31)
                            [/usr/bin/head]	fork_and_exec:	about to launch /usr/bin/head
                            [/usr/bin/head]	exec(/usr/bin/head)
-[echo 123456789 | head -c3]	waitpid(4702) returned
+[echo 123456789 | head -c3]	waitpid(5066) returned
 [echo 123456789 | head -c3]	echo 123456789 | head -c3 finished
-[echo 123456789 | head -c3]	change g_awaited_process from 4702 to 0
+[echo 123456789 | head -c3]	change g_awaited_process from 5066 to 0
 [echo 123456789 | head -c3]	command processed: 'echo 123456789 | head -c3'
 [echo 123456789 | head -c3]	-------------------------
 [echo 123456789 | head -c3]	
@@ -975,19 +975,19 @@
 [rmdir  %paired_quote%1]	after replace
 'rmdir'	'dir  with  spaces'	
 [rmdir  %paired_quote%1]	fork
-[rmdir  %paired_quote%1]	fork_and_exec:	/bin/rmdir = 4703 launched
+[rmdir  %paired_quote%1]	fork_and_exec:	/bin/rmdir = 5067 launched
 [rmdir  %paired_quote%1]	exec2:	executed: /bin/rmdir
-[rmdir  %paired_quote%1]	pipe_exec2 returned: 4703
-[rmdir  %paired_quote%1]	free item: 'rmdir  %paired_quote%1' (0x7ffff35eaf80)
+[rmdir  %paired_quote%1]	pipe_exec2 returned: 5067
+[rmdir  %paired_quote%1]	free item: 'rmdir  %paired_quote%1' (0x7fffe0073f80)
 [rmdir  %paired_quote%1]	waiting rmdir  %paired_quote%1 to finish
-[rmdir  %paired_quote%1]	change g_awaited_process from 0 to 4703
-[rmdir  %paired_quote%1]	wait 4703 to stop
+[rmdir  %paired_quote%1]	change g_awaited_process from 0 to 5067
+[rmdir  %paired_quote%1]	wait 5067 to stop
                             [/bin/rmdir]	close_g_fd_to_close                            [/bin/rmdir]	close(31)
                             [/bin/rmdir]	fork_and_exec:	about to launch /bin/rmdir
                             [/bin/rmdir]	exec(/bin/rmdir)
-[rmdir  %paired_quote%1]	waitpid(4703) returned
+[rmdir  %paired_quote%1]	waitpid(5067) returned
 [rmdir  %paired_quote%1]	rmdir  %paired_quote%1 finished
-[rmdir  %paired_quote%1]	change g_awaited_process from 4703 to 0
+[rmdir  %paired_quote%1]	change g_awaited_process from 5067 to 0
 [rmdir  %paired_quote%1]	cmd: ' 	%paired_quote%2 %paired_quote%3 '
 [rmdir  %paired_quote%1]	pipe_parse(%paired_quote%2 %paired_quote%3)
 [rmdir  %paired_quote%1]	cmd[0] = '%paired_quote%2 %paired_quote%3'
@@ -1003,19 +1003,19 @@
 [%paired_quote%2 %paired_quote%3]	after replace
 'mkdir'	'dir  with  spaces'	
 [%paired_quote%2 %paired_quote%3]	fork
-[%paired_quote%2 %paired_quote%3]	fork_and_exec:	/bin/mkdir = 4704 launched
+[%paired_quote%2 %paired_quote%3]	fork_and_exec:	/bin/mkdir = 5068 launched
 [%paired_quote%2 %paired_quote%3]	exec2:	executed: /bin/mkdir
-[%paired_quote%2 %paired_quote%3]	pipe_exec2 returned: 4704
-[%paired_quote%2 %paired_quote%3]	free item: '%paired_quote%2 %paired_quote%3' (0x7ffff35eab80)
+[%paired_quote%2 %paired_quote%3]	pipe_exec2 returned: 5068
+[%paired_quote%2 %paired_quote%3]	free item: '%paired_quote%2 %paired_quote%3' (0x7fffe0073b80)
 [%paired_quote%2 %paired_quote%3]	waiting %paired_quote%2 %paired_quote%3 to finish
-[%paired_quote%2 %paired_quote%3]	change g_awaited_process from 0 to 4704
-[%paired_quote%2 %paired_quote%3]	wait 4704 to stop
+[%paired_quote%2 %paired_quote%3]	change g_awaited_process from 0 to 5068
+[%paired_quote%2 %paired_quote%3]	wait 5068 to stop
                              [/bin/mkdir]	close_g_fd_to_close                             [/bin/mkdir]	close(31)
                              [/bin/mkdir]	fork_and_exec:	about to launch /bin/mkdir
                              [/bin/mkdir]	exec(/bin/mkdir)
-[%paired_quote%2 %paired_quote%3]	waitpid(4704) returned
+[%paired_quote%2 %paired_quote%3]	waitpid(5068) returned
 [%paired_quote%2 %paired_quote%3]	%paired_quote%2 %paired_quote%3 finished
-[%paired_quote%2 %paired_quote%3]	change g_awaited_process from 4704 to 0
+[%paired_quote%2 %paired_quote%3]	change g_awaited_process from 5068 to 0
 [%paired_quote%2 %paired_quote%3]	cmd: ' ls %paired_quote%4'
 [%paired_quote%2 %paired_quote%3]	pipe_parse(ls %paired_quote%4)
 [%paired_quote%2 %paired_quote%3]	cmd[0] = 'ls %paired_quote%4'
@@ -1031,19 +1031,19 @@
 [ls %paired_quote%4]	after replace
 'ls'	'dir  with  spaces'	
 [ls %paired_quote%4]	fork
-[ls %paired_quote%4]	fork_and_exec:	/bin/ls = 4705 launched
+[ls %paired_quote%4]	fork_and_exec:	/bin/ls = 5069 launched
 [ls %paired_quote%4]	exec2:	executed: /bin/ls
-[ls %paired_quote%4]	pipe_exec2 returned: 4705
-[ls %paired_quote%4]	free item: 'ls %paired_quote%4' (0x7ffff35eb020)
+[ls %paired_quote%4]	pipe_exec2 returned: 5069
+[ls %paired_quote%4]	free item: 'ls %paired_quote%4' (0x7fffe0074020)
 [ls %paired_quote%4]	waiting ls %paired_quote%4 to finish
-[ls %paired_quote%4]	change g_awaited_process from 0 to 4705
-[ls %paired_quote%4]	wait 4705 to stop
+[ls %paired_quote%4]	change g_awaited_process from 0 to 5069
+[ls %paired_quote%4]	wait 5069 to stop
                               [/bin/ls]	close_g_fd_to_close                              [/bin/ls]	close(31)
                               [/bin/ls]	fork_and_exec:	about to launch /bin/ls
                               [/bin/ls]	exec(/bin/ls)
-[ls %paired_quote%4]	waitpid(4705) returned
+[ls %paired_quote%4]	waitpid(5069) returned
 [ls %paired_quote%4]	ls %paired_quote%4 finished
-[ls %paired_quote%4]	change g_awaited_process from 4705 to 0
+[ls %paired_quote%4]	change g_awaited_process from 5069 to 0
 [ls %paired_quote%4]	command processed: 'rmdir  "dir  with  spaces"; 	"mkdir" "dir  with  spaces" ; ls "dir  with  spaces"'
 [ls %paired_quote%4]	-------------------------
 [ls %paired_quote%4]	
@@ -1075,19 +1075,19 @@
 [rm -r %paired_quote%1]	after replace
 'rm'	'-r'	'not empty dir'	
 [rm -r %paired_quote%1]	fork
-[rm -r %paired_quote%1]	fork_and_exec:	/bin/rm = 4706 launched
+[rm -r %paired_quote%1]	fork_and_exec:	/bin/rm = 5070 launched
 [rm -r %paired_quote%1]	exec2:	executed: /bin/rm
-[rm -r %paired_quote%1]	pipe_exec2 returned: 4706
-[rm -r %paired_quote%1]	free item: 'rm -r %paired_quote%1' (0x7ffff35eb350)
+[rm -r %paired_quote%1]	pipe_exec2 returned: 5070
+[rm -r %paired_quote%1]	free item: 'rm -r %paired_quote%1' (0x7fffe0074350)
 [rm -r %paired_quote%1]	waiting rm -r %paired_quote%1 to finish
-[rm -r %paired_quote%1]	change g_awaited_process from 0 to 4706
-[rm -r %paired_quote%1]	wait 4706 to stop
+[rm -r %paired_quote%1]	change g_awaited_process from 0 to 5070
+[rm -r %paired_quote%1]	wait 5070 to stop
                                [/bin/rm]	close_g_fd_to_close                               [/bin/rm]	close(31)
                                [/bin/rm]	fork_and_exec:	about to launch /bin/rm
                                [/bin/rm]	exec(/bin/rm)
-[rm -r %paired_quote%1]	waitpid(4706) returned
+[rm -r %paired_quote%1]	waitpid(5070) returned
 [rm -r %paired_quote%1]	rm -r %paired_quote%1 finished
-[rm -r %paired_quote%1]	change g_awaited_process from 4706 to 0
+[rm -r %paired_quote%1]	change g_awaited_process from 5070 to 0
 [rm -r %paired_quote%1]	cmd: 'mkdir %paired_quote%2'
 [rm -r %paired_quote%1]	pipe_parse(mkdir %paired_quote%2)
 [rm -r %paired_quote%1]	cmd[0] = 'mkdir %paired_quote%2'
@@ -1103,19 +1103,19 @@
 [mkdir %paired_quote%2]	after replace
 'mkdir'	'not empty dir'	
 [mkdir %paired_quote%2]	fork
-[mkdir %paired_quote%2]	fork_and_exec:	/bin/mkdir = 4707 launched
+[mkdir %paired_quote%2]	fork_and_exec:	/bin/mkdir = 5071 launched
 [mkdir %paired_quote%2]	exec2:	executed: /bin/mkdir
-[mkdir %paired_quote%2]	pipe_exec2 returned: 4707
-[mkdir %paired_quote%2]	free item: 'mkdir %paired_quote%2' (0x7ffff35eb410)
+[mkdir %paired_quote%2]	pipe_exec2 returned: 5071
+[mkdir %paired_quote%2]	free item: 'mkdir %paired_quote%2' (0x7fffe0074410)
 [mkdir %paired_quote%2]	waiting mkdir %paired_quote%2 to finish
-[mkdir %paired_quote%2]	change g_awaited_process from 0 to 4707
-[mkdir %paired_quote%2]	wait 4707 to stop
+[mkdir %paired_quote%2]	change g_awaited_process from 0 to 5071
+[mkdir %paired_quote%2]	wait 5071 to stop
                                 [/bin/mkdir]	close_g_fd_to_close                                [/bin/mkdir]	close(31)
                                 [/bin/mkdir]	fork_and_exec:	about to launch /bin/mkdir
                                 [/bin/mkdir]	exec(/bin/mkdir)
-[mkdir %paired_quote%2]	waitpid(4707) returned
+[mkdir %paired_quote%2]	waitpid(5071) returned
 [mkdir %paired_quote%2]	mkdir %paired_quote%2 finished
-[mkdir %paired_quote%2]	change g_awaited_process from 4707 to 0
+[mkdir %paired_quote%2]	change g_awaited_process from 5071 to 0
 [mkdir %paired_quote%2]	cmd: ' mkdir %paired_quote%3/%paired_quote%4'
 [mkdir %paired_quote%2]	pipe_parse(mkdir %paired_quote%3/%paired_quote%4)
 [mkdir %paired_quote%2]	cmd[0] = 'mkdir %paired_quote%3/%paired_quote%4'
@@ -1131,19 +1131,19 @@
 [mkdir %paired_quote%3/%paired_quote%4]	after replace
 'mkdir'	'not empty dir/dir	one'	
 [mkdir %paired_quote%3/%paired_quote%4]	fork
-[mkdir %paired_quote%3/%paired_quote%4]	fork_and_exec:	/bin/mkdir = 4708 launched
+[mkdir %paired_quote%3/%paired_quote%4]	fork_and_exec:	/bin/mkdir = 5072 launched
 [mkdir %paired_quote%3/%paired_quote%4]	exec2:	executed: /bin/mkdir
-[mkdir %paired_quote%3/%paired_quote%4]	pipe_exec2 returned: 4708
-[mkdir %paired_quote%3/%paired_quote%4]	free item: 'mkdir %paired_quote%3/%paired_quote%4' (0x7ffff35eac10)
+[mkdir %paired_quote%3/%paired_quote%4]	pipe_exec2 returned: 5072
+[mkdir %paired_quote%3/%paired_quote%4]	free item: 'mkdir %paired_quote%3/%paired_quote%4' (0x7fffe0073c10)
 [mkdir %paired_quote%3/%paired_quote%4]	waiting mkdir %paired_quote%3/%paired_quote%4 to finish
-[mkdir %paired_quote%3/%paired_quote%4]	change g_awaited_process from 0 to 4708
-[mkdir %paired_quote%3/%paired_quote%4]	wait 4708 to stop
-                                 [/bin/mkdir]	close_g_fd_to_close                                 [/bin/mkdir]	close(31)
+                                 [/bin/mkdir]	close_g_fd_to_close[mkdir %paired_quote%3/%paired_quote%4]	change g_awaited_process from 0 to 5072
+                                 [/bin/mkdir]	close(31)
+[mkdir %paired_quote%3/%paired_quote%4]	wait 5072 to stop
                                  [/bin/mkdir]	fork_and_exec:	about to launch /bin/mkdir
                                  [/bin/mkdir]	exec(/bin/mkdir)
-[mkdir %paired_quote%3/%paired_quote%4]	waitpid(4708) returned
+[mkdir %paired_quote%3/%paired_quote%4]	waitpid(5072) returned
 [mkdir %paired_quote%3/%paired_quote%4]	mkdir %paired_quote%3/%paired_quote%4 finished
-[mkdir %paired_quote%3/%paired_quote%4]	change g_awaited_process from 4708 to 0
+[mkdir %paired_quote%3/%paired_quote%4]	change g_awaited_process from 5072 to 0
 [mkdir %paired_quote%3/%paired_quote%4]	cmd: ' ls %paired_quote%5/%paired_quote%6'
 [mkdir %paired_quote%3/%paired_quote%4]	pipe_parse(ls %paired_quote%5/%paired_quote%6)
 [mkdir %paired_quote%3/%paired_quote%4]	cmd[0] = 'ls %paired_quote%5/%paired_quote%6'
@@ -1159,25 +1159,25 @@
 [ls %paired_quote%5/%paired_quote%6]	after replace
 'ls'	'not empty dir/dir	one'	
 [ls %paired_quote%5/%paired_quote%6]	fork
-[ls %paired_quote%5/%paired_quote%6]	fork_and_exec:	/bin/ls = 4709 launched
+[ls %paired_quote%5/%paired_quote%6]	fork_and_exec:	/bin/ls = 5073 launched
 [ls %paired_quote%5/%paired_quote%6]	exec2:	executed: /bin/ls
-[ls %paired_quote%5/%paired_quote%6]	pipe_exec2 returned: 4709
-[ls %paired_quote%5/%paired_quote%6]	free item: 'ls %paired_quote%5/%paired_quote%6' (0x7ffff35eb060)
+[ls %paired_quote%5/%paired_quote%6]	pipe_exec2 returned: 5073
+[ls %paired_quote%5/%paired_quote%6]	free item: 'ls %paired_quote%5/%paired_quote%6' (0x7fffe0074060)
 [ls %paired_quote%5/%paired_quote%6]	waiting ls %paired_quote%5/%paired_quote%6 to finish
-[ls %paired_quote%5/%paired_quote%6]	change g_awaited_process from 0 to 4709
-[ls %paired_quote%5/%paired_quote%6]	wait 4709 to stop
-                                  [/bin/ls]	close_g_fd_to_close                                  [/bin/ls]	close(31)
+[ls %paired_quote%5/%paired_quote%6]	change g_awaited_process from 0 to 5073
+                                  [/bin/ls]	close_g_fd_to_close[ls %paired_quote%5/%paired_quote%6]	wait 5073 to stop
+                                  [/bin/ls]	close(31)
                                   [/bin/ls]	fork_and_exec:	about to launch /bin/ls
                                   [/bin/ls]	exec(/bin/ls)
-[ls %paired_quote%5/%paired_quote%6]	waitpid(4709) returned
+[ls %paired_quote%5/%paired_quote%6]	waitpid(5073) returned
 [ls %paired_quote%5/%paired_quote%6]	ls %paired_quote%5/%paired_quote%6 finished
-[ls %paired_quote%5/%paired_quote%6]	change g_awaited_process from 4709 to 0
+[ls %paired_quote%5/%paired_quote%6]	change g_awaited_process from 5073 to 0
 [ls %paired_quote%5/%paired_quote%6]	command processed: 'rm -r "not empty dir";mkdir "not empty dir"; mkdir "not empty dir"/"dir	one"; ls "not empty dir"/"dir	one"'
 [ls %paired_quote%5/%paired_quote%6]	-------------------------
 [ls %paired_quote%5/%paired_quote%6]	
 [test]	close(1)
-[test]	free item: '1' (0x7ffff35eaf80)
-[test]	free item: '2' (0x7ffff35eaf00)
+[test]	free item: '1' (0x7fffe0073f80)
+[test]	free item: '2' (0x7fffe0073f00)
 [test]	testing cd_bad
 [test]	duplicated stdin to 36
 [test]	duplicated stdout to 37
@@ -1203,7 +1203,7 @@
 'cd'	'-'	
 [cd -]	exec cd '-'
 [cd -]	pipe_exec2 returned: 0
-[cd -]	free item: 'cd -' (0x7ffff35eb450)
+[cd -]	free item: 'cd -' (0x7fffe0074450)
 [cd -]	command processed: 'cd -'
 [cd -]	-------------------------
 [cd -]	
@@ -1229,16 +1229,16 @@
 'cd'	'\'	
 [cd \]	exec cd '\'
 [cd \]	pipe_exec2 returned: 0
-[cd \]	free item: 'cd \' (0x7ffff35ead40)
+[cd \]	free item: 'cd \' (0x7fffe0073d40)
 [cd \]	command processed: 'cd \'
 [cd \]	-------------------------
 [cd \]	
 [test]	close(1)
 [test]	pipe_parse(ls -l | sort | cat -e)
 [test]	cmd[0] = 'ls -l '
-[test]	free item: 'ls -l' (0x7ffff35eb350)
-[test]	free item: 'sort' (0x7ffff35eaf80)
-[test]	free item: 'cat -e' (0x7ffff35eb410)
+[test]	free item: 'ls -l' (0x7fffe0074350)
+[test]	free item: 'sort' (0x7fffe0073f80)
+[test]	free item: 'cat -e' (0x7fffe0074410)
 [test]	testing two_commands_bad
 [test]	duplicated stdin to 39
 [test]	duplicated stdout to 40
@@ -1300,19 +1300,19 @@
 [echo %paired_quote%1]	after replace
 'echo'	'q'	
 [echo %paired_quote%1]	fork
-[echo %paired_quote%1]	fork_and_exec:	/bin/echo = 4710 launched
+[echo %paired_quote%1]	fork_and_exec:	/bin/echo = 5074 launched
 [echo %paired_quote%1]	exec2:	executed: /bin/echo
-[echo %paired_quote%1]	pipe_exec2 returned: 4710
-[echo %paired_quote%1]	free item: 'echo %paired_quote%1' (0x7ffff35eaf80)
+[echo %paired_quote%1]	pipe_exec2 returned: 5074
+[echo %paired_quote%1]	free item: 'echo %paired_quote%1' (0x7fffe0073f80)
 [echo %paired_quote%1]	waiting echo %paired_quote%1 to finish
-[echo %paired_quote%1]	change g_awaited_process from 0 to 4710
-[echo %paired_quote%1]	wait 4710 to stop
+[echo %paired_quote%1]	change g_awaited_process from 0 to 5074
+[echo %paired_quote%1]	wait 5074 to stop
                                    [/bin/echo]	close_g_fd_to_close                                   [/bin/echo]	close(31)
                                    [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                    [/bin/echo]	exec(/bin/echo)
-[echo %paired_quote%1]	waitpid(4710) returned
+[echo %paired_quote%1]	waitpid(5074) returned
 [echo %paired_quote%1]	echo %paired_quote%1 finished
-[echo %paired_quote%1]	change g_awaited_process from 4710 to 0
+[echo %paired_quote%1]	change g_awaited_process from 5074 to 0
 [echo %paired_quote%1]	command processed: 'echo "q"'
 [echo %paired_quote%1]	-------------------------
 [echo %paired_quote%1]	
@@ -1342,7 +1342,7 @@
 [setenv q w]	after replace
 'setenv'	'q'	'w'	
 [setenv q w]	pipe_exec2 returned: 0
-[setenv q w]	free item: 'setenv q w' (0x7ffff35eb330)
+[setenv q w]	free item: 'setenv q w' (0x7fffe0074330)
 [setenv q w]	command processed: 'setenv q w'
 [setenv q w]	-------------------------
 [setenv q w]	
@@ -1367,19 +1367,19 @@
 [echo $q]	after replace
 'echo'	'w'	
 [echo $q]	fork
-[echo $q]	fork_and_exec:	/bin/echo = 4711 launched
+[echo $q]	fork_and_exec:	/bin/echo = 5075 launched
 [echo $q]	exec2:	executed: /bin/echo
-[echo $q]	pipe_exec2 returned: 4711
-[echo $q]	free item: 'echo $q' (0x7ffff35eb490)
+[echo $q]	pipe_exec2 returned: 5075
+[echo $q]	free item: 'echo $q' (0x7fffe0074490)
 [echo $q]	waiting echo $q to finish
-[echo $q]	change g_awaited_process from 0 to 4711
-[echo $q]	wait 4711 to stop
+[echo $q]	change g_awaited_process from 0 to 5075
+[echo $q]	wait 5075 to stop
                                     [/bin/echo]	close_g_fd_to_close                                    [/bin/echo]	close(31)
                                     [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                     [/bin/echo]	exec(/bin/echo)
-[echo $q]	waitpid(4711) returned
+[echo $q]	waitpid(5075) returned
 [echo $q]	echo $q finished
-[echo $q]	change g_awaited_process from 4711 to 0
+[echo $q]	change g_awaited_process from 5075 to 0
 [echo $q]	command processed: 'echo $q'
 [echo $q]	-------------------------
 [echo $q]	
@@ -1404,7 +1404,7 @@
 [unsetenv q]	after replace
 'unsetenv'	'q'	
 [unsetenv q]	pipe_exec2 returned: 0
-[unsetenv q]	free item: 'unsetenv q' (0x7ffff35eaaf0)
+[unsetenv q]	free item: 'unsetenv q' (0x7fffe0073af0)
 [unsetenv q]	command processed: 'unsetenv q'
 [unsetenv q]	-------------------------
 [unsetenv q]	
@@ -1428,19 +1428,19 @@
 [echo $q]	after replace
 'echo'	
 [echo $q]	fork
-[echo $q]	fork_and_exec:	/bin/echo = 4712 launched
+[echo $q]	fork_and_exec:	/bin/echo = 5076 launched
 [echo $q]	exec2:	executed: /bin/echo
-[echo $q]	pipe_exec2 returned: 4712
-[echo $q]	free item: 'echo $q' (0x7ffff35ead40)
+[echo $q]	pipe_exec2 returned: 5076
+[echo $q]	free item: 'echo $q' (0x7fffe0073d40)
 [echo $q]	waiting echo $q to finish
-[echo $q]	change g_awaited_process from 0 to 4712
-[echo $q]	wait 4712 to stop
+[echo $q]	change g_awaited_process from 0 to 5076
+[echo $q]	wait 5076 to stop
                                      [/bin/echo]	close_g_fd_to_close                                     [/bin/echo]	close(31)
                                      [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                      [/bin/echo]	exec(/bin/echo)
-[echo $q]	waitpid(4712) returned
+[echo $q]	waitpid(5076) returned
 [echo $q]	echo $q finished
-[echo $q]	change g_awaited_process from 4712 to 0
+[echo $q]	change g_awaited_process from 5076 to 0
 [echo $q]	command processed: 'echo $q'
 [echo $q]	-------------------------
 [echo $q]	
@@ -1469,19 +1469,19 @@
 [echo ls:]	after replace
 'echo'	'ls:'	
 [echo ls:]	fork
-[echo ls:]	fork_and_exec:	/bin/echo = 4713 launched
+[echo ls:]	fork_and_exec:	/bin/echo = 5077 launched
 [echo ls:]	exec2:	executed: /bin/echo
-[echo ls:]	pipe_exec2 returned: 4713
-[echo ls:]	free item: 'echo ls:' (0x7ffff35eb450)
+[echo ls:]	pipe_exec2 returned: 5077
+[echo ls:]	free item: 'echo ls:' (0x7fffe0074450)
 [echo ls:]	waiting echo ls: to finish
-[echo ls:]	change g_awaited_process from 0 to 4713
-[echo ls:]	wait 4713 to stop
-                                      [/bin/echo]	close_g_fd_to_close                                      [/bin/echo]	close(31)
+                                      [/bin/echo]	close_g_fd_to_close[echo ls:]	change g_awaited_process from 0 to 5077
+                                      [/bin/echo]	close(31)
+[echo ls:]	wait 5077 to stop
                                       [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                       [/bin/echo]	exec(/bin/echo)
-[echo ls:]	waitpid(4713) returned
+[echo ls:]	waitpid(5077) returned
 [echo ls:]	echo ls: finished
-[echo ls:]	change g_awaited_process from 4713 to 0
+[echo ls:]	change g_awaited_process from 5077 to 0
 [echo ls:]	cmd: 'ls'
 [echo ls:]	pipe_parse(ls)
 [echo ls:]	cmd[0] = 'ls'
@@ -1496,19 +1496,19 @@
 [ls]	after replace
 'ls'	
 [ls]	fork
-[ls]	fork_and_exec:	/bin/ls = 4714 launched
+[ls]	fork_and_exec:	/bin/ls = 5078 launched
 [ls]	exec2:	executed: /bin/ls
-[ls]	pipe_exec2 returned: 4714
-[ls]	free item: 'ls' (0x7ffff35eb330)
+[ls]	pipe_exec2 returned: 5078
+[ls]	free item: 'ls' (0x7fffe0074330)
 [ls]	waiting ls to finish
-[ls]	change g_awaited_process from 0 to 4714
-[ls]	wait 4714 to stop
-                                       [/bin/ls]	close_g_fd_to_close                                       [/bin/ls]	close(31)
+[ls]	change g_awaited_process from 0 to 5078
+                                       [/bin/ls]	close_g_fd_to_close[ls]	wait 5078 to stop
+                                       [/bin/ls]	close(31)
                                        [/bin/ls]	fork_and_exec:	about to launch /bin/ls
                                        [/bin/ls]	exec(/bin/ls)
-[ls]	waitpid(4714) returned
+[ls]	waitpid(5078) returned
 [ls]	ls finished
-[ls]	change g_awaited_process from 4714 to 0
+[ls]	change g_awaited_process from 5078 to 0
 [ls]	command processed: 'echo ls:;ls'
 [ls]	-------------------------
 [ls]	
@@ -1539,19 +1539,19 @@
 [echo not empty dir:]	after replace
 'echo'	'not'	'empty'	'dir:'	
 [echo not empty dir:]	fork
-[echo not empty dir:]	fork_and_exec:	/bin/echo = 4715 launched
+[echo not empty dir:]	fork_and_exec:	/bin/echo = 5079 launched
 [echo not empty dir:]	exec2:	executed: /bin/echo
-[echo not empty dir:]	pipe_exec2 returned: 4715
-[echo not empty dir:]	free item: 'echo not empty dir:' (0x7ffff35eb600)
+[echo not empty dir:]	pipe_exec2 returned: 5079
+[echo not empty dir:]	free item: 'echo not empty dir:' (0x7fffe0074600)
 [echo not empty dir:]	waiting echo not empty dir: to finish
-[echo not empty dir:]	change g_awaited_process from 0 to 4715
-[echo not empty dir:]	wait 4715 to stop
+[echo not empty dir:]	change g_awaited_process from 0 to 5079
+[echo not empty dir:]	wait 5079 to stop
                                         [/bin/echo]	close_g_fd_to_close                                        [/bin/echo]	close(31)
                                         [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                         [/bin/echo]	exec(/bin/echo)
-[echo not empty dir:]	waitpid(4715) returned
+[echo not empty dir:]	waitpid(5079) returned
 [echo not empty dir:]	echo not empty dir: finished
-[echo not empty dir:]	change g_awaited_process from 4715 to 0
+[echo not empty dir:]	change g_awaited_process from 5079 to 0
 [echo not empty dir:]	cmd: 'rm -r %paired_quote%1'
 [echo not empty dir:]	pipe_parse(rm -r %paired_quote%1)
 [echo not empty dir:]	cmd[0] = 'rm -r %paired_quote%1'
@@ -1568,19 +1568,19 @@
 [rm -r %paired_quote%1]	after replace
 'rm'	'-r'	'not empty dir ls'	
 [rm -r %paired_quote%1]	fork
-[rm -r %paired_quote%1]	fork_and_exec:	/bin/rm = 4716 launched
+[rm -r %paired_quote%1]	fork_and_exec:	/bin/rm = 5080 launched
 [rm -r %paired_quote%1]	exec2:	executed: /bin/rm
-[rm -r %paired_quote%1]	pipe_exec2 returned: 4716
-[rm -r %paired_quote%1]	free item: 'rm -r %paired_quote%1' (0x7ffff35eb640)
+[rm -r %paired_quote%1]	pipe_exec2 returned: 5080
+[rm -r %paired_quote%1]	free item: 'rm -r %paired_quote%1' (0x7fffe0074640)
 [rm -r %paired_quote%1]	waiting rm -r %paired_quote%1 to finish
-[rm -r %paired_quote%1]	change g_awaited_process from 0 to 4716
-[rm -r %paired_quote%1]	wait 4716 to stop
+[rm -r %paired_quote%1]	change g_awaited_process from 0 to 5080
+[rm -r %paired_quote%1]	wait 5080 to stop
                                          [/bin/rm]	close_g_fd_to_close                                         [/bin/rm]	close(31)
                                          [/bin/rm]	fork_and_exec:	about to launch /bin/rm
                                          [/bin/rm]	exec(/bin/rm)
-[rm -r %paired_quote%1]	waitpid(4716) returned
+[rm -r %paired_quote%1]	waitpid(5080) returned
 [rm -r %paired_quote%1]	rm -r %paired_quote%1 finished
-[rm -r %paired_quote%1]	change g_awaited_process from 4716 to 0
+[rm -r %paired_quote%1]	change g_awaited_process from 5080 to 0
 [rm -r %paired_quote%1]	cmd: ' mkdir %paired_quote%2'
 [rm -r %paired_quote%1]	pipe_parse(mkdir %paired_quote%2)
 [rm -r %paired_quote%1]	cmd[0] = 'mkdir %paired_quote%2'
@@ -1596,19 +1596,19 @@
 [mkdir %paired_quote%2]	after replace
 'mkdir'	'not empty dir ls'	
 [mkdir %paired_quote%2]	fork
-[mkdir %paired_quote%2]	fork_and_exec:	/bin/mkdir = 4717 launched
+[mkdir %paired_quote%2]	fork_and_exec:	/bin/mkdir = 5081 launched
 [mkdir %paired_quote%2]	exec2:	executed: /bin/mkdir
-[mkdir %paired_quote%2]	pipe_exec2 returned: 4717
-[mkdir %paired_quote%2]	free item: 'mkdir %paired_quote%2' (0x7ffff35eb680)
+[mkdir %paired_quote%2]	pipe_exec2 returned: 5081
+[mkdir %paired_quote%2]	free item: 'mkdir %paired_quote%2' (0x7fffe0074680)
 [mkdir %paired_quote%2]	waiting mkdir %paired_quote%2 to finish
-[mkdir %paired_quote%2]	change g_awaited_process from 0 to 4717
-[mkdir %paired_quote%2]	wait 4717 to stop
+[mkdir %paired_quote%2]	change g_awaited_process from 0 to 5081
+[mkdir %paired_quote%2]	wait 5081 to stop
                                           [/bin/mkdir]	close_g_fd_to_close                                          [/bin/mkdir]	close(31)
                                           [/bin/mkdir]	fork_and_exec:	about to launch /bin/mkdir
                                           [/bin/mkdir]	exec(/bin/mkdir)
-[mkdir %paired_quote%2]	waitpid(4717) returned
+[mkdir %paired_quote%2]	waitpid(5081) returned
 [mkdir %paired_quote%2]	mkdir %paired_quote%2 finished
-[mkdir %paired_quote%2]	change g_awaited_process from 4717 to 0
+[mkdir %paired_quote%2]	change g_awaited_process from 5081 to 0
 [mkdir %paired_quote%2]	cmd: ' mkdir %paired_quote%3/dir1'
 [mkdir %paired_quote%2]	pipe_parse(mkdir %paired_quote%3/dir1)
 [mkdir %paired_quote%2]	cmd[0] = 'mkdir %paired_quote%3/dir1'
@@ -1624,19 +1624,19 @@
 [mkdir %paired_quote%3/dir1]	after replace
 'mkdir'	'not empty dir ls/dir1'	
 [mkdir %paired_quote%3/dir1]	fork
-[mkdir %paired_quote%3/dir1]	fork_and_exec:	/bin/mkdir = 4718 launched
+[mkdir %paired_quote%3/dir1]	fork_and_exec:	/bin/mkdir = 5082 launched
 [mkdir %paired_quote%3/dir1]	exec2:	executed: /bin/mkdir
-[mkdir %paired_quote%3/dir1]	pipe_exec2 returned: 4718
-[mkdir %paired_quote%3/dir1]	free item: 'mkdir %paired_quote%3/dir1' (0x7ffff35eabb0)
+[mkdir %paired_quote%3/dir1]	pipe_exec2 returned: 5082
+[mkdir %paired_quote%3/dir1]	free item: 'mkdir %paired_quote%3/dir1' (0x7fffe0073bb0)
 [mkdir %paired_quote%3/dir1]	waiting mkdir %paired_quote%3/dir1 to finish
-[mkdir %paired_quote%3/dir1]	change g_awaited_process from 0 to 4718
-[mkdir %paired_quote%3/dir1]	wait 4718 to stop
+[mkdir %paired_quote%3/dir1]	change g_awaited_process from 0 to 5082
+[mkdir %paired_quote%3/dir1]	wait 5082 to stop
                                            [/bin/mkdir]	close_g_fd_to_close                                           [/bin/mkdir]	close(31)
                                            [/bin/mkdir]	fork_and_exec:	about to launch /bin/mkdir
                                            [/bin/mkdir]	exec(/bin/mkdir)
-[mkdir %paired_quote%3/dir1]	waitpid(4718) returned
+[mkdir %paired_quote%3/dir1]	waitpid(5082) returned
 [mkdir %paired_quote%3/dir1]	mkdir %paired_quote%3/dir1 finished
-[mkdir %paired_quote%3/dir1]	change g_awaited_process from 4718 to 0
+[mkdir %paired_quote%3/dir1]	change g_awaited_process from 5082 to 0
 [mkdir %paired_quote%3/dir1]	cmd: ' touch %paired_quote%4/file1'
 [mkdir %paired_quote%3/dir1]	pipe_parse(touch %paired_quote%4/file1)
 [mkdir %paired_quote%3/dir1]	cmd[0] = 'touch %paired_quote%4/file1'
@@ -1652,19 +1652,19 @@
 [touch %paired_quote%4/file1]	after replace
 'touch'	'not empty dir ls/file1'	
 [touch %paired_quote%4/file1]	fork
-[touch %paired_quote%4/file1]	fork_and_exec:	/bin/touch = 4719 launched
+[touch %paired_quote%4/file1]	fork_and_exec:	/bin/touch = 5083 launched
 [touch %paired_quote%4/file1]	exec2:	executed: /bin/touch
-[touch %paired_quote%4/file1]	pipe_exec2 returned: 4719
-[touch %paired_quote%4/file1]	free item: 'touch %paired_quote%4/file1' (0x7ffff35eb4d0)
+[touch %paired_quote%4/file1]	pipe_exec2 returned: 5083
+[touch %paired_quote%4/file1]	free item: 'touch %paired_quote%4/file1' (0x7fffe00744d0)
 [touch %paired_quote%4/file1]	waiting touch %paired_quote%4/file1 to finish
-[touch %paired_quote%4/file1]	change g_awaited_process from 0 to 4719
-[touch %paired_quote%4/file1]	wait 4719 to stop
+[touch %paired_quote%4/file1]	change g_awaited_process from 0 to 5083
+[touch %paired_quote%4/file1]	wait 5083 to stop
                                             [/bin/touch]	close_g_fd_to_close                                            [/bin/touch]	close(31)
                                             [/bin/touch]	fork_and_exec:	about to launch /bin/touch
                                             [/bin/touch]	exec(/bin/touch)
-[touch %paired_quote%4/file1]	waitpid(4719) returned
+[touch %paired_quote%4/file1]	waitpid(5083) returned
 [touch %paired_quote%4/file1]	touch %paired_quote%4/file1 finished
-[touch %paired_quote%4/file1]	change g_awaited_process from 4719 to 0
+[touch %paired_quote%4/file1]	change g_awaited_process from 5083 to 0
 [touch %paired_quote%4/file1]	command processed: 'echo not empty dir: ;rm -r "not empty dir ls"; mkdir "not empty dir ls"; mkdir "not empty dir ls"/dir1; touch "not empty dir ls"/file1'
 [touch %paired_quote%4/file1]	-------------------------
 [touch %paired_quote%4/file1]	
@@ -1690,19 +1690,19 @@
 [echo ls]	after replace
 'echo'	'ls'	
 [echo ls]	fork
-[echo ls]	fork_and_exec:	/bin/echo = 4720 launched
+[echo ls]	fork_and_exec:	/bin/echo = 5084 launched
 [echo ls]	exec2:	executed: /bin/echo
-[echo ls]	pipe_exec2 returned: 4720
-[echo ls]	free item: 'echo ls' (0x7ffff35eac80)
+[echo ls]	pipe_exec2 returned: 5084
+[echo ls]	free item: 'echo ls' (0x7fffe0073c80)
 [echo ls]	waiting echo ls to finish
-[echo ls]	change g_awaited_process from 0 to 4720
-[echo ls]	wait 4720 to stop
+[echo ls]	change g_awaited_process from 0 to 5084
+[echo ls]	wait 5084 to stop
                                              [/bin/echo]	close_g_fd_to_close                                             [/bin/echo]	close(31)
                                              [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                              [/bin/echo]	exec(/bin/echo)
-[echo ls]	waitpid(4720) returned
+[echo ls]	waitpid(5084) returned
 [echo ls]	echo ls finished
-[echo ls]	change g_awaited_process from 4720 to 0
+[echo ls]	change g_awaited_process from 5084 to 0
 [echo ls]	cmd: 'ls %paired_quote%1'
 [echo ls]	pipe_parse(ls %paired_quote%1)
 [echo ls]	cmd[0] = 'ls %paired_quote%1'
@@ -1718,19 +1718,19 @@
 [ls %paired_quote%1]	after replace
 'ls'	'not empty dir ls'	
 [ls %paired_quote%1]	fork
-[ls %paired_quote%1]	fork_and_exec:	/bin/ls = 4721 launched
+[ls %paired_quote%1]	fork_and_exec:	/bin/ls = 5085 launched
 [ls %paired_quote%1]	exec2:	executed: /bin/ls
-[ls %paired_quote%1]	pipe_exec2 returned: 4721
-[ls %paired_quote%1]	free item: 'ls %paired_quote%1' (0x7ffff35eb020)
+[ls %paired_quote%1]	pipe_exec2 returned: 5085
+[ls %paired_quote%1]	free item: 'ls %paired_quote%1' (0x7fffe0074020)
 [ls %paired_quote%1]	waiting ls %paired_quote%1 to finish
-                                              [/bin/ls]	close_g_fd_to_close[ls %paired_quote%1]	change g_awaited_process from 0 to 4721
-                                              [/bin/ls]	close(31)
-[ls %paired_quote%1]	wait 4721 to stop
+[ls %paired_quote%1]	change g_awaited_process from 0 to 5085
+[ls %paired_quote%1]	wait 5085 to stop
+                                              [/bin/ls]	close_g_fd_to_close                                              [/bin/ls]	close(31)
                                               [/bin/ls]	fork_and_exec:	about to launch /bin/ls
                                               [/bin/ls]	exec(/bin/ls)
-[ls %paired_quote%1]	waitpid(4721) returned
+[ls %paired_quote%1]	waitpid(5085) returned
 [ls %paired_quote%1]	ls %paired_quote%1 finished
-[ls %paired_quote%1]	change g_awaited_process from 4721 to 0
+[ls %paired_quote%1]	change g_awaited_process from 5085 to 0
 [ls %paired_quote%1]	command processed: 'echo ls ;ls "not empty dir ls"'
 [ls %paired_quote%1]	-------------------------
 [ls %paired_quote%1]	
@@ -1757,7 +1757,7 @@
 [setenv HOME fake_home_for_tests]	after replace
 'setenv'	'HOME'	'fake_home_for_tests'	
 [setenv HOME fake_home_for_tests]	pipe_exec2 returned: 0
-[setenv HOME fake_home_for_tests]	free item: 'setenv HOME fake_home_for_tests' (0x7ffff35e8620)
+[setenv HOME fake_home_for_tests]	free item: 'setenv HOME fake_home_for_tests' (0x7fffe0071620)
 [setenv HOME fake_home_for_tests]	command processed: 'setenv HOME fake_home_for_tests'
 [setenv HOME fake_home_for_tests]	-------------------------
 [setenv HOME fake_home_for_tests]	
@@ -1785,19 +1785,19 @@
 [echo $HOME]	after replace
 'echo'	'fake_home_for_tests'	
 [echo $HOME]	fork
-[echo $HOME]	fork_and_exec:	/bin/echo = 4722 launched
+[echo $HOME]	fork_and_exec:	/bin/echo = 5086 launched
 [echo $HOME]	exec2:	executed: /bin/echo
-[echo $HOME]	pipe_exec2 returned: 4722
-[echo $HOME]	free item: 'echo $HOME' (0x7ffff35eaf80)
+[echo $HOME]	pipe_exec2 returned: 5086
+[echo $HOME]	free item: 'echo $HOME' (0x7fffe0073f80)
 [echo $HOME]	waiting echo $HOME to finish
-[echo $HOME]	change g_awaited_process from 0 to 4722
-[echo $HOME]	wait 4722 to stop
+[echo $HOME]	change g_awaited_process from 0 to 5086
+[echo $HOME]	wait 5086 to stop
                                                [/bin/echo]	close_g_fd_to_close                                               [/bin/echo]	close(31)
                                                [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                [/bin/echo]	exec(/bin/echo)
-[echo $HOME]	waitpid(4722) returned
+[echo $HOME]	waitpid(5086) returned
 [echo $HOME]	echo $HOME finished
-[echo $HOME]	change g_awaited_process from 4722 to 0
+[echo $HOME]	change g_awaited_process from 5086 to 0
 [echo $HOME]	command processed: 'echo $HOME'
 [echo $HOME]	-------------------------
 [echo $HOME]	
@@ -1826,19 +1826,19 @@
 [echo ~]	after replace
 'echo'	'fake_home_for_tests'	
 [echo ~]	fork
-[echo ~]	fork_and_exec:	/bin/echo = 4723 launched
-                                                [/bin/echo]	close_g_fd_to_close[echo ~]	exec2:	executed: /bin/echo
-                                                [/bin/echo]	close(31)
-[echo ~]	pipe_exec2 returned: 4723
-[echo ~]	free item: 'echo ~' (0x7ffff35eb600)
-                                                [/bin/echo]	fork_and_exec:	about to launch /bin/echo
+[echo ~]	fork_and_exec:	/bin/echo = 5087 launched
+[echo ~]	exec2:	executed: /bin/echo
+[echo ~]	pipe_exec2 returned: 5087
+[echo ~]	free item: 'echo ~' (0x7fffe0074600)
 [echo ~]	waiting echo ~ to finish
+[echo ~]	change g_awaited_process from 0 to 5087
+[echo ~]	wait 5087 to stop
+                                                [/bin/echo]	close_g_fd_to_close                                                [/bin/echo]	close(31)
+                                                [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                 [/bin/echo]	exec(/bin/echo)
-[echo ~]	change g_awaited_process from 0 to 4723
-[echo ~]	wait 4723 to stop
-[echo ~]	waitpid(4723) returned
+[echo ~]	waitpid(5087) returned
 [echo ~]	echo ~ finished
-[echo ~]	change g_awaited_process from 4723 to 0
+[echo ~]	change g_awaited_process from 5087 to 0
 [echo ~]	command processed: 'echo ~'
 [echo ~]	-------------------------
 [echo ~]	
@@ -1865,7 +1865,7 @@
 [setenv HOME /home/darugula]	after replace
 'setenv'	'HOME'	'/home/darugula'	
 [setenv HOME /home/darugula]	pipe_exec2 returned: 0
-[setenv HOME /home/darugula]	free item: 'setenv HOME /home/darugula' (0x7ffff35eb500)
+[setenv HOME /home/darugula]	free item: 'setenv HOME /home/darugula' (0x7fffe0074500)
 [setenv HOME /home/darugula]	command processed: 'setenv HOME /home/darugula'
 [setenv HOME /home/darugula]	-------------------------
 [setenv HOME /home/darugula]	
@@ -1895,19 +1895,19 @@
 [echo 1 2 3]	after replace
 'echo'	'1'	'2'	'3'	
 [echo 1 2 3]	fork
-[echo 1 2 3]	fork_and_exec:	/bin/echo = 4724 launched
+[echo 1 2 3]	fork_and_exec:	/bin/echo = 5088 launched
 [echo 1 2 3]	exec2:	executed: /bin/echo
-[echo 1 2 3]	pipe_exec2 returned: 4724
-[echo 1 2 3]	free item: 'echo 1 2 3' (0x7ffff35eaf80)
+[echo 1 2 3]	pipe_exec2 returned: 5088
+[echo 1 2 3]	free item: 'echo 1 2 3' (0x7fffe0073f80)
 [echo 1 2 3]	waiting echo 1 2 3 to finish
-[echo 1 2 3]	change g_awaited_process from 0 to 4724
-[echo 1 2 3]	wait 4724 to stop
+[echo 1 2 3]	change g_awaited_process from 0 to 5088
+[echo 1 2 3]	wait 5088 to stop
                                                  [/bin/echo]	close_g_fd_to_close                                                 [/bin/echo]	close(31)
                                                  [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                  [/bin/echo]	exec(/bin/echo)
-[echo 1 2 3]	waitpid(4724) returned
+[echo 1 2 3]	waitpid(5088) returned
 [echo 1 2 3]	echo 1 2 3 finished
-[echo 1 2 3]	change g_awaited_process from 4724 to 0
+[echo 1 2 3]	change g_awaited_process from 5088 to 0
 [echo 1 2 3]	command processed: 'echo 1 2 3'
 [echo 1 2 3]	-------------------------
 [echo 1 2 3]	
@@ -1944,19 +1944,19 @@
 [pwd]	after replace
 'pwd'	
 [pwd]	fork
-[pwd]	fork_and_exec:	/bin/pwd = 4727 launched
+[pwd]	fork_and_exec:	/bin/pwd = 5091 launched
 [pwd]	exec2:	executed: /bin/pwd
-[pwd]	pipe_exec2 returned: 4727
-[pwd]	free item: 'pwd' (0x7ffff35eb7e0)
+[pwd]	pipe_exec2 returned: 5091
+[pwd]	free item: 'pwd' (0x7fffe00747e0)
 [pwd]	waiting pwd to finish
-[pwd]	change g_awaited_process from 0 to 4727
-[pwd]	wait 4727 to stop
+[pwd]	change g_awaited_process from 0 to 5091
+[pwd]	wait 5091 to stop
                                                     [/bin/pwd]	close_g_fd_to_close                                                    [/bin/pwd]	close(31)
                                                     [/bin/pwd]	fork_and_exec:	about to launch /bin/pwd
                                                     [/bin/pwd]	exec(/bin/pwd)
-[pwd]	waitpid(4727) returned
+[pwd]	waitpid(5091) returned
 [pwd]	pwd finished
-[pwd]	change g_awaited_process from 4727 to 0
+[pwd]	change g_awaited_process from 5091 to 0
 [pwd]	command processed: 'pwd #'
 [pwd]	-------------------------
 [pwd]	
@@ -1985,7 +1985,7 @@
 'pwd#'	
 [pwd#]	pwd#: command not found
 [pwd#]	pipe_exec2 returned: 0
-[pwd#]	free item: 'pwd#' (0x7ffff35eb0a0)
+[pwd#]	free item: 'pwd#' (0x7fffe00740a0)
 [pwd#]	command processed: 'pwd#'
 [pwd#]	-------------------------
 [pwd#]	
@@ -2014,19 +2014,19 @@
 [echo echo1]	after replace
 'echo'	'echo1'	
 [echo echo1]	fork
-[echo echo1]	fork_and_exec:	/bin/echo = 4728 launched
+[echo echo1]	fork_and_exec:	/bin/echo = 5092 launched
 [echo echo1]	exec2:	executed: /bin/echo
-[echo echo1]	pipe_exec2 returned: 4728
-[echo echo1]	free item: 'echo echo1' (0x7ffff35eb740)
+[echo echo1]	pipe_exec2 returned: 5092
+[echo echo1]	free item: 'echo echo1' (0x7fffe0074740)
 [echo echo1]	waiting echo echo1 to finish
-[echo echo1]	change g_awaited_process from 0 to 4728
-[echo echo1]	wait 4728 to stop
+[echo echo1]	change g_awaited_process from 0 to 5092
+[echo echo1]	wait 5092 to stop
                                                      [/bin/echo]	close_g_fd_to_close                                                     [/bin/echo]	close(31)
                                                      [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                      [/bin/echo]	exec(/bin/echo)
-[echo echo1]	waitpid(4728) returned
+[echo echo1]	waitpid(5092) returned
 [echo echo1]	echo echo1 finished
-[echo echo1]	change g_awaited_process from 4728 to 0
+[echo echo1]	change g_awaited_process from 5092 to 0
 [echo echo1]	cmd: 'echo echo2'
 [echo echo1]	pipe_parse(echo echo2)
 [echo echo1]	cmd[0] = 'echo echo2'
@@ -2042,19 +2042,19 @@
 [echo echo2]	after replace
 'echo'	'echo2'	
 [echo echo2]	fork
-[echo echo2]	fork_and_exec:	/bin/echo = 4729 launched
+[echo echo2]	fork_and_exec:	/bin/echo = 5093 launched
 [echo echo2]	exec2:	executed: /bin/echo
-[echo echo2]	pipe_exec2 returned: 4729
-[echo echo2]	free item: 'echo echo2' (0x7ffff35eb820)
+[echo echo2]	pipe_exec2 returned: 5093
+[echo echo2]	free item: 'echo echo2' (0x7fffe0074820)
 [echo echo2]	waiting echo echo2 to finish
-[echo echo2]	change g_awaited_process from 0 to 4729
-[echo echo2]	wait 4729 to stop
+[echo echo2]	change g_awaited_process from 0 to 5093
+[echo echo2]	wait 5093 to stop
                                                       [/bin/echo]	close_g_fd_to_close                                                      [/bin/echo]	close(31)
                                                       [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                       [/bin/echo]	exec(/bin/echo)
-[echo echo2]	waitpid(4729) returned
+[echo echo2]	waitpid(5093) returned
 [echo echo2]	echo echo2 finished
-[echo echo2]	change g_awaited_process from 4729 to 0
+[echo echo2]	change g_awaited_process from 5093 to 0
 [echo echo2]	command processed: 'echo echo1;;echo echo2'
 [echo echo2]	-------------------------
 [echo echo2]	
@@ -2079,19 +2079,19 @@
 [echo echo3]	after replace
 'echo'	'echo3'	
 [echo echo3]	fork
-[echo echo3]	fork_and_exec:	/bin/echo = 4730 launched
+[echo echo3]	fork_and_exec:	/bin/echo = 5094 launched
 [echo echo3]	exec2:	executed: /bin/echo
-[echo echo3]	pipe_exec2 returned: 4730
-[echo echo3]	free item: 'echo echo3' (0x7ffff35eb880)
+[echo echo3]	pipe_exec2 returned: 5094
+[echo echo3]	free item: 'echo echo3' (0x7fffe0074880)
 [echo echo3]	waiting echo echo3 to finish
-[echo echo3]	change g_awaited_process from 0 to 4730
-                                                       [/bin/echo]	close_g_fd_to_close[echo echo3]	wait 4730 to stop
-                                                       [/bin/echo]	close(31)
+[echo echo3]	change g_awaited_process from 0 to 5094
+[echo echo3]	wait 5094 to stop
+                                                       [/bin/echo]	close_g_fd_to_close                                                       [/bin/echo]	close(31)
                                                        [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                        [/bin/echo]	exec(/bin/echo)
-[echo echo3]	waitpid(4730) returned
+[echo echo3]	waitpid(5094) returned
 [echo echo3]	echo echo3 finished
-[echo echo3]	change g_awaited_process from 4730 to 0
+[echo echo3]	change g_awaited_process from 5094 to 0
 [echo echo3]	command processed: 'echo echo3;#;echo echo4'
 [echo echo3]	-------------------------
 [echo echo3]	
@@ -2116,19 +2116,19 @@
 [echo echo5]	after replace
 'echo'	'echo5'	
 [echo echo5]	fork
-[echo echo5]	fork_and_exec:	/bin/echo = 4731 launched
+[echo echo5]	fork_and_exec:	/bin/echo = 5095 launched
 [echo echo5]	exec2:	executed: /bin/echo
-[echo echo5]	pipe_exec2 returned: 4731
-[echo echo5]	free item: 'echo echo5' (0x7ffff35eaf80)
+[echo echo5]	pipe_exec2 returned: 5095
+[echo echo5]	free item: 'echo echo5' (0x7fffe0073f80)
 [echo echo5]	waiting echo echo5 to finish
-[echo echo5]	change g_awaited_process from 0 to 4731
-[echo echo5]	wait 4731 to stop
+[echo echo5]	change g_awaited_process from 0 to 5095
+[echo echo5]	wait 5095 to stop
                                                         [/bin/echo]	close_g_fd_to_close                                                        [/bin/echo]	close(31)
                                                         [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                         [/bin/echo]	exec(/bin/echo)
-[echo echo5]	waitpid(4731) returned
+[echo echo5]	waitpid(5095) returned
 [echo echo5]	echo echo5 finished
-[echo echo5]	change g_awaited_process from 4731 to 0
+[echo echo5]	change g_awaited_process from 5095 to 0
 [echo echo5]	cmd: 'echo echo6'
 [echo echo5]	pipe_parse(echo echo6)
 [echo echo5]	cmd[0] = 'echo echo6'
@@ -2144,19 +2144,19 @@
 [echo echo6]	after replace
 'echo'	'echo6'	
 [echo echo6]	fork
-[echo echo6]	fork_and_exec:	/bin/echo = 4732 launched
+[echo echo6]	fork_and_exec:	/bin/echo = 5096 launched
 [echo echo6]	exec2:	executed: /bin/echo
-[echo echo6]	pipe_exec2 returned: 4732
-[echo echo6]	free item: 'echo echo6' (0x7ffff35e7eb0)
+[echo echo6]	pipe_exec2 returned: 5096
+[echo echo6]	free item: 'echo echo6' (0x7fffe0070eb0)
 [echo echo6]	waiting echo echo6 to finish
-[echo echo6]	change g_awaited_process from 0 to 4732
-[echo echo6]	wait 4732 to stop
+[echo echo6]	change g_awaited_process from 0 to 5096
+[echo echo6]	wait 5096 to stop
                                                          [/bin/echo]	close_g_fd_to_close                                                         [/bin/echo]	close(31)
                                                          [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                          [/bin/echo]	exec(/bin/echo)
-[echo echo6]	waitpid(4732) returned
+[echo echo6]	waitpid(5096) returned
 [echo echo6]	echo echo6 finished
-[echo echo6]	change g_awaited_process from 4732 to 0
+[echo echo6]	change g_awaited_process from 5096 to 0
 [echo echo6]	command processed: 'echo echo5;echo echo6'
 [echo echo6]	-------------------------
 [echo echo6]	
@@ -2181,19 +2181,19 @@
 [echo echo7]	after replace
 'echo'	'echo7'	
 [echo echo7]	fork
-[echo echo7]	fork_and_exec:	/bin/echo = 4733 launched
+[echo echo7]	fork_and_exec:	/bin/echo = 5097 launched
 [echo echo7]	exec2:	executed: /bin/echo
-[echo echo7]	pipe_exec2 returned: 4733
-[echo echo7]	free item: 'echo echo7' (0x7ffff35eb960)
+[echo echo7]	pipe_exec2 returned: 5097
+[echo echo7]	free item: 'echo echo7' (0x7fffe0074960)
 [echo echo7]	waiting echo echo7 to finish
-[echo echo7]	change g_awaited_process from 0 to 4733
-[echo echo7]	wait 4733 to stop
+[echo echo7]	change g_awaited_process from 0 to 5097
+[echo echo7]	wait 5097 to stop
                                                           [/bin/echo]	close_g_fd_to_close                                                          [/bin/echo]	close(31)
                                                           [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                           [/bin/echo]	exec(/bin/echo)
-[echo echo7]	waitpid(4733) returned
+[echo echo7]	waitpid(5097) returned
 [echo echo7]	echo echo7 finished
-[echo echo7]	change g_awaited_process from 4733 to 0
+[echo echo7]	change g_awaited_process from 5097 to 0
 [echo echo7]	cmd: 'echo echo8'
 [echo echo7]	pipe_parse(echo echo8)
 [echo echo7]	cmd[0] = 'echo echo8'
@@ -2209,19 +2209,19 @@
 [echo echo8]	after replace
 'echo'	'echo8'	
 [echo echo8]	fork
-[echo echo8]	fork_and_exec:	/bin/echo = 4734 launched
+[echo echo8]	fork_and_exec:	/bin/echo = 5098 launched
 [echo echo8]	exec2:	executed: /bin/echo
-[echo echo8]	pipe_exec2 returned: 4734
-[echo echo8]	free item: 'echo echo8' (0x7ffff35eb920)
+[echo echo8]	pipe_exec2 returned: 5098
+[echo echo8]	free item: 'echo echo8' (0x7fffe0074920)
 [echo echo8]	waiting echo echo8 to finish
-[echo echo8]	change g_awaited_process from 0 to 4734
-[echo echo8]	wait 4734 to stop
+[echo echo8]	change g_awaited_process from 0 to 5098
+[echo echo8]	wait 5098 to stop
                                                            [/bin/echo]	close_g_fd_to_close                                                           [/bin/echo]	close(31)
                                                            [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                            [/bin/echo]	exec(/bin/echo)
-[echo echo8]	waitpid(4734) returned
+[echo echo8]	waitpid(5098) returned
 [echo echo8]	echo echo8 finished
-[echo echo8]	change g_awaited_process from 4734 to 0
+[echo echo8]	change g_awaited_process from 5098 to 0
 [echo echo8]	command processed: 'echo echo7;echo echo8'
 [echo echo8]	-------------------------
 [echo echo8]	
@@ -2252,19 +2252,19 @@
 [pwd]	after replace
 'pwd'	
 [pwd]	fork
-[pwd]	fork_and_exec:	/bin/pwd = 4736 launched
+[pwd]	fork_and_exec:	/bin/pwd = 5100 launched
 [pwd]	exec2:	executed: /bin/pwd
-[pwd]	pipe_exec2 returned: 4736
-[pwd]	free item: 'pwd' (0x7ffff35eb9a0)
+[pwd]	pipe_exec2 returned: 5100
+[pwd]	free item: 'pwd' (0x7fffe00749a0)
 [pwd]	waiting pwd to finish
-[pwd]	change g_awaited_process from 0 to 4736
-[pwd]	wait 4736 to stop
+[pwd]	change g_awaited_process from 0 to 5100
+[pwd]	wait 5100 to stop
                                                              [/bin/pwd]	close_g_fd_to_close                                                             [/bin/pwd]	close(31)
                                                              [/bin/pwd]	fork_and_exec:	about to launch /bin/pwd
                                                              [/bin/pwd]	exec(/bin/pwd)
-[pwd]	waitpid(4736) returned
+[pwd]	waitpid(5100) returned
 [pwd]	pwd finished
-[pwd]	change g_awaited_process from 4736 to 0
+[pwd]	change g_awaited_process from 5100 to 0
 [pwd]	command processed: 'pwd'
 [pwd]	-------------------------
 [pwd]	
@@ -2292,19 +2292,19 @@
 [env]	after replace
 'env'	
 [env]	fork
-[env]	fork_and_exec:	/usr/bin/env = 4737 launched
+[env]	fork_and_exec:	/usr/bin/env = 5101 launched
 [env]	exec2:	executed: /usr/bin/env
-[env]	pipe_exec2 returned: 4737
-[env]	free item: 'env' (0x7ffff35eb880)
+[env]	pipe_exec2 returned: 5101
+[env]	free item: 'env' (0x7fffe0074880)
 [env]	waiting env to finish
-[env]	change g_awaited_process from 0 to 4737
-[env]	wait 4737 to stop
+[env]	change g_awaited_process from 0 to 5101
+[env]	wait 5101 to stop
                                                               [/usr/bin/env]	close_g_fd_to_close                                                              [/usr/bin/env]	close(31)
                                                               [/usr/bin/env]	fork_and_exec:	about to launch /usr/bin/env
                                                               [/usr/bin/env]	exec(/usr/bin/env)
-[env]	waitpid(4737) returned
+[env]	waitpid(5101) returned
 [env]	env finished
-[env]	change g_awaited_process from 4737 to 0
+[env]	change g_awaited_process from 5101 to 0
 [env]	command processed: 'env'
 [env]	-------------------------
 [env]	
@@ -2328,19 +2328,19 @@
 [echo]	after replace
 'echo'	
 [echo]	fork
-[echo]	fork_and_exec:	/bin/echo = 4738 launched
+[echo]	fork_and_exec:	/bin/echo = 5102 launched
 [echo]	exec2:	executed: /bin/echo
-[echo]	pipe_exec2 returned: 4738
-[echo]	free item: 'echo' (0x7ffff35eb960)
+[echo]	pipe_exec2 returned: 5102
+[echo]	free item: 'echo' (0x7fffe0074960)
 [echo]	waiting echo to finish
-[echo]	change g_awaited_process from 0 to 4738
-[echo]	wait 4738 to stop
+[echo]	change g_awaited_process from 0 to 5102
+[echo]	wait 5102 to stop
                                                                [/bin/echo]	close_g_fd_to_close                                                               [/bin/echo]	close(31)
                                                                [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                                [/bin/echo]	exec(/bin/echo)
-[echo]	waitpid(4738) returned
+[echo]	waitpid(5102) returned
 [echo]	echo finished
-[echo]	change g_awaited_process from 4738 to 0
+[echo]	change g_awaited_process from 5102 to 0
 [echo]	cmd: ' echo env finished'
 [echo]	pipe_parse(echo env finished)
 [echo]	cmd[0] = 'echo env finished'
@@ -2357,19 +2357,19 @@
 [echo env finished]	after replace
 'echo'	'env'	'finished'	
 [echo env finished]	fork
-[echo env finished]	fork_and_exec:	/bin/echo = 4739 launched
+[echo env finished]	fork_and_exec:	/bin/echo = 5103 launched
 [echo env finished]	exec2:	executed: /bin/echo
-[echo env finished]	pipe_exec2 returned: 4739
-[echo env finished]	free item: 'echo env finished' (0x7ffff35eb880)
+[echo env finished]	pipe_exec2 returned: 5103
+[echo env finished]	free item: 'echo env finished' (0x7fffe0074880)
 [echo env finished]	waiting echo env finished to finish
-[echo env finished]	change g_awaited_process from 0 to 4739
-[echo env finished]	wait 4739 to stop
+[echo env finished]	change g_awaited_process from 0 to 5103
+[echo env finished]	wait 5103 to stop
                                                                 [/bin/echo]	close_g_fd_to_close                                                                [/bin/echo]	close(31)
                                                                 [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                                 [/bin/echo]	exec(/bin/echo)
-[echo env finished]	waitpid(4739) returned
+[echo env finished]	waitpid(5103) returned
 [echo env finished]	echo env finished finished
-[echo env finished]	change g_awaited_process from 4739 to 0
+[echo env finished]	change g_awaited_process from 5103 to 0
 [echo env finished]	command processed: 'echo ; echo env finished'
 [echo env finished]	-------------------------
 [echo env finished]	
@@ -2395,7 +2395,7 @@
 [setenv q w]	after replace
 'setenv'	'q'	'w'	
 [setenv q w]	pipe_exec2 returned: 0
-[setenv q w]	free item: 'setenv q w' (0x7ffff35eba40)
+[setenv q w]	free item: 'setenv q w' (0x7fffe0074a40)
 [setenv q w]	command processed: 'setenv q w'
 [setenv q w]	-------------------------
 [setenv q w]	
@@ -2419,19 +2419,19 @@
 [echo]	after replace
 'echo'	
 [echo]	fork
-[echo]	fork_and_exec:	/bin/echo = 4740 launched
+[echo]	fork_and_exec:	/bin/echo = 5104 launched
 [echo]	exec2:	executed: /bin/echo
-[echo]	pipe_exec2 returned: 4740
-[echo]	free item: 'echo' (0x7ffff35ebac0)
+[echo]	pipe_exec2 returned: 5104
+[echo]	free item: 'echo' (0x7fffe0074ac0)
 [echo]	waiting echo to finish
-[echo]	change g_awaited_process from 0 to 4740
-                                                                 [/bin/echo]	close_g_fd_to_close[echo]	wait 4740 to stop
-                                                                 [/bin/echo]	close(31)
+[echo]	change g_awaited_process from 0 to 5104
+[echo]	wait 5104 to stop
+                                                                 [/bin/echo]	close_g_fd_to_close                                                                 [/bin/echo]	close(31)
                                                                  [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                                  [/bin/echo]	exec(/bin/echo)
-[echo]	waitpid(4740) returned
+[echo]	waitpid(5104) returned
 [echo]	echo finished
-[echo]	change g_awaited_process from 4740 to 0
+[echo]	change g_awaited_process from 5104 to 0
 [echo]	cmd: ' echo q = $q'
 [echo]	pipe_parse(echo q = $q)
 [echo]	cmd[0] = 'echo q = $q'
@@ -2449,19 +2449,19 @@
 [echo q = $q]	after replace
 'echo'	'q'	'='	'w'	
 [echo q = $q]	fork
-[echo q = $q]	fork_and_exec:	/bin/echo = 4741 launched
+[echo q = $q]	fork_and_exec:	/bin/echo = 5105 launched
 [echo q = $q]	exec2:	executed: /bin/echo
-[echo q = $q]	pipe_exec2 returned: 4741
-[echo q = $q]	free item: 'echo q = $q' (0x7ffff35ebb20)
+[echo q = $q]	pipe_exec2 returned: 5105
+[echo q = $q]	free item: 'echo q = $q' (0x7fffe0074b20)
 [echo q = $q]	waiting echo q = $q to finish
-[echo q = $q]	change g_awaited_process from 0 to 4741
-[echo q = $q]	wait 4741 to stop
+[echo q = $q]	change g_awaited_process from 0 to 5105
+[echo q = $q]	wait 5105 to stop
                                                                   [/bin/echo]	close_g_fd_to_close                                                                  [/bin/echo]	close(31)
                                                                   [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                                   [/bin/echo]	exec(/bin/echo)
-[echo q = $q]	waitpid(4741) returned
+[echo q = $q]	waitpid(5105) returned
 [echo q = $q]	echo q = $q finished
-[echo q = $q]	change g_awaited_process from 4741 to 0
+[echo q = $q]	change g_awaited_process from 5105 to 0
 [echo q = $q]	command processed: 'echo ; echo q = $q'
 [echo q = $q]	-------------------------
 [echo q = $q]	
@@ -2485,19 +2485,19 @@
 [env]	after replace
 'env'	
 [env]	fork
-[env]	fork_and_exec:	/usr/bin/env = 4742 launched
+[env]	fork_and_exec:	/usr/bin/env = 5106 launched
 [env]	exec2:	executed: /usr/bin/env
-[env]	pipe_exec2 returned: 4742
-[env]	free item: 'env' (0x7ffff35ebb60)
+[env]	pipe_exec2 returned: 5106
+[env]	free item: 'env' (0x7fffe0074b60)
 [env]	waiting env to finish
-[env]	change g_awaited_process from 0 to 4742
-[env]	wait 4742 to stop
+[env]	change g_awaited_process from 0 to 5106
+[env]	wait 5106 to stop
                                                                    [/usr/bin/env]	close_g_fd_to_close                                                                   [/usr/bin/env]	close(31)
                                                                    [/usr/bin/env]	fork_and_exec:	about to launch /usr/bin/env
                                                                    [/usr/bin/env]	exec(/usr/bin/env)
-[env]	waitpid(4742) returned
+[env]	waitpid(5106) returned
 [env]	env finished
-[env]	change g_awaited_process from 4742 to 0
+[env]	change g_awaited_process from 5106 to 0
 [env]	command processed: 'env'
 [env]	-------------------------
 [env]	
@@ -2522,7 +2522,7 @@
 [unsetenv q]	after replace
 'unsetenv'	'q'	
 [unsetenv q]	pipe_exec2 returned: 0
-[unsetenv q]	free item: 'unsetenv q' (0x7ffff35ebae0)
+[unsetenv q]	free item: 'unsetenv q' (0x7fffe0074ae0)
 [unsetenv q]	command processed: 'unsetenv q'
 [unsetenv q]	-------------------------
 [unsetenv q]	
@@ -2546,19 +2546,19 @@
 [echo]	after replace
 'echo'	
 [echo]	fork
-[echo]	fork_and_exec:	/bin/echo = 4743 launched
+[echo]	fork_and_exec:	/bin/echo = 5107 launched
 [echo]	exec2:	executed: /bin/echo
-[echo]	pipe_exec2 returned: 4743
-[echo]	free item: 'echo' (0x7ffff35eb8a0)
+[echo]	pipe_exec2 returned: 5107
+[echo]	free item: 'echo' (0x7fffe00748a0)
 [echo]	waiting echo to finish
-[echo]	change g_awaited_process from 0 to 4743
-[echo]	wait 4743 to stop
+[echo]	change g_awaited_process from 0 to 5107
+[echo]	wait 5107 to stop
                                                                     [/bin/echo]	close_g_fd_to_close                                                                    [/bin/echo]	close(31)
                                                                     [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                                     [/bin/echo]	exec(/bin/echo)
-[echo]	waitpid(4743) returned
+[echo]	waitpid(5107) returned
 [echo]	echo finished
-[echo]	change g_awaited_process from 4743 to 0
+[echo]	change g_awaited_process from 5107 to 0
 [echo]	cmd: ' echo q = $q'
 [echo]	pipe_parse(echo q = $q)
 [echo]	cmd[0] = 'echo q = $q'
@@ -2575,19 +2575,19 @@
 [echo q = $q]	after replace
 'echo'	'q'	'='	
 [echo q = $q]	fork
-[echo q = $q]	fork_and_exec:	/bin/echo = 4744 launched
+[echo q = $q]	fork_and_exec:	/bin/echo = 5108 launched
 [echo q = $q]	exec2:	executed: /bin/echo
-[echo q = $q]	pipe_exec2 returned: 4744
-[echo q = $q]	free item: 'echo q = $q' (0x7ffff35ebae0)
+[echo q = $q]	pipe_exec2 returned: 5108
+[echo q = $q]	free item: 'echo q = $q' (0x7fffe0074ae0)
 [echo q = $q]	waiting echo q = $q to finish
-[echo q = $q]	change g_awaited_process from 0 to 4744
-[echo q = $q]	wait 4744 to stop
+[echo q = $q]	change g_awaited_process from 0 to 5108
+[echo q = $q]	wait 5108 to stop
                                                                      [/bin/echo]	close_g_fd_to_close                                                                     [/bin/echo]	close(31)
                                                                      [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                                      [/bin/echo]	exec(/bin/echo)
-[echo q = $q]	waitpid(4744) returned
+[echo q = $q]	waitpid(5108) returned
 [echo q = $q]	echo q = $q finished
-[echo q = $q]	change g_awaited_process from 4744 to 0
+[echo q = $q]	change g_awaited_process from 5108 to 0
 [echo q = $q]	command processed: 'echo ; echo q = $q'
 [echo q = $q]	-------------------------
 [echo q = $q]	
@@ -2611,19 +2611,19 @@
 [env]	after replace
 'env'	
 [env]	fork
-[env]	fork_and_exec:	/usr/bin/env = 4745 launched
+[env]	fork_and_exec:	/usr/bin/env = 5109 launched
 [env]	exec2:	executed: /usr/bin/env
-[env]	pipe_exec2 returned: 4745
-[env]	free item: 'env' (0x7ffff35ebb40)
+[env]	pipe_exec2 returned: 5109
+[env]	free item: 'env' (0x7fffe0074b40)
 [env]	waiting env to finish
-[env]	change g_awaited_process from 0 to 4745
-[env]	wait 4745 to stop
+[env]	change g_awaited_process from 0 to 5109
+[env]	wait 5109 to stop
                                                                       [/usr/bin/env]	close_g_fd_to_close                                                                      [/usr/bin/env]	close(31)
                                                                       [/usr/bin/env]	fork_and_exec:	about to launch /usr/bin/env
                                                                       [/usr/bin/env]	exec(/usr/bin/env)
-[env]	waitpid(4745) returned
+[env]	waitpid(5109) returned
 [env]	env finished
-[env]	change g_awaited_process from 4745 to 0
+[env]	change g_awaited_process from 5109 to 0
 [env]	command processed: 'env'
 [env]	-------------------------
 [env]	
@@ -2651,7 +2651,7 @@
 [%paired_quote%1]	after replace
 'setenv'	
 [%paired_quote%1]	pipe_exec2 returned: 0
-[%paired_quote%1]	free item: '%paired_quote%1' (0x7ffff35ebc40)
+[%paired_quote%1]	free item: '%paired_quote%1' (0x7fffe0074c40)
 [%paired_quote%1]	command processed: '"setenv"'
 [%paired_quote%1]	-------------------------
 [%paired_quote%1]	
@@ -2675,19 +2675,19 @@
 [echo]	after replace
 'echo'	
 [echo]	fork
-[echo]	fork_and_exec:	/bin/echo = 4746 launched
+[echo]	fork_and_exec:	/bin/echo = 5110 launched
 [echo]	exec2:	executed: /bin/echo
-[echo]	pipe_exec2 returned: 4746
-[echo]	free item: 'echo' (0x7ffff35ebc80)
+[echo]	pipe_exec2 returned: 5110
+[echo]	free item: 'echo' (0x7fffe0074c80)
 [echo]	waiting echo to finish
-[echo]	change g_awaited_process from 0 to 4746
-[echo]	wait 4746 to stop
+[echo]	change g_awaited_process from 0 to 5110
+[echo]	wait 5110 to stop
                                                                        [/bin/echo]	close_g_fd_to_close                                                                       [/bin/echo]	close(31)
                                                                        [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                                        [/bin/echo]	exec(/bin/echo)
-[echo]	waitpid(4746) returned
+[echo]	waitpid(5110) returned
 [echo]	echo finished
-[echo]	change g_awaited_process from 4746 to 0
+[echo]	change g_awaited_process from 5110 to 0
 [echo]	cmd: ' echo env finished'
 [echo]	pipe_parse(echo env finished)
 [echo]	cmd[0] = 'echo env finished'
@@ -2704,19 +2704,19 @@
 [echo env finished]	after replace
 'echo'	'env'	'finished'	
 [echo env finished]	fork
-[echo env finished]	fork_and_exec:	/bin/echo = 4747 launched
+[echo env finished]	fork_and_exec:	/bin/echo = 5111 launched
 [echo env finished]	exec2:	executed: /bin/echo
-[echo env finished]	pipe_exec2 returned: 4747
-[echo env finished]	free item: 'echo env finished' (0x7ffff35ebb40)
+[echo env finished]	pipe_exec2 returned: 5111
+[echo env finished]	free item: 'echo env finished' (0x7fffe0074b40)
 [echo env finished]	waiting echo env finished to finish
-[echo env finished]	change g_awaited_process from 0 to 4747
-[echo env finished]	wait 4747 to stop
+[echo env finished]	change g_awaited_process from 0 to 5111
+[echo env finished]	wait 5111 to stop
                                                                         [/bin/echo]	close_g_fd_to_close                                                                        [/bin/echo]	close(31)
                                                                         [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                                         [/bin/echo]	exec(/bin/echo)
-[echo env finished]	waitpid(4747) returned
+[echo env finished]	waitpid(5111) returned
 [echo env finished]	echo env finished finished
-[echo env finished]	change g_awaited_process from 4747 to 0
+[echo env finished]	change g_awaited_process from 5111 to 0
 [echo env finished]	command processed: 'echo ; echo env finished'
 [echo env finished]	-------------------------
 [echo env finished]	
@@ -2742,7 +2742,7 @@
 [setenv q w]	after replace
 'setenv'	'q'	'w'	
 [setenv q w]	pipe_exec2 returned: 0
-[setenv q w]	free item: 'setenv q w' (0x7ffff35e7eb0)
+[setenv q w]	free item: 'setenv q w' (0x7fffe0070eb0)
 [setenv q w]	command processed: 'setenv q w'
 [setenv q w]	-------------------------
 [setenv q w]	
@@ -2766,19 +2766,19 @@
 [echo]	after replace
 'echo'	
 [echo]	fork
-[echo]	fork_and_exec:	/bin/echo = 4748 launched
+[echo]	fork_and_exec:	/bin/echo = 5112 launched
 [echo]	exec2:	executed: /bin/echo
-[echo]	pipe_exec2 returned: 4748
-[echo]	free item: 'echo' (0x7ffff35ebc60)
+[echo]	pipe_exec2 returned: 5112
+[echo]	free item: 'echo' (0x7fffe0074c60)
 [echo]	waiting echo to finish
-[echo]	change g_awaited_process from 0 to 4748
-[echo]	wait 4748 to stop
+[echo]	change g_awaited_process from 0 to 5112
+[echo]	wait 5112 to stop
                                                                          [/bin/echo]	close_g_fd_to_close                                                                         [/bin/echo]	close(31)
                                                                          [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                                          [/bin/echo]	exec(/bin/echo)
-[echo]	waitpid(4748) returned
+[echo]	waitpid(5112) returned
 [echo]	echo finished
-[echo]	change g_awaited_process from 4748 to 0
+[echo]	change g_awaited_process from 5112 to 0
 [echo]	cmd: ' echo q = $q'
 [echo]	pipe_parse(echo q = $q)
 [echo]	cmd[0] = 'echo q = $q'
@@ -2796,19 +2796,19 @@
 [echo q = $q]	after replace
 'echo'	'q'	'='	'w'	
 [echo q = $q]	fork
-[echo q = $q]	fork_and_exec:	/bin/echo = 4749 launched
+[echo q = $q]	fork_and_exec:	/bin/echo = 5113 launched
 [echo q = $q]	exec2:	executed: /bin/echo
-[echo q = $q]	pipe_exec2 returned: 4749
-[echo q = $q]	free item: 'echo q = $q' (0x7ffff35ebd00)
+[echo q = $q]	pipe_exec2 returned: 5113
+[echo q = $q]	free item: 'echo q = $q' (0x7fffe0074d00)
 [echo q = $q]	waiting echo q = $q to finish
-[echo q = $q]	change g_awaited_process from 0 to 4749
-[echo q = $q]	wait 4749 to stop
+[echo q = $q]	change g_awaited_process from 0 to 5113
+[echo q = $q]	wait 5113 to stop
                                                                           [/bin/echo]	close_g_fd_to_close                                                                          [/bin/echo]	close(31)
                                                                           [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                                           [/bin/echo]	exec(/bin/echo)
-[echo q = $q]	waitpid(4749) returned
+[echo q = $q]	waitpid(5113) returned
 [echo q = $q]	echo q = $q finished
-[echo q = $q]	change g_awaited_process from 4749 to 0
+[echo q = $q]	change g_awaited_process from 5113 to 0
 [echo q = $q]	command processed: 'echo ; echo q = $q'
 [echo q = $q]	-------------------------
 [echo q = $q]	
@@ -2832,19 +2832,19 @@
 [env]	after replace
 'env'	
 [env]	fork
-[env]	fork_and_exec:	/usr/bin/env = 4750 launched
+[env]	fork_and_exec:	/usr/bin/env = 5114 launched
 [env]	exec2:	executed: /usr/bin/env
-[env]	pipe_exec2 returned: 4750
-[env]	free item: 'env' (0x7ffff35ebd40)
+[env]	pipe_exec2 returned: 5114
+[env]	free item: 'env' (0x7fffe0074d40)
 [env]	waiting env to finish
-[env]	change g_awaited_process from 0 to 4750
-[env]	wait 4750 to stop
+[env]	change g_awaited_process from 0 to 5114
+[env]	wait 5114 to stop
                                                                            [/usr/bin/env]	close_g_fd_to_close                                                                           [/usr/bin/env]	close(31)
                                                                            [/usr/bin/env]	fork_and_exec:	about to launch /usr/bin/env
                                                                            [/usr/bin/env]	exec(/usr/bin/env)
-[env]	waitpid(4750) returned
+[env]	waitpid(5114) returned
 [env]	env finished
-[env]	change g_awaited_process from 4750 to 0
+[env]	change g_awaited_process from 5114 to 0
 [env]	command processed: 'env'
 [env]	-------------------------
 [env]	
@@ -2869,7 +2869,7 @@
 [unsetenv q]	after replace
 'unsetenv'	'q'	
 [unsetenv q]	pipe_exec2 returned: 0
-[unsetenv q]	free item: 'unsetenv q' (0x7ffff35ebcc0)
+[unsetenv q]	free item: 'unsetenv q' (0x7fffe0074cc0)
 [unsetenv q]	command processed: 'unsetenv q'
 [unsetenv q]	-------------------------
 [unsetenv q]	
@@ -2893,19 +2893,19 @@
 [echo]	after replace
 'echo'	
 [echo]	fork
-[echo]	fork_and_exec:	/bin/echo = 4751 launched
+[echo]	fork_and_exec:	/bin/echo = 5115 launched
 [echo]	exec2:	executed: /bin/echo
-[echo]	pipe_exec2 returned: 4751
-[echo]	free item: 'echo' (0x7ffff35ebbe0)
+[echo]	pipe_exec2 returned: 5115
+[echo]	free item: 'echo' (0x7fffe0074be0)
 [echo]	waiting echo to finish
-[echo]	change g_awaited_process from 0 to 4751
-[echo]	wait 4751 to stop
+[echo]	change g_awaited_process from 0 to 5115
+[echo]	wait 5115 to stop
                                                                             [/bin/echo]	close_g_fd_to_close                                                                            [/bin/echo]	close(31)
                                                                             [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                                             [/bin/echo]	exec(/bin/echo)
-[echo]	waitpid(4751) returned
+[echo]	waitpid(5115) returned
 [echo]	echo finished
-[echo]	change g_awaited_process from 4751 to 0
+[echo]	change g_awaited_process from 5115 to 0
 [echo]	cmd: ' echo q = $q'
 [echo]	pipe_parse(echo q = $q)
 [echo]	cmd[0] = 'echo q = $q'
@@ -2922,19 +2922,19 @@
 [echo q = $q]	after replace
 'echo'	'q'	'='	
 [echo q = $q]	fork
-[echo q = $q]	fork_and_exec:	/bin/echo = 4752 launched
+[echo q = $q]	fork_and_exec:	/bin/echo = 5116 launched
 [echo q = $q]	exec2:	executed: /bin/echo
-[echo q = $q]	pipe_exec2 returned: 4752
-[echo q = $q]	free item: 'echo q = $q' (0x7ffff35ebcc0)
+[echo q = $q]	pipe_exec2 returned: 5116
+[echo q = $q]	free item: 'echo q = $q' (0x7fffe0074cc0)
 [echo q = $q]	waiting echo q = $q to finish
-[echo q = $q]	change g_awaited_process from 0 to 4752
-[echo q = $q]	wait 4752 to stop
+[echo q = $q]	change g_awaited_process from 0 to 5116
+[echo q = $q]	wait 5116 to stop
                                                                              [/bin/echo]	close_g_fd_to_close                                                                             [/bin/echo]	close(31)
                                                                              [/bin/echo]	fork_and_exec:	about to launch /bin/echo
                                                                              [/bin/echo]	exec(/bin/echo)
-[echo q = $q]	waitpid(4752) returned
+[echo q = $q]	waitpid(5116) returned
 [echo q = $q]	echo q = $q finished
-[echo q = $q]	change g_awaited_process from 4752 to 0
+[echo q = $q]	change g_awaited_process from 5116 to 0
 [echo q = $q]	command processed: 'echo ; echo q = $q'
 [echo q = $q]	-------------------------
 [echo q = $q]	
@@ -2958,22 +2958,22 @@
 [env]	after replace
 'env'	
 [env]	fork
-[env]	fork_and_exec:	/usr/bin/env = 4753 launched
+[env]	fork_and_exec:	/usr/bin/env = 5117 launched
 [env]	exec2:	executed: /usr/bin/env
-[env]	pipe_exec2 returned: 4753
-[env]	free item: 'env' (0x7ffff35ebd20)
+[env]	pipe_exec2 returned: 5117
+[env]	free item: 'env' (0x7fffe0074d20)
 [env]	waiting env to finish
-[env]	change g_awaited_process from 0 to 4753
-[env]	wait 4753 to stop
+[env]	change g_awaited_process from 0 to 5117
+[env]	wait 5117 to stop
                                                                               [/usr/bin/env]	close_g_fd_to_close                                                                              [/usr/bin/env]	close(31)
                                                                               [/usr/bin/env]	fork_and_exec:	about to launch /usr/bin/env
                                                                               [/usr/bin/env]	exec(/usr/bin/env)
-[env]	waitpid(4753) returned
+[env]	waitpid(5117) returned
 [env]	env finished
-[env]	change g_awaited_process from 4753 to 0
+[env]	change g_awaited_process from 5117 to 0
 [env]	command processed: 'env'
 [env]	-------------------------
 [env]	
 [test]	close(1)
 [test]	exit process (0)
-[test]	free item: '1' (0x7ffff35eaf00)
+[test]	free item: '1' (0x7fffe0073f00)
