@@ -1,4 +1,4 @@
-﻿#include "minishell.h"
+#include "minishell.h"
 
 static t_list* g_quoted_params = NULL;
 
@@ -81,8 +81,10 @@ char* replace_quoted(const char* str)
 	return (dst_start);
 }
 
-void		replace_back(char* a[])
+void		replace_back_unused(char* a[])
 {
+	debug_printf("replace back:\n");
+	debug_print_dic(g_quoted_params);
 	while (*a != NULL)
 	{
 		if (dic_contains_key(g_quoted_params, *a))
@@ -94,6 +96,36 @@ void		replace_back(char* a[])
 		}
 		a++;
 	}
+}
+
+void		replace_back(char* a[])
+{
+	char ** keys = dic_get_keys(g_quoted_params);
+	char **keys_start = keys;
+	//debug_printf("replace back:\n");
+	//debug_print_dic(g_quoted_params);
+	while (*a != NULL)
+	{
+		debug_printf("processing %s\n", *a);
+		//debug_printf("*keys = %s\n", *keys);
+		//debug_print_zt_array((const char**) keys);
+		
+		while (*keys != NULL)
+		{
+			//debug_printf("check %s\n", *keys);
+			if (ft_str_contains(*a, *keys))
+			{
+				char* tmp = *a;
+				//debug_printf("about to replace: '%s' -> '%s'\n", *keys, dic_get_value(g_quoted_params, *keys));
+				*a = ft_str_replace(*a, *keys, dic_get_value(g_quoted_params, *keys));
+				free((char*)tmp);
+			}
+			keys++;
+		}
+		keys = keys_start;
+		a++;
+	}
+	ft_free_null_term_array((void**) keys_start);
 }
 
 void		free_quoted_params()

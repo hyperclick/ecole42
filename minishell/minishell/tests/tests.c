@@ -168,10 +168,10 @@ void		env()
 }
 void		ls()
 {
-	process_command("ls");
-	process_command("rm -r \"not empty dir\"; mkdir \"not empty dir\"; mkdir \"not empty dir\"/dir1; touch \"not empty dir\"/file1");
+	process_command("echo ls:;ls");
+	process_command("echo not empty dir: ;rm -r \"not empty dir ls\"; mkdir \"not empty dir ls\"; mkdir \"not empty dir ls\"/dir1; touch \"not empty dir ls\"/file1");
 	//process_command("ls -la");
-	process_command("ls -l \"not empty dir\"");
+	process_command("echo ls -l;ls -l \"not empty dir ls\"");
 }
 
 void		cd_bad()
@@ -462,6 +462,7 @@ void quotes()
 	//process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\" ; ls");
 	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\" ; ls -l \"dir  with  spaces\"");
 
+	process_command("rm -r \"not empty dir\";mkdir \"not empty dir\"; mkdir \"not empty dir\"/\"dir\tone\"; ls -l \"not empty dir\"/\"dir\tone\"");
 //	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\" ; cd \"dir  with  spaces\"; pwd");
 }
 
@@ -571,6 +572,7 @@ int main(int argc, char** argv, char** envp)
 
 	//process_command(" echo 1 | sed -e 's/1/Yes/g'");
 	//process_command("ls | head -c20");
+	
 	//ft_exit(0);
 
 	//process_command("ls | sort");
