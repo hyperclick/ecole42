@@ -66,6 +66,8 @@ void		ft_lst_insert_sorted(t_list** list, t_list* new, BOOL(grater_than)(t_list*
 void		ft_lst_remove_sorted(t_list** list, t_list* to_remove
 	, BOOL(equal)(t_list* a, t_list* b)
 	, void (*free_content)(void*, size_t));
+t_list* ft_lst_get_last(t_list* n);
+void		ft_lst_append(t_list* node, t_list* new);
 
 
 typedef struct	s_key_value_pair

@@ -7,7 +7,7 @@ void test_exec()
 {
 	process_command("foo");
 	process_command("echo 1   2    \t3");
-	
+
 	process_command("");
 	process_command("\t ");
 }
@@ -82,11 +82,11 @@ void history()
 	//}
 
 	h_append(ft_strdup("1"));
-//	if (!ft_strequ("1", h_get_current()))
-//	{
-//		printf("1!=h_get_current()\n");
-//		exit(1);
-//	}
+	//	if (!ft_strequ("1", h_get_current()))
+	//	{
+	//		printf("1!=h_get_current()\n");
+	//		exit(1);
+	//	}
 
 	if (!h_has_previous())
 	{
@@ -120,21 +120,21 @@ void history()
 		printf("has next2\n");
 		exit(1);
 	}
-	
+
 	h_free();
-	
+
 	if (h_has_previous())
 	{
 		printf("has previous\n");
 		exit(1);
 	}
-	
+
 	if (h_has_next())
 	{
 		printf("has next\n");
 		exit(1);
 	}
-	
+
 	h_append(ft_strdup("1"));
 	if (!h_has_previous())
 	{
@@ -151,8 +151,8 @@ void history()
 		printf("2: has previous\n");
 		exit(1);
 	}
-	
-	
+
+
 	printf("history: OK\n");
 }
 
@@ -182,7 +182,7 @@ void		cd_bad()
 	process_command("cd -");
 	process_command("cd \\");
 }
-void		cd_good()
+void		cd_good_a()
 {
 	process_command("pwd");
 	//process_command("cd ~;pwd");
@@ -201,10 +201,13 @@ void		cd_good()
 	//process_command("cd /bin;pwd");
 	//process_command("cd /;pwd");
 }
+void		cd_good_e()
+{
+	system("pwd");
+}
 
 void		two_commands_good()
 {
-	process_command("pwd;");
 	process_command("echo echo1;;echo echo2");
 	process_command("echo echo3;#;echo echo4");
 	process_command("echo echo5;echo echo6");
@@ -241,10 +244,18 @@ void		pwd()
 {
 	process_command("pwd");
 }
-void		comment_ignored()
+void		comment_ignored_a()
 {
 	process_command("#pwd");
 	process_command("pwd #");
+}
+void		comment_ignored_e()
+{
+	system("#pwd");
+	system("pwd #");
+}
+void		comment_ignored_bad()
+{
 	process_command("pwd#");
 }
 
@@ -324,42 +335,56 @@ void compare_and_free(const char* e, const char* a, const char* name)
 	free((char*)name);
 }
 
-void		test(void(*f)(), const char* name)
+void	redirect_and_exec(void(*f)(), const char* out_file_name, const char* err_file_name)
+{
+
+	int out = dup(STDOUT_FILENO);
+	FILE* f_out = freopen(out_file_name, "w", stdout);
+	FILE* f_err = freopen(err_file_name, "w", stderr);
+	save_stdin();
+	save_stdout();
+	f();
+	debug_set_pname("test");
+	//debug_printf("%s finished\n", name);
+	//fflush(file);
+	fflush(stdout);
+	fclose(stdout);
+	//fclose(f_out);
+	//debug_printf("restore stdout\n");
+	//redirect(out, STDOUT_FILENO);
+	//restore_stdin();
+	//restore_stdout();
+	close_fd(STDOUT_FILENO);
+	freopen("/dev/tty", "a", stdout);
+	freopen("/dev/tty", "a", stderr);
+	//save_stdin();
+	//save_stdout();
+}
+
+
+void		test2(void(*e)(), void(*a)(), const char* name)
 {
 	const char* expected_out = ft_strjoin2(3, "test_cases/expected/", name, "_out.txt");
 	const char* actual_out = ft_strjoin2(3, "test_cases/actual/", name, "_out.txt");
 	const char* expected_err = ft_strjoin2(3, "test_cases/expected/", name, "_err.txt");
 	const char* actual_err = ft_strjoin2(3, "test_cases/actual/", name, "_err.txt");
-	
-		debug_set_pname("test");
-		debug_printf("testing %s\n", name);
-		int out = dup(STDOUT_FILENO);
-		FILE* f_out = freopen(actual_out, "w", stdout);
-		FILE* f_err = freopen(actual_err, "w", stderr);
-		save_stdin();
-		save_stdout();
-		f();
-		debug_set_pname("test");
-		debug_printf("%s finished\n", name);
-		//fflush(file);
-		fflush(stdout);
-		fclose(stdout);
-		//debug_printf("1\n");
-		//fclose(f_out);
-		//debug_printf("2\n");
-		//debug_printf("restore stdout\n");
-		//redirect(out, STDOUT_FILENO);
-		//restore_stdin();
-		//restore_stdout();
-		////close_fd(STDIN_FILENO);
-		close_fd(STDOUT_FILENO);
-		freopen("/dev/tty", "a", stdout);
-		freopen("/dev/tty", "a", stderr);
-		//save_stdin();
-		//save_stdout();
+
+	debug_set_pname("test");
+	debug_printf("testing %s\n", name);
+	if (e != NULL)
+	{
+		redirect_and_exec(e, expected_out, expected_err);
+	}
+	redirect_and_exec(a, actual_out, actual_err);
 
 	compare_and_free(expected_out, actual_out, ft_strjoin(name, "_out"));
 	compare_and_free(expected_err, actual_err, ft_strjoin(name, "_err"));
+}
+
+
+void		test(void(*f)(), const char* name)
+{
+	test2(NULL, f, name);
 }
 
 void test_pipe_1()
@@ -455,43 +480,49 @@ void test_lg()
 	printf("int_lg: OK\n");
 }
 
-void test_set_env()
+void test_set_env_e()
 {
-	
-	process_command("setenv VALGRIND_STARTUP_PWD_27363_XYZZY /Users/darugula/git/e57/minishell/minishell");
-	char *restore_underscore = ft_strjoin("setenv _ ", env_get_value("_"));
-	process_command("unsetenv _");
-	
+
+	process_command("env");
+	system("setenv q w");
+	//system("echo $q");
+	//system("/usr/bin/env");
+	//system("unsetenv q");
+	//system("echo $q");
+	//system("/usr/bin/env");
+
+}
+
+void test_set_env_a()
+{
 	process_command("\"setenv\"");
 	process_command("setenv q w");
-	process_command("echo $q");
-	process_command("/usr/bin/env");
-	process_command("unsetenv q");
-	process_command("echo $q");
-	process_command("/usr/bin/env");
-	
-	process_command(restore_underscore);
-	free(restore_underscore);
+	//process_command("echo $q");
+	//process_command("/usr/bin/env");
+	//process_command("unsetenv q");
+	//process_command("echo $q");
+	//process_command("/usr/bin/env");
+
 }
 
 void	path_is_used()
 {
-	process_command("echo path = $PATH");
+	//process_command("echo path = $PATH");
 	process_command("unsetenv PATH");
 	process_command("echo path = $PATH");
 	process_command("setenv PATH /bin:/usr/bin");
 	process_command("echo path = $PATH");
-	
-	
+
+
 }
 
 void quotes()
 {
 	//process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\" ; ls");
-	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\" ; ls -l \"dir  with  spaces\"");
+	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\" ; ls \"dir  with  spaces\"");
 
-	process_command("rm -r \"not empty dir\";mkdir \"not empty dir\"; mkdir \"not empty dir\"/\"dir\tone\"; ls -l \"not empty dir\"/\"dir\tone\"");
-//	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\" ; cd \"dir  with  spaces\"; pwd");
+	process_command("rm -r \"not empty dir\";mkdir \"not empty dir\"; mkdir \"not empty dir\"/\"dir\tone\"; ls \"not empty dir\"/\"dir\tone\"");
+	//	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\" ; cd \"dir  with  spaces\"; pwd");
 }
 
 void test_pipe9()
@@ -538,7 +569,7 @@ void pwd2()
 	pid_t pid;
 	char** args = ft_split3("/bin/pwd", "|");
 
-	
+
 	fe(args);
 	return;
 	pid = ft_fork();
@@ -552,7 +583,7 @@ void pwd2()
 	wait_child(pid);
 	return;
 
-		fork_and_exec(args, &pid);
+	fork_and_exec(args, &pid);
 	return;
 
 
@@ -562,27 +593,27 @@ void pwd2()
 	t_list* p;
 	p = pipe_parse("pwd");
 
-		//pipe_exec2(p, STDIN_FILENO);
-		//ft_exit(0);
+	//pipe_exec2(p, STDIN_FILENO);
+	//ft_exit(0);
 
-		//restore_stdin();
-		//restore_stdout();
-		//redirect(STDIN_FILENO, STDIN_FILENO);
-		//redirect(STDOUT_FILENO, STDOUT_FILENO);
-		//built_in_processed(args, 1);
-		//exec(args[0]);
-		//exec2(args);
-		//try_execute(args[0], args);
-		//fork_and_exec(args);
-		pid = ft_fork();
-		if (is_child(pid))
-		{
-			debug_set_pname(args[0]);
-			exec_ve(args);
-			debug_printf("!!!should not be here!!!\n");
-		}
-		ft_free_null_term_array((void**)args);
-		
+	//restore_stdin();
+	//restore_stdout();
+	//redirect(STDIN_FILENO, STDIN_FILENO);
+	//redirect(STDOUT_FILENO, STDOUT_FILENO);
+	//built_in_processed(args, 1);
+	//exec(args[0]);
+	//exec2(args);
+	//try_execute(args[0], args);
+	//fork_and_exec(args);
+	pid = ft_fork();
+	if (is_child(pid))
+	{
+		debug_set_pname(args[0]);
+		exec_ve(args);
+		debug_printf("!!!should not be here!!!\n");
+	}
+	ft_free_null_term_array((void**)args);
+
 }
 
 
@@ -600,7 +631,9 @@ int main(int argc, char** argv, char** envp)
 
 	//process_command(" echo 1 | sed -e 's/1/Yes/g'");
 	//process_command("echo 1");
-	
+	//debug_print_zt_array((const char**)env_to_array());
+
+	//system("env");
 	//ft_exit(0);
 
 	//process_command("ls | sort");
@@ -613,12 +646,12 @@ int main(int argc, char** argv, char** envp)
 		//test_pipe_1();
 
 	//test(pwd2, "pwd2");
-	
+
 	test_pipe9();
-	
-	test(path_is_used,"path_is_used");
-	test(test_exec,"test_exec");
-	
+
+	test(path_is_used, "path_is_used");
+	test(test_exec, "test_exec");
+
 	test(test_pipe_1, "test_pipe_1");
 	test(quotes, "quotes");
 	//ft_exit(0);
@@ -636,19 +669,25 @@ int main(int argc, char** argv, char** envp)
 	test(env, "env");
 	test(ls, "ls");
 
+	char* restore_home = ft_strjoin("setenv HOME ", env_get_value("HOME"));
+	process_command("setenv HOME fake_home_for_tests");
 	test(echo_home, "echo_home");
 	test(echo_tilde, "echo_tilde");
+	process_command(restore_home);
+	free(restore_home);
+
 	test(echo_three_args, "echo_three_args");
-	test(pwd, "pwd");
-	test(comment_ignored, "comment_ignored");
+	//test(pwd, "pwd");
+	test2(comment_ignored_e, comment_ignored_a, "comment_ignored");
+	test(comment_ignored_bad, "comment_ignored_bad");
 	test(two_commands_good, "two_commands_good");
-	test(cd_good, "cd_good");
+	test2(cd_good_e, cd_good_a, "cd_good");
 	//test(test_pipe_parse, "test_pipe_parse");
 	//	test(history, "history");
 		//return 0;
 	//return 0;
 
-	test(test_set_env, "set_env");
+	test2(test_set_env_e, test_set_env_a, "set_env");
 	printf("all tests passed\n");
 	ft_exit(0);
 	return (1);

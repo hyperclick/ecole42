@@ -119,6 +119,7 @@ void		env_add_new(t_list* new)
 		return;
 	}
 	ft_lst_insert_sorted(&g_env, new, env_greater_than);
+	//ft_lst_append(g_env, new);
 }
 
 void		ft_env(int argc, char* const argv[])
@@ -250,6 +251,7 @@ void		env_from_array(char* env[])
 	}
 	while (*env != NULL)
 	{
+		debug_printf("add %s\n", *env);
 		env_add_new(ft_lst_new(ft_strdup(*env), -1));
 		env++;
 	}
