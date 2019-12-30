@@ -379,7 +379,7 @@ const char* read_line_hidden()
 	reset_keypress();
 	if (r == 0)
 	{
-		printf("std in is all\n");
+		debug_printf("std in is all\n");
 		exit(1);
 	}
 	if (g_buf_len > 0)

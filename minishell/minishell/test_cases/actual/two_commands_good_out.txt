@@ -1,1 +1,8 @@
 /Users/darugula/git/e57/minishell/minishell
+echo1
+echo2
+echo3
+echo5
+echo6
+echo7
+echo8

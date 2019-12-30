@@ -8,10 +8,11 @@ dir w spaces
 libft
 log.txt
 minishell
+minishell.dSYM
+not empty dir
 out.txt
 out2.txt
 src
-t
 tee
 termux2.ppk
 termux2.pub
@@ -19,3 +20,4 @@ termux2.pub.pub
 test_cases
 tests
 ut
+ut.dSYM

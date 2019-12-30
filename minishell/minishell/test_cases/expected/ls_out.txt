@@ -3,11 +3,13 @@ CMakeLists.txt
 Makefile
 author
 debug_out4.txt
+dir  with  spaces
 dir w spaces
 libft
 log.txt
 minishell
 minishell.dSYM
+not empty dir
 out.txt
 out2.txt
 src
@@ -19,3 +21,6 @@ test_cases
 tests
 ut
 ut.dSYM
+total 0
+drwxr-xr-x  2 darugula  2019  68 Dec 30 11:21 dir1
+-rw-r--r--  1 darugula  2019   0 Dec 30 11:21 file1

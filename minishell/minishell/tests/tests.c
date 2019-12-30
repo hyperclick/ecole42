@@ -3,6 +3,13 @@
 #include <stdio.h>
 //#include <copyfile.h>
 
+void test_exec()
+{
+	process_command("foo");
+	
+}
+
+
 void test_pipe_parse()
 {
 	t_list* pipe = pipe_parse("ls -l | sort | cat -e");
@@ -72,15 +79,15 @@ void history()
 	//}
 
 	h_append(ft_strdup("1"));
-	//if (!ft_strequ("1", h_get_current()))
-	//{
-	//	printf("1!=h_get_current()\n");
-	//	exit(1);
-	//}
+//	if (!ft_strequ("1", h_get_current()))
+//	{
+//		printf("1!=h_get_current()\n");
+//		exit(1);
+//	}
 
 	if (!h_has_previous())
 	{
-		printf("!has previous\n");
+		printf("1: !has previous\n");
 		exit(1);
 	}
 
@@ -110,6 +117,39 @@ void history()
 		printf("has next2\n");
 		exit(1);
 	}
+	
+	h_free();
+	
+	if (h_has_previous())
+	{
+		printf("has previous\n");
+		exit(1);
+	}
+	
+	if (h_has_next())
+	{
+		printf("has next\n");
+		exit(1);
+	}
+	
+	h_append(ft_strdup("1"));
+	if (!h_has_previous())
+	{
+		printf("!has previous\n");
+		exit(1);
+	}
+	if (!ft_strequ("1", h_get_previous()))
+	{
+		printf("1!=h_get_previous()\n");
+		exit(1);
+	}
+	if (h_has_previous())
+	{
+		printf("2: has previous\n");
+		exit(1);
+	}
+	
+	
 	printf("history: OK\n");
 }
 
@@ -129,8 +169,9 @@ void		env()
 void		ls()
 {
 	process_command("ls");
+	process_command("rm -r \"not empty dir\"; mkdir \"not empty dir\"; mkdir \"not empty dir\"/dir1; touch \"not empty dir\"/file1");
 	//process_command("ls -la");
-	//process_command("ls -la src");
+	process_command("ls -l \"not empty dir\"");
 }
 
 void		cd_bad()
@@ -141,9 +182,9 @@ void		cd_bad()
 void		cd_good()
 {
 	process_command("pwd");
-	process_command("cd ~;pwd");
-	process_command("cd -");
-	process_command("\"cd\"");
+	//process_command("cd ~;pwd");
+	//process_command("cd -");
+	//process_command("\"cd\"");
 	//process_command("pwd");
 	//process_command("cd ..");
 	//process_command("cd /////; pwd");
@@ -153,6 +194,9 @@ void		cd_good()
 	//process_command("cd /////; pwd");
 	//process_command("cd ..; pwd");
 	//process_command("cd ..;pwd;");
+	//process_command("cd test_cases/actual;pwd;");
+	//process_command("cd /bin;pwd");
+	//process_command("cd /;pwd");
 }
 
 void		two_commands_good()
@@ -176,6 +220,11 @@ void		echo_tilde()
 {
 	process_command("echo ~");
 }
+void		echo_three_args()
+{
+	process_command("echo 1 2 3");
+}
+
 void		echo_home()
 {
 	process_command("echo $HOME");
@@ -409,10 +458,11 @@ void test_set_env()
 }
 
 void quotes()
-{	
+{
+	//process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\" ; ls");
 	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\" ; ls -l \"dir  with  spaces\"");
 
-//	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\" ; cd \"dir  with  spaces\"; #pwd");
+//	process_command("rmdir  \"dir  with  spaces\"; \t\"mkdir\" \"dir  with  spaces\" ; cd \"dir  with  spaces\"; pwd");
 }
 
 void test_pipe9()
@@ -533,9 +583,14 @@ int main(int argc, char** argv, char** envp)
 		//test_pipe_1();
 
 	//test(pwd2, "pwd2");
-
-	test(quotes, "quotes");
+	
+	test_pipe9();
+	
+	
+	test(test_exec,"test_exec");
+	
 	test(test_pipe_1, "test_pipe_1");
+	test(quotes, "quotes");
 	//ft_exit(0);
 	test_lg();
 	dic();
@@ -547,13 +602,13 @@ int main(int argc, char** argv, char** envp)
 	test(echo_quotes, "echo_quotes");
 
 
-	test_pipe9();
 
 	test(env, "env");
 	test(ls, "ls");
 
 	test(echo_home, "echo_home");
 	test(echo_tilde, "echo_tilde");
+	test(echo_three_args, "echo_three_args");
 	test(test_set_env, "set_env");
 	test(pwd, "pwd");
 	test(comment_ignored, "comment_ignored");

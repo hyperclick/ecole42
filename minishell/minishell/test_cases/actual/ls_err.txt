@@ -1,0 +1,2 @@
+mkdir: %paired_quote%3: No such file or directory
+touch: %paired_quote%4/file1: No such file or directory

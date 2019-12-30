@@ -4,1064 +4,228 @@
 [main]	started
 [main]	agrc = 1
 [main]	agrv[1] = (null)
-[test]	testing quotes
-[test]	duplicated stdin to 7
-[test]	duplicated stdout to 8
-[test]	
-[test]	-----------------------
-[test]	process command: 'rmdir  "dir  with  spaces"; 	"mkdir" "dir  with  spaces" ; ls -l "dir  with  spaces"'
-[test]	quote replaced: 'dir  with  spaces' -> '%paired_quote%1'
-[test]	dic_add:	kvp->key = '%paired_quote%2', &kvp->key = 0x7fffd29a0650, kvp = 0x7fffd29a0630
-[test]	quote replaced: 'mkdir' -> '%paired_quote%2'
-[test]	dic_add:	kvp->key = '%paired_quote%3', &kvp->key = 0x7fffd29a06d0, kvp = 0x7fffd29a06b0
-[test]	quote replaced: 'dir  with  spaces' -> '%paired_quote%3'
-[test]	dic_add:	kvp->key = '%paired_quote%4', &kvp->key = 0x7fffd29a0750, kvp = 0x7fffd29a0730
-[test]	quote replaced: 'dir  with  spaces' -> '%paired_quote%4'
-[test]	quotes replaced: 'rmdir  %paired_quote%1; 	%paired_quote%2 %paired_quote%3 ; ls -l %paired_quote%4'
-[test]	trimmed = rmdir  %paired_quote%1; 	%paired_quote%2 %paired_quote%3 ; ls -l %paired_quote%4
-[test]	no comments = rmdir  %paired_quote%1; 	%paired_quote%2 %paired_quote%3 ; ls -l %paired_quote%4
-[test]	cmd: 'rmdir  %paired_quote%1'
-[test]	pipe_parse(rmdir  %paired_quote%1)
-[test]	cmd[0] = 'rmdir  %paired_quote%1'
-[rmdir  %paired_quote%1]	exec 0 > rmdir  %paired_quote%1 > 1
-[rmdir  %paired_quote%1]	restore stdin
-[rmdir  %paired_quote%1]	redirect: 0->7
-[rmdir  %paired_quote%1]	restore stdout
-[rmdir  %paired_quote%1]	redirect: 1->8
-[rmdir  %paired_quote%1]	redirect: 0->0
-[rmdir  %paired_quote%1]	redirect: 1->1
-[rmdir  %paired_quote%1]	replace %paired_quote%1 -> dir  with  spaces
-[rmdir  %paired_quote%1]	after replace
-'rmdir'	'dir  with  spaces'	
-[rmdir  %paired_quote%1]	fork
-[rmdir  %paired_quote%1]	fork_and_exec:	/bin/rmdir = 1182 launched
-[rmdir  %paired_quote%1]	exec2:	executed: /bin/rmdir
-[rmdir  %paired_quote%1]	pipe_exec2 returned: 1182
-[rmdir  %paired_quote%1]	free item: 'rmdir  %paired_quote%1' (0x7fffd29a0970)
-[rmdir  %paired_quote%1]	waiting rmdir  %paired_quote%1 to finish
-[rmdir  %paired_quote%1]	wait 1182 to stop
- [/bin/rmdir]	close_g_fd_to_close [/bin/rmdir]	close(-11)
- [/bin/rmdir]	fork_and_exec:	about to launch /bin/rmdir
- [/bin/rmdir]	exec(/bin/rmdir)
-[rmdir  %paired_quote%1]	waitpid(1182) returned
-[rmdir  %paired_quote%1]	rmdir  %paired_quote%1 finished
-[rmdir  %paired_quote%1]	cmd: ' 	%paired_quote%2 %paired_quote%3 '
-[rmdir  %paired_quote%1]	pipe_parse(%paired_quote%2 %paired_quote%3)
-[rmdir  %paired_quote%1]	cmd[0] = '%paired_quote%2 %paired_quote%3'
-[%paired_quote%2 %paired_quote%3]	exec 0 > %paired_quote%2 %paired_quote%3 > 1
-[%paired_quote%2 %paired_quote%3]	restore stdin
-[%paired_quote%2 %paired_quote%3]	redirect: 0->7
-[%paired_quote%2 %paired_quote%3]	restore stdout
-[%paired_quote%2 %paired_quote%3]	redirect: 1->8
-[%paired_quote%2 %paired_quote%3]	redirect: 0->0
-[%paired_quote%2 %paired_quote%3]	redirect: 1->1
-[%paired_quote%2 %paired_quote%3]	replace %paired_quote%2 -> mkdir
-[%paired_quote%2 %paired_quote%3]	replace %paired_quote%3 -> dir  with  spaces
-[%paired_quote%2 %paired_quote%3]	after replace
-'mkdir'	'dir  with  spaces'	
-[%paired_quote%2 %paired_quote%3]	fork
-[%paired_quote%2 %paired_quote%3]	fork_and_exec:	/bin/mkdir = 1183 launched
-[%paired_quote%2 %paired_quote%3]	exec2:	executed: /bin/mkdir
-[%paired_quote%2 %paired_quote%3]	pipe_exec2 returned: 1183
-[%paired_quote%2 %paired_quote%3]	free item: '%paired_quote%2 %paired_quote%3' (0x7fffd29a27c0)
-[%paired_quote%2 %paired_quote%3]	waiting %paired_quote%2 %paired_quote%3 to finish
-[%paired_quote%2 %paired_quote%3]	wait 1183 to stop
-  [/bin/mkdir]	close_g_fd_to_close  [/bin/mkdir]	close(-11)
-  [/bin/mkdir]	fork_and_exec:	about to launch /bin/mkdir
-  [/bin/mkdir]	exec(/bin/mkdir)
-[%paired_quote%2 %paired_quote%3]	waitpid(1183) returned
-[%paired_quote%2 %paired_quote%3]	%paired_quote%2 %paired_quote%3 finished
-[%paired_quote%2 %paired_quote%3]	cmd: ' ls -l %paired_quote%4'
-[%paired_quote%2 %paired_quote%3]	pipe_parse(ls -l %paired_quote%4)
-[%paired_quote%2 %paired_quote%3]	cmd[0] = 'ls -l %paired_quote%4'
-[ls -l %paired_quote%4]	exec 0 > ls -l %paired_quote%4 > 1
-[ls -l %paired_quote%4]	restore stdin
-[ls -l %paired_quote%4]	redirect: 0->7
-[ls -l %paired_quote%4]	restore stdout
-[ls -l %paired_quote%4]	redirect: 1->8
-[ls -l %paired_quote%4]	redirect: 0->0
-[ls -l %paired_quote%4]	redirect: 1->1
-[ls -l %paired_quote%4]	replace %paired_quote%4 -> dir  with  spaces
-[ls -l %paired_quote%4]	after replace
-'ls'	'-l'	'dir  with  spaces'	
-[ls -l %paired_quote%4]	fork
-[ls -l %paired_quote%4]	fork_and_exec:	/bin/ls = 1184 launched
-[ls -l %paired_quote%4]	exec2:	executed: /bin/ls
-[ls -l %paired_quote%4]	pipe_exec2 returned: 1184
-[ls -l %paired_quote%4]	free item: 'ls -l %paired_quote%4' (0x7fffd29a09d0)
-[ls -l %paired_quote%4]	waiting ls -l %paired_quote%4 to finish
-[ls -l %paired_quote%4]	wait 1184 to stop
-   [/bin/ls]	close_g_fd_to_close   [/bin/ls]	close(-11)
-   [/bin/ls]	fork_and_exec:	about to launch /bin/ls
-   [/bin/ls]	exec(/bin/ls)
-[ls -l %paired_quote%4]	waitpid(1184) returned
-[ls -l %paired_quote%4]	ls -l %paired_quote%4 finished
-[ls -l %paired_quote%4]	command processed: 'rmdir  "dir  with  spaces"; 	"mkdir" "dir  with  spaces" ; ls -l "dir  with  spaces"'
-[ls -l %paired_quote%4]	-------------------------
-[ls -l %paired_quote%4]	
-[test]	quotes finished
-[test]	close(1)
-[test]	testing test_pipe_1
-[test]	duplicated stdin to 10
-[test]	duplicated stdout to 11
-[test]	
-[test]	-----------------------
-[test]	process command: 'echo 123 |rev'
-[test]	quotes replaced: 'echo 123 |rev'
-[test]	trimmed = echo 123 |rev
-[test]	no comments = echo 123 |rev
-[test]	cmd: 'echo 123 |rev'
-[test]	pipe_parse(echo 123 |rev)
-[test]	cmd[0] = 'echo 123 '
-[echo 123 |rev]	new pipe: r=12, w=13
-[echo 123 |rev]	exec 0 > echo 123 > 13
-[echo 123 |rev]	restore stdin
-[echo 123 |rev]	redirect: 0->10
-[echo 123 |rev]	restore stdout
-[echo 123 |rev]	redirect: 1->11
-[echo 123 |rev]	redirect: 0->0
-[echo 123 |rev]	redirect: 1->13
-[echo 123 |rev]	after replace
-'echo'	'123'	
-[echo 123 |rev]	fork
-[echo 123 |rev]	fork_and_exec:	/bin/echo = 1185 launched
-[echo 123 |rev]	exec2:	executed: /bin/echo
-[echo 123 |rev]	close(13)
-[echo 123 |rev]	exec 12 > rev > 1
-[echo 123 |rev]	restore stdin
-[echo 123 |rev]	redirect: 0->10
-[echo 123 |rev]	restore stdout
-[echo 123 |rev]	redirect: 1->11
-[echo 123 |rev]	redirect: 0->12
-[echo 123 |rev]	redirect: 1->1
-[echo 123 |rev]	after replace
-    [/bin/echo]	close_g_fd_to_close    [/bin/echo]	close(12)
-    [/bin/echo]	fork_and_exec:	about to launch /bin/echo
-    [/bin/echo]	exec(/bin/echo)
-'rev'	
-[echo 123 |rev]	fork
-[echo 123 |rev]	fork_and_exec:	/usr/bin/rev = 1186 launched
-[echo 123 |rev]	exec2:	executed: /usr/bin/rev
-[echo 123 |rev]	pipe_exec2 returned: 1186
-[echo 123 |rev]	free item: 'echo 123' (0x7fffd29a2860)
-[echo 123 |rev]	free item: 'rev' (0x7fffd29a0430)
-[echo 123 |rev]	waiting echo 123 |rev to finish
-[echo 123 |rev]	wait 1186 to stop
-     [/usr/bin/rev]	close_g_fd_to_close     [/usr/bin/rev]	close(12)
-     [/usr/bin/rev]	fork_and_exec:	about to launch /usr/bin/rev
-     [/usr/bin/rev]	exec(/usr/bin/rev)
-[echo 123 |rev]	waitpid(1186) returned
-[echo 123 |rev]	echo 123 |rev finished
-[echo 123 |rev]	command processed: 'echo 123 |rev'
-[echo 123 |rev]	-------------------------
-[echo 123 |rev]	
-[echo 123 |rev]	
-[echo 123 |rev]	-----------------------
-[echo 123 |rev]	process command: 'echo 123 | cat -e |rev'
-[echo 123 |rev]	quotes replaced: 'echo 123 | cat -e |rev'
-[echo 123 |rev]	trimmed = echo 123 | cat -e |rev
-[echo 123 |rev]	no comments = echo 123 | cat -e |rev
-[echo 123 |rev]	cmd: 'echo 123 | cat -e |rev'
-[echo 123 |rev]	pipe_parse(echo 123 | cat -e |rev)
-[echo 123 |rev]	cmd[0] = 'echo 123 '
-[echo 123 | cat -e |rev]	new pipe: r=13, w=14
-[echo 123 | cat -e |rev]	exec 0 > echo 123 > 14
-[echo 123 | cat -e |rev]	restore stdin
-[echo 123 | cat -e |rev]	redirect: 0->10
-[echo 123 | cat -e |rev]	restore stdout
-[echo 123 | cat -e |rev]	redirect: 1->11
-[echo 123 | cat -e |rev]	redirect: 0->0
-[echo 123 | cat -e |rev]	redirect: 1->14
-[echo 123 | cat -e |rev]	after replace
-'echo'	'123'	
-[echo 123 | cat -e |rev]	fork
-[echo 123 | cat -e |rev]	fork_and_exec:	/bin/echo = 1187 launched
-[echo 123 | cat -e |rev]	exec2:	executed: /bin/echo
-[echo 123 | cat -e |rev]	close(14)
-[echo 123 | cat -e |rev]	new pipe: r=14, w=15
-[echo 123 | cat -e |rev]	exec 13 > cat -e > 15
-[echo 123 | cat -e |rev]	restore stdin
-[echo 123 | cat -e |rev]	redirect: 0->10
-[echo 123 | cat -e |rev]	restore stdout
-[echo 123 | cat -e |rev]	redirect: 1->11
-      [/bin/echo]	close_g_fd_to_close[echo 123 | cat -e |rev]	redirect: 0->13
-      [/bin/echo]	close(13)
-[echo 123 | cat -e |rev]	redirect: 1->15
-      [/bin/echo]	fork_and_exec:	about to launch /bin/echo
-      [/bin/echo]	exec(/bin/echo)
-[echo 123 | cat -e |rev]	after replace
-'cat'	'-e'	
-[echo 123 | cat -e |rev]	fork
-[echo 123 | cat -e |rev]	fork_and_exec:	/bin/cat = 1188 launched
-[echo 123 | cat -e |rev]	exec2:	executed: /bin/cat
-[echo 123 | cat -e |rev]	close(15)
-[echo 123 | cat -e |rev]	exec 14 > rev > 1
-[echo 123 | cat -e |rev]	restore stdin
-[echo 123 | cat -e |rev]	redirect: 0->10
-[echo 123 | cat -e |rev]	restore stdout
-[echo 123 | cat -e |rev]	redirect: 1->11
-[echo 123 | cat -e |rev]	redirect: 0->14
-[echo 123 | cat -e |rev]	redirect: 1->1
-       [/bin/cat]	close_g_fd_to_close[echo 123 | cat -e |rev]	after replace
-       [/bin/cat]	close(14)
-       [/bin/cat]	fork_and_exec:	about to launch /bin/cat
-       [/bin/cat]	exec(/bin/cat)
-'rev'	
-[echo 123 | cat -e |rev]	fork
-[echo 123 | cat -e |rev]	fork_and_exec:	/usr/bin/rev = 1189 launched
-[echo 123 | cat -e |rev]	exec2:	executed: /usr/bin/rev
-[echo 123 | cat -e |rev]	pipe_exec2 returned: 1189
-[echo 123 | cat -e |rev]	free item: 'echo 123' (0x7fffd29a0770)
-[echo 123 | cat -e |rev]	free item: 'cat -e' (0x7fffd29a2820)
-[echo 123 | cat -e |rev]	free item: 'rev' (0x7fffd29a05f0)
-[echo 123 | cat -e |rev]	waiting echo 123 | cat -e |rev to finish
-[echo 123 | cat -e |rev]	wait 1189 to stop
-        [/usr/bin/rev]	close_g_fd_to_close        [/usr/bin/rev]	close(14)
-        [/usr/bin/rev]	fork_and_exec:	about to launch /usr/bin/rev
-        [/usr/bin/rev]	exec(/usr/bin/rev)
-[echo 123 | cat -e |rev]	waitpid(1189) returned
-[echo 123 | cat -e |rev]	echo 123 | cat -e |rev finished
-[echo 123 | cat -e |rev]	command processed: 'echo 123 | cat -e |rev'
-[echo 123 | cat -e |rev]	-------------------------
-[echo 123 | cat -e |rev]	
-[echo 123 | cat -e |rev]	
-[echo 123 | cat -e |rev]	-----------------------
-[echo 123 | cat -e |rev]	process command: 'echo 123456789 | head -c3'
-[echo 123 | cat -e |rev]	quotes replaced: 'echo 123456789 | head -c3'
-[echo 123 | cat -e |rev]	trimmed = echo 123456789 | head -c3
-[echo 123 | cat -e |rev]	no comments = echo 123456789 | head -c3
-[echo 123 | cat -e |rev]	cmd: 'echo 123456789 | head -c3'
-[echo 123 | cat -e |rev]	pipe_parse(echo 123456789 | head -c3)
-[echo 123 | cat -e |rev]	cmd[0] = 'echo 123456789 '
-[echo 123456789 | head -c3]	new pipe: r=15, w=16
-[echo 123456789 | head -c3]	exec 0 > echo 123456789 > 16
-[echo 123456789 | head -c3]	restore stdin
-[echo 123456789 | head -c3]	redirect: 0->10
-[echo 123456789 | head -c3]	restore stdout
-[echo 123456789 | head -c3]	redirect: 1->11
-[echo 123456789 | head -c3]	redirect: 0->0
-[echo 123456789 | head -c3]	redirect: 1->16
-[echo 123456789 | head -c3]	after replace
-'echo'	'123456789'	
-[echo 123456789 | head -c3]	fork
-[echo 123456789 | head -c3]	fork_and_exec:	/bin/echo = 1190 launched
-[echo 123456789 | head -c3]	exec2:	executed: /bin/echo
-[echo 123456789 | head -c3]	close(16)
-[echo 123456789 | head -c3]	exec 15 > head -c3 > 1
-[echo 123456789 | head -c3]	restore stdin
-[echo 123456789 | head -c3]	redirect: 0->10
-[echo 123456789 | head -c3]	restore stdout
-[echo 123456789 | head -c3]	redirect: 1->11
-[echo 123456789 | head -c3]	redirect: 0->15
-[echo 123456789 | head -c3]	redirect: 1->1
-[echo 123456789 | head -c3]	after replace
-         [/bin/echo]	close_g_fd_to_close         [/bin/echo]	close(15)
-         [/bin/echo]	fork_and_exec:	about to launch /bin/echo
-         [/bin/echo]	exec(/bin/echo)
-'head'	'-c3'	
-[echo 123456789 | head -c3]	fork
-[echo 123456789 | head -c3]	fork_and_exec:	/usr/bin/head = 1191 launched
-[echo 123456789 | head -c3]	exec2:	executed: /usr/bin/head
-[echo 123456789 | head -c3]	pipe_exec2 returned: 1191
-[echo 123456789 | head -c3]	free item: 'echo 123456789' (0x7fffd29a0750)
-[echo 123456789 | head -c3]	free item: 'head -c3' (0x7fffd29a0630)
-[echo 123456789 | head -c3]	waiting echo 123456789 | head -c3 to finish
-[echo 123456789 | head -c3]	wait 1191 to stop
-          [/usr/bin/head]	close_g_fd_to_close          [/usr/bin/head]	close(15)
-          [/usr/bin/head]	fork_and_exec:	about to launch /usr/bin/head
-          [/usr/bin/head]	exec(/usr/bin/head)
-[echo 123456789 | head -c3]	waitpid(1191) returned
-[echo 123456789 | head -c3]	echo 123456789 | head -c3 finished
-[echo 123456789 | head -c3]	command processed: 'echo 123456789 | head -c3'
-[echo 123456789 | head -c3]	-------------------------
-[echo 123456789 | head -c3]	
-[test]	test_pipe_1 finished
-[test]	close(1)
-[test]	dic_add:	kvp->key = 'key1', &kvp->key = 0x7fffd29a0610, kvp = 0x7fffd29a0990
-[test]	dic_add:	kvp->key = '%paired_quote%2', &kvp->key = 0x7fffd29a0430, kvp = 0x7fffd29a0990
-[test]	dic_add:	kvp->key = '%paired_quote%2', &kvp->key = 0x7fffd29a0610, kvp = 0x7fffd29a0990
-[test]	testing cd_bad
-[test]	duplicated stdin to 17
-[test]	duplicated stdout to 18
-[test]	
-[test]	-----------------------
-[test]	process command: 'cd -'
-[test]	quotes replaced: 'cd -'
-[test]	trimmed = cd -
-[test]	no comments = cd -
-[test]	cmd: 'cd -'
-[test]	pipe_parse(cd -)
-[test]	cmd[0] = 'cd -'
-[cd -]	exec 0 > cd - > 1
-[cd -]	restore stdin
-[cd -]	redirect: 0->17
-[cd -]	restore stdout
-[cd -]	redirect: 1->18
-[cd -]	redirect: 0->0
-[cd -]	redirect: 1->1
-[cd -]	after replace
-'cd'	'-'	
-[cd -]	exec cd '-'
-[cd -]	pipe_exec2 returned: 0
-[cd -]	free item: 'cd -' (0x7fffd29a06d0)
-[cd -]	command processed: 'cd -'
-[cd -]	-------------------------
-[cd -]	
-[cd -]	
-[cd -]	-----------------------
-[cd -]	process command: 'cd \'
-[cd -]	quotes replaced: 'cd \'
-[cd -]	trimmed = cd \
-[cd -]	no comments = cd \
-[cd -]	cmd: 'cd \'
-[cd -]	pipe_parse(cd \)
-[cd -]	cmd[0] = 'cd \'
-[cd \]	exec 0 > cd \ > 1
-[cd \]	restore stdin
-[cd \]	redirect: 0->17
-[cd \]	restore stdout
-[cd \]	redirect: 1->18
-[cd \]	redirect: 0->0
-[cd \]	redirect: 1->1
-[cd \]	after replace
-'cd'	'\'	
-[cd \]	exec cd '\'
-[cd \]	pipe_exec2 returned: 0
-[cd \]	free item: 'cd \' (0x7fffd29a0710)
-[cd \]	command processed: 'cd \'
-[cd \]	-------------------------
-[cd \]	
-[test]	cd_bad finished
-[test]	close(1)
-[test]	pipe_parse(ls -l | sort | cat -e)
-[test]	cmd[0] = 'ls -l '
-[test]	free item: 'ls -l' (0x7fffd29a0990)
-[test]	free item: 'sort' (0x7fffd29a05f0)
-[test]	free item: 'cat -e' (0x7fffd29a0430)
-[test]	testing two_commands_bad
-[test]	duplicated stdin to 20
-[test]	duplicated stdout to 21
-[test]	
-[test]	-----------------------
-[test]	process command: ';'
-[test]	quotes replaced: ';'
-[test]	trimmed = ;
-[test]	no comments = ;
-[test]	minishell: syntax error near unexpected token `;'
-[test]	
-[test]	-----------------------
-[test]	process command: ';;'
-[test]	quotes replaced: ';;'
-[test]	trimmed = ;;
-[test]	no comments = ;;
-[test]	minishell: syntax error near unexpected token `;'
-[test]	
-[test]	-----------------------
-[test]	process command: ';;;'
-[test]	quotes replaced: ';;;'
-[test]	trimmed = ;;;
-[test]	no comments = ;;;
-[test]	minishell: syntax error near unexpected token `;'
-[test]	
-[test]	-----------------------
-[test]	process command: '; ;'
-[test]	quotes replaced: '; ;'
-[test]	trimmed = ; ;
-[test]	no comments = ; ;
-[test]	cmd: ' '
-[test]	minishell: syntax error near unexpected token `;'
-[test]	command processed: '; ;'
-[test]	-------------------------
-[test]	
-[test]	two_commands_bad finished
-[test]	close(1)
-[test]	testing echo_quotes
-[test]	duplicated stdin to 23
-[test]	duplicated stdout to 24
-[test]	
-[test]	-----------------------
-[test]	process command: 'echo "q"'
-[test]	quote replaced: 'q' -> '%paired_quote%1'
-[test]	quotes replaced: 'echo %paired_quote%1'
-[test]	trimmed = echo %paired_quote%1
-[test]	no comments = echo %paired_quote%1
-[test]	cmd: 'echo %paired_quote%1'
-[test]	pipe_parse(echo %paired_quote%1)
-[test]	cmd[0] = 'echo %paired_quote%1'
-[echo %paired_quote%1]	exec 0 > echo %paired_quote%1 > 1
-[echo %paired_quote%1]	restore stdin
-[echo %paired_quote%1]	redirect: 0->23
-[echo %paired_quote%1]	restore stdout
-[echo %paired_quote%1]	redirect: 1->24
-[echo %paired_quote%1]	redirect: 0->0
-[echo %paired_quote%1]	redirect: 1->1
-[echo %paired_quote%1]	replace %paired_quote%1 -> q
-[echo %paired_quote%1]	after replace
-'echo'	'q'	
-[echo %paired_quote%1]	fork
-[echo %paired_quote%1]	fork_and_exec:	/bin/echo = 1192 launched
-[echo %paired_quote%1]	exec2:	executed: /bin/echo
-[echo %paired_quote%1]	pipe_exec2 returned: 1192
-[echo %paired_quote%1]	free item: 'echo %paired_quote%1' (0x7fffd29a06f0)
-[echo %paired_quote%1]	waiting echo %paired_quote%1 to finish
-[echo %paired_quote%1]	wait 1192 to stop
-           [/bin/echo]	close_g_fd_to_close           [/bin/echo]	close(15)
-           [/bin/echo]	fork_and_exec:	about to launch /bin/echo
-           [/bin/echo]	exec(/bin/echo)
-[echo %paired_quote%1]	waitpid(1192) returned
-[echo %paired_quote%1]	echo %paired_quote%1 finished
-[echo %paired_quote%1]	command processed: 'echo "q"'
-[echo %paired_quote%1]	-------------------------
-[echo %paired_quote%1]	
-[test]	echo_quotes finished
-[test]	close(1)
-[test]	
-[test]	-----------------------
-[test]	process command: '"setenv" | "sort"'
-[test]	quote replaced: 'setenv' -> '%paired_quote%1'
-[test]	dic_add:	kvp->key = '%paired_quote%2', &kvp->key = 0x7fffd29a28e0, kvp = 0x7fffd29a2920
-[test]	quote replaced: 'sort' -> '%paired_quote%2'
-[test]	quotes replaced: '%paired_quote%1 | %paired_quote%2'
-[test]	trimmed = %paired_quote%1 | %paired_quote%2
-[test]	no comments = %paired_quote%1 | %paired_quote%2
-[test]	cmd: '%paired_quote%1 | %paired_quote%2'
-[test]	pipe_parse(%paired_quote%1 | %paired_quote%2)
-[test]	cmd[0] = '%paired_quote%1 '
-[%paired_quote%1 | %paired_quote%2]	new pipe: r=25, w=26
-[%paired_quote%1 | %paired_quote%2]	exec 0 > %paired_quote%1 > 26
-[%paired_quote%1 | %paired_quote%2]	restore stdin
-[%paired_quote%1 | %paired_quote%2]	redirect: 0->23
-[%paired_quote%1 | %paired_quote%2]	restore stdout
-[%paired_quote%1 | %paired_quote%2]	redirect: 1->24
-[%paired_quote%1 | %paired_quote%2]	redirect: 0->0
-[%paired_quote%1 | %paired_quote%2]	redirect: 1->26
-[%paired_quote%1 | %paired_quote%2]	replace %paired_quote%1 -> setenv
-[%paired_quote%1 | %paired_quote%2]	after replace
-'setenv'	
-[%paired_quote%1 | %paired_quote%2]	close(26)
-[%paired_quote%1 | %paired_quote%2]	exec 25 > %paired_quote%2 > 1
-[%paired_quote%1 | %paired_quote%2]	restore stdin
-[%paired_quote%1 | %paired_quote%2]	redirect: 0->23
-[%paired_quote%1 | %paired_quote%2]	restore stdout
-[%paired_quote%1 | %paired_quote%2]	redirect: 1->24
-[%paired_quote%1 | %paired_quote%2]	redirect: 0->25
-[%paired_quote%1 | %paired_quote%2]	redirect: 1->1
-[%paired_quote%1 | %paired_quote%2]	replace %paired_quote%2 -> sort
-[%paired_quote%1 | %paired_quote%2]	after replace
-'sort'	
-[%paired_quote%1 | %paired_quote%2]	fork
-[%paired_quote%1 | %paired_quote%2]	fork_and_exec:	/usr/bin/sort = 1193 launched
-[%paired_quote%1 | %paired_quote%2]	exec2:	executed: /usr/bin/sort
-[%paired_quote%1 | %paired_quote%2]	pipe_exec2 returned: 1193
-[%paired_quote%1 | %paired_quote%2]	free item: '%paired_quote%1' (0x7fffd29a0750)
-[%paired_quote%1 | %paired_quote%2]	free item: '%paired_quote%2' (0x7fffd29a2960)
-[%paired_quote%1 | %paired_quote%2]	waiting %paired_quote%1 | %paired_quote%2 to finish
-[%paired_quote%1 | %paired_quote%2]	wait 1193 to stop
-            [/usr/bin/sort]	close_g_fd_to_close            [/usr/bin/sort]	close(25)
-            [/usr/bin/sort]	fork_and_exec:	about to launch /usr/bin/sort
-            [/usr/bin/sort]	exec(/usr/bin/sort)
-[%paired_quote%1 | %paired_quote%2]	waitpid(1193) returned
-[%paired_quote%1 | %paired_quote%2]	%paired_quote%1 | %paired_quote%2 finished
-[%paired_quote%1 | %paired_quote%2]	command processed: '"setenv" | "sort"'
-[%paired_quote%1 | %paired_quote%2]	-------------------------
-[%paired_quote%1 | %paired_quote%2]	
-[%paired_quote%1 | %paired_quote%2]	
-[%paired_quote%1 | %paired_quote%2]	-----------------------
-[%paired_quote%1 | %paired_quote%2]	process command: '"setenv" | "sort"'
-[%paired_quote%1 | %paired_quote%2]	quote replaced: 'setenv' -> '%paired_quote%1'
-[%paired_quote%1 | %paired_quote%2]	dic_add:	kvp->key = '%paired_quote%2', &kvp->key = 0x7fffd29a0730, kvp = 0x7fffd29a0750
-[%paired_quote%1 | %paired_quote%2]	quote replaced: 'sort' -> '%paired_quote%2'
-[%paired_quote%1 | %paired_quote%2]	quotes replaced: '%paired_quote%1 | %paired_quote%2'
-[%paired_quote%1 | %paired_quote%2]	trimmed = %paired_quote%1 | %paired_quote%2
-[%paired_quote%1 | %paired_quote%2]	no comments = %paired_quote%1 | %paired_quote%2
-[%paired_quote%1 | %paired_quote%2]	cmd: '%paired_quote%1 | %paired_quote%2'
-[%paired_quote%1 | %paired_quote%2]	pipe_parse(%paired_quote%1 | %paired_quote%2)
-[%paired_quote%1 | %paired_quote%2]	cmd[0] = '%paired_quote%1 '
-[%paired_quote%1 | %paired_quote%2]	new pipe: r=26, w=27
-[%paired_quote%1 | %paired_quote%2]	exec 0 > %paired_quote%1 > 27
-[%paired_quote%1 | %paired_quote%2]	restore stdin
-[%paired_quote%1 | %paired_quote%2]	redirect: 0->23
-[%paired_quote%1 | %paired_quote%2]	restore stdout
-[%paired_quote%1 | %paired_quote%2]	redirect: 1->24
-[%paired_quote%1 | %paired_quote%2]	redirect: 0->0
-[%paired_quote%1 | %paired_quote%2]	redirect: 1->27
-[%paired_quote%1 | %paired_quote%2]	replace %paired_quote%1 -> setenv
-[%paired_quote%1 | %paired_quote%2]	after replace
-'setenv'	
-[%paired_quote%1 | %paired_quote%2]	close(27)
-[%paired_quote%1 | %paired_quote%2]	exec 26 > %paired_quote%2 > 1
-[%paired_quote%1 | %paired_quote%2]	restore stdin
-[%paired_quote%1 | %paired_quote%2]	redirect: 0->23
-[%paired_quote%1 | %paired_quote%2]	restore stdout
-[%paired_quote%1 | %paired_quote%2]	redirect: 1->24
-[%paired_quote%1 | %paired_quote%2]	redirect: 0->26
-[%paired_quote%1 | %paired_quote%2]	redirect: 1->1
-[%paired_quote%1 | %paired_quote%2]	replace %paired_quote%2 -> sort
-[%paired_quote%1 | %paired_quote%2]	after replace
-'sort'	
-[%paired_quote%1 | %paired_quote%2]	fork
-[%paired_quote%1 | %paired_quote%2]	fork_and_exec:	/usr/bin/sort = 1194 launched
-[%paired_quote%1 | %paired_quote%2]	exec2:	executed: /usr/bin/sort
-[%paired_quote%1 | %paired_quote%2]	pipe_exec2 returned: 1194
-[%paired_quote%1 | %paired_quote%2]	free item: '%paired_quote%1' (0x7fffd29a0710)
-[%paired_quote%1 | %paired_quote%2]	free item: '%paired_quote%2' (0x7fffd29a0610)
-[%paired_quote%1 | %paired_quote%2]	waiting %paired_quote%1 | %paired_quote%2 to finish
-[%paired_quote%1 | %paired_quote%2]	wait 1194 to stop
-             [/usr/bin/sort]	close_g_fd_to_close             [/usr/bin/sort]	close(26)
-             [/usr/bin/sort]	fork_and_exec:	about to launch /usr/bin/sort
-             [/usr/bin/sort]	exec(/usr/bin/sort)
-[%paired_quote%1 | %paired_quote%2]	waitpid(1194) returned
-[%paired_quote%1 | %paired_quote%2]	%paired_quote%1 | %paired_quote%2 finished
-[%paired_quote%1 | %paired_quote%2]	command processed: '"setenv" | "sort"'
-[%paired_quote%1 | %paired_quote%2]	-------------------------
-[%paired_quote%1 | %paired_quote%2]	
-[%paired_quote%1 | %paired_quote%2]	
-[%paired_quote%1 | %paired_quote%2]	-----------------------
-[%paired_quote%1 | %paired_quote%2]	process command: 'ls | sort'
-[%paired_quote%1 | %paired_quote%2]	quotes replaced: 'ls | sort'
-[%paired_quote%1 | %paired_quote%2]	trimmed = ls | sort
-[%paired_quote%1 | %paired_quote%2]	no comments = ls | sort
-[%paired_quote%1 | %paired_quote%2]	cmd: 'ls | sort'
-[%paired_quote%1 | %paired_quote%2]	pipe_parse(ls | sort)
-[%paired_quote%1 | %paired_quote%2]	cmd[0] = 'ls '
-[ls | sort]	new pipe: r=27, w=28
-[ls | sort]	exec 0 > ls > 28
-[ls | sort]	restore stdin
-[ls | sort]	redirect: 0->23
-[ls | sort]	restore stdout
-[ls | sort]	redirect: 1->24
-[ls | sort]	redirect: 0->0
-[ls | sort]	redirect: 1->28
-[ls | sort]	after replace
-'ls'	
-[ls | sort]	fork
-[ls | sort]	fork_and_exec:	/bin/ls = 1195 launched
-[ls | sort]	exec2:	executed: /bin/ls
-[ls | sort]	close(28)
-[ls | sort]	exec 27 > sort > 1
-[ls | sort]	restore stdin
-[ls | sort]	redirect: 0->23
-[ls | sort]	restore stdout
-[ls | sort]	redirect: 1->24
-[ls | sort]	redirect: 0->27
-[ls | sort]	redirect: 1->1
-[ls | sort]	after replace
-              [/bin/ls]	close_g_fd_to_close              [/bin/ls]	close(27)
-              [/bin/ls]	fork_and_exec:	about to launch /bin/ls
-              [/bin/ls]	exec(/bin/ls)
-'sort'	
-[ls | sort]	fork
-[ls | sort]	fork_and_exec:	/usr/bin/sort = 1196 launched
-[ls | sort]	exec2:	executed: /usr/bin/sort
-[ls | sort]	pipe_exec2 returned: 1196
-[ls | sort]	free item: 'ls' (0x7fffd29a29c0)
-[ls | sort]	free item: 'sort' (0x7fffd29a29a0)
-[ls | sort]	waiting ls | sort to finish
-[ls | sort]	wait 1196 to stop
-               [/usr/bin/sort]	close_g_fd_to_close               [/usr/bin/sort]	close(27)
-               [/usr/bin/sort]	fork_and_exec:	about to launch /usr/bin/sort
-               [/usr/bin/sort]	exec(/usr/bin/sort)
-[ls | sort]	waitpid(1196) returned
-[ls | sort]	ls | sort finished
-[ls | sort]	command processed: 'ls | sort'
-[ls | sort]	-------------------------
-[ls | sort]	
-[ls | sort]	
-[ls | sort]	-----------------------
-[ls | sort]	process command: 'ls | cat -e'
-[ls | sort]	quotes replaced: 'ls | cat -e'
-[ls | sort]	trimmed = ls | cat -e
-[ls | sort]	no comments = ls | cat -e
-[ls | sort]	cmd: 'ls | cat -e'
-[ls | sort]	pipe_parse(ls | cat -e)
-[ls | sort]	cmd[0] = 'ls '
-[ls | cat -e]	new pipe: r=28, w=29
-[ls | cat -e]	exec 0 > ls > 29
-[ls | cat -e]	restore stdin
-[ls | cat -e]	redirect: 0->23
-[ls | cat -e]	restore stdout
-[ls | cat -e]	redirect: 1->24
-[ls | cat -e]	redirect: 0->0
-[ls | cat -e]	redirect: 1->29
-[ls | cat -e]	after replace
-'ls'	
-[ls | cat -e]	fork
-[ls | cat -e]	fork_and_exec:	/bin/ls = 1197 launched
-[ls | cat -e]	exec2:	executed: /bin/ls
-[ls | cat -e]	close(29)
-[ls | cat -e]	exec 28 > cat -e > 1
-[ls | cat -e]	restore stdin
-[ls | cat -e]	redirect: 0->23
-[ls | cat -e]	restore stdout
-[ls | cat -e]	redirect: 1->24
-[ls | cat -e]	redirect: 0->28
-[ls | cat -e]	redirect: 1->1
-[ls | cat -e]	after replace
-                [/bin/ls]	close_g_fd_to_close                [/bin/ls]	close(28)
-                [/bin/ls]	fork_and_exec:	about to launch /bin/ls
-                [/bin/ls]	exec(/bin/ls)
-'cat'	'-e'	
-[ls | cat -e]	fork
-[ls | cat -e]	fork_and_exec:	/bin/cat = 1198 launched
-[ls | cat -e]	exec2:	executed: /bin/cat
-[ls | cat -e]	pipe_exec2 returned: 1198
-[ls | cat -e]	free item: 'ls' (0x7fffd29a2940)
-[ls | cat -e]	free item: 'cat -e' (0x7fffd29a28c0)
-[ls | cat -e]	waiting ls | cat -e to finish
-[ls | cat -e]	wait 1198 to stop
-                 [/bin/cat]	close_g_fd_to_close                 [/bin/cat]	close(28)
-                 [/bin/cat]	fork_and_exec:	about to launch /bin/cat
-                 [/bin/cat]	exec(/bin/cat)
-[ls | cat -e]	waitpid(1198) returned
-[ls | cat -e]	ls | cat -e finished
-[ls | cat -e]	command processed: 'ls | cat -e'
-[ls | cat -e]	-------------------------
-[ls | cat -e]	
-[ls | cat -e]	
-[ls | cat -e]	-----------------------
-[ls | cat -e]	process command: 'ls | sort | cat -e'
-[ls | cat -e]	quotes replaced: 'ls | sort | cat -e'
-[ls | cat -e]	trimmed = ls | sort | cat -e
-[ls | cat -e]	no comments = ls | sort | cat -e
-[ls | cat -e]	cmd: 'ls | sort | cat -e'
-[ls | cat -e]	pipe_parse(ls | sort | cat -e)
-[ls | cat -e]	cmd[0] = 'ls '
-[ls | sort | cat -e]	new pipe: r=29, w=30
-[ls | sort | cat -e]	exec 0 > ls > 30
-[ls | sort | cat -e]	restore stdin
-[ls | sort | cat -e]	redirect: 0->23
-[ls | sort | cat -e]	restore stdout
-[ls | sort | cat -e]	redirect: 1->24
-[ls | sort | cat -e]	redirect: 0->0
-[ls | sort | cat -e]	redirect: 1->30
-[ls | sort | cat -e]	after replace
-'ls'	
-[ls | sort | cat -e]	fork
-[ls | sort | cat -e]	fork_and_exec:	/bin/ls = 1199 launched
-[ls | sort | cat -e]	exec2:	executed: /bin/ls
-[ls | sort | cat -e]	close(30)
-[ls | sort | cat -e]	new pipe: r=30, w=31
-[ls | sort | cat -e]	exec 29 > sort > 31
-[ls | sort | cat -e]	restore stdin
-[ls | sort | cat -e]	redirect: 0->23
-[ls | sort | cat -e]	restore stdout
-[ls | sort | cat -e]	redirect: 1->24
-                  [/bin/ls]	close_g_fd_to_close[ls | sort | cat -e]	redirect: 0->29
-                  [/bin/ls]	close(29)
-[ls | sort | cat -e]	redirect: 1->31
-                  [/bin/ls]	fork_and_exec:	about to launch /bin/ls
-[ls | sort | cat -e]	after replace
-                  [/bin/ls]	exec(/bin/ls)
-'sort'	
-[ls | sort | cat -e]	fork
-[ls | sort | cat -e]	fork_and_exec:	/usr/bin/sort = 1200 launched
-[ls | sort | cat -e]	exec2:	executed: /usr/bin/sort
-[ls | sort | cat -e]	close(31)
-[ls | sort | cat -e]	exec 30 > cat -e > 1
-[ls | sort | cat -e]	restore stdin
-[ls | sort | cat -e]	redirect: 0->23
-[ls | sort | cat -e]	restore stdout
-[ls | sort | cat -e]	redirect: 1->24
-[ls | sort | cat -e]	redirect: 0->30
-[ls | sort | cat -e]	redirect: 1->1
-                   [/usr/bin/sort]	close_g_fd_to_close[ls | sort | cat -e]	after replace
-                   [/usr/bin/sort]	close(30)
-                   [/usr/bin/sort]	fork_and_exec:	about to launch /usr/bin/sort
-                   [/usr/bin/sort]	exec(/usr/bin/sort)
-'cat'	'-e'	
-[ls | sort | cat -e]	fork
-[ls | sort | cat -e]	fork_and_exec:	/bin/cat = 1201 launched
-[ls | sort | cat -e]	exec2:	executed: /bin/cat
-[ls | sort | cat -e]	pipe_exec2 returned: 1201
-[ls | sort | cat -e]	free item: 'ls' (0x7fffd29a06f0)
-[ls | sort | cat -e]	free item: 'sort' (0x7fffd29a29c0)
-[ls | sort | cat -e]	free item: 'cat -e' (0x7fffd29a29e0)
-[ls | sort | cat -e]	waiting ls | sort | cat -e to finish
-                    [/bin/cat]	close_g_fd_to_close[ls | sort | cat -e]	wait 1201 to stop
-                    [/bin/cat]	close(30)
-                    [/bin/cat]	fork_and_exec:	about to launch /bin/cat
-                    [/bin/cat]	exec(/bin/cat)
-[ls | sort | cat -e]	waitpid(1201) returned
-[ls | sort | cat -e]	ls | sort | cat -e finished
-[ls | sort | cat -e]	command processed: 'ls | sort | cat -e'
-[ls | sort | cat -e]	-------------------------
-[ls | sort | cat -e]	
-[ls | sort | cat -e]	
-[ls | sort | cat -e]	-----------------------
-[ls | sort | cat -e]	process command: 'ls | cat -e | sort'
-[ls | sort | cat -e]	quotes replaced: 'ls | cat -e | sort'
-[ls | sort | cat -e]	trimmed = ls | cat -e | sort
-[ls | sort | cat -e]	no comments = ls | cat -e | sort
-[ls | sort | cat -e]	cmd: 'ls | cat -e | sort'
-[ls | sort | cat -e]	pipe_parse(ls | cat -e | sort)
-[ls | sort | cat -e]	cmd[0] = 'ls '
-[ls | cat -e | sort]	new pipe: r=31, w=32
-[ls | cat -e | sort]	exec 0 > ls > 32
-[ls | cat -e | sort]	restore stdin
-[ls | cat -e | sort]	redirect: 0->23
-[ls | cat -e | sort]	restore stdout
-[ls | cat -e | sort]	redirect: 1->24
-[ls | cat -e | sort]	redirect: 0->0
-[ls | cat -e | sort]	redirect: 1->32
-[ls | cat -e | sort]	after replace
-'ls'	
-[ls | cat -e | sort]	fork
-[ls | cat -e | sort]	fork_and_exec:	/bin/ls = 1202 launched
-[ls | cat -e | sort]	exec2:	executed: /bin/ls
-[ls | cat -e | sort]	close(32)
-[ls | cat -e | sort]	new pipe: r=32, w=33
-[ls | cat -e | sort]	exec 31 > cat -e > 33
-[ls | cat -e | sort]	restore stdin
-[ls | cat -e | sort]	redirect: 0->23
-[ls | cat -e | sort]	restore stdout
-[ls | cat -e | sort]	redirect: 1->24
-[ls | cat -e | sort]	redirect: 0->31
-[ls | cat -e | sort]	redirect: 1->33
-                     [/bin/ls]	close_g_fd_to_close[ls | cat -e | sort]	after replace
-                     [/bin/ls]	close(31)
-                     [/bin/ls]	fork_and_exec:	about to launch /bin/ls
-                     [/bin/ls]	exec(/bin/ls)
-'cat'	'-e'	
-[ls | cat -e | sort]	fork
-[ls | cat -e | sort]	fork_and_exec:	/bin/cat = 1203 launched
-[ls | cat -e | sort]	exec2:	executed: /bin/cat
-[ls | cat -e | sort]	close(33)
-[ls | cat -e | sort]	exec 32 > sort > 1
-[ls | cat -e | sort]	restore stdin
-[ls | cat -e | sort]	redirect: 0->23
-[ls | cat -e | sort]	restore stdout
-[ls | cat -e | sort]	redirect: 1->24
-                      [/bin/cat]	close_g_fd_to_close[ls | cat -e | sort]	redirect: 0->32
-[ls | cat -e | sort]	redirect: 1->1
-                      [/bin/cat]	close(32)
-[ls | cat -e | sort]	after replace
-                      [/bin/cat]	fork_and_exec:	about to launch /bin/cat
-                      [/bin/cat]	exec(/bin/cat)
-'sort'	
-[ls | cat -e | sort]	fork
-[ls | cat -e | sort]	fork_and_exec:	/usr/bin/sort = 1204 launched
-[ls | cat -e | sort]	exec2:	executed: /usr/bin/sort
-[ls | cat -e | sort]	pipe_exec2 returned: 1204
-[ls | cat -e | sort]	free item: 'ls' (0x7fffd29a2a60)
-[ls | cat -e | sort]	free item: 'cat -e' (0x7fffd29a29e0)
-[ls | cat -e | sort]	free item: 'sort' (0x7fffd29a28c0)
-[ls | cat -e | sort]	waiting ls | cat -e | sort to finish
-[ls | cat -e | sort]	wait 1204 to stop
-                       [/usr/bin/sort]	close_g_fd_to_close                       [/usr/bin/sort]	close(32)
-                       [/usr/bin/sort]	fork_and_exec:	about to launch /usr/bin/sort
-                       [/usr/bin/sort]	exec(/usr/bin/sort)
-[ls | cat -e | sort]	waitpid(1204) returned
-[ls | cat -e | sort]	ls | cat -e | sort finished
-[ls | cat -e | sort]	command processed: 'ls | cat -e | sort'
-[ls | cat -e | sort]	-------------------------
-[ls | cat -e | sort]	
-[ls | cat -e | sort]	
-[ls | cat -e | sort]	-----------------------
-[ls | cat -e | sort]	process command: 'setenv | sort'
-[ls | cat -e | sort]	quotes replaced: 'setenv | sort'
-[ls | cat -e | sort]	trimmed = setenv | sort
-[ls | cat -e | sort]	no comments = setenv | sort
-[ls | cat -e | sort]	cmd: 'setenv | sort'
-[ls | cat -e | sort]	pipe_parse(setenv | sort)
-[ls | cat -e | sort]	cmd[0] = 'setenv '
-[setenv | sort]	new pipe: r=33, w=34
-[setenv | sort]	exec 0 > setenv > 34
-[setenv | sort]	restore stdin
-[setenv | sort]	redirect: 0->23
-[setenv | sort]	restore stdout
-[setenv | sort]	redirect: 1->24
-[setenv | sort]	redirect: 0->0
-[setenv | sort]	redirect: 1->34
-[setenv | sort]	after replace
-'setenv'	
-[setenv | sort]	close(34)
-[setenv | sort]	exec 33 > sort > 1
-[setenv | sort]	restore stdin
-[setenv | sort]	redirect: 0->23
-[setenv | sort]	restore stdout
-[setenv | sort]	redirect: 1->24
-[setenv | sort]	redirect: 0->33
-[setenv | sort]	redirect: 1->1
-[setenv | sort]	after replace
-'sort'	
-[setenv | sort]	fork
-[setenv | sort]	fork_and_exec:	/usr/bin/sort = 1205 launched
-[setenv | sort]	exec2:	executed: /usr/bin/sort
-[setenv | sort]	pipe_exec2 returned: 1205
-[setenv | sort]	free item: 'setenv' (0x7fffd29a2ac0)
-[setenv | sort]	free item: 'sort' (0x7fffd29a0730)
-[setenv | sort]	waiting setenv | sort to finish
-[setenv | sort]	wait 1205 to stop
-                        [/usr/bin/sort]	close_g_fd_to_close                        [/usr/bin/sort]	close(33)
-                        [/usr/bin/sort]	fork_and_exec:	about to launch /usr/bin/sort
-                        [/usr/bin/sort]	exec(/usr/bin/sort)
-[setenv | sort]	waitpid(1205) returned
-[setenv | sort]	setenv | sort finished
-[setenv | sort]	command processed: 'setenv | sort'
-[setenv | sort]	-------------------------
-[setenv | sort]	
-[setenv | sort]	
-[setenv | sort]	-----------------------
-[setenv | sort]	process command: 'base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e "s/1/Yes/g" -e "s/0/No/g"'
-[setenv | sort]	quote replaced: 's/1/Yes/g' -> '%paired_quote%1'
-[setenv | sort]	dic_add:	kvp->key = '%paired_quote%2', &kvp->key = 0x7fffd29a2aa0, kvp = 0x7fffd29a2a60
-[setenv | sort]	quote replaced: 's/0/No/g' -> '%paired_quote%2'
-[setenv | sort]	quotes replaced: 'base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2'
-[setenv | sort]	trimmed = base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2
-[setenv | sort]	no comments = base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2
-[setenv | sort]	cmd: 'base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2'
-[setenv | sort]	pipe_parse(base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2)
-[setenv | sort]	cmd[0] = 'base64 /dev/urandom '
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	new pipe: r=34, w=35
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec 0 > base64 /dev/urandom > 35
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdin
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->23
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdout
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->24
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->0
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->35
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	after replace
-'base64'	'/dev/urandom'	
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork_and_exec:	/usr/bin/base64 = 1206 launched
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec2:	executed: /usr/bin/base64
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	close(35)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	new pipe: r=35, w=36
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec 34 > head -c100 > 36
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdin
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->23
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdout
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->24
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->34
-                         [/usr/bin/base64]	close_g_fd_to_close[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->36
-                         [/usr/bin/base64]	close(34)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	after replace
-                         [/usr/bin/base64]	fork_and_exec:	about to launch /usr/bin/base64
-                         [/usr/bin/base64]	exec(/usr/bin/base64)
-'head'	'-c100'	
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork_and_exec:	/usr/bin/head = 1207 launched
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec2:	executed: /usr/bin/head
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	close(36)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	new pipe: r=36, w=37
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec 35 > grep 42 > 37
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdin
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->23
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdout
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->24
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->35
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->37
-                          [/usr/bin/head]	close_g_fd_to_close[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	after replace
-                          [/usr/bin/head]	close(35)
-                          [/usr/bin/head]	fork_and_exec:	about to launch /usr/bin/head
-                          [/usr/bin/head]	exec(/usr/bin/head)
-'grep'	'42'	
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork_and_exec:	/bin/grep = 1208 launched
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec2:	executed: /bin/grep
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	close(37)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	new pipe: r=37, w=38
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec 36 > wc -l > 38
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdin
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->23
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdout
-                           [/bin/grep]	close_g_fd_to_close[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->24
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->36
-                           [/bin/grep]	close(36)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->38
-                           [/bin/grep]	fork_and_exec:	about to launch /bin/grep
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	after replace
-                           [/bin/grep]	exec(/bin/grep)
-'wc'	'-l'	
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork_and_exec:	/usr/bin/wc = 1209 launched
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec2:	executed: /usr/bin/wc
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	close(38)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec 37 > sed -e %paired_quote%1 -e %paired_quote%2 > 1
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdin
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->23
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	restore stdout
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->24
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 0->37
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	redirect: 1->1
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	replace %paired_quote%1 -> s/1/Yes/g
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	replace %paired_quote%2 -> s/0/No/g
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	after replace
-                            [/usr/bin/wc]	close_g_fd_to_close                            [/usr/bin/wc]	close(37)
-                            [/usr/bin/wc]	fork_and_exec:	about to launch /usr/bin/wc
-                            [/usr/bin/wc]	exec(/usr/bin/wc)
-'sed'	'-e'	's/1/Yes/g'	'-e'	's/0/No/g'	
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	fork_and_exec:	/bin/sed = 1210 launched
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	exec2:	executed: /bin/sed
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	pipe_exec2 returned: 1210
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	free item: 'base64 /dev/urandom' (0x7fffd29a29e0)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	free item: 'head -c100' (0x7fffd29a2ca0)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	free item: 'grep 42' (0x7fffd29a2ce0)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	free item: 'wc -l' (0x7fffd29a2d20)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	free item: 'sed -e %paired_quote%1 -e %paired_quote%2' (0x7fffd29a04d0)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	waiting base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2 to finish
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	wait 1210 to stop
-                             [/bin/sed]	close_g_fd_to_close                             [/bin/sed]	close(37)
-                             [/bin/sed]	fork_and_exec:	about to launch /bin/sed
-                             [/bin/sed]	exec(/bin/sed)
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	waitpid(1210) returned
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2 finished
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	command processed: 'base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e "s/1/Yes/g" -e "s/0/No/g"'
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	-------------------------
-[base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2]	
-[test]	testing env
-[test]	duplicated stdin to 39
-[test]	duplicated stdout to 40
-[test]	
-[test]	-----------------------
-[test]	process command: 'setenv q w'
-[test]	quotes replaced: 'setenv q w'
-[test]	trimmed = setenv q w
-[test]	no comments = setenv q w
-[test]	cmd: 'setenv q w'
-[test]	pipe_parse(setenv q w)
-[test]	cmd[0] = 'setenv q w'
-[setenv q w]	exec 0 > setenv q w > 1
-[setenv q w]	restore stdin
-[setenv q w]	redirect: 0->39
-[setenv q w]	restore stdout
-[setenv q w]	redirect: 1->40
-[setenv q w]	redirect: 0->0
-[setenv q w]	redirect: 1->1
-[setenv q w]	after replace
-'setenv'	'q'	'w'	
-[setenv q w]	pipe_exec2 returned: 0
-[setenv q w]	free item: 'setenv q w' (0x7fffd29a2f40)
-[setenv q w]	command processed: 'setenv q w'
-[setenv q w]	-------------------------
-[setenv q w]	
-[setenv q w]	
-[setenv q w]	-----------------------
-[setenv q w]	process command: 'echo $q'
-[setenv q w]	quotes replaced: 'echo $q'
-[setenv q w]	trimmed = echo $q
-[setenv q w]	no comments = echo $q
-[setenv q w]	cmd: 'echo $q'
-[setenv q w]	pipe_parse(echo $q)
-[setenv q w]	cmd[0] = 'echo $q'
-[echo $q]	exec 0 > echo $q > 1
-[echo $q]	restore stdin
-[echo $q]	redirect: 0->39
-[echo $q]	restore stdout
-[echo $q]	redirect: 1->40
-[echo $q]	redirect: 0->0
-[echo $q]	redirect: 1->1
-[echo $q]	after replace
-'echo'	'w'	
-[echo $q]	fork
-[echo $q]	fork_and_exec:	/bin/echo = 1211 launched
-[echo $q]	exec2:	executed: /bin/echo
-[echo $q]	pipe_exec2 returned: 1211
-[echo $q]	free item: 'echo $q' (0x7fffd29a29c0)
-[echo $q]	waiting echo $q to finish
-[echo $q]	wait 1211 to stop
-                              [/bin/echo]	close_g_fd_to_close                              [/bin/echo]	close(37)
-                              [/bin/echo]	fork_and_exec:	about to launch /bin/echo
-                              [/bin/echo]	exec(/bin/echo)
-[echo $q]	waitpid(1211) returned
-[echo $q]	echo $q finished
-[echo $q]	command processed: 'echo $q'
-[echo $q]	-------------------------
-[echo $q]	
-[echo $q]	
-[echo $q]	-----------------------
-[echo $q]	process command: 'unsetenv q'
-[echo $q]	quotes replaced: 'unsetenv q'
-[echo $q]	trimmed = unsetenv q
-[echo $q]	no comments = unsetenv q
-[echo $q]	cmd: 'unsetenv q'
-[echo $q]	pipe_parse(unsetenv q)
-[echo $q]	cmd[0] = 'unsetenv q'
-[unsetenv q]	exec 0 > unsetenv q > 1
-[unsetenv q]	restore stdin
-[unsetenv q]	redirect: 0->39
-[unsetenv q]	restore stdout
-[unsetenv q]	redirect: 1->40
-[unsetenv q]	redirect: 0->0
-[unsetenv q]	redirect: 1->1
-[unsetenv q]	after replace
-'unsetenv'	'q'	
-[unsetenv q]	pipe_exec2 returned: 0
-[unsetenv q]	free item: 'unsetenv q' (0x7fffd29a2cc0)
-[unsetenv q]	command processed: 'unsetenv q'
-[unsetenv q]	-------------------------
-[unsetenv q]	
-[unsetenv q]	
-[unsetenv q]	-----------------------
-[unsetenv q]	process command: 'echo $q'
-[unsetenv q]	quotes replaced: 'echo $q'
-[unsetenv q]	trimmed = echo $q
-[unsetenv q]	no comments = echo $q
-[unsetenv q]	cmd: 'echo $q'
-[unsetenv q]	pipe_parse(echo $q)
-[unsetenv q]	cmd[0] = 'echo $q'
-[echo $q]	exec 0 > echo $q > 1
-[echo $q]	restore stdin
-[echo $q]	redirect: 0->39
-[echo $q]	restore stdout
-[echo $q]	redirect: 1->40
-[echo $q]	redirect: 0->0
-[echo $q]	redirect: 1->1
-[echo $q]	after replace
-'echo'	
-[echo $q]	fork
-[echo $q]	fork_and_exec:	/bin/echo = 1212 launched
-[echo $q]	exec2:	executed: /bin/echo
-[echo $q]	pipe_exec2 returned: 1212
-[echo $q]	free item: 'echo $q' (0x7fffd29a2c80)
-[echo $q]	waiting echo $q to finish
-[echo $q]	wait 1212 to stop
-                               [/bin/echo]	close_g_fd_to_close                               [/bin/echo]	close(37)
-                               [/bin/echo]	fork_and_exec:	about to launch /bin/echo
-                               [/bin/echo]	exec(/bin/echo)
-[echo $q]	waitpid(1212) returned
-[echo $q]	echo $q finished
-[echo $q]	command processed: 'echo $q'
-[echo $q]	-------------------------
-[echo $q]	
-[test]	env finished
-[test]	close(1)
-[test]	testing ls
-[test]	duplicated stdin to 42
-[test]	duplicated stdout to 43
-[test]	
-[test]	-----------------------
-[test]	process command: 'ls'
-[test]	quotes replaced: 'ls'
-[test]	trimmed = ls
-[test]	no comments = ls
-[test]	cmd: 'ls'
-[test]	pipe_parse(ls)
-[test]	cmd[0] = 'ls'
-[ls]	exec 0 > ls > 1
-[ls]	restore stdin
-[ls]	redirect: 0->42
-[ls]	restore stdout
-[ls]	redirect: 1->43
-[ls]	redirect: 0->0
-[ls]	redirect: 1->1
-[ls]	after replace
-'ls'	
-[ls]	fork
-[ls]	fork_and_exec:	/bin/ls = 1213 launched
-[ls]	exec2:	executed: /bin/ls
-[ls]	pipe_exec2 returned: 1213
-[ls]	free item: 'ls' (0x7fffd29a29c0)
-[ls]	waiting ls to finish
-[ls]	wait 1213 to stop
-                                [/bin/ls]	close_g_fd_to_close                                [/bin/ls]	close(37)
-                                [/bin/ls]	fork_and_exec:	about to launch /bin/ls
-                                [/bin/ls]	exec(/bin/ls)
-[ls]	waitpid(1213) returned
-[ls]	ls finished
-[ls]	command processed: 'ls'
-[ls]	-------------------------
-[ls]	
-[test]	ls finished
-[test]	close(1)
+[main]	
+[main]	entered:	49 ('1'), control = ''
+[main]	g_x: 0, g_buf_len = 0, g_buffer = ''
+[main]	dst = '1', n = 0, dst + n = '1', len = 0, right = ''
+[main]	gx = 1
+[main]	g_x: 1, g_buf_len = 1, g_buffer = '1'
+[main]	<
+[main]	
+[main]	entered:	10 ('
+'), control = ''
+[main]	r = 1
+[main]	
+[main]	-----------------------
+[main]	process command: '1'
+[main]	quotes replaced: '1'
+[main]	trimmed = 1
+[main]	no comments = 1
+[main]	cmd: '1'
+[main]	pipe_parse(1)
+[main]	cmd[0] = '1'
+[1]	exec 0 > 1 > 1
+[1]	restore stdin
+[1]	redirect: 0->4
+[1]	restore stdout
+[1]	redirect: 1->5
+[1]	redirect: 0->0
+[1]	redirect: 1->1
+[1]	after replace
+'1'	
+[1]	1: command found but has no exec rigths
+[1]	pipe_exec2 returned: -1275259377
+[1]	free item: '1' (0x7ffb07402650)
+[1]	command processed: '1'
+[1]	-------------------------
+[1]	
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	65 ('A'), control = '['
+[1]	g_x: 0, g_buf_len = 0, g_buffer = ''
+[1]	g_x: 1, g_buf_len = 1, g_buffer = '1'
+[1]	<
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	65 ('A'), control = '['
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	65 ('A'), control = '['
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	65 ('A'), control = '['
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	65 ('A'), control = '['
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	65 ('A'), control = '['
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	66 ('B'), control = '['
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	66 ('B'), control = '['
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	66 ('B'), control = '['
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	65 ('A'), control = '['
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	66 ('B'), control = '['
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	65 ('A'), control = '['
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	66 ('B'), control = '['
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	65 ('A'), control = '['
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	66 ('B'), control = '['
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	65 ('A'), control = '['
+[1]	
+[1]	entered:	27 (''), control = ''
+[1]	
+[1]	entered:	91 ('['), control = ''
+[1]	
+[1]	entered:	66 ('B'), control = '['
+[1]	
+[1]	entered:	127 (''), control = ''
+[1]	g_x: 1, g_buf_len = 1, g_buffer = '1'
+[1]	<
+[1]	_
+[1]	<
+[1]	gx = 0
+[1]	g_x: 0, g_buf_len = 0, g_buffer = ''
+[1]	
+[1]	entered:	101 ('e'), control = ''
+[1]	g_x: 0, g_buf_len = 0, g_buffer = ''
+[1]	dst = 'e', n = 0, dst + n = 'e', len = 0, right = ''
+[1]	gx = 1
+[1]	g_x: 1, g_buf_len = 1, g_buffer = 'e'
+[1]	<
+[1]	
+[1]	entered:	120 ('x'), control = ''
+[1]	g_x: 1, g_buf_len = 1, g_buffer = 'e'
+[1]	<
+[1]	_
+[1]	<
+[1]	dst = 'ex', n = 1, dst + n = 'x', len = 1, right = ''
+[1]	gx = 2
+[1]	g_x: 2, g_buf_len = 2, g_buffer = 'ex'
+[1]	<
+[1]	<
+[1]	
+[1]	entered:	105 ('i'), control = ''
+[1]	g_x: 2, g_buf_len = 2, g_buffer = 'ex'
+[1]	<
+[1]	<
+[1]	_
+[1]	_
+[1]	<
+[1]	<
+[1]	dst = 'exi', n = 2, dst + n = 'i', len = 2, right = ''
+[1]	gx = 3
+[1]	g_x: 3, g_buf_len = 3, g_buffer = 'exi'
+[1]	<
+[1]	<
+[1]	<
+[1]	
+[1]	entered:	116 ('t'), control = ''
+[1]	g_x: 3, g_buf_len = 3, g_buffer = 'exi'
+[1]	<
+[1]	<
+[1]	<
+[1]	_
+[1]	_
+[1]	_
+[1]	<
+[1]	<
+[1]	<
+[1]	dst = 'exit', n = 3, dst + n = 't', len = 3, right = ''
+[1]	gx = 4
+[1]	g_x: 4, g_buf_len = 4, g_buffer = 'exit'
+[1]	<
+[1]	<
+[1]	<
+[1]	<
+[1]	
+[1]	entered:	10 ('
+'), control = ''
+[1]	r = 1
+[1]	
+[1]	-----------------------
+[1]	process command: 'exit'
+[1]	quotes replaced: 'exit'
+[1]	trimmed = exit
+[1]	no comments = exit
+[1]	cmd: 'exit'
+[1]	pipe_parse(exit)
+[1]	cmd[0] = 'exit'
+[exit]	exec 0 > exit > 1
+[exit]	restore stdin
+[exit]	redirect: 0->4
+[exit]	restore stdout
+[exit]	redirect: 1->5
+[exit]	redirect: 0->0
+[exit]	redirect: 1->1
+[exit]	after replace
+'exit'	
+[exit]	exit process (0)
+[exit]	free item: '1' (0x7ffb07400350)
+[exit]	free item: 'exit' (0x7ffb07600000)
