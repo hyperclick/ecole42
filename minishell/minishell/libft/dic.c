@@ -29,7 +29,8 @@ t_kvp* get_kvp(t_list* n)
 char** dic_get_keys(t_list* dic)
 {
 	char **start;
-	char** a = (char**) malloc(sizeof(char*) * dic_get_count(dic) + 1);
+	int count = dic_get_count(dic);
+	char** a = (char**) malloc(sizeof(char**) * (count + 1));
 	start = a;
 	while (dic != NULL)
 	{
@@ -37,7 +38,7 @@ char** dic_get_keys(t_list* dic)
 		dic = dic->next;
 		a++;
 	}
-	*a = NULL;
+	*a = (char*)NULL;
 	return (start);
 }
 

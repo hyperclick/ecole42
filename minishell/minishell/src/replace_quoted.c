@@ -100,7 +100,7 @@ void		replace_back_unused(char* a[])
 
 void		replace_back(char* a[])
 {
-	char ** keys = dic_get_keys(g_quoted_params);
+	char **keys = dic_get_keys(g_quoted_params);
 	char **keys_start = keys;
 	//debug_printf("replace back:\n");
 	//debug_print_dic(g_quoted_params);

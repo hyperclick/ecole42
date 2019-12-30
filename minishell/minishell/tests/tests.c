@@ -591,8 +591,12 @@ int main(int argc, char** argv, char** envp)
 	init(argc, argv, envp);
 
 	//process_command(" echo 1 | sed -e 's/1/Yes/g'");
-	//process_command("ls | head -c20");
+	//process_command("echo 1");
 	
+	
+	char **a = dic_get_keys(NULL);
+	ft_free_null_term_array((void**)a);
+	ft_exit(1);
 	//ft_exit(0);
 
 	//process_command("ls | sort");
@@ -607,7 +611,6 @@ int main(int argc, char** argv, char** envp)
 	//test(pwd2, "pwd2");
 	
 	test_pipe9();
-	
 	
 	test(test_set_env, "set_env");
 	test(path_is_used,"path_is_used");
