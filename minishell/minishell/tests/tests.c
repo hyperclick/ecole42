@@ -489,25 +489,23 @@ void test_set_env_e()
 
 	process_command("setenv q w");
 	process_command("echo ; echo q = $q");
-	return;
 	process_command("env");
-	process_command("unset q");
-	process_command("echo $q");
+	process_command("unsetenv q");
+	process_command("echo ; echo q = $q");
 	process_command("env");
 
 }
 
 void test_set_env_a()
 {
-	process_command("unsetenv q");
+	//process_command("unsetenv q");
 	process_command("\"setenv\"");
 	process_command("echo ; echo env finished");
 	process_command("setenv q w");
 	process_command("echo ; echo q = $q");
-	return;
 	process_command("env");
 	process_command("unsetenv q");
-	process_command("echo $q");
+	process_command("echo ; echo q = $q");
 	process_command("env");
 
 }
