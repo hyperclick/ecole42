@@ -47,19 +47,6 @@ void test_pipe_parse()
 	printf("pipe_parse: OK\n");
 
 }
-//
-//void test_pipe_exec()
-//{
-//	char str[] = "echo 1";
-//	const char **splitted = (const char**) ft_split3(str, " \t");
-//	debug_print_zt_array(splitted);
-//	char const **pipes[1];
-// pipes[0] = splitted;
-// pipes[1] = NULL;
-//	t_list* pipe = pipe_create(pipes);
-//	pipe_exec(pipe);
-//	pipe_free(&pipe);
-//}
 
 void history()
 {
@@ -185,7 +172,8 @@ void		cd_bad()
 void		cd_good_a()
 {
 	process_command("pwd");
-	//process_command("cd ~;pwd");
+	//process_command("cd ~");
+	//process_command("cd ~;#pwd");
 	//process_command("cd -");
 	//process_command("\"cd\"");
 	//process_command("pwd");
@@ -204,6 +192,7 @@ void		cd_good_a()
 void		cd_good_e()
 {
 	system("pwd");
+	//system("cd ~;pwd");
 }
 
 void		two_commands_good()
@@ -704,8 +693,6 @@ int main(int argc, char** argv, char** envp)
 		debug_set_pname("tests");
 		free(restore_ld_preload);
 	}
-	printf("2222\n");
-
 
 	printf("all tests passed\n");
 	ft_exit(0);
