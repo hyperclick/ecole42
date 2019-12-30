@@ -457,6 +457,11 @@ void test_lg()
 
 void test_set_env()
 {
+	
+	process_command("setenv VALGRIND_STARTUP_PWD_27363_XYZZY /Users/darugula/git/e57/minishell/minishell");
+	char *restore_underscore = ft_strjoin("setenv _ ", env_get_value("_"));
+	process_command("unsetenv _");
+	
 	process_command("\"setenv\"");
 	process_command("setenv q w");
 	process_command("echo $q");
@@ -464,6 +469,9 @@ void test_set_env()
 	process_command("unsetenv q");
 	process_command("echo $q");
 	process_command("/usr/bin/env");
+	
+	process_command(restore_underscore);
+	free(restore_underscore);
 }
 
 void	path_is_used()
@@ -593,10 +601,6 @@ int main(int argc, char** argv, char** envp)
 	//process_command(" echo 1 | sed -e 's/1/Yes/g'");
 	//process_command("echo 1");
 	
-	
-	char **a = dic_get_keys(NULL);
-	ft_free_null_term_array((void**)a);
-	ft_exit(1);
 	//ft_exit(0);
 
 	//process_command("ls | sort");
@@ -612,7 +616,6 @@ int main(int argc, char** argv, char** envp)
 	
 	test_pipe9();
 	
-	test(test_set_env, "set_env");
 	test(path_is_used,"path_is_used");
 	test(test_exec,"test_exec");
 	
@@ -645,7 +648,7 @@ int main(int argc, char** argv, char** envp)
 		//return 0;
 	//return 0;
 
-
+	test(test_set_env, "set_env");
 	printf("all tests passed\n");
 	ft_exit(0);
 	return (1);
