@@ -96,15 +96,11 @@ void		wait_child(pid_t pid)
 	debug_printf("wait %d to stop\n", pid);
 	if (waitpid(pid, &status, 0) > 0)
 	{
-		if (WIFEXITED(status) && !WEXITSTATUS(status))
-		{
-		}
+		if (WIFEXITED(status) && !WEXITSTATUS(status)){}
 		else if (WIFEXITED(status) && WEXITSTATUS(status))
 		{
 			if (WEXITSTATUS(status) == 127)
-			{
 				ft_e_putstr("execv failed\n");
-			}
 			else
 				debug_printf("program terminated normally,"
 					" but returned a non-zero status\n");
