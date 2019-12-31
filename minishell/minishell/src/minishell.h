@@ -24,7 +24,7 @@ void		ft_set_env(int argc, char *const argv[]);
 char		**fill_path_folders(void);
 
 BOOL		is_child(pid_t pid);
-BOOL		built_in_processed(char  *const args[], int count);
+BOOL		built_in_processed(char *const args[], int count);
 pid_t		exec2(const char *argv[]);
 
 pid_t		get_awaited_process(void);

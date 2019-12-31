@@ -34,6 +34,7 @@ void		cd(int argc, char *const argv[])
 {
 	static char old_work_dir[PATH_MAX] = "";
 	char folder[PATH_MAX];
+
 	if (argc > 1)
 	{
 		ft_e_putstr("-minishell: cd: too many arguments\n");
@@ -64,10 +65,7 @@ void		cd(int argc, char *const argv[])
 	}
 	char tmp[255];
 	debug_printf("new curdir = %s\n", getcwd(tmp, 200));
-	//ft_strcpy(old_work_dir, folder);
 }
-
-
 
 pid_t g_awaited_process = 0;
 pid_t get_awaited_process()

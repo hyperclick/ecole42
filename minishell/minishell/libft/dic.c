@@ -34,7 +34,7 @@ char		**dic_get_keys(t_list *dic)
 	char	**a;
 
 	count = dic_get_count(dic);
-	a = (char**)malloc(sizeof(char**)  *(count + 1));
+	a = (char**)malloc(sizeof(char**) * (count + 1));
 	start = a;
 	while (dic != NULL)
 	{
@@ -51,7 +51,7 @@ t_kvp		**dic_get_kvps(t_list *dic)
 	t_kvp **a_start;
 	t_kvp **a;
 
-	a = (t_kvp**)malloc(sizeof(t_kvp**)  *(dic_get_count(dic) + 1));
+	a = (t_kvp**)malloc(sizeof(t_kvp**) * (dic_get_count(dic) + 1));
 	a_start = a;
 	while (dic != NULL)
 	{

@@ -45,7 +45,7 @@ BOOL		is_child(pid_t pid)
 	return (pid == 0);
 }
 
-void		fork_and_exec(const char  *argv[], pid_t  *ppid)
+void		fork_and_exec(const char *argv[], pid_t *ppid)
 {
 	*ppid = ft_fork();
 	if (is_child(*ppid))
