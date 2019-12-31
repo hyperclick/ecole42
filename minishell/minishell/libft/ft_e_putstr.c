@@ -16,3 +16,9 @@ void		ft_e_putstr(const char *str)
 {
 	ft_putstr_fd(str, STDERR_FILENO);
 }
+
+void		ft_e_ft_putstr_and_free(char *str)
+{
+	ft_e_putstr(str);
+	free(str);
+}

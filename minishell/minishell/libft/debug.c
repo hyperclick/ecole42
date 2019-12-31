@@ -78,7 +78,6 @@ void	debug_printf(const char* format, ...)
 	vfprintf(output_stream, format, argptr);
 	va_end(argptr);
 	fflush(output_stream);
-	//printf("PRINTED to %p\n", output_stream);
 }
 
 void	debug_print_zt_array(const char* a[])
@@ -112,5 +111,4 @@ void debug_print_dic(t_list* dic)
 		++(kvps);
 	}
 	free(kvps_start);
-	//ft_free_null_term_array((voi));
 }

@@ -145,6 +145,7 @@ void history()
 
 void		env()
 {
+	process_command("unsetenv w");
 	process_command("setenv q w");
 	process_command("echo $q");
 	process_command("unsetenv q");
