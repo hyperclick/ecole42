@@ -12,7 +12,7 @@ void		ft_readline(char* dst, int size)
 		}
 		if (ch == '\n')
 		{
-			break;
+			break ;
 		}
 		*dst++ = ch;
 	}

@@ -43,7 +43,7 @@ int			process_command(const char* str);
 int			process_one_command(char* cmd);
 
 void		clean_buffer(void);
-void		reset_keypress(void);
+int			get_buf_len(void);
 const char	*read_line_hidden(void);
 
 
@@ -68,8 +68,46 @@ void		exec_ve2(const char* str);
 pid_t exec(char* str);
 
 
-char	* replace_quoted(const char* str); 
+char	*replace_quoted(const char* str); 
 void		replace_back(char* a[]);
 void		free_quoted_params(void);
+
+
+void	set_g_x(int x);
+int		get_g_x(void);
+void	move_cursor_left(int x);
+void	move_cursor_right(int x);
+void	backspace(int x);
+void	inc_cursor_pos(void);
+void	dec_cursor_pos(void);
+void	move_to_bol(void);
+
+
+void	set_keypress(void);
+void		reset_keypress(void);
+
+void		set_buf_len(int len);
+int			get_buf_len(void);
+const char	*get_buffer(void);
+void		increase_buffer(void);
+void		decrease_buffer(void);
+void		clean_printed_text(void);
+void		clean_printed_text_and_move_cursor_left(void);
+void		buffer_print(void);
+void		clean_buffer(void);
+void		buffer_set(const char *new_value);
+void		buffer_delete(void);
+void		buffer_backspace(void);
+void		buffer_insert(char c);
+
+
+BOOL	process_key_left(void);
+BOOL	process_key_right(void);
+BOOL	process_key_down(void);
+BOOL	process_key_up(void);
+BOOL	process_backspace(void);
+BOOL	process_delete(void);
+void	process_printable(char c);
+void	process_not_printable(char control[10], int c);
 
 #endif

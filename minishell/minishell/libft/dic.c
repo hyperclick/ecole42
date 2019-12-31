@@ -122,7 +122,7 @@ void dic_free(t_list **dic)
 {
 	//if (*dic == NULL)
 	//{
-	//	return;
+	//	return ;
 	//}
 	ft_lstdel(dic, dic_free_one_item);
 }

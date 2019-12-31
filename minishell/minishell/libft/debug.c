@@ -65,7 +65,7 @@ void	debug_printf(const char* format, ...)
 {
 	if (g_level < LEVEL_DEBUG)
 	{
-		return;
+		return ;
 	}
 	if (output_stream == NULL)
 	{
@@ -100,7 +100,7 @@ void debug_print_dic(t_list* dic)
 	debug_printf("dic count = %d\n", count);
 	if (count == 0)
 	{
-		return;
+		return ;
 	}
 	kvps = dic_get_kvps(dic);
 	kvps_start = kvps;

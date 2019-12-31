@@ -12,45 +12,44 @@
 
 #include "minishell.h"
 
-static const char	*read_line_hidden_end(int r)
+static int				g_buf_len;
+static char				g_buffer[PATH_MAX];
+
+int			get_buf_len(void)
 {
-	debug_printf("r = %d\n", r);
-	reset_keypress();
-	if (r == 0)
-	{
-		debug_printf("std in is all\n");
-		exit(1);
-	}
-	if (get_buf_len() > 0)
-	{
-		h_append(ft_strdup(get_buffer()));
-	}
-	return (get_buffer());
+	return (g_buf_len);
 }
 
-const char			*read_line_hidden(void)
+void		set_buf_len(int len)
 {
-	int			r;
-	char		control[10];
-	char		c;
+	g_buf_len = len;
+}
 
-	control[0] = 0;
-	clean_buffer();
-	set_keypress();
-	while ((r = read(STDIN_FILENO, &c, 1)) > 0)
+const char	*get_buffer(void)
+{
+	return (g_buffer);
+}
+
+void		increase_buffer(void)
+{
+	if (g_buf_len++ > PATH_MAX - 1)
 	{
-		debug_printf("entered:\t%d ('%c'), control = '%s'\n", c, c, control);
-		if (ft_strlen(control) == 0 && c == '\n')
-		{
-			ft_putchar(c);
-			break ;
-		}
-		if (ft_strlen(control) == 0 && ft_isprint(c))
-		{
-			process_printable(c);
-			continue;
-		}
-		process_not_printable(control, c);
+		ft_e_putstr("buffer is too small\n");
+		debug_printf("buffer is too small\n");
+		reset_keypress();
+		exit(1);
 	}
-	return (read_line_hidden_end(r));
+	g_buffer[g_buf_len] = 0;
+}
+
+void		decrease_buffer(void)
+{
+	if (--g_buf_len < 0)
+	{
+		ft_e_putstr("buffer is negative\n");
+		debug_printf("buffer is negative\n");
+		reset_keypress();
+		exit(1);
+	}
+	g_buffer[g_buf_len] = 0;
 }

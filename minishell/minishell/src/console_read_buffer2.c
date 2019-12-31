@@ -12,45 +12,37 @@
 
 #include "minishell.h"
 
-static const char	*read_line_hidden_end(int r)
+void		buffer_print(void)
 {
-	debug_printf("r = %d\n", r);
-	reset_keypress();
-	if (r == 0)
-	{
-		debug_printf("std in is all\n");
-		exit(1);
-	}
-	if (get_buf_len() > 0)
-	{
-		h_append(ft_strdup(get_buffer()));
-	}
-	return (get_buffer());
+	debug_printf("g_x: %d, g_buf_len = %d, g_buffer = '%s'\n"
+				, get_g_x(), get_buf_len(), get_buffer());
+	ft_putstr(get_buffer());
+	move_cursor_left(get_buf_len());
+	move_cursor_right(get_g_x());
 }
 
-const char			*read_line_hidden(void)
+void		buffer_delete(void)
 {
-	int			r;
-	char		control[10];
-	char		c;
-
-	control[0] = 0;
-	clean_buffer();
-	set_keypress();
-	while ((r = read(STDIN_FILENO, &c, 1)) > 0)
+	if (get_g_x() < get_buf_len())
 	{
-		debug_printf("entered:\t%d ('%c'), control = '%s'\n", c, c, control);
-		if (ft_strlen(control) == 0 && c == '\n')
-		{
-			ft_putchar(c);
-			break ;
-		}
-		if (ft_strlen(control) == 0 && ft_isprint(c))
-		{
-			process_printable(c);
-			continue;
-		}
-		process_not_printable(control, c);
+		ft_str_remove_at((char*)get_buffer(), get_g_x());
+		decrease_buffer();
 	}
-	return (read_line_hidden_end(r));
+}
+
+void		buffer_backspace(void)
+{
+	if (get_g_x() > 0)
+	{
+		ft_str_remove_at((char*)get_buffer(), get_g_x() - 1);
+		decrease_buffer();
+		dec_cursor_pos();
+	}
+}
+
+void		buffer_insert(char c)
+{
+	increase_buffer();
+	ft_str_insert_at((char*)get_buffer(), get_g_x(), c);
+	inc_cursor_pos();
 }

@@ -12,45 +12,45 @@
 
 #include "minishell.h"
 
-static const char	*read_line_hidden_end(int r)
+BOOL	process_key_down(void)
 {
-	debug_printf("r = %d\n", r);
-	reset_keypress();
-	if (r == 0)
+	if (h_has_next())
 	{
-		debug_printf("std in is all\n");
-		exit(1);
+		buffer_set(h_get_next());
+		buffer_print();
 	}
-	if (get_buf_len() > 0)
-	{
-		h_append(ft_strdup(get_buffer()));
-	}
-	return (get_buffer());
+	return (TRUE);
 }
 
-const char			*read_line_hidden(void)
+BOOL	process_key_up(void)
 {
-	int			r;
-	char		control[10];
-	char		c;
-
-	control[0] = 0;
-	clean_buffer();
-	set_keypress();
-	while ((r = read(STDIN_FILENO, &c, 1)) > 0)
+	if (h_has_previous())
 	{
-		debug_printf("entered:\t%d ('%c'), control = '%s'\n", c, c, control);
-		if (ft_strlen(control) == 0 && c == '\n')
-		{
-			ft_putchar(c);
-			break ;
-		}
-		if (ft_strlen(control) == 0 && ft_isprint(c))
-		{
-			process_printable(c);
-			continue;
-		}
-		process_not_printable(control, c);
+		buffer_set(h_get_previous());
+		buffer_print();
 	}
-	return (read_line_hidden_end(r));
+	return (TRUE);
+}
+
+BOOL	process_backspace(void)
+{
+	clean_printed_text_and_move_cursor_left();
+	buffer_backspace();
+	buffer_print();
+	return (TRUE);
+}
+
+BOOL	process_delete(void)
+{
+	clean_printed_text_and_move_cursor_left();
+	buffer_delete();
+	buffer_print();
+	return (TRUE);
+}
+
+void	process_printable(char c)
+{
+	clean_printed_text_and_move_cursor_left();
+	buffer_insert(c);
+	buffer_print();
 }

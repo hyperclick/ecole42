@@ -51,7 +51,7 @@ void		ft_lst_insert_sorted(t_list **list, t_list* new, BOOL (grater_than)(t_list
 	{
 		new->next = *list;
 		*list = new;
-		return;
+		return ;
 	}
 	ft_lst_insert_sorted_rec(*list, new, grater_than);
 }

@@ -11,46 +11,62 @@
 /* ************************************************************************** */
 
 #include "minishell.h"
+#include "key_constants.h"
 
-static const char	*read_line_hidden_end(int r)
+void	move_cursor_left(int x)
 {
-	debug_printf("r = %d\n", r);
-	reset_keypress();
-	if (r == 0)
+	while (x-- > 0)
 	{
-		debug_printf("std in is all\n");
-		exit(1);
+		ft_putstr(KEY_LEFT);
+		debug_printf("<\n");
 	}
-	if (get_buf_len() > 0)
-	{
-		h_append(ft_strdup(get_buffer()));
-	}
-	return (get_buffer());
 }
 
-const char			*read_line_hidden(void)
+void	move_cursor_right(int x)
 {
-	int			r;
-	char		control[10];
-	char		c;
-
-	control[0] = 0;
-	clean_buffer();
-	set_keypress();
-	while ((r = read(STDIN_FILENO, &c, 1)) > 0)
+	while (x-- > 0)
 	{
-		debug_printf("entered:\t%d ('%c'), control = '%s'\n", c, c, control);
-		if (ft_strlen(control) == 0 && c == '\n')
-		{
-			ft_putchar(c);
-			break ;
-		}
-		if (ft_strlen(control) == 0 && ft_isprint(c))
-		{
-			process_printable(c);
-			continue;
-		}
-		process_not_printable(control, c);
+		ft_putstr(KEY_RIGHT);
 	}
-	return (read_line_hidden_end(r));
+}
+
+void	backspace(int x)
+{
+	int i;
+
+	i = -1;
+	while (++i < x)
+	{
+		ft_putstr(KEY_LEFT);
+	}
+	i = -1;
+	while (++i < x)
+	{
+		ft_putstr(" ");
+	}
+	i = -1;
+	while (++i < x)
+	{
+		ft_putstr(KEY_LEFT);
+	}
+}
+
+BOOL	process_key_left(void)
+{
+	if (get_g_x() > 0)
+	{
+		move_cursor_left(1);
+		dec_cursor_pos();
+	}
+	return (TRUE);
+}
+
+BOOL	process_key_right(void)
+{
+	if (get_g_x() < get_buf_len())
+	{
+		move_cursor_right(1);
+		inc_cursor_pos();
+	}
+	return (TRUE);
 }

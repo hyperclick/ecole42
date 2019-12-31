@@ -11,46 +11,30 @@
 /* ************************************************************************** */
 
 #include "minishell.h"
+#include <ctype.h>
 
-static const char	*read_line_hidden_end(int r)
+static struct termios	stored_settings;
+static BOOL				g_set = FALSE;
+
+void	set_keypress(void)
 {
-	debug_printf("r = %d\n", r);
-	reset_keypress();
-	if (r == 0)
-	{
-		debug_printf("std in is all\n");
-		exit(1);
-	}
-	if (get_buf_len() > 0)
-	{
-		h_append(ft_strdup(get_buffer()));
-	}
-	return (get_buffer());
+	struct termios new_settings;
+
+	tcgetattr(STDIN_FILENO, &stored_settings);
+	new_settings = stored_settings;
+	new_settings.c_lflag &= (~ICANON & ~ECHO);
+	new_settings.c_cc[VTIME] = 0;
+	new_settings.c_cc[VMIN] = 1;
+	tcsetattr(0, TCSANOW, &new_settings);
+	g_set = TRUE;
+	return ;
 }
 
-const char			*read_line_hidden(void)
+void	reset_keypress(void)
 {
-	int			r;
-	char		control[10];
-	char		c;
-
-	control[0] = 0;
-	clean_buffer();
-	set_keypress();
-	while ((r = read(STDIN_FILENO, &c, 1)) > 0)
+	if (g_set)
 	{
-		debug_printf("entered:\t%d ('%c'), control = '%s'\n", c, c, control);
-		if (ft_strlen(control) == 0 && c == '\n')
-		{
-			ft_putchar(c);
-			break ;
-		}
-		if (ft_strlen(control) == 0 && ft_isprint(c))
-		{
-			process_printable(c);
-			continue;
-		}
-		process_not_printable(control, c);
+		tcsetattr(STDIN_FILENO, TCSANOW, &stored_settings);
+		g_set = FALSE;
 	}
-	return (read_line_hidden_end(r));
 }

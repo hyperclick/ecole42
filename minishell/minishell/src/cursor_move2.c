@@ -12,45 +12,43 @@
 
 #include "minishell.h"
 
-static const char	*read_line_hidden_end(int r)
+static int				g_x;
+
+int		get_g_x(void)
 {
-	debug_printf("r = %d\n", r);
-	reset_keypress();
-	if (r == 0)
-	{
-		debug_printf("std in is all\n");
-		exit(1);
-	}
-	if (get_buf_len() > 0)
-	{
-		h_append(ft_strdup(get_buffer()));
-	}
-	return (get_buffer());
+	return (g_x);
 }
 
-const char			*read_line_hidden(void)
+void	set_g_x(int x)
 {
-	int			r;
-	char		control[10];
-	char		c;
+	g_x = x;
+}
 
-	control[0] = 0;
-	clean_buffer();
-	set_keypress();
-	while ((r = read(STDIN_FILENO, &c, 1)) > 0)
+void	inc_cursor_pos(void)
+{
+	if (g_x > get_buf_len())
 	{
-		debug_printf("entered:\t%d ('%c'), control = '%s'\n", c, c, control);
-		if (ft_strlen(control) == 0 && c == '\n')
-		{
-			ft_putchar(c);
-			break ;
-		}
-		if (ft_strlen(control) == 0 && ft_isprint(c))
-		{
-			process_printable(c);
-			continue;
-		}
-		process_not_printable(control, c);
+		ft_e_putstr("inc_cursor_pos: g_x >= g_buf_len");
+		reset_keypress();
+		exit(1);
 	}
-	return (read_line_hidden_end(r));
+	++g_x;
+	debug_printf("gx = %d\n", g_x);
+}
+
+void	dec_cursor_pos(void)
+{
+	if (g_x < 1)
+	{
+		ft_e_putstr("process_key_left: g_x <= 1");
+		reset_keypress();
+		exit(1);
+	}
+	--g_x;
+	debug_printf("gx = %d\n", g_x);
+}
+
+void	move_to_bol(void)
+{
+	move_cursor_left(get_g_x());
 }

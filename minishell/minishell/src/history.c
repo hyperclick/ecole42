@@ -39,7 +39,7 @@ void h_append(const char* content)
 	{
 		g_last = l;
 		g_head = l;
-		return;
+		return ;
 	}
 	g_last->list.next = (t_list*)l;
 	g_last = l;
@@ -50,7 +50,7 @@ void		h_free()
 {
 	if (g_head == NULL)
 	{
-		return;
+		return ;
 	}
 	ft_lst_free((t_list**)&g_head);
 	g_last = NULL;

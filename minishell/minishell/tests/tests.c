@@ -530,7 +530,7 @@ void test_pipe9()
 	process_command("ls | cat -e | sort");
 	process_command("setenv | sort");
 	process_command("base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e \"s/1/Yes/g\" -e \"s/0/No/g\"");
-	return;
+	return ;
 	process_command("echo \"No dollar character\" 1 > &2 | cat -e");
 	process_command("cat <<src");
 	process_command("cat <<src | rev");
@@ -560,13 +560,13 @@ void		fe(char* argv[])
 void pwd2()
 {
 	pipe_exec(ft_strdup("pwd"));
-	return;
+	return ;
 	pid_t pid;
 	char** args = ft_split3("/bin/pwd", "|");
 
 
 	fe(args);
-	return;
+	return ;
 	pid = ft_fork();
 	if (is_child(pid))
 	{
@@ -576,10 +576,10 @@ void pwd2()
 	}
 	ft_free_null_term_array((void**)args);
 	wait_child(pid);
-	return;
+	return ;
 
 	fork_and_exec(args, &pid);
-	return;
+	return ;
 
 
 	//

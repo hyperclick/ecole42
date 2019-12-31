@@ -44,7 +44,7 @@ void		cd(int argc, char* const argv[])
 	if (argc > 1)
 	{
 		ft_e_putstr("-minishell: cd: too many arguments\n");
-		return;
+		return ;
 	}
 	ft_strcpy(folder, (argc == 0) ? env_get_value("HOME") : argv[0]);
 	debug_printf("exec cd '%s'\n", folder);
@@ -53,7 +53,7 @@ void		cd(int argc, char* const argv[])
 		if (ft_strlen(old_work_dir) == 0)
 		{
 			ft_e_putstr("-minishell: cd: OLDPWD not set\n");
-			return;
+			return ;
 		}
 		debug_printf("old_work_dir = '%s'\n", old_work_dir);
 		ft_strcpy(folder, old_work_dir);
@@ -67,7 +67,7 @@ void		cd(int argc, char* const argv[])
 		ft_e_putstr("-minishell: cd: ");
 		ft_e_putstr(folder);
 		ft_e_putstr(": No such file or directory\n");
-		return;
+		return ;
 	}
 	char tmp[255];
 	debug_printf("new curdir = %s\n", getcwd(tmp, 200));
@@ -180,7 +180,7 @@ void		ft_default_sig_handler(int signum)
 			print_prompt();
 		}
 
-		return;
+		return ;
 	}
 	ft_exit(1);
 }
@@ -270,7 +270,7 @@ int	process_command(const char* str)
 		int r = process_one_command(*cmds);
 		if (r != 0)
 		{
-			break;
+			break ;
 		}
 		cmds++;
 	}
