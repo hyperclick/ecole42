@@ -635,6 +635,7 @@ int main(int argc, char **argv, char **envp)
 	//process_command("echo 1");
 
 	//process_command("ls | sort");
+	//test(cd_bad, "cd_bad");
 		//ft_exit(0);
 	//	process_command("base64 /dev/urandom | head -c100");
 	//	ft_exit(0);
