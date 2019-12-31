@@ -25,9 +25,7 @@ char		**fill_path_folders(void);
 
 BOOL		is_child(pid_t pid);
 BOOL		built_in_processed(char  *const args[], int count);
-void		fork_and_exec(char *argv[], pid_t *ppid);
-BOOL		try_execute(char *filename, char *argv[], pid_t *ppid);
-pid_t		exec2(char *argv[]);
+pid_t		exec2(const char *argv[]);
 
 pid_t		get_awaited_process(void);
 void		set_awaited_process(pid_t pid);
@@ -61,7 +59,7 @@ void		ft_pipe(int *r, int *w);
 void		pipe_exec(char *str);
 void		close_g_fd_to_close(void);
 pid_t		ft_fork(void);
-void		exec_ve(char *argv[]);
+void		exec_ve(const char *argv[]);
 void		exec_ve2(const char *str);
 pid_t		exec(char *str);
 

@@ -551,7 +551,7 @@ void test_pipe9()
 	process_command("wc -c < /tmp/test.txt");
 }
 
-void		fe(char *argv[])
+void		fe(const char *argv[])
 {
 	pid_t pid;
 	pid = ft_fork();
@@ -573,23 +573,19 @@ void pwd2()
 	char **args = ft_split3("/bin/pwd", "|");
 
 
-	fe(args);
+	fe((const char**) args);
 	return ;
 	pid = ft_fork();
 	if (is_child(pid))
 	{
 		debug_set_pname(args[0]);
-		exec_ve(args);
+		exec_ve((const char**)args);
 		debug_printf("!!!should not be here!!!\n");
 	}
 	ft_free_null_term_array((void**)args);
 	wait_child(pid);
 	return ;
-
-	fork_and_exec(args, &pid);
-	return ;
-
-
+	
 	//
 	//ft_exit(0);
 
@@ -612,7 +608,7 @@ void pwd2()
 	if (is_child(pid))
 	{
 		debug_set_pname(args[0]);
-		exec_ve(args);
+		exec_ve((const char **)args);
 		debug_printf("!!!should not be here!!!\n");
 	}
 	ft_free_null_term_array((void**)args);
