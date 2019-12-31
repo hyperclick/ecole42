@@ -411,12 +411,19 @@ void dic()
 	assert_false(dic_contains_key(dic, NULL));
 	dic = dic_add(dic, "key2", "value2");
 
-
-
-
-
 	assert_int_equals(1, dic_get_count(dic));
+	assert_true(dic_contains_key(dic, "key2"));
 
+	dic = dic_remove(dic, "key2");
+	assert_is_null(dic);
+	assert_int_equals(0, dic_get_count(dic));
+	assert_false(dic_contains_key(dic, "key2"));
+	
+	dic = dic_add(dic, "key2", "value2");
+	
+	assert_int_equals(1, dic_get_count(dic));
+	
+	
 	dic = dic_add(dic, "key1", "value1");
 
 
@@ -435,6 +442,7 @@ void dic()
 	assert_str_equals("value1", dic_get_value(dic, "key1"));
 	dic_replace(dic, "key1", "value_1");
 	assert_str_equals("value_1", dic_get_value(dic, "key1"));
+
 	dic = dic_remove(dic, "key1");
 	assert_int_equals(1, dic_get_count(dic));
 	assert_false(dic_contains_key(dic, "key1"));

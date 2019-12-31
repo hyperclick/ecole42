@@ -12,53 +12,16 @@
 
 #include "libft.h"
 
-BOOL		dic_is_empty(t_list *dic)
+const char	*dic_get_value(t_list *dic, const char *key)
 {
-	return (dic_get_count(dic) == 0);
-}
+	t_list	*n;
 
-int			dic_get_count(t_list *dic)
-{
-	return (ft_lst_count(dic));
-}
-
-t_kvp		*get_kvp(t_list *n)
-{
-	return ((t_kvp*)n->content);
-}
-
-char		**dic_get_keys(t_list *dic)
-{
-	char	**start;
-	int		count;
-	char	**a;
-
-	count = dic_get_count(dic);
-	a = (char**)malloc(sizeof(char**) * (count + 1));
-	start = a;
-	while (dic != NULL)
+	n = dic_find(dic, key);
+	if (n == NULL)
 	{
-		*a = ft_strdup(get_kvp(dic)->key);
-		dic = dic->next;
-		a++;
+		ft_e_putstr("dic_get_value failed: missing key: ");
+		ft_e_putstr(key);
+		exit(1);
 	}
-	*a = (char*)NULL;
-	return (start);
-}
-
-t_kvp		**dic_get_kvps(t_list *dic)
-{
-	t_kvp **a_start;
-	t_kvp **a;
-
-	a = (t_kvp**)malloc(sizeof(t_kvp**) * (dic_get_count(dic) + 1));
-	a_start = a;
-	while (dic != NULL)
-	{
-		*a = get_kvp(dic);
-		dic = dic->next;
-		a++;
-	}
-	*a = NULL;
-	return (a_start);
+	return (get_kvp(n)->value);
 }
