@@ -46,7 +46,7 @@ BOOL		is_child(pid_t pid)
 	return (pid == 0);
 }
 
-void		fork_and_exec(char * argv[], pid_t * ppid)
+void		fork_and_exec(char  *argv[], pid_t  *ppid)
 {
 	//pid_t pid;
 	*ppid = ft_fork();
@@ -66,7 +66,7 @@ void		fork_and_exec(char * argv[], pid_t * ppid)
 	//add awaited process
 }
 
-BOOL		try_execute(char* filename, char* argv[], pid_t* ppid)
+BOOL		try_execute(char *filename, char *argv[], pid_t *ppid)
 {
 	if (access(argv[0], F_OK) == 0)
 	{
@@ -86,15 +86,15 @@ BOOL		try_execute(char* filename, char* argv[], pid_t* ppid)
 	return (FALSE);
 }
 
-pid_t		exec2(char* argv[])
+pid_t		exec2(char *argv[])
 {
-	char* filename = argv[0];
+	char *filename = argv[0];
 	pid_t pid;
 	if (try_execute(filename, argv, &pid))
 	{
 		return (pid);
 	}
-	char* argv0 = argv[0];
+	char *argv0 = argv[0];
 	//printf("free %s\n", argv[0]);
 	//free(argv[0]);
 	char		path[PATH_MAX];

@@ -15,7 +15,7 @@ void		ft_exit(int ret_code)
 	exit(ret_code);
 }
 
-void		init(int argc, char** argv, char** envp)
+void		init(int argc, char **argv, char **envp)
 {
 	set_out_file("debug_out4.txt", "w");
 	set_level(1);
@@ -30,7 +30,7 @@ void		init(int argc, char** argv, char** envp)
 }
 
 
-void		cd(int argc, char* const argv[])
+void		cd(int argc, char *const argv[])
 {
 	static char old_work_dir[PATH_MAX] = "";
 	char folder[PATH_MAX];
@@ -122,7 +122,7 @@ void		wait_child(pid_t pid)
 	debug_printf("waitpid(%d) returned\n", pid);
 }
 
-char* remove_comment(char* str)
+char *remove_comment(char *str)
 {
 	//debug_printf("str = %s\n", str);
 	if (*str == '#')
@@ -178,21 +178,21 @@ void		ft_default_sig_handler(int signum)
 	ft_exit(1);
 }
 
-void		unquote(char* a[])
+void		unquote(char *a[])
 {
 	while (*a != NULL)
 	{
-		char* tmp = *a;
+		char *tmp = *a;
 		*a = ft_strtrim2(*a, "\"'");
 		free((char*)tmp);
 		a++;
 	}
 }
 
-int		process_one_command(char* cmd)
+int		process_one_command(char *cmd)
 {
 	debug_printf("cmd: '%s'\n", cmd);
-	char* trimmed = ft_strtrim2(cmd, "\t ");
+	char *trimmed = ft_strtrim2(cmd, "\t ");
 
 	if (ft_str_is_empty(trimmed))
 	{
@@ -208,18 +208,18 @@ int		process_one_command(char* cmd)
 	return (0);
 }
 
-char** g_commands = NULL;
+char **g_commands = NULL;
 
-int	process_command(const char* str)
+int	process_command(const char *str)
 {
 	debug_printf("\n");
 	debug_printf("-----------------------\n");
 	debug_printf("process command: '%s'\n", str);
 
-	char* str2 = replace_quoted(str);
+	char *str2 = replace_quoted(str);
 	debug_printf("quotes replaced: '%s'\n", str2);
 
-	char* trimmed = ft_strtrim2(str2, "\t ");
+	char *trimmed = ft_strtrim2(str2, "\t ");
 	free(str2);
 
 	if (ft_str_is_empty(trimmed))
@@ -227,7 +227,7 @@ int	process_command(const char* str)
 		free(trimmed);
 		return (0);
 	}
-	char* no_comments;
+	char *no_comments;
 	debug_printf("trimmed = %s\n", trimmed);
 	no_comments = remove_comment(trimmed);
 	debug_printf("no comments = %s\n", no_comments);
@@ -249,7 +249,7 @@ int	process_command(const char* str)
 		return (1);
 	}
 
-	char** commands = ft_split3(no_comments, ";");
+	char **commands = ft_split3(no_comments, ";");
 	free(no_comments);
 	if (g_commands != NULL)
 	{
@@ -257,7 +257,7 @@ int	process_command(const char* str)
 		exit(1);
 	}
 	g_commands = commands;
-	char** cmds = commands;
+	char **cmds = commands;
 	while (*cmds != NULL)
 	{
 		int r = process_one_command(*cmds);
@@ -282,7 +282,7 @@ int	process_command(const char* str)
 }
 
 
-pid_t exec(char* str)
+pid_t exec(char *str)
 {
 	//if (g_commands != NULL)
 	//{
@@ -290,12 +290,12 @@ pid_t exec(char* str)
 	//	g_commands = NULL;
 	//}
 
-	char** args;
+	char **args;
 	args = ft_split3(str, " \t");
 	free(str);
 
 	int c = ft_count_null_term_array((void*)args);
-	char* replaced_args[c + 1];
+	char *replaced_args[c + 1];
 	replaced_args[c] = NULL;
 	env_replace_vars(replaced_args, (const char**)args);
 	ft_free_null_term_array((void**)args);

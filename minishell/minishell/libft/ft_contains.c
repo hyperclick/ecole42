@@ -25,7 +25,7 @@ BOOL		ft_contains(const char *str, char to_find)
 	return (FALSE);
 }
 
-BOOL		ft_str_contains(const char* haystack, const char* needle)
+BOOL		ft_str_contains(const char *haystack, const char *needle)
 {
 	return (ft_strstr(haystack, needle) != NULL);
 }

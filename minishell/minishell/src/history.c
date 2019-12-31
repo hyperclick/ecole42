@@ -1,8 +1,8 @@
 #include "../libft/libft.h"
 
-t_d_list* g_head = NULL;
-t_d_list* g_current = NULL;
-t_d_list* g_last = NULL;
+t_d_list *g_head = NULL;
+t_d_list *g_current = NULL;
+t_d_list *g_last = NULL;
 
 
 
@@ -16,24 +16,24 @@ BOOL		h_has_next()
 	return ((g_current != NULL && g_current->list.next != NULL));
 }
 
-const char* h_get_current()
+const char *h_get_current()
 {
 	return((const char*)g_current->list.content);
 }
-const char* h_get_previous()
+const char *h_get_previous()
 {
 	g_current = g_current == NULL ? g_last : g_current->prev;
 	return (h_get_current());
 }
-const char* h_get_next()
+const char *h_get_next()
 {
 	g_current = (t_d_list*)g_current->list.next;
 	return (h_get_current());
 }
 
-void h_append(const char* content)
+void h_append(const char *content)
 {
-	t_d_list* l = ft_dlst_new(content, -1);
+	t_d_list *l = ft_dlst_new(content, -1);
 	l->prev = g_last;
 	if (g_last == NULL)
 	{

@@ -15,8 +15,8 @@ void test_exec()
 
 void test_pipe_parse()
 {
-	t_list* pipe = pipe_parse("ls -l | sort | cat -e");
-	t_list* p = pipe;
+	t_list *pipe = pipe_parse("ls -l | sort | cat -e");
+	t_list *p = pipe;
 	//printf("p->content = '%s'\n", (char*)p->content);
 	if (!ft_strequ(p->content, "ls -l"))
 	{
@@ -269,16 +269,16 @@ BOOL	compare_buffers(int e_read, int a_read, char e_buf[BUF_SIZE], char a_buf[BU
 	return (TRUE);
 }
 
-BOOL		compare_files(const char* expected_file_name, const char* actual_file_name)
+BOOL		compare_files(const char *expected_file_name, const char *actual_file_name)
 {
 	//printf("e: %s \na: %s \n", expected_file_name, actual_file_name);
-	FILE* a = fopen(actual_file_name, "r");
+	FILE *a = fopen(actual_file_name, "r");
 	if (a == NULL)
 	{
 		perror(actual_file_name);
 		exit(1);
 	}
-	FILE* e = fopen(expected_file_name, "r");
+	FILE *e = fopen(expected_file_name, "r");
 	if (e == NULL)
 	{
 		perror(expected_file_name);
@@ -307,7 +307,7 @@ BOOL		compare_files(const char* expected_file_name, const char* actual_file_name
 	fclose(e);
 	return (r);
 }
-void compare_and_free(const char* e, const char* a, const char* name)
+void compare_and_free(const char *e, const char *a, const char *name)
 {
 	if (compare_files(e, a))
 	{
@@ -325,12 +325,12 @@ void compare_and_free(const char* e, const char* a, const char* name)
 	free((char*)name);
 }
 
-void	redirect_and_exec(void(*f)(), const char* out_file_name, const char* err_file_name)
+void	redirect_and_exec(void(*f)(), const char *out_file_name, const char *err_file_name)
 {
 
 	int out = dup(STDOUT_FILENO);
-	FILE* f_out = freopen(out_file_name, "w", stdout);
-	FILE* f_err = freopen(err_file_name, "w", stderr);
+	FILE *f_out = freopen(out_file_name, "w", stdout);
+	FILE *f_err = freopen(err_file_name, "w", stderr);
 	save_stdin();
 	save_stdout();
 	f();
@@ -352,12 +352,12 @@ void	redirect_and_exec(void(*f)(), const char* out_file_name, const char* err_fi
 }
 
 
-void		test2(void(*e)(), void(*a)(), const char* name)
+void		test2(void(*e)(), void(*a)(), const char *name)
 {
-	const char* expected_out = ft_strjoin2(3, "test_cases/expected/", name, "_out.txt");
-	const char* actual_out = ft_strjoin2(3, "test_cases/actual/", name, "_out.txt");
-	const char* expected_err = ft_strjoin2(3, "test_cases/expected/", name, "_err.txt");
-	const char* actual_err = ft_strjoin2(3, "test_cases/actual/", name, "_err.txt");
+	const char *expected_out = ft_strjoin2(3, "test_cases/expected/", name, "_out.txt");
+	const char *actual_out = ft_strjoin2(3, "test_cases/actual/", name, "_out.txt");
+	const char *expected_err = ft_strjoin2(3, "test_cases/expected/", name, "_err.txt");
+	const char *actual_err = ft_strjoin2(3, "test_cases/actual/", name, "_err.txt");
 
 	debug_set_pname("test");
 	debug_printf("testing %s\n", name);
@@ -372,7 +372,7 @@ void		test2(void(*e)(), void(*a)(), const char* name)
 }
 
 
-void		test(void(*f)(), const char* name)
+void		test(void(*f)(), const char *name)
 {
 	test2(NULL, f, name);
 }
@@ -387,13 +387,13 @@ void test_pipe_1()
 
 //void test_replace_quotes()
 //{
-//	char* str = replace_quotes("   \"   \"   \"\"");
+//	char *str = replace_quotes("   \"   \"   \"\"");
 //	if (!ft_str_equals(str, "   #quoted_param_1#   #quoted_param_2#"))
 //	{
 //		printf("expected: %s actual: %s\n","   #quoted_param_1#   #quoted_param_2#",str);
 //		exit(1);
 //	}
-//	char* str2 = replace_quotes_back("#quoted_param_2# #quoted_param_1# #quoted_param_2#");
+//	char *str2 = replace_quotes_back("#quoted_param_2# #quoted_param_1# #quoted_param_2#");
 //	if (!ft_str_equals(str2, "\"\" \"   \" \"\""))
 //	{
 //		printf("expected: %s actual: %s\n", "\"\" \"   \" \"\"",str2);
@@ -403,7 +403,7 @@ void test_pipe_1()
 
 void dic()
 {
-	t_list* dic = NULL;
+	t_list *dic = NULL;
 	assert_true(dic_is_empty(dic));
 	assert_int_equals(0, dic_get_count(dic));
 	dic_free(&dic);
@@ -551,7 +551,7 @@ void test_pipe9()
 	process_command("wc -c < /tmp/test.txt");
 }
 
-void		fe(char* argv[])
+void		fe(char *argv[])
 {
 	pid_t pid;
 	pid = ft_fork();
@@ -570,7 +570,7 @@ void pwd2()
 	pipe_exec(ft_strdup("pwd"));
 	return ;
 	pid_t pid;
-	char** args = ft_split3("/bin/pwd", "|");
+	char **args = ft_split3("/bin/pwd", "|");
 
 
 	fe(args);
@@ -593,7 +593,7 @@ void pwd2()
 	//
 	//ft_exit(0);
 
-	t_list* p;
+	t_list *p;
 	p = pipe_parse("pwd");
 
 	//pipe_exec2(p, STDIN_FILENO);
@@ -620,7 +620,7 @@ void pwd2()
 }
 
 
-int main(int argc, char** argv, char** envp)
+int main(int argc, char **argv, char **envp)
 {
 	/*
 	set_out_file("debug_out4.txt", "w");
@@ -671,7 +671,7 @@ int main(int argc, char** argv, char** envp)
 	test(env, "env");
 	test(ls, "ls");
 
-	char* restore_home = ft_strjoin("setenv HOME ", env_get_value("HOME"));
+	char *restore_home = ft_strjoin("setenv HOME ", env_get_value("HOME"));
 	process_command("setenv HOME fake_home_for_tests");
 	test(echo_home, "echo_home");
 	test(echo_tilde, "echo_tilde");
@@ -691,7 +691,7 @@ int main(int argc, char** argv, char** envp)
 
 
 
-	char* restore_ld_preload = ft_strjoin("setenv LD_PRELOAD ", env_get_value("LD_PRELOAD"));
+	char *restore_ld_preload = ft_strjoin("setenv LD_PRELOAD ", env_get_value("LD_PRELOAD"));
 	process_command("setenv LD_PRELOAD \"\"");
 	test2(test_set_env_e, test_set_env_a, "set_env");
 	if (restore_ld_preload != NULL)

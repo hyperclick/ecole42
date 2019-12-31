@@ -14,7 +14,7 @@
 
 void ft_str_insert_at(char *dst, int n, char c)
 {
-	char* right;
+	char *right;
 	int len;
 
 	len = ft_strlen(dst);

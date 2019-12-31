@@ -5,7 +5,7 @@ void log_pipe(int r, int w)
 	debug_printf("new pipe: r=%d, w=%d\n", r, w);
 }
 
-void	ft_pipe(int* r, int* w)
+void	ft_pipe(int *r, int *w)
 {
 	int fd[2];
 	if (pipe(fd) != 0)
@@ -27,7 +27,7 @@ void	close_g_fd_to_close()
 	g_fd_to_close = -2;
 }
 
-pid_t pe2(char* cmd, int r, int w, t_list **p)
+pid_t pe2(char *cmd, int r, int w, t_list **p)
 {
 	pid_t pid;
 	// pid = ft_fork();
@@ -57,7 +57,7 @@ pid_t pe2(char* cmd, int r, int w, t_list **p)
 	return (pid);
 }
 
-pid_t pipe_exec2(t_list* p, int prev_r)
+pid_t pipe_exec2(t_list *p, int prev_r)
 {
 	if (p->next == NULL)
 	{
@@ -70,10 +70,10 @@ pid_t pipe_exec2(t_list* p, int prev_r)
 	return (pipe_exec2(p->next, r));
 }
 
-void pipe_exec(char* str)
+void pipe_exec(char *str)
 {
 	pid_t pid;
-	t_list* p;
+	t_list *p;
 	p = pipe_parse(str);
 	//pid = ft_fork();
 	//if (is_child(pid))

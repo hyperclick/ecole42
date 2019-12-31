@@ -20,7 +20,7 @@ char	**fill_path_folders(void)
 
 	path = env_get_value("PATH");
 	count = (path == NULL) ? 0 : ft_count_words(path, ":");
-	folders = (char**)malloc((sizeof(char*)) * (count + 1));
+	folders = (char**)malloc((sizeof(char*))  *(count + 1));
 	folders[count] = NULL;
 	ft_split(folders, path, count, ":");
 	return (folders);

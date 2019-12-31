@@ -1,23 +1,23 @@
 #include "minishell.h"
 
-static t_list* g_quoted_params = NULL;
+static t_list *g_quoted_params = NULL;
 
 const char paired_quote[] = "%paired_quote%";
 const char unpaired_quote[] = "%unpaired_quote%";
 
-int get_target_len(const char* str)
+int get_target_len(const char *str)
 {
 	int quotes_count = ft_str_count_chars(str, '\"');
 	int digits_count = int_lg(quotes_count) + 1;
 	int tokens_count = quotes_count / 2 + 1;
 
 	int tokens_len = ft_strlen(unpaired_quote) + digits_count;
-	return (ft_strlen(str) + tokens_len * tokens_count);
+	return (ft_strlen(str) + tokens_len  *tokens_count);
 }
 
-char* add_quote(char* dst, const char* prefix, const char* value)
+char *add_quote(char *dst, const char *prefix, const char *value)
 {
-	char* itoa;
+	char *itoa;
 	int count = dic_get_count(g_quoted_params) + 1;
 	char key[200];
 	ft_strcpy(key, prefix);
@@ -31,30 +31,30 @@ char* add_quote(char* dst, const char* prefix, const char* value)
 	debug_printf("quote replaced: '%s' -> '%s'\n", dic_get_value(g_quoted_params, key), key);
 	return (dst + ft_strlen(key));
 }
-char* add_unpaired_quote(char* dst, const char* value)
+char *add_unpaired_quote(char *dst, const char *value)
 {
 	return (add_quote(dst, unpaired_quote, value));
 }
 
-char* add_paired_quote(char* dst, const char* value)
+char *add_paired_quote(char *dst, const char *value)
 {
 	return (add_quote(dst, paired_quote, value));
 }
 
-char* replace_quoted(const char* str)
+char *replace_quoted(const char *str)
 {
 	char param_buffer[ft_strlen(str)];
-	char* param_start = param_buffer;
-	char* p = param_buffer;
-	char* dst;
+	char *param_start = param_buffer;
+	char *p = param_buffer;
+	char *dst;
 	int count;
 	count = get_target_len(str) + 1;
-	//dst = (char*)malloc(count * sizeof(char));
-	dst = ft_strnew(count * sizeof(char));
+	//dst = (char*)malloc(count  *sizeof(char));
+	dst = ft_strnew(count  *sizeof(char));
 	dst[count - 1] = 0;
 	//debug_printf("replace_quoted:56: dst = '%s' (%p) (%d)\n", dst, dst, strlen(dst));
-	//debug_printf("count = %d, &dst = %p, count * sizeof(char) = %d\n", count, dst, count * sizeof(char));
-	char* dst_start = dst;
+	//debug_printf("count = %d, &dst = %p, count  *sizeof(char) = %d\n", count, dst, count  *sizeof(char));
+	char *dst_start = dst;
 	while (*str != 0)
 	{
 		if (*str == '\"')
@@ -81,7 +81,7 @@ char* replace_quoted(const char* str)
 	return (dst_start);
 }
 
-void		replace_back_unused(char* a[])
+void		replace_back_unused(char *a[])
 {
 	debug_printf("replace back:\n");
 	debug_print_dic(g_quoted_params);
@@ -89,7 +89,7 @@ void		replace_back_unused(char* a[])
 	{
 		if (dic_contains_key(g_quoted_params, *a))
 		{
-			char* tmp = *a;
+			char *tmp = *a;
 			debug_printf("replace %s -> %s\n", *a, dic_get_value(g_quoted_params, *a));
 			*a = ft_strdup(dic_get_value(g_quoted_params, *a));
 			free((char*)tmp);
@@ -98,7 +98,7 @@ void		replace_back_unused(char* a[])
 	}
 }
 
-void		replace_back(char* a[])
+void		replace_back(char *a[])
 {
 	char **keys = dic_get_keys(g_quoted_params);
 	char **keys_start = keys;
@@ -115,7 +115,7 @@ void		replace_back(char* a[])
 			//debug_printf("check %s\n", *keys);
 			if (ft_str_contains(*a, *keys))
 			{
-				char* tmp = *a;
+				char *tmp = *a;
 				//debug_printf("about to replace: '%s' -> '%s'\n", *keys, dic_get_value(g_quoted_params, *keys));
 				*a = ft_str_replace(*a, *keys, dic_get_value(g_quoted_params, *keys));
 				free((char*)tmp);

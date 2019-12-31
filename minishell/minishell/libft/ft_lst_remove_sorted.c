@@ -12,8 +12,8 @@
 
 #include "libft.h"
 
-void		ft_lst_remove_sorted_rec(t_list* node, t_list* to_remove
-	, BOOL(equal)(t_list* a, t_list* b)
+void		ft_lst_remove_sorted_rec(t_list *node, t_list *to_remove
+	, BOOL(equal)(t_list *a, t_list *b)
 	, void (*free_content)(void*, size_t))
 {
 	if (node->next == NULL)
@@ -28,8 +28,8 @@ void		ft_lst_remove_sorted_rec(t_list* node, t_list* to_remove
 	}
 	ft_lst_remove_sorted_rec(node->next, to_remove, equal, free_content);
 }
-void		ft_lst_remove_sorted(t_list **list, t_list* to_remove
-	, BOOL(equal)(t_list* a, t_list* b)
+void		ft_lst_remove_sorted(t_list **list, t_list *to_remove
+	, BOOL(equal)(t_list *a, t_list *b)
 	, void (*free_content)(void*, size_t))
 {
 	if (equal(*list, to_remove))

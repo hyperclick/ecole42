@@ -12,14 +12,14 @@
 
 #include "libft.h"
 
-char* ft_str_replace2(char* dst, const char* src, const char* find, const char* replace)
+char *ft_str_replace2(char *dst, const char *src, const char *find, const char *replace)
 {
 	size_t	len_before_find;
 	size_t	len_after_find;
 	size_t	len_src;
 	size_t	len_find;
 	size_t	len_replace;
-	char* found;
+	char *found;
 
 	found = ft_strstr(src, find);
 	if (found == NULL)
@@ -41,19 +41,19 @@ char* ft_str_replace2(char* dst, const char* src, const char* find, const char* 
 	return (dst);
 }
 
-char* ft_str_replace(const char* src, const char* find, const char* replace)
+char *ft_str_replace(const char *src, const char *find, const char *replace)
 {
 	size_t	len_dst;
 	size_t	len_src;
 	size_t	len_find;
 	size_t	len_replace;
-	char* dst;
+	char *dst;
 
 	len_src = ft_strlen(src);
 	len_find = ft_strlen(find);
 	len_replace = ft_strlen(replace);
 	len_dst = len_src - len_find + len_replace + 1;
-	dst = (char*)malloc(sizeof(char) * len_dst);
+	dst = (char*)malloc(sizeof(char)  *len_dst);
 	dst[len_dst - 1] = 0;
 	return (ft_str_replace2(dst, src, find, replace));
 }

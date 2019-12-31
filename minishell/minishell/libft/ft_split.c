@@ -56,7 +56,7 @@ char		**ft_split(char **r, const char *str, int count, const char *sep)
 	i = 0;
 	while (i < count)
 	{
-		dst = malloc((ft_strlen(str) + 1) * sizeof(char));
+		dst = malloc((ft_strlen(str) + 1)  *sizeof(char));
 		if (dst == NULL)
 		{
 			ft_free_array((void**)r, i);
@@ -80,7 +80,7 @@ char		**ft_split(char **r, const char *str, int count, const char *sep)
 	return (r);
 }
 
-char **ft_split2(const char* str, int count, const char* sep)
+char **ft_split2(const char *str, int count, const char *sep)
 {
 	char **r;
 	r = (char**)malloc(sizeof(char**)*(count + 1));
@@ -99,7 +99,7 @@ char **ft_split2(const char* str, int count, const char* sep)
 	return (r);
 }
 
-char **ft_split3(const char* str, const char* sep)
+char **ft_split3(const char *str, const char *sep)
 {
 	return(ft_split2(str, ft_count_words(str, sep), sep));
 }

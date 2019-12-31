@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_list* ft_lst_init_new(t_list* node, void const* content, size_t content_size)
+t_list *ft_lst_init_new(t_list *node, void const *content, size_t content_size)
 {
 	if (node == NULL)
 		return (NULL);
@@ -35,7 +35,7 @@ t_list	*ft_lst_new(void const *content, size_t content_size)
 
 t_d_list	*ft_dlst_new(void const *content, size_t content_size)
 {
-	t_d_list* n = (t_d_list*)malloc(sizeof(t_d_list));
+	t_d_list *n = (t_d_list*)malloc(sizeof(t_d_list));
 	n->prev = NULL;
 	return ((t_d_list*)ft_lst_init_new((t_list*)n, content, content_size));
 }

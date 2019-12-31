@@ -1,6 +1,6 @@
 #include "libft.h"
 
-void		ft_readline(char* dst, int size)
+void		ft_readline(char *dst, int size)
 {
 	char ch;
 	while (read(STDIN_FILENO, &ch, 1) > 0)

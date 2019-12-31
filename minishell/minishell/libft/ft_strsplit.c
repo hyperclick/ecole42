@@ -25,7 +25,7 @@ char	**ft_strsplit(char const *str, char c)
 	delimeters[0] = c;
 	delimeters[1] = 0;
 	count = ft_count_words(str, delimeters);
-	r = (char**)malloc(sizeof(char*) * (count + 1));
+	r = (char**)malloc(sizeof(char*)  *(count + 1));
 	if (r != NULL)
 	{
 		r[count] = NULL;

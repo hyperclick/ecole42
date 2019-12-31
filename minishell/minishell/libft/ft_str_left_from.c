@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	* ft_str_left_from_rec(const char *start, const char *s, char c)
+char	 *ft_str_left_from_rec(const char *start, const char *s, char c)
 {
 	if (*s == 0)
 	{
@@ -26,7 +26,7 @@ char	* ft_str_left_from_rec(const char *start, const char *s, char c)
 	return (ft_str_left_from_rec(start, s + 1, c));
 }
 
-char	* ft_str_left_from(const char *s, char c)
+char	 *ft_str_left_from(const char *s, char c)
 {
 	if (*s == 0 || c == 0)
 	{
