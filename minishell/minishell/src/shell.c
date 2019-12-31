@@ -4,7 +4,6 @@ void		ft_exit(int ret_code)
 {
 	debug_printf("exit process (%d)\n", ret_code);
 	reset_keypress();
-	//free_folders();
 	env_free();
 	free_quoted_params();
 	h_free();
@@ -26,7 +25,6 @@ void		init(int argc, char** argv, char** envp)
 	debug_printf("agrc = %d\n", argc);
 	debug_printf("agrv[1] = %s\n", argv[1]);
 	log_line("n\n\n\nstarted\n\n");
-	//parse args
 	signal(SIGINT, ft_default_sig_handler);
 	env_from_array(envp);
 }
@@ -36,11 +34,6 @@ void		cd(int argc, char* const argv[])
 {
 	static char old_work_dir[PATH_MAX] = "";
 	char folder[PATH_MAX];
-	//if (argc == 0)
-	//{
-	//	//ft_e_putstr("-minishell: cd: missing argument - folder name\n");
-	//	//return ;
-	//}
 	if (argc > 1)
 	{
 		ft_e_putstr("-minishell: cd: too many arguments\n");

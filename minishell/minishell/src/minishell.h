@@ -4,12 +4,12 @@
 # include "../libft/libft.h"
 
 # define MAX_CMD_LINE	255
+
 t_list		*env_get_g_env(void);
 const char	*env_extract_key(const char *kvp);
 BOOL		env_greater_than(t_list *a, t_list *b);
 void		env_free_one(void *item, size_t size);
 BOOL		key_equal(char *const key, t_list *n);
-
 
 void		env_from_array(char* env[]);
 char		*env_get_value(const char* key);
@@ -20,7 +20,6 @@ char		**env_to_array(void);
 void		ft_env(int argc, char* const argv[]); 
 void		ft_unset_env(int argc, char* const argv[]);
 void		ft_set_env(int argc, char* const argv[]);
-
 
 char		**fill_path_folders(void);
 
@@ -53,37 +52,33 @@ BOOL		h_has_next(void);
 const char* h_get_current(void);
 const char* h_get_previous(void);
 const char* h_get_next(void);
-void h_append(const char* content);
+void		h_append(const char* content);
 
-void pipe_free(t_list **pipe);
-t_list* pipe_parse2(const char **cmds);
-t_list* pipe_parse(const char* str);
-void	ft_pipe(int* r, int* w); 
-//pid_t pipe_exec2(t_list* p, int prev_r);
-void pipe_exec(char* str);
-void	close_g_fd_to_close(void);
-pid_t	ft_fork(void);
+void		pipe_free(t_list **pipe);
+t_list		* pipe_parse2(const char **cmds);
+t_list		* pipe_parse(const char* str);
+void		ft_pipe(int* r, int* w);
+void		pipe_exec(char* str);
+void		close_g_fd_to_close(void);
+pid_t		ft_fork(void);
 void		exec_ve(char* argv[]);
 void		exec_ve2(const char* str);
-pid_t exec(char* str);
+pid_t		exec(char* str);
 
-
-char	*replace_quoted(const char* str); 
+char		*replace_quoted(const char* str);
 void		replace_back(char* a[]);
 void		free_quoted_params(void);
 
+void		set_g_x(int x);
+int			get_g_x(void);
+void		move_cursor_left(int x);
+void		move_cursor_right(int x);
+void		backspace(int x);
+void		inc_cursor_pos(void);
+void		dec_cursor_pos(void);
+void		move_to_bol(void);
 
-void	set_g_x(int x);
-int		get_g_x(void);
-void	move_cursor_left(int x);
-void	move_cursor_right(int x);
-void	backspace(int x);
-void	inc_cursor_pos(void);
-void	dec_cursor_pos(void);
-void	move_to_bol(void);
-
-
-void	set_keypress(void);
+void		set_keypress(void);
 void		reset_keypress(void);
 
 void		set_buf_len(int len);
@@ -101,13 +96,13 @@ void		buffer_backspace(void);
 void		buffer_insert(char c);
 
 
-BOOL	process_key_left(void);
-BOOL	process_key_right(void);
-BOOL	process_key_down(void);
-BOOL	process_key_up(void);
-BOOL	process_backspace(void);
-BOOL	process_delete(void);
-void	process_printable(char c);
-void	process_not_printable(char control[10], int c);
+BOOL		process_key_left(void);
+BOOL		process_key_right(void);
+BOOL		process_key_down(void);
+BOOL		process_key_up(void);
+BOOL		process_backspace(void);
+BOOL		process_delete(void);
+void		process_printable(char c);
+void		process_not_printable(char control[10], int c);
 
 #endif

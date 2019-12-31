@@ -1,9 +1,10 @@
-﻿#include "../libft/libft.h"
+#include "../libft/libft.h"
 #include "minishell.h"
 
 pid_t	ft_fork()
 {
-	pid_t pid;
+	pid_t	pid;
+
 	debug_printf("fork\n");
 	pid = fork();
 	if (pid == -1)
@@ -14,7 +15,7 @@ pid_t	ft_fork()
 	return (pid);
 }
 
-void		exec_ve(char* argv[])
+void		exec_ve(char *argv[])
 {
 	debug_printf("exec(%s)\n", argv[0]);
 	int r;
@@ -29,9 +30,11 @@ void		exec_ve(char* argv[])
 	ft_exit(2);
 }
 
-void		exec_ve2(const char* str)
+void		exec_ve2(const char *str)
 {
-	char **args = ft_split3(str, " \t");
+	char	**args;
+
+	args = ft_split3(str, " \t");
 	exec_ve(args);
 	debug_printf("should not be here\n");
 	ft_free_null_term_array((void**)args);
@@ -43,7 +46,7 @@ BOOL		is_child(pid_t pid)
 	return (pid == 0);
 }
 
-void		fork_and_exec(char* argv[], pid_t* ppid)
+void		fork_and_exec(char * argv[], pid_t * ppid)
 {
 	//pid_t pid;
 	*ppid = ft_fork();

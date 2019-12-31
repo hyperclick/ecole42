@@ -12,23 +12,26 @@
 
 #include "libft.h"
 #include <stdio.h>
-void assert_is_null(void *p)
+
+void	assert_is_null(void *p)
 {
-	if (p!=NULL)
+	if (p != NULL)
 	{
 		printf("assert failed: expected: NULL, actual: %p\n", p);
 		exit(1);
 	}
 }
-void assert_is_not_null(void *p)
+
+void	assert_is_not_null(void *p)
 {
-	if (p==NULL)
+	if (p == NULL)
 	{
 		printf("assert failed: expected: NOT NULL, actual: %p\n", p);
 		exit(1);
 	}
 }
-void assert_true(BOOL b)
+
+void	assert_true(BOOL b)
 {
 	if (!b)
 	{
@@ -36,7 +39,8 @@ void assert_true(BOOL b)
 		exit(1);
 	}
 }
-void assert_false(BOOL b)
+
+void	assert_false(BOOL b)
 {
 	if (b)
 	{
@@ -45,7 +49,7 @@ void assert_false(BOOL b)
 	}
 }
 
-void assert_int_equals(int e, int a)
+void	assert_int_equals(int e, int a)
 {
 	if (e != a)
 	{
@@ -54,7 +58,7 @@ void assert_int_equals(int e, int a)
 	}
 }
 
-void assert_str_equals(const char* e, const char* a)
+void	assert_str_equals(const char *e, const char *a)
 {
 	if (!ft_strequ(e, a))
 	{

@@ -1,44 +1,27 @@
-﻿#include "minishell.h"
-/*
-char		**g_folders;
-int		g_count;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   folders.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/31 14:29:04 by darugula          #+#    #+#             */
+/*   Updated: 2019/12/31 14:29:06 by darugula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void		free_folders()
+#include "minishell.h"
+
+char	**fill_path_folders(void)
 {
-	ft_free_array(g_folders, g_count);
-	free(g_folders);
-	g_count = 0;
-	g_folders = NULL;
-}
+	const char	*path;
+	int			count;
+	char		**folders;
 
-
-
-void		update_folders()
-{
-	free_folders();
-	const char* path = env_get_value("PATH=");
-	ft_putstr(path);
-	g_count = ft_count_words(path, ":");
-	g_folders = (char**)malloc((sizeof(char*)) * (g_count + 1));
-	folders[g_count] = NULL;
-	ft_split(folders, path, g_count, ":");
-	printf("\npath[0] = '%s'\n", folders[0]);
-}
-
-char **get_path_folders()
-{
-	return (g_folders);
-}
-*/
-char **fill_path_folders()
-{
-	//free_folders();
-	const char* path = env_get_value("PATH");
-	//ft_putstr(path);
-	int count = (path == NULL) ? 0 : ft_count_words(path, ":");
-	char **folders = (char**)malloc((sizeof(char*)) * (count + 1));
+	path = env_get_value("PATH");
+	count = (path == NULL) ? 0 : ft_count_words(path, ":");
+	folders = (char**)malloc((sizeof(char*)) * (count + 1));
 	folders[count] = NULL;
 	ft_split(folders, path, count, ":");
-	//printf("\npath[0] = '%s'\n", folders[0]);
 	return (folders);
 }
