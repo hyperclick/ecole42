@@ -79,7 +79,7 @@ char		**env_to_array(void)
 	char	**a;
 
 	count = ft_lst_count(env_get_g_env()) + 1;
-	a = (char**)malloc(sizeof(char*)  *count);
+	a = (char**)malloc(sizeof(char*) * count);
 	if (a == NULL)
 	{
 		ft_e_putstr("env_to_array failed");

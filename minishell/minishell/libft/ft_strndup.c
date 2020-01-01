@@ -17,7 +17,7 @@ char	*ft_strndup(const char *s1, int len)
 	char	*r;
 
 	len = MIN(len, ft_strlen(s1));
-	r = malloc(sizeof(char)  *(len + 1));
+	r = malloc(sizeof(char) * (len + 1));
 	if (r == NULL)
 	{
 		return (NULL);

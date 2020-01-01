@@ -15,9 +15,9 @@
 
 #define LEVEL_ALL 0
 #define LEVEL_DEBUG 1
-int	g_level = LEVEL_ALL;
-FILE *output_stream = NULL;
-char p_name[255];
+int		g_level = LEVEL_ALL;
+FILE	*output_stream = NULL;
+char	p_name[255];
 pid_t	main_pid = -1;
 
 void		set_level(int level)
@@ -25,7 +25,7 @@ void		set_level(int level)
 	g_level = level;
 	debug_printf("level set to %d\n", g_level);
 }
-void		set_out_stream(FILE *stream)
+void		set_out_stream(FILE* stream)
 {
 	if (main_pid == -1)
 	{
@@ -41,18 +41,17 @@ void		close_out_stream()
 	fclose(output_stream);
 }
 
-void		set_out_file(const char *filename, const char *mode)
+void		set_out_file(const char* filename, const char* mode)
 {
 	set_out_stream(fopen(filename, mode));
-	//printf("file %s is opened\n", filename);
 }
 
-void debug_set_pname(const char name[])
+void		debug_set_pname(const char name[])
 {
 	ft_strcpy(p_name, name);
 }
 
-void print_prefix()
+void	print_prefix()
 {
 	for (int i = 0; i < getpid() - main_pid; i++)
 	{
@@ -61,7 +60,7 @@ void print_prefix()
 	fprintf(output_stream, "[%s]\t", p_name);
 
 }
-void	debug_printf(const char *format, ...)
+void	debug_printf(const char* format, ...)
 {
 	if (g_level < LEVEL_DEBUG)
 	{
@@ -80,17 +79,17 @@ void	debug_printf(const char *format, ...)
 	fflush(output_stream);
 }
 
-void	debug_print_zt_array(const char *a[])
+void	debug_print_zt_array(const char* a[])
 {
 	while (*a != NULL)
 	{
-		fprintf(output_stream, "'%s'\t", *a);
+		debug_printf("'%s'\t", *a);
 		++a;
 	}
-	fprintf(output_stream, "\n");
+	debug_printf("\n");
 }
 
-void debug_print_dic(t_list *dic)
+void	debug_print_dic(t_list* dic)
 {
 	t_kvp **kvps;
 	t_kvp **kvps_start;
@@ -104,7 +103,6 @@ void debug_print_dic(t_list *dic)
 	}
 	kvps = dic_get_kvps(dic);
 	kvps_start = kvps;
-	//	debug_printf("kvps = %p\n", kvps);
 	while (*kvps != NULL)
 	{
 		debug_printf("'%s' (%p)\t->\t'%s'\t(%p)\n", (*kvps)->key, (*kvps)->key, (char*)(*kvps)->value, *kvps);

@@ -12,21 +12,20 @@
 
 #include "libft.h"
 
-char	 *ft_str_left_from_rec(const char *start, const char *s, char c)
+char	*ft_str_left_from_rec(const char *start, const char *s, char c)
 {
 	if (*s == 0)
 	{
-			return (NULL);
+		return (NULL);
 	}
 	if (*s == c)
 	{
-		//printf("start = '%s', s = '%s', %ld sub = '%s'\n", start, s, s - start - 1, ft_strsub(start, 0, s - start - 1));
 		return (ft_strsub(start, 0, s - start));
 	}
 	return (ft_str_left_from_rec(start, s + 1, c));
 }
 
-char	 *ft_str_left_from(const char *s, char c)
+char	*ft_str_left_from(const char *s, char c)
 {
 	if (*s == 0 || c == 0)
 	{

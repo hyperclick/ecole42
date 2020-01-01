@@ -15,8 +15,8 @@ void test_exec()
 
 void test_pipe_parse()
 {
-	t_list *pipe = pipe_parse("ls -l | sort | cat -e");
-	t_list *p = pipe;
+	t_list* pipe = pipe_parse("ls -l | sort | cat -e");
+	t_list* p = pipe;
 	//printf("p->content = '%s'\n", (char*)p->content);
 	if (!ft_strequ(p->content, "ls -l"))
 	{
@@ -269,16 +269,16 @@ BOOL	compare_buffers(int e_read, int a_read, char e_buf[BUF_SIZE], char a_buf[BU
 	return (TRUE);
 }
 
-BOOL		compare_files(const char *expected_file_name, const char *actual_file_name)
+BOOL		compare_files(const char* expected_file_name, const char* actual_file_name)
 {
 	//printf("e: %s \na: %s \n", expected_file_name, actual_file_name);
-	FILE *a = fopen(actual_file_name, "r");
+	FILE* a = fopen(actual_file_name, "r");
 	if (a == NULL)
 	{
 		perror(actual_file_name);
 		exit(1);
 	}
-	FILE *e = fopen(expected_file_name, "r");
+	FILE* e = fopen(expected_file_name, "r");
 	if (e == NULL)
 	{
 		perror(expected_file_name);
@@ -307,7 +307,7 @@ BOOL		compare_files(const char *expected_file_name, const char *actual_file_name
 	fclose(e);
 	return (r);
 }
-void compare_and_free(const char *e, const char *a, const char *name)
+void compare_and_free(const char* e, const char* a, const char* name)
 {
 	if (compare_files(e, a))
 	{
@@ -325,12 +325,12 @@ void compare_and_free(const char *e, const char *a, const char *name)
 	free((char*)name);
 }
 
-void	redirect_and_exec(void(*f)(), const char *out_file_name, const char *err_file_name)
+void	redirect_and_exec(void(*f)(), const char* out_file_name, const char* err_file_name)
 {
 
 	int out = dup(STDOUT_FILENO);
-	FILE *f_out = freopen(out_file_name, "w", stdout);
-	FILE *f_err = freopen(err_file_name, "w", stderr);
+	FILE* f_out = freopen(out_file_name, "w", stdout);
+	FILE* f_err = freopen(err_file_name, "w", stderr);
 	save_stdin();
 	save_stdout();
 	f();
@@ -352,12 +352,12 @@ void	redirect_and_exec(void(*f)(), const char *out_file_name, const char *err_fi
 }
 
 
-void		test2(void(*e)(), void(*a)(), const char *name)
+void		test2(void(*e)(), void(*a)(), const char* name)
 {
-	const char *expected_out = ft_strjoin2(3, "test_cases/expected/", name, "_out.txt");
-	const char *actual_out = ft_strjoin2(3, "test_cases/actual/", name, "_out.txt");
-	const char *expected_err = ft_strjoin2(3, "test_cases/expected/", name, "_err.txt");
-	const char *actual_err = ft_strjoin2(3, "test_cases/actual/", name, "_err.txt");
+	const char* expected_out = ft_strjoin2(3, "test_cases/expected/", name, "_out.txt");
+	const char* actual_out = ft_strjoin2(3, "test_cases/actual/", name, "_out.txt");
+	const char* expected_err = ft_strjoin2(3, "test_cases/expected/", name, "_err.txt");
+	const char* actual_err = ft_strjoin2(3, "test_cases/actual/", name, "_err.txt");
 
 	debug_set_pname("test");
 	debug_printf("testing %s\n", name);
@@ -372,7 +372,7 @@ void		test2(void(*e)(), void(*a)(), const char *name)
 }
 
 
-void		test(void(*f)(), const char *name)
+void		test(void(*f)(), const char* name)
 {
 	test2(NULL, f, name);
 }
@@ -387,13 +387,13 @@ void test_pipe_1()
 
 //void test_replace_quotes()
 //{
-//	char *str = replace_quotes("   \"   \"   \"\"");
+//	char* str = replace_quotes("   \"   \"   \"\"");
 //	if (!ft_str_equals(str, "   #quoted_param_1#   #quoted_param_2#"))
 //	{
 //		printf("expected: %s actual: %s\n","   #quoted_param_1#   #quoted_param_2#",str);
 //		exit(1);
 //	}
-//	char *str2 = replace_quotes_back("#quoted_param_2# #quoted_param_1# #quoted_param_2#");
+//	char* str2 = replace_quotes_back("#quoted_param_2# #quoted_param_1# #quoted_param_2#");
 //	if (!ft_str_equals(str2, "\"\" \"   \" \"\""))
 //	{
 //		printf("expected: %s actual: %s\n", "\"\" \"   \" \"\"",str2);
@@ -403,7 +403,7 @@ void test_pipe_1()
 
 void dic()
 {
-	t_list *dic = NULL;
+	t_list* dic = NULL;
 	assert_true(dic_is_empty(dic));
 	assert_int_equals(0, dic_get_count(dic));
 	dic_free(&dic);
@@ -551,7 +551,7 @@ void test_pipe9()
 	process_command("wc -c < /tmp/test.txt");
 }
 
-void		fe(const char *argv[])
+void		fe(const char* argv[])
 {
 	pid_t pid;
 	pid = ft_fork();
@@ -570,26 +570,24 @@ void pwd2()
 	pipe_exec(ft_strdup("pwd"));
 	return ;
 	pid_t pid;
-	char **args = ft_split3("/bin/pwd", "|");
+	char** args = ft_split3("/bin/pwd", "|");
 
 
-	fe((const char**) args);
+	fe((const char **)args);
 	return ;
 	pid = ft_fork();
 	if (is_child(pid))
 	{
 		debug_set_pname(args[0]);
-		exec_ve((const char**)args);
+		exec_ve((const char **)args);
 		debug_printf("!!!should not be here!!!\n");
 	}
 	ft_free_null_term_array((void**)args);
 	wait_child(pid);
 	return ;
-	
-	//
-	//ft_exit(0);
 
-	t_list *p;
+
+	t_list* p;
 	p = pipe_parse("pwd");
 
 	//pipe_exec2(p, STDIN_FILENO);
@@ -615,19 +613,162 @@ void pwd2()
 
 }
 
-
-int main(int argc, char **argv, char **envp)
+BOOL	valid_token_second_char(char c)
 {
-	/*
-	set_out_file("debug_out4.txt", "w");
-	set_level(1);
-	debug_printf("%s\n", "started");
-	signal(SIGINT, ft_default_sig_handler);
-	env_from_array(envp);
-	ft_putstr("\n\n\n----------------\n\n\n");
-	*/
+	return (c != 0 && c != '%' && c != ' ');
+}
+
+BOOL	is_token(const char *str)
+{
+	return (*str == '%' && valid_token_second_char(*(str + 1)));
+}
+
+int		count_tokens(const char *str)
+{
+	int len = 0;
+	while (*str != 0)
+	{
+		if (is_token(str))
+		{
+			++len;
+		}
+		++str;
+	}
+	return (len);
+}
+
+static void	fill_tokens(char **tokens, const char *str)
+{
+	while (*str != 0)
+	{
+		if (is_token(str))
+		{
+			*tokens = ft_strsub(str, 0, 2);
+			tokens++;
+		}
+		++str;
+	}
+}
+
+void	ft_printf(const char *format, ...)
+{
+	int i;
+	char	**args;
+	char	**tokens;
+	
+	if (format == NULL)
+	{
+		ft_putstr("'NULL'");
+	}
+	int count = count_tokens(format);
+	
+	args 		= (char**)malloc(sizeof(char*) * (count + 1));
+	args[count] = NULL;
+	tokens 		= (char**)malloc(sizeof(char**) * (count + 1));
+	tokens[count] = NULL;
+	
+	fill_tokens(tokens, format);
+	
+	va_list	args_list;
+	
+	va_start(args_list, format);
+	i = -1;
+	while (++i < count)
+	{
+		if (ft_str_equals(tokens[i], "%s"))
+		{
+			args[i] = va_arg(args_list, char*);
+		}
+		else if (ft_str_equals(tokens[i],"%c"))
+		{
+			args[i] = ft_strnew(1);
+			args[i][0] = (char)va_arg(args_list, int);
+		}
+		else if (ft_str_equals(tokens[i],"%d"))
+		{
+			args[i] = ft_itoa(va_arg(args_list, int));
+		}
+		else if (ft_str_equals(tokens[i],"%p"))
+		{
+			void *p = va_arg(args_list, void*);
+			args[i] = ft_itoa((int)p);
+		}
+		else
+		{
+			ft_e_putstr("unexpected format: ");
+			ft_e_putstr(tokens[i]);
+			ft_e_putstr("\n");
+			exit(1);
+		}
+	}
+	va_end(args_list);
+	
+	
+	char *dst;
+	//dst = count == 0 ? ft_strdup(format) : ft_strdup("");
+	dst = ft_strdup(format) ;
+	i = -1;
+	while (++i < count)
+	{
+		dst = ft_str_replace(dst, tokens[i], args[i]);
+	}
+	
+	ft_putstr(dst);
+	free(dst);
+	free(args);
+	//ft_free_null_term_array((void**) args);
+	ft_free_null_term_array((void**) tokens);
+}
+
+char g_str[] = "123";
+void	test_printf_e()
+{
+	printf("ptr: %p\n", g_str);
+	printf("number: %d, char: %c, string: '%s'\n", 1, 'a', "abc");
+	printf(": %d\n", 1);
+	printf("%s%s\n", "str1_", "str2");
+	
+	printf("1\n");
+	printf("%s\n", "str");
+	//printf(NULL);
+}
+void	test_printf_a()
+{
+	ft_printf("ptr: %p\n", g_str);
+	ft_printf("number: %d, char: %c, string: '%s'\n", 1, 'a', "abc");
+	ft_printf(": %d\n", 1);
+	ft_printf("%s%s\n", "str1_", "str2");
+	
+	assert_int_equals(0, count_tokens("%"));
+	assert_int_equals(0, count_tokens(""));
+	assert_int_equals(0, count_tokens("%%"));
+	assert_int_equals(1, count_tokens("%%1"));
+	assert_int_equals(1, count_tokens("%1"));
+	assert_int_equals(2, count_tokens("%%1%2"));
+	assert_int_equals(0, count_tokens("% "));
+	ft_printf("1\n");
+	ft_printf("%s\n", "str");
+	
+	//ft_printf(NULL);
+}
+
+void	test_debug_printf(const char* format, ...)
+{
+	FILE * s = ft("printf_out.txt", "w");
+	va_list argptr;
+	va_start(argptr, format);
+	ft_printf_fd(s, format, argptr);
+	va_end(argptr);
+//	fflush(output_stream);
+}
+
+int main(int argc, char** argv, char** envp)
+{
 	init(argc, argv, envp);
 
+	
+	test2(test_printf_e, test_printf_a, "printf");
+	return 1;
 	//process_command(" echo 1 | sed -e 's/1/Yes/g'");
 	//debug_print_zt_array((const char**)env_to_array());
 
@@ -635,7 +776,6 @@ int main(int argc, char **argv, char **envp)
 	//process_command("echo 1");
 
 	//process_command("ls | sort");
-	//test(cd_bad, "cd_bad");
 		//ft_exit(0);
 	//	process_command("base64 /dev/urandom | head -c100");
 	//	ft_exit(0);
@@ -668,7 +808,7 @@ int main(int argc, char **argv, char **envp)
 	test(env, "env");
 	test(ls, "ls");
 
-	char *restore_home = ft_strjoin("setenv HOME ", env_get_value("HOME"));
+	char* restore_home = ft_strjoin("setenv HOME ", env_get_value("HOME"));
 	process_command("setenv HOME fake_home_for_tests");
 	test(echo_home, "echo_home");
 	test(echo_tilde, "echo_tilde");
@@ -688,7 +828,7 @@ int main(int argc, char **argv, char **envp)
 
 
 
-	char *restore_ld_preload = ft_strjoin("setenv LD_PRELOAD ", env_get_value("LD_PRELOAD"));
+	char* restore_ld_preload = ft_strjoin("setenv LD_PRELOAD ", env_get_value("LD_PRELOAD"));
 	process_command("setenv LD_PRELOAD \"\"");
 	test2(test_set_env_e, test_set_env_a, "set_env");
 	if (restore_ld_preload != NULL)

@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_readline.c                                      :+:      :+:    :+:   */
+/*   history.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/01 15:16:56 by darugula          #+#    #+#             */
-/*   Updated: 2020/01/01 15:16:58 by darugula         ###   ########.fr       */
+/*   Created: 2020/01/01 13:00:51 by darugula          #+#    #+#             */
+/*   Updated: 2020/01/01 13:00:52 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef HISTORY_H
+# define HISTORY_H
 
-void		ft_readline(char *dst, int size)
-{
-	char ch;
+# include "../libft/libft.h"
 
-	while (read(STDIN_FILENO, &ch, 1) > 0)
-	{
-		if (--size == 0)
-		{
-			ft_e_putstr("buffer is too small");
-			exit(1);
-		}
-		if (ch == '\n')
-		{
-			break ;
-		}
-		*dst++ = ch;
-	}
-	*dst = 0;
-}
+extern t_d_list	*g_head;
+extern t_d_list	*g_current;
+extern t_d_list	*g_last;
+
+#endif

@@ -32,42 +32,45 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (ft_strcat(ft_strcat(str, s1), s2));
 }
 
-char	*ft_strjoin2(int count, ...)
+int		va_get_len(va_list args_list, int count)
 {
-	int	i;
-	int	len;
-	
-	char	*str;
-	char *s_i;
-	va_list       s;
-	va_start(s, count);
+	int		i;
+	int		len;
+	char	*s_i;
+
 	i = -1;
 	len = 0;
 	while (++i < count)
 	{
-		s_i = va_arg(s, char*);
+		s_i = va_arg(args_list, char*);
 		len += ft_strlen(s_i);
-		//printf("len = %d, s_i = '%s'\n", len, s_i);
 	}
-	va_end(s);
-	
+	return (len);
+}
+
+char	*ft_strjoin2(int count, ...)
+{
+	int		i;
+	int		len;
+	char	*str;
+	char	*s_i;
+	va_list	args_list;
+
+	va_start(args_list, count);
+	len = va_get_len(args_list, count);
+	va_end(args_list);
 	str = ft_strnew(len);
 	if (str == NULL)
 	{
-		//printf("len = %d\n", len);
 		return (NULL);
 	}
-	
-	va_start(s, count);
+	va_start(args_list, count);
 	i = -1;
 	while (++i < count)
 	{
-		s_i = va_arg(s, char*);
+		s_i = va_arg(args_list, char*);
 		ft_strcat(str, s_i);
 	}
-	va_end(s);
-	
-	
+	va_end(args_list);
 	return (str);
 }
-

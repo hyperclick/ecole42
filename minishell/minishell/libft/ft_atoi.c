@@ -25,12 +25,12 @@ static long	atoi2(const char *str, long n, BOOL is_negative)
 		return (is_negative ? -n : n);
 	}
 	digit = *str - '0';
-	if (n > (n  *10 + digit))
+	if (n > (n * 10 + digit))
 	{
 		return (is_negative ? 0 : -1);
 	}
 	str++;
-	n = 10  *n + digit;
+	n = 10 * n + digit;
 	return (atoi2(str, n, is_negative));
 }
 
