@@ -1,54 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exec.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/01 12:26:24 by darugula          #+#    #+#             */
+/*   Updated: 2020/01/01 12:26:25 by darugula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft/libft.h"
 #include "minishell.h"
 
-pid_t	ft_fork()
+void		fork_and_exec(const char *argv[], pid_t *ppid)
 {
-	pid_t	pid;
-
-	debug_printf("fork\n");
-	pid = fork();
-	if (pid == -1)
-	{
-		ft_e_putstr("can't fork, error occured\n");
-		ft_exit(EXIT_FAILURE);
-	}
-	return (pid);
-}
-
-void		exec_ve(char *argv[])
-{
-	debug_printf("exec(%s)\n", argv[0]);
-	int r;
-	r = execve(argv[0], argv, env_to_array());
-	if (r == -1)
-	{
-		perror("Could not execute: ");
-		ft_e_putstr(argv[0]);
-		ft_exit(1);
-	}
-	debug_printf("execve returned: %d\n", r);
-	ft_exit(2);
-}
-
-void		exec_ve2(const char *str)
-{
-	char	**args;
-
-	args = ft_split3(str, " \t");
-	exec_ve(args);
-	debug_printf("should not be here\n");
-	ft_free_null_term_array((void**)args);
-	//free(args);
-}
-
-BOOL		is_child(pid_t pid)
-{
-	return (pid == 0);
-}
-
-void		fork_and_exec(char * argv[], pid_t * ppid)
-{
-	//pid_t pid;
 	*ppid = ft_fork();
 	if (is_child(*ppid))
 	{
@@ -58,15 +24,10 @@ void		fork_and_exec(char * argv[], pid_t * ppid)
 		exec_ve(argv);
 		debug_printf("!!!should not be here!!!\n");
 	}
-
 	debug_printf("fork_and_exec:\t%s = %d launched\n", argv[0], *ppid);
-	//set_awaited_process(pid);
-	//wait_child(pid);
-	//set_awaited_process(0);
-	//add awaited process
 }
 
-BOOL		try_execute(char* filename, char* argv[], pid_t* ppid)
+BOOL		try_execute(const char *filename, const char *argv[], pid_t *ppid)
 {
 	if (access(argv[0], F_OK) == 0)
 	{
@@ -78,29 +39,16 @@ BOOL		try_execute(char* filename, char* argv[], pid_t* ppid)
 			return (TRUE);
 		}
 		fork_and_exec(argv, ppid);
-		//exec_ve(argv);
-		//ft_e_putstr("execve succeeded\n");
-		//ft_exit(2);
 		return (TRUE);
 	}
 	return (FALSE);
 }
 
-pid_t		exec2(char* argv[])
+pid_t		process_folders(char **folders, const char *filename
+							, const char **argv)
 {
-	char* filename = argv[0];
-	pid_t pid;
-	if (try_execute(filename, argv, &pid))
-	{
-		return (pid);
-	}
-	char* argv0 = argv[0];
-	//printf("free %s\n", argv[0]);
-	//free(argv[0]);
-	char		path[PATH_MAX];
-	char **folders;
-	folders = fill_path_folders();
-	char **start = folders;
+	char	path[PATH_MAX];
+	pid_t	pid;
 
 	while (*folders != NULL)
 	{
@@ -108,11 +56,8 @@ pid_t		exec2(char* argv[])
 		ft_str_append(path, PATH_SEPARATOR);
 		ft_strcat(path, filename);
 		argv[0] = path;
-		//debug_printf("trying '%s'\n", argv[0]);
 		if (try_execute(filename, argv, &pid))
 		{
-			argv[0] = argv0;
-			ft_free_null_term_array((void**)start);
 			debug_printf("exec2:\texecuted: %s\n", path);
 			return (pid);
 		}
@@ -121,7 +66,23 @@ pid_t		exec2(char* argv[])
 	ft_e_putstr(filename);
 	ft_e_putstr(": command not found\n");
 	debug_printf("%s: command not found\n", filename);
-	argv[0] = argv0;
-	ft_free_null_term_array((void**)start);
 	return (0);
+}
+
+pid_t		exec2(const char *argv[])
+{
+	const char	*filename;
+	pid_t		pid;
+	char		**folders;
+
+	filename = argv[0];
+	if (try_execute(filename, argv, &pid))
+	{
+		return (pid);
+	}
+	folders = fill_path_folders();
+	pid = process_folders(folders, filename, argv);
+	argv[0] = filename;
+	ft_free_null_term_array((void**)folders);
+	return (pid);
 }

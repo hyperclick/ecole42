@@ -103,7 +103,11 @@ void		assert_false(BOOL b);
 void		assert_int_equals(int e, int a);
 void		assert_str_equals(const char* e, const char* a);
 
+pid_t		ft_fork(void);
+BOOL		is_child(pid_t pid);
+
 int				int_lg(int n);
+
 void			close_out_stream(void);
 void			set_out_stream(FILE* stream);
 void			set_out_file(const char* filename, const char* mode);

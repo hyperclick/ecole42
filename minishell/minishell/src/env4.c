@@ -61,3 +61,29 @@ char		**env_replace_vars(char **r, const char **a)
 	*r = NULL;
 	return (r);
 }
+
+void		exec_ve(const char *argv[])
+{
+	int	r;
+
+	debug_printf("exec(%s)\n", argv[0]);
+	r = execve(argv[0], (char**)argv, env_to_array());
+	if (r == -1)
+	{
+		perror("Could not execute: ");
+		ft_e_putstr(argv[0]);
+		ft_exit(1);
+	}
+	debug_printf("execve returned: %d\n", r);
+	ft_exit(2);
+}
+
+void		exec_ve2(const char *str)
+{
+	char	**args;
+
+	args = ft_split3(str, " \t");
+	exec_ve((const char **)args);
+	debug_printf("should not be here\n");
+	ft_free_null_term_array((void**)args);
+}

@@ -210,87 +210,126 @@ int		process_one_command(char* cmd)
 
 char** g_commands = NULL;
 
-int	process_command(const char* str)
+char	*trim(char *str, int *r)
 {
-	debug_printf("\n");
-	debug_printf("-----------------------\n");
-	debug_printf("process command: '%s'\n", str);
+	char	*trimmed;
 
-	char* str2 = replace_quoted(str);
-	debug_printf("quotes replaced: '%s'\n", str2);
-
-	char* trimmed = ft_strtrim2(str2, "\t ");
-	free(str2);
-
+	trimmed = ft_strtrim2(str, "\t ");
+	free(str);
+	str = NULL;
 	if (ft_str_is_empty(trimmed))
 	{
 		free(trimmed);
-		return (0);
+		trimmed = NULL;
+		*r = 0;
 	}
-	char* no_comments;
-	debug_printf("trimmed = %s\n", trimmed);
-	no_comments = remove_comment(trimmed);
+	return (trimmed);
+}
+
+char	*remove_comment_checked(char *s, int *r)
+{
+	char	*no_comments;
+
+	debug_printf("trimmed = %s\n", s);
+	no_comments = remove_comment(s);
 	debug_printf("no comments = %s\n", no_comments);
-	free(trimmed);
-	if (ft_strlen(no_comments) == 0)
+	free(s);
+	s = NULL;
+	if (ft_str_is_empty(no_comments))
 	{
 		free(no_comments);
-		return (0);
+		no_comments = NULL;
+		*r = 0;
 	}
+	return (no_comments);
+}
 
+static BOOL check_words_count(char *s, int *r)
+{
 	int count;
-
-	count = ft_count_words(no_comments, ";");
+	
+	count = ft_count_words(s, ";");
 	if (count == 0)
 	{
 		ft_e_putstr("minishell: syntax error near unexpected token `;'\n");
 		debug_printf("minishell: syntax error near unexpected token `;'\n");
-		free(no_comments);
-		return (1);
+		free(s);
+		*r = 1;
+		return (FALSE);
 	}
+	return (TRUE);
+}
 
-	char** commands = ft_split3(no_comments, ";");
-	free(no_comments);
+static int process_commands(char *s)
+{
+	int		r;
+	char	**commands;
+
+	commands = ft_split3(s, ";");
+	free(s);
 	if (g_commands != NULL)
 	{
 		ft_e_putstr("g_commands != NULL\n");
 		exit(1);
 	}
 	g_commands = commands;
-	char** cmds = commands;
-	while (*cmds != NULL)
+	while (*commands != NULL)
 	{
-		int r = process_one_command(*cmds);
+		r = process_one_command(*commands);
 		if (r != 0)
 		{
 			break ;
 		}
-		cmds++;
+		commands++;
 	}
 	free_quoted_params();
-	//if (g_commands != NULL)
-	//{
-	ft_free_null_term_array((void**)commands);
+	ft_free_null_term_array((void**)g_commands);
 	g_commands = NULL;
-	//}
+	return (r);
+}
+
+int	process_command(const char* str)
+{
+	int	r;
+
+	r = -200;
+	debug_printf("\n");
+	debug_printf("-----------------------\n");
+	debug_printf("process command: '%s'\n", str);
+
+	char* s = replace_quoted(str);
+
+	if ((s= trim(s, &r)) == NULL
+		|| (s = remove_comment_checked(s, &r)) == NULL
+		|| !check_words_count(s, &r)
+		)
+	{
+		return (r);
+	}
+	r = process_commands(s);
 
 	debug_printf("command processed: '%s'\n", str);
 	debug_printf("-------------------------\n");
 	debug_printf("\n");
-	//ft_exit(1);
-	return (0);
+	return (r);
 }
 
-
-pid_t exec(char* str)
+pid_t	built_in_or_external(char **replaced_args, int c)
 {
-	//if (g_commands != NULL)
-	//{
-	//	ft_free_null_term_array((void**)g_commands);
-	//	g_commands = NULL;
-	//}
+	pid_t pid;
 
-	char** args;
+	pid = 0;
+	if (!built_in_processed(replaced_args, c))
+	{
+		pid = exec2((const char**)replaced_args);
+	}
+	ft_free_array((void**)replaced_args, c);
+	return (pid);
+}
+
+pid_t	exec(char	*str)
+{
+	char	**args;
 	args = ft_split3(str, " \t");
 	free(str);
 
@@ -300,27 +339,11 @@ pid_t exec(char* str)
 	env_replace_vars(replaced_args, (const char**)args);
 	ft_free_null_term_array((void**)args);
 
-
 	//parse heredoc
 	//parse redirections
 
-	//unquote(replaced_args);
-	//debug_printf("before replace\n");
-	//debug_print_zt_array((const char**)replaced_args);
 	replace_back(replaced_args);
-	//free_quoted_params();
 	debug_printf("after replace\n");
 	debug_print_zt_array((const char**)replaced_args);
-	//ft_str_remove_empty_strings(replaced_args)
-	pid_t pid = 0;
-	if (!built_in_processed(replaced_args, c))
-	{
-		pid = exec2(replaced_args);
-	}
-	ft_free_array((void**)replaced_args, c);
-	return (pid);
-	//close_fd(STDOUT_FILENO);
-	//freopen("/dev/tty", "a", stdout);
-	//freopen("/dev/tty", "a", stderr);
-	//ft_exit(0);
+	return (built_in_or_external(replaced_args, c));
 }

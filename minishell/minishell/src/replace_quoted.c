@@ -41,33 +41,23 @@ char* add_paired_quote(char* dst, const char* value)
 	return (add_quote(dst, paired_quote, value));
 }
 
-char* replace_quoted(const char* str)
+static void process_string(char *dst, const char *str)
 {
 	char param_buffer[ft_strlen(str)];
-	char* param_start = param_buffer;
-	char* p = param_buffer;
-	char* dst;
-	int count;
-	count = get_target_len(str) + 1;
-	//dst = (char*)malloc(count * sizeof(char));
-	dst = ft_strnew(count * sizeof(char));
-	dst[count - 1] = 0;
-	//debug_printf("replace_quoted:56: dst = '%s' (%p) (%d)\n", dst, dst, strlen(dst));
-	//debug_printf("count = %d, &dst = %p, count * sizeof(char) = %d\n", count, dst, count * sizeof(char));
-	char* dst_start = dst;
+	char* p;
+
 	while (*str != 0)
 	{
 		if (*str == '\"')
 		{
 			str++;
-			p = param_start;
+			p = param_buffer;
 			while (*str != 0 && *str != '\"')
 			{
 				*p++ = *str++;
 			}
 			*p = 0;
-			dst = (*str == 0) ? add_unpaired_quote(dst, param_start) : add_paired_quote(dst, param_start);
-			//			debug_printf("dst_start = %s, str = %s\n", dst_start, str);
+			dst = (*str == 0) ? add_unpaired_quote(dst, param_buffer) : add_paired_quote(dst, param_buffer);
 			if (*str == '\"')
 			{
 				str++;
@@ -77,8 +67,19 @@ char* replace_quoted(const char* str)
 		*dst++ = *str++;
 	}
 	*dst++ = 0;
-	//debug_print_dic(g_quoted_params);
-	return (dst_start);
+}
+
+char*		replace_quoted(const char* str)
+{
+	char	*dst;
+	int		count;
+
+	count = get_target_len(str) + 1;
+	dst = ft_strnew(count * sizeof(char));
+	//dst[count - 1] = 0;
+	process_string(dst, str);
+	debug_printf("quotes replaced: '%s'\n", dst);
+	return (dst);
 }
 
 void		replace_back_unused(char* a[])
@@ -102,21 +103,14 @@ void		replace_back(char* a[])
 {
 	char **keys = dic_get_keys(g_quoted_params);
 	char **keys_start = keys;
-	//debug_printf("replace back:\n");
-	//debug_print_dic(g_quoted_params);
 	while (*a != NULL)
 	{
 		debug_printf("processing %s\n", *a);
-		//debug_printf("*keys = %s\n", *keys);
-		//debug_print_zt_array((const char**) keys);
-		
 		while (*keys != NULL)
 		{
-			//debug_printf("check %s\n", *keys);
 			if (ft_str_contains(*a, *keys))
 			{
 				char* tmp = *a;
-				//debug_printf("about to replace: '%s' -> '%s'\n", *keys, dic_get_value(g_quoted_params, *keys));
 				*a = ft_str_replace(*a, *keys, dic_get_value(g_quoted_params, *keys));
 				free((char*)tmp);
 			}
