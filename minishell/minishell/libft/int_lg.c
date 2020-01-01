@@ -14,7 +14,9 @@
 
 int	int_lg(int n)
 {
-	int p = 0;
+	int p;
+
+	p = 0;
 	while (n >= 10)
 	{
 		n /= 10;

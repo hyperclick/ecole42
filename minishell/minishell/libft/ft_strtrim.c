@@ -27,7 +27,6 @@ char	*ft_strtrim2(char const *s, char const *whitespaces)
 	{
 		s++;
 	}
-	//printf("   s = '%s'\n", s);
 	len = ft_strlen(s);
 	i = 0;
 	if (len != 0)
@@ -38,11 +37,10 @@ char	*ft_strtrim2(char const *s, char const *whitespaces)
 		}
 	}
 	str = ft_strndup(s, len - i);
-	//printf("   str = '%s'\n", str);
 	return (str);
 }
 
-char		*ft_strtrim(char const *s)
+char	*ft_strtrim(char const *s)
 {
 	return (ft_strtrim2(s, " \n\t"));
 }

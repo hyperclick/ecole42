@@ -15,7 +15,7 @@
 pid_t		ft_fork(void)
 {
 	pid_t	pid;
-	
+
 	debug_printf("fork\n");
 	pid = fork();
 	if (pid == -1)
@@ -39,7 +39,7 @@ static void	log_pipe(int r, int w)
 void		ft_pipe(int *r, int *w)
 {
 	int fd[2];
-	
+
 	if (pipe(fd) != 0)
 	{
 		ft_e_putstr("pipe() failed\n");
@@ -49,4 +49,33 @@ void		ft_pipe(int *r, int *w)
 	*r = fd[0];
 	*w = fd[1];
 	log_pipe(*r, *w);
+}
+
+void		wait_child(pid_t pid)
+{
+	int	status;
+
+	debug_printf("wait %d to stop\n", pid);
+	if (waitpid(pid, &status, 0) > 0)
+	{
+		if (WIFEXITED(status) && !WEXITSTATUS(status))
+			;
+		else if (WIFEXITED(status) && WEXITSTATUS(status))
+		{
+			if (WEXITSTATUS(status) == 127)
+			{
+				printf("execv failed\n");
+			}
+			else
+				debug_printf("program terminated normally,"
+							" but returned a non-zero status\n");
+		}
+		else
+			debug_printf("child program didn't terminate normally\n");
+	}
+	else
+	{
+		debug_printf("waitpid() failed\n");
+	}
+	debug_printf("waitpid(%d) returned\n", pid);
 }

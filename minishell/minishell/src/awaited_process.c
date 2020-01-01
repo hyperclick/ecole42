@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_readline.c                                      :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/01 15:16:56 by darugula          #+#    #+#             */
-/*   Updated: 2020/01/01 15:16:58 by darugula         ###   ########.fr       */
+/*   Created: 2020/01/01 14:08:18 by darugula          #+#    #+#             */
+/*   Updated: 2020/01/01 14:08:20 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-void		ft_readline(char *dst, int size)
+pid_t	g_awaited_process = 0;
+
+pid_t	get_awaited_process(void)
 {
-	char ch;
+	return (g_awaited_process);
+}
 
-	while (read(STDIN_FILENO, &ch, 1) > 0)
+void	set_awaited_process(pid_t pid)
+{
+	debug_printf("change g_awaited_process from %d to %d\n"
+				, g_awaited_process, pid);
+	if ((g_awaited_process != 0 && pid != 0) || g_awaited_process == pid)
 	{
-		if (--size == 0)
-		{
-			ft_e_putstr("buffer is too small");
-			exit(1);
-		}
-		if (ch == '\n')
-		{
-			break ;
-		}
-		*dst++ = ch;
+		exit(1);
 	}
-	*dst = 0;
+	g_awaited_process = pid;
 }

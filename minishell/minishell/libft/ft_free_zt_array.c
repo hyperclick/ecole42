@@ -1,33 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_readline.c                                      :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/01 15:16:56 by darugula          #+#    #+#             */
-/*   Updated: 2020/01/01 15:16:58 by darugula         ###   ########.fr       */
+/*   Created: 2019/09/10 11:59:02 by darugula          #+#    #+#             */
+/*   Updated: 2019/09/10 11:59:04 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_readline(char *dst, int size)
+void	ft_free_array(void **r, int n)
 {
-	char ch;
-
-	while (read(STDIN_FILENO, &ch, 1) > 0)
+	while (n-- > 0)
 	{
-		if (--size == 0)
-		{
-			ft_e_putstr("buffer is too small");
-			exit(1);
-		}
-		if (ch == '\n')
-		{
-			break ;
-		}
-		*dst++ = ch;
+		free(r[n]);
 	}
-	*dst = 0;
+}
+
+int		ft_count_null_term_array(void **a)
+{
+	int	count;
+
+	count = 0;
+	while (*a != NULL)
+	{
+		a++;
+		count++;
+	}
+	return (count);
+}
+
+void	ft_free_array2(void ***r)
+{
+	ft_free_array(**r, ft_count_null_term_array(**r));
+	free(*r);
+	*r = NULL;
+}
+
+void	ft_free_null_term_array(void **a)
+{
+	ft_free_array(a, ft_count_null_term_array(a));
+	free(a);
 }

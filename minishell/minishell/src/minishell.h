@@ -40,7 +40,6 @@ pid_t		exec2(const char *argv[]);
 
 pid_t		get_awaited_process(void);
 void		set_awaited_process(pid_t pid);
-void		wait_child(pid_t pid);
 
 void		ft_exit(int ret_code);
 void		init(int argc, char **argv, char **envp);

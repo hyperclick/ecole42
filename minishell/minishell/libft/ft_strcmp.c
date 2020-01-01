@@ -12,12 +12,12 @@
 
 #include "libft.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+int		ft_strcmp(const char *s1, const char *s2)
 {
 	return (ft_strncmp(s1, s2, MAX(ft_strlen(s1), ft_strlen(s2)) + 1));
 }
 
-BOOL ft_str_greater_than(const char* a, const char* b)
+BOOL	ft_str_greater_than(const char *a, const char *b)
 {
 	return (ft_strcmp(a, b));
 }

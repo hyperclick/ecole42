@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_readline.c                                      :+:      :+:    :+:   */
+/*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/01 15:16:56 by darugula          #+#    #+#             */
-/*   Updated: 2020/01/01 15:16:58 by darugula         ###   ########.fr       */
+/*   Created: 2019/07/09 01:51:27 by darugula          #+#    #+#             */
+/*   Updated: 2019/07/09 01:51:31 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_readline(char *dst, int size)
+char	*ft_str_remove_comment(const char *str, char comment)
 {
-	char ch;
+	int offset;
+	int n;
 
-	while (read(STDIN_FILENO, &ch, 1) > 0)
+	if (*str == comment)
 	{
-		if (--size == 0)
-		{
-			ft_e_putstr("buffer is too small");
-			exit(1);
-		}
-		if (ch == '\n')
-		{
-			break ;
-		}
-		*dst++ = ch;
+		return (ft_strdup(""));
 	}
-	*dst = 0;
+	offset = 0;
+	while (TRUE)
+	{
+		n = ft_str_index_of(str + offset, '#');
+		if (n == -1)
+		{
+			return (ft_strdup(str));
+		}
+		offset += n + 1;
+		if (str[offset - 2] == ' '
+			|| str[offset - 2] == '\t' || str[offset - 2] == ';')
+		{
+			return (ft_strsub(str, 0, offset - 1));
+		}
+	}
 }
