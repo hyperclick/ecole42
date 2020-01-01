@@ -13,39 +13,29 @@
 #include "../libft/libft.h"
 #include "history.h"
 
-t_d_list	*g_head = NULL;
-t_d_list	*g_current = NULL;
-t_d_list	*g_last = NULL;
-
-void		h_append(const char *content)
+BOOL		h_has_previous(void)
 {
-	t_d_list	*l;
-
-	l = ft_dlst_new(content, -1);
-	l->prev = g_last;
-	if (g_last == NULL)
-	{
-		g_last = l;
-		g_head = l;
-		return ;
-	}
-	g_last->list.next = (t_list*)l;
-	g_last = l;
-	g_current = NULL;
+	return (g_current == NULL ? g_last != NULL : g_current->prev != NULL);
 }
 
-void		h_free(void)
+BOOL		h_has_next(void)
 {
-	if (g_head == NULL)
-	{
-		return ;
-	}
-	ft_lst_free((t_list**)&g_head);
-	g_last = NULL;
-	g_current = NULL;
-	if (g_head != NULL)
-	{
-		debug_printf("g_head != NULL\n");
-		exit(1);
-	}
+	return ((g_current != NULL && g_current->list.next != NULL));
+}
+
+const char	*h_get_current(void)
+{
+	return ((const char*)g_current->list.content);
+}
+
+const char	*h_get_previous(void)
+{
+	g_current = g_current == NULL ? g_last : g_current->prev;
+	return (h_get_current());
+}
+
+const char	*h_get_next(void)
+{
+	g_current = (t_d_list*)g_current->list.next;
+	return (h_get_current());
 }
