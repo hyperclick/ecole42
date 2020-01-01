@@ -65,7 +65,6 @@ void		h_append(const char *content);
 void		pipe_free(t_list **pipe);
 t_list		*pipe_parse2(const char **cmds);
 t_list		*pipe_parse(const char *str);
-void		ft_pipe(int *r, int *w);
 void		pipe_exec(char *str);
 void		close_g_fd_to_close(void);
 void		exec_ve(const char *argv[]);
@@ -75,6 +74,7 @@ pid_t		exec(char *str);
 char		*replace_quoted(const char *str);
 void		replace_back(char *a[]);
 void		free_quoted_params(void);
+char		*add_quote(char *dst, const char *prefix, const char *value);
 
 void		set_g_x(int x);
 int			get_g_x(void);

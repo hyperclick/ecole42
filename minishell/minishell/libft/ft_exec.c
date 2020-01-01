@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-pid_t	ft_fork(void)
+pid_t		ft_fork(void)
 {
 	pid_t	pid;
 	
@@ -29,4 +29,24 @@ pid_t	ft_fork(void)
 BOOL		is_child(pid_t pid)
 {
 	return (pid == 0);
+}
+
+static void	log_pipe(int r, int w)
+{
+	debug_printf("new pipe: r=%d, w=%d\n", r, w);
+}
+
+void		ft_pipe(int *r, int *w)
+{
+	int fd[2];
+	
+	if (pipe(fd) != 0)
+	{
+		ft_e_putstr("pipe() failed\n");
+		debug_printf("pipe() failed\n");
+		exit(1);
+	}
+	*r = fd[0];
+	*w = fd[1];
+	log_pipe(*r, *w);
 }
