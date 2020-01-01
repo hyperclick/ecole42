@@ -1,0 +1,6 @@
+ptr: 41256
+number: 1, char: a, string: 'abc'
+: 1
+str1_str2
+1
+str

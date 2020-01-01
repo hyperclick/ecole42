@@ -83,10 +83,10 @@ void	debug_print_zt_array(const char* a[])
 {
 	while (*a != NULL)
 	{
-		fprintf(output_stream, "'%s'\t", *a);
+		debug_printf("'%s'\t", *a);
 		++a;
 	}
-	fprintf(output_stream, "\n");
+	debug_printf("\n");
 }
 
 void	debug_print_dic(t_list* dic)
