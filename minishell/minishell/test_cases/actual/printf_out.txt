@@ -1,4 +1,4 @@
-ptr: 41256
+ptr: 3231760
 number: 1, char: a, string: 'abc'
 : 1
 str1_str2

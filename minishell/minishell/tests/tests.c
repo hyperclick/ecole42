@@ -307,9 +307,10 @@ BOOL		compare_files(const char* expected_file_name, const char* actual_file_name
 	fclose(e);
 	return (r);
 }
-void compare_and_free(const char* e, const char* a, const char* name)
+BOOL	compare_and_free(const char* e, const char* a, const char* name)
 {
-	if (compare_files(e, a))
+	BOOL	ok = compare_files(e, a);
+	if (ok)
 	{
 		printf("%s: OK\n", name);
 	}
@@ -318,11 +319,11 @@ void compare_and_free(const char* e, const char* a, const char* name)
 		printf("%s: failed\n", name);
 		printf("e: %s\n", e);
 		printf("a: %s\n", a);
-		exit(1);
 	}
 	free((char*)e);
 	free((char*)a);
 	free((char*)name);
+	return (ok);
 }
 
 void	redirect_and_exec(void(*f)(), const char* out_file_name, const char* err_file_name)
@@ -367,8 +368,13 @@ void		test2(void(*e)(), void(*a)(), const char* name)
 	}
 	redirect_and_exec(a, actual_out, actual_err);
 
-	compare_and_free(expected_out, actual_out, ft_strjoin(name, "_out"));
-	compare_and_free(expected_err, actual_err, ft_strjoin(name, "_err"));
+	BOOL ok;
+	ok = compare_and_free(expected_out, actual_out, ft_strjoin(name, "_out"));
+	ok = compare_and_free(expected_err, actual_err, ft_strjoin(name, "_err")) && ok;
+	if (!ok)
+	{
+		ft_exit(2);
+	}
 }
 
 
@@ -677,7 +683,7 @@ void	ft_printf(const char *format, ...)
 	{
 		if (ft_str_equals(tokens[i], "%s"))
 		{
-			args[i] = va_arg(args_list, char*);
+			args[i] = ft_strdup(va_arg(args_list, char*));
 		}
 		else if (ft_str_equals(tokens[i],"%c"))
 		{
@@ -710,13 +716,15 @@ void	ft_printf(const char *format, ...)
 	i = -1;
 	while (++i < count)
 	{
+		char* tmp = dst;
 		dst = ft_str_replace(dst, tokens[i], args[i]);
+		free(tmp);
 	}
 	
 	ft_putstr(dst);
 	free(dst);
-	free(args);
-	//ft_free_null_term_array((void**) args);
+	//free(args);
+	ft_free_null_term_array((void**) args);
 	ft_free_null_term_array((void**) tokens);
 }
 
@@ -754,10 +762,10 @@ void	test_printf_a()
 
 void	test_debug_printf(const char* format, ...)
 {
-	FILE * s = ft("printf_out.txt", "w");
+	int f = open("printf_out.txt", "w");
 	va_list argptr;
 	va_start(argptr, format);
-	ft_printf_fd(s, format, argptr);
+	//ft_printf_fd(f, format, argptr);
 	va_end(argptr);
 //	fflush(output_stream);
 }

@@ -1,0 +1,14 @@
+[main]	level set to 1
+[main]	duplicated stdin to 4
+[main]	duplicated stdout to 5
+[main]	started
+[main]	agrc = 1
+[main]	agrv[1] = (null)
+[test]	testing printf
+[test]	duplicated stdin to 7
+[test]	duplicated stdout to 8
+[test]	close(1)
+[test]	duplicated stdin to 10
+[test]	duplicated stdout to 11
+[test]	close(1)
+[test]	exit process (2)
