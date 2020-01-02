@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static size_t	get_len_rec(int n)
+static size_t	get_len_rec(long long n)
 {
 	if (n < 10 && n > -10)
 	{
@@ -21,12 +21,12 @@ static size_t	get_len_rec(int n)
 	return (get_len_rec(n % 10) + get_len_rec(n / 10));
 }
 
-static size_t	get_len(int n)
+static size_t	get_len(long long n)
 {
 	return (n < 0 ? 1 + get_len_rec(n) : get_len_rec(n));
 }
 
-static char		*itoa_rec(int n, char *r)
+static char		*itoa_rec(long long n, char *r)
 {
 	if (n < 10 && n > -10)
 	{
@@ -38,7 +38,7 @@ static char		*itoa_rec(int n, char *r)
 	return (itoa_rec(n % 10, itoa_rec(n / 10, r)));
 }
 
-char			*ft_itoa(int n)
+char			*ft_itoa(long long n)
 {
 	char	*r;
 	char	*str;

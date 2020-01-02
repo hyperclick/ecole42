@@ -64,7 +64,7 @@ void		wait_child(pid_t pid)
 		{
 			if (WEXITSTATUS(status) == 127)
 			{
-				printf("execv failed\n");
+				ft_e_putstr("execv failed\n");
 			}
 			else
 				debug_printf("program terminated normally,"

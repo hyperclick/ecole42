@@ -20,32 +20,31 @@ FILE	*output_stream = NULL;
 char	p_name[255];
 pid_t	main_pid = -1;
 
+int		fd = -1;
+
 void		set_level(int level)
 {
 	g_level = level;
 	debug_printf("level set to %d\n", g_level);
 }
-void		set_out_stream(FILE* stream)
+
+void		close_out_stream()
 {
+	//fclose(output_stream);
+	close(fd);
+}
+
+void		set_out_file(const char* filename)
+{
+	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IWRITE);
+	printf("fd = %d\n", fd);
+	ft_printf_fd(fd, "111\n");
 	if (main_pid == -1)
 	{
 		main_pid = getpid();
 		ft_strcpy(p_name, "main");
 	}
-	output_stream = stream;
-	//debug_printf("level set to %d\n", g_level);
 }
-
-void		close_out_stream()
-{
-	fclose(output_stream);
-}
-
-void		set_out_file(const char* filename, const char* mode)
-{
-	set_out_stream(fopen(filename, mode));
-}
-
 void		debug_set_pname(const char name[])
 {
 	ft_strcpy(p_name, name);
@@ -55,9 +54,9 @@ void	print_prefix()
 {
 	for (int i = 0; i < getpid() - main_pid; i++)
 	{
-		fprintf(output_stream, " ");
+		ft_printf_fd(fd, " ");
 	}
-	fprintf(output_stream, "[%s]\t", p_name);
+	ft_printf_fd(fd, "[%s]\t", p_name);
 
 }
 void	debug_printf(const char* format, ...)
@@ -66,17 +65,17 @@ void	debug_printf(const char* format, ...)
 	{
 		return ;
 	}
-	if (output_stream == NULL)
+	if (fd == -1)
 	{
-		ft_e_putstr("output_stream == NULL");
+		ft_e_putstr("output_stream == -1");
 		exit(1);
 	}
-	print_prefix();
+	//print_prefix();
 	va_list argptr;
 	va_start(argptr, format);
-	vfprintf(output_stream, format, argptr);
+	ft_vprintf_fd(fd, format, argptr);
 	va_end(argptr);
-	fflush(output_stream);
+	//fflush(output_stream);
 }
 
 void	debug_print_zt_array(const char* a[])

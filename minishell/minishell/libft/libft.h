@@ -13,7 +13,7 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
+//# include <stdio.h>
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -21,6 +21,8 @@
 # include <stdarg.h>
 # include <string.h>
 # include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 # include <errno.h>
 # include <sys/wait.h>
 # include <termios.h>
@@ -110,8 +112,8 @@ void			wait_child(pid_t pid);
 int				int_lg(int n);
 
 void			close_out_stream(void);
-void			set_out_stream(FILE *stream);
-void			set_out_file(const char *filename, const char *mode);
+//void			set_out_stream(FILE *stream);
+void			set_out_file(const char *filename);
 void			set_level(int level);
 void			debug_set_pname(const char name[]);
 void			debug_printf(const char *str, ...);
@@ -200,7 +202,7 @@ char			*ft_str_remove_at(char *dst, int n);
 char			*ft_strtrim2(char const *s, char const *whitespaces);
 char			*ft_strtrim(char const *s);
 int				ft_sqrt_up(int a);
-char			*ft_itoa(int n);
+char			*ft_itoa(long long n);
 void			ft_putchar(int c);
 void			ft_putstr(char const *s);
 void			ft_putendl(char const *s);
@@ -211,4 +213,9 @@ void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr_fd(long long n, int fd);
 int				ft_contains(const char *str, char to_find);
 int				ft_atoi(const char *str);
+
+void			ft_vprintf_fd(int fd, const char* format, va_list args_list);
+void			ft_printf_fd(int fd, const char* format, ...);
+void			ft_printf(const char* format, ...);
+int				count_tokens(const char* str);
 #endif

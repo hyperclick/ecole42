@@ -619,119 +619,10 @@ void pwd2()
 
 }
 
-BOOL	valid_token_second_char(char c)
-{
-	return (c != 0 && c != '%' && c != ' ');
-}
-
-BOOL	is_token(const char *str)
-{
-	return (*str == '%' && valid_token_second_char(*(str + 1)));
-}
-
-int		count_tokens(const char *str)
-{
-	int len = 0;
-	while (*str != 0)
-	{
-		if (is_token(str))
-		{
-			++len;
-		}
-		++str;
-	}
-	return (len);
-}
-
-static void	fill_tokens(char **tokens, const char *str)
-{
-	while (*str != 0)
-	{
-		if (is_token(str))
-		{
-			*tokens = ft_strsub(str, 0, 2);
-			tokens++;
-		}
-		++str;
-	}
-}
-
-void	ft_printf(const char *format, ...)
-{
-	int i;
-	char	**args;
-	char	**tokens;
-	
-	if (format == NULL)
-	{
-		ft_putstr("'NULL'");
-	}
-	int count = count_tokens(format);
-	
-	args 		= (char**)malloc(sizeof(char*) * (count + 1));
-	args[count] = NULL;
-	tokens 		= (char**)malloc(sizeof(char**) * (count + 1));
-	tokens[count] = NULL;
-	
-	fill_tokens(tokens, format);
-	
-	va_list	args_list;
-	
-	va_start(args_list, format);
-	i = -1;
-	while (++i < count)
-	{
-		if (ft_str_equals(tokens[i], "%s"))
-		{
-			args[i] = ft_strdup(va_arg(args_list, char*));
-		}
-		else if (ft_str_equals(tokens[i],"%c"))
-		{
-			args[i] = ft_strnew(1);
-			args[i][0] = (char)va_arg(args_list, int);
-		}
-		else if (ft_str_equals(tokens[i],"%d"))
-		{
-			args[i] = ft_itoa(va_arg(args_list, int));
-		}
-		else if (ft_str_equals(tokens[i],"%p"))
-		{
-			void *p = va_arg(args_list, void*);
-			args[i] = ft_itoa((int)p);
-		}
-		else
-		{
-			ft_e_putstr("unexpected format: ");
-			ft_e_putstr(tokens[i]);
-			ft_e_putstr("\n");
-			exit(1);
-		}
-	}
-	va_end(args_list);
-	
-	
-	char *dst;
-	//dst = count == 0 ? ft_strdup(format) : ft_strdup("");
-	dst = ft_strdup(format) ;
-	i = -1;
-	while (++i < count)
-	{
-		char* tmp = dst;
-		dst = ft_str_replace(dst, tokens[i], args[i]);
-		free(tmp);
-	}
-	
-	ft_putstr(dst);
-	free(dst);
-	//free(args);
-	ft_free_null_term_array((void**) args);
-	ft_free_null_term_array((void**) tokens);
-}
-
 char g_str[] = "123";
 void	test_printf_e()
 {
-	printf("ptr: %p\n", g_str);
+	//printf("ptr: %p\n", g_str);
 	printf("number: %d, char: %c, string: '%s'\n", 1, 'a', "abc");
 	printf(": %d\n", 1);
 	printf("%s%s\n", "str1_", "str2");
@@ -742,7 +633,7 @@ void	test_printf_e()
 }
 void	test_printf_a()
 {
-	ft_printf("ptr: %p\n", g_str);
+	//ft_printf("ptr: %p\n", g_str);
 	ft_printf("number: %d, char: %c, string: '%s'\n", 1, 'a', "abc");
 	ft_printf(": %d\n", 1);
 	ft_printf("%s%s\n", "str1_", "str2");
@@ -762,21 +653,29 @@ void	test_printf_a()
 
 void	test_debug_printf(const char* format, ...)
 {
-	int f = open("printf_out.txt", "w");
+	int f = open("printf_out.txt", O_CREAT | O_WRONLY | O_TRUNC, S_IWRITE);
 	va_list argptr;
 	va_start(argptr, format);
-	//ft_printf_fd(f, format, argptr);
+	ft_vprintf_fd(f, format, argptr);
 	va_end(argptr);
 //	fflush(output_stream);
+	close(f);
 }
 
 int main(int argc, char** argv, char** envp)
 {
+	ft_printf("q1\n");
+	ft_printf("q%d\n", 2);
+	ft_printf("q%c\n", '3');
+	ft_printf("q%s\n", "4");
 	init(argc, argv, envp);
 
+	printf("q3\n");
+	//test_debug_printf("%s", "str1\n");
+	//ft_exit(1);
 	
 	test2(test_printf_e, test_printf_a, "printf");
-	return 1;
+	ft_exit(1);
 	//process_command(" echo 1 | sed -e 's/1/Yes/g'");
 	//debug_print_zt_array((const char**)env_to_array());
 
