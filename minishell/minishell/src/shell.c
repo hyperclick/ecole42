@@ -53,7 +53,8 @@ void	ft_default_sig_handler(int signum)
 		if (get_awaited_process() != 0)
 		{
 			kill(get_awaited_process(), signum);
-			set_awaited_process(0);
+//			debug_printf("after kill\n");
+//			set_awaited_process(0);
 			ft_putchar('\n');
 		}
 		else

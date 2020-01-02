@@ -16,7 +16,11 @@ int		g_fd_to_close = -11;
 
 void	close_g_fd_to_close(void)
 {
-	debug_printf("close_g_fd_to_close");
+	debug_printf("close_g_fd_to_close: %d", g_fd_to_close);
+	if (g_fd_to_close == -11)
+	{
+		return;
+	}
 	close_fd(g_fd_to_close);
 	g_fd_to_close = -2;
 }
@@ -70,6 +74,8 @@ void	pipe_exec(char *str)
 		wait_child(pid);
 		debug_printf("%s finished\n", str);
 		set_awaited_process(0);
+		restore_stdin();
+		restore_stdout();
 	}
 	free(str);
 }

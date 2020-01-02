@@ -18,8 +18,8 @@ static const char	*read_line_hidden_end(int r)
 	reset_keypress();
 	if (r == 0)
 	{
-		debug_printf("std in is all\n");
-		exit(1);
+		ft_e_putstr("std in is all\n");
+		ft_exit(1);
 	}
 	if (get_buf_len() > 0)
 	{

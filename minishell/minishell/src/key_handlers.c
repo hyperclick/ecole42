@@ -65,6 +65,10 @@ static BOOL	processed(char control[10])
 	{
 		return (process_backspace());
 	}
+	if (control[0] == KEY_TAB)
+	{
+		return (process_tab());
+	}
 	return (FALSE);
 }
 

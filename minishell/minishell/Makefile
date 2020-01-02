@@ -7,6 +7,8 @@ NAME = minishell
 
 SRCS	=$(addprefix src/, $(FILENAMES))
 
+H		=src/history.h src/key_constants.h src/minishell.h
+
 OBJS			= $(SRCS:%.c=%.o)
 
 CC		= gcc
@@ -23,7 +25,7 @@ $(OBJS): %.o: %.c
 $(LIBFT):
 	@make -C libft
 
-$(NAME): $(LIBFT) $(OBJS)
+$(NAME): $(LIBFT) $(OBJS) $(H)
 	$(CC) $(CFLAGS) src/main.c  -o $(NAME) $(OBJS) $(LIBFT) 
 
 

@@ -1,24 +1,16 @@
 ls:
-1
-CMakeLists.txt
 Makefile
 author
 debug_out4.txt
 dir  with  spaces
-dir w spaces
 libft
 log.txt
 minishell
 minishell.dSYM
 not empty dir
 not empty dir ls
-out.txt
-out2.txt
+push.sh
 src
-tee
-termux2.ppk
-termux2.pub
-termux2.pub.pub
 test_cases
 tests
 ut

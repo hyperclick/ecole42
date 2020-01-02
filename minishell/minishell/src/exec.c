@@ -20,7 +20,7 @@ void		fork_and_exec(const char *argv[], pid_t *ppid)
 	{
 		debug_set_pname(argv[0]);
 		close_g_fd_to_close();
-		debug_printf("fork_and_exec:\tabout to launch %s\n", argv[0]);
+		//debug_printf("fork_and_exec:\tabout to launch %s\n", argv[0]);
 		exec_ve(argv);
 		debug_printf("!!!should not be here!!!\n");
 	}

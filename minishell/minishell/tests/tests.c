@@ -668,8 +668,6 @@ int main(int argc, char** argv, char** envp)
 	init(argc, argv, envp);
 
 
-	test2(test_printf_e, test_printf_a, "printf");
-
 	//process_command(" echo 1 | sed -e 's/1/Yes/g'");
 	//debug_print_zt_array((const char**)env_to_array());
 
@@ -688,7 +686,8 @@ int main(int argc, char** argv, char** envp)
 	//test(pwd2, "pwd2");
 	test_pipe9();
 
-	test(path_is_used, "path_is_used");
+	
+	test2(test_printf_e, test_printf_a, "printf");	test(path_is_used, "path_is_used");
 	test(test_exec, "test_exec");
 
 	test(test_pipe_1, "test_pipe_1");
