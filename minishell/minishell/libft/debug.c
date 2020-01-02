@@ -11,101 +11,42 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-#define LEVEL_ALL 0
-#define LEVEL_DEBUG 1
-int		g_level = LEVEL_ALL;
-FILE	*output_stream = NULL;
 char	p_name[255];
-pid_t	main_pid = -1;
+pid_t	g_main_pid = -1;
+int		g_fd = -1;
 
-int		fd = -1;
-
-void		set_level(int level)
+int		debug_get_fd()
 {
-	g_level = level;
-	debug_printf("level set to %d\n", g_level);
-}
-
-void		close_out_stream()
-{
-	//fclose(output_stream);
-	close(fd);
-}
-
-void		set_out_file(const char* filename)
-{
-	fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IWRITE);
-	printf("fd = %d\n", fd);
-	ft_printf_fd(fd, "111\n");
-	if (main_pid == -1)
-	{
-		main_pid = getpid();
-		ft_strcpy(p_name, "main");
-	}
-}
-void		debug_set_pname(const char name[])
-{
-	ft_strcpy(p_name, name);
+	return (g_fd);
 }
 
 void	print_prefix()
 {
-	for (int i = 0; i < getpid() - main_pid; i++)
+	for (int i = 0; i < getpid() - g_main_pid; i++)
 	{
-		ft_printf_fd(fd, " ");
+		ft_printf_fd(g_fd, " ");
 	}
-	ft_printf_fd(fd, "[%s]\t", p_name);
+	ft_printf_fd(g_fd, "[%s]\t", p_name);
 
 }
-void	debug_printf(const char* format, ...)
+
+void		close_out_stream()
 {
-	if (g_level < LEVEL_DEBUG)
-	{
-		return ;
-	}
-	if (fd == -1)
-	{
-		ft_e_putstr("output_stream == -1");
-		exit(1);
-	}
-	//print_prefix();
-	va_list argptr;
-	va_start(argptr, format);
-	ft_vprintf_fd(fd, format, argptr);
-	va_end(argptr);
-	//fflush(output_stream);
+	close(g_fd);
 }
 
-void	debug_print_zt_array(const char* a[])
+void		set_out_file(const char* filename)
 {
-	while (*a != NULL)
+	g_fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IWRITE);
+	if (g_main_pid == -1)
 	{
-		debug_printf("'%s'\t", *a);
-		++a;
+		g_main_pid = getpid();
+		ft_strcpy(p_name, "main");
 	}
-	debug_printf("\n");
 }
 
-void	debug_print_dic(t_list* dic)
+void		debug_set_pname(const char name[])
 {
-	t_kvp **kvps;
-	t_kvp **kvps_start;
-	int count;
-
-	count = dic_get_count(dic);
-	debug_printf("dic count = %d\n", count);
-	if (count == 0)
-	{
-		return ;
-	}
-	kvps = dic_get_kvps(dic);
-	kvps_start = kvps;
-	while (*kvps != NULL)
-	{
-		debug_printf("'%s' (%p)\t->\t'%s'\t(%p)\n", (*kvps)->key, (*kvps)->key, (char*)(*kvps)->value, *kvps);
-		++(kvps);
-	}
-	free(kvps_start);
+	ft_strcpy(p_name, name);
 }

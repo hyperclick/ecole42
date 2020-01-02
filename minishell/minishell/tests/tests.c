@@ -348,8 +348,9 @@ void	redirect_and_exec(void(*f)(), const char* out_file_name, const char* err_fi
 	close_fd(STDOUT_FILENO);
 	freopen("/dev/tty", "a", stdout);
 	freopen("/dev/tty", "a", stderr);
-	//save_stdin();
-	//save_stdout();
+	//for subsequent call process_command
+	save_stdin();
+	save_stdout();
 }
 
 
@@ -664,18 +665,11 @@ void	test_debug_printf(const char* format, ...)
 
 int main(int argc, char** argv, char** envp)
 {
-	ft_printf("q1\n");
-	ft_printf("q%d\n", 2);
-	ft_printf("q%c\n", '3');
-	ft_printf("q%s\n", "4");
 	init(argc, argv, envp);
 
-	printf("q3\n");
-	//test_debug_printf("%s", "str1\n");
-	//ft_exit(1);
-	
+
 	test2(test_printf_e, test_printf_a, "printf");
-	ft_exit(1);
+
 	//process_command(" echo 1 | sed -e 's/1/Yes/g'");
 	//debug_print_zt_array((const char**)env_to_array());
 
@@ -692,7 +686,6 @@ int main(int argc, char** argv, char** envp)
 		//test_pipe_1();
 
 	//test(pwd2, "pwd2");
-
 	test_pipe9();
 
 	test(path_is_used, "path_is_used");

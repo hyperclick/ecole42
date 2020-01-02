@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   log.c                                              :+:      :+:    :+:   */
+/*   ft_printf2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,19 +12,39 @@
 
 #include "libft.h"
 
-void	log_log(const char *format, ...)
+BOOL	valid_token_second_char(char c)
 {
-	int	fd;
-	fd = open("log.txt", O_CREAT | O_WRONLY | O_TRUNC, S_IWRITE);
-	va_list argptr;
-	va_start(argptr, format);
-	ft_vprintf_fd(fd, format, argptr);
-	va_end(argptr);
-	close(fd);
+	return (c != 0 && c != '%' && c != ' ');
 }
 
-void	log_line(const char *str)
+BOOL	is_token(const char* str)
 {
-	log_log(str);
-	log_log("\n");
+	return (*str == '%' && valid_token_second_char(*(str + 1)));
+}
+
+int		count_tokens(const char* str)
+{
+	int len = 0;
+	while (*str != 0)
+	{
+		if (is_token(str))
+		{
+			++len;
+		}
+		++str;
+	}
+	return (len);
+}
+
+void	fill_tokens(char** tokens, const char* str)
+{
+	while (*str != 0)
+	{
+		if (is_token(str))
+		{
+			*tokens = ft_strsub(str, 0, 2);
+			tokens++;
+		}
+		++str;
+	}
 }

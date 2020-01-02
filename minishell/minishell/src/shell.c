@@ -30,7 +30,6 @@ void	ft_exit(int ret_code)
 void	init(int argc, char **argv, char **envp)
 {
 	set_out_file("debug_out4.txt");
-	set_level(1);
 	save_stdin();
 	save_stdout();
 	debug_printf("%s\n", "started");

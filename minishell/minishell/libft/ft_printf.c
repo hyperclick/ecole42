@@ -11,42 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-BOOL	valid_token_second_char(char c)
-{
-	return (c != 0 && c != '%' && c != ' ');
-}
-
-BOOL	is_token(const char* str)
-{
-	return (*str == '%' && valid_token_second_char(*(str + 1)));
-}
-
-int		count_tokens(const char* str)
-{
-	int len = 0;
-	while (*str != 0)
-	{
-		if (is_token(str))
-		{
-			++len;
-		}
-		++str;
-	}
-	return (len);
-}
-
-static void	fill_tokens(char** tokens, const char* str)
-{
-	while (*str != 0)
-	{
-		if (is_token(str))
-		{
-			*tokens = ft_strsub(str, 0, 2);
-			tokens++;
-		}
-		++str;
-	}
-}
 
 void ft_vprintf_fd(int fd, const char* format, va_list args_list)
 {

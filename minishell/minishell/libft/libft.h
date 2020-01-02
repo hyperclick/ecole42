@@ -13,8 +13,6 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
-//# include <stdio.h>
-
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
@@ -112,13 +110,17 @@ void			wait_child(pid_t pid);
 int				int_lg(int n);
 
 void			close_out_stream(void);
-//void			set_out_stream(FILE *stream);
+int				debug_get_fd(void);
+void			print_prefix(void);
 void			set_out_file(const char *filename);
 void			set_level(int level);
 void			debug_set_pname(const char name[]);
 void			debug_printf(const char *str, ...);
 void			debug_print_zt_array(const char *a[]);
 void			debug_print_dic(t_list *dic);
+
+void			log_log(const char* format, ...);
+void			log_line(const char* str);
 
 void			ft_e_putstr(const char *str);
 void			ft_e_ft_putstr_and_free(char *str);
@@ -180,8 +182,7 @@ int				ft_isprint(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 int				ft_last_index(const char *str, const char to_find);
-void			log_log(const char *str);
-void			log_line(const char *str);
+
 void			*ft_memalloc(size_t size);
 void			ft_memdel(void **ap);
 void			ft_str_append(char	*str, const char letter);
@@ -218,4 +219,5 @@ void			ft_vprintf_fd(int fd, const char* format, va_list args_list);
 void			ft_printf_fd(int fd, const char* format, ...);
 void			ft_printf(const char* format, ...);
 int				count_tokens(const char* str);
+void			fill_tokens(char** tokens, const char* str);
 #endif

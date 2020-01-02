@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   log.c                                              :+:      :+:    :+:   */
+/*   debug2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,19 +12,50 @@
 
 #include "libft.h"
 
-void	log_log(const char *format, ...)
+
+void	debug_printf(const char* format, ...)
 {
-	int	fd;
-	fd = open("log.txt", O_CREAT | O_WRONLY | O_TRUNC, S_IWRITE);
+	if (debug_get_fd() == -1)
+	{
+		ft_e_putstr("output_stream == -1\n");
+		exit(1);
+	}
+	print_prefix();
 	va_list argptr;
 	va_start(argptr, format);
-	ft_vprintf_fd(fd, format, argptr);
+	ft_vprintf_fd(debug_get_fd(), format, argptr);
 	va_end(argptr);
-	close(fd);
+	//fflush(output_stream);
 }
 
-void	log_line(const char *str)
+void	debug_print_zt_array(const char* a[])
 {
-	log_log(str);
-	log_log("\n");
+	while (*a != NULL)
+	{
+		debug_printf("'%s'\t", *a);
+		++a;
+	}
+	debug_printf("\n");
+}
+
+void	debug_print_dic(t_list* dic)
+{
+	t_kvp **kvps;
+	t_kvp **kvps_start;
+	int count;
+
+	count = dic_get_count(dic);
+	debug_printf("dic count = %d\n", count);
+	if (count == 0)
+	{
+		return ;
+	}
+	kvps = dic_get_kvps(dic);
+	kvps_start = kvps;
+	while (*kvps != NULL)
+	{
+		debug_printf("'%s' (%p)\t->\t'%s'\t(%p)\n", (*kvps)->key, (*kvps)->key, (char*)(*kvps)->value, *kvps);
+		++(kvps);
+	}
+	free(kvps_start);
 }
