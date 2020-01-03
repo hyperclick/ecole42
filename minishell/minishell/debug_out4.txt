@@ -3,3342 +3,682 @@ duplicated stdout to 5
 started
 agrc = 1
 agrv[1] = (NULL)
+eof = '' (3231972)
+set : VSTART = '' (24)
+set : VSTART = '' (8)
+entered:	115 ('s'), control = ''
+process printable: 's'
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+dst = 's', n = 0, dst + n = 's', len = 0, right = ''
+vgx = 0, agx = 0, TAB_LEN = 4
+vgx = 1, agx = 1
+print buffer
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = 's', printed = 1
+<-(1)
+->(1)
+entered:	115 ('s'), control = ''
+process printable: 's'
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = 's', printed = 1
+<-(1)
+_(1)
+<-(1)
+dst = 'ss', n = 1, dst + n = 's', len = 1, right = ''
+vgx = 1, agx = 1, TAB_LEN = 4
+vgx = 2, agx = 2
+print buffer
+vg_x: 2, agx: 2, g_buf_len = 2, g_buffer = 'ss', printed = 2
+<-(2)
+->(2)
+entered:	115 ('s'), control = ''
+process printable: 's'
+vg_x: 2, agx: 2, g_buf_len = 2, g_buffer = 'ss', printed = 2
+<-(2)
+_(2)
+<-(2)
+dst = 'sss', n = 2, dst + n = 's', len = 2, right = ''
+vgx = 2, agx = 2, TAB_LEN = 4
+vgx = 3, agx = 3
+print buffer
+vg_x: 3, agx: 3, g_buf_len = 3, g_buffer = 'sss', printed = 3
+<-(3)
+->(3)
+entered:	115 ('s'), control = ''
+process printable: 's'
+vg_x: 3, agx: 3, g_buf_len = 3, g_buffer = 'sss', printed = 3
+<-(3)
+_(3)
+<-(3)
+dst = 'ssss', n = 3, dst + n = 's', len = 3, right = ''
+vgx = 3, agx = 3, TAB_LEN = 4
+vgx = 4, agx = 4
+print buffer
+vg_x: 4, agx: 4, g_buf_len = 4, g_buffer = 'ssss', printed = 4
+<-(4)
+->(4)
+entered:	115 ('s'), control = ''
+process printable: 's'
+vg_x: 4, agx: 4, g_buf_len = 4, g_buffer = 'ssss', printed = 4
+<-(4)
+_(4)
+<-(4)
+dst = 'sssss', n = 4, dst + n = 's', len = 4, right = ''
+vgx = 4, agx = 4, TAB_LEN = 4
+vgx = 5, agx = 5
+print buffer
+vg_x: 5, agx: 5, g_buf_len = 5, g_buffer = 'sssss', printed = 5
+<-(5)
+->(5)
+entered:	115 ('s'), control = ''
+process printable: 's'
+vg_x: 5, agx: 5, g_buf_len = 5, g_buffer = 'sssss', printed = 5
+<-(5)
+_(5)
+<-(5)
+dst = 'ssssss', n = 5, dst + n = 's', len = 5, right = ''
+vgx = 5, agx = 5, TAB_LEN = 4
+vgx = 6, agx = 6
+print buffer
+vg_x: 6, agx: 6, g_buf_len = 6, g_buffer = 'ssssss', printed = 6
+<-(6)
+->(6)
+entered:	115 ('s'), control = ''
+process printable: 's'
+vg_x: 6, agx: 6, g_buf_len = 6, g_buffer = 'ssssss', printed = 6
+<-(6)
+_(6)
+<-(6)
+dst = 'sssssss', n = 6, dst + n = 's', len = 6, right = ''
+vgx = 6, agx = 6, TAB_LEN = 4
+vgx = 7, agx = 7
+print buffer
+vg_x: 7, agx: 7, g_buf_len = 7, g_buffer = 'sssssss', printed = 7
+<-(7)
+->(7)
+entered:	115 ('s'), control = ''
+process printable: 's'
+vg_x: 7, agx: 7, g_buf_len = 7, g_buffer = 'sssssss', printed = 7
+<-(7)
+_(7)
+<-(7)
+dst = 'ssssssss', n = 7, dst + n = 's', len = 7, right = ''
+vgx = 7, agx = 7, TAB_LEN = 4
+vgx = 8, agx = 8
+print buffer
+vg_x: 8, agx: 8, g_buf_len = 8, g_buffer = 'ssssssss', printed = 8
+<-(8)
+->(8)
+entered:	115 ('s'), control = ''
+process printable: 's'
+vg_x: 8, agx: 8, g_buf_len = 8, g_buffer = 'ssssssss', printed = 8
+<-(8)
+_(8)
+<-(8)
+dst = 'sssssssss', n = 8, dst + n = 's', len = 8, right = ''
+vgx = 8, agx = 8, TAB_LEN = 4
+vgx = 9, agx = 9
+print buffer
+vg_x: 9, agx: 9, g_buf_len = 9, g_buffer = 'sssssssss', printed = 9
+<-(9)
+->(9)
+entered:	115 ('s'), control = ''
+process printable: 's'
+vg_x: 9, agx: 9, g_buf_len = 9, g_buffer = 'sssssssss', printed = 9
+<-(9)
+_(9)
+<-(9)
+dst = 'ssssssssss', n = 9, dst + n = 's', len = 9, right = ''
+vgx = 9, agx = 9, TAB_LEN = 4
+vgx = 10, agx = 10
+print buffer
+vg_x: 10, agx: 10, g_buf_len = 10, g_buffer = 'ssssssssss', printed = 10
+<-(10)
+->(10)
+entered:	115 ('s'), control = ''
+process printable: 's'
+vg_x: 10, agx: 10, g_buf_len = 10, g_buffer = 'ssssssssss', printed = 10
+<-(10)
+_(10)
+<-(10)
+dst = 'sssssssssss', n = 10, dst + n = 's', len = 10, right = ''
+vgx = 10, agx = 10, TAB_LEN = 4
+vgx = 11, agx = 11
+print buffer
+vg_x: 11, agx: 11, g_buf_len = 11, g_buffer = 'sssssssssss', printed = 11
+<-(11)
+->(11)
+entered:	115 ('s'), control = ''
+process printable: 's'
+vg_x: 11, agx: 11, g_buf_len = 11, g_buffer = 'sssssssssss', printed = 11
+<-(11)
+_(11)
+<-(11)
+dst = 'ssssssssssss', n = 11, dst + n = 's', len = 11, right = ''
+vgx = 11, agx = 11, TAB_LEN = 4
+vgx = 12, agx = 12
+print buffer
+vg_x: 12, agx: 12, g_buf_len = 12, g_buffer = 'ssssssssssss', printed = 12
+<-(12)
+->(12)
+entered:	115 ('s'), control = ''
+process printable: 's'
+vg_x: 12, agx: 12, g_buf_len = 12, g_buffer = 'ssssssssssss', printed = 12
+<-(12)
+_(12)
+<-(12)
+dst = 'sssssssssssss', n = 12, dst + n = 's', len = 12, right = ''
+vgx = 12, agx = 12, TAB_LEN = 4
+vgx = 13, agx = 13
+print buffer
+vg_x: 13, agx: 13, g_buf_len = 13, g_buffer = 'sssssssssssss', printed = 13
+<-(13)
+->(13)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 13, agx = 13, buffer = 'sssssssssssss'
+vgx = 12, agx = 12
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 12, agx = 12, buffer = 'sssssssssssss'
+vgx = 11, agx = 11
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 11, agx = 11, buffer = 'sssssssssssss'
+vgx = 10, agx = 10
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 10, agx = 10, buffer = 'sssssssssssss'
+vgx = 9, agx = 9
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 9, agx = 9, buffer = 'sssssssssssss'
+vgx = 8, agx = 8
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 8, agx = 8, buffer = 'sssssssssssss'
+vgx = 7, agx = 7
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 7, agx = 7, buffer = 'sssssssssssss'
+vgx = 6, agx = 6
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 6, agx = 6, buffer = 'sssssssssssss'
+vgx = 5, agx = 5
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 5, agx = 5, buffer = 'sssssssssssss'
+vgx = 4, agx = 4
+entered:	32 (' '), control = ''
+process printable: ' '
+vg_x: 4, agx: 4, g_buf_len = 13, g_buffer = 'sssssssssssss', printed = 13
+<-(4)
+_(13)
+<-(13)
+dst = 'ssss sssssssss', n = 4, dst + n = ' sssssssss', len = 13, right = 'sssssssss'
+vgx = 4, agx = 4, TAB_LEN = 4
+vgx = 5, agx = 5
+print buffer
+vg_x: 5, agx: 5, g_buf_len = 14, g_buffer = 'ssss sssssssss', printed = 14
+<-(14)
+->(5)
+entered:	32 (' '), control = ''
+process printable: ' '
+vg_x: 5, agx: 5, g_buf_len = 14, g_buffer = 'ssss sssssssss', printed = 14
+<-(5)
+_(14)
+<-(14)
+dst = 'ssss  sssssssss', n = 5, dst + n = ' sssssssss', len = 14, right = 'sssssssss'
+vgx = 5, agx = 5, TAB_LEN = 4
+vgx = 6, agx = 6
+print buffer
+vg_x: 6, agx: 6, g_buf_len = 15, g_buffer = 'ssss  sssssssss', printed = 15
+<-(15)
+->(6)
+entered:	32 (' '), control = ''
+process printable: ' '
+vg_x: 6, agx: 6, g_buf_len = 15, g_buffer = 'ssss  sssssssss', printed = 15
+<-(6)
+_(15)
+<-(15)
+dst = 'ssss   sssssssss', n = 6, dst + n = ' sssssssss', len = 15, right = 'sssssssss'
+vgx = 6, agx = 6, TAB_LEN = 4
+vgx = 7, agx = 7
+print buffer
+vg_x: 7, agx: 7, g_buf_len = 16, g_buffer = 'ssss   sssssssss', printed = 16
+<-(16)
+->(7)
+entered:	32 (' '), control = ''
+process printable: ' '
+vg_x: 7, agx: 7, g_buf_len = 16, g_buffer = 'ssss   sssssssss', printed = 16
+<-(7)
+_(16)
+<-(16)
+dst = 'ssss    sssssssss', n = 7, dst + n = ' sssssssss', len = 16, right = 'sssssssss'
+vgx = 7, agx = 7, TAB_LEN = 4
+vgx = 8, agx = 8
+print buffer
+vg_x: 8, agx: 8, g_buf_len = 17, g_buffer = 'ssss    sssssssss', printed = 17
+<-(17)
+->(8)
+entered:	32 (' '), control = ''
+process printable: ' '
+vg_x: 8, agx: 8, g_buf_len = 17, g_buffer = 'ssss    sssssssss', printed = 17
+<-(8)
+_(17)
+<-(17)
+dst = 'ssss     sssssssss', n = 8, dst + n = ' sssssssss', len = 17, right = 'sssssssss'
+vgx = 8, agx = 8, TAB_LEN = 4
+vgx = 9, agx = 9
+print buffer
+vg_x: 9, agx: 9, g_buf_len = 18, g_buffer = 'ssss     sssssssss', printed = 18
+<-(18)
+->(9)
+entered:	127 (''), control = ''
+vg_x: 9, agx: 9, g_buf_len = 18, g_buffer = 'ssss     sssssssss', printed = 18
+<-(9)
+_(18)
+<-(18)
+vgx = 9, agx = 9, buffer = 'ssss     sssssssss'
+vgx = 8, agx = 8
+print buffer
+vg_x: 8, agx: 8, g_buf_len = 17, g_buffer = 'ssss    sssssssss', printed = 17
+<-(17)
+->(8)
+entered:	127 (''), control = ''
+vg_x: 8, agx: 8, g_buf_len = 17, g_buffer = 'ssss    sssssssss', printed = 17
+<-(8)
+_(17)
+<-(17)
+vgx = 8, agx = 8, buffer = 'ssss    sssssssss'
+vgx = 7, agx = 7
+print buffer
+vg_x: 7, agx: 7, g_buf_len = 16, g_buffer = 'ssss   sssssssss', printed = 16
+<-(16)
+->(7)
+entered:	127 (''), control = ''
+vg_x: 7, agx: 7, g_buf_len = 16, g_buffer = 'ssss   sssssssss', printed = 16
+<-(7)
+_(16)
+<-(16)
+vgx = 7, agx = 7, buffer = 'ssss   sssssssss'
+vgx = 6, agx = 6
+print buffer
+vg_x: 6, agx: 6, g_buf_len = 15, g_buffer = 'ssss  sssssssss', printed = 15
+<-(15)
+->(6)
+entered:	127 (''), control = ''
+vg_x: 6, agx: 6, g_buf_len = 15, g_buffer = 'ssss  sssssssss', printed = 15
+<-(6)
+_(15)
+<-(15)
+vgx = 6, agx = 6, buffer = 'ssss  sssssssss'
+vgx = 5, agx = 5
+print buffer
+vg_x: 5, agx: 5, g_buf_len = 14, g_buffer = 'ssss sssssssss', printed = 14
+<-(14)
+->(5)
+entered:	127 (''), control = ''
+vg_x: 5, agx: 5, g_buf_len = 14, g_buffer = 'ssss sssssssss', printed = 14
+<-(5)
+_(14)
+<-(14)
+vgx = 5, agx = 5, buffer = 'ssss sssssssss'
+vgx = 4, agx = 4
+print buffer
+vg_x: 4, agx: 4, g_buf_len = 13, g_buffer = 'sssssssssssss', printed = 13
+<-(13)
+->(4)
+entered:	127 (''), control = ''
+vg_x: 4, agx: 4, g_buf_len = 13, g_buffer = 'sssssssssssss', printed = 13
+<-(4)
+_(13)
+<-(13)
+vgx = 4, agx = 4, buffer = 'sssssssssssss'
+vgx = 3, agx = 3
+print buffer
+vg_x: 3, agx: 3, g_buf_len = 12, g_buffer = 'ssssssssssss', printed = 12
+<-(12)
+->(3)
+entered:	127 (''), control = ''
+vg_x: 3, agx: 3, g_buf_len = 12, g_buffer = 'ssssssssssss', printed = 12
+<-(3)
+_(12)
+<-(12)
+vgx = 3, agx = 3, buffer = 'ssssssssssss'
+vgx = 2, agx = 2
+print buffer
+vg_x: 2, agx: 2, g_buf_len = 11, g_buffer = 'sssssssssss', printed = 11
+<-(11)
+->(2)
+entered:	127 (''), control = ''
+vg_x: 2, agx: 2, g_buf_len = 11, g_buffer = 'sssssssssss', printed = 11
+<-(2)
+_(11)
+<-(11)
+vgx = 2, agx = 2, buffer = 'sssssssssss'
+vgx = 1, agx = 1
+print buffer
+vg_x: 1, agx: 1, g_buf_len = 10, g_buffer = 'ssssssssss', printed = 10
+<-(10)
+->(1)
+entered:	127 (''), control = ''
+vg_x: 1, agx: 1, g_buf_len = 10, g_buffer = 'ssssssssss', printed = 10
+<-(1)
+_(10)
+<-(10)
+vgx = 1, agx = 1, buffer = 'ssssssssss'
+vgx = 0, agx = 0
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 9, g_buffer = 'sssssssss', printed = 9
+<-(9)
+->(0)
+entered:	127 (''), control = ''
+vg_x: 0, agx: 0, g_buf_len = 9, g_buffer = 'sssssssss', printed = 9
+<-(0)
+_(9)
+<-(9)
+!!!backspace: get_g_x() <= 0
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 9, g_buffer = 'sssssssss', printed = 9
+<-(9)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 9, g_buffer = 'sssssssss', printed = 9
+<-(0)
+_(9)
+<-(9)
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 8, g_buffer = 'ssssssss', printed = 8
+<-(8)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 8, g_buffer = 'ssssssss', printed = 8
+<-(0)
+_(8)
+<-(8)
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 7, g_buffer = 'sssssss', printed = 7
+<-(7)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 7, g_buffer = 'sssssss', printed = 7
+<-(0)
+_(7)
+<-(7)
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 6, g_buffer = 'ssssss', printed = 6
+<-(6)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 6, g_buffer = 'ssssss', printed = 6
+<-(0)
+_(6)
+<-(6)
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 5, g_buffer = 'sssss', printed = 5
+<-(5)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 5, g_buffer = 'sssss', printed = 5
+<-(0)
+_(5)
+<-(5)
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 4, g_buffer = 'ssss', printed = 4
+<-(4)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 4, g_buffer = 'ssss', printed = 4
+<-(0)
+_(4)
+<-(4)
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 3, g_buffer = 'sss', printed = 3
+<-(3)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 3, g_buffer = 'sss', printed = 3
+<-(0)
+_(3)
+<-(3)
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 2, g_buffer = 'ss', printed = 2
+<-(2)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 2, g_buffer = 'ss', printed = 2
+<-(0)
+_(2)
+<-(2)
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 1, g_buffer = 's', printed = 1
+<-(1)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 1, g_buffer = 's', printed = 1
+<-(0)
+_(1)
+<-(1)
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+!!!delete: get_g_x() >= get_buf_len()
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+!!!delete: get_g_x() >= get_buf_len()
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+!!!delete: get_g_x() >= get_buf_len()
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+!!!delete: get_g_x() >= get_buf_len()
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+!!!delete: get_g_x() >= get_buf_len()
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+!!!delete: get_g_x() >= get_buf_len()
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+!!!delete: get_g_x() >= get_buf_len()
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+->(0)
+entered:	101 ('e'), control = ''
+process printable: 'e'
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+dst = 'e', n = 0, dst + n = 'e', len = 0, right = ''
+vgx = 0, agx = 0, TAB_LEN = 4
+vgx = 1, agx = 1
+print buffer
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = 'e', printed = 1
+<-(1)
+->(1)
+entered:	120 ('x'), control = ''
+process printable: 'x'
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = 'e', printed = 1
+<-(1)
+_(1)
+<-(1)
+dst = 'ex', n = 1, dst + n = 'x', len = 1, right = ''
+vgx = 1, agx = 1, TAB_LEN = 4
+vgx = 2, agx = 2
+print buffer
+vg_x: 2, agx: 2, g_buf_len = 2, g_buffer = 'ex', printed = 2
+<-(2)
+->(2)
+entered:	105 ('i'), control = ''
+process printable: 'i'
+vg_x: 2, agx: 2, g_buf_len = 2, g_buffer = 'ex', printed = 2
+<-(2)
+_(2)
+<-(2)
+dst = 'exi', n = 2, dst + n = 'i', len = 2, right = ''
+vgx = 2, agx = 2, TAB_LEN = 4
+vgx = 3, agx = 3
+print buffer
+vg_x: 3, agx: 3, g_buf_len = 3, g_buffer = 'exi', printed = 3
+<-(3)
+->(3)
+entered:	116 ('t'), control = ''
+process printable: 't'
+vg_x: 3, agx: 3, g_buf_len = 3, g_buffer = 'exi', printed = 3
+<-(3)
+_(3)
+<-(3)
+dst = 'exit', n = 3, dst + n = 't', len = 3, right = ''
+vgx = 3, agx = 3, TAB_LEN = 4
+vgx = 4, agx = 4
+print buffer
+vg_x: 4, agx: 4, g_buf_len = 4, g_buffer = 'exit', printed = 4
+<-(4)
+->(4)
+entered:	10 ('
+'), control = ''
+r = 1
+restore term caps
+reset : VSTART = '' (-16776880)
+reset : VSTART = '' (24)
+reset : VSTART = '' (8)
 
 -----------------------
-process command: '"setenv" | "sort"'
-quote replaced: 'setenv' -> '%paired_quote%1'
-quote replaced: 'sort' -> '%paired_quote%2'
-quotes replaced: '%paired_quote%1 | %paired_quote%2'
-trimmed = %paired_quote%1 | %paired_quote%2
-no comments = %paired_quote%1 | %paired_quote%2
-cmd: '%paired_quote%1 | %paired_quote%2'
-pipe_parse(%paired_quote%1 | %paired_quote%2)
-cmd[0] = '%paired_quote%1 '
-new pipe: r=6, w=7
-exec 0 > %paired_quote%1 > 7
+process command: 'exit'
+quotes replaced: 'exit'
+trimmed = exit
+no comments = exit
+cmd: 'exit'
+pipe_parse(exit)
+cmd[0] = 'exit'
+exec 0 > exit > 1
 restore stdin
 redirect: 0->4
 restore stdout
 redirect: 1->5
 redirect: 0->0
-redirect: 1->7
-processing %paired_quote%1
-after replace
-'setenv'	
-close(7)
-exec 6 > %paired_quote%2 > 1
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->6
-redirect: 1->1
-processing %paired_quote%2
-after replace
-'sort'	
-fork
-fork_and_exec:	/usr/bin/sort = 26007 launched
-exec2:	executed: /usr/bin/sort
-pipe_exec2 returned: 26007
-free item: '86206560aired_quote%1' (%p)
-free item: '86206736aired_quote%2' (%p)
-waiting %paired_quote%1 | %paired_quote%2 to finish
-change g_awaited_process from 0 to 26007
-wait 26007 to cstloops
-e_g_fd_to_close: 6close(6)
-exec(/usr/bin/sort)
-waitpid(26007) returned
-%paired_quote%1 | %paired_quote%2 finished
-change g_awaited_process from 26007 to 0
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-free g_commands
-command processed: '"setenv" | "sort"'
--------------------------
-
-
------------------------
-process command: '"setenv" | "sort"'
-quote replaced: 'setenv' -> '%paired_quote%1'
-quote replaced: 'sort' -> '%paired_quote%2'
-quotes replaced: '%paired_quote%1 | %paired_quote%2'
-trimmed = %paired_quote%1 | %paired_quote%2
-no comments = %paired_quote%1 | %paired_quote%2
-cmd: '%paired_quote%1 | %paired_quote%2'
-pipe_parse(%paired_quote%1 | %paired_quote%2)
-cmd[0] = '%paired_quote%1 '
-new pipe: r=7, w=8
-exec 0 > %paired_quote%1 > 8
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->0
-redirect: 1->8
-processing %paired_quote%1
-after replace
-'setenv'	
-close(8)
-exec 7 > %paired_quote%2 > 1
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->7
-redirect: 1->1
-processing %paired_quote%2
-after replace
-'sort'	
-fork
-fork_and_exec:	/usr/bin/sort = 26008 launched
-exec2:	executed: /usr/bin/sort
-pipe_exec2 returned: 26008
-free item: '86249904aired_quote%1' (%p)
-free item: '86250080aired_quote%2' (%p)
-waiting %paired_quote%1 | %paired_quote%2 to finish
-change g_awaited_process from 0 to 26008
-wait 26008 to stop
-close_g_fd_to_close: 7close(7)
-exec(/usr/bin/sort)
-waitpid(26008) returned
-%paired_quote%1 | %paired_quote%2 finished
-change g_awaited_process from 26008 to 0
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-free g_commands
-command processed: '"setenv" | "sort"'
--------------------------
-
-
------------------------
-process command: 'ls | sort'
-quotes replaced: 'ls | sort'
-trimmed = ls | sort
-no comments = ls | sort
-cmd: 'ls | sort'
-pipe_parse(ls | sort)
-cmd[0] = 'ls '
-new pipe: r=8, w=9
-exec 0 > ls > 9
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->0
-redirect: 1->9
-processing ls
-after replace
-'ls'	
-fork
-fork_and_exec:	/bin/ls = 26009 launched
-exec2:	executed: /bin/ls
-close(9)
-exec 8 > sort > 1
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->8
-redirect: 1->1
-processing sort
-after replace
-'sort'	
-fork
-close_g_fd_to_close: 8close(8)
-exec(/bin/ls)
-fork_and_exec:	/usr/bin/sort = 26010 launched
-exec2:	executed: /usr/bin/sort
-pipe_exec2 returned: 26010
-free item: 'ls' (86290208)
-free item: 'sort' (86290384)
-waiting ls | sort to finish
-change g_awaited_process from 0 to 26010
-wait 26010 to stop
-close_g_fd_to_close: 8close(8)
-exec(/usr/bin/sort)
-waitpid(26010) returned
-ls | sort finished
-change g_awaited_process from 26010 to 0
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-free g_commands
-command processed: 'ls | sort'
--------------------------
-
-
------------------------
-process command: 'ls | cat -e'
-quotes replaced: 'ls | cat -e'
-trimmed = ls | cat -e
-no comments = ls | cat -e
-cmd: 'ls | cat -e'
-pipe_parse(ls | cat -e)
-cmd[0] = 'ls '
-new pipe: r=9, w=10
-exec 0 > ls > 10
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->0
-redirect: 1->10
-processing ls
-after replace
-'ls'	
-fork
-fork_and_exec:	/bin/ls = 26011 launched
-exec2:	executed: /bin/ls
-close(10)
-exec 9 > cat -e > 1
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->9
-redirect: 1->1
-processing cat
-processing -e
-after replace
-'cat'	'-e'	
-fork
-close_g_fd_to_close: 9close(9)
-exec(/bin/ls)
-fork_and_exec:	/bin/cat = 26012 launched
-exec2:	executed: /bin/cat
-pipe_exec2 returned: 26012
-free item: 'ls' (86340608)
-free item: 'cat -e' (86340784)
-waiting ls | cat -e to finish
-change g_awaited_process from 0 to 26012
-wait 26012 to stop
-close_g_fd_to_close: 9close(9)
-exec(/bin/cat)
-waitpid(26012) returned
-ls | cat -e finished
-change g_awaited_process from 26012 to 0
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-free g_commands
-command processed: 'ls | cat -e'
--------------------------
-
-
------------------------
-process command: 'ls | sort | cat -e'
-quotes replaced: 'ls | sort | cat -e'
-trimmed = ls | sort | cat -e
-no comments = ls | sort | cat -e
-cmd: 'ls | sort | cat -e'
-pipe_parse(ls | sort | cat -e)
-cmd[0] = 'ls '
-new pipe: r=10, w=11
-exec 0 > ls > 11
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->0
-redirect: 1->11
-processing ls
-after replace
-'ls'	
-fork
-fork_and_exec:	/bin/ls = 26013 launched
-exec2:	executed: /bin/ls
-close(11)
-new pipe: r=11, w=12
-exec 10 > sort > 12
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->10
-redirect: 1->12
-processing sort
-after replace
-'sort'	
-fork
-close_g_fd_to_close: 10close(10)
-exec(/bin/ls)
-fork_and_exec:	/usr/bin/sort = 26014 launched
-exec2:	executed: /usr/bin/sort
-close(12)
-exec 11 > cat -e > 1
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->11
-redirect: 1->1
-processing cat
-processing -e
-after replace
-'cat'	'-e'	
-fork
-close_g_fd_to_close: 11close(11)
-exec(/usr/bin/sort)
-fork_and_exec:	/bin/cat = 26015 launched
-exec2:	executed: /bin/cat
-pipe_exec2 returned: 26015
-free item: 'ls' (86392560)
-free item: 'sort' (86392736)
-free item: 'cat -e' (86392912)
-waiting ls | sort | cat -e to finish
-change g_awaited_process from 0 to 26015
-wait 26015 to stop
-close_g_fd_to_close: 11close(11)
-exec(/bin/cat)
-waitpid(26015) returned
-ls | sort | cat -e finished
-change g_awaited_process from 26015 to 0
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-free g_commands
-command processed: 'ls | sort | cat -e'
--------------------------
-
-
------------------------
-process command: 'ls | cat -e | sort'
-quotes replaced: 'ls | cat -e | sort'
-trimmed = ls | cat -e | sort
-no comments = ls | cat -e | sort
-cmd: 'ls | cat -e | sort'
-pipe_parse(ls | cat -e | sort)
-cmd[0] = 'ls '
-new pipe: r=12, w=13
-exec 0 > ls > 13
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->0
-redirect: 1->13
-processing ls
-after replace
-'ls'	
-fork
-fork_and_exec:	/bin/ls = 26016 launched
-exec2:	executed: /bin/ls
-close(13)
-new pipe: r=13, w=14
-exec 12 > cat -e > 14
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->12
-redirect: 1->14
-processing cat
-processing -e
-after replace
-'cat'	'-e'	
-fork
-close_g_fd_to_close: 12close(12)
-exec(/bin/ls)
-fork_and_exec:	/bin/cat = 26017 launched
-exec2:	executed: /bin/cat
-close(14)
-exec 13 > sort > 1
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->13
-redirect: 1->1
-processing sort
-after replace
-'sort'	
-fork
-close_g_fd_to_close: 13close(13)
-exec(/bin/cat)
-fork_and_exec:	/usr/bin/sort = 26018 launched
-exec2:	executed: /usr/bin/sort
-pipe_exec2 returned: 26018
-free item: 'ls' (86464320)
-free item: 'cat -e' (86464496)
-free item: 'sort' (86464672)
-waiting ls | cat -e | sort to finish
-change g_awaited_process from 0 to 26018
-wait 26018 to stop
-close_g_fd_to_close: 13close(13)
-exec(/usr/bin/sort)
-waitpid(26018) returned
-ls | cat -e | sort finished
-change g_awaited_process from 26018 to 0
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-free g_commands
-command processed: 'ls | cat -e | sort'
--------------------------
-
-
------------------------
-process command: 'setenv | sort'
-quotes replaced: 'setenv | sort'
-trimmed = setenv | sort
-no comments = setenv | sort
-cmd: 'setenv | sort'
-pipe_parse(setenv | sort)
-cmd[0] = 'setenv '
-new pipe: r=14, w=15
-exec 0 > setenv > 15
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->0
-redirect: 1->15
-processing setenv
-after replace
-'setenv'	
-close(15)
-exec 14 > sort > 1
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->14
-redirect: 1->1
-processing sort
-after replace
-'sort'	
-fork
-fork_and_exec:	/usr/bin/sort = 26019 launched
-exec2:	executed: /usr/bin/sort
-pipe_exec2 returned: 26019
-free item: 'setenv' (86535808)
-free item: 'sort' (86535984)
-waiting setenv | sort to finish
-change g_awaited_process from 0 to 26019
-wait 26019 to stop
-close_g_fd_to_close: 14close(14)
-exec(/usr/bin/sort)
-waitpid(26019) returned
-setenv | sort finished
-change g_awaited_process from 26019 to 0
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-free g_commands
-command processed: 'setenv | sort'
--------------------------
-
-
------------------------
-process command: 'base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e "s/1/Yes/g" -e "s/0/No/g"'
-quote replaced: 's/1/Yes/g' -> '%paired_quote%1'
-quote replaced: 's/0/No/g' -> '%paired_quote%2'
-quotes replaced: 'base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2'
-trimmed = base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2
-no comments = base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2
-cmd: 'base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2'
-pipe_parse(base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2)
-cmd[0] = 'base64 /dev/urandom '
-new pipe: r=15, w=16
-exec 0 > base64 /dev/urandom > 16
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->0
-redirect: 1->16
-processing base64
-processing /dev/urandom
-after replace
-'base64'	'/dev/urandom'	
-fork
-fork_and_exec:	/usr/bin/base64 = 26020 launched
-exec2:	executed: /usr/bin/base64
-close(16)
-new pipe: r=16, w=17
-exec 15 > head -c100 > 17
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->15
-redirect: 1->17
-processing head
-processing -c100
-after replace
-'head'	'-c100'	
-fork
-close_g_fd_to_close: 15close(15)
-exec(/usr/bin/base64)
-fork_and_exec:	/usr/bin/head = 26021 launched
-exec2:	executed: /usr/bin/head
-close(17)
-new pipe: r=17, w=18
-exec 16 > grep 42 > 18
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->16
-redirect: 1->18
-processing grep
-processing 42
-after replace
-'grep'	'42'	
-fork
-close_g_fd_to_close: 16close(16)
-exec(/usr/bin/head)
-fork_and_exec:	/bin/grep = 26022 launched
-exec2:	executed: /bin/grep
-close(18)
-new pipe: r=18, w=19
-exec 17 > wc -l > 19
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->17
-redirect: 1->19
-processing wc
-processing -l
-after replace
-'wc'	'-l'	
-fork
-close_g_fd_to_close: 17close(17)
-exec(/bin/grep)
-fork_and_exec:	/usr/bin/wc = 26023 launched
-exec2:	executed: /usr/bin/wc
-close(19)
-exec 18 > sed -e %paired_quote%1 -e %paired_quote%2 > 1
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-redirect: 0->18
-redirect: 1->1
-processing sed
-processing -e
-processing %paired_quote%1
-processing -e
-processing %paired_quote%2
-after replace
-'sed'	'-e'	's/1/Yes/g'	'-e'	's/0/No/g'	
-fork
-close_g_fd_to_close: 18close(18)
-exec(/usr/bin/wc)
-fork_and_exec:	/bin/sed = 26024 launched
-exec2:	executed: /bin/sed
-pipe_exec2 returned: 26024
-free item: 'base64 /dev/urandom' (86579968)
-free item: 'head -c100' (86580160)
-free item: 'grep 42' (86580336)
-free item: 'wc -l' (86580512)
-free item: 'sed -e 86580688aired_quote%1 -e %paired_quote%2' (%p)
-waiting base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2 to finish
-change g_awaited_process from 0 to 26024
-wait 26024 to stop
-close_g_fd_to_close: 18close(18)
-exec(/bin/sed)
-waitpid(26024) returned
-base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e %paired_quote%1 -e %paired_quote%2 finished
-change g_awaited_process from 26024 to 0
-restore stdin
-redirect: 0->4
-restore stdout
-redirect: 1->5
-free g_commands
-command processed: 'base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e "s/1/Yes/g" -e "s/0/No/g"'
--------------------------
-
-testing printf
-duplicated stdin to 20
-duplicated stdout to 21
-close(1)
-duplicated stdin to 22
-duplicated stdout to 23
-duplicated stdin to 25
-duplicated stdout to 26
-close(1)
-duplicated stdin to 27
-duplicated stdout to 28
-testing path_is_used
-duplicated stdin to 30
-duplicated stdout to 31
-
------------------------
-process command: 'unsetenv PATH'
-quotes replaced: 'unsetenv PATH'
-trimmed = unsetenv PATH
-no comments = unsetenv PATH
-cmd: 'unsetenv PATH'
-pipe_parse(unsetenv PATH)
-cmd[0] = 'unsetenv PATH'
-exec 0 > unsetenv PATH > 1
-restore stdin
-redirect: 0->30
-restore stdout
-redirect: 1->31
-redirect: 0->0
-redirect: 1->1
-processing unsetenv
-processing PATH
-after replace
-'unsetenv'	'PATH'	
-pipe_exec2 returned: 0
-free item: 'unsetenv PATH' (86740064)
-free g_commands
-command processed: 'unsetenv PATH'
--------------------------
-
-
------------------------
-process command: 'echo path = $PATH'
-quotes replaced: 'echo path = $PATH'
-trimmed = echo path = $PATH
-no comments = echo path = $PATH
-cmd: 'echo path = $PATH'
-pipe_parse(echo path = $PATH)
-cmd[0] = 'echo path = $PATH'
-exec 0 > echo path = $PATH > 1
-restore stdin
-redirect: 0->30
-restore stdout
-redirect: 1->31
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing path
-processing =
-after replace
-'echo'	'path'	'='	
-echo: command not found
-pipe_exec2 returned: 0
-free item: 'echo path = $PATH' (86756816)
-free g_commands
-command processed: 'echo path = $PATH'
--------------------------
-
-
------------------------
-process command: 'setenv PATH /bin:/usr/bin'
-quotes replaced: 'setenv PATH /bin:/usr/bin'
-trimmed = setenv PATH /bin:/usr/bin
-no comments = setenv PATH /bin:/usr/bin
-cmd: 'setenv PATH /bin:/usr/bin'
-pipe_parse(setenv PATH /bin:/usr/bin)
-cmd[0] = 'setenv PATH /bin:/usr/bin'
-exec 0 > setenv PATH /bin:/usr/bin > 1
-restore stdin
-redirect: 0->30
-restore stdout
-redirect: 1->31
-redirect: 0->0
-redirect: 1->1
-processing setenv
-processing PATH
-processing /bin:/usr/bin
-after replace
-'setenv'	'PATH'	'/bin:/usr/bin'	
-pipe_exec2 returned: 0
-free item: 'setenv PATH /bin:/usr/bin' (86774480)
-free g_commands
-command processed: 'setenv PATH /bin:/usr/bin'
--------------------------
-
-
------------------------
-process command: 'echo path = $PATH'
-quotes replaced: 'echo path = $PATH'
-trimmed = echo path = $PATH
-no comments = echo path = $PATH
-cmd: 'echo path = $PATH'
-pipe_parse(echo path = $PATH)
-cmd[0] = 'echo path = $PATH'
-exec 0 > echo path = $PATH > 1
-restore stdin
-redirect: 0->30
-restore stdout
-redirect: 1->31
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing path
-processing =
-processing /bin:/usr/bin
-after replace
-'echo'	'path'	'='	'/bin:/usr/bin'	
-fork
-fork_and_exec:	/bin/echo = 26025 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26025
-free item: 'echo path = $PATH' (86795728)
-waiting echo path = $PATH to finish
-change g_awaited_process from 0 to 26025
-wait 26025 to stop
-close_g_fd_to_close: 18close(18)
-exec(/bin/echo)
-waitpid(26025) returned
-echo path = $PATH finished
-change g_awaited_process from 26025 to 0
-restore stdin
-redirect: 0->30
-restore stdout
-redirect: 1->31
-free g_commands
-command processed: 'echo path = $PATH'
--------------------------
-
-close(1)
-duplicated stdin to 32
-duplicated stdout to 33
-testing test_exec
-duplicated stdin to 35
-duplicated stdout to 36
-
------------------------
-process command: 'src'
-quotes replaced: 'src'
-trimmed = src
-no comments = src
-cmd: 'src'
-pipe_parse(src)
-cmd[0] = 'src'
-exec 0 > src > 1
-restore stdin
-redirect: 0->35
-restore stdout
-redirect: 1->36
-redirect: 0->0
-redirect: 1->1
-processing src
-after replace
-'src'	
-src is not regular file
-pipe_exec2 returned: 0
-free item: 'src' (86848256)
-free g_commands
-command processed: 'src'
--------------------------
-
-
------------------------
-process command: 'foo'
-quotes replaced: 'foo'
-trimmed = foo
-no comments = foo
-cmd: 'foo'
-pipe_parse(foo)
-cmd[0] = 'foo'
-exec 0 > foo > 1
-restore stdin
-redirect: 0->35
-restore stdout
-redirect: 1->36
-redirect: 0->0
-redirect: 1->1
-processing foo
-after replace
-'foo'	
-foo: command not found
-pipe_exec2 returned: 0
-free item: 'foo' (86862768)
-free g_commands
-command processed: 'foo'
--------------------------
-
-
------------------------
-process command: 'echo 1   2    	3'
-quotes replaced: 'echo 1   2    	3'
-trimmed = echo 1   2    	3
-no comments = echo 1   2    	3
-cmd: 'echo 1   2    	3'
-pipe_parse(echo 1   2    	3)
-cmd[0] = 'echo 1   2    	3'
-exec 0 > echo 1   2    	3 > 1
-restore stdin
-redirect: 0->35
-restore stdout
-redirect: 1->36
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing 1
-processing 2
-processing 3
-after replace
-'echo'	'1'	'2'	'3'	
-fork
-fork_and_exec:	/bin/echo = 26026 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26026
-free item: 'echo 1   2    	3' (86877824)
-waiting echo 1   2    	3 to finish
-change g_awaited_process from 0 to 26026
-wait 26026 to stop
-close_g_fd_to_close: 18close(18)
-exec(/bin/echo)
-waitpid(26026) returned
-echo 1   2    	3 finished
-change g_awaited_process from 26026 to 0
-restore stdin
-redirect: 0->35
-restore stdout
-redirect: 1->36
-free g_commands
-command processed: 'echo 1   2    	3'
--------------------------
-
-
------------------------
-process command: ''
-quotes replaced: ''
-
------------------------
-process command: '	 '
-quotes replaced: '	 '
-close(1)
-duplicated stdin to 37
-duplicated stdout to 38
-testing test_pipe_1
-duplicated stdin to 40
-duplicated stdout to 41
-
------------------------
-process command: 'echo 123 |rev'
-quotes replaced: 'echo 123 |rev'
-trimmed = echo 123 |rev
-no comments = echo 123 |rev
-cmd: 'echo 123 |rev'
-pipe_parse(echo 123 |rev)
-cmd[0] = 'echo 123 '
-new pipe: r=42, w=43
-exec 0 > echo 123 > 43
-restore stdin
-redirect: 0->40
-restore stdout
-redirect: 1->41
-redirect: 0->0
-redirect: 1->43
-processing echo
-processing 123
-after replace
-'echo'	'123'	
-fork
-fork_and_exec:	/bin/echo = 26027 launched
-exec2:	executed: /bin/echo
-close(43)
-exec 42 > rev > 1
-restore stdin
-redirect: 0->40
-restore stdout
-redirect: 1->41
-redirect: 0->42
-redirect: 1->1
-processing rev
-after replace
-'rev'	
-fork
-close_g_fd_to_close: 42close(42)
-exec(/bin/echo)
-fork_and_exec:	/usr/bin/rev = 26028 launched
-exec2:	executed: /usr/bin/rev
-pipe_exec2 returned: 26028
-free item: 'echo 123' (86933824)
-free item: 'rev' (86934000)
-waiting echo 123 |rev to finish
-change g_awaited_process from 0 to 26028
-wait 26028 to stop
-close_g_fd_to_close: 42close(42)
-exec(/usr/bin/rev)
-waitpid(26028) returned
-echo 123 |rev finished
-change g_awaited_process from 26028 to 0
-restore stdin
-redirect: 0->40
-restore stdout
-redirect: 1->41
-free g_commands
-command processed: 'echo 123 |rev'
--------------------------
-
-
------------------------
-process command: 'echo 123 | cat -e |rev'
-quotes replaced: 'echo 123 | cat -e |rev'
-trimmed = echo 123 | cat -e |rev
-no comments = echo 123 | cat -e |rev
-cmd: 'echo 123 | cat -e |rev'
-pipe_parse(echo 123 | cat -e |rev)
-cmd[0] = 'echo 123 '
-new pipe: r=43, w=44
-exec 0 > echo 123 > 44
-restore stdin
-redirect: 0->40
-restore stdout
-redirect: 1->41
-redirect: 0->0
-redirect: 1->44
-processing echo
-processing 123
-after replace
-'echo'	'123'	
-fork
-fork_and_exec:	/bin/echo = 26029 launched
-exec2:	executed: /bin/echo
-close(44)
-new pipe: r=44, w=45
-exec 43 > cat -e > 45
-restore stdin
-redirect: 0->40
-restore stdout
-redirect: 1->41
-redirect: 0->43
-redirect: 1->45
-proccloeses_gs_fid_ntog_c locsea: t43
-processing -e
-after replace
-'cat'	'-e'	
-close(43)
-fork
-exec(/bin/echo)
-fork_and_exec:	/bin/cat = 26030 launched
-exec2:	executed: /bin/cat
-close(45)
-exec 44 > rev > 1
-restore stdin
-redirect: 0->40
-restore stdout
-redirect: 1->41
-redirect: 0->44
-redirect: 1->1
-processing rev
-after replace
-'rev'	
-fork
-close_g_fd_to_close: 44close(44)
-exec(/bin/cat)
-fork_and_exec:	/usr/bin/rev = 26031 launched
-exec2:	executed: /usr/bin/rev
-pipe_exec2 returned: 26031
-free item: 'echo 123' (86968032)
-free item: 'cat -e' (86968208)
-free item: 'rev' (86968384)
-waiting echo 123 | cat -e |rev to finish
-change g_awaited_process from 0 to 26031
-wait 26031 to stop
-close_g_fd_to_close: 44close(44)
-exec(/usr/bin/rev)
-waitpid(26031) returned
-echo 123 | cat -e |rev finished
-change g_awaited_process from 26031 to 0
-restore stdin
-redirect: 0->40
-restore stdout
-redirect: 1->41
-free g_commands
-command processed: 'echo 123 | cat -e |rev'
--------------------------
-
-
------------------------
-process command: 'echo 123456789 | head -c3'
-quotes replaced: 'echo 123456789 | head -c3'
-trimmed = echo 123456789 | head -c3
-no comments = echo 123456789 | head -c3
-cmd: 'echo 123456789 | head -c3'
-pipe_parse(echo 123456789 | head -c3)
-cmd[0] = 'echo 123456789 '
-new pipe: r=45, w=46
-exec 0 > echo 123456789 > 46
-restore stdin
-redirect: 0->40
-restore stdout
-redirect: 1->41
-redirect: 0->0
-redirect: 1->46
-processing echo
-processing 123456789
-after replace
-'echo'	'123456789'	
-fork
-fork_and_exec:	/bin/echo = 26032 launched
-exec2:	executed: /bin/echo
-close(46)
-exec 45 > head -c3 > 1
-restore stdin
-redirect: 0->40
-restore stdout
-redirect: 1->41
-redirect: 0->45
-redirect: 1->1
-processing head
-processing -c3
-after replace
-'head'	'-c3'	
-fork
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-fork_and_exec:	/usr/bin/head = 26033 launched
-exec2:	executed: /usr/bin/head
-pipe_exec2 returned: 26033
-free item: 'echo 123456789' (87014224)
-free item: 'head -c3' (87014400)
-waiting echo 123456789 | head -c3 to finish
-change g_awaited_process from 0 to 26033
-wait 26033 to stop
-close_g_fd_to_close: 45close(45)
-exec(/usr/bin/head)
-waitpid(26033) returned
-echo 123456789 | head -c3 finished
-change g_awaited_process from 26033 to 0
-restore stdin
-redirect: 0->40
-restore stdout
-redirect: 1->41
-free g_commands
-command processed: 'echo 123456789 | head -c3'
--------------------------
-
-close(1)
-duplicated stdin to 46
-duplicated stdout to 47
-testing quotes
-duplicated stdin to 49
-duplicated stdout to 50
-
------------------------
-process command: 'rmdir  "dir  with  spaces"; 	"mkdir" "dir  with  spaces" ; ls "dir  with  spaces"'
-quote replaced: 'dir  with  spaces' -> '%paired_quote%1'
-quote replaced: 'mkdir' -> '%paired_quote%2'
-quote replaced: 'dir  with  spaces' -> '%paired_quote%3'
-quote replaced: 'dir  with  spaces' -> '%paired_quote%4'
-quotes replaced: 'rmdir  %paired_quote%1; 	%paired_quote%2 %paired_quote%3 ; ls %paired_quote%4'
-trimmed = rmdir  %paired_quote%1; 	%paired_quote%2 %paired_quote%3 ; ls %paired_quote%4
-no comments = rmdir  %paired_quote%1; 	%paired_quote%2 %paired_quote%3 ; ls %paired_quote%4
-cmd: 'rmdir  %paired_quote%1'
-pipe_parse(rmdir  %paired_quote%1)
-cmd[0] = 'rmdir  %paired_quote%1'
-exec 0 > rmdir  %paired_quote%1 > 1
-restore stdin
-redirect: 0->49
-restore stdout
-redirect: 1->50
-redirect: 0->0
-redirect: 1->1
-processing rmdir
-processing %paired_quote%1
-after replace
-'rmdir'	'dir  with  spaces'	
-fork
-fork_and_exec:	/bin/rmdir = 26034 launched
-exec2:	executed: /bin/rmdir
-pipe_exec2 returned: 26034
-free item: 'rmdir  87082624aired_quote%1' (%p)
-waiting rmdir  %paired_quote%1 to finish
-change g_awaited_process from 0 to 26034
-wait 26034 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/rmdir)
-waitpid(26034) returned
-rmdir  %paired_quote%1 finished
-change g_awaited_process from 26034 to 0
-restore stdin
-redirect: 0->49
-restore stdout
-redirect: 1->50
-cmd: ' 	%paired_quote%2 %paired_quote%3 '
-pipe_parse(%paired_quote%2 %paired_quote%3)
-cmd[0] = '%paired_quote%2 %paired_quote%3'
-exec 0 > %paired_quote%2 %paired_quote%3 > 1
-restore stdin
-redirect: 0->49
-restore stdout
-redirect: 1->50
-redirect: 0->0
-redirect: 1->1
-processing %paired_quote%2
-processing %paired_quote%3
-after replace
-'mkdir'	'dir  with  spaces'	
-fork
-fork_and_exec:	/bin/mkdir = 26035 launched
-exec2:	executed: /bin/mkdir
-pipe_exec2 returned: 26035
-free item: '87102224aired_quote%2 %paired_quote%3' (%p)
-waiting %paired_quote%2 %paired_quote%3 to finish
-change g_awaited_process from 0 to 26035
-wait 26035 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/mkdir)
-waitpid(26035) returned
-%paired_quote%2 %paired_quote%3 finished
-change g_awaited_process from 26035 to 0
-restore stdin
-redirect: 0->49
-restore stdout
-redirect: 1->50
-cmd: ' ls %paired_quote%4'
-pipe_parse(ls %paired_quote%4)
-cmd[0] = 'ls %paired_quote%4'
-exec 0 > ls %paired_quote%4 > 1
-restore stdin
-redirect: 0->49
-restore stdout
-redirect: 1->50
-redirect: 0->0
-redirect: 1->1
-processing ls
-processing %paired_quote%4
-after replace
-'ls'	'dir  with  spaces'	
-fork
-fork_and_exec:	/bin/ls = 26036 launched
-exec2:	executed: /bin/ls
-pipe_exec2 returned: 26036
-free item: 'ls 87121888aired_quote%4' (%p)
-waiting ls %paired_quote%4 to finish
-change g_awaited_process from 0 to 26036
-wait 26036 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/ls)
-waitpid(26036) returned
-ls %paired_quote%4 finished
-change g_awaited_process from 26036 to 0
-restore stdin
-redirect: 0->49
-restore stdout
-redirect: 1->50
-free g_commands
-command processed: 'rmdir  "dir  with  spaces"; 	"mkdir" "dir  with  spaces" ; ls "dir  with  spaces"'
--------------------------
-
-
------------------------
-process command: 'rm -r "not empty dir";mkdir "not empty dir"; mkdir "not empty dir"/"dir	one"; ls "not empty dir"/"dir	one"'
-quote replaced: 'not empty dir' -> '%paired_quote%1'
-quote replaced: 'not empty dir' -> '%paired_quote%2'
-quote replaced: 'not empty dir' -> '%paired_quote%3'
-quote replaced: 'dir	one' -> '%paired_quote%4'
-quote replaced: 'not empty dir' -> '%paired_quote%5'
-quote replaced: 'dir	one' -> '%paired_quote%6'
-quotes replaced: 'rm -r %paired_quote%1;mkdir %paired_quote%2; mkdir %paired_quote%3/%paired_quote%4; ls %paired_quote%5/%paired_quote%6'
-trimmed = rm -r %paired_quote%1;mkdir %paired_quote%2; mkdir %paired_quote%3/%paired_quote%4; ls %paired_quote%5/%paired_quote%6
-no comments = rm -r %paired_quote%1;mkdir %paired_quote%2; mkdir %paired_quote%3/%paired_quote%4; ls %paired_quote%5/%paired_quote%6
-cmd: 'rm -r %paired_quote%1'
-pipe_parse(rm -r %paired_quote%1)
-cmd[0] = 'rm -r %paired_quote%1'
-exec 0 > rm -r %paired_quote%1 > 1
-restore stdin
-redirect: 0->49
-restore stdout
-redirect: 1->50
-redirect: 0->0
-redirect: 1->1
-processing rm
-processing -r
-processing %paired_quote%1
-after replace
-'rm'	'-r'	'not empty dir'	
-fork
-fork_and_exec:	/bin/rm = 26037 launched
-exec2:	executed: /bin/rm
-pipe_exec2 returned: 26037
-free item: 'rm -r 87155216aired_quote%1' (%p)
-waiting rm -r %paired_quote%1 to finish
-change g_awaited_process from 0 to 26037
-wait 26037 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/rm)
-waitpid(26037) returned
-rm -r %paired_quote%1 finished
-change g_awaited_process from 26037 to 0
-restore stdin
-redirect: 0->49
-restore stdout
-redirect: 1->50
-cmd: 'mkdir %paired_quote%2'
-pipe_parse(mkdir %paired_quote%2)
-cmd[0] = 'mkdir %paired_quote%2'
-exec 0 > mkdir %paired_quote%2 > 1
-restore stdin
-redirect: 0->49
-restore stdout
-redirect: 1->50
-redirect: 0->0
-redirect: 1->1
-processing mkdir
-processing %paired_quote%2
-after replace
-'mkdir'	'not empty dir'	
-fork
-fork_and_exec:	/bin/mkdir = 26038 launched
-exec2:	executed: /bin/mkdir
-pipe_exec2 returned: 26038
-free item: 'mkdir 87176112aired_quote%2' (%p)
-waiting mkdir %paired_quote%2 to finish
-change g_awaited_process from 0 to 26038
-wait 26038 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/mkdir)
-waitpid(26038) returned
-mkdir %paired_quote%2 finished
-change g_awaited_process from 26038 to 0
-restore stdin
-redirect: 0->49
-restore stdout
-redirect: 1->50
-cmd: ' mkdir %paired_quote%3/%paired_quote%4'
-pipe_parse(mkdir %paired_quote%3/%paired_quote%4)
-cmd[0] = 'mkdir %paired_quote%3/%paired_quote%4'
-exec 0 > mkdir %paired_quote%3/%paired_quote%4 > 1
-restore stdin
-redirect: 0->49
-restore stdout
-redirect: 1->50
-redirect: 0->0
-redirect: 1->1
-processing mkdir
-processing %paired_quote%3/%paired_quote%4
-after replace
-'mkdir'	'not empty dir/dir	one'	
-fork
-fork_and_exec:	/bin/mkdir = 26039 launched
-exec2:	executed: /bin/mkdir
-pipe_exec2 returned: 26039
-free item: 'mkdir 87195936aired_quote%3/%paired_quote%4' (%p)
-waiting mkdir %paired_quote%3/%paired_quote%4 to finish
-change g_awaited_process from 0 to 26039
-wait 26039 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/mkdir)
-waitpid(26039) returned
-mkdir %paired_quote%3/%paired_quote%4 finished
-change g_awaited_process from 26039 to 0
-restore stdin
-redirect: 0->49
-restore stdout
-redirect: 1->50
-cmd: ' ls %paired_quote%5/%paired_quote%6'
-pipe_parse(ls %paired_quote%5/%paired_quote%6)
-cmd[0] = 'ls %paired_quote%5/%paired_quote%6'
-exec 0 > ls %paired_quote%5/%paired_quote%6 > 1
-restore stdin
-redirect: 0->49
-restore stdout
-redirect: 1->50
-redirect: 0->0
-redirect: 1->1
-processing ls
-processing %paired_quote%5/%paired_quote%6
-after replace
-'ls'	'not empty dir/dir	one'	
-fork
-fork_and_exec:	/bin/ls = 26040 launched
-exec2:	executed: /bin/ls
-pipe_exec2 returned: 26040
-free item: 'ls 87216144aired_quote%5/%paired_quote%6' (%p)
-waiting ls %paired_quote%5/%paired_quote%6 to finish
-change g_awaited_process from 0 to 26040
-wait 26040 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/ls)
-waitpid(26040) returned
-ls %paired_quote%5/%paired_quote%6 finished
-change g_awaited_process from 26040 to 0
-restore stdin
-redirect: 0->49
-restore stdout
-redirect: 1->50
-free g_commands
-command processed: 'rm -r "not empty dir";mkdir "not empty dir"; mkdir "not empty dir"/"dir	one"; ls "not empty dir"/"dir	one"'
--------------------------
-
-close(1)
-duplicated stdin to 51
-duplicated stdout to 52
-free item: '1' (87263360)
-free item: '2' (87263536)
-testing cd_bad
-duplicated stdin to 54
-duplicated stdout to 55
-
------------------------
-process command: 'cd -'
-quotes replaced: 'cd -'
-trimmed = cd -
-no comments = cd -
-cmd: 'cd -'
-pipe_parse(cd -)
-cmd[0] = 'cd -'
-exec 0 > cd - > 1
-restore stdin
-redirect: 0->54
-restore stdout
-redirect: 1->55
-redirect: 0->0
-redirect: 1->1
-processing cd
-processing -
-after replace
-'cd'	'-'	
-exec cd '-'
-pipe_exec2 returned: 0
-free item: 'cd -' (87272080)
-free g_commands
-command processed: 'cd -'
--------------------------
-
-
------------------------
-process command: 'cd \'
-quotes replaced: 'cd \'
-trimmed = cd \
-no comments = cd \
-cmd: 'cd \'
-pipe_parse(cd \)
-cmd[0] = 'cd \'
-exec 0 > cd \ > 1
-restore stdin
-redirect: 0->54
-restore stdout
-redirect: 1->55
-redirect: 0->0
-redirect: 1->1
-processing cd
-processing \
-after replace
-'cd'	'\'	
-exec cd '\'
-pipe_exec2 returned: 0
-free item: 'cd \' (87287792)
-free g_commands
-command processed: 'cd \'
--------------------------
-
-close(1)
-duplicated stdin to 56
-duplicated stdout to 57
-pipe_parse(ls -l | sort | cat -e)
-cmd[0] = 'ls -l '
-free item: 'ls -l' (87325200)
-free item: 'sort' (87325376)
-free item: 'cat -e' (87325552)
-testing two_commands_bad
-duplicated stdin to 59
-duplicated stdout to 60
-
------------------------
-process command: ';'
-quotes replaced: ';'
-trimmed = ;
-no comments = ;
-minishell: syntax error near unexpected token `;'
-
------------------------
-process command: ';;'
-quotes replaced: ';;'
-trimmed = ;;
-no comments = ;;
-minishell: syntax error near unexpected token `;'
-
------------------------
-process command: ';;;'
-quotes replaced: ';;;'
-trimmed = ;;;
-no comments = ;;;
-minishell: syntax error near unexpected token `;'
-
------------------------
-process command: '; ;'
-quotes replaced: '; ;'
-trimmed = ; ;
-no comments = ; ;
-cmd: ' '
-minishell: syntax error near unexpected token `;'
-free g_commands
-command processed: '; ;'
--------------------------
-
-close(1)
-duplicated stdin to 61
-duplicated stdout to 62
-testing echo_quotes
-duplicated stdin to 64
-duplicated stdout to 65
-
------------------------
-process command: 'echo "q"'
-quote replaced: 'q' -> '%paired_quote%1'
-quotes replaced: 'echo %paired_quote%1'
-trimmed = echo %paired_quote%1
-no comments = echo %paired_quote%1
-cmd: 'echo %paired_quote%1'
-pipe_parse(echo %paired_quote%1)
-cmd[0] = 'echo %paired_quote%1'
-exec 0 > echo %paired_quote%1 > 1
-restore stdin
-redirect: 0->64
-restore stdout
-redirect: 1->65
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing %paired_quote%1
-after replace
-'echo'	'q'	
-fork
-fork_and_exec:	/bin/echo = 26041 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26041
-free item: 'echo 87377440aired_quote%1' (%p)
-waiting echo %paired_quote%1 to finish
-change g_awaited_process from 0 to 26041
-wait 26041 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26041) returned
-echo %paired_quote%1 finished
-change g_awaited_process from 26041 to 0
-restore stdin
-redirect: 0->64
-restore stdout
-redirect: 1->65
-free g_commands
-command processed: 'echo "q"'
--------------------------
-
-close(1)
-duplicated stdin to 66
-duplicated stdout to 67
-testing env
-duplicated stdin to 69
-duplicated stdout to 70
-
------------------------
-process command: 'unsetenv w'
-quotes replaced: 'unsetenv w'
-trimmed = unsetenv w
-no comments = unsetenv w
-cmd: 'unsetenv w'
-pipe_parse(unsetenv w)
-cmd[0] = 'unsetenv w'
-exec 0 > unsetenv w > 1
-restore stdin
-redirect: 0->69
-restore stdout
-redirect: 1->70
-redirect: 0->0
-redirect: 1->1
-processing unsetenv
-processing w
-after replace
-'unsetenv'	'w'	
-pipe_exec2 returned: 0
-free item: 'unsetenv w' (87427616)
-free g_commands
-command processed: 'unsetenv w'
--------------------------
-
-
------------------------
-process command: 'setenv q w'
-quotes replaced: 'setenv q w'
-trimmed = setenv q w
-no comments = setenv q w
-cmd: 'setenv q w'
-pipe_parse(setenv q w)
-cmd[0] = 'setenv q w'
-exec 0 > setenv q w > 1
-restore stdin
-redirect: 0->69
-restore stdout
-redirect: 1->70
-redirect: 0->0
-redirect: 1->1
-processing setenv
-processing q
-processing w
-after replace
-'setenv'	'q'	'w'	
-pipe_exec2 returned: 0
-free item: 'setenv q w' (87444896)
-free g_commands
-command processed: 'setenv q w'
--------------------------
-
-
------------------------
-process command: 'echo $q'
-quotes replaced: 'echo $q'
-trimmed = echo $q
-no comments = echo $q
-cmd: 'echo $q'
-pipe_parse(echo $q)
-cmd[0] = 'echo $q'
-exec 0 > echo $q > 1
-restore stdin
-redirect: 0->69
-restore stdout
-redirect: 1->70
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing w
-after replace
-'echo'	'w'	
-fork
-fork_and_exec:	/bin/echo = 26042 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26042
-free item: 'echo $q' (87467152)
-waiting echo $q to finish
-change g_awaited_process from 0 to 26042
-wait 26042 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26042) returned
-echo $q finished
-change g_awaited_process from 26042 to 0
-restore stdin
-redirect: 0->69
-restore stdout
-redirect: 1->70
-free g_commands
-command processed: 'echo $q'
--------------------------
-
-
------------------------
-process command: 'unsetenv q'
-quotes replaced: 'unsetenv q'
-trimmed = unsetenv q
-no comments = unsetenv q
-cmd: 'unsetenv q'
-pipe_parse(unsetenv q)
-cmd[0] = 'unsetenv q'
-exec 0 > unsetenv q > 1
-restore stdin
-redirect: 0->69
-restore stdout
-redirect: 1->70
-redirect: 0->0
-redirect: 1->1
-processing unsetenv
-processing q
-after replace
-'unsetenv'	'q'	
-pipe_exec2 returned: 0
-free item: 'unsetenv q' (87490112)
-free g_commands
-command processed: 'unsetenv q'
--------------------------
-
-
------------------------
-process command: 'echo $q'
-quotes replaced: 'echo $q'
-trimmed = echo $q
-no comments = echo $q
-cmd: 'echo $q'
-pipe_parse(echo $q)
-cmd[0] = 'echo $q'
-exec 0 > echo $q > 1
-restore stdin
-redirect: 0->69
-restore stdout
-redirect: 1->70
-redirect: 0->0
-redirect: 1->1
-processing echo
-after replace
-'echo'	
-fork
-fork_and_exec:	/bin/echo = 26043 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26043
-free item: 'echo $q' (87507360)
-waiting echo $q to finish
-change g_awaited_process from 0 to 26043
-wait 26043 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26043) returned
-echo $q finished
-change g_awaited_process from 26043 to 0
-restore stdin
-redirect: 0->69
-restore stdout
-redirect: 1->70
-free g_commands
-command processed: 'echo $q'
--------------------------
-
-close(1)
-duplicated stdin to 71
-duplicated stdout to 72
-testing ls
-duplicated stdin to 74
-duplicated stdout to 75
-
------------------------
-process command: 'echo ls:;ls'
-quotes replaced: 'echo ls:;ls'
-trimmed = echo ls:;ls
-no comments = echo ls:;ls
-cmd: 'echo ls:'
-pipe_parse(echo ls:)
-cmd[0] = 'echo ls:'
-exec 0 > echo ls: > 1
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing ls:
-after replace
-'echo'	'ls:'	
-fork
-fork_and_exec:	/bin/echo = 26044 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26044
-free item: 'echo ls:' (87556144)
-waiting echo ls: to finish
-change g_awaited_process from 0 to 26044
-wait 26044 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26044) returned
-echo ls: finished
-change g_awaited_process from 26044 to 0
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-cmd: 'ls'
-pipe_parse(ls)
-cmd[0] = 'ls'
-exec 0 > ls > 1
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-redirect: 0->0
-redirect: 1->1
-processing ls
-after replace
-'ls'	
-fork
-fork_and_exec:	/bin/ls = 26045 launched
-exec2:	executed: /bin/ls
-pipe_exec2 returned: 26045
-free item: 'ls' (87574848)
-waiting ls to finish
-change g_awaited_process from 0 to 26045
-wait 26045 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/ls)
-waitpid(26045) returned
-ls finished
-change g_awaited_process from 26045 to 0
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-free g_commands
-command processed: 'echo ls:;ls'
--------------------------
-
-
------------------------
-process command: 'echo not empty dir: ;rm -r "not empty dir ls"; mkdir "not empty dir ls"; mkdir "not empty dir ls"/dir1; touch "not empty dir ls"/file1'
-quote replaced: 'not empty dir ls' -> '%paired_quote%1'
-quote replaced: 'not empty dir ls' -> '%paired_quote%2'
-quote replaced: 'not empty dir ls' -> '%paired_quote%3'
-quote replaced: 'not empty dir ls' -> '%paired_quote%4'
-quotes replaced: 'echo not empty dir: ;rm -r %paired_quote%1; mkdir %paired_quote%2; mkdir %paired_quote%3/dir1; touch %paired_quote%4/file1'
-trimmed = echo not empty dir: ;rm -r %paired_quote%1; mkdir %paired_quote%2; mkdir %paired_quote%3/dir1; touch %paired_quote%4/file1
-no comments = echo not empty dir: ;rm -r %paired_quote%1; mkdir %paired_quote%2; mkdir %paired_quote%3/dir1; touch %paired_quote%4/file1
-cmd: 'echo not empty dir: '
-pipe_parse(echo not empty dir:)
-cmd[0] = 'echo not empty dir:'
-exec 0 > echo not empty dir: > 1
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing not
-processing empty
-processing dir:
-after replace
-'echo'	'not'	'empty'	'dir:'	
-fork
-fork_and_exec:	/bin/echo = 26046 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26046
-free item: 'echo not empty dir:' (87603888)
-waiting echo not empty dir: to finish
-change g_awaited_process from 0 to 26046
-wait 26046 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26046) returned
-echo not empty dir: finished
-change g_awaited_process from 26046 to 0
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-cmd: 'rm -r %paired_quote%1'
-pipe_parse(rm -r %paired_quote%1)
-cmd[0] = 'rm -r %paired_quote%1'
-exec 0 > rm -r %paired_quote%1 > 1
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-redirect: 0->0
-redirect: 1->1
-processing rm
-processing -r
-processing %paired_quote%1
-after replace
-'rm'	'-r'	'not empty dir ls'	
-fork
-fork_and_exec:	/bin/rm = 26047 launched
-exec2:	executed: /bin/rm
-pipe_exec2 returned: 26047
-free item: 'rm -r 87625728aired_quote%1' (%p)
-waiting rm -r %paired_quote%1 to finish
-change g_awaited_process from 0 to 26047
-wait 26047 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/rm)
-waitpid(26047) returned
-rm -r %paired_quote%1 finished
-change g_awaited_process from 26047 to 0
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-cmd: ' mkdir %paired_quote%2'
-pipe_parse(mkdir %paired_quote%2)
-cmd[0] = 'mkdir %paired_quote%2'
-exec 0 > mkdir %paired_quote%2 > 1
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-redirect: 0->0
-redirect: 1->1
-processing mkdir
-processing %paired_quote%2
-after replace
-'mkdir'	'not empty dir ls'	
-fork
-fork_and_exec:	/bin/mkdir = 26048 launched
-exec2:	executed: /bin/mkdir
-pipe_exec2 returned: 26048
-free item: 'mkdir 87646480aired_quote%2' (%p)
-waiting mkdir %paired_quote%2 to finish
-change g_awaited_process from 0 to 26048
-wait 26048 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/mkdir)
-waitpid(26048) returned
-mkdir %paired_quote%2 finished
-change g_awaited_process from 26048 to 0
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-cmd: ' mkdir %paired_quote%3/dir1'
-pipe_parse(mkdir %paired_quote%3/dir1)
-cmd[0] = 'mkdir %paired_quote%3/dir1'
-exec 0 > mkdir %paired_quote%3/dir1 > 1
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-redirect: 0->0
-redirect: 1->1
-processing mkdir
-processing %paired_quote%3/dir1
-after replace
-'mkdir'	'not empty dir ls/dir1'	
-fork
-fork_and_exec:	/bin/mkdir = 26049 launched
-exec2:	executed: /bin/mkdir
-pipe_exec2 returned: 26049
-free item: 'mkdir 87666048aired_quote%3/dir1' (%p)
-waiting mkdir %paired_quote%3/dir1 to finish
-change g_awaited_process from 0 to 26049
-wait 26049 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/mkdir)
-waitpid(26049) returned
-mkdir %paired_quote%3/dir1 finished
-change g_awaited_process from 26049 to 0
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-cmd: ' touch %paired_quote%4/file1'
-pipe_parse(touch %paired_quote%4/file1)
-cmd[0] = 'touch %paired_quote%4/file1'
-exec 0 > touch %paired_quote%4/file1 > 1
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-redirect: 0->0
-redirect: 1->1
-processing touch
-processing %paired_quote%4/file1
-after replace
-'touch'	'not empty dir ls/file1'	
-fork
-fork_and_exec:	/bin/touch = 26050 launched
-exec2:	executed: /bin/touch
-pipe_exec2 returned: 26050
-free item: 'touch 87685712aired_quote%4/file1' (%p)
-waiting touch %paired_quote%4/file1 to finish
-change g_awaited_process from 0 to 26050
-wait 26050 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/touch)
-waitpid(26050) returned
-touch %paired_quote%4/file1 finished
-change g_awaited_process from 26050 to 0
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-free g_commands
-command processed: 'echo not empty dir: ;rm -r "not empty dir ls"; mkdir "not empty dir ls"; mkdir "not empty dir ls"/dir1; touch "not empty dir ls"/file1'
--------------------------
-
-
------------------------
-process command: 'echo ls ;ls "not empty dir ls"'
-quote replaced: 'not empty dir ls' -> '%paired_quote%1'
-quotes replaced: 'echo ls ;ls %paired_quote%1'
-trimmed = echo ls ;ls %paired_quote%1
-no comments = echo ls ;ls %paired_quote%1
-cmd: 'echo ls '
-pipe_parse(echo ls)
-cmd[0] = 'echo ls'
-exec 0 > echo ls > 1
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing ls
-after replace
-'echo'	'ls'	
-fork
-fork_and_exec:	/bin/echo = 26051 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26051
-free item: 'echo ls' (87711360)
-waiting echo ls to finish
-change g_awaited_process from 0 to 26051
-wait 26051 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26051) returned
-echo ls finished
-change g_awaited_process from 26051 to 0
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-cmd: 'ls %paired_quote%1'
-pipe_parse(ls %paired_quote%1)
-cmd[0] = 'ls %paired_quote%1'
-exec 0 > ls %paired_quote%1 > 1
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-redirect: 0->0
-redirect: 1->1
-processing ls
-processing %paired_quote%1
-after replace
-'ls'	'not empty dir ls'	
-fork
-fork_and_exec:	/bin/ls = 26052 launched
-exec2:	executed: /bin/ls
-pipe_exec2 returned: 26052
-free item: 'ls 87730272aired_quote%1' (%p)
-waiting ls %paired_quote%1 to finish
-change g_awaited_process from 0 to 26052
-wait 26052 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/ls)
-waitpid(26052) returned
-ls %paired_quote%1 finished
-change g_awaited_process from 26052 to 0
-restore stdin
-redirect: 0->74
-restore stdout
-redirect: 1->75
-free g_commands
-command processed: 'echo ls ;ls "not empty dir ls"'
--------------------------
-
-close(1)
-duplicated stdin to 76
-duplicated stdout to 77
-
------------------------
-process command: 'setenv HOME fake_home_for_tests'
-quotes replaced: 'setenv HOME fake_home_for_tests'
-trimmed = setenv HOME fake_home_for_tests
-no comments = setenv HOME fake_home_for_tests
-cmd: 'setenv HOME fake_home_for_tests'
-pipe_parse(setenv HOME fake_home_for_tests)
-cmd[0] = 'setenv HOME fake_home_for_tests'
-exec 0 > setenv HOME fake_home_for_tests > 1
-restore stdin
-redirect: 0->76
-restore stdout
-redirect: 1->77
-redirect: 0->0
-redirect: 1->1
-processing setenv
-processing HOME
-processing fake_home_for_tests
-after replace
-'setenv'	'HOME'	'fake_home_for_tests'	
-pipe_exec2 returned: 0
-free item: 'setenv HOME fake_home_for_tests' (87779104)
-free g_commands
-command processed: 'setenv HOME fake_home_for_tests'
--------------------------
-
-testing echo_home
-duplicated stdin to 79
-duplicated stdout to 80
-
------------------------
-process command: 'echo $HOME'
-quotes replaced: 'echo $HOME'
-trimmed = echo $HOME
-no comments = echo $HOME
-cmd: 'echo $HOME'
-pipe_parse(echo $HOME)
-cmd[0] = 'echo $HOME'
-exec 0 > echo $HOME > 1
-restore stdin
-redirect: 0->79
-restore stdout
-redirect: 1->80
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing fake_home_for_tests
-after replace
-'echo'	'fake_home_for_tests'	
-fork
-fork_and_exec:	/bin/echo = 26053 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26053
-free item: 'echo $HOME' (87798288)
-waiting echo $HOME to finish
-change g_awaited_process from 0 to 26053
-wait 26053 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26053) returned
-echo $HOME finished
-change g_awaited_process from 26053 to 0
-restore stdin
-redirect: 0->79
-restore stdout
-redirect: 1->80
-free g_commands
-command processed: 'echo $HOME'
--------------------------
-
-close(1)
-duplicated stdin to 81
-duplicated stdout to 82
-testing echo_tilde
-duplicated stdin to 84
-duplicated stdout to 85
-
------------------------
-process command: 'echo ~'
-quotes replaced: 'echo ~'
-trimmed = echo ~
-no comments = echo ~
-cmd: 'echo ~'
-pipe_parse(echo ~)
-cmd[0] = 'echo ~'
-exec 0 > echo ~ > 1
-restore stdin
-redirect: 0->84
-restore stdout
-redirect: 1->85
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing fake_home_for_tests
-after replace
-'echo'	'fake_home_for_tests'	
-fork
-fork_and_exec:	/bin/echo = 26054 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26054
-free item: 'echo ~' (87848272)
-waiting echo ~ to finish
-change g_awaited_process from 0 to 26054
-wait 26054 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26054) returned
-echo ~ finished
-change g_awaited_process from 26054 to 0
-restore stdin
-redirect: 0->84
-restore stdout
-redirect: 1->85
-free g_commands
-command processed: 'echo ~'
--------------------------
-
-close(1)
-duplicated stdin to 86
-duplicated stdout to 87
-
------------------------
-process command: 'setenv HOME /home/darugula'
-quotes replaced: 'setenv HOME /home/darugula'
-trimmed = setenv HOME /home/darugula
-no comments = setenv HOME /home/darugula
-cmd: 'setenv HOME /home/darugula'
-pipe_parse(setenv HOME /home/darugula)
-cmd[0] = 'setenv HOME /home/darugula'
-exec 0 > setenv HOME /home/darugula > 1
-restore stdin
-redirect: 0->86
-restore stdout
-redirect: 1->87
-redirect: 0->0
-redirect: 1->1
-processing setenv
-processing HOME
-processing /home/darugula
-after replace
-'setenv'	'HOME'	'/home/darugula'	
-pipe_exec2 returned: 0
-free item: 'setenv HOME /home/darugula' (87896576)
-free g_commands
-command processed: 'setenv HOME /home/darugula'
--------------------------
-
-testing echo_three_args
-duplicated stdin to 89
-duplicated stdout to 90
-
------------------------
-process command: 'echo 1 2 3'
-quotes replaced: 'echo 1 2 3'
-trimmed = echo 1 2 3
-no comments = echo 1 2 3
-cmd: 'echo 1 2 3'
-pipe_parse(echo 1 2 3)
-cmd[0] = 'echo 1 2 3'
-exec 0 > echo 1 2 3 > 1
-restore stdin
-redirect: 0->89
-restore stdout
-redirect: 1->90
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing 1
-processing 2
-processing 3
-after replace
-'echo'	'1'	'2'	'3'	
-fork
-fork_and_exec:	/bin/echo = 26055 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26055
-free item: 'echo 1 2 3' (87915664)
-waiting echo 1 2 3 to finish
-change g_awaited_process from 0 to 26055
-wait 26055 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26055) returned
-echo 1 2 3 finished
-change g_awaited_process from 26055 to 0
-restore stdin
-redirect: 0->89
-restore stdout
-redirect: 1->90
-free g_commands
-command processed: 'echo 1 2 3'
--------------------------
-
-close(1)
-duplicated stdin to 91
-duplicated stdout to 92
-testing comment_ignored
-duplicated stdin to 94
-duplicated stdout to 95
-close(1)
-duplicated stdin to 96
-duplicated stdout to 97
-duplicated stdin to 99
-duplicated stdout to 100
-
------------------------
-process command: '#pwd'
-quotes replaced: '#pwd'
-trimmed = #pwd
-no comments = 
-
------------------------
-process command: 'pwd #'
-quotes replaced: 'pwd #'
-trimmed = pwd #
-no comments = pwd 
-cmd: 'pwd '
-pipe_parse(pwd)
-cmd[0] = 'pwd'
-exec 0 > pwd > 1
-restore stdin
-redirect: 0->99
-restore stdout
-redirect: 1->100
-redirect: 0->0
-redirect: 1->1
-processing pwd
-after replace
-'pwd'	
-fork
-fork_and_exec:	/bin/pwd = 26058 launched
-exec2:	executed: /bin/pwd
-pipe_exec2 returned: 26058
-free item: 'pwd' (87973264)
-waiting pwd to finish
-change g_awaited_process from 0 to 26058
-wait 26058 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/pwd)
-waitpid(26058) returned
-pwd finished
-change g_awaited_process from 26058 to 0
-restore stdin
-redirect: 0->99
-restore stdout
-redirect: 1->100
-free g_commands
-command processed: 'pwd #'
--------------------------
-
-close(1)
-duplicated stdin to 101
-duplicated stdout to 102
-testing comment_ignored_bad
-duplicated stdin to 104
-duplicated stdout to 105
-
------------------------
-process command: 'pwd#'
-quotes replaced: 'pwd#'
-trimmed = pwd#
-no comments = pwd#
-cmd: 'pwd#'
-pipe_parse(pwd#)
-cmd[0] = 'pwd#'
-exec 0 > pwd# > 1
-restore stdin
-redirect: 0->104
-restore stdout
-redirect: 1->105
-redirect: 0->0
-redirect: 1->1
-processing pwd#
-after replace
-'pwd#'	
-pwd#: command not found
-pipe_exec2 returned: 0
-free item: 'pwd#' (88021904)
-free g_commands
-command processed: 'pwd#'
--------------------------
-
-close(1)
-duplicated stdin to 106
-duplicated stdout to 107
-testing two_commands_good
-duplicated stdin to 109
-duplicated stdout to 110
-
------------------------
-process command: 'echo echo1;;echo echo2'
-quotes replaced: 'echo echo1;;echo echo2'
-trimmed = echo echo1;;echo echo2
-no comments = echo echo1;;echo echo2
-cmd: 'echo echo1'
-pipe_parse(echo echo1)
-cmd[0] = 'echo echo1'
-exec 0 > echo echo1 > 1
-restore stdin
-redirect: 0->109
-restore stdout
-redirect: 1->110
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing echo1
-after replace
-'echo'	'echo1'	
-fork
-fork_and_exec:	/bin/echo = 26059 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26059
-free item: 'echo echo1' (88064000)
-waiting echo echo1 to finish
-change g_awaited_process from 0 to 26059
-wait 26059 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26059) returned
-echo echo1 finished
-change g_awaited_process from 26059 to 0
-restore stdin
-redirect: 0->109
-restore stdout
-redirect: 1->110
-cmd: 'echo echo2'
-pipe_parse(echo echo2)
-cmd[0] = 'echo echo2'
-exec 0 > echo echo2 > 1
-restore stdin
-redirect: 0->109
-restore stdout
-redirect: 1->110
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing echo2
-after replace
-'echo'	'echo2'	
-fork
-fork_and_exec:	/bin/echo = 26060 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26060
-free item: 'echo echo2' (88082768)
-waiting echo echo2 to finish
-change g_awaited_process from 0 to 26060
-wait 26060 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26060) returned
-echo echo2 finished
-change g_awaited_process from 26060 to 0
-restore stdin
-redirect: 0->109
-restore stdout
-redirect: 1->110
-free g_commands
-command processed: 'echo echo1;;echo echo2'
--------------------------
-
-
------------------------
-process command: 'echo echo3;#;echo echo4'
-quotes replaced: 'echo echo3;#;echo echo4'
-trimmed = echo echo3;#;echo echo4
-no comments = echo echo3;
-cmd: 'echo echo3'
-pipe_parse(echo echo3)
-cmd[0] = 'echo echo3'
-exec 0 > echo echo3 > 1
-restore stdin
-redirect: 0->109
-restore stdout
-redirect: 1->110
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing echo3
-after replace
-'echo'	'echo3'	
-fork
-fork_and_exec:	/bin/echo = 26061 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26061
-free item: 'echo echo3' (88105904)
-waiting echo echo3 to finish
-change g_awaited_process from 0 to 26061
-wait 26061 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26061) returned
-echo echo3 finished
-change g_awaited_process from 26061 to 0
-restore stdin
-redirect: 0->109
-restore stdout
-redirect: 1->110
-free g_commands
-command processed: 'echo echo3;#;echo echo4'
--------------------------
-
-
------------------------
-process command: 'echo echo5;echo echo6'
-quotes replaced: 'echo echo5;echo echo6'
-trimmed = echo echo5;echo echo6
-no comments = echo echo5;echo echo6
-cmd: 'echo echo5'
-pipe_parse(echo echo5)
-cmd[0] = 'echo echo5'
-exec 0 > echo echo5 > 1
-restore stdin
-redirect: 0->109
-restore stdout
-redirect: 1->110
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing echo5
-after replace
-'echo'	'echo5'	
-fork
-fork_and_exec:	/bin/echo = 26062 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26062
-free item: 'echo echo5' (88129200)
-waiting echo echo5 to finish
-change g_awaited_process from 0 to 26062
-wait 26062 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26062) returned
-echo echo5 finished
-change g_awaited_process from 26062 to 0
-restore stdin
-redirect: 0->109
-restore stdout
-redirect: 1->110
-cmd: 'echo echo6'
-pipe_parse(echo echo6)
-cmd[0] = 'echo echo6'
-exec 0 > echo echo6 > 1
-restore stdin
-redirect: 0->109
-restore stdout
-redirect: 1->110
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing echo6
-after replace
-'echo'	'echo6'	
-fork
-fork_and_exec:	/bin/echo = 26063 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26063
-free item: 'echo echo6' (88147968)
-waiting echo echo6 to finish
-change g_awaited_process from 0 to 26063
-wait 26063 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26063) returned
-echo echo6 finished
-change g_awaited_process from 26063 to 0
-restore stdin
-redirect: 0->109
-restore stdout
-redirect: 1->110
-free g_commands
-command processed: 'echo echo5;echo echo6'
--------------------------
-
-
------------------------
-process command: 'echo echo7;echo echo8'
-quotes replaced: 'echo echo7;echo echo8'
-trimmed = echo echo7;echo echo8
-no comments = echo echo7;echo echo8
-cmd: 'echo echo7'
-pipe_parse(echo echo7)
-cmd[0] = 'echo echo7'
-exec 0 > echo echo7 > 1
-restore stdin
-redirect: 0->109
-restore stdout
-redirect: 1->110
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing echo7
-after replace
-'echo'	'echo7'	
-fork
-fork_and_exec:	/bin/echo = 26064 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26064
-free item: 'echo echo7' (88171264)
-waiting echo echo7 to finish
-change g_awaited_process from 0 to 26064
-wait 26064 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26064) returned
-echo echo7 finished
-change g_awaited_process from 26064 to 0
-restore stdin
-redirect: 0->109
-restore stdout
-redirect: 1->110
-cmd: 'echo echo8'
-pipe_parse(echo echo8)
-cmd[0] = 'echo echo8'
-exec 0 > echo echo8 > 1
-restore stdin
-redirect: 0->109
-restore stdout
-redirect: 1->110
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing echo8
-after replace
-'echo'	'echo8'	
-fork
-fork_and_exec:	/bin/echo = 26065 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26065
-free item: 'echo echo8' (88190032)
-waiting echo echo8 to finish
-change g_awaited_process from 0 to 26065
-wait 26065 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26065) returned
-echo echo8 finished
-change g_awaited_process from 26065 to 0
-restore stdin
-redirect: 0->109
-restore stdout
-redirect: 1->110
-free g_commands
-command processed: 'echo echo7;echo echo8'
--------------------------
-
-close(1)
-duplicated stdin to 111
-duplicated stdout to 112
-testing cd_good
-duplicated stdin to 114
-duplicated stdout to 115
-close(1)
-duplicated stdin to 116
-duplicated stdout to 117
-duplicated stdin to 119
-duplicated stdout to 120
-
------------------------
-process command: 'pwd'
-quotes replaced: 'pwd'
-trimmed = pwd
-no comments = pwd
-cmd: 'pwd'
-pipe_parse(pwd)
-cmd[0] = 'pwd'
-exec 0 > pwd > 1
-restore stdin
-redirect: 0->119
-restore stdout
-redirect: 1->120
-redirect: 0->0
-redirect: 1->1
-processing pwd
-after replace
-'pwd'	
-fork
-fork_and_exec:	/bin/pwd = 26067 launched
-exec2:	executed: /bin/pwd
-pipe_exec2 returned: 26067
-free item: 'pwd' (88242480)
-waiting pwd to finish
-change g_awaited_process from 0 to 26067
-wait 26067 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/pwd)
-waitpid(26067) returned
-pwd finished
-change g_awaited_process from 26067 to 0
-restore stdin
-redirect: 0->119
-restore stdout
-redirect: 1->120
-free g_commands
-command processed: 'pwd'
--------------------------
-
-close(1)
-duplicated stdin to 121
-duplicated stdout to 122
-
------------------------
-process command: 'setenv LD_PRELOAD ""'
-quote replaced: '' -> '%paired_quote%1'
-quotes replaced: 'setenv LD_PRELOAD %paired_quote%1'
-trimmed = setenv LD_PRELOAD %paired_quote%1
-no comments = setenv LD_PRELOAD %paired_quote%1
-cmd: 'setenv LD_PRELOAD %paired_quote%1'
-pipe_parse(setenv LD_PRELOAD %paired_quote%1)
-cmd[0] = 'setenv LD_PRELOAD %paired_quote%1'
-exec 0 > setenv LD_PRELOAD %paired_quote%1 > 1
-restore stdin
-redirect: 0->121
-restore stdout
-redirect: 1->122
-redirect: 0->0
-redirect: 1->1
-processing setenv
-processing LD_PRELOAD
-processing %paired_quote%1
-after replace
-'setenv'	'LD_PRELOAD'	''	
-pipe_exec2 returned: 0
-free item: 'setenv LD_PRELOAD 88291104aired_quote%1' (%p)
-free g_commands
-command processed: 'setenv LD_PRELOAD ""'
--------------------------
-
-testing set_env
-duplicated stdin to 124
-duplicated stdout to 125
-
------------------------
-process command: 'env'
-quotes replaced: 'env'
-trimmed = env
-no comments = env
-cmd: 'env'
-pipe_parse(env)
-cmd[0] = 'env'
-exec 0 > env > 1
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-redirect: 0->0
-redirect: 1->1
-processing env
-after replace
-'env'	
-fork
-fork_and_exec:	/usr/bin/env = 26068 launched
-exec2:	executed: /usr/bin/env
-pipe_exec2 returned: 26068
-free item: 'env' (88310704)
-waiting env to finish
-change g_awaited_process from 0 to 26068
-wait 26068 to stop
-close_g_fd_to_close: 45close(45)
-exec(/usr/bin/env)
-waitpid(26068) returned
-env finished
-change g_awaited_process from 26068 to 0
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-free g_commands
-command processed: 'env'
--------------------------
-
-
------------------------
-process command: 'echo ; echo env finished'
-quotes replaced: 'echo ; echo env finished'
-trimmed = echo ; echo env finished
-no comments = echo ; echo env finished
-cmd: 'echo '
-pipe_parse(echo)
-cmd[0] = 'echo'
-exec 0 > echo > 1
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-redirect: 0->0
-redirect: 1->1
-processing echo
-after replace
-'echo'	
-fork
-fork_and_exec:	/bin/echo = 26069 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26069
-free item: 'echo' (88332688)
-waiting echo to finish
-change g_awaited_process from 0 to 26069
-wait 26069 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26069) returned
-echo finished
-change g_awaited_process from 26069 to 0
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-cmd: ' echo env finished'
-pipe_parse(echo env finished)
-cmd[0] = 'echo env finished'
-exec 0 > echo env finished > 1
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing env
-processing finished
-after replace
-'echo'	'env'	'finished'	
-fork
-fork_and_exec:	/bin/echo = 26070 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26070
-free item: 'echo env finished' (88350272)
-waiting echo env finished to finish
-change g_awaited_process from 0 to 26c0lo7se0_g
-_fd_to_cwloasei: t45 26070 toc losset(4o5)
-p
-exec(/bin/echo)
-waitpid(26070) returned
-echo env finished finished
-change g_awaited_process from 26070 to 0
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-free g_commands
-command processed: 'echo ; echo env finished'
--------------------------
-
-
------------------------
-process command: 'setenv q w'
-quotes replaced: 'setenv q w'
-trimmed = setenv q w
-no comments = setenv q w
-cmd: 'setenv q w'
-pipe_parse(setenv q w)
-cmd[0] = 'setenv q w'
-exec 0 > setenv q w > 1
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-redirect: 0->0
-redirect: 1->1
-processing setenv
-processing q
-processing w
-after replace
-'setenv'	'q'	'w'	
-pipe_exec2 returned: 0
-free item: 'setenv q w' (88374640)
-free g_commands
-command processed: 'setenv q w'
--------------------------
-
-
------------------------
-process command: 'echo ; echo q = $q'
-quotes replaced: 'echo ; echo q = $q'
-trimmed = echo ; echo q = $q
-no comments = echo ; echo q = $q
-cmd: 'echo '
-pipe_parse(echo)
-cmd[0] = 'echo'
-exec 0 > echo > 1
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-redirect: 0->0
-redirect: 1->1
-processing echo
-after replace
-'echo'	
-fork
-fork_and_exec:	/bin/echo = 26071 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26071
-free item: 'echo' (88397168)
-waiting echo to finish
-change g_awaited_process from 0 to 26071
-wait 26071 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26071) returned
-echo finished
-change g_awaited_process from 26071 to 0
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-cmd: ' echo q = $q'
-pipe_parse(echo q = $q)
-cmd[0] = 'echo q = $q'
-exec 0 > echo q = $q > 1
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing q
-processing =
-processing w
-after replace
-'echo'	'q'	'='	'w'	
-fork
-fork_and_exec:	/bin/echo = 26072 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26072
-free item: 'echo q = $q' (88414672)
-waiting echo q = $q to finish
-change g_awaited_process from 0 to 26072
-wait 26072 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26072) returned
-echo q = $q finished
-change g_awaited_process from 26072 to 0
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-free g_commands
-command processed: 'echo ; echo q = $q'
--------------------------
-
-
------------------------
-process command: 'env'
-quotes replaced: 'env'
-trimmed = env
-no comments = env
-cmd: 'env'
-pipe_parse(env)
-cmd[0] = 'env'
-exec 0 > env > 1
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-redirect: 0->0
-redirect: 1->1
-processing env
-after replace
-'env'	
-fork
-fork_and_exec:	/usr/bin/env = 26073 launched
-exec2:	executed: /usr/bin/env
-pipe_exec2 returned: 26073
-free item: 'env' (88440032)
-waiting env to finish
-change g_awaited_process from 0 to 26073
-wait 26073 to stop
-close_g_fd_to_close: 45close(45)
-exec(/usr/bin/env)
-waitpid(26073) returned
-env finished
-change g_awaited_process from 26073 to 0
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-free g_commands
-command processed: 'env'
--------------------------
-
-
------------------------
-process command: 'unsetenv q'
-quotes replaced: 'unsetenv q'
-trimmed = unsetenv q
-no comments = unsetenv q
-cmd: 'unsetenv q'
-pipe_parse(unsetenv q)
-cmd[0] = 'unsetenv q'
-exec 0 > unsetenv q > 1
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-redirect: 0->0
-redirect: 1->1
-processing unsetenv
-processing q
-after replace
-'unsetenv'	'q'	
-pipe_exec2 returned: 0
-free item: 'unsetenv q' (88461728)
-free g_commands
-command processed: 'unsetenv q'
--------------------------
-
-
------------------------
-process command: 'echo ; echo q = $q'
-quotes replaced: 'echo ; echo q = $q'
-trimmed = echo ; echo q = $q
-no comments = echo ; echo q = $q
-cmd: 'echo '
-pipe_parse(echo)
-cmd[0] = 'echo'
-exec 0 > echo > 1
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-redirect: 0->0
-redirect: 1->1
-processing echo
-after replace
-'echo'	
-fork
-fork_and_exec:	/bin/echo = 26074 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26074
-free item: 'echo' (88479248)
-waiting echo to finish
-change g_awaited_process from 0 to 26074
-wait 26074 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26074) returned
-echo finished
-change g_awaited_process from 26074 to 0
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-cmd: ' echo q = $q'
-pipe_parse(echo q = $q)
-cmd[0] = 'echo q = $q'
-exec 0 > echo q = $q > 1
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing q
-processing =
-after replace
-'echo'	'q'	'='	
-fork
-fork_and_exec:	/bin/echo = 26075 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26075
-free item: 'echo q = $q' (88496752)
-waiting echo q = $q to finish
-change g_awaited_process from 0 to 26075
-wait 26075 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26075) returned
-echo q = $q finished
-change g_awaited_process from 26075 to 0
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-free g_commands
-command processed: 'echo ; echo q = $q'
--------------------------
-
-
------------------------
-process command: 'env'
-quotes replaced: 'env'
-trimmed = env
-no comments = env
-cmd: 'env'
-pipe_parse(env)
-cmd[0] = 'env'
-exec 0 > env > 1
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-redirect: 0->0
-redirect: 1->1
-processing env
-after replace
-'env'	
-fork
-fork_and_exec:	/usr/bin/env = 26076 launched
-exec2:	executed: /usr/bin/env
-pipe_exec2 returned: 26076
-free item: 'env' (88520992)
-waiting env to finish
-change g_awaited_process from 0 to 26076
-wait 26076 to stop
-close_g_fd_to_close: 45close(45)
-exec(/usr/bin/env)
-waitpid(26076) returned
-env finished
-change g_awaited_process from 26076 to 0
-restore stdin
-redirect: 0->124
-restore stdout
-redirect: 1->125
-free g_commands
-command processed: 'env'
--------------------------
-
-close(1)
-duplicated stdin to 126
-duplicated stdout to 127
-duplicated stdin to 129
-duplicated stdout to 130
-
------------------------
-process command: '"setenv"'
-quote replaced: 'setenv' -> '%paired_quote%1'
-quotes replaced: '%paired_quote%1'
-trimmed = %paired_quote%1
-no comments = %paired_quote%1
-cmd: '%paired_quote%1'
-pipe_parse(%paired_quote%1)
-cmd[0] = '%paired_quote%1'
-exec 0 > %paired_quote%1 > 1
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-redirect: 0->0
-redirect: 1->1
-processing %paired_quote%1
-after replace
-'setenv'	
-pipe_exec2 returned: 0
-free item: '88546496aired_quote%1' (%p)
-free g_commands
-command processed: '"setenv"'
--------------------------
-
-
------------------------
-process command: 'echo ; echo env finished'
-quotes replaced: 'echo ; echo env finished'
-trimmed = echo ; echo env finished
-no comments = echo ; echo env finished
-cmd: 'echo '
-pipe_parse(echo)
-cmd[0] = 'echo'
-exec 0 > echo > 1
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-redirect: 0->0
-redirect: 1->1
-processing echo
-after replace
-'echo'	
-fork
-fork_and_exec:	/bin/echo = 26077 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26077
-free item: 'echo' (88561040)
-waiting echo to finish
-change g_awaited_process from 0 to 26077
-wait 26077 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26077) returned
-echo finished
-change g_awaited_process from 26077 to 0
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-cmd: ' echo env finished'
-pipe_parse(echo env finished)
-cmd[0] = 'echo env finished'
-exec 0 > echo env finished > 1
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing env
-processing finished
-after replace
-'echo'	'env'	'finished'	
-fork
-fork_and_exec:	/bin/echo = 26078 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26078
-free item: 'echo env finished' (88578624)
-waiting echo env finished to finish
-change g_awaited_process from 0 to 26078
-wait 26078 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26078) returned
-echo env finished finished
-change g_awaited_process from 26078 to 0
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-free g_commands
-command processed: 'echo ; echo env finished'
--------------------------
-
-
------------------------
-process command: 'setenv q w'
-quotes replaced: 'setenv q w'
-trimmed = setenv q w
-no comments = setenv q w
-cmd: 'setenv q w'
-pipe_parse(setenv q w)
-cmd[0] = 'setenv q w'
-exec 0 > setenv q w > 1
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-redirect: 0->0
-redirect: 1->1
-processing setenv
-processing q
-processing w
-after replace
-'setenv'	'q'	'w'	
-pipe_exec2 returned: 0
-free item: 'setenv q w' (88602992)
-free g_commands
-command processed: 'setenv q w'
--------------------------
-
-
------------------------
-process command: 'echo ; echo q = $q'
-quotes replaced: 'echo ; echo q = $q'
-trimmed = echo ; echo q = $q
-no comments = echo ; echo q = $q
-cmd: 'echo '
-pipe_parse(echo)
-cmd[0] = 'echo'
-exec 0 > echo > 1
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-redirect: 0->0
-redirect: 1->1
-processing echo
-after replace
-'echo'	
-fork
-fork_and_exec:	/bin/echo = 26079 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26079
-free item: 'echo' (88625520)
-waiting echo to finish
-change g_awaited_process from 0 to 26079
-wait 26079 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26079) returned
-echo finished
-change g_awaited_process from 26079 to 0
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-cmd: ' echo q = $q'
-pipe_parse(echo q = $q)
-cmd[0] = 'echo q = $q'
-exec 0 > echo q = $q > 1
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing q
-processing =
-processing w
-after replace
-'echo'	'q'	'='	'w'	
-fork
-fork_and_exec:	/bin/echo = 26080 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26080
-free item: 'echo q = $q' (88643024)
-waiting echo q = $q to finish
-change g_awaited_process from 0 to 26080
-wait 26080 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26080) returned
-echo q = $q finished
-change g_awaited_process from 26080 to 0
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-free g_commands
-command processed: 'echo ; echo q = $q'
--------------------------
-
-
------------------------
-process command: 'env'
-quotes replaced: 'env'
-trimmed = env
-no comments = env
-cmd: 'env'
-pipe_parse(env)
-cmd[0] = 'env'
-exec 0 > env > 1
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-redirect: 0->0
-redirect: 1->1
-processing env
-after replace
-'env'	
-fork
-fork_and_exec:	/usr/bin/env = 26081 launched
-exec2:	executed: /usr/bin/env
-pipe_exec2 returned: 26081
-free item: 'env' (88668384)
-waiting env to finish
-change g_awaited_process from 0 to 26081
-wait 26081 to stop
-close_g_fd_to_close: 45close(45)
-exec(/usr/bin/env)
-waitpid(26081) returned
-env finished
-change g_awaited_process from 26081 to 0
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-free g_commands
-command processed: 'env'
--------------------------
-
-
------------------------
-process command: 'unsetenv q'
-quotes replaced: 'unsetenv q'
-trimmed = unsetenv q
-no comments = unsetenv q
-cmd: 'unsetenv q'
-pipe_parse(unsetenv q)
-cmd[0] = 'unsetenv q'
-exec 0 > unsetenv q > 1
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-redirect: 0->0
-redirect: 1->1
-processing unsetenv
-processing q
-after replace
-'unsetenv'	'q'	
-pipe_exec2 returned: 0
-free item: 'unsetenv q' (88690080)
-free g_commands
-command processed: 'unsetenv q'
--------------------------
-
-
------------------------
-process command: 'echo ; echo q = $q'
-quotes replaced: 'echo ; echo q = $q'
-trimmed = echo ; echo q = $q
-no comments = echo ; echo q = $q
-cmd: 'echo '
-pipe_parse(echo)
-cmd[0] = 'echo'
-exec 0 > echo > 1
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-redirect: 0->0
-redirect: 1->1
-processing echo
-after replace
-'echo'	
-fork
-fork_and_exec:	/bin/echo = 26082 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26082
-free item: 'echo' (88707600)
-waiting echo to finish
-change g_awaited_process from 0 to 26082
-wait 26082 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26082) returned
-echo finished
-change g_awaited_process from 26082 to 0
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-cmd: ' echo q = $q'
-pipe_parse(echo q = $q)
-cmd[0] = 'echo q = $q'
-exec 0 > echo q = $q > 1
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-redirect: 0->0
-redirect: 1->1
-processing echo
-processing q
-processing =
-after replace
-'echo'	'q'	'='	
-fork
-fork_and_exec:	/bin/echo = 26083 launched
-exec2:	executed: /bin/echo
-pipe_exec2 returned: 26083
-free item: 'echo q = $q' (88725104)
-waiting echo q = $q to finish
-change g_awaited_process from 0 to 26083
-wait 26083 to stop
-close_g_fd_to_close: 45close(45)
-exec(/bin/echo)
-waitpid(26083) returned
-echo q = $q finished
-change g_awaited_process from 26083 to 0
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-free g_commands
-command processed: 'echo ; echo q = $q'
--------------------------
-
-
------------------------
-process command: 'env'
-quotes replaced: 'env'
-trimmed = env
-no comments = env
-cmd: 'env'
-pipe_parse(env)
-cmd[0] = 'env'
-exec 0 > env > 1
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-redirect: 0->0
-redirect: 1->1
-processing env
-after replace
-'env'	
-fork
-fork_and_exec:	/usr/bin/env = 26084 launched
-exec2:	executed: /usr/bin/env
-pipe_exec2 returned: 26084
-free item: 'env' (88749344)
-waiting env to finish
-change g_awaited_process from 0 to 26084
-wait 26084 to stop
-close_g_fd_to_close: 45close(45)
-exec(/usr/bin/env)
-waitpid(26084) returned
-env finished
-change g_awaited_process from 26084 to 0
-restore stdin
-redirect: 0->129
-restore stdout
-redirect: 1->130
-free g_commands
-command processed: 'env'
--------------------------
-
-close(1)
-duplicated stdin to 131
-duplicated stdout to 132
-
------------------------
-process command: 'setenv LD_PRELOAD /usr/lib/valgrind/vgpreload_core-amd64-linux.so:/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so'
-quotes replaced: 'setenv LD_PRELOAD /usr/lib/valgrind/vgpreload_core-amd64-linux.so:/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so'
-trimmed = setenv LD_PRELOAD /usr/lib/valgrind/vgpreload_core-amd64-linux.so:/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
-no comments = setenv LD_PRELOAD /usr/lib/valgrind/vgpreload_core-amd64-linux.so:/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
-cmd: 'setenv LD_PRELOAD /usr/lib/valgrind/vgpreload_core-amd64-linux.so:/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so'
-pipe_parse(setenv LD_PRELOAD /usr/lib/valgrind/vgpreload_core-amd64-linux.so:/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-cmd[0] = 'setenv LD_PRELOAD /usr/lib/valgrind/vgpreload_core-amd64-linux.so:/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so'
-exec 0 > setenv LD_PRELOAD /usr/lib/valgrind/vgpreload_core-amd64-linux.so:/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so > 1
-restore stdin
-redirect: 0->131
-restore stdout
-redirect: 1->132
-redirect: 0->0
 redirect: 1->1
-processing setenv
-processing LD_PRELOAD
-processing /usr/lib/valgrind/vgpreload_core-amd64-linux.so:/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+processing exit
 after replace
-'setenv'	'LD_PRELOAD'	'/usr/lib/valgrind/vgpreload_core-amd64-linux.so:/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so'	
-pipe_exec2 returned: 0
-free item: 'setenv LD_PRELOAD /usr/lib/valgrind/vgpreload_core-amd64-linux.so:/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so' (88798224)
-free g_commands
-command processed: 'setenv LD_PRELOAD /usr/lib/valgrind/vgpreload_core-amd64-linux.so:/usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so'
--------------------------
-
+'exit'	
 exit process (0)
-free item: '1' (87265312)
+free item: 'exit' (86783472)

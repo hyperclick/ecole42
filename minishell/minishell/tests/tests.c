@@ -7,6 +7,7 @@ void test_exec()
 {
 	process_command("src");
 	process_command("foo");
+	process_command("minishell");
 	process_command("echo 1   2    \t3");
 
 	process_command("");
@@ -668,8 +669,7 @@ int main(int argc, char** argv, char** envp)
 {
 	init(argc, argv, envp);
 
-	//process_command("src");
-		//ft_exit(0);
+//	ft_exit(0);
 	//process_command(" echo 1 | sed -e 's/1/Yes/g'");
 	//debug_print_zt_array((const char**)env_to_array());
 

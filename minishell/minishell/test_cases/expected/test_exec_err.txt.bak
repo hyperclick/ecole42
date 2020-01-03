@@ -1,2 +1,2 @@
--minishell: not execute: /bin/../usr
+-minishell: src: not a file
 foo: command not found

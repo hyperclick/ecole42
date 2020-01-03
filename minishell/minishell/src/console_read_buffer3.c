@@ -26,7 +26,7 @@ void		clean_printed_text(void)
 	i = -1;
 	while (++i < get_printed_buf_len())
 	{
-		ft_putchar('_');
+		ft_putchar(' ');
 	}
 }
 

@@ -92,7 +92,8 @@ pid_t		exec2(const char *argv[])
 	char		**folders;
 
 	filename = argv[0];
-	if (try_execute(filename, argv, &pid))
+	if (ft_str_starts_with(filename, "./") 
+		&& try_execute(filename, argv, &pid))
 	{
 		return (pid);
 	}
