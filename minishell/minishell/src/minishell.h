@@ -49,6 +49,7 @@ void		ft_default_sig_handler(int signum);
 void		print_prompt(void);
 int			process_command(const char *str);
 int			process_one_command(char *cmd);
+void		free_commands(void);
 
 void		clean_buffer(void);
 int			get_buf_len(void);
@@ -63,6 +64,7 @@ const char	*h_get_next(void);
 void		h_append(const char *content);
 
 void		pipe_free(t_list **pipe);
+BOOL		has_exit(const char *str);
 t_list		*pipe_parse2(const char **cmds);
 t_list		*pipe_parse(const char *str);
 void		pipe_exec(char *str);

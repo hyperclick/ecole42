@@ -665,11 +665,23 @@ void	test_debug_printf(const char* format, ...)
 	close(f);
 }
 
+void	test_check_exit()
+{
+	assert_false(has_exit("exit1"));
+	printf("1\n");
+	assert_false(has_exit("cd exit"));
+	assert_true(has_exit(" exit\t"));
+	//assert_true(has_exit("\"exit\""));
+	assert_true(has_exit(" exit > 1"));
+	assert_true(has_exit("exit<1"));
+	assert_true(has_exit("exit<<1"));
+}
+
 int main(int argc, char** argv, char** envp)
 {
 	init(argc, argv, envp);
-
-//	ft_exit(0);
+	test_check_exit();
+//ft_exit(0);
 	//process_command(" echo 1 | sed -e 's/1/Yes/g'");
 	//debug_print_zt_array((const char**)env_to_array());
 
@@ -742,6 +754,7 @@ int main(int argc, char** argv, char** envp)
 	}
 
 	printf("all tests passed\n");
-	ft_exit(0);
+
+	process_command("exit");
 	return (1);
 }

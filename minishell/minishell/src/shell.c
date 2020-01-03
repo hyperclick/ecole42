@@ -17,6 +17,7 @@ void	ft_exit(int ret_code)
 	debug_printf("exit process (%d)\n", ret_code);
 	reset_keypress();
 	env_free();
+	free_commands();
 	free_quoted_params();
 	h_free();
 	if (get_awaited_process() != 0)
@@ -38,6 +39,9 @@ void	init(int argc, char **argv, char **envp)
 	log_line("n\n\n\nstarted\n\n");
 	signal(SIGINT, ft_default_sig_handler);
 	env_from_array(envp);
+
+	//process_command("echo echo1");
+	//process_command("exit");
 }
 
 void	print_prompt(void)

@@ -57,6 +57,48 @@ pid_t	pipe_exec2(t_list *p, int prev_r)
 	return (pipe_exec2(p->next, r));
 }
 
+BOOL	has_exit(const char  *str)
+{
+	char* trimmed;
+	char* right;
+
+	trimmed = ft_strtrim2(str, " \n\t");
+	debug_printf("trimmed = '%s'\n", trimmed);
+	if (ft_str_equals("exit", trimmed))
+	{
+		free(trimmed);
+		return (TRUE);
+	}
+	if (!ft_str_starts_with(trimmed, "exit"))
+	{
+		free(trimmed);
+		return(FALSE);
+	}
+	right = ft_strtrim2(trimmed + 4, " \n\t");
+	debug_printf("trimmed = '%s', right = '%s'\n", trimmed, right);
+	free(trimmed);
+	if (*right == '>' || *right == '<')
+	{
+		free(right);
+		return (TRUE);
+	}
+	free(right);
+	return (FALSE);
+}
+
+BOOL	find_exit(t_list* p)
+{
+	while (p != NULL)
+	{
+		if (has_exit((const char*)p->content))
+		{
+			return (TRUE);
+		}
+		p = p->next;
+	}
+	return (FALSE);
+}
+
 void	pipe_exec(char *str)
 {
 	pid_t	pid;
@@ -64,12 +106,20 @@ void	pipe_exec(char *str)
 
 	p = pipe_parse(str);
 	debug_set_pname(str);
+
+	if (find_exit(p))
+	{
+		debug_printf("exit detected: %s\n", str);
+		pipe_free(&p);
+		free(str);
+		ft_exit(0);
+	}
 	pid = pipe_exec2(p, STDIN_FILENO);
-	debug_printf("pipe_exec2 returned: %d\n", pid);
+	debug_printf("pipe_exec2(%s) returned: %d\n", str,  pid);
 	pipe_free(&p);
 	if (pid > 0)
 	{
-		debug_printf("waiting %s to finish\n", str);
+		debug_printf("waiting %s (%d) to finish\n", str, pid);
 		set_awaited_process(pid);
 		wait_child(pid);
 		debug_printf("%s finished\n", str);

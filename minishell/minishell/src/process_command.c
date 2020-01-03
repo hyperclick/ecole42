@@ -14,6 +14,13 @@
 
 char	**g_commands = NULL;
 
+void	free_commands(void)
+{
+	debug_printf("free g_commands\n");
+	ft_free_null_term_array((void**)g_commands);
+	g_commands = NULL;
+}
+
 static char	*trim(char *str, int *r)
 {
 	char	*trimmed;
@@ -87,9 +94,7 @@ static int	process_commands(char *s)
 		commands++;
 	}
 	free_quoted_params();
-	debug_printf("free g_commands\n");
-	ft_free_null_term_array((void**)g_commands);
-	g_commands = NULL;
+	free_commands();
 	return (r);
 }
 
