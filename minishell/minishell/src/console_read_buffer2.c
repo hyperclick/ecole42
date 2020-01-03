@@ -14,11 +14,11 @@
 
 void		buffer_print(void)
 {
-	debug_printf("g_x: %d, g_buf_len = %d, g_buffer = '%s'\n"
-				, get_g_x(), get_buf_len(), get_buffer());
+	debug_printf("print buffer\n");
+	dump_buffer();
 	ft_putstr(get_buffer());
-	move_cursor_left(get_buf_len());
-	move_cursor_right(get_g_x());
+	move_cursor_left(get_printed_buf_len());
+	move_cursor_right(get_act_x());
 }
 
 void		buffer_delete(void)
@@ -28,15 +28,23 @@ void		buffer_delete(void)
 		ft_str_remove_at((char*)get_buffer(), get_g_x());
 		decrease_buffer();
 	}
+	else
+	{
+		debug_printf("!!!delete: get_g_x() >= get_buf_len()\n");
+	}
 }
 
 void		buffer_backspace(void)
 {
 	if (get_g_x() > 0)
 	{
-		ft_str_remove_at((char*)get_buffer(), get_g_x() - 1);
-		decrease_buffer();
 		dec_cursor_pos();
+		ft_str_remove_at((char*)get_buffer(), get_g_x());
+		decrease_buffer();
+	}
+	else
+	{
+		debug_printf("!!!backspace: get_g_x() <= 0\n");
 	}
 }
 

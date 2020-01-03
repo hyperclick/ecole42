@@ -20,6 +20,7 @@ int			get_buf_len(void)
 	return (g_buf_len);
 }
 
+
 void		set_buf_len(int len)
 {
 	g_buf_len = len;

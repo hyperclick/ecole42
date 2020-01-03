@@ -1,74 +1,1009 @@
-[main]	duplicated stdin to 4
-[main]	duplicated stdout to 5
-[main]	started
-[main]	agrc = 1
-[main]	agrv[1] = (NULL)
-[main]	entered:	99 ('c'), control = ''
-[main]	g_x: 0, g_buf_len = 0, g_buffer = ''
-[main]	dst = 'c', n = 0, dst + n = 'c', len = 0, right = ''
-[main]	gx = 1
-[main]	g_x: 1, g_buf_len = 1, g_buffer = 'c'
-[main]	<
-[main]	entered:	97 ('a'), control = ''
-[main]	g_x: 1, g_buf_len = 1, g_buffer = 'c'
-[main]	<
-[main]	_
-[main]	<
-[main]	dst = 'ca', n = 1, dst + n = 'a', len = 1, right = ''
-[main]	gx = 2
-[main]	g_x: 2, g_buf_len = 2, g_buffer = 'ca'
-[main]	<
-[main]	<
-[main]	entered:	116 ('t'), control = ''
-[main]	g_x: 2, g_buf_len = 2, g_buffer = 'ca'
-[main]	<
-[main]	<
-[main]	_
-[main]	_
-[main]	<
-[main]	<
-[main]	dst = 'cat', n = 2, dst + n = 't', len = 2, right = ''
-[main]	gx = 3
-[main]	g_x: 3, g_buf_len = 3, g_buffer = 'cat'
-[main]	<
-[main]	<
-[main]	<
-[main]	entered:	10 ('
+duplicated stdin to 4
+duplicated stdout to 5
+started
+agrc = 1
+agrv[1] = (NULL)
+eof = '' (0)
+set : VSTART = '' (1887174877)
+set : VSTART = '' (1887174877)
+entered:	49 ('1'), control = ''
+process printable: '1'
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+dst = '1', n = 0, dst + n = '1', len = 0, right = ''
+vgx = 0, agx = 0, TAB_LEN = 4
+vgx = 1, agx = 1
+print buffer
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = '1', printed = 1
+<-(1)
+->(1)
+entered:	50 ('2'), control = ''
+process printable: '2'
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = '1', printed = 1
+<-(1)
+_(1)
+<-(1)
+dst = '12', n = 1, dst + n = '2', len = 1, right = ''
+vgx = 1, agx = 1, TAB_LEN = 4
+vgx = 2, agx = 2
+print buffer
+vg_x: 2, agx: 2, g_buf_len = 2, g_buffer = '12', printed = 2
+<-(2)
+->(2)
+entered:	127 (''), control = ''
+vg_x: 2, agx: 2, g_buf_len = 2, g_buffer = '12', printed = 2
+<-(2)
+_(2)
+<-(2)
+vgx = 2, agx = 2, buffer = '12'
+vgx = 1, agx = 1
+print buffer
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = '1', printed = 1
+<-(1)
+->(1)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 1, agx = 1, buffer = '1'
+vgx = 0, agx = 0
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 1, g_buffer = '1', printed = 1
+<-(0)
+_(1)
+<-(1)
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+->(0)
+entered:	10 ('
 '), control = ''
-[main]	r = 1
-[main]	
-[main]	-----------------------
-[main]	process command: 'cat'
-[main]	quotes replaced: 'cat'
-[main]	trimmed = cat
-[main]	no comments = cat
-[main]	cmd: 'cat'
-[main]	pipe_parse(cat)
-[main]	cmd[0] = 'cat'
-[cat]	exec 0 > cat > 1
-[cat]	restore stdin
-[cat]	redirect: 0->4
-[cat]	restore stdout
-[cat]	redirect: 1->5
-[cat]	redirect: 0->0
-[cat]	redirect: 1->1
-[cat]	processing cat
-[cat]	after replace
-[cat]	'cat'	[cat]	
-[cat]	fork
-[cat]	fork_and_exec:	/bin/cat = 62204 launched
-[cat]	exec2:	executed: /bin/cat
-[cat]	pipe_exec2 returned: 62204
-[cat]	free item: 'cat' (140307584789920)
-[cat]	waiting cat to finish
-[cat]	change g_awaited_process from 0 to 62204
-[ca t[/]	binwait 6/c22at04 to stop
-]	close_g_fd_to_close [/bin/cat]	close(-11)
- [/bin/cat]	fork_and_exec:	about to launch /bin/cat
- [/bin/cat]	exec(/bin/cat)
-[cat]	signal: 2
-[cat]	change g_awaited_process from 62204 to 0
-[cat]	child program didn't terminate normally
-[cat]	waitpid(62204) returned
-[cat]	cat finished
-[cat]	change g_awaited_process from 0 to 0
+r = 1
+restore term caps
+reset : VSTART = '' (0)
+reset : VSTART = '' (1887174877)
+reset : VSTART = '' (1887174877)
+
+-----------------------
+process command: ''
+quotes replaced: ''
+eof = '' (0)
+set : VSTART = '' (1887174877)
+set : VSTART = '' (1887174877)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	65 ('A'), control = '['
+entered:	49 ('1'), control = ''
+process printable: '1'
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+dst = '1', n = 0, dst + n = '1', len = 0, right = ''
+vgx = 0, agx = 0, TAB_LEN = 4
+vgx = 1, agx = 1
+print buffer
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = '1', printed = 1
+<-(1)
+->(1)
+entered:	50 ('2'), control = ''
+process printable: '2'
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = '1', printed = 1
+<-(1)
+_(1)
+<-(1)
+dst = '12', n = 1, dst + n = '2', len = 1, right = ''
+vgx = 1, agx = 1, TAB_LEN = 4
+vgx = 2, agx = 2
+print buffer
+vg_x: 2, agx: 2, g_buf_len = 2, g_buffer = '12', printed = 2
+<-(2)
+->(2)
+entered:	127 (''), control = ''
+vg_x: 2, agx: 2, g_buf_len = 2, g_buffer = '12', printed = 2
+<-(2)
+_(2)
+<-(2)
+vgx = 2, agx = 2, buffer = '12'
+vgx = 1, agx = 1
+print buffer
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = '1', printed = 1
+<-(1)
+->(1)
+entered:	127 (''), control = ''
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = '1', printed = 1
+<-(1)
+_(1)
+<-(1)
+vgx = 1, agx = 1, buffer = '1'
+vgx = 0, agx = 0
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+->(0)
+entered:	49 ('1'), control = ''
+process printable: '1'
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+dst = '1', n = 0, dst + n = '1', len = 0, right = ''
+vgx = 0, agx = 0, TAB_LEN = 4
+vgx = 1, agx = 1
+print buffer
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = '1', printed = 1
+<-(1)
+->(1)
+entered:	50 ('2'), control = ''
+process printable: '2'
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = '1', printed = 1
+<-(1)
+_(1)
+<-(1)
+dst = '12', n = 1, dst + n = '2', len = 1, right = ''
+vgx = 1, agx = 1, TAB_LEN = 4
+vgx = 2, agx = 2
+print buffer
+vg_x: 2, agx: 2, g_buf_len = 2, g_buffer = '12', printed = 2
+<-(2)
+->(2)
+entered:	51 ('3'), control = ''
+process printable: '3'
+vg_x: 2, agx: 2, g_buf_len = 2, g_buffer = '12', printed = 2
+<-(2)
+_(2)
+<-(2)
+dst = '123', n = 2, dst + n = '3', len = 2, right = ''
+vgx = 2, agx = 2, TAB_LEN = 4
+vgx = 3, agx = 3
+print buffer
+vg_x: 3, agx: 3, g_buf_len = 3, g_buffer = '123', printed = 3
+<-(3)
+->(3)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 3, agx = 3, buffer = '123'
+vgx = 2, agx = 2
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 2, agx = 2, buffer = '123'
+vgx = 1, agx = 1
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 1, agx = 1, buffer = '123'
+vgx = 0, agx = 0
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 3, g_buffer = '123', printed = 3
+<-(0)
+_(3)
+<-(3)
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 2, g_buffer = '23', printed = 2
+<-(2)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 2, g_buffer = '23', printed = 2
+<-(0)
+_(2)
+<-(2)
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 1, g_buffer = '3', printed = 1
+<-(1)
+->(0)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 0, agx: 0, g_buf_len = 1, g_buffer = '3', printed = 1
+<-(0)
+_(1)
+<-(1)
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+->(0)
+entered:	49 ('1'), control = ''
+process printable: '1'
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+dst = '1', n = 0, dst + n = '1', len = 0, right = ''
+vgx = 0, agx = 0, TAB_LEN = 4
+vgx = 1, agx = 1
+print buffer
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = '1', printed = 1
+<-(1)
+->(1)
+entered:	50 ('2'), control = ''
+process printable: '2'
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = '1', printed = 1
+<-(1)
+_(1)
+<-(1)
+dst = '12', n = 1, dst + n = '2', len = 1, right = ''
+vgx = 1, agx = 1, TAB_LEN = 4
+vgx = 2, agx = 2
+print buffer
+vg_x: 2, agx: 2, g_buf_len = 2, g_buffer = '12', printed = 2
+<-(2)
+->(2)
+entered:	51 ('3'), control = ''
+process printable: '3'
+vg_x: 2, agx: 2, g_buf_len = 2, g_buffer = '12', printed = 2
+<-(2)
+_(2)
+<-(2)
+dst = '123', n = 2, dst + n = '3', len = 2, right = ''
+vgx = 2, agx = 2, TAB_LEN = 4
+vgx = 3, agx = 3
+print buffer
+vg_x: 3, agx: 3, g_buf_len = 3, g_buffer = '123', printed = 3
+<-(3)
+->(3)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 3, agx = 3, buffer = '123'
+vgx = 2, agx = 2
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 2, agx = 2, buffer = '123'
+vgx = 1, agx = 1
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 1, agx: 1, g_buf_len = 3, g_buffer = '123', printed = 3
+<-(1)
+_(3)
+<-(3)
+print buffer
+vg_x: 1, agx: 1, g_buf_len = 2, g_buffer = '13', printed = 2
+<-(2)
+->(1)
+entered:	10 ('
+'), control = ''
+r = 1
+restore term caps
+reset : VSTART = '' (0)
+reset : VSTART = '' (1887174877)
+reset : VSTART = '' (1887174877)
+
+-----------------------
+process command: '13'
+quotes replaced: '13'
+trimmed = 13
+no comments = 13
+cmd: '13'
+pipe_parse(13)
+cmd[0] = '13'
+exec 0 > 13 > 1
+restore stdin
+redirect: 0->4
+restore stdout
+redirect: 1->5
+redirect: 0->0
+redirect: 1->1
+processing 13
+after replace
+'13'	
+13: command not found
+pipe_exec2 returned: 0
+free item: '13' (140336786571584)
+command processed: '13'
+-------------------------
+
+eof = '' (0)
+set : VSTART = '' (1887174877)
+set : VSTART = '' (1887174877)
+entered:	49 ('1'), control = ''
+process printable: '1'
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+dst = '1', n = 0, dst + n = '1', len = 0, right = ''
+vgx = 0, agx = 0, TAB_LEN = 4
+vgx = 1, agx = 1
+print buffer
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = '1', printed = 1
+<-(1)
+->(1)
+entered:	50 ('2'), control = ''
+process printable: '2'
+vg_x: 1, agx: 1, g_buf_len = 1, g_buffer = '1', printed = 1
+<-(1)
+_(1)
+<-(1)
+dst = '12', n = 1, dst + n = '2', len = 1, right = ''
+vgx = 1, agx = 1, TAB_LEN = 4
+vgx = 2, agx = 2
+print buffer
+vg_x: 2, agx: 2, g_buf_len = 2, g_buffer = '12', printed = 2
+<-(2)
+->(2)
+entered:	51 ('3'), control = ''
+process printable: '3'
+vg_x: 2, agx: 2, g_buf_len = 2, g_buffer = '12', printed = 2
+<-(2)
+_(2)
+<-(2)
+dst = '123', n = 2, dst + n = '3', len = 2, right = ''
+vgx = 2, agx = 2, TAB_LEN = 4
+vgx = 3, agx = 3
+print buffer
+vg_x: 3, agx: 3, g_buf_len = 3, g_buffer = '123', printed = 3
+<-(3)
+->(3)
+entered:	52 ('4'), control = ''
+process printable: '4'
+vg_x: 3, agx: 3, g_buf_len = 3, g_buffer = '123', printed = 3
+<-(3)
+_(3)
+<-(3)
+dst = '1234', n = 3, dst + n = '4', len = 3, right = ''
+vgx = 3, agx = 3, TAB_LEN = 4
+vgx = 4, agx = 4
+print buffer
+vg_x: 4, agx: 4, g_buf_len = 4, g_buffer = '1234', printed = 4
+<-(4)
+->(4)
+entered:	53 ('5'), control = ''
+process printable: '5'
+vg_x: 4, agx: 4, g_buf_len = 4, g_buffer = '1234', printed = 4
+<-(4)
+_(4)
+<-(4)
+dst = '12345', n = 4, dst + n = '5', len = 4, right = ''
+vgx = 4, agx = 4, TAB_LEN = 4
+vgx = 5, agx = 5
+print buffer
+vg_x: 5, agx: 5, g_buf_len = 5, g_buffer = '12345', printed = 5
+<-(5)
+->(5)
+entered:	54 ('6'), control = ''
+process printable: '6'
+vg_x: 5, agx: 5, g_buf_len = 5, g_buffer = '12345', printed = 5
+<-(5)
+_(5)
+<-(5)
+dst = '123456', n = 5, dst + n = '6', len = 5, right = ''
+vgx = 5, agx = 5, TAB_LEN = 4
+vgx = 6, agx = 6
+print buffer
+vg_x: 6, agx: 6, g_buf_len = 6, g_buffer = '123456', printed = 6
+<-(6)
+->(6)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 6, agx = 6, buffer = '123456'
+vgx = 5, agx = 5
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 5, agx = 5, buffer = '123456'
+vgx = 4, agx = 4
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 4, agx = 4, buffer = '123456'
+vgx = 3, agx = 3
+entered:	32 (' '), control = ''
+process printable: ' '
+vg_x: 3, agx: 3, g_buf_len = 6, g_buffer = '123456', printed = 6
+<-(3)
+_(6)
+<-(6)
+dst = '123 456', n = 3, dst + n = ' 456', len = 6, right = '456'
+vgx = 3, agx = 3, TAB_LEN = 4
+vgx = 4, agx = 4
+print buffer
+vg_x: 4, agx: 4, g_buf_len = 7, g_buffer = '123 456', printed = 7
+<-(7)
+->(4)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 4, agx = 4, buffer = '123 456'
+vgx = 3, agx = 3
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 3, agx = 3, buffer = '123 456'
+vgx = 2, agx = 2
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 2, agx = 2, buffer = '123 456'
+vgx = 1, agx = 1
+entered:	32 (' '), control = ''
+process printable: ' '
+vg_x: 1, agx: 1, g_buf_len = 7, g_buffer = '123 456', printed = 7
+<-(1)
+_(7)
+<-(7)
+dst = '1 23 456', n = 1, dst + n = ' 23 456', len = 7, right = '23 456'
+vgx = 1, agx = 1, TAB_LEN = 4
+vgx = 2, agx = 2
+print buffer
+vg_x: 2, agx: 2, g_buf_len = 8, g_buffer = '1 23 456', printed = 8
+<-(8)
+->(2)
+entered:	10 ('
+'), control = ''
+r = 1
+restore term caps
+reset : VSTART = '' (0)
+reset : VSTART = '' (1887174877)
+reset : VSTART = '' (1887174877)
+
+-----------------------
+process command: '1 23 456'
+quotes replaced: '1 23 456'
+trimmed = 1 23 456
+no comments = 1 23 456
+cmd: '1 23 456'
+pipe_parse(1 23 456)
+cmd[0] = '1 23 456'
+exec 0 > 1 23 456 > 1
+restore stdin
+redirect: 0->4
+restore stdout
+redirect: 1->5
+redirect: 0->0
+redirect: 1->1
+processing 1
+processing 23
+processing 456
+after replace
+'1'	'23'	'456'	
+1: command not found
+pipe_exec2 returned: 0
+free item: '1 23 456' (140336787621648)
+command processed: '1 23 456'
+-------------------------
+
+eof = '' (0)
+set : VSTART = '' (1887174877)
+set : VSTART = '' (1887174877)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	65 ('A'), control = '['
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+print buffer
+vg_x: 8, agx: 8, g_buf_len = 8, g_buffer = '1 23 456', printed = 8
+<-(8)
+->(8)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 8, agx = 8, buffer = '1 23 456'
+vgx = 7, agx = 7
+entered:	127 (''), control = ''
+vg_x: 7, agx: 7, g_buf_len = 8, g_buffer = '1 23 456', printed = 8
+<-(7)
+_(8)
+<-(8)
+vgx = 7, agx = 7, buffer = '1 23 456'
+vgx = 6, agx = 6
+print buffer
+vg_x: 6, agx: 6, g_buf_len = 7, g_buffer = '1 23 46', printed = 7
+<-(7)
+->(6)
+entered:	10 ('
+'), control = ''
+r = 1
+restore term caps
+reset : VSTART = '' (0)
+reset : VSTART = '' (1887174877)
+reset : VSTART = '' (1887174877)
+
+-----------------------
+process command: '1 23 46'
+quotes replaced: '1 23 46'
+trimmed = 1 23 46
+no comments = 1 23 46
+cmd: '1 23 46'
+pipe_parse(1 23 46)
+cmd[0] = '1 23 46'
+exec 0 > 1 23 46 > 1
+restore stdin
+redirect: 0->4
+restore stdout
+redirect: 1->5
+redirect: 0->0
+redirect: 1->1
+processing 1
+processing 23
+processing 46
+after replace
+'1'	'23'	'46'	
+1: command not found
+pipe_exec2 returned: 0
+free item: '1 23 46' (140336786571632)
+command processed: '1 23 46'
+-------------------------
+
+eof = '' (0)
+set : VSTART = '' (1887174877)
+set : VSTART = '' (1887174877)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	65 ('A'), control = '['
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+print buffer
+vg_x: 7, agx: 7, g_buf_len = 7, g_buffer = '1 23 46', printed = 7
+<-(7)
+->(7)
+entered:	10 ('
+'), control = ''
+r = 1
+restore term caps
+reset : VSTART = '' (0)
+reset : VSTART = '' (1887174877)
+reset : VSTART = '' (1887174877)
+
+-----------------------
+process command: '1 23 46'
+quotes replaced: '1 23 46'
+trimmed = 1 23 46
+no comments = 1 23 46
+cmd: '1 23 46'
+pipe_parse(1 23 46)
+cmd[0] = '1 23 46'
+exec 0 > 1 23 46 > 1
+restore stdin
+redirect: 0->4
+restore stdout
+redirect: 1->5
+redirect: 0->0
+redirect: 1->1
+processing 1
+processing 23
+processing 46
+after replace
+'1'	'23'	'46'	
+1: command not found
+pipe_exec2 returned: 0
+free item: '1 23 46' (140336788668560)
+command processed: '1 23 46'
+-------------------------
+
+eof = '' (0)
+set : VSTART = '' (1887174877)
+set : VSTART = '' (1887174877)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	65 ('A'), control = '['
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+print buffer
+vg_x: 7, agx: 7, g_buf_len = 7, g_buffer = '1 23 46', printed = 7
+<-(7)
+->(7)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 7, agx = 7, buffer = '1 23 46'
+vgx = 6, agx = 6
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 6, agx = 6, buffer = '1 23 46'
+vgx = 5, agx = 5
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 5, agx = 5, buffer = '1 23 46'
+vgx = 4, agx = 4
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 4, agx = 4, buffer = '1 23 46'
+vgx = 3, agx = 3
+entered:	32 (' '), control = ''
+process printable: ' '
+vg_x: 3, agx: 3, g_buf_len = 7, g_buffer = '1 23 46', printed = 7
+<-(3)
+_(7)
+<-(7)
+dst = '1 2 3 46', n = 3, dst + n = ' 3 46', len = 7, right = '3 46'
+vgx = 3, agx = 3, TAB_LEN = 4
+vgx = 4, agx = 4
+print buffer
+vg_x: 4, agx: 4, g_buf_len = 8, g_buffer = '1 2 3 46', printed = 8
+<-(8)
+->(4)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 4, agx = 4, buffer = '1 2 3 46'
+vgx = 3, agx = 3
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 3, agx = 3, buffer = '1 2 3 46'
+vgx = 2, agx = 2
+entered:	127 (''), control = ''
+vg_x: 2, agx: 2, g_buf_len = 8, g_buffer = '1 2 3 46', printed = 8
+<-(2)
+_(8)
+<-(8)
+vgx = 2, agx = 2, buffer = '1 2 3 46'
+vgx = 1, agx = 1
+print buffer
+vg_x: 1, agx: 1, g_buf_len = 7, g_buffer = '12 3 46', printed = 7
+<-(7)
+->(1)
+entered:	127 (''), control = ''
+vg_x: 1, agx: 1, g_buf_len = 7, g_buffer = '12 3 46', printed = 7
+<-(1)
+_(7)
+<-(7)
+vgx = 1, agx = 1, buffer = '12 3 46'
+vgx = 0, agx = 0
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 6, g_buffer = '2 3 46', printed = 6
+<-(6)
+->(0)
+entered:	127 (''), control = ''
+vg_x: 0, agx: 0, g_buf_len = 6, g_buffer = '2 3 46', printed = 6
+<-(0)
+_(6)
+<-(6)
+!!!backspace: get_g_x() <= 0
+print buffer
+vg_x: 0, agx: 0, g_buf_len = 6, g_buffer = '2 3 46', printed = 6
+<-(6)
+->(0)
+entered:	10 ('
+'), control = ''
+r = 1
+restore term caps
+reset : VSTART = '' (0)
+reset : VSTART = '' (1887174877)
+reset : VSTART = '' (1887174877)
+
+-----------------------
+process command: '2 3 46'
+quotes replaced: '2 3 46'
+trimmed = 2 3 46
+no comments = 2 3 46
+cmd: '2 3 46'
+pipe_parse(2 3 46)
+cmd[0] = '2 3 46'
+exec 0 > 2 3 46 > 1
+restore stdin
+redirect: 0->4
+restore stdout
+redirect: 1->5
+redirect: 0->0
+redirect: 1->1
+processing 2
+processing 3
+processing 46
+after replace
+'2'	'3'	'46'	
+2: command not found
+pipe_exec2 returned: 0
+free item: '2 3 46' (140336788668608)
+command processed: '2 3 46'
+-------------------------
+
+eof = '' (0)
+set : VSTART = '' (1887174877)
+set : VSTART = '' (1887174877)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	65 ('A'), control = '['
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+print buffer
+vg_x: 6, agx: 6, g_buf_len = 6, g_buffer = '2 3 46', printed = 6
+<-(6)
+->(6)
+entered:	32 (' '), control = ''
+process printable: ' '
+vg_x: 6, agx: 6, g_buf_len = 6, g_buffer = '2 3 46', printed = 6
+<-(6)
+_(6)
+<-(6)
+dst = '2 3 46 ', n = 6, dst + n = ' ', len = 6, right = ''
+vgx = 6, agx = 6, TAB_LEN = 4
+vgx = 7, agx = 7
+print buffer
+vg_x: 7, agx: 7, g_buf_len = 7, g_buffer = '2 3 46 ', printed = 7
+<-(7)
+->(7)
+entered:	32 (' '), control = ''
+process printable: ' '
+vg_x: 7, agx: 7, g_buf_len = 7, g_buffer = '2 3 46 ', printed = 7
+<-(7)
+_(7)
+<-(7)
+dst = '2 3 46  ', n = 7, dst + n = ' ', len = 7, right = ''
+vgx = 7, agx = 7, TAB_LEN = 4
+vgx = 8, agx = 8
+print buffer
+vg_x: 8, agx: 8, g_buf_len = 8, g_buffer = '2 3 46  ', printed = 8
+<-(8)
+->(8)
+entered:	32 (' '), control = ''
+process printable: ' '
+vg_x: 8, agx: 8, g_buf_len = 8, g_buffer = '2 3 46  ', printed = 8
+<-(8)
+_(8)
+<-(8)
+dst = '2 3 46   ', n = 8, dst + n = ' ', len = 8, right = ''
+vgx = 8, agx = 8, TAB_LEN = 4
+vgx = 9, agx = 9
+print buffer
+vg_x: 9, agx: 9, g_buf_len = 9, g_buffer = '2 3 46   ', printed = 9
+<-(9)
+->(9)
+entered:	97 ('a'), control = ''
+process printable: 'a'
+vg_x: 9, agx: 9, g_buf_len = 9, g_buffer = '2 3 46   ', printed = 9
+<-(9)
+_(9)
+<-(9)
+dst = '2 3 46   a', n = 9, dst + n = 'a', len = 9, right = ''
+vgx = 9, agx = 9, TAB_LEN = 4
+vgx = 10, agx = 10
+print buffer
+vg_x: 10, agx: 10, g_buf_len = 10, g_buffer = '2 3 46   a', printed = 10
+<-(10)
+->(10)
+entered:	115 ('s'), control = ''
+process printable: 's'
+vg_x: 10, agx: 10, g_buf_len = 10, g_buffer = '2 3 46   a', printed = 10
+<-(10)
+_(10)
+<-(10)
+dst = '2 3 46   as', n = 10, dst + n = 's', len = 10, right = ''
+vgx = 10, agx = 10, TAB_LEN = 4
+vgx = 11, agx = 11
+print buffer
+vg_x: 11, agx: 11, g_buf_len = 11, g_buffer = '2 3 46   as', printed = 11
+<-(11)
+->(11)
+entered:	100 ('d'), control = ''
+process printable: 'd'
+vg_x: 11, agx: 11, g_buf_len = 11, g_buffer = '2 3 46   as', printed = 11
+<-(11)
+_(11)
+<-(11)
+dst = '2 3 46   asd', n = 11, dst + n = 'd', len = 11, right = ''
+vgx = 11, agx = 11, TAB_LEN = 4
+vgx = 12, agx = 12
+print buffer
+vg_x: 12, agx: 12, g_buf_len = 12, g_buffer = '2 3 46   asd', printed = 12
+<-(12)
+->(12)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 12, agx = 12, buffer = '2 3 46   asd'
+vgx = 11, agx = 11
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 11, agx = 11, buffer = '2 3 46   asd'
+vgx = 10, agx = 10
+entered:	10 ('
+'), control = ''
+r = 1
+restore term caps
+reset : VSTART = '' (0)
+reset : VSTART = '' (1887174877)
+reset : VSTART = '' (1887174877)
+
+-----------------------
+process command: '2 3 46   asd'
+quotes replaced: '2 3 46   asd'
+trimmed = 2 3 46   asd
+no comments = 2 3 46   asd
+cmd: '2 3 46   asd'
+pipe_parse(2 3 46   asd)
+cmd[0] = '2 3 46   asd'
+exec 0 > 2 3 46   asd > 1
+restore stdin
+redirect: 0->4
+restore stdout
+redirect: 1->5
+redirect: 0->0
+redirect: 1->1
+processing 2
+processing 3
+processing 46
+processing asd
+after replace
+'2'	'3'	'46'	'asd'	
+2: command not found
+pipe_exec2 returned: 0
+free item: '2 3 46   asd' (140336788668656)
+command processed: '2 3 46   asd'
+-------------------------
+
+eof = '' (0)
+set : VSTART = '' (1887174877)
+set : VSTART = '' (1887174877)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	65 ('A'), control = '['
+vg_x: 0, agx: 0, g_buf_len = 0, g_buffer = '', printed = 0
+<-(0)
+_(0)
+<-(0)
+print buffer
+vg_x: 12, agx: 12, g_buf_len = 12, g_buffer = '2 3 46   asd', printed = 12
+<-(12)
+->(12)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 12, agx = 12, buffer = '2 3 46   asd'
+vgx = 11, agx = 11
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 11, agx = 11, buffer = '2 3 46   asd'
+vgx = 10, agx = 10
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 10, agx = 10, buffer = '2 3 46   asd'
+vgx = 9, agx = 9
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 9, agx: 9, g_buf_len = 12, g_buffer = '2 3 46   asd', printed = 12
+<-(9)
+_(12)
+<-(12)
+print buffer
+vg_x: 9, agx: 9, g_buf_len = 11, g_buffer = '2 3 46   sd', printed = 11
+<-(11)
+->(9)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 9, agx = 9, buffer = '2 3 46   sd'
+vgx = 8, agx = 8
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 8, agx = 8, buffer = '2 3 46   sd'
+vgx = 7, agx = 7
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 7, agx: 7, g_buf_len = 11, g_buffer = '2 3 46   sd', printed = 11
+<-(7)
+_(11)
+<-(11)
+print buffer
+vg_x: 7, agx: 7, g_buf_len = 10, g_buffer = '2 3 46  sd', printed = 10
+<-(10)
+->(7)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	68 ('D'), control = '['
+<-(1)
+vgx = 7, agx = 7, buffer = '2 3 46  sd'
+vgx = 6, agx = 6
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 6, agx: 6, g_buf_len = 10, g_buffer = '2 3 46  sd', printed = 10
+<-(6)
+_(10)
+<-(10)
+print buffer
+vg_x: 6, agx: 6, g_buf_len = 9, g_buffer = '2 3 46 sd', printed = 9
+<-(9)
+->(6)
+entered:	27 (''), control = ''
+entered:	91 ('['), control = ''
+entered:	51 ('3'), control = '['
+entered:	126 ('~'), control = '[3'
+vg_x: 6, agx: 6, g_buf_len = 9, g_buffer = '2 3 46 sd', printed = 9
+<-(6)
+_(9)
+<-(9)
+print buffer
+vg_x: 6, agx: 6, g_buf_len = 8, g_buffer = '2 3 46sd', printed = 8
+<-(8)
+->(6)
+entered:	10 ('
+'), control = ''
+r = 1
+restore term caps
+reset : VSTART = '' (0)
+reset : VSTART = '' (1887174877)
+reset : VSTART = '' (1887174877)
+
+-----------------------
+process command: '2 3 46sd'
+quotes replaced: '2 3 46sd'
+trimmed = 2 3 46sd
+no comments = 2 3 46sd
+cmd: '2 3 46sd'
+pipe_parse(2 3 46sd)
+cmd[0] = '2 3 46sd'
+exec 0 > 2 3 46sd > 1
+restore stdin
+redirect: 0->4
+restore stdout
+redirect: 1->5
+redirect: 0->0
+redirect: 1->1
+processing 2
+processing 3
+processing 46sd
+after replace
+'2'	'3'	'46sd'	
+2: command not found
+pipe_exec2 returned: 0
+free item: '2 3 46sd' (140336786571680)
+command processed: '2 3 46sd'
+-------------------------
+
+eof = '' (0)
+set : VSTART = '' (1887174877)
+set : VSTART = '' (1887174877)

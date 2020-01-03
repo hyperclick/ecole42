@@ -34,6 +34,7 @@
 # define KEY_CTRL_L "\xc"
 # define KEY_ENTER "\xd"
 # define KEY_CTRL_P "\x10"
+# define KEY_CTRL_Q "\x11"
 # define KEY_CTRL_R "\x12"
 # define KEY_CTRL_T "\x14"
 # define KEY_CTRL_U "\x15"

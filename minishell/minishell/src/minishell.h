@@ -16,6 +16,7 @@
 # include "../libft/libft.h"
 
 # define MAX_CMD_LINE	255
+# define TAB_LEN		4
 
 t_list		*env_get_g_env(void);
 const char	*env_extract_key(const char *kvp);
@@ -75,20 +76,24 @@ void		replace_back(char *a[]);
 void		free_quoted_params(void);
 char		*add_quote(char *dst, const char *prefix, const char *value);
 
-void		set_g_x(int x);
+void		buffer_changed(void);
 int			get_g_x(void);
+int			get_act_x(void);
 void		move_cursor_left(int x);
 void		move_cursor_right(int x);
 void		backspace(int x);
 void		inc_cursor_pos(void);
 void		dec_cursor_pos(void);
 void		move_to_bol(void);
+int			get_printed_buf_len(void);
 
 void		set_keypress(void);
 void		reset_keypress(void);
+cc_t		get_param(int p);
 
 void		set_buf_len(int len);
 int			get_buf_len(void);
+int			get_printed_buf_len(void);
 const char	*get_buffer(void);
 void		increase_buffer(void);
 void		decrease_buffer(void);
@@ -106,8 +111,11 @@ BOOL		process_key_right(void);
 BOOL		process_key_down(void);
 BOOL		process_key_up(void);
 BOOL		process_backspace(void);
+BOOL		process_tab(void);
 BOOL		process_delete(void);
 void		process_printable(char c);
 void		process_not_printable(char control[10], int c);
+
+void		dump_buffer(void);
 
 #endif
