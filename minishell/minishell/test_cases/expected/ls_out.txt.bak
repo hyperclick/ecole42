@@ -1,5 +1,4 @@
 ls:
-CMakeLists.txt
 Makefile
 author
 debug_out4.txt
