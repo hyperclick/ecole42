@@ -74,7 +74,7 @@ static int	process_commands(char *s)
 	if (g_commands != NULL)
 	{
 		ft_e_putstr("g_commands != NULL\n");
-		exit(1);
+		ft_exit(1);
 	}
 	g_commands = commands;
 	while (*commands != NULL)
@@ -87,6 +87,7 @@ static int	process_commands(char *s)
 		commands++;
 	}
 	free_quoted_params();
+	debug_printf("free g_commands\n");
 	ft_free_null_term_array((void**)g_commands);
 	g_commands = NULL;
 	return (r);

@@ -5,6 +5,7 @@
 
 void test_exec()
 {
+	process_command("src");
 	process_command("foo");
 	process_command("echo 1   2    \t3");
 
@@ -667,7 +668,8 @@ int main(int argc, char** argv, char** envp)
 {
 	init(argc, argv, envp);
 
-
+	//process_command("src");
+		//ft_exit(0);
 	//process_command(" echo 1 | sed -e 's/1/Yes/g'");
 	//debug_print_zt_array((const char**)env_to_array());
 
@@ -679,7 +681,7 @@ int main(int argc, char** argv, char** envp)
 	//	process_command("base64 /dev/urandom | head -c100");
 	//	ft_exit(0);
 	//process_command("base64 /dev/urandom | head -c1000 | grep 42 | wc -l | sed -e 's/1/Yes/g' -e 's/0/No/g'");
-	//	ft_exit(0);
+
 
 		//test_pipe_1();
 

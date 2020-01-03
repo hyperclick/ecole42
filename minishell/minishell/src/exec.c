@@ -27,8 +27,16 @@ void		fork_and_exec(const char *argv[], pid_t *ppid)
 	debug_printf("fork_and_exec:\t%s = %d launched\n", argv[0], *ppid);
 }
 
+BOOL is_regular_file(const char* path)
+{
+	struct stat path_stat;
+	lstat(path, &path_stat);
+	return S_ISREG(path_stat.st_mode);
+}
+
 BOOL		try_execute(const char *filename, const char *argv[], pid_t *ppid)
 {
+	*ppid = 0;
 	if (access(argv[0], F_OK) == 0)
 	{
 		if (-1 == access(argv[0], X_OK))
@@ -36,6 +44,14 @@ BOOL		try_execute(const char *filename, const char *argv[], pid_t *ppid)
 			ft_e_putstr(filename);
 			ft_e_putstr(": command found but has no exec rigths\n");
 			debug_printf("%s: command found but has no exec rigths\n", argv[0]);
+			return (TRUE);
+		}
+		if (!is_regular_file(argv[0]))
+		{
+			ft_e_putstr("-minishell: ");
+			ft_e_putstr(filename);
+			ft_e_putstr(": not a file\n");
+			debug_printf("%s is not regular file\n", argv[0]);
 			return (TRUE);
 		}
 		fork_and_exec(argv, ppid);

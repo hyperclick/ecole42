@@ -1,0 +1,2 @@
+-minishell: not execute: /bin/../usr
+foo: command not found

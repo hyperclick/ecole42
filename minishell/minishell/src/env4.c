@@ -70,10 +70,10 @@ void		exec_ve(const char *argv[])
 	r = execve(argv[0], (char**)argv, env_to_array());
 	if (r == -1)
 	{
+		debug_printf("execve(%s) failed\n", argv[0]);
 		ft_e_putstr("Could not execute: ");
 		ft_e_putstr(argv[0]);
 		ft_e_putstr("\n");
-		ft_exit(1);
 	}
 	debug_printf("execve returned: %d\n", r);
 	ft_exit(2);
