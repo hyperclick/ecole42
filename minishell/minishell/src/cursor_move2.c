@@ -25,7 +25,7 @@ int		get_act_x(void)
 	return (g_actual_x);
 }
 
-void	buffer_changed()
+void	buffer_changed(void)
 {
 	g_actual_x = get_printed_buf_len();
 	g_virtual_x = get_buf_len();
@@ -39,12 +39,9 @@ void	inc_cursor_pos(void)
 		reset_keypress();
 		exit(1);
 	}
-	debug_printf("vgx = %d, agx = %d, TAB_LEN = %d\n", g_virtual_x, g_actual_x, TAB_LEN);
 	g_actual_x += (get_buffer()[g_virtual_x] == '\t') ? TAB_LEN : 1;
 	++g_virtual_x;
-
 	debug_printf("vgx = %d, agx = %d\n", g_virtual_x, g_actual_x);
-
 }
 
 void	dec_cursor_pos(void)
@@ -55,14 +52,7 @@ void	dec_cursor_pos(void)
 		reset_keypress();
 		exit(1);
 	}
-	debug_printf("vgx = %d, agx = %d, buffer = '%s'\n", g_virtual_x, g_actual_x, get_buffer());
 	--g_virtual_x;
 	g_actual_x -= (get_buffer()[g_virtual_x] == '\t') ? TAB_LEN : 1;
-	
 	debug_printf("vgx = %d, agx = %d\n", g_virtual_x, g_actual_x);
-}
-
-void	move_to_bol(void)
-{
-	move_cursor_left(get_act_x());
 }

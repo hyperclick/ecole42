@@ -49,6 +49,7 @@ void		ft_default_sig_handler(int signum);
 void		print_prompt(void);
 int			process_command(const char *str);
 int			process_one_command(char *cmd);
+int			process_commands(char *s);
 void		free_commands(void);
 
 void		clean_buffer(void);
@@ -68,10 +69,12 @@ BOOL		has_exit(const char *str);
 t_list		*pipe_parse2(const char **cmds);
 t_list		*pipe_parse(const char *str);
 void		pipe_exec(char *str);
-void		close_g_fd_to_close(void);
 void		exec_ve(const char *argv[]);
 void		exec_ve2(const char *str);
 pid_t		exec(char *str);
+
+void		close_g_fd_to_close(void);
+void		pipe_set_fd_to_close(int fd);
 
 char		*replace_quoted(const char *str);
 void		replace_back(char *a[]);
@@ -107,6 +110,9 @@ void		buffer_set(const char *new_value);
 void		buffer_delete(void);
 void		buffer_backspace(void);
 void		buffer_insert(char c);
+char		get_previous_char(void);
+char		get_next_char(void);
+char		get_char_at_cursor(void);
 
 BOOL		process_key_left(void);
 BOOL		process_key_right(void);

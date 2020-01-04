@@ -28,7 +28,6 @@ void	set_keypress(void)
 	new_settings.c_lflag &= (~ICANON & ~ECHO);
 	new_settings.c_cc[VTIME] = 0;
 	new_settings.c_cc[VMIN] = 1;
-	//new_settings.c_cc[VEOF] = 'q';
 	tcsetattr(STDIN_FILENO, TCSANOW, &new_settings);
 	g_set = TRUE;
 	return ;
@@ -41,19 +40,14 @@ void	reset_keypress(void)
 		debug_printf("restore term caps\n");
 		tcsetattr(STDIN_FILENO, TCSANOW, &stored_settings);
 		g_set = FALSE;
-		debug_printf("reset : VSTART = '%c' (%d)\n", stored_settings.c_cc[VSTART]);
-		debug_printf("reset : VSTART = '%c' (%d)\n", stored_settings.c_cc[VSTART]);
-		debug_printf("reset : VSTART = '%c' (%d)\n", get_param(VSTART));
 	}
-//	else
-//	{
-//		debug_printf("g_set is not set\n");
-//		ft_e_putstr("g_set is not set\n");
-//		ft_exit(1);
-//	}
+	else
+	{
+		debug_printf("g_set is not set\n");
+	}
 }
 
 cc_t	get_param(int p)
 {
-	return stored_settings.c_cc[p];
+	return (stored_settings.c_cc[p]);
 }

@@ -11,45 +11,44 @@
 /* ************************************************************************** */
 
 #include "minishell.h"
+#include "key_constants.h"
 
-static int				g_buf_len;
-static char				g_buffer[PATH_MAX];
-
-int			get_buf_len(void)
+BOOL	process_key_left(void)
 {
-	return (g_buf_len);
-}
-
-void		set_buf_len(int len)
-{
-	g_buf_len = len;
-}
-
-const char	*get_buffer(void)
-{
-	return (g_buffer);
-}
-
-void		increase_buffer(void)
-{
-	if (g_buf_len++ > PATH_MAX - 1)
+	if (get_g_x() > 0)
 	{
-		ft_e_putstr("buffer is too small\n");
-		debug_printf("buffer is too small\n");
-		reset_keypress();
-		exit(1);
+		move_cursor_left(get_previous_char() == '\t' ? TAB_LEN + 1 : 1);
+		dec_cursor_pos();
 	}
-	g_buffer[g_buf_len] = 0;
+	return (TRUE);
 }
 
-void		decrease_buffer(void)
+BOOL	process_key_right(void)
 {
-	if (--g_buf_len < 0)
+	if (get_g_x() < get_buf_len())
 	{
-		ft_e_putstr("buffer is negative\n");
-		debug_printf("buffer is negative\n");
-		reset_keypress();
-		exit(1);
+		move_cursor_right(get_char_at_cursor() == '\t' ? TAB_LEN + 1 : 1);
+		inc_cursor_pos();
 	}
-	g_buffer[g_buf_len] = 0;
+	return (TRUE);
+}
+
+BOOL	process_key_down(void)
+{
+	if (h_has_next())
+	{
+		buffer_set(h_get_next());
+		buffer_print();
+	}
+	return (TRUE);
+}
+
+BOOL	process_key_up(void)
+{
+	if (h_has_previous())
+	{
+		buffer_set(h_get_previous());
+		buffer_print();
+	}
+	return (TRUE);
 }

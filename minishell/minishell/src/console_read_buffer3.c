@@ -14,7 +14,8 @@
 
 int			get_printed_buf_len(void)
 {
-	return (get_buf_len() + ft_str_count_chars(get_buffer(), '\t') * (TAB_LEN - 1) );
+	return (get_buf_len()
+		+ ft_str_count_chars(get_buffer(), '\t') * (TAB_LEN - 1));
 }
 
 void		clean_printed_text(void)
@@ -28,12 +29,6 @@ void		clean_printed_text(void)
 	{
 		ft_putchar(' ');
 	}
-}
-
-void dump_buffer()
-{
-	debug_printf("vg_x: %d, agx: %d, g_buf_len = %d, g_buffer = '%s', printed = %d\n"
-			, get_g_x(), get_act_x(), get_buf_len(), get_buffer(), get_printed_buf_len());
 }
 
 void		clean_printed_text_and_move_cursor_left(void)

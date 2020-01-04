@@ -20,18 +20,18 @@ void		fork_and_exec(const char *argv[], pid_t *ppid)
 	{
 		debug_set_pname(argv[0]);
 		close_g_fd_to_close();
-		//debug_printf("fork_and_exec:\tabout to launch %s\n", argv[0]);
 		exec_ve(argv);
 		debug_printf("!!!should not be here!!!\n");
 	}
 	debug_printf("fork_and_exec:\t%s = %d launched\n", argv[0], *ppid);
 }
 
-BOOL is_regular_file(const char* path)
+BOOL		is_regular_file(const char *path)
 {
 	struct stat path_stat;
+
 	lstat(path, &path_stat);
-	return S_ISREG(path_stat.st_mode);
+	return (S_ISREG(path_stat.st_mode));
 }
 
 BOOL		try_execute(const char *filename, const char *argv[], pid_t *ppid)
@@ -92,7 +92,7 @@ pid_t		exec2(const char *argv[])
 	char		**folders;
 
 	filename = argv[0];
-	if (ft_str_starts_with(filename, "./") 
+	if (ft_str_starts_with(filename, "./")
 		&& try_execute(filename, argv, &pid))
 	{
 		return (pid);

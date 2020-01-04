@@ -39,9 +39,6 @@ void	init(int argc, char **argv, char **envp)
 	log_line("n\n\n\nstarted\n\n");
 	signal(SIGINT, ft_default_sig_handler);
 	env_from_array(envp);
-
-	//process_command("echo echo1");
-	//process_command("exit");
 }
 
 void	print_prompt(void)
@@ -57,8 +54,6 @@ void	ft_default_sig_handler(int signum)
 		if (get_awaited_process() != 0)
 		{
 			kill(get_awaited_process(), signum);
-//			debug_printf("after kill\n");
-//			set_awaited_process(0);
 			ft_putchar('\n');
 		}
 		else

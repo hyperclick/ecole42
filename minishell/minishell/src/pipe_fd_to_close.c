@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   console_reader.c                                   :+:      :+:    :+:   */
+/*   pipe_exec.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/31 12:30:12 by darugula          #+#    #+#             */
-/*   Updated: 2019/12/31 12:30:15 by darugula         ###   ########.fr       */
+/*   Created: 2020/01/01 13:25:50 by darugula          #+#    #+#             */
+/*   Updated: 2020/01/01 13:25:52 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include "key_constants.h"
 
-void	move_cursor_left(int x)
+int		g_fd_to_close = -11;
+
+void	close_g_fd_to_close(void)
 {
-	debug_printf("<-(%d)\n", x);
-	while (x-- > 0)
+	debug_printf("close_g_fd_to_close: %d\n", g_fd_to_close);
+	if (g_fd_to_close == -11)
 	{
-		ft_putstr(KEY_LEFT);
+		return ;
 	}
+	close_fd(g_fd_to_close);
+	g_fd_to_close = -2;
 }
 
-void	move_cursor_right(int x)
+void	pipe_set_fd_to_close(int fd)
 {
-	debug_printf("->(%d)\n", x);
-	while (x-- > 0)
+	debug_printf("pipe_set_fd_to_close(%d)\n", fd);
+	if (fd <= 3)
 	{
-		ft_putstr(KEY_RIGHT);
+		ft_exit(4);
 	}
-}
-
-void	move_to_bol(void)
-{
-	move_cursor_left(get_act_x());
+	g_fd_to_close = fd;
 }

@@ -1,1 +1,1 @@
-/mnt/c/git/e59/minishell/minishell
+/Users/darugula/git/e58/minishell/minishell

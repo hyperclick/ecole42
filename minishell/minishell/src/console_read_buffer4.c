@@ -12,44 +12,25 @@
 
 #include "minishell.h"
 
-static int				g_buf_len;
-static char				g_buffer[PATH_MAX];
-
-int			get_buf_len(void)
+char	get_previous_char(void)
 {
-	return (g_buf_len);
+	return (get_buffer()[get_g_x() - 1]);
 }
 
-void		set_buf_len(int len)
+char	get_next_char(void)
 {
-	g_buf_len = len;
+	return (get_buffer()[get_g_x() + 1]);
 }
 
-const char	*get_buffer(void)
+char	get_char_at_cursor(void)
 {
-	return (g_buffer);
+	return (get_buffer()[get_g_x()]);
 }
 
-void		increase_buffer(void)
+void	dump_buffer(void)
 {
-	if (g_buf_len++ > PATH_MAX - 1)
-	{
-		ft_e_putstr("buffer is too small\n");
-		debug_printf("buffer is too small\n");
-		reset_keypress();
-		exit(1);
-	}
-	g_buffer[g_buf_len] = 0;
-}
-
-void		decrease_buffer(void)
-{
-	if (--g_buf_len < 0)
-	{
-		ft_e_putstr("buffer is negative\n");
-		debug_printf("buffer is negative\n");
-		reset_keypress();
-		exit(1);
-	}
-	g_buffer[g_buf_len] = 0;
+	debug_printf("vg_x: %d, agx: %d, \
+				buf_len = %d, g_buffer = '%s', printed = %d\n"
+				, get_g_x(), get_act_x(), get_buf_len(), get_buffer()
+				, get_printed_buf_len());
 }
