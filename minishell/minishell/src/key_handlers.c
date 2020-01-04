@@ -69,6 +69,11 @@ static BOOL	processed(char control[10])
 	{
 		return (process_tab());
 	}
+	if (control[0] == get_param(VEOF))
+	{
+		ft_exit(0);
+		return (TRUE);
+	}
 	return (FALSE);
 }
 

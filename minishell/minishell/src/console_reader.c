@@ -19,7 +19,12 @@ static const char	*read_line_hidden_end(int r)
 	if (r == 0)
 	{
 		ft_e_putstr("std in is all\n");
-		ft_exit(1);
+		ft_exit(3);
+	}
+	if (r < 0)
+	{
+		debug_printf("std in is corrupted\n");
+		ft_exit(2);
 	}
 	if (get_buf_len() > 0)
 	{

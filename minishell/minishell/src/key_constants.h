@@ -17,7 +17,8 @@
 # define KEY_DOWN "\e[B"
 # define KEY_RIGHT "\e[C"
 # define KEY_LEFT "\e[D"
-# define KEY_DELETE "\x1b\x5b\x33\x7e"
+//# define KEY_DELETE "\x1b\x5b\x33\x7e"
+# define KEY_DELETE "\e[\x33\x7e"
 # define KEY_TAB 9
 # define KEY_BACKSPACE 127
 

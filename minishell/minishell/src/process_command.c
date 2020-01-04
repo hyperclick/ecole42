@@ -16,9 +16,12 @@ char	**g_commands = NULL;
 
 void	free_commands(void)
 {
-	debug_printf("free g_commands\n");
-	ft_free_null_term_array((void**)g_commands);
-	g_commands = NULL;
+	if (g_commands != NULL)
+	{
+		debug_printf("free g_commands\n");
+		ft_free_null_term_array((void**)g_commands);
+		g_commands = NULL;
+	}
 }
 
 static char	*trim(char *str, int *r)
