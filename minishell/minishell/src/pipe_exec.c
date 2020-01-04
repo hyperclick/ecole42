@@ -16,7 +16,7 @@ int		g_fd_to_close = -11;
 
 void	close_g_fd_to_close(void)
 {
-	debug_printf("close_g_fd_to_close: %d", g_fd_to_close);
+	debug_printf("close_g_fd_to_close: %d\n", g_fd_to_close);
 	if (g_fd_to_close == -11)
 	{
 		return;

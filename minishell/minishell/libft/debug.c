@@ -40,7 +40,7 @@ void	close_out_stream(void)
 
 void	set_out_file(const char *filename)
 {
-	g_fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC, S_IWRITE);
+	g_fd = open(filename, O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, S_IWRITE);
 	if (g_main_pid == -1)
 	{
 		g_main_pid = getpid();

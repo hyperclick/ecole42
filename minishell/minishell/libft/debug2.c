@@ -21,7 +21,7 @@ void	debug_printf(const char *format, ...)
 		ft_e_putstr("output_stream == -1\n");
 		exit(1);
 	}
-	//print_prefix();
+	print_prefix();
 	va_start(argptr, format);
 	ft_vprintf_fd(debug_get_fd(), format, argptr);
 	va_end(argptr);
