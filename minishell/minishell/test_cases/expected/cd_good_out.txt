@@ -1,1 +1,3 @@
 /Users/darugula/git/e58/minishell/minishell
+/Users/darugula
+/Users/darugula/git/e58/minishell/minishell

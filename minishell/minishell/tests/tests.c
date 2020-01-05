@@ -162,10 +162,12 @@ void		env()
 void		ls()
 {
 	process_command("echo /bin/ls:;/bin/ls");
-	process_command("echo ls:;/bin/ls");
-	process_command("echo not empty dir: ;rm -r \"not empty dir ls\"; mkdir \"not empty dir ls\"; mkdir \"not empty dir ls\"/dir1; touch \"not empty dir ls\"/file1");
+	process_command("echo \nls:;ls");
+	process_command("rm -r \"not empty dir ls\"; mkdir \"not empty dir ls\"; mkdir \"not empty dir ls\"/dir1; touch \"not empty dir ls\"/file1");
 	//process_command("ls -la");
-	process_command("echo ls ;ls \"not empty dir ls\"");
+	process_command("echo \nls ;ls \"not empty dir ls\"");
+	process_command("echo \n/bin/ls -aF:;/bin/ls -aF");
+	process_command("echo \n/bin/ls -a -F:;/bin/ls -a -F");
 }
 
 void		cd_bad()
@@ -173,14 +175,13 @@ void		cd_bad()
 	process_command("cd -");
 	process_command("cd \\");
 }
+
 void		cd_good_a()
 {
 	process_command("pwd");
-	//process_command("cd ~");
-	//process_command("cd ~;#pwd");
-	//process_command("cd -");
-	//process_command("\"cd\"");
-	//process_command("pwd");
+	process_command("cd ~;pwd");
+	process_command("cd -;pwd");
+//	process_command("\"cd\";pwd");
 	//process_command("cd ..");
 	//process_command("cd /////; pwd");
 	//process_command("cd -");
@@ -193,10 +194,22 @@ void		cd_good_a()
 	//process_command("cd /bin;pwd");
 	//process_command("cd /;pwd");
 }
+
+
 void		cd_good_e()
 {
 	system("pwd");
-	//system("cd ~;pwd");
+	system("cd ~;pwd");
+	system("cd -;pwd");
+//	system("\"cd\";pwd");
+//	system("cd ~;pwd");
+//	system("cd ~;pwd");
+//	system("cd ~;pwd");
+//	system("cd ~;pwd");
+//	system("cd ~;pwd");
+//	system("cd ~;pwd");
+//	system("cd ~;pwd");
+//	system("cd ~;pwd");
 }
 
 void		two_commands_good()
@@ -219,9 +232,10 @@ void		echo_tilde()
 {
 	process_command("echo ~");
 }
-void		echo_three_args()
+void		echo_n_args()
 {
 	process_command("echo 1 2 3");
+	process_command("echo it works");
 }
 
 void		echo_home()
@@ -232,6 +246,7 @@ void		echo_home()
 void		echo_quotes()
 {
 	process_command("echo \"q\"");
+	process_command("echo \"it works\"");
 }
 void		pwd()
 {
@@ -355,7 +370,15 @@ void	redirect_and_exec(void(*f)(), const char* out_file_name, const char* err_fi
 	save_stdin();
 	save_stdout();
 }
-
+void		restore_curdir(const char *curdir)
+{
+	if (chdir(curdir) != 0)
+	{
+		perror("couldn't restore curdir\n");
+		debug_printf("couldn't restore curdir\n");
+		ft_exit(1);
+	}
+}
 
 void		test2(void(*e)(), void(*a)(), const char* name)
 {
@@ -364,13 +387,18 @@ void		test2(void(*e)(), void(*a)(), const char* name)
 	const char* expected_err = ft_strjoin2(3, "test_cases/expected/", name, "_err.txt");
 	const char* actual_err = ft_strjoin2(3, "test_cases/actual/", name, "_err.txt");
 
+	char		curdir[PATH_MAX];
+	debug_printf("curdir = %s\n", getcwd(curdir, PATH_MAX));
+	
 	debug_set_pname("test");
 	debug_printf("testing %s\n", name);
 	if (e != NULL)
 	{
 		redirect_and_exec(e, expected_out, expected_err);
+		restore_curdir(curdir);
 	}
 	redirect_and_exec(a, actual_out, actual_err);
+	restore_curdir(curdir);
 
 	BOOL ok;
 	ok = compare_and_free(expected_out, actual_out, ft_strjoin(name, "_out"));
@@ -542,10 +570,11 @@ void test_pipe9()
 {
 	process_command("\"setenv\" | \"sort\"");
 	process_command("\"setenv\" | \"sort\"");
-	process_command("ls | sort");
-	process_command("ls | cat -e");
-	process_command("ls | sort | cat -e");
-	process_command("ls | cat -e | sort");
+	process_command("echo \nls -laF; ls -laF| sort");
+	process_command("echo \nls ;ls | cat -e");
+	process_command("echo \nls ;ls | sort | cat -e");
+	process_command("echo \nls -l -a -F; ls -l -a -F| cat -e | sort");
+
 	process_command("setenv | sort");
 	process_command("base64 /dev/urandom | head -c100 | grep 42 | wc -l | sed -e \"s/1/Yes/g\" -e \"s/0/No/g\"");
 	return ;
@@ -682,6 +711,7 @@ int main(int argc, char** argv, char** envp)
 	init(argc, argv, envp);
 	test_check_exit();
 	
+	
 	//process_command("/bin/ls");
 //ft_exit(0);
 	//process_command(" echo 1 | sed -e 's/1/Yes/g'");
@@ -701,9 +731,8 @@ int main(int argc, char** argv, char** envp)
 
 	//test(pwd2, "pwd2");
 	test_pipe9();
-
-	
-	test2(test_printf_e, test_printf_a, "printf");	test(path_is_used, "path_is_used");
+	test2(test_printf_e, test_printf_a, "printf");
+	test(path_is_used, "path_is_used");
 	test(test_exec, "test_exec");
 
 	test(test_pipe_1, "test_pipe_1");
@@ -725,12 +754,12 @@ int main(int argc, char** argv, char** envp)
 
 	char* restore_home = ft_strjoin("setenv HOME ", env_get_value("HOME"));
 	process_command("setenv HOME fake_home_for_tests");
-	test(echo_home, "echo_home");
 	test(echo_tilde, "echo_tilde");
+	test(echo_home, "echo_home");
 	process_command(restore_home);
 	free(restore_home);
 
-	test(echo_three_args, "echo_three_args");
+	test(echo_n_args, "echo_n_args");
 	//test(pwd, "pwd");
 	test2(comment_ignored_e, comment_ignored_a, "comment_ignored");
 	test(comment_ignored_bad, "comment_ignored_bad");
