@@ -152,12 +152,6 @@ void		env()
 	process_command("echo $q");
 	process_command("unsetenv q");
 	process_command("echo $q");
-	//process_command("set q=w");
-	//printf("q = '%s'\n", env_get_value("q"));
-	//process_command("set q =q");
-	//printf("q = '%s'\n", env_get_value("q"));
-	//process_command("set q = e");
-	//printf("q = '%s'\n", env_get_value("q"));
 }
 void		ls()
 {
@@ -166,8 +160,8 @@ void		ls()
 	process_command("rm -r \"not empty dir ls\"; mkdir \"not empty dir ls\"; mkdir \"not empty dir ls\"/dir1; touch \"not empty dir ls\"/file1");
 	//process_command("ls -la");
 	process_command("echo \nls ;ls \"not empty dir ls\"");
-	process_command("echo \n/bin/ls -aF:;/bin/ls -aF");
-	process_command("echo \n/bin/ls -a -F:;/bin/ls -a -F");
+	//process_command("echo \n/bin/ls -aF:;/bin/ls    -aF");
+	//process_command("echo \n/bin/ls -a -F:;/bin/ls -a \t-F");
 }
 
 void		cd_bad()
@@ -178,38 +172,52 @@ void		cd_bad()
 
 void		cd_good_a()
 {
-	process_command("pwd");
-	process_command("cd ~;pwd");
-	process_command("cd -;pwd");
-//	process_command("\"cd\";pwd");
-	//process_command("cd ..");
-	//process_command("cd /////; pwd");
-	//process_command("cd -");
-	//process_command("cd; pwd");
-	//process_command("cd -");
-	//process_command("cd /////; pwd");
-	//process_command("cd ..; pwd");
-	//process_command("cd ..;pwd;");
-	//process_command("cd test_cases/actual;pwd;");
-	//process_command("cd /bin;pwd");
-	//process_command("cd /;pwd");
+	process_command(
+		"pwd;	\
+cd test_cases/actual;pwd; \
+cd /;/bin/pwd;	\
+echo cd ~;	\
+cd ~;pwd;	\
+echo cd -;	\
+cd - ;		\
+echo cd ~/git;	\
+cd ~/git; pwd;	\
+echo \"cd\"	\
+\"cd\";pwd; \
+echo cd ..;	\
+cd ..; pwd; \
+echo cd /////; \
+cd /////; pwd; \
+cd ..; pwd;	\
+cd ..; pwd;	\
+cd /bin; pwd;	\
+		");
+
 }
 
 
 void		cd_good_e()
 {
-	system("pwd");
-	system("cd ~;pwd");
-	system("cd -;pwd");
-//	system("\"cd\";pwd");
-//	system("cd ~;pwd");
-//	system("cd ~;pwd");
-//	system("cd ~;pwd");
-//	system("cd ~;pwd");
-//	system("cd ~;pwd");
-//	system("cd ~;pwd");
-//	system("cd ~;pwd");
-//	system("cd ~;pwd");
+	system(
+		"pwd;	\
+cd test_cases/actual;pwd; \
+cd /;/bin/pwd;	\
+echo cd ~;	\
+cd ~;pwd;	\
+echo cd -;	\
+cd - ;		\
+echo cd ~/git;	\
+cd ~/git; pwd;	\
+echo \"cd\"	\
+\"cd\";pwd; \
+echo cd ..;	\
+cd ..; pwd; \
+echo cd /////; \
+cd /////; pwd; \
+cd ..; pwd;	\
+cd ..; pwd;	\
+cd /bin; pwd;	\
+		");
 }
 
 void		two_commands_good()
@@ -520,9 +528,7 @@ void test_set_env_e()
 {
 
 	process_command("env");
-
 	process_command("echo ; echo env finished");
-
 	process_command("setenv q w");
 	process_command("echo ; echo q = $q");
 	process_command("env");
@@ -553,8 +559,6 @@ void	path_is_used()
 	process_command("echo path = $PATH");
 	process_command("setenv PATH /bin:/usr/bin");
 	process_command("echo path = $PATH");
-
-
 }
 
 void quotes()
