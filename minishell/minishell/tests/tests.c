@@ -161,7 +161,8 @@ void		env()
 }
 void		ls()
 {
-	process_command("echo ls:;ls");
+	process_command("echo /bin/ls:;/bin/ls");
+	process_command("echo ls:;/bin/ls");
 	process_command("echo not empty dir: ;rm -r \"not empty dir ls\"; mkdir \"not empty dir ls\"; mkdir \"not empty dir ls\"/dir1; touch \"not empty dir ls\"/file1");
 	//process_command("ls -la");
 	process_command("echo ls ;ls \"not empty dir ls\"");
@@ -668,7 +669,6 @@ void	test_debug_printf(const char* format, ...)
 void	test_check_exit()
 {
 	assert_false(has_exit("exit1"));
-	printf("1\n");
 	assert_false(has_exit("cd exit"));
 	assert_true(has_exit(" exit\t"));
 	//assert_true(has_exit("\"exit\""));
@@ -681,6 +681,8 @@ int main(int argc, char** argv, char** envp)
 {
 	init(argc, argv, envp);
 	test_check_exit();
+	
+	//process_command("/bin/ls");
 //ft_exit(0);
 	//process_command(" echo 1 | sed -e 's/1/Yes/g'");
 	//debug_print_zt_array((const char**)env_to_array());

@@ -1,3 +1,21 @@
+/bin/ls:
+CMakeLists.txt
+Makefile
+author
+debug_out4.txt
+dir  with  spaces
+libft
+log.txt
+minishell
+minishell.dSYM
+not empty dir
+not empty dir ls
+push.sh
+src
+test_cases
+tests
+ut
+ut.dSYM
 ls:
 CMakeLists.txt
 Makefile
