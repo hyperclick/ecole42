@@ -1,5 +1,5 @@
-#include "../libft/libft.h"
-#include "../src/minishell.h"
+#include "../../minishell/libft/libft.h"
+#include "../../minishell/src/minishell.h"
 #include <stdio.h>
 //#include <copyfile.h>
 
@@ -355,9 +355,9 @@ BOOL	compare_and_free(const char* e, const char* a, const char* name)
 void	redirect_and_exec(void(*f)(), const char* out_file_name, const char* err_file_name)
 {
 
-	int out = dup(STDOUT_FILENO);
-	FILE* f_out = freopen(out_file_name, "w", stdout);
-	FILE* f_err = freopen(err_file_name, "w", stderr);
+	/*int out =*/ dup(STDOUT_FILENO);
+	/*FILE* f_out =*/ freopen(out_file_name, "w", stdout);
+	/*FILE* f_err =*/ freopen(err_file_name, "w", stderr);
 	save_stdin();
 	save_stdout();
 	f();
@@ -629,31 +629,7 @@ void pwd2()
 	wait_child(pid);
 	return ;
 
-
-	t_list* p;
-	p = pipe_parse("pwd");
-
-	//pipe_exec2(p, STDIN_FILENO);
-	//ft_exit(0);
-
-	//restore_stdin();
-	//restore_stdout();
-	//redirect(STDIN_FILENO, STDIN_FILENO);
-	//redirect(STDOUT_FILENO, STDOUT_FILENO);
-	//built_in_processed(args, 1);
-	//exec(args[0]);
-	//exec2(args);
-	//try_execute(args[0], args);
-	//fork_and_exec(args);
-	pid = ft_fork();
-	if (is_child(pid))
-	{
-		debug_set_pname(args[0]);
-		exec_ve((const char **)args);
-		debug_printf("!!!should not be here!!!\n");
-	}
-	ft_free_null_term_array((void**)args);
-
+	
 }
 
 char g_str[] = "123";

@@ -1,5 +1,5 @@
-/mnt/c/git/e59/minishell/minishell
-/mnt/c/git/e59/minishell/minishell/test_cases/actual
+/mnt/c/git/e59/minishell/tests
+/mnt/c/git/e59/minishell/tests/test_cases/actual
 /
 cd /home/darugula
 /home/darugula

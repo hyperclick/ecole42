@@ -1,0 +1,29 @@
+/bin/ls:
+Makefile
+debug_out4.txt
+dir  with  spaces
+log.txt
+minishell.dSYM
+not empty dir
+not empty dir ls
+src
+test_cases
+ut
+ut.dSYM
+
+ls:
+Makefile
+debug_out4.txt
+dir  with  spaces
+log.txt
+minishell.dSYM
+not empty dir
+not empty dir ls
+src
+test_cases
+ut
+ut.dSYM
+
+ls
+dir1
+file1

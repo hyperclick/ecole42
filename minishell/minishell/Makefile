@@ -16,7 +16,7 @@ CFLAGS	+= -Wall -Wextra -Werror
 
 LIBFT = libft/libft.a
 
-all:		$(NAME) ut
+all:		$(NAME)
 
 $(OBJS): %.o: %.c 
 	$(CC) $(CFLAGS) $< -o $@ -c 
@@ -38,6 +38,3 @@ fclean: clean
 	@rm -rf $(NAME)
 
 re: fclean all
-
-ut:	$(NAME)  tests/*.c 
-	$(CC) tests/*.c $(OBJS) $(LIBFT) -g -o ut
