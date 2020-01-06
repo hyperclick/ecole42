@@ -1,6 +1,6 @@
 
-
+#comment
 pwd
-cd ..
+cd .. #comment
 pwd
 exit
