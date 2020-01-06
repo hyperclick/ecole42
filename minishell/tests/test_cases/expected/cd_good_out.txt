@@ -1,16 +1,16 @@
-/mnt/c/git/e59/minishell/tests
-/mnt/c/git/e59/minishell/tests/test_cases/actual
+/Users/darugula/git/e58/minishell/e59/minishell/tests
+/Users/darugula/git/e58/minishell/e59/minishell/tests/test_cases/actual
 /
-cd /home/darugula
-/home/darugula
+cd /Users/darugula
+/Users/darugula
 cd -
 /
-cd /home/darugula/git
-/home/darugula/git
+cd /Users/darugula/git
+/Users/darugula/git
 cd cd
-/home/darugula/git
+/Users/darugula/git
 cd ..
-/home/darugula
+/Users/darugula
 cd /////
 /
 /

@@ -3,7 +3,6 @@ Makefile
 debug_out4.txt
 dir  with  spaces
 log.txt
-minishell.dSYM
 not empty dir
 not empty dir ls
 src
@@ -16,7 +15,6 @@ Makefile
 debug_out4.txt
 dir  with  spaces
 log.txt
-minishell.dSYM
 not empty dir
 not empty dir ls
 src
