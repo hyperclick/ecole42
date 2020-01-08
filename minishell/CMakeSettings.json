@@ -58,7 +58,7 @@
       "buildCommandArgs": "",
       "ctestCommandArgs": "",
       "inheritEnvironments": [ "linux_x86" ],
-      "wslPath": "${defaultWSLPath}",
+      "wslPath": "C:\\Users\\88\\AppData\\Local\\Microsoft\\WindowsApps\\ubuntu1804.exe",
       "addressSanitizerRuntimeFlags": "detect_leaks=0",
       "variables": [],
       "intelliSenseMode": "android-clang-arm64"
