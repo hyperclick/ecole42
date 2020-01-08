@@ -20,5 +20,4 @@ void	ft_lst_free_item(void *item, size_t size)
 	}
 	debug_printf("free item: '%s' (%p)\n", (char*)item, item);
 	free(item);
-	//printf("freed\n");
 }

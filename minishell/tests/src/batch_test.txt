@@ -1,0 +1,6 @@
+
+#comment
+pwd
+cd .. #comment
+pwd
+exit

@@ -1,88 +1,114 @@
-﻿#include "minishell.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipe_exec.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/01 13:25:50 by darugula          #+#    #+#             */
+/*   Updated: 2020/01/01 13:25:52 by darugula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void log_pipe(int r, int w)
+#include "minishell.h"
+
+pid_t	pe2(char *cmd, int r, int w)
 {
-	debug_printf("new pipe: r=%d, w=%d\n", r, w);
-}
+	pid_t pid;
 
-void	ft_pipe(int* r, int* w)
-{
-	int fd[2];
-	if (pipe(fd) != 0)
-	{
-		ft_e_putstr("pipe() failed\n");
-		debug_printf("pipe() failed\n");
-		ft_exit(1);
-	}
-	*r = fd[0];
-	*w = fd[1];
-	log_pipe(*r, *w);
-}
-
-
-pid_t pe2(char* cmd, int r, int w, t_list** p)
-{
-	//int pid = ft_fork();
-	//if (is_child(pid))
-	//{
-	//debug_set_pname(cmd);
 	debug_printf("exec %d > %s > %d\n", r, cmd, w);
 	restore_stdin();
 	restore_stdout();
 	redirect(r, STDIN_FILENO);
 	redirect(w, STDOUT_FILENO);
-	///close_fd(to_close);
-	(void)p;
-	//pipe_free(p);
-	///(void)p;
-	//exec_ve2(cmd);
-	return (exec(cmd));
-	//}
-	//debug_printf("waiting %d > %s > %d to finish\n", r, cmd, w);
-	//wait_child(pid);
-	//debug_printf("%s finished\n", cmd);
-	//free(cmd);
-
+	pid = (exec(cmd));
 	if (w != STDOUT_FILENO)
 	{
-		////close_fd(w);
+		close_fd(w);
 	}
+	return (pid);
 }
 
-pid_t pipe_exec2(t_list* p, int prev_r)
+pid_t	pipe_exec2(t_list *p, int prev_r)
 {
+	int	r;
+	int	w;
+
 	if (p->next == NULL)
 	{
-		return pe2(ft_strdup((char*)p->content), prev_r, STDOUT_FILENO, &p);
+		return (pe2(ft_strdup((char*)p->content), prev_r, STDOUT_FILENO));
 	}
-	int r, w;
 	ft_pipe(&r, &w);
-	pe2(ft_strdup((char*)p->content), prev_r, w, &p);
+	pipe_set_fd_to_close(r);
+	pe2(ft_strdup((char*)p->content), prev_r, w);
 	return (pipe_exec2(p->next, r));
 }
 
-void pipe_exec(char* str)
+BOOL	has_exit(const char *str)
 {
-	pid_t pid;
-	t_list* p;
+	char	*trimmed;
+	char	*right;
+
+	trimmed = ft_strtrim2(str, " \n\t");
+	if (ft_str_equals("exit", trimmed))
+	{
+		free(trimmed);
+		return (TRUE);
+	}
+	if (!ft_str_starts_with(trimmed, "exit"))
+	{
+		free(trimmed);
+		return (FALSE);
+	}
+	right = ft_strtrim2(trimmed + 4, " \n\t");
+	free(trimmed);
+	if (*right == '>' || *right == '<')
+	{
+		free(right);
+		return (TRUE);
+	}
+	free(right);
+	return (FALSE);
+}
+
+BOOL	find_exit(t_list *p)
+{
+	while (p != NULL)
+	{
+		if (has_exit((const char*)p->content))
+		{
+			return (TRUE);
+		}
+		p = p->next;
+	}
+	return (FALSE);
+}
+
+void	pipe_exec(char *str)
+{
+	pid_t	pid;
+	t_list	*p;
+
 	p = pipe_parse(str);
-	//pid = ft_fork();
-	//if (is_child(pid))
-	//{
 	debug_set_pname(str);
-	//free(str);
+	if (find_exit(p))
+	{
+		pipe_free(&p);
+		free(str);
+		ft_exit(0);
+	}
 	pid = pipe_exec2(p, STDIN_FILENO);
-	debug_printf("pipe_exec2 returned: %d\n", pid);
-	//	ft_exit(0);
-	//}
+	debug_printf("pipe_exec2(%s) returned: %d\n", str, pid);
 	pipe_free(&p);
-	//restore_stdin();
-	//restore_stdout();
 	if (pid > 0)
 	{
-		debug_printf("waiting %s to finish\n", str);
+		debug_printf("waiting %s (%d) to finish\n", str, pid);
+		set_awaited_process(pid);
 		wait_child(pid);
 		debug_printf("%s finished\n", str);
+		set_awaited_process(0);
+		restore_stdin();
+		restore_stdout();
 	}
 	free(str);
 }

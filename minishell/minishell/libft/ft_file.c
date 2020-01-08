@@ -12,39 +12,14 @@
 
 #include "libft.h"
 
-int	g_stdin = -1;
-int g_stdout = -1;
-void save_stdin()
-{
-	g_stdin = dup(STDIN_FILENO);
-	debug_printf("duplicated stdin to %d\n", g_stdin);
-}
-void	restore_stdin()
-{
-	debug_printf("restore stdin\n");
-	//close_fd(STDIN_FILENO);
-	redirect(g_stdin, STDIN_FILENO);
-}
-void	restore_stdout()
-{
-	debug_printf("restore stdout\n");
-	redirect(g_stdout, STDOUT_FILENO);
-}
-void save_stdout()
-{
-	g_stdout = dup(STDOUT_FILENO);
-	debug_printf("duplicated stdout to %d\n", g_stdout);
-}
-
-
-void		close_fd(int fd)
+void	close_fd(int fd)
 {
 	debug_printf("close(%d)\n", fd);
 	close(fd);
 }
-void redirect(int a, int b)
+
+void	redirect(int a, int b)
 {
 	dup2(a, b);
 	debug_printf("redirect: %d->%d\n", b, a);
-	//printf("redirected: %d->%d\n", b, a);
 }

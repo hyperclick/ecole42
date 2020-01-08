@@ -1,0 +1,3 @@
+src: command not found
+foo: command not found
+minishell: command not found

@@ -1,3 +1,0 @@
-/mnt/c/git/e49/minishell/minishell
-/home/darugula
-/mnt/c/git/e49/minishell/minishell

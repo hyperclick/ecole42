@@ -1,9 +1,20 @@
-﻿#include "minishell.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/01 14:08:18 by darugula          #+#    #+#             */
+/*   Updated: 2020/01/01 14:08:20 by darugula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int main(int argc, char** argv, char** envp)
+#include "minishell.h"
+
+int	main(int argc, char **argv, char **envp)
 {
 	init(argc, argv, envp);
-	//atexit()
 	if (argc > 1)
 	{
 		cd(argc - 1, argv + 1);
@@ -13,7 +24,4 @@ int main(int argc, char** argv, char** envp)
 		print_prompt();
 		process_command(read_line_hidden());
 	}
-
-	ft_exit(0);
-	return (0);
 }

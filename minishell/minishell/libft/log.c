@@ -11,15 +11,17 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-void	log_log(const char *str)
+void	log_log(const char *format, ...)
 {
-	FILE	*fp;
+	int		fd;
+	va_list	argptr;
 
-	fp = fopen("log.txt", "a");
-	fprintf(fp, "%s", str);
-	fclose(fp);
+	fd = open("log.txt", O_CREAT | O_WRONLY | O_TRUNC, S_IWRITE);
+	va_start(argptr, format);
+	ft_vprintf_fd(fd, format, argptr);
+	va_end(argptr);
+	close(fd);
 }
 
 void	log_line(const char *str)
