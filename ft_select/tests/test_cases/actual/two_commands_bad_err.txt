@@ -1,0 +1,4 @@
+minishell: syntax error near unexpected token `;'
+minishell: syntax error near unexpected token `;'
+minishell: syntax error near unexpected token `;'
+minishell: syntax error near unexpected token `;'
