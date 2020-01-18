@@ -48,8 +48,3 @@ void	move_cursor_down(int x)
 		ft_putstr(KEY_DOWN);
 	}
 }
-
-void	move_to_bol(void)
-{
-	move_cursor_left(get_act_x());
-}

@@ -72,31 +72,82 @@ void		redraw()
 	clear();
 	free_table();
 	draw();
+	//hide_cursor();
 }
 
+/*
+** Initializes the custom terminal configurations
+**
+** It first checks that we can access the terminal name from the environment,
+** then loads the entry for the terminal name we just got,
+** saves the old attributes to reset them later
+** and applies our custom attributes to the terminal.
+** The ids "ti" and "vi" enter alternate screen mode (so we can later give back
+** the shell the way it was) and hide the cursor respectively
+**
+** @param		N/A
+** @return		N/A
+*/
 
-void		sig_winch_handler(int signum)
+struct termios old_attr;
+void		init_custom_conf(void)
 {
-	debug_printf("\n");
-	debug_printf("\n");
-	debug_printf("-----------------------\n");
-	debug_printf("signal %d\n", signum);
-	update_hw();
-	redraw();
+struct termios attr;
+	char buf[1000];
+	tgetent(buf, getenv("TERM"));
+	tcgetattr(STDERR_FILENO, &old_attr);
+	tcgetattr(STDERR_FILENO, &attr);
+	attr.c_lflag &= ~(ICANON | ECHO);
+	attr.c_cc[VMIN] = 1;
+	attr.c_cc[VTIME] = 0;
+	tcsetattr(STDERR_FILENO, TCSANOW, &attr);
+	tputs(tgetstr("ti", NULL), 1, ft_putc);
+	tputs(tgetstr("vi", NULL), 1, ft_putc);
 }
 
-int	main(int argc, char** argv, char** envp)
+/*
+** Resets the old attributes that we saved from 'init_custom_conf'
+**
+** It applies the old atributes to the terminal
+** The ids "ve" amd "te" exit alternate screen mode and show the cursor
+** respectively.
+**
+** @param		N/A
+** @return		N/A
+*/
+
+void	reset_default_conf(void)
 {
-	init(argc, argv, envp);
+	tcsetattr(STDERR_FILENO, TCSANOW, &old_attr);
+	tputs(tgetstr("ve", NULL), 1, ft_putc);
+	tputs(tgetstr("te", NULL), 1, ft_putc);
+}
+
+int	main(int argc, char** argv)
+{
+
+	//init_custom_conf();
+
+	//reset_default_conf();
+	//return 98;
+
+
+
+
+
+
+
+
+
+
+
+	init(argc, argv);
 	if (argc == 1)
 	{
 		show_usage();
 		ft_exit(1);
 	}
 
-	signal(SIGWINCH, sig_winch_handler);
-
-	//sig_winch_handler(SIGWINCH);
 	set_active_cell_offset(0);
 	draw();
 	while (TRUE)

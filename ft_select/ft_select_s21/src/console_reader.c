@@ -19,9 +19,6 @@ char			*read_command(void)
 	int			r;
 	char		control[10];
 
-	control[0] = 0;
-	clean_buffer();
-	//set_keypress();
 	while ((r = read(STDIN_FILENO, &control, 4)) > 0)
 	{
 		control[r] = 0;

@@ -65,16 +65,22 @@ void		free_selected()
 void		print_selection(char **options)
 {
 	int	i;
+	BOOL		first;
 
+	first = TRUE;
 	i = -1;
 	while (*options != NULL)
 	{
 		debug_printf("check: '%s'\n", *options);
 		if (ft_contains_int(g_selected, g_selected_count, ++i))
 		{
-			if (i != 0)
+			if (!first)
 			{
 				ft_putchar(' ');
+			}
+			else
+			{
+				first = FALSE;
 			}
 			ft_printf("%s", *options);
 		}

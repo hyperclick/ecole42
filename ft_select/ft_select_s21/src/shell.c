@@ -40,9 +40,7 @@ void	ft_exit(int ret_code)
 	}
 	free_table();
 	free_selected();
-	env_free();
-	free_quoted_params();
-	h_free();
+
 	close_out_stream();
 	exit(ret_code);
 }
@@ -68,14 +66,73 @@ char** from_arc_argv(int argc, char **argv)
 
 void update_hw()
 {
-
 	ioctl(0, TIOCGWINSZ, &g_size_current);
-
 	debug_printf("lines %d\n", g_size_current.ws_row);
 	debug_printf("columns %d\n", g_size_current.ws_col);
 }
 
-void	init(int argc, char **argv, char **envp)
+void		sig_tstp_handler()
+{
+	reset_keypress();
+	signal(SIGTSTP, SIG_DFL);
+	ioctl(STDOUT_FILENO, TIOCSTI, "\x1A");
+}
+void		sig_cont_handler()
+{
+	set_keypress();
+	set_signal_handlers();
+	redraw();
+}
+
+void		sig_winch_handler()
+{
+	update_hw();
+	redraw();
+}
+
+void	exit_signal_handler()
+{
+	reset_keypress();
+	ft_exit(2);
+}
+
+void		sig_handler(int signum)
+{
+	debug_printf("\n");
+	debug_printf("\n");
+	debug_printf("-----------------------\n");
+	debug_printf("signal %d\n", signum);
+	if (signum == SIGWINCH)
+	{
+		sig_winch_handler();
+	}
+	if (signum == SIGTSTP)
+	{
+		sig_tstp_handler();
+	}
+	if (signum == SIGCONT)
+	{
+		sig_cont_handler();
+	}
+	if (signum == SIGABRT || signum == SIGINT || signum == SIGSTOP|| signum == SIGKILL|| signum == SIGQUIT )
+	{
+		exit_signal_handler();
+	}
+}
+
+void		set_signal_handlers()
+{
+	signal(SIGWINCH, sig_handler);
+	signal(SIGTSTP, sig_handler);
+	signal(SIGCONT, sig_handler);
+	signal(SIGABRT, sig_handler);
+	signal(SIGINT, sig_handler);
+	signal(SIGSTOP, sig_handler);
+	signal(SIGKILL, sig_handler);
+	signal(SIGQUIT, sig_handler);
+}
+
+void	init(int argc, char **argv)
 {
 	set_out_file("debug_out4.txt");
 	save_stdin();
@@ -84,25 +141,12 @@ void	init(int argc, char **argv, char **envp)
 	debug_printf("agrc = %d\n", argc);
 	//debug_print_array(argc, (const char**) argv);
 	log_line("n\n\n\nstarted\n\n");
-	signal(SIGINT, ft_default_sig_handler);
-	env_from_array(envp);
-
 	g_options = from_arc_argv(argc - 1, argv + 1);
 	g_options_count = argc - 1;
 	alloc_selected(g_options_count);
 	//debug_printf("\nconverted:\n");
 	//debug_print_zt_array((const char **)g_options);
 	update_hw();
-
+	set_signal_handlers();
 	set_keypress();
-}
-
-void	ft_default_sig_handler(int signum)
-{
-	debug_printf("signal: %d\n", signum);
-	if (signum == SIGINT)
-	{
-		return ;
-	}
-	ft_exit(1);
 }

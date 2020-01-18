@@ -1,42 +1,21 @@
 [main]	duplicated stdin to 4
 [main]	duplicated stdout to 5
 [main]	started
-[main]	agrc = 2
+[main]	agrc = 7
 [main]	lines 56
 [main]	columns 110
-[main]	try_cols: 1
-[main]	table (h:1, w:1) created
-[main]	t->printed_width = 1
-[main]	148 allocated for table string(1 + 1 * 110 + 1)
+[main]	try_cols: 6
+[main]	table (h:1, w:6) created
+[main]	t->printed_width = 50
+[main]	328 allocated for table string(1 + 1 * 110 + 1)
 [main]	str - 1 = '_'
-[main]	entered:	 r = 1, 0: ' ' (32)
-[main]	entered:	 = ' '
+[main]	entered:	 r = 1, 0: '' (27)
+[main]	entered:	 = ''
 [main]	
 [main]	-----------------------
-[main]	process command: ' '
-[main]	selection changed (1):
-[main]	0, 
-[main]	command processed: ' '
-[main]	-------------------------
-[main]	
-[main]	try_cols: 1
-[main]	table (h:1, w:1) created
-[main]	t->printed_width = 1
-[main]	148 allocated for table string(1 + 1 * 110 + 1)
-[main]	selected: (0, 0): '[7m'
-[main]	str - 1 = '_'
-[main]	entered:	 r = 1, 0: '
-' (10)
-[main]	entered:	 = '
-'
-[main]	
-[main]	-----------------------
-[main]	process command: '
-'
-[main]	command processed: '
-'
+[main]	process command: ''
+[main]	command processed: ''
 [main]	-------------------------
 [main]	
 [main]	exit process (0)
 [main]	restore term caps
-[main]	check: '1'
