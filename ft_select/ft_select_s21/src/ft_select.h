@@ -57,6 +57,7 @@ BOOL		ft_contains_int(int* a, int size, int value);
 BOOL		is_selected2(int offset);
 BOOL		is_selected(t_table* t, int row, int col);
 void		toggle_active_cell();
+void	 handle_item_deleted(int offset);
 void		print_selection(char** options);
 
 void update_hw();
@@ -68,7 +69,7 @@ void		redraw();
 void		ft_exit(int ret_code);
 void		init(int argc, char **argv);
 void		ft_default_sig_handler(int signum);
-int			process_command( char *str);
+void			process_command( char *str);
 
 char		*replace_quoted(const char *str);
 void		replace_back(char *a[]);

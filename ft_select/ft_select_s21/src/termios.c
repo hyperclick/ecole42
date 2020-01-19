@@ -47,7 +47,27 @@ void		show_cursor()
 void	set_keypress(void)
 {
 	char buf[1000];
-	tgetent(buf, getenv("TERM")); 
+	int r;
+	char* t;
+
+	if (!isatty(STDERR_FILENO))
+	{
+		ft_putendl_fd("Not a terminal.", STDERR_FILENO);
+		ft_exit(5);
+	}
+	t = getenv("TERM");
+	if (t == NULL)
+	{
+		ft_printf_fd(STDERR_FILENO, "$TERM is not set\n");
+		ft_exit(4);
+	}
+	r = tgetent(buf, t);
+	//free(t);
+	if (r <= 0)
+	{
+		ft_printf_fd(STDERR_FILENO, "terminal '%s' not found in termios database\n", t);
+		ft_exit(5);
+	}
 	tcgetattr(STDERR_FILENO, &g_stored_settings);
 	g_set = TRUE;
 	tcgetattr(STDERR_FILENO, &g_new_settings);

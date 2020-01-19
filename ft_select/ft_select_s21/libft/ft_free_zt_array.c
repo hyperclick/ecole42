@@ -45,3 +45,14 @@ void	ft_free_null_term_array(void **a)
 	ft_free_array(a, ft_count_null_term_array(a));
 	free(a);
 }
+
+void		zta_remove_at(void** a, int size, int n)
+{
+	debug_printf("free '%s'\n", a[n]);
+	free(a[n]);
+	while (n < size)
+	{
+		a[n] = a[n + 1];
+		n++;
+	}
+}

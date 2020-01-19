@@ -88,6 +88,7 @@ void		sig_winch_handler()
 {
 	update_hw();
 	redraw();
+	hide_cursor();
 }
 
 void	exit_signal_handler()
@@ -135,8 +136,6 @@ void		set_signal_handlers()
 void	init(int argc, char **argv)
 {
 	set_out_file("debug_out4.txt");
-	save_stdin();
-	save_stdout();
 	debug_printf("%s\n", "started");
 	debug_printf("agrc = %d\n", argc);
 	//debug_print_array(argc, (const char**) argv);

@@ -159,7 +159,7 @@ void		remove_from_selected_at(int n)
 	dump_selection();
 }
 
-BOOL		remove_from_selected(int offset)
+BOOL		remove_if_selected(int offset)
 {
 	int n;
 
@@ -174,8 +174,23 @@ BOOL		remove_from_selected(int offset)
 
 void		toggle_active_cell()
 {
-	if (!remove_from_selected(get_active_cell_offset()))
+	if (!remove_if_selected(get_active_cell_offset()))
 	{
 		select_add(get_active_cell_offset());
+	}
+}
+
+void	 handle_item_deleted(int offset)
+{
+	int	i;
+
+	remove_if_selected(offset);
+	i = offset;
+	while (++i < g_options_count + 1)
+	{
+		if (remove_if_selected(i))
+		{
+			select_add(i - 1);
+		}
 	}
 }

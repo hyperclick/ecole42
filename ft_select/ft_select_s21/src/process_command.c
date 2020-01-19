@@ -18,29 +18,27 @@ BOOL		is_del_or_backspace(char *str)
 		|| (ft_strlen(str) == 1 && *str == KEY_BACKSPACE));
 }
 
-int			process_command(char *str)
+void			process_command(char *str)
 {
 	int		r;
-	BOOL		is_escape;
 
+	r = 20;
 	if (str == NULL)
 	{
-		ft_exit(0);
+		ft_exit(r);
 	}
-	r = -200;
 	debug_printf("\n");
 	debug_printf("-----------------------\n");
 	debug_printf("process command: '%s'\n", str);
-	is_escape = FALSE;
 	if (ft_strlen(str) == 1)
 	{
 		if (*str == KEY_ESC)
 		{
-			is_escape = TRUE;
+			r = 1;
 		}
 		if (*str == '\n')
 		{
-			is_escape = TRUE;
+			r = 0;
 			show_selection();
 		}
 		if (*str == ' ')
@@ -53,7 +51,7 @@ int			process_command(char *str)
 		process_delete();
 		if (g_options_count == 0)
 		{
-			is_escape = TRUE;
+			r = 1;
 		}
 	}
 	if (ft_strequ(KEY_UP, str))
@@ -64,7 +62,6 @@ int			process_command(char *str)
 	{
 		process_key_down();
 	}
-
 	if (ft_strequ(KEY_LEFT, str))
 	{
 		process_key_left();
@@ -73,14 +70,12 @@ int			process_command(char *str)
 	{
 		process_key_right();
 	}
-
 	debug_printf("command processed: '%s'\n", str);
 	debug_printf("-------------------------\n");
 	debug_printf("\n");
 			free(str);
-	if (is_escape)
+	if (r!=20)
 	{
-		ft_exit(0);
+		ft_exit(r);
 	}
-	return (r);
 }

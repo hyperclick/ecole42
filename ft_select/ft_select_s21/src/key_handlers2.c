@@ -12,27 +12,19 @@
 
 #include "ft_select.h"
 
-void		zta_remove_at(void **a, int size, int n)
-{
-		debug_printf("free '%s'\n", a[n]);
-		free(a[n]);
-	while (n < size)
-	{
-		a[n] = a[n + 1];
-		n++;
-	}
-	//a[ size - 1] = NULL;
-}
-
 BOOL	process_delete(void)
 {
-	zta_remove_at((void**)g_options, g_options_count,  get_active_cell_offset());
+	int	offset;
+
+	offset = get_active_cell_offset();
+	zta_remove_at((void**)g_options, g_options_count,  offset);
 	g_options_count--;
-	if (get_active_cell_offset() == g_options_count)
+	if (offset == g_options_count)
 	{
 		set_active_cell_offset(g_options_count - 1);
 	}
-	debug_printf("after remove at %d:\n", get_active_cell_offset());
+	debug_printf("after remove at %d:\n", offset);
 	debug_print_zt_array((const char**)g_options);
+	handle_item_deleted(offset);
 	return (TRUE);
 }
