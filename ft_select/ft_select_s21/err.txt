@@ -1,0 +1,2 @@
+stderr not a terminal. rerun without redirect
+

@@ -14,23 +14,9 @@
 
 void		show_usage()
 {
-	ft_putstr("usage: ft_select option1 option2 ...\n");
+	ft_putstr_fd( "usage: ft_select option1 option2 ...\n",STDERR_FILENO);
 }
 
-t_table* rebuild_table()
-{
-	int count;
-
-	count = ft_count_null_term_array((void**)g_options);
-	while (count > 0)
-	{
-		if ((g_table = try_cols(count--)) != NULL)
-		{
-			return (g_table);
-		}
-	}
-	return (NULL);
-}
 
 void		print_table(t_table* t)
 {
@@ -43,7 +29,6 @@ void		print_table(t_table* t)
 
 void		draw()
 {
-	g_table = rebuild_table();
 	if (g_table == NULL)
 	{
 		ft_printf("expand console please!");
@@ -57,7 +42,6 @@ void		draw()
 void		redraw()
 {
 	clear();
-	free_table();
 	draw();
 }
 
@@ -70,12 +54,13 @@ int	main(int argc, char** argv)
 		show_usage();
 		ft_exit(1);
 	}
-	set_active_cell_offset(0);
-	draw();
+	//free_table();
+	//g_table = rebuild_table();
+	//draw();
 	while (TRUE)
 	{
-		process_command(read_command());
-		redraw();
+		if (process_command(read_command()))
+			redraw();
 	}
 	return (100500);
 }

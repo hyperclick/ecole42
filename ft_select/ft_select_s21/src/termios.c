@@ -17,31 +17,30 @@ static struct termios	g_stored_settings;
 struct termios g_new_settings;
 static BOOL				g_set = FALSE;
 
-
-int	ft_putc(int c)
+int	ft_putc_err(int c)
 {
-	ft_putchar(c);
+	ft_putchar_fd(c, STDERR_FILENO);
 	return (1);
 }
 
 void		enter_full_screen()
 {
-	tputs(tgetstr("ti", NULL), 1, ft_putc);
+	tputs(tgetstr("ti", NULL), 1, ft_putc_err);
 }
 
 void		exit_full_screen()
 {
-	tputs(tgetstr("te", NULL), 1, ft_putc);
+	tputs(tgetstr("te", NULL), 1, ft_putc_err);
 }
 
 void		hide_cursor()
 {
-	tputs(tgetstr("vi", NULL), 1, ft_putc);
+	tputs(tgetstr("vi", NULL), 1, ft_putc_err);
 }
 
 void		show_cursor()
 {
-	tputs(tgetstr("ve", NULL), 1, ft_putc);
+	tputs(tgetstr("ve", NULL), 1, ft_putc_err);
 }
 
 void	set_keypress(void)
@@ -52,7 +51,7 @@ void	set_keypress(void)
 
 	if (!isatty(STDERR_FILENO))
 	{
-		ft_putendl_fd("Not a terminal.", STDERR_FILENO);
+		ft_putendl_fd("stderr not a terminal. rerun without redirect\n", STDERR_FILENO);
 		ft_exit(5);
 	}
 	t = getenv("TERM");
@@ -62,7 +61,6 @@ void	set_keypress(void)
 		ft_exit(4);
 	}
 	r = tgetent(buf, t);
-	//free(t);
 	if (r <= 0)
 	{
 		ft_printf_fd(STDERR_FILENO, "terminal '%s' not found in termios database\n", t);
@@ -73,7 +71,7 @@ void	set_keypress(void)
 	tcgetattr(STDERR_FILENO, &g_new_settings);
 	g_new_settings.c_lflag &= ~(ICANON | ECHO);
 	g_new_settings.c_cc[VMIN] = 1;
-	g_new_settings.c_cc[VTIME] = 4;
+	g_new_settings.c_cc[VTIME] = 0;
 	tcsetattr(STDERR_FILENO, TCSANOW, &g_new_settings);
 	enter_full_screen();
 	hide_cursor();
@@ -102,5 +100,5 @@ cc_t	get_param(int p)
 
 void		clear()
 {
-	tputs(tgetstr("cl", NULL), 1, ft_putc);
+	tputs(tgetstr("cl", NULL), 1, ft_putc_err);
 }

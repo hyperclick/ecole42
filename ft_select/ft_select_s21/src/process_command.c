@@ -18,64 +18,91 @@ BOOL		is_del_or_backspace(char *str)
 		|| (ft_strlen(str) == 1 && *str == KEY_BACKSPACE));
 }
 
-void			process_command(char *str)
+int			process_command2(char* cmd_name)
 {
-	int		r;
-
-	r = 20;
-	if (str == NULL)
+	if (ft_strlen(cmd_name) == 1)
 	{
-		ft_exit(r);
-	}
-	debug_printf("\n");
-	debug_printf("-----------------------\n");
-	debug_printf("process command: '%s'\n", str);
-	if (ft_strlen(str) == 1)
-	{
-		if (*str == KEY_ESC)
+		if (*cmd_name == KEY_ESC)
 		{
-			r = 1;
+			ft_strcpy(cmd_name, "KEY_ESC");
+			return (1);
 		}
-		if (*str == '\n')
+		else if (*cmd_name == '\n')
 		{
-			r = 0;
+			ft_strcpy(cmd_name, "KEY_ENTER");
 			show_selection();
+			return (0);
 		}
-		if (*str == ' ')
+		else if (*cmd_name == ' ')
 		{
+			ft_strcpy(cmd_name, "KEY_SPACE");
 			toggle_active_cell(g_table);
+			return (-20);
 		}
 	}
-	if (is_del_or_backspace(str))
+	if (is_del_or_backspace(cmd_name))
 	{
+		ft_strcpy(cmd_name, "KEY_DEL");
 		process_delete();
 		if (g_options_count == 0)
 		{
-			r = 1;
+			return (3);
 		}
+		return (-20);
 	}
-	if (ft_strequ(KEY_UP, str))
+	else if (ft_strequ(KEY_UP, cmd_name))
 	{
+		ft_strcpy(cmd_name, "KEY_UP");
 		process_key_up();
+		return (-20);
 	}
-	if (ft_strequ(KEY_DOWN, str))
+	else if (ft_strequ(KEY_DOWN, cmd_name))
 	{
+		ft_strcpy(cmd_name, "KEY_DOWN");
 		process_key_down();
+		return (-20);
 	}
-	if (ft_strequ(KEY_LEFT, str))
+	else if (ft_strequ(KEY_LEFT, cmd_name))
 	{
+		ft_strcpy(cmd_name, "KEY_LEFT");
 		process_key_left();
+		return (-20);
 	}
-	if (ft_strequ(KEY_RIGHT, str))
+	else if (ft_strequ(KEY_RIGHT, cmd_name))
 	{
+		ft_strcpy(cmd_name, "KEY_RIGHT");
 		process_key_right();
+		return (-20);
 	}
-	debug_printf("command processed: '%s'\n", str);
+
+	return (-21);
+}
+
+BOOL			process_command(char *str)
+{
+	char cmd_name[100];
+	int		r;
+
+	if (str == NULL)
+	{
+		ft_exit(5);
+	}
+	ft_strcpy(cmd_name,str);
+	free(str);
+	debug_printf("\n");
+	debug_printf("-----------------------\n");
+	debug_printf("process command: '%s'\n", cmd_name);
+	r = process_command2(cmd_name);
+	debug_printf("command processed: '%s'\n", cmd_name);
 	debug_printf("-------------------------\n");
 	debug_printf("\n");
-			free(str);
-	if (r!=20)
+	if (r == -21)
+	{
+		return (FALSE);
+	}
+	if (r!=-20)
 	{
 		ft_exit(r);
 	}
+	return (TRUE);
 }

@@ -55,10 +55,8 @@ char** from_arc_argv(int argc, char **argv)
 	r[argc] = NULL;
 	while (argc-- > 0)
 	{
-		//char* q = *argv;
 		char* w = ft_strdup(*argv++);
 		*r = w;
-		//ft_printf("argv = '%s', w = '%s', r = '%s'\n", q, w, (*r));
 		r++;
 	}
 	return (start_r);
@@ -66,7 +64,7 @@ char** from_arc_argv(int argc, char **argv)
 
 void update_hw()
 {
-	ioctl(0, TIOCGWINSZ, &g_size_current);
+	ioctl(STDERR_FILENO, TIOCGWINSZ, &g_size_current);
 	debug_printf("lines %d\n", g_size_current.ws_row);
 	debug_printf("columns %d\n", g_size_current.ws_col);
 }
@@ -75,7 +73,7 @@ void		sig_tstp_handler()
 {
 	reset_keypress();
 	signal(SIGTSTP, SIG_DFL);
-	ioctl(STDOUT_FILENO, TIOCSTI, "\x1A");
+	ioctl(STDERR_FILENO, TIOCSTI, "\x1A");
 }
 void		sig_cont_handler()
 {
@@ -84,9 +82,26 @@ void		sig_cont_handler()
 	redraw();
 }
 
+t_table* rebuild_table()
+{
+	int count;
+
+	free_table();
+	count = ft_count_null_term_array((void**)g_options);
+	while (count > 0)
+	{
+		if ((g_table = try_cols(count--)) != NULL)
+		{
+			return (g_table);
+		}
+	}
+	return (NULL);
+}
+
 void		sig_winch_handler()
 {
 	update_hw();
+	rebuild_table();
 	redraw();
 	hide_cursor();
 }
@@ -143,9 +158,9 @@ void	init(int argc, char **argv)
 	g_options = from_arc_argv(argc - 1, argv + 1);
 	g_options_count = argc - 1;
 	alloc_selected(g_options_count);
-	//debug_printf("\nconverted:\n");
-	//debug_print_zt_array((const char **)g_options);
-	update_hw();
+	//update_hw();
 	set_signal_handlers();
 	set_keypress();
+	set_active_cell_offset(0);
+	sig_winch_handler();
 }

@@ -23,7 +23,7 @@ BOOL	process_key_down(void)
 		return (TRUE);
 	}
 	c = get_active_cell_coord(g_table);
-	new_row = c.row == get_last_row(g_table) ? 0 : c.row + 1;
+	new_row = c.row == get_last_row_in_col(g_table, c.col) ? 0 : c.row + 1;
 	c.row = new_row;
 	set_active_cell(g_table, c);
 	return (TRUE);
@@ -39,7 +39,7 @@ BOOL	process_key_up(void)
 		return (TRUE);
 	}
 	c = get_active_cell_coord(g_table);
-	new_row = c.row == 0 ? get_last_row(g_table) : c.row - 1;
+	new_row = c.row == 0 ? get_last_row_in_col(g_table, c.col) : c.row - 1;
 	c.row = new_row;
 	set_active_cell(g_table, c);
 	return (TRUE);
@@ -55,7 +55,8 @@ BOOL	process_key_left(void)
 		return (TRUE);
 	}
 	c = get_active_cell_coord(g_table);
-	new_col = c.col == 0 ? get_last_col(g_table) : c.col - 1;
+	new_col = c.col == 0 ? get_last_col_in_row(g_table, c.row) : c.col - 1;
+	debug_printf("last col in row %d = %d\n", c.row , get_last_col_in_row(g_table, c.row)  );
 	c.col = new_col;
 	set_active_cell(g_table, c);
 	return (TRUE);
@@ -71,7 +72,7 @@ BOOL	process_key_right(void)
 		return (TRUE);
 	}
 	c = get_active_cell_coord(g_table);
-	new_col = c.col == get_last_col(g_table) ? 0 : c.col + 1;
+	new_col = c.col == get_last_col_in_row(g_table, c.row) ? 0 : c.col + 1;
 	c.col = new_col;
 	set_active_cell(g_table, c);
 	return (TRUE);

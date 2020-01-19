@@ -26,16 +26,16 @@ void		set_active_cell_offset(int offset)
 
 void		set_active_cell(t_table* t, t_coord new_c)
 {
-	//t_coord c;
+	t_coord c;
 
 	if (is_out_of_table(t, new_c.row, new_c.col))
 	{
 		debug_printf("ignore set active cell to %d:%d since it out of table\n", new_c.row, new_c.col);
 		return;
 	}
-	//c = get_active_cell_coord();
+	c = get_active_cell_coord(t);
 	set_active_cell_offset(get_offset(t, new_c.row, new_c.col));
-	//debug_printf("change active cell from %d:%d to %d:%d (%d)\n", c.row, c.col, new_c.row, new_c.col, g_active_index);
+	debug_printf("change active cell from %d:%d to %d:%d (%d)\n", c.row, c.col, new_c.row, new_c.col, g_active_index);
 }
 
 BOOL		is_active2(int offset)
@@ -156,7 +156,6 @@ void		remove_from_selected_at(int n)
 		n++;
 	}
 	g_selected[--g_selected_count] = -1;
-	dump_selection();
 }
 
 BOOL		remove_if_selected(int offset)
@@ -178,6 +177,7 @@ void		toggle_active_cell()
 	{
 		select_add(get_active_cell_offset());
 	}
+	dump_selection();
 }
 
 void	 handle_item_deleted(int offset)
@@ -193,4 +193,5 @@ void	 handle_item_deleted(int offset)
 			select_add(i - 1);
 		}
 	}
+	dump_selection();
 }

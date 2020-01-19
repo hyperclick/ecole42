@@ -17,6 +17,11 @@
 # include <termcap.h>
 # define TAB_LEN 4
 
+# define DEFAULT_COLOR			"\033[0m"
+# define A_COLOR				"\033[31m"
+# define REVERSE_VIDEO_COLOR		"\033[7m"
+# define UNDERLINED				"\033[4m"
+
 typedef struct s_table
 {
 	int	height;
@@ -35,13 +40,16 @@ extern struct winsize g_size_current;
 extern t_table	*g_table;
 char		* table_to_string(t_table* t);
 
+t_table* rebuild_table();
 void		free_table(void);
 t_table	*try_cols(int cols);
 t_coord	get_active_cell_coord(t_table* t);
 int		get_offset(t_table* t, int row, int col);
 char		*fill_spaces(char* str, int n);
 int		get_last_row(t_table* t);
-int		get_last_col(t_table* t); 
+int		get_last_col(t_table* t);
+int		get_last_row_in_col(t_table* t, int col);
+int		get_last_col_in_row(t_table* t, int row);
 BOOL		is_out_of_table2(t_table* t, int offset);
 BOOL		is_out_of_table(t_table* t, int row, int col);
 
@@ -69,7 +77,7 @@ void		redraw();
 void		ft_exit(int ret_code);
 void		init(int argc, char **argv);
 void		ft_default_sig_handler(int signum);
-void			process_command( char *str);
+BOOL		process_command( char *str);
 
 char		*replace_quoted(const char *str);
 void		replace_back(char *a[]);

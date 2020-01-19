@@ -27,10 +27,33 @@ t_coord	get_coord_by_offset(t_table* t, int offset)
 	t_coord c;
 
 	c.row = offset / t->width;
-	c.col = offset  % t->width;
-	//debug_printf("t->active_index = %d, t->width = %d, c.row = %d, c.col = %d\n",t->active_index, t->width, c.row, c.col);
+	c.col = offset % t->width;
+	//debug_printf("\n", offset);
 	return (c);
 }
+
+t_coord		get_last_cell_coord(t_table* t)
+{
+	return (get_coord_by_offset(t, t->cells_count - 1));
+}
+
+int		get_last_row_in_col(t_table* t, int col)
+{
+	t_coord last;
+
+	last = get_last_cell_coord(t);
+	return (col <= last.col ? last.row : last.row - 1);
+}
+
+int		get_last_col_in_row(t_table* t, int row)
+{
+	t_coord last;
+
+	last = get_last_cell_coord(t);
+	debug_printf("last cell coord = %d:%d\n", last.row, last.col);
+	return (row < last.row ? get_last_col(t) : last.col);
+}
+
 
 t_coord	get_active_cell_coord(t_table* t)
 {
@@ -49,7 +72,7 @@ BOOL		is_out_of_table2(t_table* t, int offset)
 
 BOOL		is_out_of_table(t_table* t, int row, int col)
 {
-	return (is_out_of_table2(t, get_offset(t, row, col)));
+	return (row < 0 || col < 0 || is_out_of_table2(t, get_offset(t, row, col)));
 }
 
 char* get_cell(t_table* t, int row, int col)
@@ -61,11 +84,10 @@ char* get_cell(t_table* t, int row, int col)
 	{
 		return (NULL);
 	}
-	//debug_printf("get cell: row= %d, col = %d, offset = %d, cell = '%s', t->cells_count = %d\n", row, col, offset, t->cells[offset], t->cells_count);
 	if (t->cells[offset] == NULL)
-	{
-		ft_printf("smth wrong\n");
-		ft_exit(1);
+	{//debug_printf("get cell: row= %d, col = %d, offset = %d, cell = '%s', t->cells_count = %d\n", row, col, offset, t->cells[offset], t->cells_count);
+		debug_printf("smth wrong\n");
+		ft_exit(11);
 	}
 	return (t->cells[offset]);
 }
@@ -150,40 +172,18 @@ t_table* try_table(t_table* t)
 	}
 }
 
-
 void		fill_cells(t_table* t, char** src)
 {
 	t->cells = src;
 	t->cells_count = ft_count_null_term_array((void**)src);
-	/*return;
-	int count;
-	int i;
-	int j;
-
-	while (*src != NULL)
-	{
-		*(t->cells)++ = *src++;
-	}
-	return;
-	count = ft_count_null_term_array((void**)src);
-	i = -1;
-	while (++i < t->height)
-	{
-		j = -1;
-		while (++j < t->width)
-		{
-			t->cells[i * t->width + j] = src[i * t->width + j];
-		}
-	}*/
 }
 
 void free_table()
 {
 	if (g_table != NULL)
 	{
-		//		ft_free_array((void**)g_table->cells, g_table->height * g_table->width);
+		debug_printf("table freed\n");
 		free(g_table->col_widths);
-		//free(g_table->selected);
 		free(g_table);
 		g_table = NULL;
 	}
@@ -196,13 +196,10 @@ t_table* fill_table(int rows, int cols)
 	t = (t_table*)malloc(sizeof(t_table));
 	t->height = rows;
 	t->width = cols;
-	//t->cells = (char**)malloc(sizeof(char*) * rows * cols);
-	//t->active_index = -1;
 	fill_cells(t, g_options);
 	debug_printf("table (h:%d, w:%d) created\n", t->height, t->width);
 	return(t);
 }
-
 
 t_table* try_cols(int cols)
 {
@@ -216,8 +213,7 @@ t_table* try_cols(int cols)
 	{
 		rows++;
 	}
-
-	if (rows == 0)
+	if (rows == 0 || rows > g_size_current.ws_row)
 	{
 		return (NULL);
 	}
@@ -228,14 +224,10 @@ char* fill_spaces(char* str, int n)
 {
 	while (n-- > 0)
 	{
-		*str++ = '_';
+		*str++ = ' ';
 	}
 	return (str);
 }
-# define DEFAULT_COLOR			"\033[0m"
-# define A_COLOR				"\033[31m"
-# define REVERSE_VIDEO_COLOR		"\033[7m"
-# define UNDERLINED				"\033[4m"
 
 char* fill_table_cell(char* str, t_table* t, int i, int j)
 {
@@ -253,7 +245,6 @@ char* fill_table_cell(char* str, t_table* t, int i, int j)
 	if (is_selected(t, i, j))
 	{
 		ft_strcpy(str, REVERSE_VIDEO_COLOR);
-		debug_printf("selected: (%d, %d): '%s'\n",i, j, str);
 		str += ft_strlen(REVERSE_VIDEO_COLOR);
 	}
 	ft_strcpy(str, cell);
@@ -266,38 +257,6 @@ char* fill_table_cell(char* str, t_table* t, int i, int j)
 	return (str);
 }
 
-void		fill_table_string(char* str, t_table* t)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (++i < t->height)
-	{
-		j = -1;
-		while (++j < t->width)
-		{
-			if (is_out_of_table(t, i, j))
-			{
-				*str = 0;
-				return;
-			}
-			str = fill_table_cell(str, t, i, j);
-		}
-		*str = '\n';
-		str++;
-	}
-	if (*(str - 1) == '\n')
-	{
-		str--;
-	}
-	debug_printf("str - 1 = '%c'\n", *(str - 1));
-	if (*(str - 1) == '_')
-	{
-		str--;
-	}
-	*str = 0;
-}
 void		fill_table_string2(char* str, t_table* t)
 {
 	int	i;
@@ -311,9 +270,6 @@ void		fill_table_string2(char* str, t_table* t)
 		{
 			if (is_out_of_table(t, i, j))
 			{
-				//debug_printf("i:%d, j:%d, sum(0:%d) = %d spaces\n", i, j, j, sum_array(t->col_widths, j));
-				//debug_printf("i:%d, j:%d, want to fill %d spaces\n", i, j, g_size_current.ws_col - sum_array(t->col_widths, j));
-				//str = fill_spaces(str, g_size_current.ws_col - sum_array(t->col_widths, j));
 				*str = 0;
 				return;
 			}
@@ -327,8 +283,8 @@ void		fill_table_string2(char* str, t_table* t)
 	{
 		str--;
 	}
-	debug_printf("str - 1 = '%c'\n", *(str - 1));
-	if (*(str - 1) == '_')
+	//debug_printf("str - 1 = '%c'\n", *(str - 1));
+	if (*(str - 1) == ' ')
 	{
 		str--;
 	}
@@ -345,5 +301,6 @@ char* table_to_string(t_table* t)
 	debug_printf("%d allocated for table string(%d + %d * %d + 1)\n", size, t->height, t->height, g_size_current.ws_col);
 	//r[t->height * t->printed_width] = 0;
 	fill_table_string2(r, t);
+	debug_printf("table_to_string succeeded\n");
 	return (r);
 }

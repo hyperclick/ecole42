@@ -23,8 +23,9 @@ BOOL	process_delete(void)
 	{
 		set_active_cell_offset(g_options_count - 1);
 	}
-	debug_printf("after remove at %d:\n", offset);
-	debug_print_zt_array((const char**)g_options);
+	//debug_printf("after remove at %d:\n", offset);
+	//debug_print_zt_array((const char**)g_options);
 	handle_item_deleted(offset);
+	rebuild_table();
 	return (TRUE);
 }
