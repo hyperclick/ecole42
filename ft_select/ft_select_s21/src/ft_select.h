@@ -98,6 +98,7 @@ cc_t		get_param(int p);
 void		hide_cursor();
 void		show_cursor(); 
 int	ft_putc(int c);
+void		ft_tputs(const char* str);
 
 char* read_command(void);
 

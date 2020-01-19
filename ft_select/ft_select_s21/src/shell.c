@@ -87,7 +87,7 @@ t_table* rebuild_table()
 	int count;
 
 	free_table();
-	count = ft_count_null_term_array((void**)g_options);
+	count = MIN(g_size_current.ws_col/2 - 1, ft_count_null_term_array((void**)g_options));
 	while (count > 0)
 	{
 		if ((g_table = try_cols(count--)) != NULL)

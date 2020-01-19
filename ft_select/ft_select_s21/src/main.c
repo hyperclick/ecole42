@@ -24,6 +24,7 @@ void		print_table(t_table* t)
 
 	to_print = table_to_string(t);
 	ft_printf_fd(STDERR_FILENO, to_print);
+	//ft_tputs(to_print);
 	free(to_print);
 }
 

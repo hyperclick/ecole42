@@ -102,3 +102,8 @@ void		clear()
 {
 	tputs(tgetstr("cl", NULL), 1, ft_putc_err);
 }
+
+void		ft_tputs(const char *str)
+{
+	tputs(str, 1, ft_putc_err);
+}
