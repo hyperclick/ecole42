@@ -158,9 +158,6 @@ void	init(int argc, char **argv)
 	g_options = from_arc_argv(argc - 1, argv + 1);
 	g_options_count = argc - 1;
 	alloc_selected(g_options_count);
-	//update_hw();
 	set_signal_handlers();
-	set_keypress();
-	set_active_cell_offset(0);
-	sig_winch_handler();
+	//set_keypress();
 }

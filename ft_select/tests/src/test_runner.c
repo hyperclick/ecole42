@@ -1,4 +1,4 @@
-
+#include "tests.h"
 
 #define BUF_SIZE 10
 BOOL	compare_buffers(int e_read, int a_read, char e_buf[BUF_SIZE], char a_buf[BUF_SIZE])

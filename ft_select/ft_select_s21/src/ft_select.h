@@ -40,6 +40,8 @@ extern struct winsize g_size_current;
 extern t_table	*g_table;
 char		* table_to_string(t_table* t);
 
+
+
 t_table* rebuild_table();
 void		free_table(void);
 t_table	*try_cols(int cols);
@@ -52,6 +54,8 @@ int		get_last_row_in_col(t_table* t, int col);
 int		get_last_col_in_row(t_table* t, int row);
 BOOL		is_out_of_table2(t_table* t, int offset);
 BOOL		is_out_of_table(t_table* t, int row, int col);
+
+void		redraw();
 
 BOOL		is_active2(int offset);
 BOOL		is_active(t_table* t, int i, int j);
@@ -68,11 +72,11 @@ void		toggle_active_cell();
 void	 handle_item_deleted(int offset);
 void		print_selection(char** options);
 
-void update_hw();
 void		set_signal_handlers();
+void		update_hw();
+void		sig_winch_handler();
 void		clear();
 void		show_selection();
-void		redraw();
 
 void		ft_exit(int ret_code);
 void		init(int argc, char **argv);

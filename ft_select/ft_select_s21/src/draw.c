@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,28 +12,30 @@
 
 #include "ft_select.h"
 
-void		show_usage()
+void		print_table(t_table* t)
 {
-	ft_putstr_fd( "usage: ft_select option1 option2 ...\n",STDERR_FILENO);
+	char* to_print;
+
+	to_print = table_to_string(t);
+	ft_printf_fd(STDERR_FILENO, to_print);
+	//ft_tputs(to_print);
+	free(to_print);
 }
 
-int	main(int argc, char** argv)
+void		draw()
 {
-	init(argc, argv);
-	if (argc == 1)
+	if (g_table == NULL)
 	{
-		//reset_keypress();
-		show_usage();
-		ft_exit(1);
+		ft_printf("expand console please!");
 	}
+	else
+	{
+		print_table(g_table);
+	}
+}
 
-	set_keypress();
-	set_active_cell_offset(0);
-	sig_winch_handler();
-	while (TRUE)
-	{
-		if (process_command(read_command()))
-			redraw();
-	}
-	return (100500);
+void		redraw()
+{
+	clear();
+	draw();
 }

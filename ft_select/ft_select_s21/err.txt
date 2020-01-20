@@ -1,2 +1,1 @@
-stderr not a terminal. rerun without redirect
-
+[?1049h[22;0;0t[?25l[H[2J[4m_________option_1________[0m                                                                          [?25l[?12l[?25h[?1049l[23;0;0t
