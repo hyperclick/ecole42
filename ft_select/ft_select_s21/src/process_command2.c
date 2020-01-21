@@ -34,7 +34,8 @@ int			process_char(char *cmd_name)
 	else if (*cmd_name == ' ')
 	{
 		ft_strcpy(cmd_name, "KEY_SPACE");
-		toggle_active_cell(g_table);
+		toggle_active_cell(g_table); 
+		process_key_right();
 		return (DO_NOT_EXIT);
 	}
 	return (DO_NOT_REDRAW);
