@@ -29,16 +29,7 @@ char *fill_table_cell(char *str, t_table *t, int i, int j)
 
 	cell = get_cell(t, i, j);
 	cell_len = ft_strlen(cell);
-	if (is_active(t, i, j))
-	{
-		ft_strcpy(str, UNDERLINED);
-		str += ft_strlen(UNDERLINED);
-	}
-	if (is_selected(t, i, j))
-	{
-		ft_strcpy(str, REVERSE_VIDEO_COLOR);
-		str += ft_strlen(REVERSE_VIDEO_COLOR);
-	}
+	str = colorize(cell, is_active(t, i, j), is_selected(t, i, j), str);
 	ft_strcpy(str, cell);
 	str += cell_len;
 	ft_strcpy(str, DEFAULT_COLOR);

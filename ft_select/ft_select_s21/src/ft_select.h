@@ -22,9 +22,15 @@
 # define DO_NOT_EXIT -20
 
 # define DEFAULT_COLOR			"\033[0m"
-# define A_COLOR				"\033[31m"
-# define REVERSE_VIDEO_COLOR		"\033[7m"
 # define UNDERLINED				"\033[4m"
+# define REVERSE_VIDEO_COLOR		"\033[7m"
+# define COLOR_RED				"\033[31m"
+# define COLOR_GREEN				"\033[32m"
+# define COLOR_YELLOW			"\033[33m"
+# define COLOR_BLUE				"\033[34m"
+# define COLOR_VIOLET			"\033[35m"
+# define COLOR_SEA_WAVE			"\033[36m"
+# define COLOR_GRAY				"\033[37m"
 
 typedef struct s_table
 {
@@ -43,6 +49,7 @@ extern struct winsize g_size_current;
 extern t_table *g_table;
 
 char *table_to_string(t_table *t);
+char *colorize(const char *cell, BOOL is_active, BOOL is_selected, char *str);
 
 t_table *rebuild_table();
 t_table *table_create(int rows, int cols);

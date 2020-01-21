@@ -151,6 +151,7 @@ int		ft_int_array_sum(int cols[], int size);
 int				ft_str_count_chars(const char *str, const char find);
 void			ft_sort_strings(char *a[], int count);
 BOOL			ft_starts_with(const char *str, const char c);
+BOOL		ft_str_ends_with(char const *str, const char *end);
 BOOL			ft_str_starts_with(char const *str, const char *start);
 void			ft_str_insert_at(char *dst, int n, char c);
 BOOL			ft_str_is_empty(const char *s);
