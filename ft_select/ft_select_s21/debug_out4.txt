@@ -1,7 +1,11 @@
 [main]	started
-[main]	agrc = 219
+[main]	agrc = 217
 [main]	lines 56
-[main]	columns 117
+[main]	columns 119
+[main]	try_cols: 58
+[main]	table (h:4, w:58) created
+[main]	t->printed_width = 1358
+[main]	table freed
 [main]	try_cols: 57
 [main]	table (h:4, w:57) created
 [main]	t->printed_width = 1330
@@ -15,7 +19,7 @@
 [main]	t->printed_width = 1268
 [main]	table freed
 [main]	try_cols: 54
-[main]	table (h:5, w:54) created
+[main]	table (h:4, w:54) created
 [main]	t->printed_width = 1245
 [main]	table freed
 [main]	try_cols: 53
@@ -87,7 +91,7 @@
 [main]	t->printed_width = 883
 [main]	table freed
 [main]	try_cols: 36
-[main]	table (h:7, w:36) created
+[main]	table (h:6, w:36) created
 [main]	t->printed_width = 860
 [main]	table freed
 [main]	try_cols: 35
@@ -107,7 +111,7 @@
 [main]	t->printed_width = 792
 [main]	table freed
 [main]	try_cols: 31
-[main]	table (h:8, w:31) created
+[main]	table (h:7, w:31) created
 [main]	t->printed_width = 775
 [main]	table freed
 [main]	try_cols: 30
@@ -123,7 +127,7 @@
 [main]	t->printed_width = 707
 [main]	table freed
 [main]	try_cols: 27
-[main]	table (h:9, w:27) created
+[main]	table (h:8, w:27) created
 [main]	t->printed_width = 669
 [main]	table freed
 [main]	try_cols: 26
@@ -135,7 +139,7 @@
 [main]	t->printed_width = 640
 [main]	table freed
 [main]	try_cols: 24
-[main]	table (h:10, w:24) created
+[main]	table (h:9, w:24) created
 [main]	t->printed_width = 608
 [main]	table freed
 [main]	try_cols: 23
@@ -159,7 +163,7 @@
 [main]	t->printed_width = 494
 [main]	table freed
 [main]	try_cols: 18
-[main]	table (h:13, w:18) created
+[main]	table (h:12, w:18) created
 [main]	t->printed_width = 467
 [main]	table freed
 [main]	try_cols: 17
@@ -183,7 +187,7 @@
 [main]	t->printed_width = 345
 [main]	table freed
 [main]	try_cols: 12
-[main]	table (h:19, w:12) created
+[main]	table (h:18, w:12) created
 [main]	t->printed_width = 320
 [main]	table freed
 [main]	try_cols: 11
@@ -195,19 +199,19 @@
 [main]	t->printed_width = 273
 [main]	table freed
 [main]	try_cols: 9
-[main]	table (h:25, w:9) created
+[main]	table (h:24, w:9) created
 [main]	t->printed_width = 242
 [main]	table freed
 [main]	try_cols: 8
-[main]	table (h:28, w:8) created
+[main]	table (h:27, w:8) created
 [main]	t->printed_width = 221
 [main]	table freed
 [main]	try_cols: 7
-[main]	table (h:32, w:7) created
+[main]	table (h:31, w:7) created
 [main]	t->printed_width = 192
 [main]	table freed
 [main]	try_cols: 6
-[main]	table (h:37, w:6) created
+[main]	table (h:36, w:6) created
 [main]	t->printed_width = 165
 [main]	table freed
 [main]	try_cols: 5
@@ -215,7 +219,17 @@
 [main]	t->printed_width = 143
 [main]	table freed
 [main]	try_cols: 4
-[main]	table (h:55, w:4) created
+[main]	table (h:54, w:4) created
 [main]	t->printed_width = 115
-[main]	14339 allocated for table string(55 + 55 * 117 + 1)
+[main]	14257 allocated for table string(54 + 54 * 119 + 1)
 [main]	table_to_string succeeded
+[main]	entered:	 = ''
+[main]	
+[main]	-----------------------
+[main]	process command: ''
+[main]	command processed: 'KEY_ESC'
+[main]	-------------------------
+[main]	
+[main]	exit process (1)
+[main]	restore term caps
+[main]	table freed

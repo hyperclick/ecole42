@@ -18,6 +18,17 @@ BOOL		is_del_or_backspace(char *str)
 		|| (ft_strlen(str) == 1 && *str == KEY_BACKSPACE));
 }
 
+int		process_del_or_backspace(char *cmd_name)
+{
+	ft_strcpy(cmd_name, "KEY_DEL");
+	process_delete();
+	if (g_options_count == 0)
+	{
+		return (3);
+	}
+	return (DO_NOT_EXIT);
+}
+
 int			process_char(char *cmd_name)
 {
 	if (*cmd_name == KEY_ESC)
@@ -38,18 +49,11 @@ int			process_char(char *cmd_name)
 		process_key_right();
 		return (DO_NOT_EXIT);
 	}
-	return (DO_NOT_REDRAW);
-}
-
-int		process_del_or_backspace(char *cmd_name)
-{
-	ft_strcpy(cmd_name, "KEY_DEL");
-	process_delete();
-	if (g_options_count == 0)
+	else if (*cmd_name == KEY_BACKSPACE)
 	{
-		return (3);
+		return (process_del_or_backspace(cmd_name));
 	}
-	return (DO_NOT_EXIT);
+	return (DO_NOT_REDRAW);
 }
 
 int	process_others(char *cmd_name)
