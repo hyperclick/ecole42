@@ -14,7 +14,7 @@
 
 void		show_usage()
 {
-	ft_putstr_fd( "usage: ft_select option1 option2 ...\n",STDERR_FILENO);
+	ft_putstr_fd("usage: ft_select option1 option2 ...\n", STDERR_FILENO);
 }
 
 int	main(int argc, char** argv)
@@ -22,11 +22,9 @@ int	main(int argc, char** argv)
 	init(argc, argv);
 	if (argc == 1)
 	{
-		//reset_keypress();
 		show_usage();
 		ft_exit(1);
 	}
-
 	set_keypress();
 	set_active_cell_offset(0);
 	sig_winch_handler();

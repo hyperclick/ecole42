@@ -12,13 +12,12 @@
 
 #include "ft_select.h"
 
-void		print_table(t_table* t)
+void		print_table(t_table *t)
 {
-	char* to_print;
+	char *to_print;
 
 	to_print = table_to_string(t);
 	ft_printf_fd(STDERR_FILENO, to_print);
-	//ft_tputs(to_print);
 	free(to_print);
 }
 

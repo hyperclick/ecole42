@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   table.c                                          :+:      :+:    :+:   */
+/*   selection3.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,34 +12,27 @@
 
 #include "ft_select.h"
 
-int		get_last_row(t_table *t)
+void		toggle_active_cell()
 {
-	return (t->height - 1);
+	if (!remove_if_selected(get_active_cell_offset()))
+	{
+		select_add(get_active_cell_offset());
+	}
+	dump_selection();
 }
 
-int		get_last_col(t_table *t)
+void	 handle_item_deleted(int offset)
 {
-	return (t->width - 1);
-}
+	int	i;
 
-t_coord		get_last_cell_coord(t_table *t)
-{
-	return (get_coord_by_offset(t, t->cells_count - 1));
-}
-
-int		get_last_row_in_col(t_table *t, int col)
-{
-	t_coord last;
-
-	last = get_last_cell_coord(t);
-	return (col <= last.col ? last.row : last.row - 1);
-}
-
-int		get_last_col_in_row(t_table *t, int row)
-{
-	t_coord last;
-
-	last = get_last_cell_coord(t);
-	debug_printf("last cell coord = %d:%d\n", last.row, last.col);
-	return (row < last.row ? get_last_col(t) : last.col);
+	remove_if_selected(offset);
+	i = offset;
+	while (++i < g_options_count + 1)
+	{
+		if (remove_if_selected(i))
+		{
+			select_add(i - 1);
+		}
+	}
+	dump_selection();
 }

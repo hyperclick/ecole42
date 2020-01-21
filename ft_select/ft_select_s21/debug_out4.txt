@@ -1,4 +1,209 @@
 [main]	started
-[main]	agrc = 1
-[main]	exit process (1)
-[main]	g_stored_settings = NULL
+[main]	agrc = 174
+[main]	lines 56
+[main]	columns 110
+[main]	try_cols: 54
+[main]	table (h:4, w:54) created
+[main]	t->printed_width = 921
+[main]	table freed
+[main]	try_cols: 53
+[main]	table (h:4, w:53) created
+[main]	t->printed_width = 907
+[main]	table freed
+[main]	try_cols: 52
+[main]	table (h:4, w:52) created
+[main]	t->printed_width = 880
+[main]	table freed
+[main]	try_cols: 51
+[main]	table (h:4, w:51) created
+[main]	t->printed_width = 859
+[main]	table freed
+[main]	try_cols: 50
+[main]	table (h:4, w:50) created
+[main]	t->printed_width = 831
+[main]	table freed
+[main]	try_cols: 49
+[main]	table (h:4, w:49) created
+[main]	t->printed_width = 823
+[main]	table freed
+[main]	try_cols: 48
+[main]	table (h:4, w:48) created
+[main]	t->printed_width = 814
+[main]	table freed
+[main]	try_cols: 47
+[main]	table (h:4, w:47) created
+[main]	t->printed_width = 799
+[main]	table freed
+[main]	try_cols: 46
+[main]	table (h:4, w:46) created
+[main]	t->printed_width = 769
+[main]	table freed
+[main]	try_cols: 45
+[main]	table (h:4, w:45) created
+[main]	t->printed_width = 755
+[main]	table freed
+[main]	try_cols: 44
+[main]	table (h:4, w:44) created
+[main]	t->printed_width = 758
+[main]	table freed
+[main]	try_cols: 43
+[main]	table (h:5, w:43) created
+[main]	t->printed_width = 757
+[main]	table freed
+[main]	try_cols: 42
+[main]	table (h:5, w:42) created
+[main]	t->printed_width = 742
+[main]	table freed
+[main]	try_cols: 41
+[main]	table (h:5, w:41) created
+[main]	t->printed_width = 738
+[main]	table freed
+[main]	try_cols: 40
+[main]	table (h:5, w:40) created
+[main]	t->printed_width = 723
+[main]	table freed
+[main]	try_cols: 39
+[main]	table (h:5, w:39) created
+[main]	t->printed_width = 713
+[main]	table freed
+[main]	try_cols: 38
+[main]	table (h:5, w:38) created
+[main]	t->printed_width = 701
+[main]	table freed
+[main]	try_cols: 37
+[main]	table (h:5, w:37) created
+[main]	t->printed_width = 689
+[main]	table freed
+[main]	try_cols: 36
+[main]	table (h:5, w:36) created
+[main]	t->printed_width = 677
+[main]	table freed
+[main]	try_cols: 35
+[main]	table (h:5, w:35) created
+[main]	t->printed_width = 641
+[main]	table freed
+[main]	try_cols: 34
+[main]	table (h:6, w:34) created
+[main]	t->printed_width = 616
+[main]	table freed
+[main]	try_cols: 33
+[main]	table (h:6, w:33) created
+[main]	t->printed_width = 613
+[main]	table freed
+[main]	try_cols: 32
+[main]	table (h:6, w:32) created
+[main]	t->printed_width = 621
+[main]	table freed
+[main]	try_cols: 31
+[main]	table (h:6, w:31) created
+[main]	t->printed_width = 601
+[main]	table freed
+[main]	try_cols: 30
+[main]	table (h:6, w:30) created
+[main]	t->printed_width = 588
+[main]	table freed
+[main]	try_cols: 29
+[main]	table (h:6, w:29) created
+[main]	t->printed_width = 582
+[main]	table freed
+[main]	try_cols: 28
+[main]	table (h:7, w:28) created
+[main]	t->printed_width = 549
+[main]	table freed
+[main]	try_cols: 27
+[main]	table (h:7, w:27) created
+[main]	t->printed_width = 514
+[main]	table freed
+[main]	try_cols: 26
+[main]	table (h:7, w:26) created
+[main]	t->printed_width = 524
+[main]	table freed
+[main]	try_cols: 25
+[main]	table (h:7, w:25) created
+[main]	t->printed_width = 498
+[main]	table freed
+[main]	try_cols: 24
+[main]	table (h:8, w:24) created
+[main]	t->printed_width = 491
+[main]	table freed
+[main]	try_cols: 23
+[main]	table (h:8, w:23) created
+[main]	t->printed_width = 455
+[main]	table freed
+[main]	try_cols: 22
+[main]	table (h:8, w:22) created
+[main]	t->printed_width = 448
+[main]	table freed
+[main]	try_cols: 21
+[main]	table (h:9, w:21) created
+[main]	t->printed_width = 439
+[main]	table freed
+[main]	try_cols: 20
+[main]	table (h:9, w:20) created
+[main]	t->printed_width = 415
+[main]	table freed
+[main]	try_cols: 19
+[main]	table (h:10, w:19) created
+[main]	t->printed_width = 400
+[main]	table freed
+[main]	try_cols: 18
+[main]	table (h:10, w:18) created
+[main]	t->printed_width = 392
+[main]	table freed
+[main]	try_cols: 17
+[main]	table (h:11, w:17) created
+[main]	t->printed_width = 358
+[main]	table freed
+[main]	try_cols: 16
+[main]	table (h:11, w:16) created
+[main]	t->printed_width = 364
+[main]	table freed
+[main]	try_cols: 15
+[main]	table (h:12, w:15) created
+[main]	t->printed_width = 323
+[main]	table freed
+[main]	try_cols: 14
+[main]	table (h:13, w:14) created
+[main]	t->printed_width = 318
+[main]	table freed
+[main]	try_cols: 13
+[main]	table (h:14, w:13) created
+[main]	t->printed_width = 302
+[main]	table freed
+[main]	try_cols: 12
+[main]	table (h:15, w:12) created
+[main]	t->printed_width = 280
+[main]	table freed
+[main]	try_cols: 11
+[main]	table (h:16, w:11) created
+[main]	t->printed_width = 259
+[main]	table freed
+[main]	try_cols: 10
+[main]	table (h:18, w:10) created
+[main]	t->printed_width = 240
+[main]	table freed
+[main]	try_cols: 9
+[main]	table (h:20, w:9) created
+[main]	t->printed_width = 217
+[main]	table freed
+[main]	try_cols: 8
+[main]	table (h:22, w:8) created
+[main]	t->printed_width = 197
+[main]	table freed
+[main]	try_cols: 7
+[main]	table (h:25, w:7) created
+[main]	t->printed_width = 180
+[main]	table freed
+[main]	try_cols: 6
+[main]	table (h:29, w:6) created
+[main]	t->printed_width = 157
+[main]	table freed
+[main]	try_cols: 5
+[main]	table (h:35, w:5) created
+[main]	t->printed_width = 135
+[main]	table freed
+[main]	try_cols: 4
+[main]	table (h:44, w:4) created
+[main]	t->printed_width = 103
+[main]	11113 allocated for table string(44 + 44 * 110 + 1)
+[main]	table_to_string succeeded

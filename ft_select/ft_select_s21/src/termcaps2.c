@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   console_reader.c                                   :+:      :+:    :+:   */
+/*   termcaps2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,40 +11,30 @@
 /* ************************************************************************** */
 
 #include "ft_select.h"
-#include "key_constants.h"
+#include <ctype.h>
 
-void	move_cursor_left(int x)
+int	ft_putc_err(int c)
 {
-	debug_printf("<-(%d)\n", x);
-	while (x-- > 0)
-	{
-		ft_putstr(KEY_LEFT);
-	}
+	ft_putchar_fd(c, STDERR_FILENO);
+	return (1);
 }
 
-void	move_cursor_right(int x)
+void		clear()
 {
-	debug_printf("->(%d)\n", x);
-	while (x-- > 0)
-	{
-		ft_putstr(KEY_RIGHT);
-	}
+	tputs(tgetstr("cl", NULL), 1, ft_putc_err);
 }
 
-void	move_cursor_up(int x)
+void		ft_tputs(const char *str)
 {
-	debug_printf("^(%d)\n", x);
-	while (x-- > 0)
-	{
-		ft_putstr(KEY_UP);
-	}
+	tputs(str, 1, ft_putc_err);
 }
 
-void	move_cursor_down(int x)
+void		hide_cursor()
 {
-	debug_printf("v(%d)\n", x);
-	while (x-- > 0)
-	{
-		ft_putstr(KEY_DOWN);
-	}
+	tputs(tgetstr("vi", NULL), 1, ft_putc_err);
+}
+
+void		show_cursor()
+{
+	tputs(tgetstr("ve", NULL), 1, ft_putc_err);
 }

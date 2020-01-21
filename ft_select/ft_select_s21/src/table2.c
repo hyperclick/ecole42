@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   table.c                                          :+:      :+:    :+:   */
+/*   table2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,34 +12,39 @@
 
 #include "ft_select.h"
 
-int		get_last_row(t_table *t)
+int	get_offset(t_table *t, int row, int col)
 {
-	return (t->height - 1);
+	return (row * t->width + col);
 }
 
-int		get_last_col(t_table *t)
+BOOL		is_out_of_table2(t_table *t, int offset)
 {
-	return (t->width - 1);
+	return (offset > t->cells_count - 1);
 }
 
-t_coord		get_last_cell_coord(t_table *t)
+BOOL		is_out_of_table(t_table *t, int row, int col)
 {
-	return (get_coord_by_offset(t, t->cells_count - 1));
+	return (row < 0 || col < 0 || is_out_of_table2(t, get_offset(t, row, col)));
 }
 
-int		get_last_row_in_col(t_table *t, int col)
+char *get_cell(t_table *t, int row, int col)
 {
-	t_coord last;
+	int offset;
 
-	last = get_last_cell_coord(t);
-	return (col <= last.col ? last.row : last.row - 1);
+	offset = get_offset(t, row, col);
+	if (is_out_of_table2(t, offset))
+	{
+		return (NULL);
+	}
+	if (t->cells[offset] == NULL)
+	{
+		debug_printf("smth wrong\n");
+		ft_exit(11);
+	}
+	return (t->cells[offset]);
 }
 
-int		get_last_col_in_row(t_table *t, int row)
+BOOL		is_empty(const char *cell)
 {
-	t_coord last;
-
-	last = get_last_cell_coord(t);
-	debug_printf("last cell coord = %d:%d\n", last.row, last.col);
-	return (row < last.row ? get_last_col(t) : last.col);
+	return cell == NULL;
 }

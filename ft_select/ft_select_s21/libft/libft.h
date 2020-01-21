@@ -144,6 +144,10 @@ void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			ft_readline(char *dst, int size);
 
+int		ft_int_index_of(int *a, int size, int value);
+BOOL		ft_contains_int(int *a, int size, int value);
+int		ft_int_array_sum(int cols[], int size);
+
 int				ft_str_count_chars(const char *str, const char find);
 void			ft_sort_strings(char *a[], int count);
 BOOL			ft_starts_with(const char *str, const char c);

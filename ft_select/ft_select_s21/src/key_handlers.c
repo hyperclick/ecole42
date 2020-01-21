@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   console_reader.c                                   :+:      :+:    :+:   */
+/*   key_handlers3.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -75,5 +75,21 @@ BOOL	process_key_right(void)
 	new_col = c.col == get_last_col_in_row(g_table, c.row) ? 0 : c.col + 1;
 	c.col = new_col;
 	set_active_cell(g_table, c);
+	return (TRUE);
+}
+
+BOOL	process_delete(void)
+{
+	int	offset;
+
+	offset = get_active_cell_offset();
+	zta_remove_at((void **)g_options, g_options_count, offset);
+	g_options_count--;
+	if (offset == g_options_count)
+	{
+		set_active_cell_offset(g_options_count - 1);
+	}
+	handle_item_deleted(offset);
+	rebuild_table();
 	return (TRUE);
 }

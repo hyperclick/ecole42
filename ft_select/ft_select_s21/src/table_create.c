@@ -12,34 +12,31 @@
 
 #include "ft_select.h"
 
-int		get_last_row(t_table *t)
+void		fill_cells(t_table* t, char** src)
 {
-	return (t->height - 1);
+	t->cells = src;
+	t->cells_count = ft_count_null_term_array((void**)src);
 }
 
-int		get_last_col(t_table *t)
+void free_table()
 {
-	return (t->width - 1);
+	if (g_table != NULL)
+	{
+		debug_printf("table freed\n");
+		free(g_table->col_widths);
+		free(g_table);
+		g_table = NULL;
+	}
 }
 
-t_coord		get_last_cell_coord(t_table *t)
+t_table* table_create(int rows, int cols)
 {
-	return (get_coord_by_offset(t, t->cells_count - 1));
-}
+	t_table* t;
 
-int		get_last_row_in_col(t_table *t, int col)
-{
-	t_coord last;
-
-	last = get_last_cell_coord(t);
-	return (col <= last.col ? last.row : last.row - 1);
-}
-
-int		get_last_col_in_row(t_table *t, int row)
-{
-	t_coord last;
-
-	last = get_last_cell_coord(t);
-	debug_printf("last cell coord = %d:%d\n", last.row, last.col);
-	return (row < last.row ? get_last_col(t) : last.col);
+	t = (t_table*)malloc(sizeof(t_table));
+	t->height = rows;
+	t->width = cols;
+	fill_cells(t, g_options);
+	debug_printf("table (h:%d, w:%d) created\n", t->height, t->width);
+	return(t);
 }

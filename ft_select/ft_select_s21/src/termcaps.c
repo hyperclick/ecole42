@@ -14,14 +14,8 @@
 #include <ctype.h>
 
 static struct termios	g_stored_settings;
-struct termios g_new_settings;
+struct termios			g_new_settings;
 static BOOL				g_set = FALSE;
-
-int	ft_putc_err(int c)
-{
-	ft_putchar_fd(c, STDERR_FILENO);
-	return (1);
-}
 
 void		enter_full_screen()
 {
@@ -33,21 +27,11 @@ void		exit_full_screen()
 	tputs(tgetstr("te", NULL), 1, ft_putc_err);
 }
 
-void		hide_cursor()
+void		validate_terminal()
 {
-	tputs(tgetstr("vi", NULL), 1, ft_putc_err);
-}
-
-void		show_cursor()
-{
-	tputs(tgetstr("ve", NULL), 1, ft_putc_err);
-}
-
-void	set_keypress(void)
-{
-	char buf[1000];
-	int r;
-	char* t;
+	char		buf[1000];
+	int		r;
+	char		*t;
 
 	if (!isatty(STDERR_FILENO))
 	{
@@ -66,6 +50,11 @@ void	set_keypress(void)
 		ft_printf_fd(STDERR_FILENO, "terminal '%s' not found in termios database\n", t);
 		ft_exit(5);
 	}
+}
+
+void	set_keypress(void)
+{
+	validate_terminal();
 	tcgetattr(STDERR_FILENO, &g_stored_settings);
 	g_set = TRUE;
 	tcgetattr(STDERR_FILENO, &g_new_settings);
@@ -91,19 +80,4 @@ void	reset_keypress(void)
 	{
 		debug_printf("g_stored_settings = NULL\n");
 	}
-}
-
-cc_t	get_param(int p)
-{
-	return (g_new_settings.c_cc[p]);
-}
-
-void		clear()
-{
-	tputs(tgetstr("cl", NULL), 1, ft_putc_err);
-}
-
-void		ft_tputs(const char *str)
-{
-	tputs(str, 1, ft_putc_err);
 }

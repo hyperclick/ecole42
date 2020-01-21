@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   console_reader.c                                   :+:      :+:    :+:   */
+/*   ft_contains_int.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/31 12:30:12 by darugula          #+#    #+#             */
-/*   Updated: 2019/12/31 12:30:15 by darugula         ###   ########.fr       */
+/*   Created: 2019/09/10 11:04:34 by darugula          #+#    #+#             */
+/*   Updated: 2019/09/10 11:04:36 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_select.h"
+#include "libft.h"
 
-
-
-char			*read_command(void)
+int	ft_int_array_sum(int cols[], int size)
 {
-	int			r;
-	char		control[10];
+	int	sum;
 
-	while ((r = read(STDIN_FILENO, &control, 4)) > 0)
+	sum = 0;
+	while (size-- > 0)
 	{
-		control[r] = 0;
-		debug_printf("entered:\t = '%s'\n", control);
-		return (ft_strdup(control));
+		sum += cols[size];
 	}
-	if (r == 0)
-	{
-		ft_e_putstr("std in is all\n");
-		ft_exit(3);
-	}
-	if (r < 0)
-	{
-		debug_printf("std in is corrupted\n");
-		ft_exit(2);
-	}
-	return (NULL);
+	return (sum);
 }

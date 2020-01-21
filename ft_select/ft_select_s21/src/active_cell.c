@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   table.c                                          :+:      :+:    :+:   */
+/*   active_cell.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,34 +12,39 @@
 
 #include "ft_select.h"
 
-int		get_last_row(t_table *t)
+int		g_active_index = -1;
+
+int		get_active_cell_offset()
 {
-	return (t->height - 1);
+	return (g_active_index);
 }
 
-int		get_last_col(t_table *t)
+void		set_active_cell_offset(int offset)
 {
-	return (t->width - 1);
+	g_active_index = offset;
 }
 
-t_coord		get_last_cell_coord(t_table *t)
+void		set_active_cell(t_table *t, t_coord new_c)
 {
-	return (get_coord_by_offset(t, t->cells_count - 1));
+	t_coord c;
+
+	if (is_out_of_table(t, new_c.row, new_c.col))
+	{
+		debug_printf("ignore set active cell to %d:%d since it out of table\n", new_c.row, new_c.col);
+		return;
+	}
+	c = get_active_cell_coord(t);
+	set_active_cell_offset(get_offset(t, new_c.row, new_c.col));
+	debug_printf("change active cell from %d:%d to %d:%d (%d)\n", c.row, c.col, new_c.row, new_c.col, g_active_index);
 }
 
-int		get_last_row_in_col(t_table *t, int col)
+BOOL		is_active2(int offset)
 {
-	t_coord last;
-
-	last = get_last_cell_coord(t);
-	return (col <= last.col ? last.row : last.row - 1);
+	return (g_active_index == offset);
 }
 
-int		get_last_col_in_row(t_table *t, int row)
+BOOL		is_active(t_table *t, int i, int j)
 {
-	t_coord last;
-
-	last = get_last_cell_coord(t);
-	debug_printf("last cell coord = %d:%d\n", last.row, last.col);
-	return (row < last.row ? get_last_col(t) : last.col);
+	return (is_active2(get_offset(t, i, j)));
 }
+
