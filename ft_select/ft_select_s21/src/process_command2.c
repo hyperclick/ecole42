@@ -37,7 +37,7 @@ int			process_char(char *cmd_name)
 		toggle_active_cell(g_table);
 		return (DO_NOT_EXIT);
 	}
-	return (DO_NOT_EXIT);
+	return (DO_NOT_REDRAW);
 }
 
 int		process_del_or_backspace(char *cmd_name)
@@ -50,12 +50,6 @@ int		process_del_or_backspace(char *cmd_name)
 	}
 	return (DO_NOT_EXIT);
 }
-
-
-
-
-
-
 
 int	process_others(char *cmd_name)
 {
