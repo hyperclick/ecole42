@@ -12,9 +12,7 @@
 
 #include "ft_select.h"
 
-
-
-char			*read_command(void)
+char	*read_command(void)
 {
 	int			r;
 	char		control[10];

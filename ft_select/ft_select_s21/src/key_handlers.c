@@ -15,7 +15,7 @@
 
 BOOL	process_key_down(void)
 {
-	t_coord c;
+	t_coord	c;
 	int		new_row;
 
 	if (g_table->height == 1)

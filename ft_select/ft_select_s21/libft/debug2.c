@@ -34,7 +34,6 @@ void	debug_print_zt_array(const char *a[])
 		debug_printf("'%s'\n", *a);
 		++a;
 	}
-	//debug_printf("\n");
 }
 
 void	debug_print_array(int c, const char *a[])
@@ -44,7 +43,6 @@ void	debug_print_array(int c, const char *a[])
 		debug_printf("'%s'\n", *a);
 		++a;
 	}
-	//debug_printf("\n");
 }
 
 void	debug_print_dic(t_list *dic)

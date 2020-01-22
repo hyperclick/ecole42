@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   table.c                                          :+:      :+:    :+:   */
+/*   table.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -22,7 +22,7 @@ int		get_last_col(t_table *t)
 	return (t->width - 1);
 }
 
-t_coord		get_last_cell_coord(t_table *t)
+t_coord	get_last_cell_coord(t_table *t)
 {
 	return (get_coord_by_offset(t, t->cells_count - 1));
 }

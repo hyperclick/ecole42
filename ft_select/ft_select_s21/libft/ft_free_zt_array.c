@@ -46,7 +46,7 @@ void	ft_free_null_term_array(void **a)
 	free(a);
 }
 
-void		zta_remove_at(void** a, int size, int n)
+void	zta_remove_at(void **a, int size, int n)
 {
 	debug_printf("free '%s'\n", a[n]);
 	free(a[n]);

@@ -50,3 +50,12 @@ void	fill_tokens(char **tokens, const char *str)
 		++str;
 	}
 }
+
+void	ft_printf(const char *format, ...)
+{
+	va_list argptr;
+
+	va_start(argptr, format);
+	ft_vprintf_fd(STDOUT_FILENO, format, argptr);
+	va_end(argptr);
+}

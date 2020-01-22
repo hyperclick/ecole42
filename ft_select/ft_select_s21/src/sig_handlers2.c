@@ -12,7 +12,7 @@
 
 #include "ft_select.h"
 
-void		sig_handler(int signum)
+void	sig_handler(int signum)
 {
 	debug_printf("\n");
 	debug_printf("\n");
@@ -30,13 +30,14 @@ void		sig_handler(int signum)
 	{
 		sig_cont_handler();
 	}
-	if (signum == SIGABRT || signum == SIGINT || signum == SIGSTOP|| signum == SIGKILL|| signum == SIGQUIT )
+	if (signum == SIGABRT || signum == SIGINT || signum == SIGSTOP
+		|| signum == SIGKILL || signum == SIGQUIT)
 	{
 		exit_signal_handler();
 	}
 }
 
-void		set_signal_handlers()
+void	set_signal_handlers(void)
 {
 	signal(SIGWINCH, sig_handler);
 	signal(SIGTSTP, sig_handler);

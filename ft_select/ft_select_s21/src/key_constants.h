@@ -55,6 +55,4 @@
 # define KEY_END "\x1b\x5b\x46"
 # define KEY_CTRL_Y "\x19"
 
-
-
 #endif

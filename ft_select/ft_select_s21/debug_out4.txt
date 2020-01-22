@@ -1,7 +1,31 @@
 [main]	started
 [main]	agrc = 217
-[main]	lines 56
-[main]	columns 119
+[main]	lines 58
+[main]	columns 131
+[main]	try_cols: 64
+[main]	table (h:4, w:64) created
+[main]	t->printed_width = 1463
+[main]	table freed
+[main]	try_cols: 63
+[main]	table (h:4, w:63) created
+[main]	t->printed_width = 1445
+[main]	table freed
+[main]	try_cols: 62
+[main]	table (h:4, w:62) created
+[main]	t->printed_width = 1434
+[main]	table freed
+[main]	try_cols: 61
+[main]	table (h:4, w:61) created
+[main]	t->printed_width = 1418
+[main]	table freed
+[main]	try_cols: 60
+[main]	table (h:4, w:60) created
+[main]	t->printed_width = 1391
+[main]	table freed
+[main]	try_cols: 59
+[main]	table (h:4, w:59) created
+[main]	t->printed_width = 1374
+[main]	table freed
 [main]	try_cols: 58
 [main]	table (h:4, w:58) created
 [main]	t->printed_width = 1358
@@ -221,7 +245,7 @@
 [main]	try_cols: 4
 [main]	table (h:54, w:4) created
 [main]	t->printed_width = 115
-[main]	14257 allocated for table string(54 + 54 * 119 + 1)
+[main]	14905 allocated for table string(54 + 54 * 131 + 1)
 [main]	table_to_string succeeded
 [main]	entered:	 = ''
 [main]	

@@ -17,8 +17,8 @@ extern int g_selected_count;
 
 void		print_selection(char **options)
 {
-	int	i;
-	BOOL		first;
+	int		i;
+	BOOL	first;
 
 	first = TRUE;
 	i = -1;
@@ -40,12 +40,12 @@ void		print_selection(char **options)
 	}
 }
 
-void		dump_selection()
+void		dump_selection(void)
 {
-	int i;
-	char *str;
-	char *tmp;
-	char *tmp2;
+	int		i;
+	char	*str;
+	char	*tmp;
+	char	*tmp2;
 
 	debug_printf("selection changed (%d):\n", g_selected_count);
 	i = -1;

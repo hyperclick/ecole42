@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_parser.c                                       :+:      :+:    :+:   */
+/*   process_command.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,9 +12,9 @@
 
 #include "ft_select.h"
 
-BOOL			process_command(char *str)
+BOOL	process_command(char *str)
 {
-	char cmd_name[100];
+	char	cmd_name[100];
 	int		r;
 
 	if (str == NULL)

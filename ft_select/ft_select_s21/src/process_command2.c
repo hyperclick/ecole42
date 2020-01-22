@@ -12,7 +12,7 @@
 
 #include "ft_select.h"
 
-BOOL		is_del_or_backspace(char *str)
+BOOL	is_del_or_backspace(char *str)
 {
 	return (ft_strequ(KEY_DELETE, str)
 		|| (ft_strlen(str) == 1 && *str == KEY_BACKSPACE));
@@ -29,7 +29,7 @@ int		process_del_or_backspace(char *cmd_name)
 	return (DO_NOT_EXIT);
 }
 
-int			process_char(char *cmd_name)
+int		process_char(char *cmd_name)
 {
 	if (*cmd_name == KEY_ESC)
 	{
@@ -56,7 +56,7 @@ int			process_char(char *cmd_name)
 	return (DO_NOT_REDRAW);
 }
 
-int	process_others(char *cmd_name)
+int		process_others(char *cmd_name)
 {
 	if (ft_strequ(KEY_UP, cmd_name))
 	{
@@ -85,7 +85,7 @@ int	process_others(char *cmd_name)
 	return (DO_NOT_REDRAW);
 }
 
-int			process_command2(char *cmd_name)
+int		process_command2(char *cmd_name)
 {
 	if (ft_strlen(cmd_name) == 1)
 	{

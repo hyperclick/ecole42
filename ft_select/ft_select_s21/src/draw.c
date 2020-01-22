@@ -12,7 +12,7 @@
 
 #include "ft_select.h"
 
-void		print_table(t_table *t)
+void	print_table(t_table *t)
 {
 	char *to_print;
 
@@ -21,11 +21,11 @@ void		print_table(t_table *t)
 	free(to_print);
 }
 
-void		draw()
+void	draw(void)
 {
 	if (g_table == NULL)
 	{
-		ft_printf("expand console please!");
+		ft_printf_fd(STDERR_FILENO, "expand console please!");
 	}
 	else
 	{
@@ -33,7 +33,7 @@ void		draw()
 	}
 }
 
-void		redraw()
+void	redraw(void)
 {
 	clear();
 	draw();

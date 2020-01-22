@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   console_reader.c                                   :+:      :+:    :+:   */
+/*   termcaps.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -17,25 +17,25 @@ static struct termios	g_stored_settings;
 struct termios			g_new_settings;
 static BOOL				g_set = FALSE;
 
-void		enter_full_screen()
+void	enter_full_screen(void)
 {
 	tputs(tgetstr("ti", NULL), 1, ft_putc_err);
 }
 
-void		exit_full_screen()
+void	exit_full_screen(void)
 {
 	tputs(tgetstr("te", NULL), 1, ft_putc_err);
 }
 
-void		validate_terminal()
+void	validate_terminal(void)
 {
-	char		buf[1000];
+	char	buf[1000];
 	int		r;
-	char		*t;
+	char	*t;
 
 	if (!isatty(STDERR_FILENO))
 	{
-		ft_putendl_fd("stderr not a terminal. rerun without redirect\n", STDERR_FILENO);
+		ft_putendl_fd("stderr not tty. run without redirect\n", STDERR_FILENO);
 		ft_exit(5);
 	}
 	t = getenv("TERM");
@@ -47,7 +47,7 @@ void		validate_terminal()
 	r = tgetent(buf, t);
 	if (r <= 0)
 	{
-		ft_printf_fd(STDERR_FILENO, "terminal '%s' not found in termios database\n", t);
+		ft_printf_fd(STDERR_FILENO, "terminal '%s' not found in database\n", t);
 		ft_exit(5);
 	}
 }

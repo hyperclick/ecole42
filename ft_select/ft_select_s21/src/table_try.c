@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   table.c                                          :+:      :+:    :+:   */
+/*   table_try.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,12 +12,12 @@
 
 #include "ft_select.h"
 
-int	get_max_col_width(t_table *t, int c)
+int		get_max_col_width(t_table *t, int c)
 {
-	int	i;
-	int max;
-	int width;
-	char *cell;
+	int		i;
+	int		max;
+	int		width;
+	char	*cell;
 
 	max = 0;
 	i = -1;
@@ -48,10 +48,10 @@ void	fill_max_col_width(t_table *t)
 	{
 		t->col_widths[++j] = get_max_col_width(t, i) + 1;
 	}
-	t->col_widths[j] --;
+	t->col_widths[j]--;
 }
 
-int	get_width_to_print(t_table *t)
+int		get_width_to_print(t_table *t)
 {
 	t->col_widths = (int *)malloc(sizeof(int) * t->width);
 	fill_max_col_width(t);
@@ -60,8 +60,7 @@ int	get_width_to_print(t_table *t)
 	return (t->printed_width);
 }
 
-
-t_table *try_table(t_table *t)
+t_table	*try_table(t_table *t)
 {
 	if (get_width_to_print(t) <= g_size_current.ws_col)
 	{
@@ -75,7 +74,7 @@ t_table *try_table(t_table *t)
 	}
 }
 
-t_table *try_cols(int cols)
+t_table	*try_cols(int cols)
 {
 	int count;
 	int rows;

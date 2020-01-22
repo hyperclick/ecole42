@@ -89,12 +89,11 @@ const char		*dic_get_value(t_list *dic, const char *key);
 char			**dic_get_keys(t_list *dic);
 t_kvp			**dic_get_kvps(t_list *dic);
 
-typedef struct s_coordinate
+typedef struct	s_coordinate
 {
 	int		row;
 	int		col;
 }				t_coord;
-
 
 void			close_fd(int fd);
 void			redirect(int from, int to);
@@ -124,7 +123,7 @@ void			set_out_file(const char *filename);
 void			set_level(int level);
 void			debug_set_pname(const char name[]);
 void			debug_printf(const char *str, ...);
-void	debug_print_array(int c, const char* a[]);
+void			debug_print_array(int c, const char *a[]);
 void			debug_print_zt_array(const char *a[]);
 void			debug_print_dic(t_list *dic);
 
@@ -144,14 +143,14 @@ void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			ft_readline(char *dst, int size);
 
-int		ft_int_index_of(int *a, int size, int value);
-BOOL		ft_contains_int(int *a, int size, int value);
-int		ft_int_array_sum(int cols[], int size);
+int				ft_int_index_of(int *a, int size, int value);
+BOOL			ft_contains_int(int *a, int size, int value);
+int				ft_int_array_sum(int cols[], int size);
 
 int				ft_str_count_chars(const char *str, const char find);
 void			ft_sort_strings(char *a[], int count);
 BOOL			ft_starts_with(const char *str, const char c);
-BOOL		ft_str_ends_with(char const *str, const char *end);
+BOOL			ft_str_ends_with(char const *str, const char *end);
 BOOL			ft_str_starts_with(char const *str, const char *start);
 void			ft_str_insert_at(char *dst, int n, char c);
 BOOL			ft_str_is_empty(const char *s);
@@ -178,8 +177,8 @@ int				ft_count_words(const char *str, const char whitespaces[]);
 void			ft_free_array(void **r, int n);
 void			ft_free_array2(void ***r);
 void			ft_free_null_term_array(void **a);
-int				ft_count_null_term_array(void** a);
-void		zta_remove_at(void** a, int size, int n);
+int				ft_count_null_term_array(void **a);
+void			zta_remove_at(void **a, int size, int n);
 char			**ft_split(char **r, const char *str, int c, const char *d);
 char			**ft_split2(const char *str, int count, const char *sep);
 char			**ft_split3(const char *str, const char *sep);
@@ -230,7 +229,7 @@ void			ft_putnbr_fd(long long n, int fd);
 int				ft_contains(const char *str, char to_find);
 int				ft_atoi(const char *str);
 
-char* ft_stprintf(const char* format, ...);
+char			*ft_stprintf(const char *format, ...);
 void			ft_vprintf_fd(int fd, const char *format, va_list args_list);
 void			ft_printf_fd(int fd, const char *format, ...);
 void			ft_printf(const char *format, ...);

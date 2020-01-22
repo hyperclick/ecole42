@@ -14,37 +14,38 @@
 
 int		g_active_index = -1;
 
-int		get_active_cell_offset()
+int		get_active_cell_offset(void)
 {
 	return (g_active_index);
 }
 
-void		set_active_cell_offset(int offset)
+void	set_active_cell_offset(int offset)
 {
 	g_active_index = offset;
 }
 
-void		set_active_cell(t_table *t, t_coord new_c)
+void	set_active_cell(t_table *t, t_coord new_c)
 {
-	t_coord c;
+	t_coord	c;
 
 	if (is_out_of_table(t, new_c.row, new_c.col))
 	{
-		debug_printf("ignore set active cell to %d:%d since it out of table\n", new_c.row, new_c.col);
-		return;
+		debug_printf("ignore set active cell to %d:%d since it out of table\n"
+					, new_c.row, new_c.col);
+		return ;
 	}
 	c = get_active_cell_coord(t);
 	set_active_cell_offset(get_offset(t, new_c.row, new_c.col));
-	debug_printf("change active cell from %d:%d to %d:%d (%d)\n", c.row, c.col, new_c.row, new_c.col, g_active_index);
+	debug_printf("change active cell from %d:%d to %d:%d (%d)\n"
+				, c.row, c.col, new_c.row, new_c.col, g_active_index);
 }
 
-BOOL		is_active2(int offset)
+BOOL	is_active2(int offset)
 {
 	return (g_active_index == offset);
 }
 
-BOOL		is_active(t_table *t, int i, int j)
+BOOL	is_active(t_table *t, int i, int j)
 {
 	return (is_active2(get_offset(t, i, j)));
 }
-

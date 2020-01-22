@@ -12,12 +12,12 @@
 
 #include "ft_select.h"
 
-void		show_usage()
+void	show_usage(void)
 {
 	ft_putstr_fd("usage: ft_select option1 option2 ...\n", STDERR_FILENO);
 }
 
-int	main(int argc, char** argv)
+int		main(int argc, char **argv)
 {
 	init(argc, argv);
 	if (argc == 1)

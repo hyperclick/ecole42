@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   table.c                                          :+:      :+:    :+:   */
+/*   table_to_String.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "ft_select.h"
 
-char *fill_spaces(char *str, int n)
+char	*fill_spaces(char *str, int n)
 {
 	while (n-- > 0)
 	{
@@ -21,9 +21,9 @@ char *fill_spaces(char *str, int n)
 	return (str);
 }
 
-char *fill_table_cell(char *str, t_table *t, int i, int j)
+char	*fill_table_cell(char *str, t_table *t, int i, int j)
 {
-	char *cell;
+	char	*cell;
 	int		cell_len;
 	int		spaces;
 
@@ -39,7 +39,7 @@ char *fill_table_cell(char *str, t_table *t, int i, int j)
 	return (str);
 }
 
-char *fill_table_string2( t_table *t, char *str)
+char	*fill_table_string2(t_table *t, char *str)
 {
 	int	j;
 	int	i;
@@ -64,7 +64,7 @@ char *fill_table_string2( t_table *t, char *str)
 	return (str);
 }
 
-void		fill_table_string(char *str, t_table *t)
+void	fill_table_string(char *str, t_table *t)
 {
 	str = fill_table_string2(t, str);
 	if (*(str - 1) == '\n')
@@ -78,14 +78,16 @@ void		fill_table_string(char *str, t_table *t)
 	*str = 0;
 }
 
-char *table_to_string(t_table *t)
+char	*table_to_string(t_table *t)
 {
-	char		*r;
+	char	*r;
 	int		size;
 
-	size = t->height + t->height * g_size_current.ws_col + 1 + ft_count_null_term_array((void **)g_options) * 6 * 6;
+	size = t->height + t->height * g_size_current.ws_col + 1
+		+ ft_count_null_term_array((void **)g_options) * 6 * 6;
 	r = (char *)malloc(sizeof(char) * size);
-	debug_printf("%d allocated for table string(%d + %d * %d + 1)\n", size, t->height, t->height, g_size_current.ws_col);
+	debug_printf("%d allocated for table string(%d + %d * %d + 1)\n"
+				, size, t->height, t->height, g_size_current.ws_col);
 	fill_table_string(r, t);
 	debug_printf("table_to_string succeeded\n");
 	return (r);

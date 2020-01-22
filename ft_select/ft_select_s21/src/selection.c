@@ -12,25 +12,25 @@
 
 #include "ft_select.h"
 
-int *g_selected = NULL;
-int g_selected_count = 0;
+int	*g_selected = NULL;
+int	g_selected_count = 0;
 
-void		alloc_selected(int size)
+void	alloc_selected(int size)
 {
 	g_selected = (int *)malloc(sizeof(int) * size);
 }
 
-void		free_selected()
+void	free_selected(void)
 {
 	free(g_selected);
 }
 
-BOOL		is_selected2(int offset)
+BOOL	is_selected2(int offset)
 {
 	return (ft_contains_int(g_selected, g_selected_count, offset));
 }
 
-BOOL		is_selected(t_table *t, int row, int col)
+BOOL	is_selected(t_table *t, int row, int col)
 {
 	return (is_selected2(get_offset(t, row, col)));
 }

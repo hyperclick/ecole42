@@ -27,7 +27,7 @@ char	*replace_tokens(char *dst, int count, char **args, char **tokens)
 	return (dst);
 }
 
-char* ft_vstprintf(const char *format, va_list args_list)
+char	*ft_vstprintf(const char *format, va_list args_list)
 {
 	char	**args;
 	char	**tokens;
@@ -36,7 +36,7 @@ char* ft_vstprintf(const char *format, va_list args_list)
 
 	if (format == NULL)
 	{
-		return ft_strdup("'NULL'");
+		return (ft_strdup("'NULL'"));
 	}
 	count = count_tokens(format);
 	args = (char**)malloc(sizeof(char*) * (count + 1));
@@ -49,17 +49,17 @@ char* ft_vstprintf(const char *format, va_list args_list)
 	ft_free_null_term_array((void**)args);
 	ft_free_null_term_array((void**)tokens);
 	return (dst);
-
 }
 
-char	*	ft_stprintf(const char *format, ...)
+char	*ft_stprintf(const char *format, ...)
 {
 	va_list	args_list;
 
 	va_start(args_list, format);
-	return (ft_vstprintf( format, args_list));
+	return (ft_vstprintf(format, args_list));
 	va_end(args_list);
 }
+
 void	ft_vprintf_fd(int fd, const char *format, va_list args_list)
 {
 	char	*dst;
@@ -76,13 +76,4 @@ void	ft_printf_fd(int fd, const char *format, ...)
 	va_start(args_list, format);
 	ft_vprintf_fd(fd, format, args_list);
 	va_end(args_list);
-}
-
-void	ft_printf(const char *format, ...)
-{
-	va_list argptr;
-
-	va_start(argptr, format);
-	ft_vprintf_fd(STDOUT_FILENO, format, argptr);
-	va_end(argptr);
 }

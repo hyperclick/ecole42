@@ -12,7 +12,7 @@
 
 #include "ft_select.h"
 
-void		toggle_active_cell()
+void	toggle_active_cell(void)
 {
 	if (!remove_if_selected(get_active_cell_offset()))
 	{
@@ -21,7 +21,7 @@ void		toggle_active_cell()
 	dump_selection();
 }
 
-void	 handle_item_deleted(int offset)
+void	handle_item_deleted(int offset)
 {
 	int	i;
 

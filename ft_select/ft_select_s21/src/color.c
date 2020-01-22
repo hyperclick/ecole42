@@ -12,7 +12,7 @@
 
 #include "ft_select.h"
 
-char *colorize_extensions(const char *cell, char *str)
+char	*colorize_extensions(const char *cell, char *str)
 {
 	if (ft_starts_with(cell, '.'))
 	{
@@ -37,7 +37,7 @@ char *colorize_extensions(const char *cell, char *str)
 	return (str);
 }
 
-char *colorize(const char *cell, BOOL is_active, BOOL is_selected, char *str)
+char	*colorize(const char *cell, BOOL is_active, BOOL is_selected, char *str)
 {
 	if (is_active)
 	{

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   table.c                                          :+:      :+:    :+:   */
+/*   table3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,7 +14,7 @@
 
 t_coord	get_coord_by_offset(t_table *t, int offset)
 {
-	t_coord c;
+	t_coord	c;
 
 	c.row = offset / t->width;
 	c.col = offset % t->width;

@@ -13,28 +13,28 @@
 #include "ft_select.h"
 #include <ctype.h>
 
-int	ft_putc_err(int c)
+int		ft_putc_err(int c)
 {
 	ft_putchar_fd(c, STDERR_FILENO);
 	return (1);
 }
 
-void		clear()
+void	clear(void)
 {
 	tputs(tgetstr("cl", NULL), 1, ft_putc_err);
 }
 
-void		ft_tputs(const char *str)
+void	ft_tputs(const char *str)
 {
 	tputs(str, 1, ft_putc_err);
 }
 
-void		hide_cursor()
+void	hide_cursor(void)
 {
 	tputs(tgetstr("vi", NULL), 1, ft_putc_err);
 }
 
-void		show_cursor()
+void	show_cursor(void)
 {
 	tputs(tgetstr("ve", NULL), 1, ft_putc_err);
 }
