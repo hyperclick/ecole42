@@ -1,5 +1,5 @@
 ﻿
-ADD_LIBRARY(ftio STATIC
+ADD_LIBRARY(io STATIC
 ft_e_putstr.c
 ft_file.c
 ft_putchar.c

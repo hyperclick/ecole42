@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asserts.c                                          :+:      :+:    :+:   */
+/*   dic.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 12:37:38 by darugula          #+#    #+#             */
-/*   Updated: 2019/11/08 12:37:40 by darugula         ###   ########.fr       */
+/*   Created: 2019/12/31 14:50:14 by darugula          #+#    #+#             */
+/*   Updated: 2019/12/31 14:50:16 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "ft_printf.h"
-#include "libstr.h"
+#include "dic.h"
 
-void	assert_int_equals(int e, int a)
+const char	*dic_get_value(t_list *dic, const char *key)
 {
-	if (e != a)
+	t_list	*n;
+
+	n = dic_find(dic, key);
+	if (n == NULL)
 	{
-		printf("assert failed: expected: %d, actual: %d\n", e, a);
+		ft_e_putstr("dic_get_value failed: missing key: ");
+		ft_e_putstr(key);
 		exit(1);
 	}
-}
-
-void	assert_str_equals(const char *e, const char *a)
-{
-	if (!ft_strequ(e, a))
-	{
-		printf("assert failed: expected: '%s', actual: '%s'\n", e, a);
-		exit(1);
-	}
+	return (get_kvp(n)->value);
 }

@@ -1,5 +1,6 @@
 ﻿
 ADD_LIBRARY(str STATIC
+ft_contains.c
 ft_itoa.c
 ft_str_append.c
 ft_str_count_chars.c

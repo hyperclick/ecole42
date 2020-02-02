@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asserts.c                                          :+:      :+:    :+:   */
+/*   ft_contains.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 12:37:38 by darugula          #+#    #+#             */
-/*   Updated: 2019/11/08 12:37:40 by darugula         ###   ########.fr       */
+/*   Created: 2019/09/10 11:04:34 by darugula          #+#    #+#             */
+/*   Updated: 2019/09/10 11:04:36 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "ft_printf.h"
 #include "libstr.h"
 
-void	assert_int_equals(int e, int a)
+BOOL		ft_contains(const char *str, char to_find)
 {
-	if (e != a)
+	while (*str != 0)
 	{
-		printf("assert failed: expected: %d, actual: %d\n", e, a);
-		exit(1);
+		if (*str == to_find)
+		{
+			return (TRUE);
+		}
+		str++;
 	}
+	return (FALSE);
 }
 
-void	assert_str_equals(const char *e, const char *a)
+BOOL		ft_str_contains(const char *haystack, const char *needle)
 {
-	if (!ft_strequ(e, a))
-	{
-		printf("assert failed: expected: '%s', actual: '%s'\n", e, a);
-		exit(1);
-	}
+	return (ft_strstr(haystack, needle) != NULL);
 }

@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asserts.c                                          :+:      :+:    :+:   */
+/*   lstadd.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 12:37:38 by darugula          #+#    #+#             */
-/*   Updated: 2019/11/08 12:37:40 by darugula         ###   ########.fr       */
+/*   Created: 2019/09/16 21:20:12 by darugula          #+#    #+#             */
+/*   Updated: 2019/09/16 21:20:14 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "ft_printf.h"
-#include "libstr.h"
+#include "lists.h"
 
-void	assert_int_equals(int e, int a)
+void	lstadd(t_list **alst, t_list *new)
 {
-	if (e != a)
-	{
-		printf("assert failed: expected: %d, actual: %d\n", e, a);
-		exit(1);
-	}
-}
+	t_list	*node;
 
-void	assert_str_equals(const char *e, const char *a)
-{
-	if (!ft_strequ(e, a))
-	{
-		printf("assert failed: expected: '%s', actual: '%s'\n", e, a);
-		exit(1);
-	}
+	node = *alst;
+	*alst = new;
+	(*alst)->next = node;
 }

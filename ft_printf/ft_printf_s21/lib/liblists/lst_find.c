@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asserts.c                                          :+:      :+:    :+:   */
+/*   lstmap.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 12:37:38 by darugula          #+#    #+#             */
-/*   Updated: 2019/11/08 12:37:40 by darugula         ###   ########.fr       */
+/*   Created: 2019/09/16 21:20:43 by darugula          #+#    #+#             */
+/*   Updated: 2019/09/16 21:20:44 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "ft_printf.h"
-#include "libstr.h"
+#include "lists.h"
 
-void	assert_int_equals(int e, int a)
+t_list		*lst_find(t_list *lst, void *param, BOOL (*f)(t_list *, void *))
 {
-	if (e != a)
+	if (lst == NULL || f == NULL)
 	{
-		printf("assert failed: expected: %d, actual: %d\n", e, a);
-		exit(1);
+		return (NULL);
 	}
-}
-
-void	assert_str_equals(const char *e, const char *a)
-{
-	if (!ft_strequ(e, a))
+	if (f(lst, param))
 	{
-		printf("assert failed: expected: '%s', actual: '%s'\n", e, a);
-		exit(1);
+		return (lst);
 	}
+	return (lst_find(lst->next, param, f));
 }
