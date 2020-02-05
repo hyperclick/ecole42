@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strdup.c                                           :+:      :+:    :+:   */
+/*   ft_str_repeat.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 10:19:06 by darugula          #+#    #+#             */
-/*   Updated: 2019/09/06 10:19:08 by darugula         ###   ########.fr       */
+/*   Created: 2019/10/05 18:08:51 by darugula          #+#    #+#             */
+/*   Updated: 2019/10/05 18:08:53 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libstr.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_str_repeat(char *s, int n)
 {
-	return (ft_strndup(s1, ft_strlen(s1)));
+	char *dst;
+	char *start;
+	int		len;
+
+	len = ft_strlen(s);
+	dst = (char *)malloc(sizeof(char) * (len * n + 1));
+	start = dst;
+	while (n-- > 0)
+	{
+		ft_strcpy(dst, s);
+		dst += len;
+	}
+	return (start);
 }

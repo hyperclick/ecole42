@@ -3,6 +3,8 @@
 
 # include "libmem.h"
 
+# define EMPTY_STRING ""
+
 int				ft_contains(const char *str, char to_find);
 int				ft_atoi(const char *str);
 char			*ft_itoa(long long n);
@@ -34,6 +36,7 @@ char *ft_str_replace2(char *dst, const char *src, const char *find
 	, const char *replace);
 char *ft_str_replace(const char *src, const char *find
 	, const char *replace);
+char *ft_str_repeat(char *s, int n);
 int				ft_count_words(const char *str, const char whitespaces[]);
 void			ft_free_array(void **r, int n);
 void			ft_free_array2(void ***r);

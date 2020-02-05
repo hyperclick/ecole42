@@ -15,3 +15,6 @@ include_directories (../ft_printf_s21/lib/libtests)
 
 target_link_libraries(${PROJECT_NAME} mem)
 include_directories (../ft_printf_s21/lib/libmem)
+
+target_link_libraries(${PROJECT_NAME} mem)
+include_directories (../ft_printf_s21/lib/libstr)

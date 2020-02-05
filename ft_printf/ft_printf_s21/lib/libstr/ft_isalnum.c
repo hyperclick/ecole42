@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strdup.c                                           :+:      :+:    :+:   */
+/*   isalnum                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 10:19:06 by darugula          #+#    #+#             */
-/*   Updated: 2019/09/06 10:19:08 by darugula         ###   ########.fr       */
+/*   Created: 2019/09/06 10:17:30 by darugula          #+#    #+#             */
+/*   Updated: 2019/09/06 10:17:32 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libstr.h"
 
-char	*ft_strdup(const char *s1)
+int	ft_isalnum(int c)
 {
-	return (ft_strndup(s1, ft_strlen(s1)));
+	return (ft_isdigit(c) || ft_isalpha(c));
 }

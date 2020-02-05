@@ -1,6 +1,12 @@
 ﻿
 ADD_LIBRARY(str STATIC
 ft_contains.c
+ft_is_number.c
+ft_isalnum.c
+ft_isalpha.c
+ft_isascii.c
+ft_isdigit.c
+ft_isprint.c
 ft_itoa.c
 ft_str_append.c
 ft_str_count_chars.c
@@ -10,6 +16,7 @@ ft_str_insert_at.c
 ft_str_is_empty.c
 ft_str_left_from.c
 ft_str_remove_at.c
+ft_str_repeat.c
 ft_str_remove_comment.c
 ft_str_replace.c
 ft_str_starts_with.c

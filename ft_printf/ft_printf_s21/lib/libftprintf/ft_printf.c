@@ -27,7 +27,7 @@ char *try_parse_flags(char *format, t_fmt *fmt)
 		}
 		else if (*format == '-')
 		{
-			fmt->flags.adjust_right = FALSE;
+			fmt->flags.adjust_left = TRUE;
 		}
 		else if (*format == ' ')
 		{
@@ -43,25 +43,121 @@ char *try_parse_flags(char *format, t_fmt *fmt)
 		}
 		format++;
 	}
-	return (NULL);
+	return (format);
 }
 
 char *try_parse_type(char *format, t_fmt *fmt)
 {
-	if (ft_contains("diflpcsuxXoaAeEfFgG", *format))
+	if (is_valid_type(*format))
 	{
 		fmt->type = *format;
 		return (format + 1);
 	}
-	return (NULL);
+	return (format);
 }
 
-char *try_parse_settings(char *format, t_fmt *fmt)
+char *try_parse_width(char *format, t_fmt *fmt)
 {
+	//BOOL	is_negative;
 
-	if ((format = try_parse_flags(format, fmt)) != NULL
-		&& (format = try_parse_type(format, fmt)) != NULL)
+	//is_negative = FALSE;
+	if (*format != '0')
 	{
+		//if (*format == '-')
+		//{
+		//	is_negative = TRUE;
+		//	format++;
+		//}
+		while (*format != 0 && ft_isdigit(*format))
+		{
+			fmt->width = fmt->width * 10 + *format - '0';
+			format++;
+		}
+		//if (is_negative)
+		//{
+		//	fmt->width = -fmt->width;
+		//}
+	}
+	return (format);
+}
+
+char *flags_to_string(t_fmt_flags f)
+{
+	char *str;
+	int		i;
+
+	str = malloc(sizeof(char) * 7);
+	i = 0;
+	str[i++] = '%';
+	if (f.is_alt_form)
+	{
+		str[i++] = '#';
+	}
+	if (f.plus_before_positive)
+	{
+		str[i++] = '+';
+	}
+	if (f.blank_before_positive)
+	{
+		str[i++] = ' ';
+	}
+	if (f.adjust_left)
+	{
+		str[i++] = '-';
+	}
+	if (f.zero_pad)
+	{
+		str[i++] = '0';
+	}
+	str[i] = 0;
+	return (str);
+}
+
+char *format_to_string(t_fmt fmt)
+{
+	char	*flags;
+	char	*width;
+	char	*r;
+
+	flags = flags_to_string(fmt.flags);
+	width = fmt.width == DEFAULT_WIDTH ? ft_strdup("") : ft_itoa(fmt.width);
+	r = ft_strjoin2(2, flags, width);
+	free(flags);
+	free(width);
+	return (r);
+}
+
+void	normalize_flags(t_fmt *fmt)
+{
+	if (fmt->flags.adjust_left && fmt->flags.zero_pad)
+	{
+		fmt->flags.zero_pad = FALSE;
+	}
+
+	if (fmt->flags.plus_before_positive && fmt->flags.blank_before_positive)
+	{
+		fmt->flags.blank_before_positive = FALSE;
+	}
+}
+
+char *try_parse_settings(char *format, t_fmt *fmt, t_list *list)
+{
+	format = try_parse_flags(format, fmt);
+	//if (*format == 0)
+	//{
+	//	add_string(list, flags_to_string(fmt->flags));
+	//}
+	normalize_flags(fmt);
+	format = try_parse_width(format, fmt);
+
+	format = try_parse_type(format, fmt);
+	if (fmt->type == 0)
+	{
+		add_string(list, format_to_string(*fmt));
+	}
+	else
+	{
+		add_format(list, fmt);
 	}
 	return (format);
 }
@@ -70,7 +166,7 @@ char *try_parse_settings(char *format, t_fmt *fmt)
 char *try_extract_id(t_list *list, char *format)
 {
 	char *r;
-	
+
 	if (*format == '%')
 	{
 		add_string(list, "%");
@@ -78,20 +174,9 @@ char *try_extract_id(t_list *list, char *format)
 	}
 	if (*format == 0)
 	{
-		return (NULL);
-	}
-	t_fmt* fmt = get_default_format();
-	r = try_parse_settings(format, fmt);
-	if (r != NULL)
-	{
-		add_format(list, fmt);
-		format = r;
-	}
-	else
-	{
-		add_string(list, "%");
 		return (format);
 	}
+	format = try_parse_settings(format, get_default_format(), list);
 	return (format);
 }
 
@@ -122,15 +207,13 @@ t_list *to_list(char *format, int *r)
 			*str = 0;
 			str = start;
 			add_string(list, str);
-			if ((format = try_extract_id(list, format + 1)) == NULL)
+			if (*(format + 1) == 0)
 			{
 				*r = -1;
 				return (list);
 			}
-			else
-			{
-				continue;
-			}
+			format = try_extract_id(list, format + 1);
+			continue;
 		}
 		*str++ = *format++;
 	}
@@ -177,8 +260,6 @@ char *to_string(t_list *list, int *size)
 
 char *ft_vstprintf(int *r, const char *format, va_list args_list)
 {
-	char **args;
-	char **tokens;
 	int		r2;
 	char *dst;
 

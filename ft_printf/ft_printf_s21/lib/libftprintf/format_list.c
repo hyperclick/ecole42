@@ -104,11 +104,13 @@ t_fmt	*get_default_format()
 	t_fmt *f;
 
 	f = (t_fmt*)malloc(sizeof(t_fmt));
-	f->flags.adjust_right = TRUE;
+	f->flags.adjust_left = FALSE;
 	f->flags.blank_before_positive = FALSE;
 	f->flags.is_alt_form = FALSE;
 	f->flags.plus_before_positive = FALSE;
 	f->flags.zero_pad = FALSE;
+	f->width = DEFAULT_WIDTH;
 	f->type = 0;
+	f->value_is_negative = FALSE;
 	return (f);
 }

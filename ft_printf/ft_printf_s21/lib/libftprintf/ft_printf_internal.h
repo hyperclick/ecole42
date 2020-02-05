@@ -5,12 +5,15 @@
 #include "lists.h"
 # include "libstr.h"
 # include "libio.h"
+# include "libmem.h"
+
+# define DEFAULT_WIDTH 0
 
 typedef	struct s_format_flags
 {
 	BOOL	is_alt_form;
 	BOOL	zero_pad;
-	BOOL	adjust_right;
+	BOOL	adjust_left;
 	BOOL	blank_before_positive;
 	BOOL	plus_before_positive;
 }				t_fmt_flags;
@@ -18,8 +21,9 @@ typedef	struct s_format_flags
 typedef	struct s_format
 {
 	t_fmt_flags	flags;
+	int			width;
 	char		type;
-
+	BOOL		value_is_negative;
 }				t_fmt;
 
 typedef	struct s_format_or_string
@@ -41,5 +45,9 @@ t_fmt	*get_default_format();
 
 
 void	replace_args(t_list *list, va_list args_list);
+
+BOOL	is_signed_number(char t);
+BOOL	is_number(char t);
+BOOL	is_valid_type(char t);
 
 #endif 

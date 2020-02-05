@@ -26,12 +26,7 @@ char *fill_char(char c)
 	return (arg);
 }
 
-char *pointer_to_string(void *p)
-{
-	return (p == NULL ? ft_strdup("(nil)") : ft_itoa_base((long long)p, "0123456789abcsef"));
-}
-
-char *hex_to_string(uint p, BOOL is_upper_case, t_fmt fmt)
+char *hex_to_string(long long p, BOOL is_upper_case, t_fmt fmt)
 {
 	char *str;
 	char *tmp;
@@ -44,6 +39,12 @@ char *hex_to_string(uint p, BOOL is_upper_case, t_fmt fmt)
 		str = tmp;
 	}
 	return  (str);
+}
+
+char *pointer_to_string(void *p, t_fmt fmt)
+{
+	fmt.flags.is_alt_form = TRUE;
+	return (p == NULL ? ft_strdup("(nil)") : hex_to_string((long long)p, FALSE, fmt));
 }
 
 char *oct_to_string(uint p, t_fmt fmt)
@@ -60,12 +61,115 @@ char *oct_to_string(uint p, t_fmt fmt)
 	return  (str);
 }
 
+
+
+char *process_sign(t_fmt fmt, char *str)
+{
+	char *dst;
+	if (is_signed_number(fmt.type) && fmt.flags.plus_before_positive)
+	{
+		if (*str != '-')
+		{
+			dst = ft_strjoin("+", str);
+			free(str);
+			str = dst;
+		}
+	}
+	return (str);
+}
+
+char *process_blank(t_fmt fmt, char *str)
+{
+	char *dst;
+	if (is_signed_number(fmt.type)
+		&& fmt.flags.blank_before_positive
+		&& !fmt.flags.plus_before_positive)
+	{
+		if (*str != '-')
+		{
+			dst = ft_strjoin(" ", str);
+			free(str);
+			str = dst;
+		}
+	}
+	return (str);
+}
+
+char *get_prefix(t_fmt fmt, char *str, char prefix[3])
+{
+	char *value;
+
+	value = str;
+	if (fmt.flags.zero_pad && is_number(fmt.type) && ft_strlen(str) != 0)
+	{
+		if (*str == '-' || *str == '+' || *str == ' ')
+		{
+			prefix[0] = str[0];
+			value = ft_strdup(str + 1);
+			free(str);
+		}
+		else if (*str == '0' && (str[1] == 'x' || str[1] == 'X'))
+		{
+			prefix[0] = str[0];
+			prefix[1] = str[1];
+			value = ft_strdup(str + 2);
+			free(str);
+		}
+	}
+	return (value);
+}
+
+
+char *process_width(t_fmt fmt, char *str, int *len)
+{
+	int	str_len;
+	char *tmp;
+	int		dst_len;
+	char	prefix[] = "\0\0";
+	char *pads;
+
+	str_len = len == NULL ? ft_strlen(str) : *len;
+	if (fmt.width <= str_len)
+	{
+		return (str);
+	}
+
+	str = get_prefix(fmt, str, prefix);
+
+	pads = ft_str_repeat(fmt.flags.zero_pad && fmt.type != 'c' ? "0" : " ", fmt.width - str_len);
+	dst_len = ft_strlen(pads) + str_len;
+	tmp = malloc(sizeof(char) * (dst_len + 1));
+	tmp[dst_len] = 0;
+	if (fmt.flags.adjust_left)
+	{
+		ft_strcpy(tmp, str);
+		ft_strcpy(tmp + str_len, pads);
+	}
+	else
+	{
+		ft_strcpy(tmp, prefix);
+		ft_strcpy(tmp + ft_strlen(prefix), pads);
+		ft_strcpy(tmp + ft_strlen(prefix) + ft_strlen(pads), str);
+	}
+	free(str);
+	free(pads);
+	if (len != NULL)
+	{
+		*len = dst_len;
+	}
+	return (tmp);
+}
+
 char *process_string(const t_fmt *fmt, char *str, int *size)
 {
-	*size = ft_strlen(str);
 	//flags
 	//pad
 	//cut
+	str = process_sign(*fmt, str);
+	str = process_blank(*fmt, str);
+	str = process_width(*fmt, str, NULL);
+
+	*size = ft_strlen(str);
 	return (str);
 }
 
@@ -73,8 +177,16 @@ char *process_string(const t_fmt *fmt, char *str, int *size)
 char *process_char(const t_fmt *fmt, va_list args_list, int *size)
 {
 	char *str;
-	str = fill_char((char)va_arg(args_list, int));
+	char	c;
+
+	str = fill_char(va_arg(args_list, int));
+	c = *str;
 	*size = 1;
+	str = process_width(*fmt, str, size);
+	//if (c == 0)
+	//{
+	//	*size = *size + 1;
+	//}
 	return (str);
 }
 
@@ -85,13 +197,13 @@ char *pchar_to_string(const char *str)
 
 char *fill_arg(const t_fmt *fmt, va_list args_list, int *size)
 {
-	if (fmt->type == 's')
-	{
-		return (process_string(fmt, pchar_to_string(va_arg(args_list, char *)), size));
-	}
-	else if (fmt->type == 'c')
+	if (fmt->type == 'c')
 	{
 		return (process_char(fmt, args_list, size));
+	}
+	else if (fmt->type == 's')
+	{
+		return (process_string(fmt, pchar_to_string(va_arg(args_list, char *)), size));
 	}
 	else if (fmt->type == 'd' || fmt->type == 'i')
 	{
@@ -103,7 +215,7 @@ char *fill_arg(const t_fmt *fmt, va_list args_list, int *size)
 	}
 	else if (fmt->type == 'p')
 	{
-		return (process_string(fmt, pointer_to_string(va_arg(args_list, void *)), size));
+		return (process_string(fmt, pointer_to_string(va_arg(args_list, void *), *fmt), size));
 	}
 	else if (fmt->type == 'x' || fmt->type == 'X')
 	{
