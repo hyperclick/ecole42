@@ -110,7 +110,8 @@ t_fmt	*get_default_format()
 	f->flags.plus_before_positive = FALSE;
 	f->flags.zero_pad = FALSE;
 	f->width = DEFAULT_WIDTH;
+	f->precision = DEFAULT_PRECISION;
 	f->type = 0;
-	f->value_is_negative = FALSE;
+	//f->value_is_negative = FALSE;
 	return (f);
 }

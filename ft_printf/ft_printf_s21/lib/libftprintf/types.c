@@ -2,15 +2,15 @@
 
 BOOL	is_signed_number(char t)
 {
-	return (ft_contains("iduaAeAfFgG", t));
+	return (ft_contains("idaAeEfFgG", t));
 }
 
 BOOL	is_number(char t)
 {
-	return (ft_contains("oxX", t) || is_signed_number(t));
+	return (ft_contains("uoxX", t) || is_signed_number(t));
 }
 
 BOOL	is_valid_type(char t)
 {
-	return (ft_contains("diflpcsuxXoaAeEfFgG", t));
+	return (is_number(t) || ft_contains("pcs", t));
 }

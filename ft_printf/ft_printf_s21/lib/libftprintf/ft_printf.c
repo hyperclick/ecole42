@@ -13,73 +13,6 @@
 #include "ft_printf_internal.h"
 
 
-char *try_parse_flags(char *format, t_fmt *fmt)
-{
-	while (*format != 0)
-	{
-		if (*format == '#')
-		{
-			fmt->flags.is_alt_form = TRUE;
-		}
-		else if (*format == '0')
-		{
-			fmt->flags.zero_pad = TRUE;
-		}
-		else if (*format == '-')
-		{
-			fmt->flags.adjust_left = TRUE;
-		}
-		else if (*format == ' ')
-		{
-			fmt->flags.blank_before_positive = TRUE;
-		}
-		else if (*format == '+')
-		{
-			fmt->flags.plus_before_positive = TRUE;
-		}
-		else
-		{
-			return (format);
-		}
-		format++;
-	}
-	return (format);
-}
-
-char *try_parse_type(char *format, t_fmt *fmt)
-{
-	if (is_valid_type(*format))
-	{
-		fmt->type = *format;
-		return (format + 1);
-	}
-	return (format);
-}
-
-char *try_parse_width(char *format, t_fmt *fmt)
-{
-	//BOOL	is_negative;
-
-	//is_negative = FALSE;
-	if (*format != '0')
-	{
-		//if (*format == '-')
-		//{
-		//	is_negative = TRUE;
-		//	format++;
-		//}
-		while (*format != 0 && ft_isdigit(*format))
-		{
-			fmt->width = fmt->width * 10 + *format - '0';
-			format++;
-		}
-		//if (is_negative)
-		//{
-		//	fmt->width = -fmt->width;
-		//}
-	}
-	return (format);
-}
 
 char *flags_to_string(t_fmt_flags f)
 {
@@ -113,32 +46,42 @@ char *flags_to_string(t_fmt_flags f)
 	return (str);
 }
 
+char *precision_to_string(int p)
+{
+	char *precision;
+	char *tmp;
+
+	if (p == DEFAULT_PRECISION)
+	{
+		precision = ft_strdup("");
+	}
+	else
+	{
+		tmp = ft_itoa(p);
+		precision = ft_strjoin(".", tmp);
+		free(tmp);
+	}
+	return (precision);
+}
+
+
 char *format_to_string(t_fmt fmt)
 {
-	char	*flags;
-	char	*width;
-	char	*r;
+	char *flags;
+	char *width;
+	char *precision;
+	char *r;
 
 	flags = flags_to_string(fmt.flags);
 	width = fmt.width == DEFAULT_WIDTH ? ft_strdup("") : ft_itoa(fmt.width);
-	r = ft_strjoin2(2, flags, width);
+	precision = precision_to_string(fmt.precision);
+	r = ft_strjoin2(3, flags, width, precision);
 	free(flags);
 	free(width);
+	free(precision);
 	return (r);
 }
 
-void	normalize_flags(t_fmt *fmt)
-{
-	if (fmt->flags.adjust_left && fmt->flags.zero_pad)
-	{
-		fmt->flags.zero_pad = FALSE;
-	}
-
-	if (fmt->flags.plus_before_positive && fmt->flags.blank_before_positive)
-	{
-		fmt->flags.blank_before_positive = FALSE;
-	}
-}
 
 char *try_parse_settings(char *format, t_fmt *fmt, t_list *list)
 {
@@ -149,6 +92,7 @@ char *try_parse_settings(char *format, t_fmt *fmt, t_list *list)
 	//}
 	normalize_flags(fmt);
 	format = try_parse_width(format, fmt);
+	format = try_parse_precision(format, fmt);
 
 	format = try_parse_type(format, fmt);
 	if (fmt->type == 0)

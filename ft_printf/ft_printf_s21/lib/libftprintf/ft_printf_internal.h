@@ -8,6 +8,7 @@
 # include "libmem.h"
 
 # define DEFAULT_WIDTH 0
+# define DEFAULT_PRECISION -1
 
 typedef	struct s_format_flags
 {
@@ -22,8 +23,9 @@ typedef	struct s_format
 {
 	t_fmt_flags	flags;
 	int			width;
+	int			precision;
 	char		type;
-	BOOL		value_is_negative;
+	//BOOL		value_is_negative;
 }				t_fmt;
 
 typedef	struct s_format_or_string
@@ -41,8 +43,14 @@ void	add_string(t_list *list, const char *str);
 void	add_format(t_list *list, const t_fmt *fmt);
 void	free_list(t_list **list);
 int		count_format(t_list *list);
+
 t_fmt	*get_default_format();
 
+char	*try_parse_flags(char *format, t_fmt *fmt);
+void	normalize_flags(t_fmt *fmt);
+char	*try_parse_type(char *format, t_fmt *fmt);
+char *try_parse_width(char *format, t_fmt *fmt); 
+char *try_parse_precision(char *format, t_fmt *fmt);
 
 void	replace_args(t_list *list, va_list args_list);
 

@@ -87,7 +87,7 @@ void	test_format(char *format)
 
 void	test_flags(char *flags)
 {
-	char	types[] = "dicoOxX";//s
+	char	types[] = "udicoOxX";//psidaAeEfFgG
 	char	t[] = " ";
 
 	for (int i = 0; i < ft_strlen(types); i++)
@@ -96,16 +96,7 @@ void	test_flags(char *flags)
 		test_format(ft_strjoin2(3, "%", flags, t));
 	}
 
-	for (int i = 0; i < 50; i+=1)
-	{
-		char	*w = ft_itoa(i);
-		for (int j = 0; j < ft_strlen(types); j++)
-		{
-			t[0] = types[j];
-			test_format(ft_strjoin2(3, "%", ft_strjoin(flags, w), t));
-		}
 
-	}
 	for (int w = -20; w < 50; w+=10)
 	{
 		char	*wd = ft_itoa(w);
@@ -121,6 +112,8 @@ void	test_flags(char *flags)
 
 int	main()
 {
+	test("%c  ...%.   ... %c",'a', 'b');
+	test("%.-",'a');
 	test("%0 3d",1);
 	test("%#04x",1);
 	test("%02d",1);
