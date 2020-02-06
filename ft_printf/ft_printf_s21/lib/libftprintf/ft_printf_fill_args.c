@@ -160,11 +160,39 @@ char *process_width(t_fmt fmt, char *str, int *len)
 	return (tmp);
 }
 
+char *process_precision(t_fmt fmt, char *str)
+{
+	if (fmt.precision < 0 || !is_number(fmt.type))
+	{
+		return (str);
+	}
+	int	diff;
+	int	i;
+	char *tmp;
+	char *prefix;
+
+	diff = ft_strlen(str) - fmt.precision;
+	tmp = str;
+	if (diff > 0)
+	{
+		str = ft_strsub(str, 0, fmt.precision);
+	}
+	else if (diff < 0)
+	{
+		prefix = ft_str_repeat("0", -diff);
+		str = ft_strjoin(prefix, str);
+		free(prefix);
+	}
+	free(tmp);
+	return (str);
+}
+
 char *process_string(const t_fmt *fmt, char *str, int *size)
 {
 	//flags
 	//pad
 	//cut
+	str = process_precision(*fmt, str);
 	str = process_sign(*fmt, str);
 	str = process_blank(*fmt, str);
 	str = process_width(*fmt, str, NULL);

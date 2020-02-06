@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include "asserts.h"
 #include "libstr.h"
-	
+
 int g_tests_count = 0;
 
 void	test(const char *format, ...)
@@ -66,7 +66,7 @@ void	test_number(const char *format)
 	test(format, ULLONG_MAX);
 	//test(format, LONG_LONG_MIN);
 	//test(format, ULONG_LONG_MAX);
-		
+
 }
 
 void	test_char(const char *format)
@@ -85,48 +85,76 @@ void	test_format(char *format)
 	free(format);
 }
 
+void	test_type(char type, char *flags)
+{
+	char	t[] = " ";
+	t[0] = type;
+
+	test_format(ft_strjoin2(3, "%", flags, t));
+
+	for (int w = -20; w < 50; w += 10)
+	{
+		char *wd = ft_itoa(w);
+		test_format(ft_strjoin2(4, "%", flags, wd, t));
+		for (int p = 1; p < 10; p += 5)
+		//!!!!	for (int p = -10; p < 10; p += 5)
+		{
+			char *pr = ft_itoa(p);
+			test_format(ft_strjoin2(6, "%", flags, wd, ".", pr, t));
+		}
+	}
+
+	for (int p = -10; p < 10; p += 5)
+	{
+		char *pr = ft_itoa(p);
+		test_format(ft_strjoin2(6, "%", flags, "", ".", pr, t));
+	}
+
+}
+
 void	test_flags(char *flags)
 {
-	char	types[] = "udicoOxX";//psidaAeEfFgG
-	char	t[] = " ";
+	char	types[] = "diuoOxXc";//psidaAeEfFgG
+
 
 	for (int i = 0; i < ft_strlen(types); i++)
 	{
-		t[0] = types[i];
-		test_format(ft_strjoin2(3, "%", flags, t));
+		test_type(types[i], flags);
 	}
 
 
-	for (int w = -20; w < 50; w+=10)
-	{
-		char	*wd = ft_itoa(w);
-		for (int i = 0; i < ft_strlen(types); i++)
-		{
-			t[0] = types[i];
-			test_format(ft_strjoin2(3, "%", ft_strjoin(flags, wd), t));
-		}
-
-	}
 	//free(flags);
 }
 
 int	main()
 {
-	test("%c  ...%.   ... %c",'a', 'b');
-	test("%.-",'a');
-	test("%0 3d",1);
-	test("%#04x",1);
-	test("%02d",1);
-	test("%#-20d",-1);
-	test("%1c",0);
-	test("%2c",'a');
-	test("%2c",0);
-	test("%5d",1);
-	test("%5d",-1);
+	test("%#-2.0d", 0);
+//	test("%#-2.0d", -1);
+	//test("%#-2.0d", 1);
+	//test("%.-1d", 1);
+	test("%.2d", 1);
+	test("%#-50.2d", 1);
+	test("%c  ...%.10 ...%c", 'a', 'b');
+	test("%.1c", 'a');
+	test("%.10c", 'a');
+	//test("%.-10c",'a');
+	//test(" %.1",'a');
+	//test("%.10",'a');
+	test("%c  ...%.   ...%c", 'a', 'b');
+	test("%.-", 'a');
+	test("%0 3d", 1);
+	test("%#04x", 1);
+	test("%02d", 1);
+	test("%#-20d", -1);
+	test("%1c", 0);
+	test("%2c", 'a');
+	test("%2c", 0);
+	test("%5d", 1);
+	test("%5d", -1);
 
-	test("%1d",0);
-	test("%1d",1);
-	test("%1d",-1);
+	test("%1d", 0);
+	test("%1d", 1);
+	test("%1d", -1);
 	test("1%");
 
 
@@ -175,9 +203,9 @@ int	main()
 			}
 		}
 	}
-	
+
 	test_flags(flags);
-	
+
 	//test_flags(strrev(flags));
 	int q;
 

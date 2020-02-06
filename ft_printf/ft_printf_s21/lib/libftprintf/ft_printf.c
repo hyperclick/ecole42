@@ -97,6 +97,10 @@ char *try_parse_settings(char *format, t_fmt *fmt, t_list *list)
 	format = try_parse_type(format, fmt);
 	if (fmt->type == 0)
 	{
+		//if (fmt->precision != DEFAULT_PRECISION && fmt->precision != 0)
+		//{
+		//	return (NULL);
+		//}
 		add_string(list, format_to_string(*fmt));
 	}
 	else
@@ -120,8 +124,7 @@ char *try_extract_id(t_list *list, char *format)
 	{
 		return (format);
 	}
-	format = try_parse_settings(format, get_default_format(), list);
-	return (format);
+	return (try_parse_settings(format, get_default_format(), list));
 }
 
 t_list *to_list(char *format, int *r)
@@ -157,6 +160,11 @@ t_list *to_list(char *format, int *r)
 				return (list);
 			}
 			format = try_extract_id(list, format + 1);
+			//if (format == NULL)
+			//{
+			//	*r = -1;
+			//	return (list);
+			//}
 			continue;
 		}
 		*str++ = *format++;
