@@ -35,9 +35,9 @@ t_fmt* oct_to_string(uint p, t_fmt* fmt)
 	return (fmt);
 }
 
-t_fmt* int_to_string(t_fmt* fmt, int n)
+t_fmt* int_to_string(t_fmt* fmt, long int n)
 {
-	uint	u;
+	ulong long	u;
 	
 	u = n;
 	if (n < 0)

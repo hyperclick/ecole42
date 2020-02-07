@@ -131,6 +131,8 @@ t_fmt* get_default_format()
 	f->flags.zero_pad = FALSE;
 	f->width = DEFAULT_WIDTH;
 	f->precision = DEFAULT_PRECISION;
+	//ft_strcpy(f->length, "\0\0\0");
+	f->length[0] = f->length[1] = f->length[2] = 0;
 	f->type = 0;
 	f->pad_left = NULL;
 	f->pad_right = NULL;

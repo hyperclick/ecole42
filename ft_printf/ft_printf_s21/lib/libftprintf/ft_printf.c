@@ -93,7 +93,7 @@ char *try_parse_settings(char *format, t_fmt *fmt, t_list *list)
 	normalize_flags(fmt);
 	format = try_parse_width(format, fmt);
 	format = try_parse_precision(format, fmt);
-
+	format = try_parse_length(format, fmt);
 	format = try_parse_type(format, fmt);
 
 	if (fmt->type == 0)
@@ -118,7 +118,6 @@ char *try_parse_settings(char *format, t_fmt *fmt, t_list *list)
 	}
 	return (format);
 }
-
 
 char *try_extract_id(t_list *list, char *format)
 {
@@ -169,11 +168,11 @@ t_list *to_list(char *format, int *r)
 				return (list);
 			}
 			format = try_extract_id(list, format + 1);
-			//if (format == NULL)
-			//{
-			//	*r = -1;
-			//	return (list);
-			//}
+			if (format == NULL)
+			{
+				*r = -1;
+				return (list);
+			}
 			continue;
 		}
 		*str++ = *format++;

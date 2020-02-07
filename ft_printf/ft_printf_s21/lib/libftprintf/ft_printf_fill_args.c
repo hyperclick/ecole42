@@ -162,7 +162,28 @@ char *fill_arg(t_fmt *fmt, va_list args_list)
 	}
 	else if (fmt->type == 'd' || fmt->type == 'i')
 	{
-		return (process_string(int_to_string(fmt, va_arg(args_list, int))));
+		long int v;
+		
+		if (ft_strequ(fmt->length, "h"))
+		{
+			v = va_arg(args_list, int);
+			return (process_string(int_to_string(fmt, (short int)v)));
+		}
+		else if (ft_strequ(fmt->length, "hh"))
+		{
+			v = va_arg(args_list, int);
+			return (process_string(int_to_string(fmt, (signed char)v)));
+		}
+		else if (ft_strequ(fmt->length, "l"))
+		{
+			v = va_arg(args_list, long int);
+			return (process_string(int_to_string(fmt, (long int)v)));
+		}
+		else
+		{
+			v = va_arg(args_list, long int);
+			return (process_string(int_to_string(fmt, (int)v)));
+		}
 	}
 	else if (fmt->type == 'u')
 	{

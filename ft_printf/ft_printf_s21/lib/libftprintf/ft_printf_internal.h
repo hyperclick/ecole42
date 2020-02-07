@@ -24,6 +24,7 @@ typedef	struct s_format
 	t_fmt_flags	flags;
 	int			width;
 	int			precision;
+	char		length[3];
 	char		type;
 	//BOOL		value_is_negative;
 	char		* prefix;
@@ -54,9 +55,10 @@ t_fmt	*get_default_format();
 
 char	*try_parse_flags(char *format, t_fmt *fmt);
 void	normalize_flags(t_fmt *fmt);
+char	*try_parse_width(char *format, t_fmt *fmt); 
+char	*try_parse_precision(char *format, t_fmt *fmt);
+char	*try_parse_length(char* format, t_fmt* fmt);
 char	*try_parse_type(char *format, t_fmt *fmt);
-char *try_parse_width(char *format, t_fmt *fmt); 
-char *try_parse_precision(char *format, t_fmt *fmt);
 
 int		recalc_size(t_fmt* fmt);
 
@@ -72,7 +74,7 @@ t_fmt* pchar_to_string(t_fmt* fmt, const char* str);
 t_fmt* hex_to_string(long long p, BOOL is_upper_case, t_fmt* fmt);
 t_fmt* pointer_to_string(void* p, t_fmt* fmt);
 t_fmt* oct_to_string(uint p, t_fmt* fmt);
-t_fmt* int_to_string(t_fmt* fmt, int n);
+t_fmt* int_to_string(t_fmt* fmt, long int n);
 t_fmt* uint_to_string(t_fmt* fmt, uint n);
 
 char* ft_str_prepend_and_free(const char* prefix, char* str);

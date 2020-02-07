@@ -33,7 +33,6 @@ void	test(const char *format, ...)
 	va_start(argptr, format);
 	e_r = vsprintf(e, format, argptr);
 	va_end(argptr);
-
 	va_start(argptr, format);
 	a = ft_vstprintf(&a_r, format, argptr);
 	va_end(argptr);
@@ -84,40 +83,49 @@ void	test_format(char *format)
 	free(format);
 }
 
+void	test_width(char* flags, char* p, char *w, char* t)
+{
+	char* l[] = { "", "h", "hh", "l", "ll", "q", "L", "j", "z", "t" };
+
+	for (int i = 0; i < 10; i++)
+	{
+		test_format(ft_strjoin2(6,"%", flags, p, w, l[i], t));
+	}
+}
+
+void	test_precision(char *flags, char *p, char *t)
+{
+	char* w[] = { "", "-10", "-5", "0", "5", "10" };
+
+	for (int i = 0; i < 6; i++)
+	{
+		test_width(flags, p, w[i], t);
+	}
+}
+
 void	test_type(char type, char *flags)
 {
+	//char* p[] = { "", ".-10", ".-5", ".0", ".5", ".10" };
+	char* p[] = { "", ".2", ".1", ".0", ".5", ".10" };
 	char	t[] = " ";
 	t[0] = type;
 
 	test_format(ft_strjoin2(3, "%", flags, t));
 
-	for (int w = -20; w < 50; w += 10)
-	{
-		char *wd = ft_itoa(w);
-		test_format(ft_strjoin2(4, "%", flags, wd, t));
-		for (int p = 1; p < 10; p += 5)
-		//!!!!	for (int p = -10; p < 10; p += 5)
-		{
-			char *pr = ft_itoa(p);
-			test_format(ft_strjoin2(6, "%", flags, wd, ".", pr, t));
-		}
-	}
+	for (int i = 0; i < 6; i++)
+		test_precision(flags, p[i], t);
 
-	for (int p = 1; p < 10; p += 5)
-		//!!!!	for (int p = -10; p < 10; p += 5)
-	{
-		char *pr = ft_itoa(p);
-		test_format(ft_strjoin2(6, "%", flags, "", ".", pr, t));
-	}
+
 
 }
 
 void	test_flags(char *flags)
 {
-	char	types[] = "diuoOxXc";//psidaAeEfFgG
+	char	types[] = "diuoOxXc";//psaAeEfFgG
 
 
 	for (int i = 0; i < ft_strlen(types); i++)
+//		for (int i = 0; i < ft_strlen(types) + 1; i++)
 	{
 		test_type(types[i], flags);
 	}
@@ -128,6 +136,13 @@ void	test_flags(char *flags)
 
 int	main()
 {
+	test("%ld", LONG_MIN);
+	test("%ld", __LONG_LONG_MAX__);
+	test("%#ld", -1);
+	test("%d", 1);
+	test("%ld", 1);
+	//test("111%#");
+	test("%lhd", 1);
 	test("%02.1d", 1);
 	test("%02d", 1);
 	//test("%2c", 0);
@@ -186,7 +201,7 @@ int	main()
 	char *flags = "#+-0 ";
 	char str[4];
 	str[1] = 0;
-	for (int i = 0; i < ft_strlen(flags); i++)
+	for (int i = 0; i < ft_strlen(flags) +1; i++)
 	{
 		str[0] = flags[i];
 		test_flags(str);

@@ -13,7 +13,8 @@
 #include "ft_printf_internal.h"
 
 
-char *try_parse_flags(char *format, t_fmt *fmt)
+
+char* try_parse_flags(char* format, t_fmt* fmt)
 {
 	while (*format != 0)
 	{
@@ -46,7 +47,7 @@ char *try_parse_flags(char *format, t_fmt *fmt)
 	return (format);
 }
 
-void	normalize_flags(t_fmt *fmt)
+void	normalize_flags(t_fmt* fmt)
 {
 	if (fmt->flags.adjust_left && fmt->flags.zero_pad)
 	{
@@ -60,7 +61,7 @@ void	normalize_flags(t_fmt *fmt)
 }
 
 
-char *try_parse_type(char *format, t_fmt *fmt)
+char* try_parse_type(char* format, t_fmt* fmt)
 {
 	if (is_valid_type(*format))
 	{
@@ -71,7 +72,7 @@ char *try_parse_type(char *format, t_fmt *fmt)
 }
 
 
-char *try_parse_width(char *format, t_fmt *fmt)
+char* try_parse_width(char* format, t_fmt* fmt)
 {
 	//BOOL	is_negative;
 
@@ -96,7 +97,7 @@ char *try_parse_width(char *format, t_fmt *fmt)
 	}
 	return (format);
 }
-char *try_parse_precision(char *format, t_fmt *fmt)
+char* try_parse_precision(char* format, t_fmt* fmt)
 {
 	BOOL	is_negative;
 
@@ -131,3 +132,24 @@ char *try_parse_precision(char *format, t_fmt *fmt)
 	return (format);
 }
 
+
+char* try_parse_length(char* format, t_fmt* fmt)
+{
+	int	i;
+
+	i = 0;
+
+	if (*format != 0 && ft_contains("hlqLjzt", *format))
+	{
+		fmt->length[i++] = *format;
+		format++;
+	}
+
+	if (*format != 0 && ft_contains("hl", *format) && fmt->length[0] == *format)
+	{
+		fmt->length[i++] = *format;
+		format++;
+	}
+
+	return (format);
+}
