@@ -12,246 +12,173 @@
 
 #include "ft_printf_internal.h"
 
-char *fill_string(char *arg)
+void	process_sign(t_fmt *fmt)
 {
-	return (ft_strdup(arg == NULL ? "(null)" : arg));
-}
-
-char *fill_char(char c)
-{
-	char *arg;
-
-	arg = ft_strnew(1);
-	arg[0] = c;
-	return (arg);
-}
-
-char *hex_to_string(long long p, BOOL is_upper_case, t_fmt fmt)
-{
-	char *str;
-	char *tmp;
-
-	str = ft_itoa_base(p, is_upper_case ? "0123456789ABCDEF" : "0123456789abcdef");
-	if (fmt.flags.is_alt_form && p != 0)
+	if (is_signed_number(fmt->type) && fmt->flags.plus_before_positive)
 	{
-		tmp = ft_strjoin(is_upper_case ? "0X" : "0x", str);
-		free(str);
-		str = tmp;
-	}
-	return  (str);
-}
-
-char *pointer_to_string(void *p, t_fmt fmt)
-{
-	fmt.flags.is_alt_form = TRUE;
-	return (p == NULL ? ft_strdup("(nil)") : hex_to_string((long long)p, FALSE, fmt));
-}
-
-char *oct_to_string(uint p, t_fmt fmt)
-{
-	char *str;
-	char *tmp;
-	str = ft_itoa_base(p, "01234567");
-	if (fmt.flags.is_alt_form && p != 0)
-	{
-		tmp = ft_strjoin("0", str);
-		free(str);
-		str = tmp;
-	}
-	return  (str);
-}
-
-
-
-char *process_sign(t_fmt fmt, char *str)
-{
-	char *dst;
-	if (is_signed_number(fmt.type) && fmt.flags.plus_before_positive)
-	{
-		if (*str != '-')
+		if (fmt->prefix[0] != '-')
 		{
-			dst = ft_strjoin("+", str);
-			free(str);
-			str = dst;
+			fmt->prefix = ft_str_prepend_and_free("+", fmt->prefix);
 		}
 	}
-	return (str);
 }
 
-char *process_blank(t_fmt fmt, char *str)
+char* ft_str_prepend_and_free(const char *prefix, char *str)
 {
-	char *dst;
-	if (is_signed_number(fmt.type)
-		&& fmt.flags.blank_before_positive
-		&& !fmt.flags.plus_before_positive)
-	{
-		if (*str != '-')
-		{
-			dst = ft_strjoin(" ", str);
-			free(str);
-			str = dst;
-		}
-	}
-	return (str);
-}
+	char* tmp;
 
-char *get_prefix(t_fmt fmt, char *str, char prefix[3])
-{
-	char *value;
-
-	value = str;
-	if (fmt.flags.zero_pad && is_number(fmt.type) && ft_strlen(str) != 0)
-	{
-		if (*str == '-' || *str == '+' || *str == ' ')
-		{
-			prefix[0] = str[0];
-			value = ft_strdup(str + 1);
-			free(str);
-		}
-		else if (*str == '0' && (str[1] == 'x' || str[1] == 'X'))
-		{
-			prefix[0] = str[0];
-			prefix[1] = str[1];
-			value = ft_strdup(str + 2);
-			free(str);
-		}
-	}
-	return (value);
-}
-
-
-char *process_width(t_fmt fmt, char *str, int *len)
-{
-	int	str_len;
-	char *tmp;
-	int		dst_len;
-	char	prefix[] = "\0\0";
-	char *pads;
-
-	str_len = len == NULL ? ft_strlen(str) : *len;
-	if (fmt.width <= str_len)
-	{
-		return (str);
-	}
-
-	str = get_prefix(fmt, str, prefix);
-
-	pads = ft_str_repeat(fmt.flags.zero_pad && fmt.type != 'c' ? "0" : " ", fmt.width - str_len);
-	dst_len = ft_strlen(pads) + str_len;
-	tmp = malloc(sizeof(char) * (dst_len + 1));
-	tmp[dst_len] = 0;
-	if (fmt.flags.adjust_left)
-	{
-		ft_strcpy(tmp, str);
-		ft_strcpy(tmp + str_len, pads);
-	}
-	else
-	{
-		ft_strcpy(tmp, prefix);
-		ft_strcpy(tmp + ft_strlen(prefix), pads);
-		ft_strcpy(tmp + ft_strlen(prefix) + ft_strlen(pads), str);
-	}
-	free(str);
-	free(pads);
-	if (len != NULL)
-	{
-		*len = dst_len;
-	}
-	return (tmp);
-}
-
-char *process_precision(t_fmt fmt, char *str)
-{
-	if (fmt.precision < 0 || !is_number(fmt.type))
-	{
-		return (str);
-	}
-	int	diff;
-	int	i;
-	char *tmp;
-	char *prefix;
-
-	diff = ft_strlen(str) - fmt.precision;
 	tmp = str;
-	if (diff > 0)
-	{
-		str = ft_strsub(str, 0, fmt.precision);
-	}
-	else if (diff < 0)
-	{
-		prefix = ft_str_repeat("0", -diff);
-		str = ft_strjoin(prefix, str);
-		free(prefix);
-	}
+	str = ft_strjoin(prefix, str);
 	free(tmp);
 	return (str);
 }
 
-char *process_string(const t_fmt *fmt, char *str, int *size)
+void	process_blank(t_fmt *fmt)
 {
-	//flags
-	//pad
-	//cut
-	str = process_precision(*fmt, str);
-	str = process_sign(*fmt, str);
-	str = process_blank(*fmt, str);
-	str = process_width(*fmt, str, NULL);
-
-	*size = ft_strlen(str);
-	return (str);
+	if (is_signed_number(fmt->type)
+		&& fmt->flags.blank_before_positive
+		&& !fmt->flags.plus_before_positive)
+	{
+		if (fmt->prefix[0] != '-')
+		{
+			fmt->prefix = ft_str_prepend_and_free(" ", fmt->prefix);
+		}
+	}
 }
 
-
-char *process_char(const t_fmt *fmt, va_list args_list, int *size)
+void	process_width(t_fmt *fmt)
 {
-	char *str;
-	char	c;
+	char *pads;
+	
+	if (fmt->width < fmt->size)
+	{
+		return;
+//		pads = fmt->value;
+//		fmt->value = ft_strsub(fmt->value);
+	}
+	pads = ft_str_repeat(fmt->flags.zero_pad && fmt->type != 'c' ? "0" : " ", fmt->width - fmt->size);
+	//fmt->size = ft_strlen(pads) + fmt->size;
 
-	str = fill_char(va_arg(args_list, int));
-	c = *str;
-	*size = 1;
-	str = process_width(*fmt, str, size);
+	if (fmt->flags.adjust_left)
+	{
+		fmt->pad_right = pads;
+		//char* tmp = fmt->value;
+		//fmt->value = malloc(sizeof(char) * (ft_strlen(pads) + fmt->size + 1));
+		//ft_strcpy(fmt->value, );
+	}
+	else
+	{
+		if (pads[0] == '0')
+		{
+			fmt->value = ft_str_prepend_and_free(pads, fmt->value);
+		}
+		else
+		{
+			fmt->prefix = ft_str_prepend_and_free(pads, fmt->prefix);			
+		}
+		free(pads);
+	}
+}
+
+void	process_precision(t_fmt *fmt)
+{
+	if (fmt->precision < 0 || !is_int_number(fmt->type))
+	{
+		return;
+	}
+	if (fmt->precision == 0 && ft_strequ(fmt->value, "0"))
+	{
+		fmt->value[0] = 0;
+		return;
+	}
+
+	int	diff;
+	char *prefix;
+
+	diff = ft_strlen(fmt->value) - fmt->precision;
+	if (diff > 0)
+	{
+	//tmp = fmt->value;
+		//str = ft_strsub(str, 0, fmt.precision);
+		//free(tmp);
+	}
+	else if (diff < 0)
+	{
+		prefix = ft_str_repeat("0", -diff);
+		fmt->value = ft_str_prepend_and_free(prefix, fmt->value);
+		free(prefix);
+	}
+}
+
+char *process_string(t_fmt *fmt)
+{
+	if (fmt->prefix == NULL)
+	{
+		fmt->prefix = ft_strdup("");
+	}
+	recalc_size(fmt);
+	process_precision(fmt);
+	recalc_size(fmt);
+	process_sign(fmt);
+	recalc_size(fmt);
+	process_blank(fmt);
+	recalc_size(fmt);
+	process_width(fmt);
+	recalc_size(fmt);
+	if (fmt->pad_left == NULL)
+	{
+		fmt->pad_left = ft_strdup("");
+	}
+	if (fmt->pad_right == NULL)
+	{
+		fmt->pad_right = ft_strdup("");
+	}
+
+	return (NULL);
+}
+
+/*
+char *process_char(t_fmt *fmt)
+{
+	fmt->value = fill_char(va_arg(args_list, int));
+	fmt->size = 1;
+	process_width(fmt);
 	//if (c == 0)
 	//{
 	//	*size = *size + 1;
 	//}
-	return (str);
-}
+	return (NULL);
+}*/
 
-char *pchar_to_string(const char *str)
-{
-	return (ft_strdup(str == NULL ? "(null)" : str));
-}
-
-char *fill_arg(const t_fmt *fmt, va_list args_list, int *size)
+char *fill_arg(t_fmt *fmt, va_list args_list)
 {
 	if (fmt->type == 'c')
 	{
-		return (process_char(fmt, args_list, size));
+		return (process_string(char_to_string(fmt, va_arg(args_list, int))));
 	}
 	else if (fmt->type == 's')
 	{
-		return (process_string(fmt, pchar_to_string(va_arg(args_list, char *)), size));
+		return (process_string(pchar_to_string(fmt, va_arg(args_list, char *))));
 	}
 	else if (fmt->type == 'd' || fmt->type == 'i')
 	{
-		return (process_string(fmt, ft_itoa(va_arg(args_list, int)), size));
+		return (process_string(int_to_string(fmt, va_arg(args_list, int))));
 	}
 	else if (fmt->type == 'u')
 	{
-		return (process_string(fmt, ft_itoa(va_arg(args_list, uint)), size));
+		return (process_string(uint_to_string(fmt, va_arg(args_list, uint))));
 	}
 	else if (fmt->type == 'p')
 	{
-		return (process_string(fmt, pointer_to_string(va_arg(args_list, void *), *fmt), size));
+		return (process_string(pointer_to_string(va_arg(args_list, void *), fmt)));
 	}
 	else if (fmt->type == 'x' || fmt->type == 'X')
 	{
-		return (process_string(fmt, hex_to_string(va_arg(args_list, uint), fmt->type == 'X', *fmt), size));
+		return (process_string(hex_to_string(va_arg(args_list, uint), fmt->type == 'X', fmt)));
 	}
 	else if (fmt->type == 'o')
 	{
-		return (process_string(fmt, oct_to_string(va_arg(args_list, uint), *fmt), size));
+		return (process_string(oct_to_string(va_arg(args_list, uint), fmt)));
 	}
 	else
 	{
@@ -262,19 +189,29 @@ char *fill_arg(const t_fmt *fmt, va_list args_list, int *size)
 	}
 }
 
+char* join_zero_char(t_fmt *fmt)
+{
+	char* r;
+
+	r = ft_strjoin2(3, fmt->pad_left, fmt->prefix, fmt->value);
+}
+
 void	replace_args(t_list *list, va_list args_list)
 {
 	int		size;
-	t_item *e;
+	t_item	*e;
 
 	while (list != NULL)
 	{
 		e = (t_item *)list->content;
 		if (is_format(e))
 		{
-			e->str = fill_arg(e->fmt, args_list, &size);
-			e->str_len = size;
-			free(e->fmt);
+			fill_arg(e->fmt, args_list);
+			e->str = (e->fmt->type == 'c' && *e->fmt->value == 0) ?
+				ft_strjoin2(3, e->fmt->pad_left, e->fmt->prefix, e->fmt->value)
+				: ft_strjoin2(4, e->fmt->pad_left, e->fmt->prefix, e->fmt->value, e->fmt->pad_right);
+			e->str_len = e->fmt->size;
+			free_format(e->fmt);
 			e->fmt = NULL;
 		}
 		list = list->next;

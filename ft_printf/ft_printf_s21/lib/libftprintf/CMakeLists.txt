@@ -5,6 +5,7 @@ ADD_LIBRARY(ftprintf STATIC
 	ft_printf.c
 	ft_printf2.c
 	ft_printf_fill_args.c
+	parsers.c
 	types.c
 )
 

@@ -34,7 +34,6 @@ void	test(const char *format, ...)
 	e_r = vsprintf(e, format, argptr);
 	va_end(argptr);
 
-
 	va_start(argptr, format);
 	a = ft_vstprintf(&a_r, format, argptr);
 	va_end(argptr);
@@ -104,7 +103,8 @@ void	test_type(char type, char *flags)
 		}
 	}
 
-	for (int p = -10; p < 10; p += 5)
+	for (int p = 1; p < 10; p += 5)
+		//!!!!	for (int p = -10; p < 10; p += 5)
 	{
 		char *pr = ft_itoa(p);
 		test_format(ft_strjoin2(6, "%", flags, "", ".", pr, t));
@@ -128,7 +128,23 @@ void	test_flags(char *flags)
 
 int	main()
 {
-	test("%#-2.0d", 0);
+	test("%02.1d", 1);
+	test("%02d", 1);
+	//test("%2c", 0);
+	test("%-2c", 0);
+	test("%#.2o", 1);
+	//test("%.-2d\n", 1);
+	test("%d", INT_MIN);
+	test("%2c", 0);
+	test("%0 3d", 1);
+	test("%4.2d\n", -1);
+	test("%.1d", 0);
+	test("%.1d", 1);
+	test("%.0d", 0);
+	test("%.0d", 1);
+	test("%#2.0d", 0);
+	test("%#2.0d", 1);
+	test("%#-2.0d", 1);
 //	test("%#-2.0d", -1);
 	//test("%#-2.0d", 1);
 	//test("%.-1d", 1);
@@ -144,11 +160,9 @@ int	main()
 	test("%.-", 'a');
 	test("%0 3d", 1);
 	test("%#04x", 1);
-	test("%02d", 1);
 	test("%#-20d", -1);
 	test("%1c", 0);
 	test("%2c", 'a');
-	test("%2c", 0);
 	test("%5d", 1);
 	test("%5d", -1);
 

@@ -45,6 +45,7 @@ char *try_parse_flags(char *format, t_fmt *fmt)
 	}
 	return (format);
 }
+
 void	normalize_flags(t_fmt *fmt)
 {
 	if (fmt->flags.adjust_left && fmt->flags.zero_pad)
@@ -87,9 +88,10 @@ char *try_parse_width(char *format, t_fmt *fmt)
 			fmt->width = fmt->width * 10 + *format - '0';
 			format++;
 		}
-		//if (is_negative)
+		//if (fmt->flags.adjust_left)
 		//{
 		//	fmt->width = -fmt->width;
+		//	//fmt->flags.adjust_left = FALSE;
 		//}
 	}
 	return (format);

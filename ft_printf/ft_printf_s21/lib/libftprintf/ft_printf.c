@@ -95,6 +95,7 @@ char *try_parse_settings(char *format, t_fmt *fmt, t_list *list)
 	format = try_parse_precision(format, fmt);
 
 	format = try_parse_type(format, fmt);
+
 	if (fmt->type == 0)
 	{
 		//if (fmt->precision != DEFAULT_PRECISION && fmt->precision != 0)
@@ -105,6 +106,14 @@ char *try_parse_settings(char *format, t_fmt *fmt, t_list *list)
 	}
 	else
 	{
+		if (fmt->flags.zero_pad
+			&& fmt->width != DEFAULT_WIDTH
+			//&& !fmt->flags.blank_before_positive
+			&& ft_contains("diuoxX", fmt->type)
+			&& fmt->precision != DEFAULT_PRECISION)
+		{
+			fmt->flags.zero_pad = FALSE;
+		}
 		add_format(list, fmt);
 	}
 	return (format);

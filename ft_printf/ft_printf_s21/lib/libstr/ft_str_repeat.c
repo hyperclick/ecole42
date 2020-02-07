@@ -21,6 +21,7 @@ char	*ft_str_repeat(char *s, int n)
 	len = ft_strlen(s);
 	dst = (char *)malloc(sizeof(char) * (len * n + 1));
 	start = dst;
+	start[len * n] = 0;
 	while (n-- > 0)
 	{
 		ft_strcpy(dst, s);
