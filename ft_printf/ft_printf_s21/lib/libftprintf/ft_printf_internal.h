@@ -75,7 +75,7 @@ t_fmt* hex_to_string(long long p, BOOL is_upper_case, t_fmt* fmt);
 t_fmt* pointer_to_string(void* p, t_fmt* fmt);
 t_fmt* oct_to_string(uint p, t_fmt* fmt);
 t_fmt* int_to_string(t_fmt* fmt, long int n);
-t_fmt* uint_to_string(t_fmt* fmt, uint n);
+t_fmt* uint_to_string(t_fmt* fmt, unsigned long int n);
 
 char* ft_str_prepend_and_free(const char* prefix, char* str);
 

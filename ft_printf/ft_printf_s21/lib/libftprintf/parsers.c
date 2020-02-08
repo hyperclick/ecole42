@@ -37,19 +37,19 @@ t_fmt* oct_to_string(uint p, t_fmt* fmt)
 
 t_fmt* int_to_string(t_fmt* fmt, long int n)
 {
-	ulong long	u;
+	unsigned long int	u;
 	
 	u = n;
 	if (n < 0)
 	{
 		fmt->prefix = ft_strdup("-");
-		u = -(uint)n;
+		u = -(unsigned long int)n;
 	}
 	fmt->value = ft_itoa(u);
 	return (fmt);
 }
 
-t_fmt* uint_to_string(t_fmt* fmt, uint n)
+t_fmt* uint_to_string(t_fmt* fmt, unsigned long int n)
 {
 	fmt->value = ft_itoa(n);
 	return (fmt);

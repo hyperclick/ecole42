@@ -41,7 +41,7 @@ static char		*itoa_rec(long long n, char *r, const char *digits)
 	return (itoa_rec(n % base, itoa_rec(n / base, r, digits), digits));
 }
 
-char *ft_itoa_base(long long n, const char *digits)
+char *ft_itoa_base(long long int n, const char *digits)
 {
 	char	*r;
 	char	*str;
@@ -66,7 +66,7 @@ char *ft_itoa_base(long long n, const char *digits)
 }
 
 
-char			*ft_itoa(long long n)
+char			*ft_itoa(long long int n)
 {
 	return (ft_itoa_base(n, "0123456789"));
 }
