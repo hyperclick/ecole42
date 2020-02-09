@@ -137,7 +137,7 @@ void	test_flags(char *flags)
 int	main()
 {
 	test("%c", -1);
-	test("%da%lca", 1, -1);
+	test("%da%lca\n", 1, -1);
 	test("%lca", -1);
 	test("%#lc", -1);
 	test("%lc", 1);
