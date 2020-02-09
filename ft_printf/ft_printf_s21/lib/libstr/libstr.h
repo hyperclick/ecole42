@@ -8,7 +8,9 @@
 int				ft_contains(const char *str, char to_find);
 int				ft_atoi(const char *str);
 char			*ft_itoa(long long int n);
+char			* ft_uitoa(unsigned long long int n);
 char			*ft_itoa_base(long long int n, const char *digits);
+char			* ft_itoa_base2(unsigned long long int n, const char* digits, BOOL is_negative);
 
 int				ft_str_count_chars(const char *str, const char find);
 void			ft_sort_strings(char *a[], int count);

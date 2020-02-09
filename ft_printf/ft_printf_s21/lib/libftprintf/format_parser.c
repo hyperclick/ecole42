@@ -139,7 +139,7 @@ char* try_parse_length(char* format, t_fmt* fmt)
 
 	i = 0;
 
-	if (*format != 0 && ft_contains("hlqLjzt", *format))
+	if (*format != 0 && ft_contains("hlLjzt", *format))
 	{
 		fmt->length[i++] = *format;
 		format++;

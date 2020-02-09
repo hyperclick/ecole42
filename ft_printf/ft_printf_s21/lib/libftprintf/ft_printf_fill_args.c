@@ -88,7 +88,10 @@ void	process_precision(t_fmt *fmt)
 	}
 	if (fmt->precision == 0 && ft_strequ(fmt->value, "0"))
 	{
-		fmt->value[0] = 0;
+		//if (fmt->flags.is_alt_form)
+		{
+			fmt->value[0] = 0;
+		}
 		return;
 	}
 
@@ -96,6 +99,10 @@ void	process_precision(t_fmt *fmt)
 	char *prefix;
 
 	diff = ft_strlen(fmt->value) - fmt->precision;
+	if (fmt->type == 'o' && *fmt->prefix == '0' && fmt->precision == 0)
+	{
+		diff++;
+	}
 	if (diff > 0)
 	{
 	//tmp = fmt->value;
@@ -122,6 +129,11 @@ char *process_string(t_fmt *fmt)
 	process_sign(fmt);
 	recalc_size(fmt);
 	process_blank(fmt);
+	recalc_size(fmt);
+	if (fmt->flags.is_alt_form && fmt->type == 'o' && *fmt->value == '0')
+	{
+		*fmt->prefix = 0;
+	}
 	recalc_size(fmt);
 	process_width(fmt);
 	recalc_size(fmt);
@@ -154,7 +166,7 @@ char *fill_arg(t_fmt *fmt, va_list args_list)
 {
 	if (fmt->type == 'c')
 	{
-		return (process_string(char_to_string(fmt, va_arg(args_list, int))));
+		return(parse_c(fmt, args_list));
 	}
 	else if (fmt->type == 's')
 	{
@@ -162,44 +174,15 @@ char *fill_arg(t_fmt *fmt, va_list args_list)
 	}
 	else if (fmt->type == 'd' || fmt->type == 'i')
 	{
-		long int v;
-		
-		if (ft_strequ(fmt->length, "h"))
-		{
-			v = va_arg(args_list, int);
-			return (process_string(int_to_string(fmt, (short int)v)));
-		}
-		else if (ft_strequ(fmt->length, "hh"))
-		{
-			v = va_arg(args_list, int);
-			return (process_string(int_to_string(fmt, (signed char)v)));
-		}
-		else if (ft_strequ(fmt->length, "l"))
-		{
-			v = va_arg(args_list, long int);
-			return (process_string(int_to_string(fmt, (long int)v)));
-		}
-		else
-		{
-			v = va_arg(args_list, long int);
-			return (process_string(int_to_string(fmt, (int)v)));
-		}
+		return (parse_d(fmt, args_list));
 	}
-	else if (fmt->type == 'u')
+	else if (ft_contains("uoxX", fmt->type))
 	{
-		return (process_string(uint_to_string(fmt, va_arg(args_list, uint))));
+		return (parse_u(fmt, args_list));
 	}
 	else if (fmt->type == 'p')
 	{
 		return (process_string(pointer_to_string(va_arg(args_list, void *), fmt)));
-	}
-	else if (fmt->type == 'x' || fmt->type == 'X')
-	{
-		return (process_string(hex_to_string(va_arg(args_list, uint), fmt->type == 'X', fmt)));
-	}
-	else if (fmt->type == 'o')
-	{
-		return (process_string(oct_to_string(va_arg(args_list, uint), fmt)));
 	}
 	else
 	{
@@ -208,13 +191,6 @@ char *fill_arg(t_fmt *fmt, va_list args_list)
 		ft_e_putstr("\n");
 		exit(1);
 	}
-}
-
-char* join_zero_char(t_fmt *fmt)
-{
-	char* r;
-
-	r = ft_strjoin2(3, fmt->pad_left, fmt->prefix, fmt->value);
 }
 
 void	replace_args(t_list *list, va_list args_list)

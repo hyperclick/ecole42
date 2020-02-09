@@ -12,28 +12,27 @@
 
 #include "libstr.h"
 
-static size_t	get_len_rec(long long n, int base)
+static size_t	get_len_rec(unsigned long long int n, int base)
 {
-	if (n < base && n > -base)
+	if (n < base)
 	{
 		return (1);
 	}
 	return (get_len_rec(n % base, base) + get_len_rec(n / base, base));
 }
 
-static size_t	get_len(long long n, int base)
+static size_t	get_len(unsigned long long int n, int base)
 {
-	return (n < 0 ? 1 + get_len_rec(n, base) : get_len_rec(n, base));
+	return (get_len_rec(n, base));
 }
 
-static char		*itoa_rec(long long n, char *r, const char *digits)
+static char		*itoa_rec(unsigned long long int n, char *r, const char *digits)
 {
 	int		base;
 
 	base = ft_strlen(digits);
-	if (n < base && n > -base)
+	if (n < base)
 	{
-		n = n < 0 ? -n : n;
 		*r = digits[n];
 		r++;
 		return (r);
@@ -41,20 +40,26 @@ static char		*itoa_rec(long long n, char *r, const char *digits)
 	return (itoa_rec(n % base, itoa_rec(n / base, r, digits), digits));
 }
 
-char *ft_itoa_base(long long int n, const char *digits)
+char* ft_itoa_base2(unsigned long long int n, const char* digits, BOOL is_negative)
 {
-	char	*r;
-	char	*str;
+	char	* r;
+	char	* str;
 	int		base;
+	int		len;
 
 	base = ft_strlen(digits);
-	r = malloc(sizeof(char) * (get_len(n, base) + 1));
+	len = get_len(n, base);
+	if (is_negative)
+	{
+		len++;
+	}
+	r = malloc(sizeof(char) * ( + 1));
 	if (r == NULL)
 	{
 		return (r);
 	}
 	str = r;
-	if (n < 0)
+	if (is_negative)
 	{
 		*r = '-';
 		r++;
@@ -64,9 +69,18 @@ char *ft_itoa_base(long long int n, const char *digits)
 	return (str);
 
 }
+char* ft_itoa_base(long long int n, const char* digits)
+{
+	return (ft_itoa_base2(n, digits, n < 0));
+}
 
 
 char			*ft_itoa(long long int n)
 {
 	return (ft_itoa_base(n, "0123456789"));
+}
+
+char			*ft_uitoa(unsigned long long int n)
+{
+	return (ft_itoa_base2(n, "0123456789", FALSE));
 }

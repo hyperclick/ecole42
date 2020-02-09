@@ -85,9 +85,9 @@ void	test_format(char *format)
 
 void	test_width(char* flags, char* p, char *w, char* t)
 {
-	char* l[] = { "", "h", "hh", "l", "ll", "q", "L", "j", "z", "t" };
+	char* l[] = { "", "h", "hh", "l", "ll", "L", "j", "z", "t" };
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 9; i++)
 	{
 		test_format(ft_strjoin2(6,"%", flags, p, w, l[i], t));
 	}
@@ -136,6 +136,25 @@ void	test_flags(char *flags)
 
 int	main()
 {
+	test("%c", -1);
+	test("%da%lca", 1, -1);
+	test("%lca", -1);
+	test("%#lc", -1);
+	test("%lc", 1);
+	test("%#lc", 1);
+	test("%#.2o", 0);
+	test("%#.2o", 1);
+	test("%#.0o", 0);
+	test("%.0o", 0);
+	test("%#2o", 0);
+	test("%#-2o", 0);
+	test("%#o", 0);
+	//test("%#.0", 0);
+	test("%.0d", 0);
+	test("%#.0d", 0);
+	test("%o", 0);
+	test("%.0o", 0);
+	test("%uh", -1);
 	test("%ld", LONG_MIN);
 	test("%ld", __LONG_LONG_MAX__);
 	test("%#ld", -1);
@@ -147,7 +166,6 @@ int	main()
 	test("%02d", 1);
 	//test("%2c", 0);
 	test("%-2c", 0);
-	test("%#.2o", 1);
 	//test("%.-2d\n", 1);
 	test("%d", INT_MIN);
 	test("%2c", 0);

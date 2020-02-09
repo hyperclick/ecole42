@@ -41,10 +41,11 @@ typedef	struct s_format_or_string
 	int		str_len;
 	t_fmt	*fmt;
 }				t_item;
+
 BOOL	is_string(t_item*);
 BOOL	is_format(t_item*);
-t_item *create_string(const char *str);
-t_item *create_format(const t_fmt *fmt);
+t_item	*create_string(const char *str);
+t_item	*create_format(const t_fmt *fmt);
 void	add_string(t_list *list, const char *str);
 void	add_format(t_list *list, const t_fmt *fmt);
 void	free_list(t_list **list);
@@ -69,14 +70,18 @@ BOOL	is_signed_number(char t);
 BOOL	is_number(char t);
 BOOL	is_valid_type(char t);
 
-t_fmt* char_to_string(t_fmt* fmt, char c);
-t_fmt* pchar_to_string(t_fmt* fmt, const char* str);
-t_fmt* hex_to_string(long long p, BOOL is_upper_case, t_fmt* fmt);
-t_fmt* pointer_to_string(void* p, t_fmt* fmt);
-t_fmt* oct_to_string(uint p, t_fmt* fmt);
-t_fmt* int_to_string(t_fmt* fmt, long int n);
-t_fmt* uint_to_string(t_fmt* fmt, unsigned long int n);
+char	*parse_d(t_fmt* fmt, va_list args_list);
+//t_fmt	*int_to_string(t_fmt* fmt, long int n);
 
-char* ft_str_prepend_and_free(const char* prefix, char* str);
+
+char	*parse_c(t_fmt* fmt, va_list args_list);
+t_fmt	*pchar_to_string(t_fmt* fmt, const char* str);
+t_fmt	*hex_to_string(t_fmt* fmt, unsigned long long int p, BOOL is_upper_case);
+t_fmt	*pointer_to_string(void* p, t_fmt* fmt);
+//t_fmt	*oct_to_string(t_fmt* fmt, unsigned long long int n);
+char	*parse_u(t_fmt* fmt, va_list args_list);
+//t_fmt	*uint_to_string(t_fmt* fmt, unsigned long long int n);
+
+char	*ft_str_prepend_and_free(const char* prefix, char* str);
 
 #endif 
