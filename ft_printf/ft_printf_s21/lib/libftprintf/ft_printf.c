@@ -83,58 +83,6 @@ char *format_to_string(t_fmt fmt)
 }
 
 
-char *try_parse_settings(char *format, t_fmt *fmt, t_list *list)
-{
-	format = try_parse_flags(format, fmt);
-	//if (*format == 0)
-	//{
-	//	add_string(list, flags_to_string(fmt->flags));
-	//}
-	normalize_flags(fmt);
-	format = try_parse_width(format, fmt);
-	format = try_parse_precision(format, fmt);
-	format = try_parse_length(format, fmt);
-	format = try_parse_type(format, fmt);
-
-	if (fmt->type == 0)
-	{
-		//if (fmt->precision != DEFAULT_PRECISION && fmt->precision != 0)
-		//{
-		//	return (NULL);
-		//}
-		add_string(list, format_to_string(*fmt));
-	}
-	else
-	{
-		if (fmt->flags.zero_pad
-			&& fmt->width != DEFAULT_WIDTH
-			//&& !fmt->flags.blank_before_positive
-			&& ft_contains("diuoxX", fmt->type)
-			&& fmt->precision != DEFAULT_PRECISION)
-		{
-			fmt->flags.zero_pad = FALSE;
-		}
-		add_format(list, fmt);
-	}
-	return (format);
-}
-
-char *try_extract_id(t_list *list, char *format)
-{
-	char *r;
-
-	if (*format == '%')
-	{
-		add_string(list, "%");
-		return (format + 1);
-	}
-	if (*format == 0)
-	{
-		return (format);
-	}
-	return (try_parse_settings(format, get_default_format(), list));
-}
-
 t_list *to_list(char *format, int *r)
 {
 	t_list *list;
@@ -167,10 +115,9 @@ t_list *to_list(char *format, int *r)
 				*r = -1;
 				return (list);
 			}
-			format = try_extract_id(list, format + 1);
-			if (format == NULL)
+			format = try_extract_id(list, format + 1, r);
+			if (*r < 0)
 			{
-				*r = -1;
 				return (list);
 			}
 			continue;
@@ -187,11 +134,17 @@ t_list *to_list(char *format, int *r)
 int	to_string_get_size(t_list *list)
 {
 	int size;
+	int len;
 
 	size = 0;
 	while (list != NULL)
 	{
-		size += ((t_item *)list->content)->str_len;
+		len = ((t_item*)list->content)->str_len;
+		if (len < 0)
+		{
+			return (size);
+		}
+		size += len;
 		list = list->next;
 	}
 	return (size);
@@ -210,6 +163,11 @@ char *to_string(t_list *list, int *size)
 	while (list != NULL)
 	{
 		e = (t_item *)list->content;
+		if (e->str_len < 0)
+		{
+			*size = e->str_len;
+			break;
+		}
 		ft_strncpy(r, e->str, e->str_len);
 		r += e->str_len;
 		list = list->next;
@@ -221,7 +179,7 @@ char *to_string(t_list *list, int *size)
 char *ft_vstprintf(int *r, const char *format, va_list args_list)
 {
 	int		r2;
-	char *dst;
+	char	*dst;
 
 	if (format == NULL)
 	{

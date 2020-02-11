@@ -54,12 +54,14 @@ int		count_format(t_list *list);
 void	free_format(t_fmt* fmt);
 t_fmt	*get_default_format();
 
-char	*try_parse_flags(char *format, t_fmt *fmt);
+char	*try_parse_flags(char *format, t_fmt *fmt, BOOL *parsed);
 void	normalize_flags(t_fmt *fmt);
 char	*try_parse_width(char *format, t_fmt *fmt); 
 char	*try_parse_precision(char *format, t_fmt *fmt);
 char	*try_parse_length(char* format, t_fmt* fmt);
 char	*try_parse_type(char *format, t_fmt *fmt);
+char	*try_extract_id(t_list* list, char* format, int* r);
+
 
 int		recalc_size(t_fmt* fmt);
 
@@ -74,12 +76,12 @@ char	*parse_d(t_fmt* fmt, va_list args_list);
 //t_fmt	*int_to_string(t_fmt* fmt, long int n);
 
 
-char	*parse_c(t_fmt* fmt, va_list args_list);
+void	parse_c(t_fmt* fmt, va_list args_list);
 t_fmt	*pchar_to_string(t_fmt* fmt, const char* str);
 t_fmt	*hex_to_string(t_fmt* fmt, unsigned long long int p, BOOL is_upper_case);
 t_fmt	*pointer_to_string(void* p, t_fmt* fmt);
 //t_fmt	*oct_to_string(t_fmt* fmt, unsigned long long int n);
-char	*parse_u(t_fmt* fmt, va_list args_list);
+void	parse_u(t_fmt* fmt, va_list args_list);
 //t_fmt	*uint_to_string(t_fmt* fmt, unsigned long long int n);
 
 char	*ft_str_prepend_and_free(const char* prefix, char* str);

@@ -51,7 +51,10 @@ void	test_number(const char *format)
 	test(format, 1);
 	test(format, 0);
 	test(format, INT_MAX);
-	test(format, INT_MIN);
+	//if (!ft_str_contains(format, "lc"))
+	{
+		test(format, INT_MIN);
+	}
 	test(format, -1.1);
 	test(format, 1.0);
 	test(format, 0.0);
@@ -89,6 +92,10 @@ void	test_width(char* flags, char* p, char *w, char* t)
 
 	for (int i = 0; i < 9; i++)
 	{
+		if (*l[i] == 'l' && *t == 'c')
+		{
+
+		}
 		test_format(ft_strjoin2(6,"%", flags, p, w, l[i], t));
 	}
 }
@@ -124,7 +131,7 @@ void	test_flags(char *flags)
 	char	types[] = "diuoOxXc";//psaAeEfFgG
 
 
-	for (int i = 0; i < ft_strlen(types); i++)
+	for (int i = 0; i < ft_strlen(types) + 1; i++)
 //		for (int i = 0; i < ft_strlen(types) + 1; i++)
 	{
 		test_type(types[i], flags);
@@ -136,11 +143,33 @@ void	test_flags(char *flags)
 
 int	main()
 {
-	test("%c", -1);
+	test("w%h");
+	test("w%.1");
+	test("w%.1w");
+	test("%.1");
+	test("%c  ...%.10", 'a');
+	test("%c  ...%.10 ...", 'a');
+	test("%c  ...%.10 ...%c", 'a', 'b');
+	test("%#", -1);
+	test("%w", 1);
+	test("%wd", 1);
+	test("%wld", 1);
+	test("%wwwwwwwwwwwwd", 1);
+	test("%lllllllllllllllld", 1);
+	test("%lhd", 1);
+	test("%", -1);
+	test("%lc", 300);
+	test("%Lc", 300);
+	test("%lc", INT_MIN);
+	test("%c", 300);
+	test("%c", INT_MIN);
+	test("%jd", INT_MIN);
+	test("%lc", 0);
+	test("%lc", 1);
 	test("%da%lca\n", 1, -1);
+	test("%c", -1);
 	test("%lca", -1);
 	test("%#lc", -1);
-	test("%lc", 1);
 	test("%#lc", 1);
 	test("%#.2o", 0);
 	test("%#.2o", 1);
@@ -161,7 +190,6 @@ int	main()
 	test("%d", 1);
 	test("%ld", 1);
 	//test("111%#");
-	test("%lhd", 1);
 	test("%02.1d", 1);
 	test("%02d", 1);
 	//test("%2c", 0);
@@ -183,7 +211,6 @@ int	main()
 	//test("%.-1d", 1);
 	test("%.2d", 1);
 	test("%#-50.2d", 1);
-	test("%c  ...%.10 ...%c", 'a', 'b');
 	test("%.1c", 'a');
 	test("%.10c", 'a');
 	//test("%.-10c",'a');
@@ -205,55 +232,15 @@ int	main()
 	test("1%");
 
 
-	printf("%-+##++++++------      w\n");
-	printf("%##++++++------      ww\n");
-	printf("%  w\n");
-	printf("%###O\n");
-	printf("%####O\n");
+	test("%-+##++++++------      w\n");
+	test("%##++++++------      ww\n");
+	test("%  w\n");
+	test("%###O\n");
+	test("%####O\n");
 
 	test("%#d", -1);
 
 
-
-	//char *flags = "#+- 0";
-	char *flags = "#+-0 ";
-	char str[4];
-	str[1] = 0;
-	for (int i = 0; i < ft_strlen(flags) +1; i++)
-	{
-		str[0] = flags[i];
-		test_flags(str);
-	}
-
-	str[2] = 0;
-	for (int i = 0; i < ft_strlen(flags); i++)
-	{
-		for (int j = 0; j < ft_strlen(flags); j++)
-		{
-			str[0] = flags[i];
-			str[1] = flags[j];
-			test_flags(str);
-		}
-	}
-
-	str[3] = 0;
-	for (int i = 0; i < ft_strlen(flags); i++)
-	{
-		for (int j = 0; j < ft_strlen(flags); j++)
-		{
-			for (int k = 0; k < ft_strlen(flags); k++)
-			{
-				str[0] = flags[i];
-				str[1] = flags[j];
-				str[2] = flags[k];
-				test_flags(str);
-			}
-		}
-	}
-
-	test_flags(flags);
-
-	//test_flags(strrev(flags));
 	int q;
 
 	test("%p", &q);
@@ -361,6 +348,46 @@ int	main()
 	//test("%#g", 0);
 
 	//test("%a", UINT_MAX);
+
+	//char *flags = "#+- 0";
+	char *flags = "#+-0 ";
+	char str[4];
+	str[1] = 0;
+	for (int i = 0; i < ft_strlen(flags) +1; i++)
+	{
+		str[0] = flags[i];
+		test_flags(str);
+	}
+
+	str[2] = 0;
+	for (int i = 0; i < ft_strlen(flags); i++)
+	{
+		for (int j = 0; j < ft_strlen(flags); j++)
+		{
+			str[0] = flags[i];
+			str[1] = flags[j];
+			test_flags(str);
+		}
+	}
+
+	str[3] = 0;
+	for (int i = 0; i < ft_strlen(flags); i++)
+	{
+		for (int j = 0; j < ft_strlen(flags); j++)
+		{
+			for (int k = 0; k < ft_strlen(flags); k++)
+			{
+				str[0] = flags[i];
+				str[1] = flags[j];
+				str[2] = flags[k];
+				test_flags(str);
+			}
+		}
+	}
+
+	test_flags(flags);
+
+	//test_flags(strrev(flags));
 
 	printf("\n\n%d tests passed\n", g_tests_count);
 }

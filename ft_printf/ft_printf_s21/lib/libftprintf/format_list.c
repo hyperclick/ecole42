@@ -39,7 +39,7 @@ void	free_item(void* content)
 	e = (t_item*)content;
 	if (is_format(e))
 	{
-		free(e->fmt);
+		free_format(e->fmt);
 	}
 	else if (is_string(e))
 	{

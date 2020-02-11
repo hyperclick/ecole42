@@ -117,11 +117,19 @@ void	process_precision(t_fmt *fmt)
 	}
 }
 
-char *process_string(t_fmt *fmt)
+void	process_string(t_fmt *fmt)
 {
 	if (fmt->prefix == NULL)
 	{
 		fmt->prefix = ft_strdup("");
+	}
+	if (fmt->type == 'c' && (ft_contains("tlLjz", *fmt->length)) && *fmt->value < 0)
+	{
+		fmt->size = -1;
+		fmt->value = ft_strdup("should not see this");
+		fmt->pad_left = ft_strdup("");
+		fmt->pad_right = ft_strdup("");
+		return;
 	}
 	recalc_size(fmt);
 	process_precision(fmt);
@@ -162,27 +170,27 @@ char *process_char(t_fmt *fmt)
 	return (NULL);
 }*/
 
-char *fill_arg(t_fmt *fmt, va_list args_list)
+void	fill_arg(t_fmt *fmt, va_list args_list)
 {
 	if (fmt->type == 'c')
 	{
-		return(parse_c(fmt, args_list));
+		parse_c(fmt, args_list);
 	}
 	else if (fmt->type == 's')
 	{
-		return (process_string(pchar_to_string(fmt, va_arg(args_list, char *))));
+		process_string(pchar_to_string(fmt, va_arg(args_list, char *)));
 	}
 	else if (fmt->type == 'd' || fmt->type == 'i')
 	{
-		return (parse_d(fmt, args_list));
+		parse_d(fmt, args_list);
 	}
 	else if (ft_contains("uoxX", fmt->type))
 	{
-		return (parse_u(fmt, args_list));
+		parse_u(fmt, args_list);
 	}
 	else if (fmt->type == 'p')
 	{
-		return (process_string(pointer_to_string(va_arg(args_list, void *), fmt)));
+		process_string(pointer_to_string(va_arg(args_list, void *), fmt));
 	}
 	else
 	{
@@ -204,12 +212,16 @@ void	replace_args(t_list *list, va_list args_list)
 		if (is_format(e))
 		{
 			fill_arg(e->fmt, args_list);
+			e->str_len = e->fmt->size;
 			e->str = (e->fmt->type == 'c' && *e->fmt->value == 0) ?
 				ft_strjoin2(3, e->fmt->pad_left, e->fmt->prefix, e->fmt->value)
 				: ft_strjoin2(4, e->fmt->pad_left, e->fmt->prefix, e->fmt->value, e->fmt->pad_right);
-			e->str_len = e->fmt->size;
 			free_format(e->fmt);
 			e->fmt = NULL;
+			//if (e->str_len < 0)
+			//{
+			//	return;
+			//}
 		}
 		list = list->next;
 	}
