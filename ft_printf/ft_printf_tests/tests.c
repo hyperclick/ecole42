@@ -148,8 +148,8 @@ void	test_precision(char* flags, char* p)
 
 void	test_flags(char* flags)
 {
-	//char* p[] = { "", ".-10", ".-5", ".0", ".5", ".10" };
-	char* p[] = { "", ".2", ".1", ".0", ".5", ".10" };
+	char* p[] = { "", ".-10", ".-5", ".0", ".5", ".10" };
+	//char* p[] = { "", ".2", ".1", ".0", ".5", ".10" };
 
 	test_format(ft_strjoin2(2, "%", flags));
 
@@ -200,10 +200,10 @@ int	main()
 	test("%p", NULL);
 	test("%#lp", NULL);
 	test("%ls", NULL);
-//	test("%s", "(null)");
-//	test("%s", "(nil)");
-//	test("%ls", "(null)");
-//	test("%ls", "(nil)");
+	test("%s", "(null)");
+	test("%s", "(nil)");
+	//test("%ls", "(null)");
+	//test("%ls", "(nil)");
 	test("%dwww%lswww", 1, "ab");
 	test("%#s", "ab");
 	test("%hs", "ab");
