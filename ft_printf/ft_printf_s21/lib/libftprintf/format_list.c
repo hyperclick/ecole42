@@ -81,7 +81,7 @@ t_item* create_string(const char* str)
 	t_item* e;
 
 	e = (t_item*)malloc(sizeof(t_item));
-	e->str = ft_strdup(str);
+	e->str = str;// ft_strdup(str);
 	e->str_len = ft_strlen(str);
 	e->fmt = NULL;
 	return (e);

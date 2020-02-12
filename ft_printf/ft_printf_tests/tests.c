@@ -7,10 +7,10 @@
 
 int g_tests_count = 0;
 
-void	test(const char *format, ...)
+void	test(const char* format, ...)
 {
-	char *e;
-	char *a;
+	char* e;
+	char* a;
 	int		e_r;
 	int		a_r;
 	int	size = 0;
@@ -29,7 +29,7 @@ void	test(const char *format, ...)
 	size = vsnprintf(e, size, format, argptr);
 	va_end(argptr);
 
-	e = (char *)malloc(sizeof(char) * (size + 1));
+	e = (char*)malloc(sizeof(char) * (size + 1));
 	va_start(argptr, format);
 	e_r = vsprintf(e, format, argptr);
 	va_end(argptr);
@@ -45,7 +45,7 @@ void	test(const char *format, ...)
 	g_tests_count++;
 }
 
-void	test_number(const char *format)
+void	test_number(const char* format)
 {
 	test(format, -1);
 	test(format, 1);
@@ -70,79 +70,162 @@ void	test_number(const char *format)
 
 }
 
-void	test_char(const char *format)
+void	test_char(const char* format)
 {
 	test(format, 'a');
 	test(format, 300);
 	test(format, 0);
 	test(format, '\n');
 }
-
-void	test_format(char *format)
+void	test_pointer(char* format)
 {
-	test_number(format);
-	test_char(format);
-
-	free(format);
+	long q = INT_MAX;
+	test(format, q);
+	test(format, &q);
 }
 
-void	test_width(char* flags, char* p, char *w, char* t)
+void	test_string(char* format)
+{
+	test(format, "");
+	test(format, NULL);
+	test(format, "a");
+	test(format, "abc");
+	char* str = "qwe";
+	test(format, str);
+
+	//duplicate format
+}
+
+void	test_format(char* format)
+{
+	char	types[] = "diuoOxXcpsaAeEfFgG";
+	char* tmp;
+	char	type[] = " ";
+	char* initial_format = format;
+
+	for (int i = 0; i < ft_strlen(types) + 1; i++)
+	{
+		tmp = initial_format;
+		type[0] = types[i];
+		format = ft_strjoin(tmp, type);
+		if (ft_contains("diuoOxXc", types[i]) || types[i] == 0)
+		{
+			test_number(format);
+			test_char(format);
+		}
+		if (types[i] == 'p' || types[i] == 's' || types[i] == 0)
+		{
+			if (types[i] != 's')
+			{
+				test_pointer(format);
+			}
+			test_string(format);
+		}
+		free(format);
+	}
+		free(initial_format);
+}
+
+void	test_width(char* flags, char* p, char* w)
 {
 	char* l[] = { "", "h", "hh", "l", "ll", "L", "j", "z", "t" };
 
 	for (int i = 0; i < 9; i++)
 	{
-		if (*l[i] == 'l' && *t == 'c')
-		{
-
-		}
-		test_format(ft_strjoin2(6,"%", flags, p, w, l[i], t));
+		test_format(ft_strjoin2(5, "%", flags, p, w, l[i]));
 	}
 }
 
-void	test_precision(char *flags, char *p, char *t)
+void	test_precision(char* flags, char* p)
 {
 	char* w[] = { "", "-10", "-5", "0", "5", "10" };
 
 	for (int i = 0; i < 6; i++)
 	{
-		test_width(flags, p, w[i], t);
+		test_width(flags, p, w[i]);
 	}
 }
 
-void	test_type(char type, char *flags)
+void	test_flags(char* flags)
 {
 	//char* p[] = { "", ".-10", ".-5", ".0", ".5", ".10" };
 	char* p[] = { "", ".2", ".1", ".0", ".5", ".10" };
-	char	t[] = " ";
-	t[0] = type;
 
-	test_format(ft_strjoin2(3, "%", flags, t));
+	test_format(ft_strjoin2(2, "%", flags));
 
 	for (int i = 0; i < 6; i++)
-		test_precision(flags, p[i], t);
-
-
-
-}
-
-void	test_flags(char *flags)
-{
-	char	types[] = "diuoOxXc";//psaAeEfFgG
-
-
-	for (int i = 0; i < ft_strlen(types) + 1; i++)
-//		for (int i = 0; i < ft_strlen(types) + 1; i++)
-	{
-		test_type(types[i], flags);
-	}
-
-
-	//free(flags);
+		test_precision(flags, p[i]);
 }
 
 int	main()
 {
+	test("%.1s", "ab");//1"a"
+	test("%.0s", "ab");//0""
+	test("%.2ls", "ab");//-1""
+	test("%.1ls", "ab");//-1""
+	test("%.0d", 1);//
+	test("%.0ls", "ab");//0""
+	test("%ls", "ab");//-1""
+	test("%.0s", "");//0""
+	test("%.s", "");//0""
+	test("%.s", "ab");//0""
+	test("%.Ls", "ab");//0""
+	test("%.ls", "");//0""
+	test("%#.0ls", "");
+	test("%.-1d", 1);//6"%.0-1d"
+	test("%.-1p", "");
+	test("%.-1p", NULL);
+	test("%.-1s", "asd");
+	test("%.-1s", NULL);
+	test("%.2s", NULL);
+	test("%.1s", NULL);//0""
+	test("%#.2s", NULL);
+	test("%.5s", NULL);//0""
+	test("%.10s", NULL);//6"(null)"
+	test("%.6s", NULL);//6"(null)"
+	test("%10s", NULL);//10"    (null)"
+	test("%10p", NULL);//10"     (nil)"
+	test("%.10p", NULL);//"5(nil)"
+	test("%.2p", "asd");
+	test("%.p", NULL);//5"(nil)"
+	test("%.2p", NULL);
+	test("%p", "asd");
+	test("%.2p", "asd");
+	test("%.2s", "asd");//2"as"
+	test("%.5s", NULL);//0""
+	test("%.s", NULL);//0""
+	test("%.0s", NULL);//0""
+	test("%#s", NULL);
+	test("%lp", NULL);
+	test("%p", NULL);
+	test("%#lp", NULL);
+	test("%ls", NULL);
+//	test("%s", "(null)");
+//	test("%s", "(nil)");
+//	test("%ls", "(null)");
+//	test("%ls", "(nil)");
+	test("%dwww%lswww", 1, "ab");
+	test("%#s", "ab");
+	test("%hs", "ab");
+	test("%#hs", "ab");
+	test("%s", "ab");
+	test("%lsw", "ab");
+	test("%#ls", "ab");
+	test("%s", "");
+	test("%#s", "");
+	test("% s", "ab");
+	test("% p", "ab");
+	test("%#.3s", "ab");
+	test("%#.10s", NULL);
+	test("%#.10p", NULL);
+	test("%#10p", NULL);
+	test("%03s", "ab");
+	test("%010s", NULL);
+	test("%010p", NULL);
+	test("%.8p", "");
+	test("%p", "");
+	test("%#p", "");
+	test("%#.10p", "");
 	test("w%h");
 	test("w%.1");
 	test("w%.1w");
@@ -206,9 +289,9 @@ int	main()
 	test("%#2.0d", 0);
 	test("%#2.0d", 1);
 	test("%#-2.0d", 1);
-//	test("%#-2.0d", -1);
-	//test("%#-2.0d", 1);
-	//test("%.-1d", 1);
+	//	test("%#-2.0d", -1);
+		//test("%#-2.0d", 1);
+		//test("%.-1d", 1);
 	test("%.2d", 1);
 	test("%#-50.2d", 1);
 	test("%.1c", 'a');
@@ -350,10 +433,10 @@ int	main()
 	//test("%a", UINT_MAX);
 
 	//char *flags = "#+- 0";
-	char *flags = "#+-0 ";
+	char* flags = "#+-0 ";
 	char str[4];
 	str[1] = 0;
-	for (int i = 0; i < ft_strlen(flags) +1; i++)
+	for (int i = 0; i < ft_strlen(flags) + 1; i++)
 	{
 		str[0] = flags[i];
 		test_flags(str);

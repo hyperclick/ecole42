@@ -65,23 +65,6 @@ char *precision_to_string(int p)
 }
 
 
-char *format_to_string(t_fmt fmt)
-{
-	char *flags;
-	char *width;
-	char *precision;
-	char *r;
-
-	flags = flags_to_string(fmt.flags);
-	width = fmt.width == DEFAULT_WIDTH ? ft_strdup("") : ft_itoa(fmt.width);
-	precision = precision_to_string(fmt.precision);
-	r = ft_strjoin2(3, flags, width, precision);
-	free(flags);
-	free(width);
-	free(precision);
-	return (r);
-}
-
 
 t_list *to_list(char *format, int *r)
 {
@@ -93,7 +76,7 @@ t_list *to_list(char *format, int *r)
 		*r = -1;
 		return (list);
 	}
-	list = lst_new(create_string(""), -1);
+	list = lst_new(create_string(ft_strdup("")), -1);
 	if (*format == 0)
 	{
 		*r = 0;
@@ -109,7 +92,7 @@ t_list *to_list(char *format, int *r)
 		{
 			*str = 0;
 			str = start;
-			add_string(list, str);
+			add_string(list, ft_strdup(str));
 			if (*(format + 1) == 0)
 			{
 				*r = -1;
@@ -126,7 +109,8 @@ t_list *to_list(char *format, int *r)
 	}
 	*str = 0;
 	str = start;
-	add_string(list, str);
+	add_string(list, ft_strdup(str));
+	free(start);
 	*r = 0;
 	return (list);
 }
@@ -193,7 +177,12 @@ char *ft_vstprintf(int *r, const char *format, va_list args_list)
 	{
 		return (ft_strdup(""));
 	}
-	replace_args(list, args_list);
+	r2 = replace_args(list, args_list);
+	if (r2 < 0)
+	{
+		free_list(&list);
+		return (ft_strdup(""));
+	}
 	dst = to_string(list, &r2);
 	free_list(&list);
 	if (*r == 0)

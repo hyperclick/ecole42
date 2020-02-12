@@ -14,7 +14,7 @@
 
 
 
-char* try_parse_flags(char* format, t_fmt* fmt, BOOL *found)
+char* try_parse_flags(char* format, t_fmt* fmt, BOOL* found)
 {
 	*found = FALSE;
 	while (*format != 0)
@@ -105,9 +105,9 @@ char* try_parse_width(char* format, t_fmt* fmt)
 }
 char* try_parse_precision(char* format, t_fmt* fmt)
 {
-	BOOL	is_negative;
+	//BOOL	is_negative;
 
-	is_negative = FALSE;
+	//is_negative = FALSE;
 	if (*format == '.')
 	{
 		fmt->precision = 0;
@@ -116,11 +116,11 @@ char* try_parse_precision(char* format, t_fmt* fmt)
 		{
 			return (format);
 		}
-		if (*format == '-')
-		{
-			is_negative = TRUE;
-			format++;
-		}
+		//if (*format == '-')
+		//{
+		//	is_negative = TRUE;
+		//	format++;
+		//}
 		if (*format == 0)
 		{
 			return (format - 1);
@@ -130,10 +130,10 @@ char* try_parse_precision(char* format, t_fmt* fmt)
 			fmt->precision = fmt->precision * 10 + *format - '0';
 			format++;
 		}
-		if (is_negative)
-		{
-			fmt->precision = -fmt->precision;
-		}
+		//if (is_negative)
+		//{
+		//	fmt->precision = -fmt->precision;
+		//}
 	}
 	return (format);
 }
@@ -161,9 +161,88 @@ char* try_parse_length(char* format, t_fmt* fmt)
 }
 
 
+char* format_to_string(t_fmt fmt)
+{
+	char* flags;
+	char* width;
+	char* precision;
+	char* r;
 
+	flags = flags_to_string(fmt.flags);
+	width = fmt.width == DEFAULT_WIDTH ? ft_strdup("") : ft_itoa(fmt.width);
+	precision = precision_to_string(fmt.precision);
+	r = ft_strjoin2(3, flags, width, precision);
+	free(flags);
+	free(width);
+	free(precision);
+	return (r);
+}
 
-char* try_parse_settings(char* format, t_fmt* fmt, t_list* list, int *r)
+char* handle_empty_type(int* r, char** dst, char* format, t_fmt* fmt, BOOL	smth_parsed)
+{
+	smth_parsed = smth_parsed
+		|| fmt->precision != DEFAULT_PRECISION
+		|| fmt->width != DEFAULT_WIDTH
+		|| fmt->precision != DEFAULT_PRECISION
+		|| *fmt->length != 0;
+	if (smth_parsed)//|| fmt->precision != 0
+	{
+		if (*format == 0)
+		{
+			*r = -1;
+			return (NULL);
+		}
+		else
+		{
+			*dst = format_to_string(*fmt);
+		}
+	}
+	else
+	{
+		*dst = ft_strdup("%");
+	}
+	*r = 0;
+	return (format);
+}
+
+void	handle_not_empty_type(int *r, t_fmt *fmt)
+{
+	if (fmt->flags.zero_pad
+		&& fmt->width != DEFAULT_WIDTH
+		&& !fmt->flags.blank_before_positive
+		&& ft_contains("diuoxX", fmt->type)
+		&& fmt->precision != DEFAULT_PRECISION)
+	{
+		fmt->flags.zero_pad = FALSE;
+	}
+	*r = 0;
+}
+
+char* handle_parsed(char* format, t_fmt* fmt, t_list* list, int* r, BOOL	smth_parsed)
+{
+	char* str;
+
+	*r = -3;
+	if (fmt->type == 0)
+	{
+		format = handle_empty_type(r, &str, format, fmt, smth_parsed);
+		if (*r == 0)
+		{
+			add_string(list, str);
+		}
+	}
+	else
+	{
+		handle_not_empty_type(r, fmt);
+		if (*r == 0)
+		{
+			add_format(list, fmt);
+		}
+	}
+	return (format);
+}
+
+char* try_parse_settings(char* format, t_fmt* fmt, t_list* list, int* r)
 {
 	char* new_format;
 	BOOL	smth_parsed;
@@ -179,51 +258,15 @@ char* try_parse_settings(char* format, t_fmt* fmt, t_list* list, int *r)
 	format = try_parse_length(format, fmt);
 	format = try_parse_type(format, fmt);
 
-	if (fmt->type == 0)
-	{
-		smth_parsed = smth_parsed
-			|| fmt->precision != DEFAULT_PRECISION
-			|| fmt->width != DEFAULT_WIDTH
-			|| fmt->precision != DEFAULT_PRECISION
-			|| *fmt->length != 0;
-		if (smth_parsed)//|| fmt->precision != 0
-		{
-			if (*format == 0)
-			{
-				*r = -1;
-				return (NULL);
-			}
-			else
-			{
-				add_string(list, format_to_string(*fmt));
-			}
-		}
-		else
-		{
-			add_string(list, "%");
-		}
-	}
-	else
-	{
-		if (fmt->flags.zero_pad
-			&& fmt->width != DEFAULT_WIDTH
-			//&& !fmt->flags.blank_before_positive
-			&& ft_contains("diuoxX", fmt->type)
-			&& fmt->precision != DEFAULT_PRECISION)
-		{
-			fmt->flags.zero_pad = FALSE;
-		}
-		add_format(list, fmt);
-	}
-	*r = 0;
+	format = handle_parsed(format, fmt, list, r, smth_parsed);
 	return (format);
 }
 
-char* try_extract_id(t_list* list, char* format, int *r)
+char* try_extract_id(t_list* list, char* format, int* r)
 {
 	if (*format == '%')
 	{
-		add_string(list, "%");
+		add_string(list, ft_strdup("%"));
 		*r = 0;
 		return (format + 1);
 	}

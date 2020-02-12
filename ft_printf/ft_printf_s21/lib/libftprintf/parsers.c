@@ -31,6 +31,8 @@ t_fmt	*pointer_to_string(void* p, t_fmt* fmt)
 	if (p == NULL)
 	{
 		fmt->value = ft_strdup("(nil)");
+		fmt->type = 's';
+		fmt->precision = ft_strlen(fmt->value);
 	}
 	else
 	{
@@ -73,6 +75,10 @@ t_fmt* uint_to_string(t_fmt* fmt, unsigned long long int n)
 t_fmt* pchar_to_string(t_fmt* fmt, const char* str)
 {
 	fmt->value = ft_strdup(str == NULL ? "(null)" : str);
+	if (fmt->precision == 0)
+	{
+		fmt->length[0] = 0;
+	}
 	return (fmt);
 }
 

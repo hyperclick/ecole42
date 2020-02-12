@@ -12,9 +12,14 @@
 
 #include "ft_printf_internal.h"
 
-void	process_sign(t_fmt *fmt)
+BOOL is_null_pointer(t_fmt* fmt)
 {
-	if (is_signed_number(fmt->type) && fmt->flags.plus_before_positive)
+	return (fmt->type == 's' && (ft_strequ(fmt->value, "(nil)") || ft_strequ(fmt->value, "(null)")));
+}
+
+void	process_sign(t_fmt* fmt)
+{
+	if ((is_signed_number(fmt->type) || fmt->type == 'p') && fmt->flags.plus_before_positive)
 	{
 		if (fmt->prefix[0] != '-')
 		{
@@ -23,7 +28,7 @@ void	process_sign(t_fmt *fmt)
 	}
 }
 
-char* ft_str_prepend_and_free(const char *prefix, char *str)
+char* ft_str_prepend_and_free(const char* prefix, char* str)
 {
 	char* tmp;
 
@@ -33,9 +38,9 @@ char* ft_str_prepend_and_free(const char *prefix, char *str)
 	return (str);
 }
 
-void	process_blank(t_fmt *fmt)
+void	process_blank(t_fmt* fmt)
 {
-	if (is_signed_number(fmt->type)
+	if (ft_contains("pidaAeEfFgG", fmt->type)
 		&& fmt->flags.blank_before_positive
 		&& !fmt->flags.plus_before_positive)
 	{
@@ -46,17 +51,22 @@ void	process_blank(t_fmt *fmt)
 	}
 }
 
-void	process_width(t_fmt *fmt)
+char* get_pad(t_fmt* fmt)
 {
-	char *pads;
-	
+	return (fmt->flags.zero_pad && fmt->type != 'c' && fmt->type != 's' ? "0" : " ");
+}
+
+void	process_width(t_fmt* fmt)
+{
+	char* pads;
+
 	if (fmt->width < fmt->size)
 	{
 		return;
-//		pads = fmt->value;
-//		fmt->value = ft_strsub(fmt->value);
+		//		pads = fmt->value;
+		//		fmt->value = ft_strsub(fmt->value);
 	}
-	pads = ft_str_repeat(fmt->flags.zero_pad && fmt->type != 'c' ? "0" : " ", fmt->width - fmt->size);
+	pads = ft_str_repeat(get_pad(fmt), fmt->width - fmt->size);
 	//fmt->size = ft_strlen(pads) + fmt->size;
 
 	if (fmt->flags.adjust_left)
@@ -74,15 +84,16 @@ void	process_width(t_fmt *fmt)
 		}
 		else
 		{
-			fmt->prefix = ft_str_prepend_and_free(pads, fmt->prefix);			
+			fmt->prefix = ft_str_prepend_and_free(pads, fmt->prefix);
 		}
 		free(pads);
 	}
 }
 
-void	process_precision(t_fmt *fmt)
+
+void	process_precision(t_fmt* fmt)
 {
-	if (fmt->precision < 0 || !is_int_number(fmt->type))
+	if (fmt->precision < 0 || fmt->type == 'c')// || !is_int_number(fmt->type))
 	{
 		return;
 	}
@@ -96,20 +107,21 @@ void	process_precision(t_fmt *fmt)
 	}
 
 	int	diff;
-	char *prefix;
+	char* prefix;
 
 	diff = ft_strlen(fmt->value) - fmt->precision;
 	if (fmt->type == 'o' && *fmt->prefix == '0' && fmt->precision == 0)
 	{
 		diff++;
 	}
-	if (diff > 0)
+	if (diff > 0 && fmt->type == 's')
 	{
-	//tmp = fmt->value;
-		//str = ft_strsub(str, 0, fmt.precision);
-		//free(tmp);
+			char* tmp = fmt->value;
+
+			fmt->value = is_null_pointer(fmt) ? ft_strdup("") :  ft_strsub(fmt->value, 0, fmt->precision);
+			free(tmp);
 	}
-	else if (diff < 0)
+	else if (diff < 0 && fmt->type != 's')
 	{
 		prefix = ft_str_repeat("0", -diff);
 		fmt->value = ft_str_prepend_and_free(prefix, fmt->value);
@@ -117,19 +129,28 @@ void	process_precision(t_fmt *fmt)
 	}
 }
 
-void	process_string(t_fmt *fmt)
+
+BOOL	need_exit(t_fmt* fmt)
+{
+	return (
+		(fmt->type == 's' && ft_contains("lLjzt", *fmt->length) && !is_null_pointer(fmt))
+		|| (fmt->type == 'c' && *fmt->value < 0 && (ft_contains("tlLjz", *fmt->length)))
+		);
+}
+
+void	process_string(t_fmt* fmt)
 {
 	if (fmt->prefix == NULL)
 	{
 		fmt->prefix = ft_strdup("");
 	}
-	if (fmt->type == 'c' && (ft_contains("tlLjz", *fmt->length)) && *fmt->value < 0)
+	if (need_exit(fmt))
 	{
 		fmt->size = -1;
 		fmt->value = ft_strdup("should not see this");
 		fmt->pad_left = ft_strdup("");
 		fmt->pad_right = ft_strdup("");
-		return;
+		return (0);
 	}
 	recalc_size(fmt);
 	process_precision(fmt);
@@ -154,7 +175,7 @@ void	process_string(t_fmt *fmt)
 		fmt->pad_right = ft_strdup("");
 	}
 
-	return (NULL);
+	return (0);
 }
 
 /*
@@ -170,7 +191,7 @@ char *process_char(t_fmt *fmt)
 	return (NULL);
 }*/
 
-void	fill_arg(t_fmt *fmt, va_list args_list)
+int	fill_arg(t_fmt* fmt, va_list args_list)
 {
 	if (fmt->type == 'c')
 	{
@@ -178,7 +199,7 @@ void	fill_arg(t_fmt *fmt, va_list args_list)
 	}
 	else if (fmt->type == 's')
 	{
-		process_string(pchar_to_string(fmt, va_arg(args_list, char *)));
+		process_string(pchar_to_string(fmt, va_arg(args_list, char*)));
 	}
 	else if (fmt->type == 'd' || fmt->type == 'i')
 	{
@@ -190,7 +211,7 @@ void	fill_arg(t_fmt *fmt, va_list args_list)
 	}
 	else if (fmt->type == 'p')
 	{
-		process_string(pointer_to_string(va_arg(args_list, void *), fmt));
+		process_string(pointer_to_string(va_arg(args_list, void*), fmt));
 	}
 	else
 	{
@@ -199,19 +220,25 @@ void	fill_arg(t_fmt *fmt, va_list args_list)
 		ft_e_putstr("\n");
 		exit(1);
 	}
+	return (0);
 }
 
-void	replace_args(t_list *list, va_list args_list)
+int	replace_args(t_list* list, va_list args_list)
 {
+	int		r;
 	int		size;
-	t_item	*e;
+	t_item* e;
 
 	while (list != NULL)
 	{
-		e = (t_item *)list->content;
+		e = (t_item*)list->content;
 		if (is_format(e))
 		{
-			fill_arg(e->fmt, args_list);
+			r = fill_arg(e->fmt, args_list);
+			if (r < 0)
+			{
+				return (r);
+			}
 			e->str_len = e->fmt->size;
 			e->str = (e->fmt->type == 'c' && *e->fmt->value == 0) ?
 				ft_strjoin2(3, e->fmt->pad_left, e->fmt->prefix, e->fmt->value)
@@ -225,4 +252,5 @@ void	replace_args(t_list *list, va_list args_list)
 		}
 		list = list->next;
 	}
+	return (0);
 }

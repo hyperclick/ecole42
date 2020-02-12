@@ -65,7 +65,7 @@ char	*try_extract_id(t_list* list, char* format, int* r);
 
 int		recalc_size(t_fmt* fmt);
 
-void	replace_args(t_list *list, va_list args_list);
+int	replace_args(t_list *list, va_list args_list);
 
 BOOL	is_int_number(char t);
 BOOL	is_signed_number(char t);
