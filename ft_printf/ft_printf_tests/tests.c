@@ -17,11 +17,11 @@ void	test(const char* format, ...)
 	va_list argptr;
 
 
-	printf("\ntest: %s\n", format);
+	printf("test #%d: '%s'\n", g_tests_count++, format);
 
-	va_start(argptr, format);
-	e_r = vprintf(format, argptr);
-	va_end(argptr);
+	//va_start(argptr, format);
+	//e_r = vprintf(format, argptr);
+	//va_end(argptr);
 
 	/* Determine required size */
 
@@ -42,7 +42,6 @@ void	test(const char* format, ...)
 
 	free(a);
 	free(e);
-	g_tests_count++;
 }
 
 void	test_number(const char* format)
@@ -169,7 +168,7 @@ void	test_flags(char* flags)
 
 int	main()
 {
-//	test("%O", 2);
+	test("%O", 2);
 //	test("%#O_", 2);
 //	test("_%d_%#O_", 1, 2);
 //	test("%O%d", 2,1);
@@ -408,7 +407,7 @@ int	main()
 	test("%c%c", 0, 0);
 	test("%c", 0);
 	test("%p");
-	test("%s");
+	//test("%s");
 	test("%c");
 	test("%p%c%d");
 	test("%p%c%s%d");
