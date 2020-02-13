@@ -108,7 +108,7 @@ void	test_string(char* format)
 
 void	test_format(char* format)
 {
-	char	types[] = "diuoOxXcpsaAeEfFgG";
+	char	types[] = "diuoxXcpsaAeEfFgG";//DOU
 	char* tmp;
 	char	type[] = " ";
 	char* initial_format = format;
@@ -118,7 +118,7 @@ void	test_format(char* format)
 		tmp = initial_format;
 		type[0] = types[i];
 		format = ft_strjoin(tmp, type);
-		if (ft_contains("diuoOxXc", types[i]) || types[i] == 0)
+		if (ft_contains("diuoxXc", types[i]) || types[i] == 0)
 		{
 			test_number(format);
 			test_char(format);
@@ -169,12 +169,19 @@ void	test_flags(char* flags)
 
 int	main()
 {
-	test("%O", 2);
-	test("%#O_", 2);
-	test("_%d_%#O_", 1, 2);
-	test("%O%d", 2,1);
-	test("%O%c", 2,'a');
-//	test("%O%s", 2,"a");
+//	test("%O", 2);
+//	test("%#O_", 2);
+//	test("_%d_%#O_", 1, 2);
+//	test("%O%d", 2,1);
+//	test("%O%c", 2,'a');
+////	test("%O%s", 2,"a");
+	//test("%#O", 0);
+	//test("%###O\n");
+	//test("%####O\n");
+	//test("%O", 0);
+	//test("%#O", 0);
+	//test("%#O", 8);
+	//test("%#O", UINT_MAX);
 	test("%.1s", "ab");//1"a"
 	test("%.0s", "ab");//0""
 	test("%.2ls", "ab");//-1""
@@ -334,8 +341,6 @@ int	main()
 	test("%-+##++++++------      w\n");
 	test("%##++++++------      ww\n");
 	test("%  w\n");
-	test("%###O\n");
-	test("%####O\n");
 
 	test("%#d", -1);
 
@@ -348,10 +353,6 @@ int	main()
 	test("%u", UINT_MAX);
 
 	test("%y", 0);
-	test("%O", 0);
-	test("%#O", 0);
-	test("%#O", 8);
-	test("%#O", UINT_MAX);
 	test("%#d", 0);
 	test("%#d", -1);
 	test("%#i", 0);
@@ -372,7 +373,6 @@ int	main()
 	test("%#o", 0);
 	test("%#o", UINT_MAX);
 
-	test("%#O", 0);
 
 
 	test("%x", -1);
