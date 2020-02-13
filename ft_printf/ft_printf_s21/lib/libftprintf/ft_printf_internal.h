@@ -46,7 +46,7 @@ BOOL	is_string(t_item*);
 BOOL	is_format(t_item*);
 t_item	*create_string(char *str);
 t_item	*create_format(const t_fmt *fmt);
-void	add_string(t_list *list, const char *str);
+void	add_string(t_list *list, char *str);
 void	add_format(t_list *list, const t_fmt *fmt);
 void	free_list(t_list **list);
 int		count_format(t_list *list);
@@ -64,7 +64,7 @@ char	*try_extract_id(t_list* list, char* format, int* r);
 
 
 int		recalc_size(t_fmt* fmt);
-
+void	process_string(t_fmt* fmt);
 int		replace_args(t_list *list, va_list args_list);
 
 BOOL	is_int_number(char t);
@@ -72,10 +72,7 @@ BOOL	is_signed_number(char t);
 BOOL	is_number(char t);
 BOOL	is_valid_type(char t);
 
-char	*parse_d(t_fmt* fmt, va_list args_list);
-//t_fmt	*int_to_string(t_fmt* fmt, long int n);
-
-
+void	parse_d(t_fmt* fmt, va_list args_list);
 void	parse_c(t_fmt* fmt, va_list args_list);
 t_fmt	*pchar_to_string(t_fmt* fmt, const char* str);
 t_fmt	*hex_to_string(t_fmt* fmt, unsigned long long int p, BOOL is_upper_case);
@@ -83,6 +80,8 @@ t_fmt	*pointer_to_string(void* p, t_fmt* fmt);
 //t_fmt	*oct_to_string(t_fmt* fmt, unsigned long long int n);
 void	parse_u(t_fmt* fmt, va_list args_list);
 //t_fmt	*uint_to_string(t_fmt* fmt, unsigned long long int n);
+
+
 
 char	*ft_str_prepend_and_free(const char* prefix, char* str);
 

@@ -84,7 +84,7 @@ t_fmt* pchar_to_string(t_fmt* fmt, const char* str)
 
 
 
-char* parse_u_process_len(t_fmt* fmt, va_list args_list, t_fmt*(to_string)(t_fmt*, unsigned long long int))
+void	parse_u_process_len(t_fmt* fmt, va_list args_list, t_fmt*(to_string)(t_fmt*, unsigned long long int))
 {
 
 	unsigned long long int v;
@@ -92,42 +92,42 @@ char* parse_u_process_len(t_fmt* fmt, va_list args_list, t_fmt*(to_string)(t_fmt
 	if (ft_strequ(fmt->length, "h"))
 	{
 		v = va_arg(args_list, unsigned int);
-		return (process_string(to_string(fmt, (unsigned short int)v)));
+		(process_string(to_string(fmt, (unsigned short int)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "hh"))
 	{
 		v = va_arg(args_list, unsigned int);
-		return (process_string(to_string(fmt, (unsigned char)v)));
+		 (process_string(to_string(fmt, (unsigned char)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "l") || ft_strequ(fmt->length, "L"))
 	{
 		v = va_arg(args_list, unsigned long long int);
-		return (process_string(to_string(fmt, (unsigned long long int)v)));
+		 (process_string(to_string(fmt, (unsigned long long int)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "j"))
 	{
 		v = va_arg(args_list, uintmax_t);
-		return (process_string(to_string(fmt, (uintmax_t)v)));
+		 (process_string(to_string(fmt, (uintmax_t)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "ll"))
 	{
 		v = va_arg(args_list, unsigned long int);
-		return (process_string(to_string(fmt, (unsigned long int)v)));
+		 (process_string(to_string(fmt, (unsigned long int)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "z"))
 	{
 		v = va_arg(args_list, size_t);
-		return (process_string(to_string(fmt, (size_t)v)));
+		 (process_string(to_string(fmt, (size_t)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "t"))
 	{
 		v = va_arg(args_list, ptrdiff_t);
-		return (process_string(to_string(fmt, (ptrdiff_t)v)));
+		 (process_string(to_string(fmt, (ptrdiff_t)v))); return;
 	}
 	else
 	{
 		v = va_arg(args_list, unsigned int);
-		return (process_string(to_string(fmt, (unsigned int)v)));
+		 (process_string(to_string(fmt, (unsigned int)v))); return;
 	}
 }
 
@@ -159,7 +159,7 @@ void	parse_u(t_fmt* fmt, va_list args_list)
 	}
 }
 
-char* parse_d(t_fmt *fmt, va_list args_list)
+void parse_d(t_fmt *fmt, va_list args_list)
 {
 
 	long int v;
@@ -167,42 +167,42 @@ char* parse_d(t_fmt *fmt, va_list args_list)
 	if (ft_strequ(fmt->length, "h"))
 	{
 		v = va_arg(args_list, int);
-		return (process_string(int_to_string(fmt, (short int)v)));
+		 (process_string(int_to_string(fmt, (short int)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "hh"))
 	{
 		v = va_arg(args_list, int);
-		return (process_string(int_to_string(fmt, (signed char)v)));
+		 (process_string(int_to_string(fmt, (signed char)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "l") || ft_strequ(fmt->length, "L"))
 	{
 		v = va_arg(args_list, long int);
-		return (process_string(int_to_string(fmt, (long int)v)));
+		 (process_string(int_to_string(fmt, (long int)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "ll"))
 	{
 		v = va_arg(args_list, long long int);
-		return (process_string(int_to_string(fmt, (long long int)v)));
+		 (process_string(int_to_string(fmt, (long long int)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "j"))
 	{
 		v = va_arg(args_list, intmax_t);
-		return (process_string(int_to_string(fmt, (intmax_t)v)));
+		 (process_string(int_to_string(fmt, (intmax_t)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "z"))
 	{
 		v = va_arg(args_list, size_t);
-		return (process_string(int_to_string(fmt, (size_t)v)));
+		 (process_string(int_to_string(fmt, (size_t)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "t"))
 	{
 		v = va_arg(args_list, ptrdiff_t);
-		return (process_string(int_to_string(fmt, (ptrdiff_t)v)));
+		 (process_string(int_to_string(fmt, (ptrdiff_t)v))); return;
 	}
 	else
 	{
 		v = va_arg(args_list, long int);
-		return (process_string(int_to_string(fmt, (int)v)));
+		 (process_string(int_to_string(fmt, (int)v))); return;
 	}
 }
 
@@ -220,11 +220,11 @@ t_fmt	*char_to_string(t_fmt* fmt, long long int c)
 
 void	parse_c(t_fmt* fmt, va_list args_list)
 {
-	if ((fmt->length == 'l'))
-	{
-		return (process_string(char_to_string(fmt, (long long int)va_arg(args_list, long long int))));
-	}
-	else
+	//if ((*fmt->length == 'l'))
+	//{
+	//	return (process_string(char_to_string(fmt, (long long int)va_arg(args_list, long long int))));
+	//}
+	//else
 	{
 		return (process_string(char_to_string(fmt, (int)va_arg(args_list, int))));
 	}

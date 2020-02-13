@@ -150,7 +150,7 @@ void	process_string(t_fmt* fmt)
 		fmt->value = ft_strdup("should not see this");
 		fmt->pad_left = ft_strdup("");
 		fmt->pad_right = ft_strdup("");
-		return (0);
+		return;
 	}
 	recalc_size(fmt);
 	process_precision(fmt);
@@ -174,8 +174,6 @@ void	process_string(t_fmt* fmt)
 	{
 		fmt->pad_right = ft_strdup("");
 	}
-
-	return (0);
 }
 
 /*

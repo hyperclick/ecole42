@@ -62,7 +62,7 @@ void	free_list(t_list** list)
 //
 //}
 
-void	add_string(t_list* list, const char* str)
+void	add_string(t_list* list, char* str)
 {
 	if (*str == 0)
 	{
