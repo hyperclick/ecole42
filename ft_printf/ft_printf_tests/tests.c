@@ -168,7 +168,7 @@ void	test_flags(char* flags)
 
 int	main()
 {
-	test("%O", 2);
+//	test("%O", 2);
 //	test("%#O_", 2);
 //	test("_%d_%#O_", 1, 2);
 //	test("%O%d", 2,1);
