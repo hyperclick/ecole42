@@ -1,4 +1,6 @@
 ﻿
+ADD_DEFINITIONS(-DMAC_OS)
+
 ADD_LIBRARY(ftprintf STATIC
 	format_list.c
 	format_parser.c 

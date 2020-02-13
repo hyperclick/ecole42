@@ -81,6 +81,11 @@ char* try_parse_type(char* format, t_fmt* fmt)
 char* try_parse_width(char* format, t_fmt* fmt)
 {
 #ifdef MAC_OS
+	printf("qqq\n");
+#else
+	printf("not defined\n");
+#endif //
+#ifdef MAC_OS
 
 	BOOL	is_negative;
 

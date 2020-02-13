@@ -174,7 +174,6 @@ int	main()
 	printf("not defined\n");
 #endif // _LIBCPP_VERSION
 
-	//return 1;
 //	test("%O", 2);
 //	test("%#O_", 2);
 //	test("_%d_%#O_", 1, 2);
@@ -201,7 +200,8 @@ int	main()
 	test("%.Ls", "ab");//0""
 	test("%.ls", "");//0""
 	test("%#.0ls", "");
-	test("%.-1d", 1);//6"%.0-1d"
+	test("%.-1d", 1);//6"%.0-1d"//1"1"
+	return 1;
 	test("%.-1p", "");
 	test("%.-1p", NULL);
 	test("%.-1s", "asd");
