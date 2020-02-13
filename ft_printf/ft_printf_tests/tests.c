@@ -168,7 +168,7 @@ void	test_flags(char* flags)
 
 int	main()
 {
-#ifdef MYLIB_FOUND
+#ifdef MAC_OS
 	printf("qqq\n");
 #else
 	printf("not defined\n");

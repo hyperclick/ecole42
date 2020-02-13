@@ -80,26 +80,34 @@ char* try_parse_type(char* format, t_fmt* fmt)
 
 char* try_parse_width(char* format, t_fmt* fmt)
 {
-	//BOOL	is_negative;
+#ifdef MAC_OS
 
-	//is_negative = FALSE;
+	BOOL	is_negative;
+
+	is_negative = FALSE;
+#endif // MAC_OS
+
 	if (*format != '0')
 	{
-		//if (*format == '-')
-		//{
-		//	is_negative = TRUE;
-		//	format++;
-		//}
+#ifdef MAC_OS
+		if (*format == '-')
+		{
+			is_negative = TRUE;
+			format++;
+		}
+#endif // MAC_OS
 		while (*format != 0 && ft_isdigit(*format))
 		{
 			fmt->width = fmt->width * 10 + *format - '0';
 			format++;
 		}
-		//if (fmt->flags.adjust_left)
-		//{
-		//	fmt->width = -fmt->width;
-		//	//fmt->flags.adjust_left = FALSE;
-		//}
+#ifdef MAC_OS
+		if (fmt->flags.adjust_left)
+		{
+			fmt->width = -fmt->width;
+			//fmt->flags.adjust_left = FALSE;
+		}
+#endif // MAC_OS
 	}
 	return (format);
 }

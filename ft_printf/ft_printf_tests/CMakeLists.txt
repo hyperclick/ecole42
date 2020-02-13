@@ -1,7 +1,7 @@
 project(ft_printf_tests C)
 
 OPTION(DEFINE_MACRO "Option description" ON)
-#ADD_DEFINITIONS(-DMYLIB_FOUND)
+ADD_DEFINITIONS(-DMAC_OS)
 
 set(CMAKE_C_STANDARD 99)
 
