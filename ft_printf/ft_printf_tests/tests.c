@@ -168,6 +168,13 @@ void	test_flags(char* flags)
 
 int	main()
 {
+#ifdef MYLIB_FOUND
+	printf("qqq\n");
+#else
+	printf("not defined\n");
+#endif // _LIBCPP_VERSION
+
+	return 1;
 //	test("%O", 2);
 //	test("%#O_", 2);
 //	test("_%d_%#O_", 1, 2);
