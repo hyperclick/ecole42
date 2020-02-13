@@ -44,7 +44,7 @@ typedef	struct s_format_or_string
 
 BOOL	is_string(t_item*);
 BOOL	is_format(t_item*);
-t_item	*create_string(const char *str);
+t_item	*create_string(char *str);
 t_item	*create_format(const t_fmt *fmt);
 void	add_string(t_list *list, const char *str);
 void	add_format(t_list *list, const t_fmt *fmt);
@@ -65,7 +65,7 @@ char	*try_extract_id(t_list* list, char* format, int* r);
 
 int		recalc_size(t_fmt* fmt);
 
-int	replace_args(t_list *list, va_list args_list);
+int		replace_args(t_list *list, va_list args_list);
 
 BOOL	is_int_number(char t);
 BOOL	is_signed_number(char t);

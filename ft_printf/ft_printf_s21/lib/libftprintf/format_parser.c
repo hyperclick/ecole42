@@ -160,6 +160,56 @@ char* try_parse_length(char* format, t_fmt* fmt)
 	return (format);
 }
 
+char* flags_to_string(t_fmt_flags f)
+{
+	char* str;
+	int		i;
+
+	str = malloc(sizeof(char) * 7);
+	i = 0;
+	str[i++] = '%';
+	if (f.is_alt_form)
+	{
+		str[i++] = '#';
+	}
+	if (f.plus_before_positive)
+	{
+		str[i++] = '+';
+	}
+	if (f.blank_before_positive)
+	{
+		str[i++] = ' ';
+	}
+	if (f.adjust_left)
+	{
+		str[i++] = '-';
+	}
+	if (f.zero_pad)
+	{
+		str[i++] = '0';
+	}
+	str[i] = 0;
+	return (str);
+}
+
+char* precision_to_string(int p)
+{
+	char* precision;
+	char* tmp;
+
+	if (p == DEFAULT_PRECISION)
+	{
+		precision = ft_strdup("");
+	}
+	else
+	{
+		tmp = ft_itoa(p);
+		precision = ft_strjoin(".", tmp);
+		free(tmp);
+	}
+	return (precision);
+}
+
 
 char* format_to_string(t_fmt fmt)
 {

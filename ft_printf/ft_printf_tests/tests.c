@@ -67,7 +67,9 @@ void	test_number(const char* format)
 	test(format, ULLONG_MAX);
 	//test(format, LONG_LONG_MIN);
 	//test(format, ULONG_LONG_MAX);
-
+	char* str = ft_strjoin2(3, "_%d_", format, "_%c_");
+	test(str, 1, 2, 'a');
+	free(str);
 }
 
 void	test_char(const char* format)
@@ -76,12 +78,18 @@ void	test_char(const char* format)
 	test(format, 300);
 	test(format, 0);
 	test(format, '\n');
+	char* str = ft_strjoin2(3, "_%d_", format, "_%d_");
+	test(str, 99999999, 'a', 1);
+	free(str);
 }
 void	test_pointer(char* format)
 {
 	long q = INT_MAX;
 	test(format, q);
 	test(format, &q);
+	char* str = ft_strjoin2(3, "_%d_", format, "_%s_");
+	test(str, 99999999, &q, "abc");
+	free(str);
 }
 
 void	test_string(char* format)
@@ -90,10 +98,12 @@ void	test_string(char* format)
 	test(format, NULL);
 	test(format, "a");
 	test(format, "abc");
-	char* str = "qwe";
-	test(format, str);
+	char* q = "qwe";
+	test(format, q);
 
-	//duplicate format
+	char* str = ft_strjoin2(3, "_%d_", format, "_%s_");
+	test(str, 99999999, q, "abc");
+	free(str);
 }
 
 void	test_format(char* format)
@@ -159,6 +169,10 @@ void	test_flags(char* flags)
 
 int	main()
 {
+	test("_%d_%#O_", 1, 2);
+	test("%O%d", 2,1);
+	test("%O%c", 2,'a');
+//	test("%O%s", 2,"a");
 	test("%.1s", "ab");//1"a"
 	test("%.0s", "ab");//0""
 	test("%.2ls", "ab");//-1""

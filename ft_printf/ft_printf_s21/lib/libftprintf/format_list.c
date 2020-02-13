@@ -76,7 +76,7 @@ void	add_format(t_list* list, const t_fmt* fmt)
 	lst_append(list, lst_new(create_format(fmt), -1));
 }
 
-t_item* create_string(const char* str)
+t_item* create_string(char* str)
 {
 	t_item* e;
 
