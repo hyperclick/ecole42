@@ -90,7 +90,7 @@ void	redirect_and_exec(void(*f)(), const char* out_file_name, const char* err_fi
 	save_stdin();
 	save_stdout();
 	f();
-	debug_set_pname("test");
+	//debug_set_pname("test");
 	//debug_printf("%s finished\n", name);
 	//fflush(file);
 	fflush(stdout);
@@ -112,8 +112,8 @@ void		restore_curdir(const char* curdir)
 	if (chdir(curdir) != 0)
 	{
 		perror("couldn't restore curdir\n");
-		debug_printf("couldn't restore curdir\n");
-		ft_exit(1);
+		printf("couldn't restore curdir\n");
+		exit(1);
 	}
 }
 

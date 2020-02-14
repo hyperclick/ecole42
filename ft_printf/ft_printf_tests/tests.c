@@ -7,42 +7,94 @@
 
 int g_tests_count = 0;
 
-void	test(const char* format, ...)
+void	test2(BOOL mac_only, const char* format, va_list argptr)
 {
 	char* e;
 	char* a;
 	int		e_r;
 	int		a_r;
 	int	size = 0;
-	va_list argptr;
+	va_list arg0;
+	va_list arg1;
+	va_list arg2;
+	va_list arg3;
+	//va_list arg4;
+	//va_copy(arg4, argptr);
 
 
 	printf("test #%d: '%s'\n", g_tests_count++, format);
 
+	//va_copy(arg0, argptr);
 	//va_start(argptr, format);
-	//e_r = vprintf(format, argptr);
-	//va_end(argptr);
+	//e_r = vprintf(format, arg0);
+	//va_end(arg0);
 
 	/* Determine required size */
 
-	va_start(argptr, format);
-	size = vsnprintf(e, size, format, argptr);
-	va_end(argptr);
+	//va_start(argptr, format);
+	va_copy(arg1, argptr);
+	size = vsnprintf(e, size, format, arg1);
+	va_end(arg1);
 
 	e = (char*)malloc(sizeof(char) * (size + 1));
-	va_start(argptr, format);
-	e_r = vsprintf(e, format, argptr);
-	va_end(argptr);
-	va_start(argptr, format);
-	a = ft_vstprintf(&a_r, format, argptr);
-	va_end(argptr);
+	//va_start(argptr, format);
+	va_copy(arg2, argptr);
+	e_r = vsprintf(e, format, arg2);
+	va_end(arg2);
 
-	assert_str_equals(e, a);
-	assert_int_equals(e_r, a_r);
+	va_copy(arg3, argptr);
+	//va_start(argptr, format);
+	a = ft_vstprintf(&a_r, format, arg3);
+	va_end(arg3);
+
+
+#ifdef MAC_OS
+	mac_only = FALSE;
+#else 
+#endif // MAC_OS
+	if (!mac_only)
+	{
+		//assert_str_equals(e, a);
+		//assert_int_equals(e_r, a_r);
+
+		if (!ft_strequ(e, a))
+		{
+			printf("assert failed: expected: '%s', actual: '%s'\n", e, a);
+			dprintf(STDERR_FILENO, "test %d failed: expected: '%s', actual: '%s'\n", g_tests_count, e, a);
+			//exit(1);
+		}
+		if (e_r!=a_r)
+		{
+			printf("assert failed: expected: '%d', actual: '%d'\n", e_r, a_r);
+			dprintf(STDERR_FILENO, "test %d failed: expected: '%d', actual: '%d'\n", g_tests_count, e_r, a_r);
+			//exit(1);
+		}
+	}
+	else
+	{
+		printf("ignored\n");
+	}
 
 	free(a);
 	free(e);
 }
+
+void	test(const char* format, ...)
+{
+	va_list argptr;
+	va_start(argptr, format);
+	test2(FALSE, format, argptr);
+	va_end(argptr);
+}
+
+void	test_mac(const char* format, ...)
+{
+	va_list argptr;
+	va_start(argptr, format);
+	test2(TRUE, format, argptr);
+	va_end(argptr);
+}
+
 
 void	test_number(const char* format)
 {
@@ -169,12 +221,12 @@ void	test_flags(char* flags)
 int	main()
 {
 #ifdef MAC_OS
-	printf("qqq\n");
+	printf("mac\n");
 #else
-	printf("not defined\n");
+	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
-	test("%.-1d", 1);//6"%.0-1d"//1"1"
+	test_mac( "%.-1d", 1);//6"%.0-1d"//1"1"
 //	test("%O", 2);
 //	test("%#O_", 2);
 //	test("_%d_%#O_", 1, 2);
