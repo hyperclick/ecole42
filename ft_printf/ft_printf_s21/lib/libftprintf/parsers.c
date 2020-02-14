@@ -7,7 +7,7 @@
 t_fmt* hex_to_string(t_fmt* fmt, unsigned long long int p, BOOL is_upper_case)
 {
 	fmt->value = ft_itoa_base2(p, is_upper_case ? "0123456789ABCDEF" : "0123456789abcdef", FALSE);
-	if (fmt->flags.is_alt_form && p != 0)
+	if (fmt->flags.is_alt_form)
 	{
 		fmt->prefix = ft_strdup(is_upper_case ? "0X" : "0x");
 	}
