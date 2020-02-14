@@ -25,19 +25,23 @@ t_fmt* big_hex_to_string(t_fmt* fmt, unsigned long long int p)
 }
 
 
-t_fmt	*pointer_to_string(void* p, t_fmt* fmt)
+t_fmt* pointer_to_string(void* p, t_fmt* fmt)
 {
 	fmt->flags.is_alt_form = TRUE;
+
 	if (p == NULL)
 	{
-		fmt->value = ft_strdup("(nil)");
-		fmt->type = 's';
-		fmt->precision = ft_strlen(fmt->value);
+	//	fmt->value = ft_strdup("(nil)");
+	//	fmt->type = 's';
+	//	fmt->precision = ft_strlen(fmt->value);
+	p = 0;
 	}
-	else
-	{
-		hex_to_string(fmt, (unsigned long long int)p, FALSE);
-	}
+	//else
+
+
+	hex_to_string(fmt, (unsigned long long int)p, FALSE);
+
+
 	return (fmt);
 }
 
@@ -55,7 +59,7 @@ t_fmt* oct_to_string(t_fmt* fmt, unsigned long long int n)
 t_fmt* int_to_string(t_fmt* fmt, long int n)
 {
 	unsigned long int	u;
-	
+
 	u = n;
 	if (n < 0)
 	{
@@ -84,7 +88,7 @@ t_fmt* pchar_to_string(t_fmt* fmt, const char* str)
 
 
 
-void	parse_u_process_len(t_fmt* fmt, va_list args_list, t_fmt*(to_string)(t_fmt*, unsigned long long int))
+void	parse_u_process_len(t_fmt* fmt, va_list args_list, t_fmt* (to_string)(t_fmt*, unsigned long long int))
 {
 
 	unsigned long long int v;
@@ -97,37 +101,37 @@ void	parse_u_process_len(t_fmt* fmt, va_list args_list, t_fmt*(to_string)(t_fmt*
 	else if (ft_strequ(fmt->length, "hh"))
 	{
 		v = va_arg(args_list, unsigned int);
-		 (process_string(to_string(fmt, (unsigned char)v))); return;
+		(process_string(to_string(fmt, (unsigned char)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "l") || ft_strequ(fmt->length, "L"))
 	{
 		v = va_arg(args_list, unsigned long long int);
-		 (process_string(to_string(fmt, (unsigned long long int)v))); return;
+		(process_string(to_string(fmt, (unsigned long long int)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "j"))
 	{
 		v = va_arg(args_list, uintmax_t);
-		 (process_string(to_string(fmt, (uintmax_t)v))); return;
+		(process_string(to_string(fmt, (uintmax_t)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "ll"))
 	{
 		v = va_arg(args_list, unsigned long int);
-		 (process_string(to_string(fmt, (unsigned long int)v))); return;
+		(process_string(to_string(fmt, (unsigned long int)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "z"))
 	{
 		v = va_arg(args_list, size_t);
-		 (process_string(to_string(fmt, (size_t)v))); return;
+		(process_string(to_string(fmt, (size_t)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "t"))
 	{
 		v = va_arg(args_list, ptrdiff_t);
-		 (process_string(to_string(fmt, (ptrdiff_t)v))); return;
+		(process_string(to_string(fmt, (ptrdiff_t)v))); return;
 	}
 	else
 	{
 		v = va_arg(args_list, unsigned int);
-		 (process_string(to_string(fmt, (unsigned int)v))); return;
+		(process_string(to_string(fmt, (unsigned int)v))); return;
 	}
 }
 
@@ -159,7 +163,7 @@ void	parse_u(t_fmt* fmt, va_list args_list)
 	}
 }
 
-void parse_d(t_fmt *fmt, va_list args_list)
+void parse_d(t_fmt* fmt, va_list args_list)
 {
 
 	long int v;
@@ -167,53 +171,53 @@ void parse_d(t_fmt *fmt, va_list args_list)
 	if (ft_strequ(fmt->length, "h"))
 	{
 		v = va_arg(args_list, int);
-		 (process_string(int_to_string(fmt, (short int)v))); return;
+		(process_string(int_to_string(fmt, (short int)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "hh"))
 	{
 		v = va_arg(args_list, int);
-		 (process_string(int_to_string(fmt, (signed char)v))); return;
+		(process_string(int_to_string(fmt, (signed char)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "l") || ft_strequ(fmt->length, "L"))
 	{
 		v = va_arg(args_list, long int);
-		 (process_string(int_to_string(fmt, (long int)v))); return;
+		(process_string(int_to_string(fmt, (long int)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "ll"))
 	{
 		v = va_arg(args_list, long long int);
-		 (process_string(int_to_string(fmt, (long long int)v))); return;
+		(process_string(int_to_string(fmt, (long long int)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "j"))
 	{
 		v = va_arg(args_list, intmax_t);
-		 (process_string(int_to_string(fmt, (intmax_t)v))); return;
+		(process_string(int_to_string(fmt, (intmax_t)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "z"))
 	{
 		v = va_arg(args_list, size_t);
-		 (process_string(int_to_string(fmt, (size_t)v))); return;
+		(process_string(int_to_string(fmt, (size_t)v))); return;
 	}
 	else if (ft_strequ(fmt->length, "t"))
 	{
 		v = va_arg(args_list, ptrdiff_t);
-		 (process_string(int_to_string(fmt, (ptrdiff_t)v))); return;
+		(process_string(int_to_string(fmt, (ptrdiff_t)v))); return;
 	}
 	else
 	{
 		v = va_arg(args_list, long int);
-		 (process_string(int_to_string(fmt, (int)v))); return;
+		(process_string(int_to_string(fmt, (int)v))); return;
 	}
 }
 
-t_fmt	*char_to_string(t_fmt* fmt, long long int c)
+t_fmt* char_to_string(t_fmt* fmt, long long int c)
 {
 	fmt->value = ft_strnew(1);
 	fmt->value[0] = c;
 	if ((c > 255 || c < 0) && ft_contains("tlLjz", *fmt->length))//INT_MAX)
 	{
 		fmt->value[0] = -1;
-//		fmt->size = -1;
+		//		fmt->size = -1;
 	}
 	return (fmt);
 }

@@ -226,6 +226,8 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
+	test("%.p", NULL);//5"(nil)"2"0x0"
+	test_mac("%.-1p", NULL);
 	test_mac( "%.-1d", 1);//6"%.0-1d"//1"1"
 //	test("%O", 2);
 //	test("%#O_", 2);
@@ -255,7 +257,6 @@ int	main()
 	test("%#.0ls", "");
 	//return 1;
 	test("%.-1p", "");
-	test("%.-1p", NULL);
 	test("%.-1s", "asd");
 	test("%.-1s", NULL);
 	test("%.2s", NULL);
@@ -268,7 +269,6 @@ int	main()
 	test("%10p", NULL);//10"     (nil)"
 	test("%.10p", NULL);//"5(nil)"
 	test("%.2p", "asd");
-	test("%.p", NULL);//5"(nil)"
 	test("%.2p", NULL);
 	test("%p", "asd");
 	test("%.2p", "asd");
