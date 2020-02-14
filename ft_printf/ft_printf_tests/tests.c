@@ -227,7 +227,8 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 	test("%.p", NULL);//5"(nil)"2"0x0"
-	test_mac("%.-1p", NULL);
+	test_mac("%.-1p", "qqq");//
+	test_mac("%.-1p", NULL);//2"0x"
 	test_mac( "%.-1d", 1);//6"%.0-1d"//1"1"
 //	test("%O", 2);
 //	test("%#O_", 2);
