@@ -1,7 +1,7 @@
 ﻿cmake_minimum_required(VERSION 3.10)
 
 
-#ADD_DEFINITIONS(-DMAC_OS)
+ADD_DEFINITIONS(-DMAC_OS)
 
 
 # Include sub-projects.
