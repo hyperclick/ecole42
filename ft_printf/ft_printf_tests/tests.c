@@ -96,7 +96,6 @@ void	test_mac(const char* format, ...)
 	va_end(argptr);
 }
 
-
 void	test_number(const char* format)
 {
 	test(format, -1);
@@ -228,10 +227,11 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 
+
+	test("%", -1);//0""
 	test("%jjd", 1);//1"1"
 	test("%llllld", 1);//1"1"
 	test("%lhd", 1);//1"1"
-	test("%", -1);//0""
 	test("%3d", 1);//3"  1"
 	test("%3)d", 1);//4"  )d"
 	test("%3))d", 1);//5"  ))d"

@@ -43,11 +43,11 @@ t_list *to_list(char *format, int *r)
 			*str = 0;
 			str = start;
 			add_string(list, ft_strdup(str));
-			if (*(format + 1) == 0)
-			{
-				*r = -1;
-				return (list);
-			}
+			//if (*(format + 1) == 0)
+			//{
+			//	*r = -1;
+			//	return (list);
+			//}
 			format = try_extract_id(list, format + 1, r);
 			if (*r < 0)
 			{
