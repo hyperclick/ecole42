@@ -230,6 +230,7 @@ int	main()
 	test("%wwwwwd", 1);//"wwwwd"
 	test("%.10)d", 1);//")d"
 	test("%3)d", 1);//4"  )d"
+	test("%3d", 1);//4"  )d"
 	test("%jjd", 1);//1
 	test("%llllld", 1);//1"1"
 	test("%lwd", 1);//wd
