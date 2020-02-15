@@ -69,6 +69,10 @@ t_fmt* oct_to_string(t_fmt* fmt, unsigned long long int n)
 		{
 			fmt->value = ft_strdup("");
 		}
+		else
+		{
+			fmt->value = ft_strdup("0");
+		}
 	}
 	else
 	{
