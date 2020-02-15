@@ -227,13 +227,17 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
+	test("%wwwwwd", 1);
+	test("%llllld", 1);//1"1"
+	test("%lhd", 1);//1"1"
+	test("%", -1);//0""
 	//test("%c 12 %.10 cd%c", 'a', 'b');//8"a  ...%c"
-	test("%c 45 %.10 123", 'a');//5"a 45 "
-	test("%c 45 %.10)", 'a');//5"a 45 "
+	//test("%c 45 %.10 123", 'a');//5"a 45 "
+	test("%c 45 %.10)", 'a');//5"a 45 )"
 	test("%.10)", 1);//")"
 	test("%.10123", 1);//""
-	test("%.10 123");//""
-	test("%d_%.10 123", 1);//"1_"
+	//test("%.10 123");//""
+	//test("%d_%.10 123", 1);//"1_"
 	test("%)", 1);//1"w"
 	test("%c");//""
 	test("%.1)");//""
@@ -243,18 +247,14 @@ int	main()
 	test_mac("qqq%lswww", "ab");//""
 	test_mac("12 %s 34 %s 56 %ls 78", "ab", "cd", "ef");//"12 ab 34 cd"
 	test_mac("%d www%lswww", 1, "ab");//"1"
-	test("%c  ...%.   ...%c", 'a', 'b');
+//	test("%c  ...%.   ...%c", 'a', 'b');//e:"a  ...%c"
 	test_mac("w%.1w");//2"ww"
 	test("w%h");//1"w"
 	test("w%.1");//1"w"
 	test("%wd", 1);
 	test("%wld", 1);
-	test("%wwwwwwwwwwwwd", 1);
-	test("%lllllllllllllllld", 1);
-	test("%lhd", 1);
-	test("%", -1);
-	test("%lc", 300);
-	test("%Lc", 300);
+	test("%lc", 300);//""
+	test("%Lc", 300);//
 	test("%lc", INT_MIN);
 
 	return 1;
