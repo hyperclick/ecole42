@@ -254,7 +254,6 @@ char* handle_empty_type(int* r, char** dst, char* format, t_fmt* fmt, BOOL	smth_
 	smth_parsed = smth_parsed
 		|| fmt->precision != DEFAULT_PRECISION
 		|| fmt->width != DEFAULT_WIDTH
-		|| fmt->precision != DEFAULT_PRECISION
 		|| *fmt->length != 0;
 	if (smth_parsed)//|| fmt->precision != 0
 	{

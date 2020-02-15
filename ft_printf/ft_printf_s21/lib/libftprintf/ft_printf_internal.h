@@ -8,7 +8,7 @@
 # include "libmem.h"
 
 # define DEFAULT_WIDTH 0
-# define DEFAULT_PRECISION -1
+# define DEFAULT_PRECISION 0
 
 typedef	struct s_format_flags
 {

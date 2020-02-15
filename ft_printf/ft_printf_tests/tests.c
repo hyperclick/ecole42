@@ -226,6 +226,8 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
+
+
 	test_mac("%.2s", NULL);//2"(n"
 	test_mac("%.1s", NULL);//1"("
 	test_mac("%#.2s", NULL);//2"(n"

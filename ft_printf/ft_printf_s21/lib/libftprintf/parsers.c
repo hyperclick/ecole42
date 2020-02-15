@@ -39,10 +39,10 @@ t_fmt* pointer_to_string(void* p, t_fmt* fmt)
 			fmt->type = 's';
 			return (fmt);
 		}
-	//	fmt->value = ft_strdup("(nil)");
-	//	fmt->type = 's';
-	//	fmt->precision = ft_strlen(fmt->value);
-	p = 0;
+		//	fmt->value = ft_strdup("(nil)");
+		//	fmt->type = 's';
+		//	fmt->precision = ft_strlen(fmt->value);
+		p = 0;
 	}
 	//else
 
