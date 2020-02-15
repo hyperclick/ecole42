@@ -93,8 +93,14 @@ void	process_width(t_fmt* fmt)
 
 void	process_precision(t_fmt* fmt)
 {
-	if (fmt->precision < 0 || fmt->type == 'c')// || !is_int_number(fmt->type))
+	if (fmt->type == 'c')
 	{
+		return;
+	}
+	if (fmt->precision < 0 && fmt->type == 's')// || !is_int_number(fmt->type))
+	{
+		free(fmt->value);
+		fmt->value = ft_strdup(" ");
 		return;
 	}
 	if (fmt->precision == 0 && ft_strequ(fmt->value, "0"))
@@ -116,12 +122,12 @@ void	process_precision(t_fmt* fmt)
 	}
 	if (diff > 0 && fmt->type == 's')
 	{
-			char* tmp = fmt->value;
+		char* tmp = fmt->value;
 
-			fmt->value = is_null_pointer(fmt) ? ft_strdup("") :  ft_strsub(fmt->value, 0, fmt->precision);
-			free(tmp);
+		fmt->value = is_null_pointer(fmt) ? ft_strdup("") : ft_strsub(fmt->value, 0, fmt->precision);
+		free(tmp);
 	}
-	else if (diff < 0 && fmt->type != 's')
+	else if (diff < 0)// && fmt->type != 's')
 	{
 		prefix = ft_str_repeat("0", -diff);
 		fmt->value = ft_str_prepend_and_free(prefix, fmt->value);

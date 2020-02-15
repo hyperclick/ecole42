@@ -31,6 +31,14 @@ t_fmt* pointer_to_string(void* p, t_fmt* fmt)
 
 	if (p == NULL)
 	{
+		if (fmt->precision < 0)
+		{
+			fmt->precision = 2;
+			fmt->width = 2;
+			fmt->value = ft_strdup("0x");
+			fmt->type = 's';
+			return (fmt);
+		}
 	//	fmt->value = ft_strdup("(nil)");
 	//	fmt->type = 's';
 	//	fmt->precision = ft_strlen(fmt->value);

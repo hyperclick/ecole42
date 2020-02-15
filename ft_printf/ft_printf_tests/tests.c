@@ -226,7 +226,16 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
-	test_mac("%p", NULL);//2"0x"
+	test_mac("%.-2s", "asd");//
+	test_mac("%.-1s", "asd");//1" "
+	test_mac("%.-1s", NULL);//1" "
+	test_mac("%.2s", NULL);//2"(n"
+	test_mac("%.1s", NULL);//1"("
+	test_mac("%#.2s", NULL);//2"(n"
+	test_mac("%.5s", NULL);//5"(null"
+	test_mac("%.10s", NULL);//6"(null)"
+	test_mac("%.6s", NULL);//6"(null)"
+	test_mac("%p", NULL);//3"0x0"
 	test_mac("%.-1p", "qqq");//"0x<addr>"
 	test_mac("%.-1p", NULL);//2"0x"
 	test_mac( "%.-1d", 1);//6"%.0-1d"//1"1"
@@ -257,16 +266,7 @@ int	main()
 	test("%.Ls", "ab");//0""
 	test("%.ls", "");//0""
 	test("%#.0ls", "");
-	//return 1;
 	test("%.-1p", "");
-	test("%.-1s", "asd");
-	test("%.-1s", NULL);
-	test("%.2s", NULL);
-	test("%.1s", NULL);//0""
-	test("%#.2s", NULL);
-	test("%.5s", NULL);//0""
-	test("%.10s", NULL);//6"(null)"
-	test("%.6s", NULL);//6"(null)"
 	test("%10s", NULL);//10"    (null)"
 	test("%10p", NULL);//10"     (nil)"
 	test("%.10p", NULL);//"5(nil)"
