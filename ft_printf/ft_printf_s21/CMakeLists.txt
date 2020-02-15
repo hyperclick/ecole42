@@ -3,6 +3,7 @@ project ("ft_printf")
 
 set(GCC_COVERAGE_COMPILE_FLAGS "-g -Wall -Wextra -Werror")
 set(GCC_COVERAGE_LINK_FLAGS    "-Wall -Wextra -Werror")
+set(CMAKE_BUILD_TYPE Debug)
 
 set(LIBMEM_DIR "lib/libmem")
 include_directories(${LIBMEM_DIR})
