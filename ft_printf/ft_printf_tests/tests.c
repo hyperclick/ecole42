@@ -229,6 +229,8 @@ int	main()
 
 	test("%wwwwwd", 1);
 	test("%llllld", 1);//1"1"
+	test("%lwd", 1);//
+	test("%wld", 1);//
 	test("%lhd", 1);//1"1"
 	test("%", -1);//0""
 	//test("%c 12 %.10 cd%c", 'a', 'b');//8"a  ...%c"
