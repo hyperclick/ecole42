@@ -130,6 +130,7 @@ t_fmt* get_default_format()
 	f->flags.plus_before_positive = FALSE;
 	f->flags.zero_pad = FALSE;
 	f->width = DEFAULT_WIDTH;
+	f->precision_set = FALSE;
 	f->precision = DEFAULT_PRECISION;
 	//ft_strcpy(f->length, "\0\0\0");
 	f->length[0] = f->length[1] = f->length[2] = 0;

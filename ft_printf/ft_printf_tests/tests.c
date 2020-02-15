@@ -228,15 +228,15 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 
+	test_mac("%10s", NULL);//10"    (null)"
 	test_mac("%.2s", NULL);//2"(n"
 	test_mac("%.1s", NULL);//1"("
-	test_mac("%.s", NULL);//
-	test_mac("%.0s", NULL);//
-	test_mac("%#.-1s", NULL);//
-	test_mac("%#.-2s", NULL);//
-	test("%10s", NULL);//10"    (null)"
-	test("%10p", NULL);//10"     (nil)"
+	test_mac("%.s", NULL);//0""
+	test_mac("%.0s", NULL);//0""
+	test_mac("%#.-1s", NULL);//1" "
+	test_mac("%#.-2s", NULL);//2"  "
 	test_mac("%p", NULL);//3"0x0"
+	test_mac("%10p", NULL);//2"0x"
 	test_mac("%.3p", NULL);//"0x000"
 	test_mac("%.1p", NULL);//"0x0"
 	test_mac("%.0p", NULL);//2"0x"

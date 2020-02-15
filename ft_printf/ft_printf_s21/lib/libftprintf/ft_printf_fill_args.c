@@ -93,7 +93,7 @@ void	process_width(t_fmt* fmt)
 
 void	process_precision(t_fmt* fmt)
 {
-	if (fmt->type == 'c')
+	if (!fmt->precision_set || fmt->type == 'c')
 	{
 		return;
 	}

@@ -127,6 +127,7 @@ char* try_parse_precision(char* format, t_fmt* fmt)
 
 	if (*format == '.')
 	{
+		fmt->precision_set = TRUE;
 		fmt->precision = 0;
 		format++;
 		if (*format == 0)
@@ -241,7 +242,7 @@ char* format_to_string(t_fmt fmt)
 
 	flags = flags_to_string(fmt.flags);
 	width = fmt.width == DEFAULT_WIDTH ? ft_strdup("") : ft_itoa(fmt.width);
-	precision = precision_to_string(fmt.precision);
+	precision = fmt.precision_set ? precision_to_string(fmt.precision) : ft_strdup("");
 	r = ft_strjoin2(3, flags, width, precision);
 	free(flags);
 	free(width);
@@ -252,7 +253,7 @@ char* format_to_string(t_fmt fmt)
 char* handle_empty_type(int* r, char** dst, char* format, t_fmt* fmt, BOOL	smth_parsed)
 {
 	smth_parsed = smth_parsed
-		|| fmt->precision != DEFAULT_PRECISION
+		|| fmt->precision_set
 		|| fmt->width != DEFAULT_WIDTH
 		|| *fmt->length != 0;
 	if (smth_parsed)//|| fmt->precision != 0
@@ -281,7 +282,7 @@ void	handle_not_empty_type(int *r, t_fmt *fmt)
 		&& fmt->width != DEFAULT_WIDTH
 		&& !fmt->flags.blank_before_positive
 		&& ft_contains("diuoxX", fmt->type)
-		&& fmt->precision != DEFAULT_PRECISION)
+		&& fmt->precision_set)
 	{
 		fmt->flags.zero_pad = FALSE;
 	}
