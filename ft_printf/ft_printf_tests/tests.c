@@ -22,12 +22,13 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	//va_copy(arg4, argptr);
 
 
-	printf("test #%d: '%s'\n", g_tests_count++, format);
+	printf("test #%d: '%s'", g_tests_count++, format);
 
-	//va_copy(arg0, argptr);
+	va_copy(arg0, argptr);
 	//va_start(argptr, format);
-	//e_r = vprintf(format, arg0);
-	//va_end(arg0);
+	e_r = vprintf(format, arg0);
+	va_end(arg0);
+	printf("\n");
 
 	/* Determine required size */
 
@@ -225,6 +226,7 @@ int	main()
 #else
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
+
 
 	test_mac("%.0p", NULL);//
 	test_mac("%.0s", NULL);//

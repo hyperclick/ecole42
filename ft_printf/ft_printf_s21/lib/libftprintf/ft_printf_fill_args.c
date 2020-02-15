@@ -107,7 +107,7 @@ void	process_precision(t_fmt* fmt)
 	{
 		//if (fmt->flags.is_alt_form)
 		{
-			fmt->value[0] = 0;
+			//fmt->value[0] = 0;
 		}
 		return;
 	}
