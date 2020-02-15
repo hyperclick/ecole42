@@ -258,16 +258,16 @@ char* handle_empty_type(int* r, char** dst, char* format, t_fmt* fmt, BOOL	smth_
 		|| *fmt->length != 0;
 	if (smth_parsed)//|| fmt->precision != 0
 	{
-		if (*format == 0)
-		{
-			//*r = 0;
-			//return (NULL);
+		//if (*format == 0)
+		//{
+		//	//*r = 0;
+		//	//return (NULL);
 			*dst = ft_strdup("");
-		}
-		else
-		{
-			*dst = format_to_string(*fmt);
-		}
+		//}
+		//else
+		//{
+		//	*dst = format_to_string(*fmt);
+		//}
 	}
 	else
 	{

@@ -228,15 +228,20 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 
+	test("%.1");//
+	test("%c  ...%.10", 'a');//
+	test("%c  ...%.10 ...%c", 'a', 'b');//
+	test("%#", -1);//
+	test("%w", 1);//
+	test("%c  ...%.10 ...", 'a');//6"a  ..."
+	test_mac("%dwww", 1);//
+	test_mac("qqq%lswww", "ab");//""
+	test_mac("12 %s 34 %s 56 %ls 78", "ab", "cd", "ef");//"12 ab 34 cd"
+	test_mac("%d www%lswww", 1, "ab");//"1"
+	test("%c  ...%.   ...%c", 'a', 'b');
+	test_mac("w%.1w");//2"ww"
 	test("w%h");//1"w"
 	test("w%.1");//1"w"
-	test("w%.1w");
-	test("%.1");
-	test("%c  ...%.10", 'a');
-	test("%c  ...%.10 ...", 'a');
-	test("%c  ...%.10 ...%c", 'a', 'b');
-	test("%#", -1);
-	test("%w", 1);
 	test("%wd", 1);
 	test("%wld", 1);
 	test("%wwwwwwwwwwwwd", 1);
@@ -311,7 +316,6 @@ int	main()
 	//test("%.-10c",'a');
 	//test(" %.1",'a');
 	//test("%.10",'a');
-	test("%c  ...%.   ...%c", 'a', 'b');
 	test("%.-", 'a');
 	test("%0 3d", 1);
 	test("%#04x", 1);
@@ -334,10 +338,6 @@ int	main()
 	test("%#d", -1);
 
 
-	test_mac("%dwww", 1);//
-	test_mac("qqq%lswww", "ab");//""
-	test_mac("12 %s 34 %s 56 %ls 78", "ab", "cd", "ef");//"12 ab 34 cd"
-	test_mac("%d www%lswww", 1, "ab");//"1"
 	test_mac("%10s", NULL);//10"    (null)"
 	test_mac("%.2s", NULL);//2"(n"
 	test_mac("%.1s", NULL);//1"("
