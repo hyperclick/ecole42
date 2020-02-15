@@ -228,14 +228,16 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 
+	test_mac("%p", NULL);//3"0x0"
+	test_mac("%p.3", NULL);//
+	test_mac("%p.1", NULL);//
 	test_mac("%.0p", NULL);//2"0x"
+	test_mac("%.-1p", NULL);//2"0x"
 	test_mac("%.0s", NULL);//
 	test_mac("%.0p", "q");//
 	test_mac("%.0s", "q");//
 	test_mac("%.0d", 1);//
-	test_mac("%p", NULL);//3"0x0"
 	test_mac("%.-1p", "qqq");//"0x<addr>"
-	test_mac("%.-1p", NULL);//2"0x"
 
 
 	test_mac("%.2s", NULL);//2"(n"
