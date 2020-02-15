@@ -228,8 +228,18 @@ int	main()
 
 
 
+	test_mac("%.0d", 1);//
+	test_mac("%.0d", 0);//0""
+	test_mac("%.0d", 0);
+	test_mac("%.0d", 1);
+	test_mac("%.0o", 0);//0""
+	test_mac("%.0p", NULL);//2"0x"
+	test_mac("%.0s", NULL);//0""
+	test_mac("%.0p", "q");//
+	test_mac("%.0s", "q");//
+	test_mac("%.-1p", NULL);//2"0x"
 	test("%lc", 1);
-	test("%da%lca\n", 1, -1);
+	test("%da%lca", 1, -1);
 	test("%c", -1);
 	test("%lca", -1);
 	test("%#lc", -1);
@@ -237,15 +247,12 @@ int	main()
 	test("%#.2o", 0);
 	test("%#.2o", 1);
 	test("%#.0o", 0);
-	test("%.0o", 0);
 	test("%#2o", 0);
 	test("%#-2o", 0);
 	test("%#o", 0);
 	//test("%#.0", 0);
-	test("%.0d", 0);
 	test("%#.0d", 0);
 	test("%o", 0);
-	test("%.0o", 0);
 	//test("%Lc", 300);//1","
 	test("%", -1);//0""
 	test("%jjd", 1);//1"1"
@@ -317,8 +324,6 @@ int	main()
 	test("%4.2d\n", -1);
 	test("%.1d", 0);
 	test("%.1d", 1);
-	test("%.0d", 0);
-	test("%.0d", 1);
 	test("%#2.0d", 0);
 	test("%#2.0d", 1);
 	test("%#-2.0d", 1);
@@ -358,19 +363,12 @@ int	main()
 	test_mac("%.2s", NULL);//2"(n"
 	test_mac("%.1s", NULL);//1"("
 	test_mac("%.s", NULL);//0""
-	test_mac("%.0s", NULL);//0""
 	test_mac("%#.-1s", NULL);//1" "
 	test_mac("%#.-2s", NULL);//2"  "
 	test_mac("%p", NULL);//3"0x0"
 	test_mac("%10p", NULL);//2"0x"
 	test_mac("%.3p", NULL);//"0x000"
 	test_mac("%.1p", NULL);//"0x0"
-	test_mac("%.0p", NULL);//2"0x"
-	test_mac("%.-1p", NULL);//2"0x"
-	test_mac("%.0s", NULL);//
-	test_mac("%.0p", "q");//
-	test_mac("%.0s", "q");//
-	test_mac("%.0d", 1);//
 	test_mac("%.-1p", "qqq");//"0x<addr>"
 	test_mac("%.5s", NULL);//5"(null"
 	test_mac("%.10s", NULL);//6"(null)"
