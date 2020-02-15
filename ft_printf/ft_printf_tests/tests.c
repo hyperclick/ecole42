@@ -228,6 +228,9 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 
+	test_mac("%dwww", 1);//
+	test_mac("qqq%lswww", "ab");//
+	test_mac("%dwww%lswww", 1, "ab");//"1"
 	test_mac("%10s", NULL);//10"    (null)"
 	test_mac("%.2s", NULL);//2"(n"
 	test_mac("%.1s", NULL);//1"("
@@ -300,7 +303,6 @@ int	main()
 	test("%s", "(nil)");
 	//test("%ls", "(null)");
 	//test("%ls", "(nil)");
-	test("%dwww%lswww", 1, "ab");
 	test("%#s", "ab");
 	test("%hs", "ab");
 	test("%#hs", "ab");
