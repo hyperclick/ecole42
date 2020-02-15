@@ -229,8 +229,8 @@ int	main()
 
 
 	test_mac("%p", NULL);//3"0x0"
-	test_mac("%p.3", NULL);//
-	test_mac("%p.1", NULL);//
+	test_mac("%.3p", NULL);//
+	test_mac("%.1p", NULL);//
 	test_mac("%.0p", NULL);//2"0x"
 	test_mac("%.-1p", NULL);//2"0x"
 	test_mac("%.0s", NULL);//
