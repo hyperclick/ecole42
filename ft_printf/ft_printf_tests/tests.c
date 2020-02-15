@@ -67,7 +67,7 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 		if (e_r!=a_r)
 		{
 			printf("assert failed: expected: '%d', actual: '%d'\n", e_r, a_r);
-			dprintf(STDERR_FILENO, "test %d failed: expected: '%d', actual: '%d'\n", g_tests_count, e_r, a_r);
+			dprintf(STDERR_FILENO, "test %d '%s' failed: expected: '%d', actual: '%d'\n", g_tests_count, format, e_r, a_r);
 			//exit(1);
 		}
 	}
@@ -227,18 +227,9 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
-	test_mac("%03s", "ab");//"0ab"
-	test_mac("% p", "ab");//"0x<address>"
-	test("% s", "ab");//
-	test("%   s", "ab");//
-	test("%010s", NULL);
-	test("%010p", NULL);
-	test("%.8p", "");
-	test("%p", "");
-	test("%#p", "");
-	test("%#.10p", "");
-	test("w%h");
-	test("w%.1");
+
+	test("w%h");//1"w"
+	test("w%.1");//1"w"
 	test("w%.1w");
 	test("%.1");
 	test("%c  ...%.10", 'a');
@@ -255,6 +246,16 @@ int	main()
 	test("%lc", 300);
 	test("%Lc", 300);
 	test("%lc", INT_MIN);
+	test_mac("%03s", "ab");//"0ab"
+	test_mac("% p", "ab");//"0x<address>"
+	test("% s", "ab");//
+	test("%   s", "ab");//
+	test("%010s", NULL);
+	test("%010p", NULL);
+	test("%.8p", "");
+	test("%p", "");
+	test("%#p", "");
+	test("%#.10p", "");
 	test("%c", 300);
 	test("%c", INT_MIN);
 	test("%jd", INT_MIN);

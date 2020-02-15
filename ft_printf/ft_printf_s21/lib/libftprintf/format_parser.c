@@ -260,8 +260,8 @@ char* handle_empty_type(int* r, char** dst, char* format, t_fmt* fmt, BOOL	smth_
 	{
 		if (*format == 0)
 		{
-			*r = -1;
-			return (NULL);
+			//*r = 0;
+			//return (NULL);
 		}
 		else
 		{
