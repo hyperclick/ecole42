@@ -240,6 +240,26 @@ int	main()
 	test("%1d", 1);
 	test("%1d", -1);
 
+	test("%y", 0);
+	test("%#d", 0);
+	test("%#d", -1);
+	test("%#i", 0);
+	test("%#i", -1);
+	test("%#c", 'a');
+	test("%#s", "abc");
+
+	test("%", 0);
+
+	test("%#X", 0);
+	test("%#x", 16);
+	test("%#x", UINT_MAX);
+
+	test("%#X", 0);
+	test("%#X", UINT_MAX);
+
+
+	test("%#o", 0);
+	test("%#o", UINT_MAX);
 
 
 	test("%.0o", 0);//0""
@@ -455,26 +475,6 @@ int	main()
 	test("%u", __LONG_LONG_MAX__);
 	test("%u", UINT_MAX);
 
-	test("%y", 0);
-	test("%#d", 0);
-	test("%#d", -1);
-	test("%#i", 0);
-	test("%#i", -1);
-	test("%#c", 'a');
-	test("%#s", "abc");
-
-	test("%", 0);
-
-	test("%#X", 0);
-	test("%#x", 16);
-	test("%#x", UINT_MAX);
-
-	test("%#X", 0);
-	test("%#X", UINT_MAX);
-
-
-	test("%#o", 0);
-	test("%#o", UINT_MAX);
 
 
 
