@@ -229,8 +229,9 @@ int	main()
 
 
 	test_mac("%dwww", 1);//
-	test_mac("qqq%lswww", "ab");//
-	test_mac("%dwww%lswww", 1, "ab");//"1"
+	test_mac("qqq%lswww", "ab");//""
+	test_mac("12 %s 34 %s 56 %ls 78", "ab", "cd", "ef");//""
+	test_mac("%d www%lswww", 1, "ab");//"1"
 	test_mac("%10s", NULL);//10"    (null)"
 	test_mac("%.2s", NULL);//2"(n"
 	test_mac("%.1s", NULL);//1"("
