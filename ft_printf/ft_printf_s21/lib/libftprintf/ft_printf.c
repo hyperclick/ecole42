@@ -107,7 +107,10 @@ char *to_string(t_list *list, int *size)
 		}
 		ft_strncpy(r, e->str, e->str_len);
 		r += e->str_len;
-		last_format_end = r;
+		if (e->was_format)
+		{
+			last_format_end = r;
+		}
 		list = list->next;
 	}
 	*r = 0;

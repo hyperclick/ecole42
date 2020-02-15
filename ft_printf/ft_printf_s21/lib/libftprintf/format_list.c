@@ -96,7 +96,7 @@ t_item* create_format(const t_fmt* fmt)
 	e->fmt = (t_fmt*)fmt;
 	e->str = NULL;
 	e->str_len = 0;
-	e->was_format = TRUE
+	e->was_format = TRUE;
 	return (e);
 }
 
