@@ -235,6 +235,10 @@ int	main()
 
 
 
+	test("%.-", 'a');
+	test("%1d", 0);
+	test("%1d", 1);
+	test("%1d", -1);
 
 
 
@@ -355,10 +359,6 @@ int	main()
 	test("%5d", 1);
 	test("%5d", -1);
 
-	test("%.-", 'a');
-	test("%1d", 0);
-	test("%1d", 1);
-	test("%1d", -1);
 	test("1%");
 
 
