@@ -228,6 +228,7 @@ int	main()
 #else
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
+	test("%.0o", 0);//0""
 	test("%o", 0);//1"0"
 	test("%#o", 0);//1"0"
 	test("%#o", 1);//"01"
@@ -239,7 +240,6 @@ int	main()
 	test("%#2o", 1);//"01"
 	test("%#-2o", 1);//"01"
 	test("%#.0o", 0);//1"0"
-	test("%.0o", 0);//0""
 	test("%.0d", 0);//0""
 	test("%#.0d", 0);//0"0"
 	test("%.0d", 1);//1"1"
