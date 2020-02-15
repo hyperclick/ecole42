@@ -77,7 +77,6 @@ char* try_parse_type(char* format, t_fmt* fmt)
 	return (format);
 }
 
-#include <stdio.h>
 char* try_parse_width(char* format, t_fmt* fmt)
 {
 	if (*format != '0')
@@ -248,7 +247,14 @@ char* handle_empty_type(int* r, char** dst, char* format, t_fmt* fmt, BOOL	smth_
 	//{
 	//	*dst = ft_strdup("%");
 	//}
-	*dst = ft_strdup("");
+	if (fmt->width > 1)
+	{
+		*dst = ft_str_repeat(" ", fmt->width - 1);
+	}
+	else
+	{
+		*dst = ft_strdup("");
+	}
 	*r = 0;
 	return (format);
 }
