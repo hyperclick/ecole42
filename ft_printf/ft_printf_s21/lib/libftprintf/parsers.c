@@ -55,7 +55,7 @@ t_fmt* pointer_to_string(void* p, t_fmt* fmt)
 
 t_fmt* oct_to_string(t_fmt* fmt, unsigned long long int n)
 {
-	if (n == 0 && fmt->precision == 0)
+	if (n == 0 && fmt->precision_set && fmt->precision == 0)
 	{
 		fmt->value = ft_strdup("");
 	return (fmt);
