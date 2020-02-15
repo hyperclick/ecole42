@@ -84,6 +84,7 @@ t_item* create_string(char* str)
 	e->str = str;// ft_strdup(str);
 	e->str_len = ft_strlen(str);
 	e->fmt = NULL;
+	e->was_format = FALSE;
 	return (e);
 }
 
@@ -95,6 +96,7 @@ t_item* create_format(const t_fmt* fmt)
 	e->fmt = (t_fmt*)fmt;
 	e->str = NULL;
 	e->str_len = 0;
+	e->was_format = TRUE
 	return (e);
 }
 

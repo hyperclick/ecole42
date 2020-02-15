@@ -89,10 +89,12 @@ char *to_string(t_list *list, int *size)
 	char *r;
 	char *start;
 	t_item *e;
+	char* last_format_end;
 
 	*size = to_string_get_size(list);
 	r = (char *)malloc(sizeof(char) * (*size + 1));
 	start = r;
+	last_format_end = r;
 	r[*size] = 0;
 	while (list != NULL)
 	{
@@ -100,10 +102,12 @@ char *to_string(t_list *list, int *size)
 		if (e->str_len < 0)
 		{
 			*size = e->str_len;
+			r = last_format_end;
 			break;
 		}
 		ft_strncpy(r, e->str, e->str_len);
 		r += e->str_len;
+		last_format_end = r;
 		list = list->next;
 	}
 	*r = 0;

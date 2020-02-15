@@ -37,7 +37,7 @@ typedef	struct s_format
 
 typedef	struct s_format_or_string
 {
-	//BOOL	is_string;
+	BOOL	was_format;
 	char *str;
 	int		str_len;
 	t_fmt	*fmt;
