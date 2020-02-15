@@ -58,6 +58,10 @@ t_fmt* oct_to_string(t_fmt* fmt, unsigned long long int n)
 	if (fmt->flags.is_alt_form)
 	{
 		fmt->prefix = ft_strdup("0");
+		if (fmt->precision_set && fmt->precision > 0)
+		{
+			fmt->precision--;
+		}
 	}
 	if (n == 0 && fmt->precision_set && fmt->precision == 0)
 	{
