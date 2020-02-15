@@ -60,7 +60,7 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 		if (!ft_strequ(e, a))
 		{
 			printf("assert failed: expected: '%s', actual: '%s'\n", e, a);
-			dprintf(STDERR_FILENO, "test %d failed: expected: '%s', actual: '%s'\n", g_tests_count, e, a);
+			dprintf(STDERR_FILENO, "test %d '%s' failed: expected: '%s', actual: '%s'\n", g_tests_count, format, e, a);
 			//exit(1);
 		}
 		if (e_r!=a_r)
@@ -226,14 +226,15 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
-	test_mac("%.-2s", "asd");//
-	test_mac("%.-1s", "asd");//1" "
-	test_mac("%.-1s", NULL);//1" "
 	test_mac("%.2s", NULL);//2"(n"
 	test_mac("%.1s", NULL);//1"("
 	test_mac("%#.2s", NULL);//2"(n"
 	test_mac("%.5s", NULL);//5"(null"
 	test_mac("%.10s", NULL);//6"(null)"
+	test_mac("%.-4s", "asd");//4"    "
+	test_mac("%.-2s", "asd");//2"  "
+	test_mac("%.-1s", "asd");//1" "
+	test_mac("%.-1s", NULL);//1" "
 	test_mac("%.6s", NULL);//6"(null)"
 	test_mac("%p", NULL);//3"0x0"
 	test_mac("%.-1p", "qqq");//"0x<addr>"
