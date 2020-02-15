@@ -31,7 +31,7 @@ t_fmt* pointer_to_string(void* p, t_fmt* fmt)
 
 	if (p == NULL)
 	{
-		if (fmt->precision < 0)
+		if (fmt->precision <= 0)
 		{
 			fmt->precision = 2;
 			fmt->width = 2;

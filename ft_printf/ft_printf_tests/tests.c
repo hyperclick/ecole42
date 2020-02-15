@@ -20,9 +20,9 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	va_list arg3;
 	//va_list arg4;
 	//va_copy(arg4, argptr);
+	g_tests_count++;
 
-
-	printf("test #%d: '%s'", g_tests_count++, format);
+	printf("test #%d: '%s'", g_tests_count, format);
 
 	va_copy(arg0, argptr);
 	//va_start(argptr, format);
@@ -228,7 +228,7 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 
-	test_mac("%.0p", NULL);//
+	test_mac("%.0p", NULL);//2"0x"
 	test_mac("%.0s", NULL);//
 	test_mac("%.0p", "q");//
 	test_mac("%.0s", "q");//
