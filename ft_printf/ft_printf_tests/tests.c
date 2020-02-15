@@ -228,6 +228,7 @@ int	main()
 
 
 
+	//test("%Lc", 300);//1","
 	test("%", -1);//0""
 	test("%jjd", 1);//1"1"
 	test("%llllld", 1);//1"1"
@@ -262,10 +263,9 @@ int	main()
 	test("%wd", 1);
 	test("%wld", 1);
 	test("%lc", 300);//""
-	test("%Lc", 300);//
 	test("%lc", INT_MIN);
 
-	return 1;
+	//return 1;
 
 	test_mac("%03s", "ab");//"0ab"
 	test_mac("% p", "ab");//"0x<address>"
