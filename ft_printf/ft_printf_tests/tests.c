@@ -226,6 +226,14 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
+	test_mac("%p.0", NULL);//
+	test_mac("%s.0", NULL);//
+	test_mac("%p.0", "q");//
+	test_mac("%s.0", "q");//
+	test_mac("%d.0", 1);//
+	test_mac("%p", NULL);//3"0x0"
+	test_mac("%.-1p", "qqq");//"0x<addr>"
+	test_mac("%.-1p", NULL);//2"0x"
 
 
 	test_mac("%.2s", NULL);//2"(n"
@@ -238,9 +246,6 @@ int	main()
 	test_mac("%.-1s", "asd");//1" "
 	test_mac("%.-1s", NULL);//1" "
 	test_mac("%.6s", NULL);//6"(null)"
-	test_mac("%p", NULL);//3"0x0"
-	test_mac("%.-1p", "qqq");//"0x<addr>"
-	test_mac("%.-1p", NULL);//2"0x"
 	test_mac( "%.-1d", 1);//6"%.0-1d"//1"1"
 	test("%.p", NULL);//5"(nil)"2"0x0"
 //	test("%O", 2);
