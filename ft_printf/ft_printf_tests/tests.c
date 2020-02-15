@@ -228,6 +228,14 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 
+	test_mac("%.2s", NULL);//2"(n"
+	test_mac("%.1s", NULL);//1"("
+	test_mac("%.s", NULL);//
+	test_mac("%.0s", NULL);//
+	test_mac("%#.-1s", NULL);//
+	test_mac("%#.-2s", NULL);//
+	test("%10s", NULL);//10"    (null)"
+	test("%10p", NULL);//10"     (nil)"
 	test_mac("%p", NULL);//3"0x0"
 	test_mac("%.3p", NULL);//"0x000"
 	test_mac("%.1p", NULL);//"0x0"
@@ -238,11 +246,6 @@ int	main()
 	test_mac("%.0s", "q");//
 	test_mac("%.0d", 1);//
 	test_mac("%.-1p", "qqq");//"0x<addr>"
-
-
-	test_mac("%.2s", NULL);//2"(n"
-	test_mac("%.1s", NULL);//1"("
-	test_mac("%#.2s", NULL);//2"(n"
 	test_mac("%.5s", NULL);//5"(null"
 	test_mac("%.10s", NULL);//6"(null)"
 	test_mac("%.-4s", "asd");//4"    "
@@ -279,8 +282,6 @@ int	main()
 	test("%.ls", "");//0""
 	test("%#.0ls", "");
 	test("%.-1p", "");
-	test("%10s", NULL);//10"    (null)"
-	test("%10p", NULL);//10"     (nil)"
 	test("%.10p", NULL);//"5(nil)"
 	test("%.2p", "asd");
 	test("%.2p", NULL);
