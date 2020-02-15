@@ -262,6 +262,7 @@ char* handle_empty_type(int* r, char** dst, char* format, t_fmt* fmt, BOOL	smth_
 		{
 			//*r = 0;
 			//return (NULL);
+			*dst = ft_strdup("");
 		}
 		else
 		{
