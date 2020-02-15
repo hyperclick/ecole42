@@ -141,18 +141,16 @@ char* try_parse_length(char* format, t_fmt* fmt)
 
 	i = 0;
 
-	if (*format != 0 && ft_contains("hlLjzt", *format))
+	while (*format != 0 && ft_contains("hlLjzt", *format))
 	{
-		fmt->length[i++] = *format;
+		fmt->length[i] = *format;
+		if (i != 1)
+		{
+			++i;
+		}
 		format++;
 	}
-
-	if (*format != 0 && ft_contains("hl", *format) && fmt->length[0] == *format)
-	{
-		fmt->length[i++] = *format;
-		format++;
-	}
-
+	
 	return (format);
 }
 
@@ -259,7 +257,7 @@ char* handle_empty_type(int* r, char** dst, char* format, t_fmt* fmt, BOOL	smth_
 	return (format);
 }
 
-void	handle_not_empty_type(int *r, t_fmt *fmt)
+void	handle_not_empty_type(int* r, t_fmt* fmt)
 {
 	if (fmt->flags.zero_pad
 		&& fmt->width != DEFAULT_WIDTH
