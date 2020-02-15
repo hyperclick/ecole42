@@ -228,7 +228,8 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 	test("%wwwwwd", 1);//"wwwwd"
-	test("%.10)d", 1);//
+	test("%.10)d", 1);//")d"
+	test("%10)d", 1);//")d"
 	test("%jjd", 1);//1
 	test("%llllld", 1);//1"1"
 	test("%lwd", 1);//wd
