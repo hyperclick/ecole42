@@ -231,6 +231,13 @@ int	main()
 
 
 
+
+
+
+
+
+
+
 	test("%.0o", 0);//0""
 	test("%o", 0);//1"0"
 	test("%#o", 0);//1"0"
@@ -294,9 +301,6 @@ int	main()
 	test("%wld", 1);
 	test("%lc", 300);//""
 	test("%lc", INT_MIN);
-
-	//return 1;
-
 	test_mac("%03s", "ab");//"0ab"
 	test_mac("% p", "ab");//"0x<address>"
 	test("% s", "ab");//
@@ -326,7 +330,8 @@ int	main()
 	test("%d", INT_MIN);
 	test("%2c", 0);
 	test("%0 3d", 1);
-	test("%4.2d\n", -1);
+
+	test("%4.2d", -1);
 	test("%.1d", 0);
 	test("%.1d", 1);
 	test("%#2.0d", 0);
@@ -342,7 +347,6 @@ int	main()
 	//test("%.-10c",'a');
 	//test(" %.1",'a');
 	//test("%.10",'a');
-	test("%.-", 'a');
 	test("%0 3d", 1);
 	test("%#04x", 1);
 	test("%#-20d", -1);
@@ -351,15 +355,16 @@ int	main()
 	test("%5d", 1);
 	test("%5d", -1);
 
+	test("%.-", 'a');
 	test("%1d", 0);
 	test("%1d", 1);
 	test("%1d", -1);
 	test("1%");
 
 
-	test("%-+##++++++------      w\n");
-	test("%##++++++------      ww\n");
-	test("%  w\n");
+	test("%-+##++++++------      w");
+	test("%##++++++------      ww");
+	test("%  w");
 
 	test("%#d", -1);
 
