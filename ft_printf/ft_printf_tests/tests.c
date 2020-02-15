@@ -230,9 +230,9 @@ int	main()
 
 	test("%c 45 %.10 123", 'a');//5"a 45 "
 	test("%c  ...%.10 ...%c", 'a', 'b');//8"a  ...%c"
-	test("%.10w", 1);//"w"
-	test("%.10w");//"w"
-	test("%d %.10w", 1);//
+	test("%.10 123", 1);//"w"
+	test("%.10 123");//"w"
+	test("%d %.10 123", 1);//"1 w"
 	test("%w", 1);//1"w"
 	test("%c");//""
 	test("%.1");//""
@@ -255,6 +255,9 @@ int	main()
 	test("%lc", 300);
 	test("%Lc", 300);
 	test("%lc", INT_MIN);
+
+	return 1;
+
 	test_mac("%03s", "ab");//"0ab"
 	test_mac("% p", "ab");//"0x<address>"
 	test("% s", "ab");//
