@@ -227,98 +227,10 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
-
-	test_mac("%dwww", 1);//
-	test_mac("qqq%lswww", "ab");//""
-	test_mac("12 %s 34 %s 56 %ls 78", "ab", "cd", "ef");//"12 ab 34 cd"
-	test_mac("%d www%lswww", 1, "ab");//"1"
-	test_mac("%10s", NULL);//10"    (null)"
-	test_mac("%.2s", NULL);//2"(n"
-	test_mac("%.1s", NULL);//1"("
-	test_mac("%.s", NULL);//0""
-	test_mac("%.0s", NULL);//0""
-	test_mac("%#.-1s", NULL);//1" "
-	test_mac("%#.-2s", NULL);//2"  "
-	test_mac("%p", NULL);//3"0x0"
-	test_mac("%10p", NULL);//2"0x"
-	test_mac("%.3p", NULL);//"0x000"
-	test_mac("%.1p", NULL);//"0x0"
-	test_mac("%.0p", NULL);//2"0x"
-	test_mac("%.-1p", NULL);//2"0x"
-	test_mac("%.0s", NULL);//
-	test_mac("%.0p", "q");//
-	test_mac("%.0s", "q");//
-	test_mac("%.0d", 1);//
-	test_mac("%.-1p", "qqq");//"0x<addr>"
-	test_mac("%.5s", NULL);//5"(null"
-	test_mac("%.10s", NULL);//6"(null)"
-	test_mac("%.-4s", "asd");//4"    "
-	test_mac("%.-2s", "asd");//2"  "
-	test_mac("%.-1s", "asd");//1" "
-	test_mac("%.-1s", NULL);//1" "
-	test_mac("%.6s", NULL);//6"(null)"
-	test_mac( "%.-1d", 1);//6"%.0-1d"//1"1"
-	test("%.p", NULL);//5"(nil)"2"0x0"
-//	test("%O", 2);
-//	test("%#O_", 2);
-//	test("_%d_%#O_", 1, 2);
-//	test("%O%d", 2,1);
-//	test("%O%c", 2,'a');
-////	test("%O%s", 2,"a");
-	//test("%#O", 0);
-	//test("%###O\n");
-	//test("%####O\n");
-	//test("%O", 0);
-	//test("%#O", 0);
-	//test("%#O", 8);
-	//test("%#O", UINT_MAX);
-	test("%.1s", "ab");//1"a"
-	test("%.0s", "ab");//0""
-	test("%.2ls", "ab");//-1""
-	test("%.1ls", "ab");//-1""
-	test("%.0d", 1);//
-	test("%.0ls", "ab");//0""
-	test("%ls", "ab");//-1""
-	test("%.0s", "");//0""
-	test("%.s", "");//0""
-	test("%.s", "ab");//0""
-	test("%.Ls", "ab");//0""
-	test("%.ls", "");//0""
-	test("%#.0ls", "");
-	test("%.-1p", "");
-	test("%.10p", NULL);//"5(nil)"
-	test("%.2p", "asd");
-	test("%.2p", NULL);
-	test("%p", "asd");
-	test("%.2p", "asd");
-	test("%.2s", "asd");//2"as"
-	test("%.5s", NULL);//0""
-	test("%.s", NULL);//0""
-	test("%.0s", NULL);//0""
-	test("%#s", NULL);
-	test("%lp", NULL);
-	test("%p", NULL);
-	test("%#lp", NULL);
-	test("%ls", NULL);
-	test("%s", "(null)");
-	test("%s", "(nil)");
-	//test("%ls", "(null)");
-	//test("%ls", "(nil)");
-	test("%#s", "ab");
-	test("%hs", "ab");
-	test("%#hs", "ab");
-	test("%s", "ab");
-	test("%lsw", "ab");
-	test("%#ls", "ab");
-	test("%s", "");
-	test("%#s", "");
-	test("% s", "ab");
-	test("% p", "ab");
-	test("%#.3s", "ab");
-	test("%#.10s", NULL);
-	test("%#.10p", NULL);
-	test("%#10p", NULL);
-	test("%03s", "ab");
+	test_mac("%03s", "ab");//"0ab"
+	test_mac("% p", "ab");//"0x<address>"
+	test("% s", "ab");//
+	test("%   s", "ab");//
 	test("%010s", NULL);
 	test("%010p", NULL);
 	test("%.8p", "");
@@ -420,6 +332,96 @@ int	main()
 
 	test("%#d", -1);
 
+
+	test_mac("%dwww", 1);//
+	test_mac("qqq%lswww", "ab");//""
+	test_mac("12 %s 34 %s 56 %ls 78", "ab", "cd", "ef");//"12 ab 34 cd"
+	test_mac("%d www%lswww", 1, "ab");//"1"
+	test_mac("%10s", NULL);//10"    (null)"
+	test_mac("%.2s", NULL);//2"(n"
+	test_mac("%.1s", NULL);//1"("
+	test_mac("%.s", NULL);//0""
+	test_mac("%.0s", NULL);//0""
+	test_mac("%#.-1s", NULL);//1" "
+	test_mac("%#.-2s", NULL);//2"  "
+	test_mac("%p", NULL);//3"0x0"
+	test_mac("%10p", NULL);//2"0x"
+	test_mac("%.3p", NULL);//"0x000"
+	test_mac("%.1p", NULL);//"0x0"
+	test_mac("%.0p", NULL);//2"0x"
+	test_mac("%.-1p", NULL);//2"0x"
+	test_mac("%.0s", NULL);//
+	test_mac("%.0p", "q");//
+	test_mac("%.0s", "q");//
+	test_mac("%.0d", 1);//
+	test_mac("%.-1p", "qqq");//"0x<addr>"
+	test_mac("%.5s", NULL);//5"(null"
+	test_mac("%.10s", NULL);//6"(null)"
+	test_mac("%.-4s", "asd");//4"    "
+	test_mac("%.-2s", "asd");//2"  "
+	test_mac("%.-1s", "asd");//1" "
+	test_mac("%.-1s", NULL);//1" "
+	test_mac("%.6s", NULL);//6"(null)"
+	test_mac( "%.-1d", 1);//6"%.0-1d"//1"1"
+	test("%.p", NULL);//5"(nil)"2"0x0"
+//	test("%O", 2);
+//	test("%#O_", 2);
+//	test("_%d_%#O_", 1, 2);
+//	test("%O%d", 2,1);
+//	test("%O%c", 2,'a');
+////	test("%O%s", 2,"a");
+	//test("%#O", 0);
+	//test("%###O\n");
+	//test("%####O\n");
+	//test("%O", 0);
+	//test("%#O", 0);
+	//test("%#O", 8);
+	//test("%#O", UINT_MAX);
+	test("%.1s", "ab");//1"a"
+	test("%.0s", "ab");//0""
+	test("%.2ls", "ab");//-1""
+	test("%.1ls", "ab");//-1""
+	test("%.0d", 1);//
+	test("%.0ls", "ab");//0""
+	test("%ls", "ab");//-1""
+	test("%.0s", "");//0""
+	test("%.s", "");//0""
+	test("%.s", "ab");//0""
+	test("%.Ls", "ab");//0""
+	test("%.ls", "");//0""
+	test("%#.0ls", "");
+	test("%.-1p", "");
+	test("%.10p", NULL);//"5(nil)"
+	test("%.2p", "asd");
+	test("%.2p", NULL);
+	test("%p", "asd");
+	test("%.2p", "asd");
+	test("%.2s", "asd");//2"as"
+	test("%.5s", NULL);//0""
+	test("%.s", NULL);//0""
+	test("%.0s", NULL);//0""
+	test("%#s", NULL);
+	test("%lp", NULL);
+	test("%p", NULL);
+	test("%#lp", NULL);
+	test("%ls", NULL);
+	test("%s", "(null)");
+	test("%s", "(nil)");
+	//test("%ls", "(null)");
+	//test("%ls", "(nil)");
+	test("%#s", "ab");
+	test("%hs", "ab");
+	test("%#hs", "ab");
+	test("%s", "ab");
+	test("%lsw", "ab");
+	test("%#ls", "ab");
+	test("%s", "");
+	test("%#s", "");
+	test("% s", "ab");
+	test("%#.3s", "ab");
+	test("%#.10s", NULL);
+	test("%#.10p", NULL);
+	test("%#10p", NULL);
 
 	int q;
 

@@ -40,7 +40,7 @@ char* ft_str_prepend_and_free(const char* prefix, char* str)
 
 void	process_blank(t_fmt* fmt)
 {
-	if (ft_contains("pidaAeEfFgG", fmt->type)
+	if (ft_contains("idaAeEfFgG", fmt->type)
 		&& fmt->flags.blank_before_positive
 		&& !fmt->flags.plus_before_positive)
 	{
@@ -53,7 +53,7 @@ void	process_blank(t_fmt* fmt)
 
 char* get_pad(t_fmt* fmt)
 {
-	return (fmt->flags.zero_pad && fmt->type != 'c' && fmt->type != 's' ? "0" : " ");
+	return (fmt->flags.zero_pad && fmt->type != 'c' ? "0" : " ");
 }
 
 void	process_width(t_fmt* fmt)
