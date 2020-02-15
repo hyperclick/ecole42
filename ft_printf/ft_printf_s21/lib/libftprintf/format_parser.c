@@ -252,27 +252,28 @@ char* format_to_string(t_fmt fmt)
 
 char* handle_empty_type(int* r, char** dst, char* format, t_fmt* fmt, BOOL	smth_parsed)
 {
-	smth_parsed = smth_parsed
-		|| fmt->precision_set
-		|| fmt->width != DEFAULT_WIDTH
-		|| *fmt->length != 0;
-	if (smth_parsed)//|| fmt->precision != 0
-	{
-		//if (*format == 0)
-		//{
-		//	//*r = 0;
-		//	//return (NULL);
-			*dst = ft_strdup("");
-		//}
-		//else
-		//{
-		//	*dst = format_to_string(*fmt);
-		//}
-	}
-	else
-	{
-		*dst = ft_strdup("%");
-	}
+	//smth_parsed = smth_parsed
+	//	|| fmt->precision_set
+	//	|| fmt->width != DEFAULT_WIDTH
+	//	|| *fmt->length != 0;
+	//if (smth_parsed)//|| fmt->precision != 0
+	//{
+	//	//if (*format == 0)
+	//	//{
+	//	//	//*r = 0;
+	//	//	//return (NULL);
+	//		*dst = ft_strdup("");
+	//	//}
+	//	//else
+	//	//{
+	//	//	*dst = format_to_string(*fmt);
+	//	//}
+	//}
+	//else
+	//{
+	//	*dst = ft_strdup("%");
+	//}
+	*dst = ft_strdup("");
 	*r = 0;
 	return (format);
 }

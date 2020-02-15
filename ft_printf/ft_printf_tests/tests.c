@@ -228,12 +228,14 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 
-	test("%.1");//
-	test("%c  ...%.10", 'a');//
-	test("%c  ...%.10 ...%c", 'a', 'b');//
-	test("%#", -1);//
-	test("%w", 1);//
-	test("%c  ...%.10 ...", 'a');//6"a  ..."
+	test("%.1w", 1);//
+	test("%c 45 %.10 123", 'a');//6"a
+	test("%w", 1);//1"w"
+	test("%c");//
+	test("%c  ...%.10 ...%c", 'a', 'b');//8"a  ...%c"
+	test("%.1");//""
+	test("%c  ...%.10", 'a');//"a  ..."
+	test("%#", -1);//""
 	test_mac("%dwww", 1);//
 	test_mac("qqq%lswww", "ab");//""
 	test_mac("12 %s 34 %s 56 %ls 78", "ab", "cd", "ef");//"12 ab 34 cd"
