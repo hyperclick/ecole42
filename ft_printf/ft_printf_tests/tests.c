@@ -228,17 +228,16 @@ int	main()
 
 
 
-	test_mac("%.0d", 1);//1"1"
-	test_mac("%.0d", 0);//0""
-	test_mac("%.0o", 0);//0""
+	test("%.0o", 0);//0""
+	test("%.0d", 0);//0""
+	test("%#.0d", 0);//0"0"
+	test("%.0d", 1);//1"1"
 	test_mac("%.0p", NULL);//2"0x"
 	test_mac("%.0s", NULL);//0""
 	test_mac("%.0p", "q");//
 	test_mac("%.0s", "q");//
 	test("%#.0", 0);
-	test("%#.0d", 0);
 	test("%o", 0);
-	return 1;
 	test_mac("%.-1p", NULL);//2"0x"
 	test("%lc", 1);
 	test("%da%lca", 1, -1);
