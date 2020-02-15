@@ -21,7 +21,10 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	//va_list arg4;
 	//va_copy(arg4, argptr);
 	g_tests_count++;
-
+	if (g_tests_count == 20)
+	{
+		exit(1);
+	}
 	printf("test #%d: '%s': '", g_tests_count, format);
 
 	va_copy(arg0, argptr);
@@ -225,9 +228,7 @@ int	main()
 #else
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
-
-
-
+	test("%o", 0);//1"0"
 	test("%#o", 0);//1"0"
 	test("%#o", 1);//"01"
 	test("%#2o", 0);//e" 0"
@@ -238,7 +239,6 @@ int	main()
 	test("%#2o", 1);//"01"
 	test("%#-2o", 1);//"01"
 	test("%#.0o", 0);//1"0"
-	test("%o", 0);//1"0"
 	test("%.0o", 0);//0""
 	test("%.0d", 0);//0""
 	test("%#.0d", 0);//0"0"
