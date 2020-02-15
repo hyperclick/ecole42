@@ -22,13 +22,13 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	//va_copy(arg4, argptr);
 	g_tests_count++;
 
-	printf("test #%d: '%s'", g_tests_count, format);
+	printf("test #%d: '%s': '", g_tests_count, format);
 
 	va_copy(arg0, argptr);
 	//va_start(argptr, format);
 	e_r = vprintf(format, arg0);
 	va_end(arg0);
-	printf("\n");
+	printf("'\n");
 
 	/* Determine required size */
 
