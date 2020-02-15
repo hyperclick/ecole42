@@ -228,6 +228,24 @@ int	main()
 
 
 
+	test("%lc", 1);
+	test("%da%lca\n", 1, -1);
+	test("%c", -1);
+	test("%lca", -1);
+	test("%#lc", -1);
+	test("%#lc", 1);
+	test("%#.2o", 0);
+	test("%#.2o", 1);
+	test("%#.0o", 0);
+	test("%.0o", 0);
+	test("%#2o", 0);
+	test("%#-2o", 0);
+	test("%#o", 0);
+	//test("%#.0", 0);
+	test("%.0d", 0);
+	test("%#.0d", 0);
+	test("%o", 0);
+	test("%.0o", 0);
 	//test("%Lc", 300);//1","
 	test("%", -1);//0""
 	test("%jjd", 1);//1"1"
@@ -281,24 +299,6 @@ int	main()
 	test("%c", INT_MIN);
 	test("%jd", INT_MIN);
 	test("%lc", 0);
-	test("%lc", 1);
-	test("%da%lca\n", 1, -1);
-	test("%c", -1);
-	test("%lca", -1);
-	test("%#lc", -1);
-	test("%#lc", 1);
-	test("%#.2o", 0);
-	test("%#.2o", 1);
-	test("%#.0o", 0);
-	test("%.0o", 0);
-	test("%#2o", 0);
-	test("%#-2o", 0);
-	test("%#o", 0);
-	//test("%#.0", 0);
-	test("%.0d", 0);
-	test("%#.0d", 0);
-	test("%o", 0);
-	test("%.0o", 0);
 	test("%uh", -1);
 	test("%ld", LONG_MIN);
 	test("%ld", __LONG_LONG_MAX__);
