@@ -165,10 +165,10 @@ void	process_string(t_fmt* fmt)
 	recalc_size(fmt);
 	process_blank(fmt);
 	recalc_size(fmt);
-	if (fmt->flags.is_alt_form && fmt->type == 'o' && *fmt->value == '0')
-	{
-		*fmt->prefix = 0;
-	}
+	//if (fmt->flags.is_alt_form && fmt->type == 'o' && *fmt->value == '0')
+	//{
+	//	*fmt->prefix = 0;
+	//}
 	recalc_size(fmt);
 	process_width(fmt);
 	recalc_size(fmt);

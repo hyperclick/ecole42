@@ -55,17 +55,19 @@ t_fmt* pointer_to_string(void* p, t_fmt* fmt)
 
 t_fmt* oct_to_string(t_fmt* fmt, unsigned long long int n)
 {
-	if (n == 0 && fmt->precision_set && fmt->precision == 0)
-	{
-		fmt->value = ft_strdup("");
-	return (fmt);
-	}
-	fmt->value = ft_itoa_base2(n, "01234567", FALSE);
-	//if (fmt->flags.is_alt_form && n != 0)
 	if (fmt->flags.is_alt_form)
 	{
 		fmt->prefix = ft_strdup("0");
 	}
+	if (n == 0 && fmt->precision_set && fmt->precision == 0)
+	{
+		fmt->value = ft_strdup("");
+	}
+	else
+	{
+		fmt->value = ft_itoa_base2(n, "01234567", FALSE);
+	}
+	//if (fmt->flags.is_alt_form && n != 0)
 	return (fmt);
 }
 
