@@ -65,7 +65,7 @@ t_fmt* oct_to_string(t_fmt* fmt, unsigned long long int n)
 	}
 	if (n == 0)
 	{
-		if (fmt->flags.is_alt_form || fmt->precision_set && fmt->precision == 0)
+		if (fmt->flags.is_alt_form || (fmt->precision_set && fmt->precision == 0))
 		{
 			fmt->value = ft_strdup("");
 		}
