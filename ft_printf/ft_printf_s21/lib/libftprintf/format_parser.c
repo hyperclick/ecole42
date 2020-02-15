@@ -80,42 +80,17 @@ char* try_parse_type(char* format, t_fmt* fmt)
 #include <stdio.h>
 char* try_parse_width(char* format, t_fmt* fmt)
 {
-//#ifdef MAC_OS
-//	printf("qqq\n");
-//#else
-//	printf("not defined\n");
-//#endif //
-//#ifdef MAC_OS
-//
-//	BOOL	is_negative;
-//
-//	is_negative = FALSE;
-//#endif // MAC_OS
-
 	if (*format != '0')
 	{
-//#ifdef MAC_OS
-//		if (*format == '-')
-//		{
-//			is_negative = TRUE;
-//			format++;
-//		}
-//#endif // MAC_OS
 		while (*format != 0 && ft_isdigit(*format))
 		{
 			fmt->width = fmt->width * 10 + *format - '0';
 			format++;
 		}
-//#ifdef MAC_OS
-//		if (fmt->flags.adjust_left)
-//		{
-//			fmt->width = -fmt->width;
-//			//fmt->flags.adjust_left = FALSE;
-//		}
-//#endif // MAC_OS
 	}
 	return (format);
 }
+
 char* try_parse_precision(char* format, t_fmt* fmt)
 {
 #ifdef MAC_OS

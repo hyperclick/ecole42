@@ -227,8 +227,9 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
-	test("%wwwwwd", 1);
-	test("%jjd", 1);//
+	test("%wwwwwd", 1);//"wwwwd"
+	test("%.10)d", 1);//
+	test("%jjd", 1);//1
 	test("%llllld", 1);//1"1"
 	test("%lwd", 1);//wd
 	test("%wld", 1);//wld
