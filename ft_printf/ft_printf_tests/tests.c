@@ -23,7 +23,7 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	g_tests_count++;
 	if (g_tests_count == 20)
 	{
-		exit(1);
+		//exit(1);
 	}
 	printf("test #%d: '%s': '", g_tests_count, format);
 
@@ -228,6 +228,9 @@ int	main()
 #else
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
+
+
+
 	test("%.0o", 0);//0""
 	test("%o", 0);//1"0"
 	test("%#o", 0);//1"0"
