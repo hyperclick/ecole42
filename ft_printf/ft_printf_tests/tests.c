@@ -233,7 +233,26 @@ int	main()
 
 
 
+	test("%d", __LONG_LONG_MAX__);
+	test("%d", ULONG_MAX);
+	test("%d", LONG_MAX);
+	test("%d", LONG_MIN);
+	test("%d", LLONG_MIN);
+	test("%d", LLONG_MAX);
+	test("%d", ULLONG_MAX);
+	test("%d", LONG_LONG_MIN);
+	test("%d", ULONG_LONG_MAX);
 
+	test("%#x", UINT_MAX);
+	test("%#X", UINT_MAX);
+
+
+	test("%lc", INT_MIN);
+	test("%c", INT_MIN);
+	test("%jd", INT_MIN);
+	test("%#o", UINT_MAX);
+	test("%ld", LONG_MIN);
+	test("%ld", __LONG_LONG_MAX__);
 
 
 
@@ -274,13 +293,8 @@ int	main()
 	test("%#d", 0);
 	test("%", 0);
 	test("%#x", 16);
-	test("%#x", UINT_MAX);
-	test("%#X", UINT_MAX);
-
 
 	test("%#o", 0);
-	test("%#o", UINT_MAX);
-
 
 	test("%.0o", 0);//0""
 	test("%o", 0);//1"0"
@@ -342,7 +356,6 @@ int	main()
 	test("%wd", 1);
 	test("%wld", 1);
 	test("%lc", 300);//""
-	test("%lc", INT_MIN);
 	test_mac("%03s", "ab");//"0ab"
 	test_mac("% p", "ab");//"0x<address>"
 	test("% s", "ab");//
@@ -354,12 +367,8 @@ int	main()
 	test("%#p", "");
 	test("%#.10p", "");
 	test("%c", 300);
-	test("%c", INT_MIN);
-	test("%jd", INT_MIN);
 	test("%lc", 0);
 	test("%uh", -1);
-	test("%ld", LONG_MIN);
-	test("%ld", __LONG_LONG_MAX__);
 	test("%#ld", -1);
 	test("%d", 1);
 	test("%ld", 1);
@@ -369,7 +378,6 @@ int	main()
 	//test("%2c", 0);
 	test("%-2c", 0);
 	//test("%.-2d\n", 1);
-	test("%d", INT_MIN);
 	test("%2c", 0);
 	test("%0 3d", 1);
 
@@ -484,9 +492,6 @@ int	main()
 	int q;
 
 	test("%p", &q);
-	test("%d", __LONG_LONG_MAX__);
-	test("%u", __LONG_LONG_MAX__);
-	test("%u", UINT_MAX);
 
 
 
@@ -499,24 +504,11 @@ int	main()
 	test("%x", 10);
 	test("%x", 15);
 	test("%x", 16);
-	test("%x", UINT_MAX);
 
 	test("%X", 0);
-	test("%X", UINT_MAX);
-
-
-	test("%#d", INT_MAX);
-	test("%#d", INT_MIN);
 	test("%#d");
 
 
-	test("%d", INT_MAX);
-	test("%d", UINT_MAX);
-	test("%d", INT_MIN);
-
-	test("%d", INT_MAX);
-	test("%d", UINT_MAX);
-	test("%d", INT_MIN);
 	test("%c%d");
 	test("", 1, 'q');
 	test("%s", "\0abc");
