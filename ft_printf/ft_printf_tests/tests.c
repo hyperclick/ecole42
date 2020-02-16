@@ -155,7 +155,7 @@ void	test_string(char* format)
 	char* q = "qwe";
 	test(format, q);
 
-	char* str = ft_strjoin2(3, "|%d_", format, "_%s|");
+	char* str = ft_strjoin2(3, "|%d|", format, "|%s|");
 	test(str, 99999999, q, "abc");
 	free(str);
 }
