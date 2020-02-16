@@ -236,7 +236,6 @@ int	main()
 
 
 
-	test("%d", __LONG_LONG_MIN__);
 
 
 	test("%d", __LONG_LONG_MAX__);
