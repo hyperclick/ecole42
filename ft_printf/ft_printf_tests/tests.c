@@ -121,7 +121,7 @@ void	test_number(const char* format)
 	test(format, ULLONG_MAX);
 	//test(format, LONG_LONG_MIN);
 	//test(format, ULONG_LONG_MAX);
-	char* str = ft_strjoin2(3, "_%d_", format, "_%c_");
+	char* str = ft_strjoin2(3, "|%d|", format, "|%c|");
 	test(str, 1, 2, 'a');
 	free(str);
 }
@@ -132,7 +132,7 @@ void	test_char(const char* format)
 	test(format, 300);
 	test(format, 0);
 	test(format, '\n');
-	char* str = ft_strjoin2(3, "_%d_", format, "_%d_");
+	char* str = ft_strjoin2(3, "|%d|", format, "|%d|");
 	test(str, 99999999, 'a', 1);
 	free(str);
 }
@@ -141,7 +141,7 @@ void	test_pointer(char* format)
 	long q = INT_MAX;
 	test(format, q);
 	test(format, &q);
-	char* str = ft_strjoin2(3, "_%d_", format, "_%s_");
+	char* str = ft_strjoin2(3, "|%d|", format, "|%s|");
 	test(str, 99999999, &q, "abc");
 	free(str);
 }
@@ -155,7 +155,7 @@ void	test_string(char* format)
 	char* q = "qwe";
 	test(format, q);
 
-	char* str = ft_strjoin2(3, "_%d_", format, "_%s_");
+	char* str = ft_strjoin2(3, "|%d_", format, "_%s|");
 	test(str, 99999999, q, "abc");
 	free(str);
 }
@@ -239,12 +239,12 @@ int	main()
 
 
 	test("_%d|%#[%d_", 1, 2, 3);//"_1|[2_"
-	test("_%d %#_%d_", 1, 2, 3);//
-	test("_%d_%# %d_", 1, 2, 3);//
-	test("_%d_%#_%d_", 1, 2, 3);//"_1_%d_"
+	//test("_%d %#_%d_", 1, 2, 3);//
+	//test("_%d_%# %d_", 1, 2, 3);//
+	//test("_%d_%#_%d_", 1, 2, 3);//"_1_%d_"
 	test("%c12%.9h(%c 56", 'a', 'b');//11"a12(b 56"
 	test("%c12%#(%c 56", 'a', 'b');//11"a12(b 56"
-	test("%c 45 %.10 123", 'a');//5"a 45 "
+	test("%c 45 %.10|123", 'a');//5"a 45 "
 	return 1;
 	test("111");
 	test("1%d", 0);
