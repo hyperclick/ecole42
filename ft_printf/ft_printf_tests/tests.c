@@ -234,9 +234,9 @@ int	main()
 
 
 
-	test("%ls", "q");//0
-	test("%ls", "");//0
+	test("%ls", "");//0""
 	test("%#ls", "");//0
+	test("%ls", "q");//-1""
 	test("%#ls", NULL);
 	test("%ls", NULL);
 

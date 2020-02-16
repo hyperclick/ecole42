@@ -139,7 +139,7 @@ void	process_precision(t_fmt* fmt)
 BOOL	need_exit(t_fmt* fmt)
 {
 	return (
-		(fmt->type == 's' && ft_contains("lLjzt", *fmt->length) && !is_null_pointer(fmt))
+		(fmt->type == 's' && ft_contains("lLjzt", *fmt->length) && *fmt->value != 0 && !is_null_pointer(fmt))
 		|| (fmt->type == 'c' && *fmt->value < 0 && (ft_contains("tlLjz", *fmt->length)))
 		);
 }
