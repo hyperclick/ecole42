@@ -527,7 +527,7 @@ int	main()
 	test("%%1");
 	test("%");
 	test("%%%");
-	test(NULL);
+	//test(NULL);
 	test("%%");
 	test("%%%%");
 
