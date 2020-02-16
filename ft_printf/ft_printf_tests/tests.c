@@ -21,7 +21,7 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	//va_list arg4;
 	//va_copy(arg4, argptr);
 	g_tests_count++;
-	if (g_tests_count == 1170)
+	if (g_tests_count == 1300)
 	{
 		exit(1);
 	}
