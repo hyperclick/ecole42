@@ -231,21 +231,28 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 
-	test("%c", -1);
-	test("%c", 0);
-	test("%c", INT_MAX);
-	test("%c", INT_MIN);
-	test("%lc", -1);
-	test("%lc", 0);
-	test("%lc", INT_MAX);
-	test("%lc", INT_MIN);
-	test("%llc", -1);
-	test("%llc", 0);
-	test("%llc", INT_MAX);
-	test("%llc", INT_MIN);
+
+
+
+
+
+
+
+	test("%c", -1);//1"\377"
+	test("%c", 0);//1""
+	test("%c", INT_MAX);//1"\377"
+	test("%c", INT_MIN);//1""
+	test("%lc", -1);//-1""
+	test("%lc", 0);//1""
+	test("%lc", INT_MAX);//-1""
+	test("%lc", INT_MIN);//-1""
+	test("%llc", -1);//1"\377"
+	test("%llc", 0);//1""
+	test("%llc", INT_MAX);////1"\377"
+	test("%llc", INT_MIN);//1""
 	test("%lc", 'a');
 	test("%llc", 'a');
-
+	return 1;
 
 	test("%ls", "");//0""
 	test("%#ls", "");//0
