@@ -234,9 +234,10 @@ int	main()
 
 
 
-	test("%#ls", "");
+	test("%ls", "q");//0
+	test("%ls", "");//0
+	test("%#ls", "");//0
 	test("%#ls", NULL);
-	test("%ls", "");
 	test("%ls", NULL);
 
 
