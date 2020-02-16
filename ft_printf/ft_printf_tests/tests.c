@@ -252,8 +252,7 @@ int	main()
 	test("%llc", INT_MIN);//1""
 	test("%lc", 'a');
 	test("%llc", 'a');
-	return 1;
-
+	
 	test("%ls", "");//0""
 	test("%#ls", "");//0
 	test("%ls", "q");//-1""
