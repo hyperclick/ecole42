@@ -21,9 +21,10 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	//va_list arg4;
 	//va_copy(arg4, argptr);
 	g_tests_count++;
-	if (g_tests_count == 1300)
+	if (g_tests_count < 1167)
 	{
-		exit(1);
+		//return;
+		//exit(1);
 	}
 	printf("test #%d: '%s': '", g_tests_count, format);
 
@@ -233,7 +234,10 @@ int	main()
 
 
 
-
+	test("%#ls", "");
+	test("%#ls", NULL);
+	test("%ls", "");
+	test("%ls", NULL);
 
 
 
@@ -242,13 +246,13 @@ int	main()
 	test("%ld", LLONG_MIN);
 	test("%lld", LONG_MIN);
 	test("%lld", LLONG_MIN);
-	test("%d", ULONG_LONG_MAX);
-	test("%ld", LONG_LONG_MIN);
-	test("%lld", LONG_LONG_MIN);
-	test("%ld", ULONG_LONG_MAX);
-	test("%lld", ULONG_LONG_MAX);
-	test("%ld", LONG_LONG_MAX);
-	test("%d", LONG_LONG_MIN);
+	//test("%d", ULONG_LONG_MAX);
+	//test("%ld", LONG_LONG_MIN);
+	//test("%lld", LONG_LONG_MIN);
+	//test("%ld", ULONG_LONG_MAX);
+	//test("%lld", ULONG_LONG_MAX);
+	//test("%ld", LONG_LONG_MAX);
+	//test("%d", LONG_LONG_MIN);
 
 	test("%ld", LLONG_MAX);
 	test("%lld", LLONG_MAX);
