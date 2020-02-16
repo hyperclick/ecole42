@@ -117,7 +117,7 @@ char* try_parse_precision(char* format, t_fmt* fmt)
 #endif
 		if (*format == 0)
 		{
-			return (format - 1);
+//			return (format - 1);
 		}
 		while (*format != 0 && ft_isdigit(*format))
 		{
