@@ -4,14 +4,19 @@
 #include <wchar.h>
 
 
-t_fmt* hex_to_string(t_fmt* fmt, unsigned long long int p, BOOL is_upper_case)
+t_fmt* hex_to_string2(t_fmt* fmt, unsigned long long int p, BOOL is_upper_case, BOOL add_prefix)
 {
 	fmt->value = ft_itoa_base2(p, is_upper_case ? "0123456789ABCDEF" : "0123456789abcdef", FALSE);
-	if (fmt->flags.is_alt_form && p != 0)
+	if (add_prefix)
 	{
 		fmt->prefix = ft_strdup(is_upper_case ? "0X" : "0x");
 	}
 	return (fmt);
+}
+
+t_fmt* hex_to_string(t_fmt* fmt, unsigned long long int p, BOOL is_upper_case)
+{
+	return (hex_to_string2(fmt, p, is_upper_case, fmt->flags.is_alt_form && p != 0));
 }
 
 t_fmt* little_hex_to_string(t_fmt* fmt, unsigned long long int p)
@@ -27,8 +32,6 @@ t_fmt* big_hex_to_string(t_fmt* fmt, unsigned long long int p)
 
 t_fmt* pointer_to_string(void* p, t_fmt* fmt)
 {
-	fmt->flags.is_alt_form = TRUE;
-
 	if (p == NULL)
 	{
 		if (fmt->precision_set && fmt->precision <= 0)
@@ -39,15 +42,13 @@ t_fmt* pointer_to_string(void* p, t_fmt* fmt)
 			fmt->type = 's';
 			return (fmt);
 		}
-		//	fmt->value = ft_strdup("(nil)");
-		//	fmt->type = 's';
-		//	fmt->precision = ft_strlen(fmt->value);
 		p = 0;
+
 	}
 	//else
 
 
-	hex_to_string(fmt, (unsigned long long int)p, FALSE);
+	hex_to_string2(fmt, (unsigned long long int)p, FALSE, TRUE);
 
 
 	return (fmt);
