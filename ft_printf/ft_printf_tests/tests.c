@@ -23,7 +23,7 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	g_tests_count++;
 	if (g_tests_count == 20)
 	{
-		exit(1);
+		//exit(1);
 	}
 	printf("test #%d: '%s': '", g_tests_count, format);
 
@@ -235,11 +235,14 @@ int	main()
 
 
 
+
+
+
+	test("%#X", 0);//1"0"
 	test("%#d", -1);//1"0"
 	test("%1d", 0);//1"0"
 	test("%1d", 1);//1"1"
 	test("%1d", -1);//2"-1"
-
 	test("%.-", 'a');//0""
 	test("%#i", 0);
 	test("%#i", -1);
@@ -247,14 +250,9 @@ int	main()
 	test("%#s", "abc");
 	test("%y", 0);
 	test("%#d", 0);
-
 	test("%", 0);
-
-	test("%#X", 0);
 	test("%#x", 16);
 	test("%#x", UINT_MAX);
-
-	test("%#X", 0);
 	test("%#X", UINT_MAX);
 
 
