@@ -21,9 +21,9 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	//va_list arg4;
 	//va_copy(arg4, argptr);
 	g_tests_count++;
-	if (g_tests_count < 1167)
+	if (g_tests_count < 1335)
 	{
-		//return;
+		return;
 		//exit(1);
 	}
 	printf("test #%d: '%s': '", g_tests_count, format);
@@ -231,7 +231,20 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 
-
+	test("%c", -1);
+	test("%c", 0);
+	test("%c", INT_MAX);
+	test("%c", INT_MIN);
+	test("%lc", -1);
+	test("%lc", 0);
+	test("%lc", INT_MAX);
+	test("%lc", INT_MIN);
+	test("%llc", -1);
+	test("%llc", 0);
+	test("%llc", INT_MAX);
+	test("%llc", INT_MIN);
+	test("%lc", 'a');
+	test("%llc", 'a');
 
 
 	test("%ls", "");//0""
