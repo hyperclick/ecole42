@@ -53,7 +53,7 @@ char* ft_itoa_base2(unsigned long long int n, const char* digits, BOOL is_negati
 	{
 		len++;
 	}
-	r = malloc(sizeof(char) * ( + 1));
+	r = malloc(sizeof(char) * (len + 1));
 	if (r == NULL)
 	{
 		return (r);
