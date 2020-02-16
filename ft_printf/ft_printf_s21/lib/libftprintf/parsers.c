@@ -83,7 +83,7 @@ t_fmt* oct_to_string(t_fmt* fmt, unsigned long long int n)
 	return (fmt);
 }
 
-t_fmt* int_to_string(t_fmt* fmt, long int n)
+t_fmt* int_to_string(t_fmt* fmt, long long int n)
 {
 	if (n == 0 && fmt->precision_set && fmt->precision == 0)
 	{
