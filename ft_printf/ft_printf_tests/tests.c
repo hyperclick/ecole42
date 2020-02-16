@@ -238,17 +238,17 @@ int	main()
 
 
 
+	test("%llc", -1);//1"\377"
 	test("%c", -1);//1"\377"
+	test("%lc", -1);//-1""
 	test("%c", 0);//1""
 	test("%c", INT_MAX);//1"\377"
 	test("%c", INT_MIN);//1""
-	test("%lc", -1);//-1""
 	test("%lc", 0);//1""
 	test("%lc", INT_MAX);//-1""
 	test("%lc", INT_MIN);//-1""
-	test("%llc", -1);//1"\377"
 	test("%llc", 0);//1""
-	test("%llc", INT_MAX);////1"\377"
+	test("%llc", INT_MAX);//1"\377"
 	test("%llc", INT_MIN);//1""
 	test("%lc", 'a');
 	test("%llc", 'a');
