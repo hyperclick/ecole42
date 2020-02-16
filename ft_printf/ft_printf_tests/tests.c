@@ -238,6 +238,15 @@ int	main()
 
 
 
+	test("111");
+	test("1%d", 0);
+	test("1%d1", 0);
+	test("%s", "abc");
+	test("'%s'", "abc");
+	test("'%s'", "abc", 1);
+	test("'%s' %d", "abc");
+	test("%d", "abc");
+
 	test_mac("%p", NULL);//3"0x0"
 	test_mac("%10p", NULL);//"        0x"
 	test_mac("%.3p", NULL);//5"0x000"
@@ -515,22 +524,12 @@ int	main()
 	test("%p%c%s%d");
 	test("%d", 0);
 	test("%%%%");
-	test("111\n");
 	test("%%1");
 	test("%");
 	test("%%%");
 	test(NULL);
 	test("%%");
 	test("%%%%");
-	test("111\n");
-	test("1%d\n", 0);
-	test("1%d1\n", 0);
-	test("%s\n", "abc");
-	test("'%s'\n", "abc");
-	test("'%s'\n", "abc", 1);
-	test("'%s' %d\n", "abc");
-	test("%d", "abc");
-
 
 	//test("%--");
 	//test("%1");
