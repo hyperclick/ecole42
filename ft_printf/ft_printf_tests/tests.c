@@ -233,20 +233,45 @@ int	main()
 
 
 
+
+
+
+	test("%d", __LONG_LONG_MIN__);
+
+
 	test("%d", __LONG_LONG_MAX__);
-	test("%d", ULONG_MAX);
 	test("%d", LONG_MAX);
 	test("%d", LONG_MIN);
 	test("%d", LLONG_MIN);
 	test("%d", LLONG_MAX);
-	test("%d", ULLONG_MAX);
 	test("%d", LONG_LONG_MIN);
+	test("%d", LONG_LONG_MAX);
+	test("%d", ULONG_MAX);
 	test("%d", ULONG_LONG_MAX);
+
+	test("%ld", __LONG_LONG_MAX__);
+	test("%ld", LONG_MAX);
+	test("%ld", LONG_MIN);
+	test("%ld", LLONG_MIN);
+	test("%ld", LLONG_MAX);
+	test("%ld", LONG_LONG_MIN);
+	test("%ld", LONG_LONG_MAX);
+	test("%ld", ULONG_MAX);
+	test("%ld", ULONG_LONG_MAX);
+
+	test("%lld", __LONG_LONG_MAX__);
+	test("%lld", LONG_MAX);
+	test("%lld", LONG_MIN);
+	test("%lld", LLONG_MIN);
+	test("%lld", LLONG_MAX);
+	test("%lld", LONG_LONG_MIN);
+	test("%lld", LONG_LONG_MAX);
+	test("%lld", ULONG_MAX);
+	test("%lld", ULONG_LONG_MAX);
+
 
 	test("%#x", UINT_MAX);
 	test("%#X", UINT_MAX);
-
-
 	test("%lc", INT_MIN);
 	test("%c", INT_MIN);
 	test("%jd", INT_MIN);
