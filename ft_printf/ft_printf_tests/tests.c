@@ -232,11 +232,24 @@ int	main()
 	
 	
 	//test("%Lu");
-	test("%Lu", -1.1);
-	test("%Lu", 1.0);
-	test("%Lu", 0.0);
-	
+	test("%Lu", 1.0);//"256041984"
+	test("%Lu", 0.0);//"256041984"
+	test("%Lu", __LONG_LONG_MAX__);
+	test("%Lu", ULONG_MAX);
+	test("%Lu", LONG_MAX);
+	test("%Lu", LONG_MIN);
 
+	test("%u", 1.0);//"
+	test("%u", 0.0);//"
+	test("%u", __LONG_LONG_MAX__);
+	test("%u", ULONG_MAX);
+	test("%u", LONG_MAX);
+	test("%u", LONG_MIN);
+	test("%lu", LONG_MIN);
+	test("%llu", LONG_MIN);
+	test("%hu", LONG_MIN);
+
+	test("%Lu", -1.1);//
 	test("%#Ld", -1.1);//8"41974272"
 	test("%#Ld", 1.0);//8"41974272"
 	test("%#Ld", 0.0);//8"41974272"
