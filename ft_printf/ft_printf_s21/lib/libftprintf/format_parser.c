@@ -247,7 +247,16 @@ char* handle_empty_type(int* r, char** dst, char* format, t_fmt* fmt, BOOL	smth_
 	//}
 	if (fmt->width > 1 && *format != 0)//!fmt->flags.adjust_left)
 	{
-		*dst = ft_str_repeat(" ", fmt->width - 1);
+			char* pads = ft_str_repeat(" ", fmt->width - 1);
+		if (fmt->flags.adjust_left)
+		{
+			*dst = ft_prepend_and_free(*format, pads);
+			format++;
+		}
+		else
+		{
+			*dst = pads;
+		}
 	}
 	else
 	{

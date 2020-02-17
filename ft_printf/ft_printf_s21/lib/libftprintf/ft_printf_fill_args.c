@@ -38,6 +38,14 @@ char* ft_str_prepend_and_free(const char* prefix, char* str)
 	return (str);
 }
 
+char* ft_prepend_and_free(const char prefix, char* str)
+{
+	char tmp[] = " ";
+
+	*tmp = prefix;
+	return (ft_str_prepend_and_free(tmp, str));
+}
+
 void	process_blank(t_fmt* fmt)
 {
 	if (ft_contains("idaAeEfFgG", fmt->type)
