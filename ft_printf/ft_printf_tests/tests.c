@@ -228,14 +228,14 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 
-	test("%Lu", 1.0);//"256041984"
-	test("%Lu", 0.0);//"181666816"
-	test("%Lu", __LONG_LONG_MAX__);
-	test("%Lu", ULONG_MAX);
-	test("%Lu", LONG_MAX);
-	test("%Lu", LONG_MIN);
-	test("%u", 1.0);//"
-	test("%u", 0.0);//"
+	test("%Lu", 1.0);//"73832"
+	test("%Lu", 0.0);//"129979392"
+	test("%Lu", __LONG_LONG_MAX__);//4294967295
+	test("%Lu", ULONG_MAX);//4294967295
+	test("%Lu", LONG_MAX);//4294967295
+	test("%Lu", LONG_MIN);//1"0"
+	test("%u", 1.0);//"129979392
+	test("%u", 0.0);//"129979392
 	test("%u", __LONG_LONG_MAX__);
 	test("%u", ULONG_MAX);
 	test("%u", LONG_MAX);

@@ -135,7 +135,7 @@ void	parse_u_process_len(t_fmt* fmt, va_list args_list, t_fmt* (to_string)(t_fmt
 		v = va_arg(args_list, unsigned int);
 		(process_string(to_string(fmt, (unsigned char)v))); return;
 	}
-	else if (ft_strequ(fmt->length, "l") || ft_strequ(fmt->length, "L"))
+	else if (ft_strequ(fmt->length, "l"))// || ft_strequ(fmt->length, "L"))
 	{
 		v = va_arg(args_list, unsigned long long int);
 		(process_string(to_string(fmt, (unsigned long long int)v))); return;
