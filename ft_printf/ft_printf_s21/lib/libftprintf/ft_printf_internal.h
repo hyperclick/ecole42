@@ -85,5 +85,6 @@ void	parse_u(t_fmt* fmt, va_list args_list);
 
 
 char	*ft_str_prepend_and_free(const char* prefix, char* str);
+char* ft_prepend_and_free(const char prefix, char* str);
 
 #endif 
