@@ -140,7 +140,7 @@ BOOL	need_exit(t_fmt* fmt)
 {
 	return (
 		(!(fmt->length[0] == 'l' && fmt->length[1] == 'l') && fmt->type == 's' && ft_contains("ljzt", *fmt->length) && *fmt->value != 0 && !is_null_pointer(fmt))
-		|| (!(fmt->length[0] == 'l' && fmt->length[1] == 'l') && fmt->type == 'c' && *fmt->value < 0 && (ft_contains("tljz", *fmt->length)))
+		|| (!(fmt->length[0] == 'l' && fmt->length[1] == 'l') && fmt->type == 'c' && *fmt->value < 0 && (ft_contains("tlz", *fmt->length)))
 		);
 }
 
