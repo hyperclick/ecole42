@@ -26,7 +26,7 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 		//return;
 		//exit(1);
 	}
-	if (g_tests_count > 2400)
+	if (g_tests_count > 4400)
 	{
 		//return;
 		exit(1);
@@ -233,7 +233,7 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 	test("%3)d", 1111);//4"  )d"
-	test("%-3)d", 1111);//4"  )d"
+	//test("%-3)d", 1111);//4")  d"
 	test("%10", -1);//0""
 	test("%#-10", -1);//0""
 	test("%-10", -1);//0""
