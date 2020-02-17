@@ -21,7 +21,7 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	//va_list arg4;
 	//va_copy(arg4, argptr);
 	g_tests_count++;
-	if (g_tests_count < 1420)
+	if (g_tests_count < 1487)
 	{
 		//return;
 		//exit(1);
@@ -106,10 +106,7 @@ void	test_number(const char* format)
 	test(format, 1);
 	test(format, 0);
 	test(format, INT_MAX);
-	//if (!ft_str_contains(format, "lc"))
-	{
 		test(format, INT_MIN);
-	}
 	test(format, -1.1);
 	test(format, 1.0);
 	test(format, 0.0);
@@ -234,16 +231,18 @@ int	main()
 	
 	
 	
-	
-	
+	//test("%Lu");
+	test("%Lu", -1.1);
+	test("%Lu", 1.0);
+	test("%Lu", 0.0);
 	
 
-	test("%#Ld", -1);//2"-1"
-	test("%#Ld", INT_MAX);//"2147..."
-	test("%#Ld", INT_MIN);//-2147...
 	test("%#Ld", -1.1);//8"41974272"
 	test("%#Ld", 1.0);//8"41974272"
 	test("%#Ld", 0.0);//8"41974272"
+	test("%#Ld", -1);//2"-1"
+	test("%#Ld", INT_MAX);//"2147..."
+	test("%#Ld", INT_MIN);//-2147...
 	test("%Ld", -1);//2"-1"
 	test("%Ld", INT_MAX);//"2147..."
 	test("%Ld", INT_MIN);//-2147...
