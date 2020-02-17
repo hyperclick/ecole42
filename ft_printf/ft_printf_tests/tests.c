@@ -227,20 +227,20 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
-	test("%c", 300);//
-	test("%lc", 300);//
-	test("%llc", 300);//
-	test("%Lc", 300);//
+	test("%lc", 300);//""
+	test("%c", 300);//","
+	test("%llc", 300);//","
+	test("%Lc", 300);//","
 
-	test("%c", -1);//1"\377"
 	test("%lc", -1);//-1""
+	test("%c", -1);//1"\377"
 	test("%llc", -1);//1"\377"
-	test("%Lc", -1);//
+	test("%Lc", -1);//1"\377"
 
 	test("%c", 0);//1""
 	test("%lc", 0);//1""
 	test("%llc", 0);//1""
-	test("%Lc", 0);
+	test("%Lc", 0);//1""
 
 	test("%c", INT_MAX);//1"\377"
 	test("%lc", INT_MAX);//-1""
