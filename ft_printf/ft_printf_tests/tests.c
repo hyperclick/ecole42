@@ -235,7 +235,7 @@ int	main()
 	test("%#-10s", "abc");
 	char* q1 = "qwe";
 	test("%#-10s", q1);
-	return 1;
+	//return 1;
 
 
 	test("%lc", 300);//""
