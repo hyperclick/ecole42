@@ -21,9 +21,9 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	//va_list arg4;
 	//va_copy(arg4, argptr);
 	g_tests_count++;
-	if (g_tests_count < 1582)
+	if (g_tests_count < 2389)
 	{
-		return;
+		//return;
 		//exit(1);
 	}
 	printf("test #%d: '%s': '", g_tests_count, format);
@@ -226,6 +226,13 @@ int	main()
 #else
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
+
+
+	test("%#-10s", "abc");
+	test("%-10s", "abc");
+	test("%10s", "abc");
+	return 1;
+
 
 	test("%lc", 300);//""
 	test("%c", 300);//","
