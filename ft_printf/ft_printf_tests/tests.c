@@ -253,7 +253,6 @@ int	main()
 	test("%lc", 'a');
 	test("%llc", 'a');
 
-	return 1;
 
 	test("%Lu", 1.0);//"73832"
 	test("%Lu", 0.0);//"129979392"
