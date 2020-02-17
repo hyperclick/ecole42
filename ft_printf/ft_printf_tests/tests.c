@@ -238,18 +238,18 @@ int	main()
 	
 	
 	
-	test("%Ld", -1);
-	test("%Ld", INT_MAX);
-	test("%Ld", INT_MIN);
-	test("%Ld", -1.1);
-	test("%Ld", 1.0);
-	test("%Ld", 0.0);
-	test("%Ld", __LONG_LONG_MAX__);
-	test("%Ld", 0);
-	test("%Ld", 1);
-	test("%d", -1);
-	test("%ld", -1);
-	test("%lld", -1);
+	test("%Ld", -1);//2"-1"
+	test("%Ld", INT_MAX);//"2147..."
+	test("%Ld", INT_MIN);//-2147...
+	test("%Ld", -1.1);//8"41974272"
+	test("%Ld", 1.0);//8"41974272"
+	test("%Ld", 0.0);//8"41974272"
+	test("%Ld", __LONG_LONG_MAX__);//2"-1"
+	test("%Ld", 0);//"0"
+	test("%Ld", 1);//"1"
+	test("%d", -1);//"-1"
+	test("%ld", -1);//"4294967295"
+	test("%lld", -1);//""
 	test("%d", INT_MAX);
 	test("%d", INT_MIN);
 	test("%d", -1.1);

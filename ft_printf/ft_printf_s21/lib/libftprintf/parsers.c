@@ -210,7 +210,7 @@ void parse_d(t_fmt* fmt, va_list args_list)
 		v = va_arg(args_list, int);
 		(process_string(int_to_string(fmt, (signed char)v))); return;
 	}
-	else if (ft_strequ(fmt->length, "l") || ft_strequ(fmt->length, "L"))
+	else if (ft_strequ(fmt->length, "l"))// || ft_strequ(fmt->length, "L"))
 	{
 		v = va_arg(args_list, long int);
 		(process_string(int_to_string(fmt, (long int)v))); return;
