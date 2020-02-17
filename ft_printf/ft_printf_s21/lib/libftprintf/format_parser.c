@@ -245,7 +245,7 @@ char* handle_empty_type(int* r, char** dst, char* format, t_fmt* fmt, BOOL	smth_
 	//{
 	//	*dst = ft_strdup("%");
 	//}
-	if (fmt->width > 1)
+	if (fmt->width > 1 && !fmt->flags.adjust_left)
 	{
 		*dst = ft_str_repeat(" ", fmt->width - 1);
 	}

@@ -23,7 +23,12 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	g_tests_count++;
 	if (g_tests_count < 2394)
 	{
-		return;
+		//return;
+		//exit(1);
+	}
+	if (g_tests_count > 2400)
+	{
+		//return;
 		exit(1);
 	}
 	printf("test #%d: '%s': '", g_tests_count, format);
@@ -227,14 +232,11 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
-	char *str1 = "abc";
-	test("%#-10s", str1);
-	test("%-10s", str1);
-	test("%10s", str1);
+	test("%#-10", -1);//0""
+	test("%-10", -1);//0""
+	test("%10", -1);//0""
 
-	test("%#-10s", "abc");
-	char* q1 = "qwe";
-	test("%#-10s", q1);
+
 	//return 1;
 
 
