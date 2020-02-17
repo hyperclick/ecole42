@@ -287,7 +287,6 @@ int	main()
 	test("%lld", LONG_MAX);
 	test("%lld", ULONG_MAX);
 
-	return 1;
 
 	test("%lls", "a");//1"a"
 
