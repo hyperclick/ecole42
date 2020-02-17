@@ -21,10 +21,10 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	//va_list arg4;
 	//va_copy(arg4, argptr);
 	g_tests_count++;
-	if (g_tests_count == 10000)
+	if (g_tests_count < 1582)
 	{
-		//return;
-		exit(1);
+		return;
+		//exit(1);
 	}
 	printf("test #%d: '%s': '", g_tests_count, format);
 
