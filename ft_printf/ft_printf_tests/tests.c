@@ -227,6 +227,33 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
+	test("%c", 300);//
+	test("%lc", 300);//
+	test("%llc", 300);//
+	test("%Lc", 300);//
+
+	test("%c", -1);//1"\377"
+	test("%lc", -1);//-1""
+	test("%llc", -1);//1"\377"
+	test("%Lc", -1);//
+
+	test("%c", 0);//1""
+	test("%lc", 0);//1""
+	test("%llc", 0);//1""
+	test("%Lc", 0);
+
+	test("%c", INT_MAX);//1"\377"
+	test("%lc", INT_MAX);//-1""
+	test("%llc", INT_MAX);//1"\377"
+
+	test("%c", INT_MIN);//1""
+	test("%lc", INT_MIN);//-1""
+	test("%llc", INT_MIN);//1""
+
+	test("%lc", 'a');
+	test("%llc", 'a');
+
+	return 1;
 
 	test("%Lu", 1.0);//"73832"
 	test("%Lu", 0.0);//"129979392"
@@ -307,20 +334,6 @@ int	main()
 
 
 
-	test("%llc", -1);//1"\377"
-	test("%c", -1);//1"\377"
-	test("%lc", -1);//-1""
-	test("%c", 0);//1""
-	test("%c", INT_MAX);//1"\377"
-	test("%c", INT_MIN);//1""
-	test("%lc", 0);//1""
-	test("%lc", INT_MAX);//-1""
-	test("%lc", INT_MIN);//-1""
-	test("%llc", 0);//1""
-	test("%llc", INT_MAX);//1"\377"
-	test("%llc", INT_MIN);//1""
-	test("%lc", 'a');
-	test("%llc", 'a');
 	
 	test("%ls", "");//0""
 	test("%#ls", "");//0
@@ -410,7 +423,6 @@ int	main()
 	test("%lca", -1);
 	test("%#lc", -1);
 	test("%#lc", 1);
-	//test("%Lc", 300);//1","
 	test("%", -1);//0""
 	test("%jjd", 1);//1"1"
 	test("%llllld", 1);//1"1"
@@ -442,7 +454,6 @@ int	main()
 	test("w%.1");//1"w"
 	test("%wd", 1);
 	test("%wld", 1);
-	test("%lc", 300);//""
 	test_mac("%03s", "ab");//"0ab"
 	test_mac("% p", "ab");//"0x<address>"
 	test("% s", "ab");//
@@ -453,8 +464,6 @@ int	main()
 	test("%p", "");
 	test("%#p", "");
 	test("%#.10p", "");
-	test("%c", 300);
-	test("%lc", 0);
 	test("%uh", -1);
 	test("%#ld", -1);
 	test("%d", 1);
