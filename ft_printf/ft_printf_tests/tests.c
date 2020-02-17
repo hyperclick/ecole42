@@ -227,10 +227,10 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
-	char str = "abc";
-	test("%#-10s", str);
-	test("%-10s", str);
-	test("%10s", str);
+	char str1 = "abc";
+	test("%#-10s", str1);
+	test("%-10s", str1);
+	test("%10s", str1);
 	return 1;
 
 
