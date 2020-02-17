@@ -21,9 +21,9 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	//va_list arg4;
 	//va_copy(arg4, argptr);
 	g_tests_count++;
-	if (g_tests_count < 1335)
+	if (g_tests_count < 1420)
 	{
-		//return;
+		return;
 		//exit(1);
 	}
 	printf("test #%d: '%s': '", g_tests_count, format);
@@ -231,34 +231,31 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 
-
-
-	test("%lls", "a");//1"a"
-
-
-
-
-	test("%llc", -1);//1"\377"
-	test("%c", -1);//1"\377"
-	test("%lc", -1);//-1""
-	test("%c", 0);//1""
-	test("%c", INT_MAX);//1"\377"
-	test("%c", INT_MIN);//1""
-	test("%lc", 0);//1""
-	test("%lc", INT_MAX);//-1""
-	test("%lc", INT_MIN);//-1""
-	test("%llc", 0);//1""
-	test("%llc", INT_MAX);//1"\377"
-	test("%llc", INT_MIN);//1""
-	test("%lc", 'a');
-	test("%llc", 'a');
 	
-	test("%ls", "");//0""
-	test("%#ls", "");//0
-	test("%ls", "q");//-1""
-	test("%#ls", NULL);
-	test("%ls", NULL);
-
+	
+	
+	
+	
+	
+	
+	test("%Ld", -1);
+	test("%Ld", INT_MAX);
+	test("%Ld", INT_MIN);
+	test("%Ld", -1.1);
+	test("%Ld", 1.0);
+	test("%Ld", 0.0);
+	test("%Ld", __LONG_LONG_MAX__);
+	test("%Ld", 0);
+	test("%Ld", 1);
+	test("%d", -1);
+	test("%ld", -1);
+	test("%lld", -1);
+	test("%d", INT_MAX);
+	test("%d", INT_MIN);
+	test("%d", -1.1);
+	test("%d", 1.0);
+	test("%d", 0.0);
+	test("%d", __LONG_LONG_MAX__);
 
 
 
@@ -289,6 +286,37 @@ int	main()
 	test("%lld", __LONG_LONG_MAX__);
 	test("%lld", LONG_MAX);
 	test("%lld", ULONG_MAX);
+
+	return 1;
+
+	test("%lls", "a");//1"a"
+
+
+
+
+	test("%llc", -1);//1"\377"
+	test("%c", -1);//1"\377"
+	test("%lc", -1);//-1""
+	test("%c", 0);//1""
+	test("%c", INT_MAX);//1"\377"
+	test("%c", INT_MIN);//1""
+	test("%lc", 0);//1""
+	test("%lc", INT_MAX);//-1""
+	test("%lc", INT_MIN);//-1""
+	test("%llc", 0);//1""
+	test("%llc", INT_MAX);//1"\377"
+	test("%llc", INT_MIN);//1""
+	test("%lc", 'a');
+	test("%llc", 'a');
+	
+	test("%ls", "");//0""
+	test("%#ls", "");//0
+	test("%ls", "q");//-1""
+	test("%#ls", NULL);
+	test("%ls", NULL);
+
+
+
 
 
 	test("%#x", UINT_MAX);
