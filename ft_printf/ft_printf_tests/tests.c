@@ -227,7 +227,7 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
-	char str1 = "abc";
+	char str1[] = "abc";
 	test("%#-10s", str1);
 	test("%-10s", str1);
 	test("%10s", str1);
