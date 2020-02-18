@@ -233,9 +233,9 @@ int	main()
 #endif // _LIBCPP_VERSION
 
 
+	test("%#.-2llc", 1);//2"1 "
 
 	test("%#.-2c", 0);//2"\0 "
-	test("%#.-2llc", 1);//"1 "
 
 
 	test("%#.-4x", 1);//4"0x1 "

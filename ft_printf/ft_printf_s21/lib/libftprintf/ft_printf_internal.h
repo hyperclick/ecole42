@@ -83,6 +83,7 @@ void	parse_u(t_fmt* fmt, va_list args_list);
 //t_fmt	*uint_to_string(t_fmt* fmt, unsigned long long int n);
 
 BOOL	is_valid_length(t_fmt* fmt);
+BOOL	is_zero_char(t_fmt* fmt);
 
 
 char	*ft_str_prepend_and_free(const char* prefix, char* str);

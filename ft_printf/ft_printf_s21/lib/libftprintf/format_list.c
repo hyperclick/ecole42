@@ -147,7 +147,7 @@ t_fmt* get_default_format()
 
 void		recalc_size(t_fmt* fmt)
 {
-	if (fmt->type == 'c')
+	if (is_zero_char(fmt))
 	{
 		return;
 	}
