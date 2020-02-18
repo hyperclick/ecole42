@@ -191,6 +191,7 @@ void	process_precision(t_fmt* fmt)
 			if (is_zero_char(fmt))
 			{
 				fmt->value = append_to_zero(pads + 1);
+				fmt->size = -diff;
 			}
 			else
 			{

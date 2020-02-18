@@ -147,11 +147,11 @@ t_fmt* get_default_format()
 
 int		recalc_size(t_fmt* fmt)
 {
-	fmt->size = ft_strlen(fmt->value);
-	if (fmt->type == 'c' && fmt->size == 0)
+	if (fmt->type == 'c')
 	{
-		fmt->size = 1;
+		return;
 	}
+	fmt->size = ft_strlen(fmt->value);
 	if (fmt->pad_right != NULL)
 	{
 		fmt->size += ft_strlen(fmt->pad_right);
