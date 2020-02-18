@@ -26,7 +26,7 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 		//return;
 		//exit(1);
 	}
-	if (g_tests_count > 11300)
+	if (g_tests_count > 11000)
 	{
 		//return;
 		exit(1);
