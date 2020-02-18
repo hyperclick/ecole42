@@ -232,6 +232,7 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
+	test("%#.-10d", 1);//"1        "
 	test("%.-3||d", 1);//5"|  |d"
 	test("%.3||d", 1);//5"
 	//return 1;

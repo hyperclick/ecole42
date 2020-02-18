@@ -101,10 +101,12 @@ void	process_width(t_fmt* fmt)
 
 void	process_precision(t_fmt* fmt)
 {
+	int	abs_precision;
 	if (!fmt->precision_set || fmt->type == 'c')
 	{
 		return;
 	}
+	abs_precision = fmt->precision < 0 ? -fmt->precision : fmt->precision;
 	if (fmt->precision < 0 && fmt->type == 's')// || !is_int_number(fmt->type))
 	{
 		free(fmt->value);
@@ -121,25 +123,35 @@ void	process_precision(t_fmt* fmt)
 	}
 
 	int	diff;
-	char* prefix;
+	char* pads;
+	char* tmp;
 
-	diff = ft_strlen(fmt->value) - fmt->precision;
+	diff = ft_strlen(fmt->value) - abs_precision;
 	if (fmt->type == 'o' && *fmt->prefix == '0' && fmt->precision == 0)
 	{
 		diff++;
 	}
 	if (diff > 0 && fmt->type == 's')
 	{
-		char* tmp = fmt->value;
+		tmp = fmt->value;
 
 		fmt->value = ft_strsub(fmt->value, 0, fmt->precision);
 		free(tmp);
 	}
 	else if (diff < 0 && fmt->type != 's')
 	{
-		prefix = ft_str_repeat("0", -diff);
-		fmt->value = ft_str_prepend_and_free(prefix, fmt->value);
-		free(prefix);
+		pads = ft_str_repeat(fmt->precision < 0 ? " " : "0", -diff);
+		if (fmt->precision < 0)
+		{
+			tmp = fmt->value;
+			fmt->value = ft_strjoin(fmt->value, pads);
+			free(tmp);
+		}
+		else
+		{
+			fmt->value = ft_str_prepend_and_free(pads, fmt->value);
+		}
+		free(pads);
 	}
 }
 
