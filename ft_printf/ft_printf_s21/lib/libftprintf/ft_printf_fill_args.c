@@ -107,14 +107,14 @@ BOOL	is_valid_length(t_fmt* fmt)
 	return (fmt->length[0] == 0 || ft_strequ(fmt->length, "ll") || ft_strequ(fmt->length, "hh") || ft_strequ(fmt->length, "l") || ft_strequ(fmt->length, "h") || ft_strequ(fmt->length, "j") || ft_strequ(fmt->length, "t") || ft_strequ(fmt->length, "z"));
 }
 
-BOOL	is_zero_char(t_fmt *fmt)
+BOOL	is_zero_char(t_fmt* fmt)
 {
 	return (fmt->type == 'c' && fmt->value[0] == 0);
 }
 
-char* append_to_zero(const char *append)
+char* append_to_zero(const char* append)
 {
-	char	*dst;
+	char* dst;
 	int		len;
 
 	len = ft_strlen(append) + 1;
@@ -183,12 +183,9 @@ void	process_precision(t_fmt* fmt)
 				free(fmt->value);
 				fmt->value = ft_strdup("");
 			}
-			else if(fmt->type == 'x' || fmt->type == 'X')
+			else if (ft_strequ(fmt->prefix, "0x") || ft_strequ(fmt->prefix, "0x"))
 			{
-				if (fmt->flags.is_alt_form)
-				{
-					diff += 2;
-				}
+				diff += ft_strlen(fmt->prefix);
 			}
 			pads = ft_str_repeat(" ", -diff);
 			tmp = fmt->value;
