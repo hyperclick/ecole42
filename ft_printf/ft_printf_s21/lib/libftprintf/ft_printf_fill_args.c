@@ -152,6 +152,13 @@ void	process_precision(t_fmt* fmt)
 				free(fmt->value);
 				fmt->value = ft_strdup("");
 			}
+			else if(fmt->type == 'x' || fmt->type == 'X')
+			{
+				if (fmt->flags.is_alt_form)
+				{
+					diff += 2;
+				}
+			}
 			pads = ft_str_repeat(" ", -diff);
 			tmp = fmt->value;
 			fmt->value = ft_strjoin(fmt->value, pads);
