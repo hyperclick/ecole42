@@ -94,8 +94,12 @@ void	process_width(t_fmt* fmt)
 		{
 			fmt->prefix = ft_str_prepend_and_free(pads, fmt->prefix);
 		}
-		free(pads);
 	}
+	if (is_zero_char(fmt))
+	{
+		fmt->size += ft_strlen(pads);
+	}
+		free(pads);
 }
 
 BOOL	is_valid_length(t_fmt* fmt)
