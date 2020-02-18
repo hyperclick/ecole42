@@ -23,7 +23,7 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	g_tests_count++;
 	if (g_tests_count < 11021)
 	{
-		return;
+		//return;
 		//exit(1);
 	}
 	if (g_tests_count > 11100)
@@ -234,7 +234,7 @@ int	main()
 
 
 
-
+	test("%#.-2c", 0);//""
 	test("%#.-2llc", 1);//"1 "
 
 
