@@ -76,6 +76,10 @@ void	process_width(t_fmt* fmt)
 	}
 	pads = ft_str_repeat(get_pad(fmt), fmt->width - fmt->size);
 	//fmt->size = ft_strlen(pads) + fmt->size;
+	if (is_zero_char(fmt))
+	{
+		fmt->size += ft_strlen(pads);
+	}
 
 	if (fmt->flags.adjust_left)
 	{
@@ -94,12 +98,8 @@ void	process_width(t_fmt* fmt)
 		{
 			fmt->prefix = ft_str_prepend_and_free(pads, fmt->prefix);
 		}
-	}
-	if (is_zero_char(fmt))
-	{
-		fmt->size += ft_strlen(pads);
-	}
 		free(pads);
+	}
 }
 
 BOOL	is_valid_length(t_fmt* fmt)

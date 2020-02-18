@@ -232,9 +232,9 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
+	test("%2c", 0);//2
 	test("%-2c", 0);//2
 	//test("%.-2d\n", 1);
-	test("%2c", 0);//2
 
 	test("%#.-2llc", 1);//2"1 "
 
