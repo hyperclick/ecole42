@@ -100,7 +100,7 @@ void	process_width(t_fmt* fmt)
 
 BOOL	is_valid_length(t_fmt* fmt)
 {
-	return (fmt->length[0] == 0 || ft_strequ(fmt->length, "ll") || ft_strequ(fmt->length, "hh") || ft_strequ(fmt->length, "l") || ft_strequ(fmt->length, "h") || ft_strequ(fmt->length, "j") || ft_strequ(fmt->length, "t") || ft_strequ(fmt->length, "z"));
+	return (ft_strequ(fmt->length, "ll") || ft_strequ(fmt->length, "hh") || ft_strequ(fmt->length, "l") || ft_strequ(fmt->length, "h") || ft_strequ(fmt->length, "j") || ft_strequ(fmt->length, "t") || ft_strequ(fmt->length, "z"));
 }
 
 void	process_precision(t_fmt* fmt)
