@@ -145,7 +145,7 @@ t_fmt* get_default_format()
 	return (f);
 }
 
-int		recalc_size(t_fmt* fmt)
+void		recalc_size(t_fmt* fmt)
 {
 	if (fmt->type == 'c')
 	{
@@ -161,5 +161,5 @@ int		recalc_size(t_fmt* fmt)
 	{
 		fmt->size += ft_strlen(fmt->pad_left);
 	}
-	return (fmt->size);
+//	return (fmt->size);
 }

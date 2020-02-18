@@ -64,7 +64,7 @@ char	*try_parse_type(char *format, t_fmt *fmt);
 char	*try_extract_id(t_list* list, char* format, int* r);
 
 
-int		recalc_size(t_fmt* fmt);
+void		recalc_size(t_fmt* fmt);
 void	process_string(t_fmt* fmt);
 int		replace_args(t_list *list, va_list args_list);
 
