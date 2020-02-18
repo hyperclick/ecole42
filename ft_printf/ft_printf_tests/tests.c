@@ -21,7 +21,7 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	//va_list arg4;
 	//va_copy(arg4, argptr);
 	g_tests_count++;
-	if (g_tests_count < 10878)
+	if (g_tests_count < 211)
 	{
 		//return;
 		//exit(1);
@@ -232,8 +232,12 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
-	test("%#.-10d", -1);//10"1        "
-	test("%#.-10d", 1);//10"-1       "
+	test("%4.2d", -1);//" -01"
+
+
+
+	test("%#.-10d", -1);//10"-1        "
+	test("%#.-10d", 1);//10"1        "
 	test("%.-3||d", 1);//5"|  |d"
 	test("%.3||d", 1);//5"
 	//return 1;
@@ -497,7 +501,6 @@ int	main()
 	test("%2c", 0);
 	test("%0 3d", 1);
 
-	test("%4.2d", -1);
 	test("%.1d", 0);
 	test("%.1d", 1);
 	test("%#2.0d", 0);

@@ -131,10 +131,6 @@ void	process_precision(t_fmt* fmt)
 	{
 		diff++;
 	}
-	if (*fmt->prefix == '-')
-	{
-		diff++;
-	}
 	if (diff > 0 && fmt->type == 's')
 	{
 		tmp = fmt->value;
@@ -144,15 +140,17 @@ void	process_precision(t_fmt* fmt)
 	}
 	else if (diff < 0 && fmt->type != 's')
 	{
-		pads = ft_str_repeat(fmt->precision < 0 ? " " : "0", -diff);
 		if (fmt->precision < 0)
 		{
+			diff++;
+			pads = ft_str_repeat(" ", -diff);
 			tmp = fmt->value;
 			fmt->value = ft_strjoin(fmt->value, pads);
 			free(tmp);
 		}
 		else
 		{
+			pads = ft_str_repeat("0", -diff);
 			fmt->value = ft_str_prepend_and_free(pads, fmt->value);
 		}
 		free(pads);
