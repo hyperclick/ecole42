@@ -133,7 +133,7 @@ void	process_precision(t_fmt* fmt)
 	}
 	if (*fmt->prefix == '-')
 	{
-		diff--;
+		diff++;
 	}
 	if (diff > 0 && fmt->type == 's')
 	{
