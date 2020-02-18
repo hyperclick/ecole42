@@ -142,7 +142,10 @@ void	process_precision(t_fmt* fmt)
 	{
 		if (fmt->precision < 0)
 		{
-			diff++;
+			if (*fmt->prefix == '-')
+			{
+				diff++;
+			}
 			pads = ft_str_repeat(" ", -diff);
 			tmp = fmt->value;
 			fmt->value = ft_strjoin(fmt->value, pads);
