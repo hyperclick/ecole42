@@ -103,6 +103,25 @@ BOOL	is_valid_length(t_fmt* fmt)
 	return (fmt->length[0] == 0 || ft_strequ(fmt->length, "ll") || ft_strequ(fmt->length, "hh") || ft_strequ(fmt->length, "l") || ft_strequ(fmt->length, "h") || ft_strequ(fmt->length, "j") || ft_strequ(fmt->length, "t") || ft_strequ(fmt->length, "z"));
 }
 
+BOOL	is_zero_char(t_fmt *fmt)
+{
+	return (fmt->type == 'c' && fmt->value[0] == 0);
+}
+
+char* append_to_zero(const char *append)
+{
+	char	*dst;
+	int		len;
+
+	len = ft_strlen(append) + 1;
+
+	dst = (char*)malloc(len + 1);
+	dst[len] = 0;
+	dst[0] = 0;
+	ft_strcpy(dst + 1, append);
+	return (dst);
+}
+
 void	process_precision(t_fmt* fmt)
 {
 	int	abs_precision;
@@ -169,7 +188,14 @@ void	process_precision(t_fmt* fmt)
 			}
 			pads = ft_str_repeat(" ", -diff);
 			tmp = fmt->value;
-			fmt->value = ft_strjoin(fmt->value, pads);
+			if (is_zero_char(fmt))
+			{
+				fmt->value = append_to_zero(pads + 1);
+			}
+			else
+			{
+				fmt->value = ft_strjoin(fmt->value, pads);
+			}
 			free(tmp);
 		}
 		else
