@@ -131,6 +131,10 @@ void	process_precision(t_fmt* fmt)
 	{
 		diff++;
 	}
+	if (*fmt->prefix == '-')
+	{
+		diff--;
+	}
 	if (diff > 0 && fmt->type == 's')
 	{
 		tmp = fmt->value;
@@ -189,7 +193,7 @@ void	process_string(t_fmt* fmt)
 	//{
 	//	*fmt->prefix = 0;
 	//}
-	recalc_size(fmt);
+	//recalc_size(fmt);
 	process_width(fmt);
 	recalc_size(fmt);
 	if (fmt->pad_left == NULL)
