@@ -21,12 +21,12 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	//va_list arg4;
 	//va_copy(arg4, argptr);
 	g_tests_count++;
-	if (g_tests_count < 224)
+	if (g_tests_count < 11047)
 	{
 		//return;
 		//exit(1);
 	}
-	if (g_tests_count > 11100)
+	if (g_tests_count > 12100)
 	{
 		//return;
 		exit(1);
@@ -231,7 +231,10 @@ int	main()
 #else
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
-
+	//test 11047 '%#.-10p' failed: expected: '0x        ', actual : '0x'
+	//test 11047 '%#.-10p' failed : expected : '10', actual : '2'
+	test("%.0p", NULL);//
+	test("%#.-3p", NULL);//"0x "
 	test("%#.-10X", -1);
 	test("%#.-10p", -1);
 	test("%2c", 0);//2
