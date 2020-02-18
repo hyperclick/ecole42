@@ -252,7 +252,7 @@ t_fmt* char_to_string(t_fmt* fmt, long long int c)
 		fmt->value[0] = -1;
 		//		fmt->size = -1;
 	}
-	if (c == 0)
+	if (fmt->value[0] == 0)
 	{
 		fmt->size = 1;
 	}
