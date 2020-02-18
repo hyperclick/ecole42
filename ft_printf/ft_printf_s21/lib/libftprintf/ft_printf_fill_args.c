@@ -146,6 +146,12 @@ void	process_precision(t_fmt* fmt)
 			{
 				diff++;
 			}
+			if (ft_strequ(fmt->value, "0"))
+			{
+				diff--;
+				free(fmt->value);
+				fmt->value = ft_strdup("");
+			}
 			pads = ft_str_repeat(" ", -diff);
 			tmp = fmt->value;
 			fmt->value = ft_strjoin(fmt->value, pads);
