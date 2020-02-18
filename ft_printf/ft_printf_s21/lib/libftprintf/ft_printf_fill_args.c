@@ -183,7 +183,7 @@ void	process_precision(t_fmt* fmt)
 				free(fmt->value);
 				fmt->value = ft_strdup("");
 			}
-			else if (ft_strequ(fmt->prefix, "0x") || ft_strequ(fmt->prefix, "0x"))
+			else if (ft_strequ(fmt->prefix, "0x") || ft_strequ(fmt->prefix, "0X"))
 			{
 				diff += ft_strlen(fmt->prefix);
 			}
