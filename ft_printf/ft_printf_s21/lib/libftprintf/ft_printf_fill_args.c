@@ -146,9 +146,10 @@ void	process_precision(t_fmt* fmt)
 	}
 	if (fmt->precision == 0 && ft_strequ(fmt->value, "0"))
 	{
-		//if (fmt->flags.is_alt_form)
+		if(fmt->type == 'p')//if (fmt->flags.is_alt_form)
 		{
-			//fmt->value[0] = 0;
+			free(fmt->value);
+			fmt->value = ft_strdup("");
 		}
 		return;
 	}
@@ -183,7 +184,7 @@ void	process_precision(t_fmt* fmt)
 				free(fmt->value);
 				fmt->value = ft_strdup("");
 			}
-			else if (ft_strequ(fmt->prefix, "0x") || ft_strequ(fmt->prefix, "0X"))
+			if (ft_strequ(fmt->prefix, "0x") || ft_strequ(fmt->prefix, "0X"))
 			{
 				diff += ft_strlen(fmt->prefix);
 			}

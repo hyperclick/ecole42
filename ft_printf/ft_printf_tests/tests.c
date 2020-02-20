@@ -231,17 +231,16 @@ int	main()
 #else
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
-	//test 11047 '%#.-10p' failed: expected: '0x        ', actual : '0x'
-	//test 11047 '%#.-10p' failed : expected : '10', actual : '2'
-	test("%.0p", NULL);//
-	test("%#.-3p", NULL);//"0x "
+
+	test_mac("%.0p", NULL);//"0x"
+	test_mac("%#.-3p", NULL);//3"0x "
 	test("%#.-10X", -1);
 	test("%#.-10p", -1);
 	test("%2c", 0);//2
 	test("%-2c", 0);//2
 	//test("%.-2d\n", 1);
 
-	test("%#.-2llc", 1);//2"1 "
+	test_mac("%#.-2llc", 1);//2"\1 "
 
 	test("%#.-2c", 0);//2"\0 "
 

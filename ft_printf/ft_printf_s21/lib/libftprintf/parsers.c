@@ -34,14 +34,14 @@ t_fmt* pointer_to_string(void* p, t_fmt* fmt)
 {
 	if (p == NULL)
 	{
-		if (fmt->precision_set && fmt->precision <= 0)
-		{
-			fmt->precision = 2;
-			fmt->width = 2;
-			fmt->value = ft_strdup("0x");
-			fmt->type = 's';
-			return (fmt);
-		}
+		//if (fmt->precision_set && fmt->precision <= 0)
+		//{
+		//	fmt->precision = 2;
+		//	fmt->width = 2;
+		//	fmt->value = ft_strdup("0x");
+		//	fmt->type = 's';
+		//	return (fmt);
+		//}
 		p = 0;
 
 	}
