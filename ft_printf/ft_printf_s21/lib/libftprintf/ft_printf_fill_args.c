@@ -153,7 +153,7 @@ void	process_precision(t_fmt *fmt)
 		}
 		return;
 	}
-	if (fmt->precision <= 0 && ft_strequ(fmt->value, "0") && (fmt->type == 'p'))
+	if (fmt->precision <0 && fmt->precision > -3 && ft_strequ(fmt->value, "0") && (fmt->type == 'p'))
 	{
 		free(fmt->value);
 		fmt->value = ft_strdup("");
