@@ -3,7 +3,9 @@ project(ft_printf_tests C)
 set(CMAKE_C_STANDARD 99)
 
 
-add_executable(${PROJECT_NAME} tests.c)
+add_executable(${PROJECT_NAME} 
+	main.c 
+	tests.c)
 
 
 target_link_libraries(${PROJECT_NAME} ftprintf)

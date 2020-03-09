@@ -144,7 +144,7 @@ void	process_precision(t_fmt* fmt)
 		fmt->value = ft_str_repeat(" ", -fmt->precision);
 		return;
 	}
-	if (fmt->precision == 0 && ft_strequ(fmt->value, "0"))
+	if (fmt->precision <= 0 && ft_strequ(fmt->value, "0"))
 	{
 		if(fmt->type == 'p')//if (fmt->flags.is_alt_form)
 		{
