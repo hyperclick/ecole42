@@ -104,7 +104,7 @@ void	process_width(t_fmt *fmt)
 
 BOOL	is_valid_length(t_fmt *fmt)
 {
-	return (fmt->length[0] == 0 || ft_strequ(fmt->length, "ll") || ft_strequ(fmt->length, "hh") || ft_strequ(fmt->length, "l") || ft_strequ(fmt->length, "h") || ft_strequ(fmt->length, "j") || ft_strequ(fmt->length, "t") || ft_strequ(fmt->length, "z"));
+	return (fmt->length[0] == 0 || ft_strequ(fmt->length, "ll") || ft_strequ(fmt->length, "hh") || ft_strequ(fmt->length, "l") || ft_strequ(fmt->length, "h") || ft_strequ(fmt->length, "j") || ft_strequ(fmt->length, "t") || ft_strequ(fmt->length, "z") || ft_strequ(fmt->length, "L"));
 }
 
 BOOL	is_zero_char(t_fmt *fmt)
@@ -129,11 +129,12 @@ char *append_to_zero(const char *append)
 void	process_precision(t_fmt *fmt)
 {
 	int	abs_precision;
+
 	if (!fmt->precision_set || (fmt->type == 'c' && fmt->precision >= 0))
 	{
 		return;
 	}
-	if (fmt->type == 'c' && fmt->precision < 0 && !is_valid_length(fmt))
+	if (fmt->type == 'c' && /*fmt->precision < 0 &&*/ !is_valid_length(fmt))
 	{
 		return;
 	}
