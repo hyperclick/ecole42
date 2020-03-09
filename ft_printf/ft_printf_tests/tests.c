@@ -22,9 +22,9 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	//va_list arg4;
 	//va_copy(arg4, argptr);
 	g_tests_count++;
-	if (g_tests_count < 179)
+	if (g_tests_count < 332)
 	{
-		//return;
+		return;
 		//exit(1);
 	}
 	if (g_failed_tests_count > 100)

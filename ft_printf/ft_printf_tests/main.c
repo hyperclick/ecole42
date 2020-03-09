@@ -439,7 +439,7 @@ int	main()
 	//test("%s");
 	test("%c");
 	test("%p%c%d");
-	test("%p%c%s%d");
+//	test("%p%c%s%d");
 	test("%d", 0);
 	test("%%%%");
 	test("%%1");
