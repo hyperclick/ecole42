@@ -1,3 +1,9 @@
 #!/bin/bash
 pull_result=`git pull`
 echo pull result = $pull_result
+if [ "$pull_result" != "Already up to date." ]
+then
+    echo "new"
+else
+    echo "not new"
+fi
