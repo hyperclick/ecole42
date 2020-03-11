@@ -22,9 +22,9 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	//va_list arg4;
 	//va_copy(arg4, argptr);
 	g_tests_count++;
-	if (g_tests_count < 11989)
+	if (g_tests_count < 12632)
 	{
-		//return;
+		return;
 		//exit(1);
 	}
 	if (g_failed_tests_count > 100)
@@ -201,7 +201,7 @@ void	test_width(char* flags, char* p, char* w)
 
 	for (int i = 0; i < 9; i++)
 	{
-		test_format(ft_strjoin2(5, "%", flags, p, w, l[i]));
+		test_format(ft_strjoin2(5, "%", flags, w,  p, l[i]));
 	}
 }
 
