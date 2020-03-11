@@ -1,0 +1,3 @@
+#!/bin/bash
+pull_result='git pull'
+echo pull result = $pull_result
