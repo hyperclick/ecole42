@@ -1,5 +1,6 @@
 #!/bin/bash
 sleep_interval=1m
+echo sleep interval = $sleep_interval
 have_new_code() 
 {
 	echo exec: git pull
