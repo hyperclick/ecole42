@@ -1,6 +1,6 @@
 #!/bin/bash
 sleep_interval=15s
-have_new_code () 
+have_new_code() 
 {
 	echo exec: git pull
 	pull_result=$(git pull)
