@@ -324,6 +324,10 @@ char* try_parse_settings(char* format, t_fmt* fmt, t_list* list, int* r)
 	format = try_parse_length(format, fmt);
 	format = try_parse_type(format, fmt);
 
+	if (fmt->flags.adjust_left && fmt->width != DEFAULT_WIDTH && fmt->precision < 0 && fmt->precision_set)
+	{
+		fmt->width = DEFAULT_WIDTH;
+	}
 	format = handle_parsed(format, fmt, list, r, smth_parsed);
 	return (format);
 }
