@@ -4,7 +4,7 @@
 int	main()
 {
 #ifdef MAC_OS
-	printf1("mac\n");
+	printf("mac\n");
 #else
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
