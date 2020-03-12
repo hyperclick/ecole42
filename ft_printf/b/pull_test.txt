@@ -1,5 +1,6 @@
 #!/bin/bash
 sleep_interval=1m
+echo sleep interval = $sleep_interval
 have_new_code() 
 {
 	echo exec: git pull
@@ -42,7 +43,8 @@ run()
 email()
 {
 	echo sending email
-	mail -s tests forspam28@ya.ru <err.txt <out.txt
+	mail -s tests forspam28@ya.ru <err.txt 
+	mail -s tests forspam28@ya.ru <out.txt 
 }
 
 handle_new_code()
