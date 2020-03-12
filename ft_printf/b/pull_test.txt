@@ -36,7 +36,7 @@ build()
 run()
 {
 	echo running tests
-	./ft_printf_tests/ft_printf_tests 1>out.txt 2>err.txt
+	./ft_printf_tests/ft_printf_tests 2>err.txt 1>out.txt 
 }
 
 email()
