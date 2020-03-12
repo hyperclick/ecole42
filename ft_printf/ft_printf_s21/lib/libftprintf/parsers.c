@@ -7,7 +7,7 @@
 t_fmt* hex_to_string2(t_fmt* fmt, unsigned long long int p, BOOL is_upper_case, BOOL add_prefix)
 {
 
-	if (p == 0 && fmt->precision_set && fmt->precision == 0)
+	if (fmt->type != 'p' && p == 0 && fmt->precision_set && fmt->precision == 0)
 	{
 		fmt->value = ft_strdup("");
 		return (fmt);
@@ -40,19 +40,8 @@ t_fmt* pointer_to_string(void* p, t_fmt* fmt)
 {
 	if (p == NULL)
 	{
-		//if (fmt->precision_set && fmt->precision <= 0)
-		//{
-		//	fmt->precision = 2;
-		//	fmt->width = 2;
-		//	fmt->value = ft_strdup("0x");
-		//	fmt->type = 's';
-		//	return (fmt);
-		//}
 		p = 0;
-
 	}
-	//else
-
 
 	hex_to_string2(fmt, (unsigned long long int)p, FALSE, TRUE);
 
