@@ -9,6 +9,20 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
+	test("%lX", 1.0);
+	test("%tX", 1.0);
+	test("%tX", 0.0);
+	test("%#0.0-10tX", 0.0);
+	test("%0.0-10tX", 0.0);
+	test("%#0.-10lX", 1.0);
+	test("%0.-10lX", 1.0);
+	test("%.-10lX", 1.0);
+	test("%#0.-10X", 1.0);
+	test("%.10lX", 1.0);
+	test("%.5lX", 1.0);
+
+
+
 	test("%.0u", 0);				//0""
 	test("%.0d", 0);				//0""
 	test("%#.0u", 0);				//0""
@@ -26,14 +40,6 @@ int	main()
 
 	//test("%#.-10-10d", 1);//10"1         "
 	test("%#.-3||d", 1);//5"|  |d"
-
-	test("%#0.-10lX", 1.0);
-	test("%0.-10lX", 1.0);
-	test("%.-10lX", 1.0);
-	test("%#0.-10X", 1.0);
-	test("%.10lX", 1.0);
-	test("%.5lX", 1.0);
-	test("%lX", 1.0);
 
 
 	test("%#.-10Lc", -1);//10'ÿ         '
