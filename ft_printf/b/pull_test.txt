@@ -1,0 +1,21 @@
+#!/bin/bash
+
+a=10
+b=20
+
+if [ $a == $b ]
+then
+   echo "a is equal to b"
+else
+   echo "a is not equal to b"
+fi
+
+pull_result=`git pull`
+echo pull result = $pull_result
+#if "$pull_result" != "Already up to date."
+if 1 = 1
+then
+    echo "new"
+else
+    echo "not new"
+fi
