@@ -1,6 +1,6 @@
 #!/bin/bash
-sleep_interval=5s
-have_new_code () 
+sleep_interval=1m
+have_new_code() 
 {
 	echo exec: git pull
 	pull_result=$(git pull)
@@ -8,9 +8,13 @@ have_new_code ()
 	if [ "$pull_result" == "Already up to date." ]
 	then
 		return 0
-	else
-		return 1
 	fi
+	if [ "$pull_result" ==  "Уже обновлено." ]
+	then
+		return 0
+	fi
+	
+	return 1
 }
 
 build()
@@ -31,7 +35,14 @@ build()
 
 run()
 {
-	./ft_printf_tests/ft_printf_tests 2>err.txt
+	echo running tests
+	./ft_printf_tests/ft_printf_tests 2>err.txt 1>out.txt 
+}
+
+email()
+{
+	echo sending email
+	mail -s tests forspam28@ya.ru <err.txt <out.txt
 }
 
 handle_new_code()
@@ -42,11 +53,11 @@ handle_new_code()
 		echo "new code pulled"
 	else
 		echo "no new"
-		#return 0
+		return 0
 	fi
 	build
 	run
-	#email
+	email
 
 }
 
