@@ -5,7 +5,7 @@ have_new_code ()
 	echo exec: git pull
 	pull_result=$(git pull)
 	echo $pull_result
-	if [ "$pull_result" == "Already up to date." ]
+	if [ "$pull_result" == "Already up to date." || "$pull_result" ==  "Уже обновлено." ]
 	then
 		return 0
 	else
