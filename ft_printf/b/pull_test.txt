@@ -1,5 +1,5 @@
 #!/bin/bash
-sleep_interval=1m
+sleep_interval=60s
 echo sleep interval = $sleep_interval
 have_new_code() 
 {
