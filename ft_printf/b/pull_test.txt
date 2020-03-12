@@ -31,7 +31,7 @@ build()
 
 run()
 {
-	./ft_printf_tests/ft_printf_tests
+	./ft_printf_tests/ft_printf_tests 2>err.txt
 }
 
 handle_new_code()
