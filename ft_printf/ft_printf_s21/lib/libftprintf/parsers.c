@@ -6,6 +6,12 @@
 
 t_fmt* hex_to_string2(t_fmt* fmt, unsigned long long int p, BOOL is_upper_case, BOOL add_prefix)
 {
+
+	if (p == 0 && fmt->precision_set && fmt->precision == 0)
+	{
+		fmt->value = ft_strdup("");
+		return (fmt);
+	}
 	fmt->value = ft_itoa_base2(p, is_upper_case ? "0123456789ABCDEF" : "0123456789abcdef", FALSE);
 	if (add_prefix)
 	{

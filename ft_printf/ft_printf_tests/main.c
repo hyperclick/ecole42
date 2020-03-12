@@ -9,11 +9,13 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
+	//test("%0.0-10tX", 0.0);
+	//test("%0.0-10tX", 0.0);
+	//test("%0.0-10tX", 1.0);
+	//test("%#0.0-10tX", 0.0);
 	test("%lX", 1.0);
 	test("%tX", 1.0);
 	test("%tX", 0.0);
-	test("%#0.0-10tX", 0.0);
-	test("%0.0-10tX", 0.0);
 	test("%#0.-10lX", 1.0);
 	test("%0.-10lX", 1.0);
 	test("%.-10lX", 1.0);
