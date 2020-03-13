@@ -66,6 +66,7 @@ handle_new_code()
 loop_body()
 {
 	handle_new_code
+	echo "waiting" $sleep_interval
 	sleep $sleep_interval
 }
 
