@@ -33,7 +33,14 @@ void	process_sign(t_fmt *fmt)
 	{
 		if (fmt->prefix[0] != '-')
 		{
-			fmt->value = ft_str_prepend_and_free("+", fmt->value);
+			if (fmt->precision < 0)
+			{
+				fmt->value = ft_str_prepend_and_free("+", fmt->value);
+			}
+			else
+			{
+				fmt->prefix = ft_str_prepend_and_free("+", fmt->prefix);
+			}
 		}
 	}
 }
@@ -195,11 +202,11 @@ void	process_precision(t_fmt *fmt)
 			{
 				diff++;
 			}
-			if (ft_strequ(fmt->value, "0"))
+			if (ft_strequ(fmt->value, "0") || ft_strequ(fmt->value, "+0"))
 			{
 				diff--;
 				free(fmt->value);
-				fmt->value = ft_strdup("");
+				fmt->value = fmt->flags.plus_before_positive ? ft_strdup("+") : ft_strdup("");
 			}
 			if (ft_strequ(fmt->prefix, "0x") || ft_strequ(fmt->prefix, "0X"))
 			{
