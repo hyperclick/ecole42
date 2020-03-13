@@ -206,7 +206,7 @@ void	process_precision(t_fmt *fmt)
 			{
 				diff--;
 				free(fmt->value);
-				fmt->value = fmt->flags.plus_before_positive ? ft_strdup("+") : ft_strdup("");
+				fmt->value = is_signed_number(fmt->type) && fmt->flags.plus_before_positive ? ft_strdup("+") : ft_strdup("");
 			}
 			if (ft_strequ(fmt->prefix, "0x") || ft_strequ(fmt->prefix, "0X"))
 			{

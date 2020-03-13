@@ -9,6 +9,13 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
+
+	test("%+.-10u", 0);		//10'          ', actual: 11'+          '
+	test("%+.-10l", 0);		//10'          ', actual: 11'+          '
+	test("%+.-10o", 0);		//10'          ', actual: 11'+          '
+	test("%+.-10x", 0);		//10'          ', actual: 11'+          '
+
+
 	test("%.-10d", 0);		//10"          "
 	test("%+.-10d", 0);		//11'+0000000001', actual: '00000000+1'
 	test("%+.-10d", 1);		//10"+1        "
