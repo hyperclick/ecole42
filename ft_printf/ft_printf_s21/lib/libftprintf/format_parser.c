@@ -14,7 +14,7 @@
 
 
 
-char* try_parse_flags(char* format, t_fmt* fmt, BOOL* found)
+char *try_parse_flags(char *format, t_fmt *fmt, BOOL *found)
 {
 	*found = FALSE;
 	while (*format != 0)
@@ -53,7 +53,7 @@ char* try_parse_flags(char* format, t_fmt* fmt, BOOL* found)
 	return (format);
 }
 
-void	normalize_flags(t_fmt* fmt)
+void	normalize_flags(t_fmt *fmt)
 {
 	if (fmt->flags.adjust_left && fmt->flags.zero_pad)
 	{
@@ -67,7 +67,7 @@ void	normalize_flags(t_fmt* fmt)
 }
 
 
-char* try_parse_type(char* format, t_fmt* fmt)
+char *try_parse_type(char *format, t_fmt *fmt)
 {
 	if (is_valid_type(*format))
 	{
@@ -77,7 +77,7 @@ char* try_parse_type(char* format, t_fmt* fmt)
 	return (format);
 }
 
-char* try_parse_width(char* format, t_fmt* fmt)
+char *try_parse_width(char *format, t_fmt *fmt)
 {
 	if (*format != '0')
 	{
@@ -90,7 +90,7 @@ char* try_parse_width(char* format, t_fmt* fmt)
 	return (format);
 }
 
-char* try_parse_precision(char* format, t_fmt* fmt)
+char *try_parse_precision(char *format, t_fmt *fmt)
 {
 #ifdef MAC_OS
 
@@ -117,7 +117,7 @@ char* try_parse_precision(char* format, t_fmt* fmt)
 #endif
 		if (*format == 0)
 		{
-//			return (format - 1);
+			//			return (format - 1);
 		}
 		while (*format != 0 && ft_isdigit(*format))
 		{
@@ -135,7 +135,7 @@ char* try_parse_precision(char* format, t_fmt* fmt)
 }
 
 
-char* try_parse_length(char* format, t_fmt* fmt)
+char *try_parse_length(char *format, t_fmt *fmt)
 {
 	int	i;
 
@@ -150,13 +150,13 @@ char* try_parse_length(char* format, t_fmt* fmt)
 		}
 		format++;
 	}
-	
+
 	return (format);
 }
 
-char* flags_to_string(t_fmt_flags f)
+char *flags_to_string(t_fmt_flags f)
 {
-	char* str;
+	char *str;
 	int		i;
 
 	str = malloc(sizeof(char) * 7);
@@ -186,10 +186,10 @@ char* flags_to_string(t_fmt_flags f)
 	return (str);
 }
 
-char* precision_to_string(int p)
+char *precision_to_string(int p)
 {
-	char* precision;
-	char* tmp;
+	char *precision;
+	char *tmp;
 
 	if (p == DEFAULT_PRECISION)
 	{
@@ -205,12 +205,12 @@ char* precision_to_string(int p)
 }
 
 
-char* format_to_string(t_fmt fmt)
+char *format_to_string(t_fmt fmt)
 {
-	char* flags;
-	char* width;
-	char* precision;
-	char* r;
+	char *flags;
+	char *width;
+	char *precision;
+	char *r;
 
 	flags = flags_to_string(fmt.flags);
 	width = fmt.width == DEFAULT_WIDTH ? ft_strdup("") : ft_itoa(fmt.width);
@@ -222,7 +222,7 @@ char* format_to_string(t_fmt fmt)
 	return (r);
 }
 
-char* handle_empty_type(int* r, char** dst, char* format, t_fmt* fmt, BOOL	smth_parsed)
+char *handle_empty_type(int *r, char **dst, char *format, t_fmt *fmt, BOOL	smth_parsed)
 {
 	if ((fmt->width > 1 || (fmt->precision_set && fmt->precision < 0)) && *format != 0)//!fmt->flags.adjust_left)
 	{
@@ -231,7 +231,7 @@ char* handle_empty_type(int* r, char** dst, char* format, t_fmt* fmt, BOOL	smth_
 		{
 			len = -len;
 		}
-			char* pads = ft_str_repeat(" ", len - 1);
+		char *pads = ft_str_repeat(fmt->flags.zero_pad ? "0" : " ", len - 1);
 		if (fmt->flags.adjust_left || (fmt->precision_set && fmt->precision < 0))
 		{
 			*dst = ft_prepend_and_free(*format, pads);
@@ -250,7 +250,7 @@ char* handle_empty_type(int* r, char** dst, char* format, t_fmt* fmt, BOOL	smth_
 	return (format);
 }
 
-void	handle_not_empty_type(int* r, t_fmt* fmt)
+void	handle_not_empty_type(int *r, t_fmt *fmt)
 {
 	if (fmt->flags.zero_pad
 		&& fmt->width != DEFAULT_WIDTH
@@ -263,9 +263,9 @@ void	handle_not_empty_type(int* r, t_fmt* fmt)
 	*r = 0;
 }
 
-char* handle_parsed(char* format, t_fmt* fmt, t_list* list, int* r, BOOL	smth_parsed)
+char *handle_parsed(char *format, t_fmt *fmt, t_list *list, int *r, BOOL	smth_parsed)
 {
-	char* str;
+	char *str;
 
 	*r = -3;
 	if (fmt->type == 0)
@@ -287,9 +287,9 @@ char* handle_parsed(char* format, t_fmt* fmt, t_list* list, int* r, BOOL	smth_pa
 	return (format);
 }
 
-char* try_parse_settings(char* format, t_fmt* fmt, t_list* list, int* r)
+char *try_parse_settings(char *format, t_fmt *fmt, t_list *list, int *r)
 {
-	char* new_format;
+	char *new_format;
 	BOOL	smth_parsed;
 
 	*r = -2;
@@ -312,7 +312,7 @@ char* try_parse_settings(char* format, t_fmt* fmt, t_list* list, int* r)
 	return (format);
 }
 
-char* try_extract_id(t_list* list, char* format, int* r)
+char *try_extract_id(t_list *list, char *format, int *r)
 {
 	if (*format == '%')
 	{
