@@ -9,8 +9,10 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
+	test("%+.10d", 0);		//10"+         "
+	test("%+.-10d", 0);		//10"+         "
+	test("%.-10d", 0);		//10"+         "
 	test("%+.-10d", 1);		//10"+1        "
-	test("%+.-10d", 0);		//10"+1        "
 
 
 
