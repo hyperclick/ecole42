@@ -108,13 +108,13 @@ void	process_width(t_fmt *fmt)
 	}
 	else
 	{
-		if (pads[0] == '0')
+		if (pads[0] != '0' || is_zero_char(fmt))
 		{
-			fmt->value = ft_str_prepend_and_free(pads, fmt->value);
+			fmt->prefix = ft_str_prepend_and_free(pads, fmt->prefix);
 		}
 		else
 		{
-			fmt->prefix = ft_str_prepend_and_free(pads, fmt->prefix);
+			fmt->value = ft_str_prepend_and_free(pads, fmt->value);
 		}
 		free(pads);
 	}

@@ -9,12 +9,12 @@ int	main()
 	printf("not mac\n");
 #endif // _LIBCPP_VERSION
 
-	test("%05c", 'a');		//5'0000a', actual: '    a'
+	test("%05c", 0);		//5'0000', actual: 4'0000'
+	test("%05c", 'a');		//5'0000a'
 	test("%5c", 'a');		//5'    a'
-	test("%05d", 1);		//5'0000a', actual: '    a'
+	test("%05d", 1);		//5'0000a'
 	test("%05c", -1);
-	test("%05c", 1);		//'0000', actual: '    '
-	test("%05c", 0);		//'0000', actual: '    '
+	test("%05c", 1);		//'0000 '
 
 
 	test("%+.-10u", 0);		//10'          ', actual: 11'+          '
