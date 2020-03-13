@@ -7,7 +7,7 @@ int	main()
 	printf("mac\n");
 #else
 	printf("not mac\n");
-#endif // _LIBCPP_VERSION
+#endif //
 
 	test("|%05.10|");						//
 	test("|%010.5|");						//
