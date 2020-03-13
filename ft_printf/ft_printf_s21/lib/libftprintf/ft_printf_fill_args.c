@@ -17,13 +17,23 @@ BOOL is_null_pointer(t_fmt *fmt)
 	return (fmt->type == 's' && (ft_strequ(fmt->value, "(nil)") || ft_strequ(fmt->value, "(null)")));
 }
 
-void	process_sign(t_fmt *fmt)
+void	process_sign1(t_fmt *fmt)
 {
 	if ((is_signed_number(fmt->type) || fmt->type == 'p') && fmt->flags.plus_before_positive)
 	{
 		if (fmt->prefix[0] != '-')
 		{
 			fmt->prefix = ft_str_prepend_and_free("+", fmt->prefix);
+		}
+	}
+}
+void	process_sign(t_fmt *fmt)
+{
+	if ((is_signed_number(fmt->type) || fmt->type == 'p') && fmt->flags.plus_before_positive)
+	{
+		if (fmt->prefix[0] != '-')
+		{
+			fmt->value = ft_str_prepend_and_free("+", fmt->value);
 		}
 	}
 }
@@ -241,10 +251,11 @@ void	process_string(t_fmt *fmt)
 		fmt->pad_right = ft_strdup("");
 		return;
 	}
+	process_sign(fmt);
 	recalc_size(fmt);
 	process_precision(fmt);
 	recalc_size(fmt);
-	process_sign(fmt);
+	//process_sign1(fmt);
 	recalc_size(fmt);
 	process_blank(fmt);
 	recalc_size(fmt);
