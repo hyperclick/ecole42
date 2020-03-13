@@ -38,6 +38,7 @@ t_fmt* big_hex_to_string(t_fmt* fmt, unsigned long long int p)
 
 t_fmt* pointer_to_string(void* p, t_fmt* fmt)
 {
+	fmt->flags.plus_before_positive = FALSE;
 	if (p == NULL)
 	{
 		p = 0;
