@@ -78,7 +78,8 @@ void	process_blank(t_fmt *fmt)
 
 char *get_pad(t_fmt *fmt)
 {
-	return (fmt->flags.zero_pad && fmt->type != 'c' ? "0" : " ");
+	//return (fmt->flags.zero_pad && fmt->type != 'c' ? "0" : " ");
+	return ("0");
 }
 
 void	process_width(t_fmt *fmt)
