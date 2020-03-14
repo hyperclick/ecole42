@@ -275,6 +275,7 @@ char *handle_parsed(char *format, t_fmt *fmt, t_list *list, int *r, BOOL	smth_pa
 		if (*r == 0)
 		{
 			add_string(list, str);
+			free_format(fmt);
 		}
 	}
 	else
