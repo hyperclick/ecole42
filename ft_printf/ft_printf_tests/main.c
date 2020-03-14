@@ -8,6 +8,8 @@ int	main()
 #else
 	printf("not mac\n");
 #endif
+
+	test("%#+0.-5hx", 1);		//expected: '0xffff', actual: '0xffff%#+0.-5hu'
 	test("%0-0.-10tp", "");		//expected: '0x10664dad3', actual: '0x10664dad3%0-0.-10tX'
 	test("%+.-10hhp", "");		//expected: '0x10fe8eac9', actual: '0x10fe8eac9%+10z'
 	test("%+#5.-10lx", "");		//expected: '0xffff', actual: '0xffff0x1  '
