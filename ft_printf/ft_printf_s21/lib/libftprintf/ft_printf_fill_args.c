@@ -189,7 +189,7 @@ void	process_precision(t_fmt *fmt)
 	char *pads;
 	char *tmp;
 
-	diff = ft_strlen(fmt->value) - abs_precision;
+	diff = (fmt->precision < 0 ? fmt->size : ft_strlen(fmt->value)) - abs_precision;
 	if (fmt->type == 'o' && *fmt->prefix == '0' && fmt->precision <= 0)
 	{
 		diff++;
