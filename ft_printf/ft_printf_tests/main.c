@@ -7,7 +7,7 @@ int	main()
 	printf("mac\n");
 #else
 	printf("not mac\n");
-#endif //
+#endif
 	test("|%#0.10|");			//
 	test("|%#0.-10|");			//
 	test("|%d|%#0.-10|%c|");	//expected: '|1||          |', actual: '|1||000000000 |'
