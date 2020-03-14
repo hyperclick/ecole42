@@ -9,7 +9,7 @@ int	main()
 	printf("not mac\n");
 #endif
 
-	test("%+.-10hhp");			//expected: '0x10fe8eac9', actual: '0x10fe8eac9%+10z'
+	test("%+.-10hhp", "");			//expected: '0x10fe8eac9', actual: '0x10fe8eac9%+10z'
 	test("%+#5.-10lx", "");		//expected: '0xffff', actual: '0xffff0x1  '
 	test("%+#.-10llp", "");		//expected: '0x1069c4e98', actual: '0x1069c4e98          '
 
