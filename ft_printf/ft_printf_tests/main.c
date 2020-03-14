@@ -9,7 +9,7 @@ int	main()
 	printf("not mac\n");
 #endif
 	
-	
+	test("%05.0p", 0);			//expected: '   0x', actual: '0x000'
 	test("|%1|");				//
 	test("%1");					//
 	test("|%0.10|");			//

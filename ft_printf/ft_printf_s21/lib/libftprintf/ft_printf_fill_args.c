@@ -79,7 +79,7 @@ void	process_blank(t_fmt *fmt)
 char *get_pad(t_fmt *fmt)
 {
 	//return (fmt->flags.zero_pad && fmt->type != 'c' ? "0" : " ");
-	return (fmt->flags.zero_pad ? "0" : " ");
+	return (fmt->flags.zero_pad && fmt->type != 'p' ? "0" : " ");
 }
 
 void	process_width(t_fmt *fmt)
@@ -267,11 +267,6 @@ void	process_string(t_fmt *fmt)
 	recalc_size(fmt);
 	process_blank(fmt);
 	recalc_size(fmt);
-	//if (fmt->flags.is_alt_form && fmt->type == 'o' && *fmt->value == '0')
-	//{
-	//	*fmt->prefix = 0;
-	//}
-	//recalc_size(fmt);
 	process_width(fmt);
 	recalc_size(fmt);
 	if (fmt->pad_left == NULL)
