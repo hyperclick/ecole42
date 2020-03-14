@@ -8,7 +8,8 @@ int	main()
 #else
 	printf("not mac\n");
 #endif
-
+	test("%");
+	//return 1;
 	test("%#-10.-10tX","");		//expected: '0X1015C4400', actual: '0X1015C44000X7FFFFFFF'
 	test("%#+5.-5hX","");		//expected: '0XFFFF', actual: '0XFFFF2147483647'
 	test("%#+0.-5hx", 1);		//expected: '0xffff', actual: '0xffff%#+0.-5hu'

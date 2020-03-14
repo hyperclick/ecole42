@@ -53,15 +53,6 @@ void	free_list(t_list** list)
 	lstdel(list, free_item);
 }
 
-//void	remove_empty(t_list **list)
-//{
-//	t_list *head;
-//
-//	head = *list;
-//
-//
-//}
-
 void	add_string(t_list* list, char* str)
 {
 	if (*str == 0)
