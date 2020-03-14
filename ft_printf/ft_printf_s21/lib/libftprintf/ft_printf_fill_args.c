@@ -260,6 +260,7 @@ void	process_string(t_fmt *fmt)
 	if (need_exit(fmt))
 	{
 		fmt->size = -1;
+		free(fmt->value);
 		fmt->value = ft_strdup("should not see this");
 		fmt->pad_left = ft_strdup("");
 		fmt->pad_right = ft_strdup("");
