@@ -57,6 +57,7 @@ void	add_string(t_list* list, char* str)
 {
 	if (*str == 0)
 	{
+		free(str);
 		return;
 	}
 	lst_append(list, lst_new(create_string(str), -1));

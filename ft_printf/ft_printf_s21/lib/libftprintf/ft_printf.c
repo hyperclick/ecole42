@@ -42,7 +42,7 @@ t_list *to_list(char *format, int *r)
 		{
 			*str = 0;
 			str = start;
-			//add_string(list, ft_strdup(str));
+			add_string(list, ft_strdup(str));
 			format = try_extract_id(list, format + 1, r);
 			if (*r < 0)
 			{
