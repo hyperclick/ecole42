@@ -8,9 +8,9 @@ int	main()
 #else
 	printf("not mac\n");
 #endif
-	// '%-10.-5d' failed: expected: 5'-1   ', actual: 4'-1  '
-	test("% .-5d", -1);			//
-	test("%-.-5d", 1);			//
+
+	test("% .-5d", -1);			//expected: 5'-1   ', actual: 4'-1  '
+	test("%-.-5d", 1);			//expected: 5' 1   '
 	test("% .-5d", 1);			//expected: 5' 1   ', actual: 6' 1    '
 	test("% .5d", 1);			//6' 00001'
 	test("% 5d", 1);			//5'    1'
