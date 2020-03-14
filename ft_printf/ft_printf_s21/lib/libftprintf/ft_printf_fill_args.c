@@ -267,11 +267,11 @@ void	process_string(t_fmt *fmt)
 	}
 	process_sign(fmt);
 	recalc_size(fmt);
+	process_blank(fmt);
+	recalc_size(fmt);
 	process_precision(fmt);
 	recalc_size(fmt);
 	//process_sign1(fmt);
-	recalc_size(fmt);
-	process_blank(fmt);
 	recalc_size(fmt);
 	process_width(fmt);
 	recalc_size(fmt);
