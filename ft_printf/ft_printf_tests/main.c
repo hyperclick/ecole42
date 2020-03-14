@@ -9,6 +9,15 @@ int	main()
 	printf("not mac\n");
 #endif
 
+	test("%+#.-10llp", "");		//expected: '0x1069c4e98', actual: '0x1069c4e98          '
+
+	test("%+#.10llp", "");		//
+	test("%+#.-10p", "");		//
+	test("%+#.-10lp", "");		//
+	test("%#.-10llp", "");		//
+	test("%+.-10llp", "");		//
+	test("%+#.10llp", "");		//
+	test("%+#5.-10lx", "");		//
 	test("% .-5d", -1);			//expected: 5'-1   ', actual: 4'-1  '
 	test("%-.-5d", 1);			//expected: 5' 1   '
 	test("% .-5d", 1);			//expected: 5' 1   ', actual: 6' 1    '
