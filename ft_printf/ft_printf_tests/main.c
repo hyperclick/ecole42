@@ -8,7 +8,11 @@ int	main()
 #else
 	printf("not mac\n");
 #endif
+
+
+	test("%05c", 'a');			//
 	test("%05p", 0);			//expected: '0x000', actual: '  0x0'
+	test("%05.0c", 'a');		//expected: '0000a', actual: '    a'
 	test("%05.0p", 0);			//expected: '   0x', actual: '0x000'
 	test("|%1|");				//
 	test("%1");					//
