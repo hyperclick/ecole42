@@ -226,12 +226,13 @@ char *handle_empty_type(int *r, char **dst, char *format, t_fmt *fmt, BOOL	smth_
 {
 	if ((fmt->width > 1 || (fmt->precision_set && fmt->precision < 0)) && *format != 0)//!fmt->flags.adjust_left)
 	{
+
 		int len = fmt->width != 0 ? fmt->width : fmt->precision;
 		if (len < 0)
 		{
 			len = -len;
 		}
-		char *pads = ft_str_repeat(fmt->flags.zero_pad ? "0" : " ", len - 1);
+		char *pads = ft_str_repeat(fmt->flags.zero_pad && fmt->width > 1 ? "0" : " ", len - 1);
 		if (fmt->flags.adjust_left || (fmt->precision_set && fmt->precision < 0))
 		{
 			*dst = ft_prepend_and_free(*format, pads);
