@@ -9,7 +9,12 @@ int	main()
 	printf("not mac\n");
 #endif
 
-	test("%05.0s", "");				//expected: '00000', actual: '     '
+	test("% 5d", 1);			//
+	test("% -5d", 1);			//
+	test("% .5d", 1);			//
+	test("% .-5d", 1);			//expected: 5' 1   ', actual: 6' 1    '
+
+	test("%05.0s", "");			//expected: '00000', actual: '     '
 	test("%05c", 'a');			//expected: '0000a'
 	test("%05p", 0);			//expected: '0x000', actual: '  0x0'
 	test("%05.0c", 'a');		//expected: '0000a', actual: '    a'
