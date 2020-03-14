@@ -80,7 +80,7 @@ char *get_pad(t_fmt *fmt)
 {
 	if (fmt->flags.zero_pad)
 	{
-		if (fmt->type == 'c' && !fmt->precision_set )
+		if (fmt->type == 'c' || !fmt->precision_set )
 		{
 			return ("0");
 		}
