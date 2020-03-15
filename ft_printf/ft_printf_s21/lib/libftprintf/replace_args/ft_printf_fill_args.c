@@ -29,6 +29,7 @@ void	recalc_size(t_fmt *fmt)
 		fmt->size += ft_strlen(fmt->pad_left);
 	}
 }
+
 BOOL is_null_pointer(t_fmt *fmt)
 {
 	return (fmt->type == 's' && (ft_strequ(fmt->value, "(nil)") || ft_strequ(fmt->value, "(null)")));
