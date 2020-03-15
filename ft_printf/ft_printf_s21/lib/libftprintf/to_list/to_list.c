@@ -52,6 +52,8 @@ t_list *to_list(char *format, int *r)
 			str = start;
 			add_string(list, ft_strdup(str));
 			format = try_extract_id(list, format + 1, r);
+			printf("format address = %p\n", format);
+			printf("format = '%s'\n", format);
 			if (*r < 0)
 			{
 				return (list);
