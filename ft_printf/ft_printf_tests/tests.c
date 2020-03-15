@@ -27,7 +27,7 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 		return;
 		//exit(1);
 	}
-	if (g_failed_tests_count > 100)
+	if (g_failed_tests_count > 1000)
 	{
 		//return;
 //		exit(1);
@@ -75,13 +75,13 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 		{
 			g_failed_tests_count++;
 			printf("assert failed: expected: '%s', actual: '%s'\n", e, a);
-			dprintf(STDERR_FILENO, "test %d '%s' failed: expected: '%s', actual: '%s'\n", g_tests_count, format, e, a);
+			//dprintf(STDERR_FILENO, "test %d '%s' failed: expected: '%s', actual: '%s'\n", g_tests_count, format, e, a);
 			//exit(1);
 		}
 		if (e_r!=a_r)
 		{
 			printf("assert failed: expected: '%d', actual: '%d'\n", e_r, a_r);
-			dprintf(STDERR_FILENO, "test %d '%s' failed: expected: '%d', actual: '%d'\n", g_tests_count, format, e_r, a_r);
+			//dprintf(STDERR_FILENO, "test %d '%s' failed: expected: '%d', actual: '%d'\n", g_tests_count, format, e_r, a_r);
 			//exit(1);
 		}
 	}
