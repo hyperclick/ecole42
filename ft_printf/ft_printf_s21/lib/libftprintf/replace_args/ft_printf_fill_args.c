@@ -53,7 +53,6 @@ void	process_sign(t_fmt *fmt)
 	}
 }
 
-
 void	process_blank(t_fmt *fmt)
 {
 	if (ft_contains("idaAeEfFgG", fmt->type)
@@ -67,7 +66,7 @@ void	process_blank(t_fmt *fmt)
 	}
 }
 
-char *get_pad(t_fmt *fmt)
+char	*get_pad(t_fmt *fmt)
 {
 	if (fmt->flags.zero_pad)
 	{
@@ -86,11 +85,8 @@ void	process_width(t_fmt *fmt)
 	if (fmt->width < fmt->size)
 	{
 		return;
-		//		pads = fmt->value;
-		//		fmt->value = ft_strsub(fmt->value);
 	}
 	pads = ft_str_repeat(get_pad(fmt), fmt->width - fmt->size);
-	//fmt->size = ft_strlen(pads) + fmt->size;
 	if (is_zero_char(fmt))
 	{
 		fmt->size += ft_strlen(pads);
@@ -99,9 +95,6 @@ void	process_width(t_fmt *fmt)
 	if (fmt->flags.adjust_left)
 	{
 		fmt->pad_right = pads;
-		//char* tmp = fmt->value;
-		//fmt->value = malloc(sizeof(char) * (ft_strlen(pads) + fmt->size + 1));
-		//ft_strcpy(fmt->value, );
 	}
 	else
 	{
@@ -127,7 +120,7 @@ BOOL	is_zero_char(t_fmt *fmt)
 	return (fmt->type == 'c' && fmt->value[0] == 0);
 }
 
-char *append_to_zero(const char *append)
+char	*append_to_zero(const char *append)
 {
 	char *dst;
 	int		len;
@@ -263,7 +256,6 @@ void	process_string(t_fmt *fmt)
 	recalc_size(fmt);
 	process_precision(fmt);
 	recalc_size(fmt);
-	//process_sign1(fmt);
 	recalc_size(fmt);
 	process_width(fmt);
 	recalc_size(fmt);
@@ -281,7 +273,7 @@ int	fill_arg(t_fmt *fmt, va_list args_list)
 {
 	if (fmt->type == 'c')
 	{
-		parse_c(fmt, args_list);
+		process_string(char_to_string(fmt, (int)va_arg(args_list, int)));
 	}
 	else if (fmt->type == 's')
 	{

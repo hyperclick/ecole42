@@ -260,8 +260,3 @@ t_fmt* char_to_string(t_fmt* fmt, long long int c)
 	}
 	return (fmt);
 }
-
-void	parse_c(t_fmt* fmt, va_list args_list)
-{
-	return (process_string(char_to_string(fmt, (int)va_arg(args_list, int))));
-}
