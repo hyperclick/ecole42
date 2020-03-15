@@ -70,6 +70,8 @@ char *handle_parsed(char *format, t_fmt *fmt, t_list *list, int *r, BOOL	smth_pa
 	}
 	else
 	{
+		printf("[%s] format address = %p\n", __FUNCTION__, format);
+		printf("format = '%s'\n", format);
 		handle_not_empty_type(r, fmt);
 		if (*r == 0)
 		{
