@@ -6,6 +6,7 @@ ADD_LIBRARY(ftprintf STATIC
 	list_to_string.c
 	replace_args/parsers.c
 	replace_args/ft_printf_fill_args.c
+	replace_args/process_format/process_format.c
 	types.c
 	float/float.h
 	float/float.c
