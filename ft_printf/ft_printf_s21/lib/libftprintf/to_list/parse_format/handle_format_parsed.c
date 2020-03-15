@@ -54,7 +54,7 @@ void	handle_not_empty_type(int *r, t_fmt *fmt)
 	*r = 0;
 }
 
-char *handle_parsed(char *format, t_fmt *fmt, t_list *list, int *r, BOOL	smth_parsed)
+char *handle_parsed(char *format, t_fmt *fmt, t_list *list, int *r, BOOL smth_parsed)
 {
 	char *str;
 
