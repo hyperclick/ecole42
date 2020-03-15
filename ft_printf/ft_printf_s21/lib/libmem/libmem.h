@@ -27,6 +27,7 @@
 
 
 void	ft_bzero(void *s, size_t n);
+void	ft_free_not_null(void **p);
 void	*ft_memalloc(size_t size);
 void	ft_memdel(void **ap);
 void *ft_memset(void *ptr, int value, size_t num);

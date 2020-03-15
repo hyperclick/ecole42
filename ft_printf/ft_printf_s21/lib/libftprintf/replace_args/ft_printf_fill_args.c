@@ -10,8 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_internal.h"
+#include "../ft_printf_internal.h"
 
+void	recalc_size(t_fmt *fmt)
+{
+	if (is_zero_char(fmt))
+	{
+		return;
+	}
+	fmt->size = ft_strlen(fmt->value);
+	if (fmt->pad_right != NULL)
+	{
+		fmt->size += ft_strlen(fmt->pad_right);
+	}
+	fmt->size += ft_strlen(fmt->prefix);
+	if (fmt->pad_left != NULL)
+	{
+		fmt->size += ft_strlen(fmt->pad_left);
+	}
+}
 BOOL is_null_pointer(t_fmt *fmt)
 {
 	return (fmt->type == 's' && (ft_strequ(fmt->value, "(nil)") || ft_strequ(fmt->value, "(null)")));
@@ -286,19 +303,6 @@ void	process_string(t_fmt *fmt)
 	}
 }
 
-/*
-char *process_char(t_fmt *fmt)
-{
-	fmt->value = fill_char(va_arg(args_list, int));
-	fmt->size = 1;
-	process_width(fmt);
-	//if (c == 0)
-	//{
-	//	*size = *size + 1;
-	//}
-	return (NULL);
-}*/
-
 int	fill_arg(t_fmt *fmt, va_list args_list)
 {
 	if (fmt->type == 'c')
@@ -353,10 +357,6 @@ int	replace_args(t_list *list, va_list args_list)
 				: ft_strjoin2(4, e->fmt->pad_left, e->fmt->prefix, e->fmt->value, e->fmt->pad_right);
 			free_format(e->fmt);
 			e->fmt = NULL;
-			//if (e->str_len < 0)
-			//{
-			//	return;
-			//}
 		}
 		list = list->next;
 	}

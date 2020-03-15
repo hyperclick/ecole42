@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   format_list.c                                      :+:      :+:    :+:   */
+/*   create_free.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,66 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf_internal.h"
-
-void	free_if_not_null(void **p)
-{
-	if (*p != NULL)
-	{
-		free(*p);
-		*p = NULL;
-	}
-}
+#include "../../ft_printf_internal.h"
 
 void	free_format(t_fmt* fmt)
 {
-	free_if_not_null((void**)&fmt->prefix);
-	free_if_not_null((void**)&fmt->value);
-	free_if_not_null((void**)&fmt->pad_left);
-	free_if_not_null((void**)&fmt->pad_right);
+	ft_free_not_null((void**)&fmt->prefix);
+	ft_free_not_null((void**)&fmt->value);
+	ft_free_not_null((void**)&fmt->pad_left);
+	ft_free_not_null((void**)&fmt->pad_right);
 
 	free(fmt);
 	fmt = NULL;
 }
 
-void	free_item(void* content)
-{
-	t_item* e;
 
-	e = (t_item*)content;
-	if (is_format(e))
-	{
-		free_format(e->fmt);
-	}
-	else if (is_string(e))
-	{
-		free(e->str);
-	}
-	free((void*)e);
-}
-
-void	free_list(t_list** list)
-{
-	lstdel(list, free_item);
-}
-
-void	add_string(t_list* list, char* str)
-{
-	if (*str == 0)
-	{
-		free(str);
-		str = NULL;
-		return;
-	}
-	lst_append(list, lst_new(create_string(str), -1));
-}
-
-void	add_format(t_list* list, const t_fmt* fmt)
-{
-	lst_append(list, lst_new(create_format(fmt), -1));
-}
-
-t_item* create_string(char* str)
+t_item	*create_string(char* str)
 {
 	t_item* e;
 
@@ -81,7 +36,7 @@ t_item* create_string(char* str)
 	return (e);
 }
 
-t_item* create_format(const t_fmt* fmt)
+t_item	*create_format(const t_fmt* fmt)
 {
 	t_item* e;
 
@@ -93,28 +48,7 @@ t_item* create_format(const t_fmt* fmt)
 	return (e);
 }
 
-BOOL	is_string(t_item* e)
-{
-	return (e->str != NULL);
-}
-
-BOOL	is_format(t_item* e)
-{
-	return (e->fmt != NULL);
-}
-
-BOOL	is_format2(void* e)
-{
-	return (is_format((t_item*)e));
-}
-
-int		count_format(t_list* list)
-{
-	return (lst_count_if(list, is_format2));
-}
-
-
-t_fmt* get_default_format()
+t_fmt	*get_default_format()
 {
 	t_fmt* f;
 
@@ -136,23 +70,4 @@ t_fmt* get_default_format()
 	f->value = NULL;
 	//f->value_is_negative = FALSE;
 	return (f);
-}
-
-void		recalc_size(t_fmt* fmt)
-{
-	if (is_zero_char(fmt))
-	{
-		return;
-	}
-	fmt->size = ft_strlen(fmt->value);
-	if (fmt->pad_right != NULL)
-	{
-		fmt->size += ft_strlen(fmt->pad_right);
-	}
-	fmt->size += ft_strlen(fmt->prefix);
-	if (fmt->pad_left != NULL)
-	{
-		fmt->size += ft_strlen(fmt->pad_left);
-	}
-//	return (fmt->size);
 }

@@ -1,4 +1,6 @@
-#include "ft_printf_internal.h"
+
+#include "../ft_printf_internal.h"
+
 #include <stdint.h>
 #include <stddef.h>
 #include <wchar.h>
@@ -251,7 +253,6 @@ t_fmt* char_to_string(t_fmt* fmt, long long int c)
 	if (!( fmt->length[0] == 'l' && fmt->length[1] == 'l' ) && ((c > 255 || c < 0) && ft_contains("l", *fmt->length)))//INT_MAX)
 	{
 		fmt->value[0] = -1;
-		//		fmt->size = -1;
 	}
 	if (fmt->value[0] == 0)
 	{
@@ -262,12 +263,5 @@ t_fmt* char_to_string(t_fmt* fmt, long long int c)
 
 void	parse_c(t_fmt* fmt, va_list args_list)
 {
-	//if ((*fmt->length == 'l'))
-	//{
-	//	return (process_string(char_to_string(fmt, (long long int)va_arg(args_list, long long int))));
-	//}
-	//else
-	{
-		return (process_string(char_to_string(fmt, (int)va_arg(args_list, int))));
-	}
+	return (process_string(char_to_string(fmt, (int)va_arg(args_list, int))));
 }

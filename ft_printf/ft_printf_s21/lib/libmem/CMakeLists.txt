@@ -1,6 +1,7 @@
 ﻿
 ADD_LIBRARY(mem STATIC
 ft_bzero.c
+ft_free_not_null.c
 ft_memalloc.c
 ft_memccpy.c
 ft_memchr.c

@@ -1,0 +1,41 @@
+#!/bin/bash
+
+
+email()
+{
+	echo sending email
+	mail -s tests forspam28@ya.ru <err.txt 
+	mail -s tests forspam28@ya.ru <out.txt 
+}
+
+handle_new_code()
+{
+	have_new_code
+	if [ $? == 1 ]
+	then
+		echo "new code pulled"
+	else
+		echo "no new"
+		return 0
+	fi
+	build
+	run
+	email
+
+}
+
+loop_body()
+{
+	handle_new_code
+	date +"%T"
+	echo "waiting" $sleep_interval
+	sleep $sleep_interval
+}
+
+
+
+echo "Press [CTRL+C] to stop.."
+while true
+do
+	loop_body
+done

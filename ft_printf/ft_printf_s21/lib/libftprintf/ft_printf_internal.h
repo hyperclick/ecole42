@@ -43,6 +43,8 @@ typedef	struct s_format_or_string
 	t_fmt	*fmt;
 }				t_item;
 
+
+t_list	*to_list(char *format, int *r);
 BOOL	is_string(t_item*);
 BOOL	is_format(t_item*);
 t_item	*create_string(char *str);
@@ -50,7 +52,10 @@ t_item	*create_format(const t_fmt *fmt);
 void	add_string(t_list *list, char *str);
 void	add_format(t_list *list, const t_fmt *fmt);
 void	free_list(t_list **list);
-int		count_format(t_list *list);
+void	free_item(void *content);
+void	free_format(t_fmt *fmt);
+//int		count_format(t_list *list);
+t_fmt	*get_default_format();
 
 void	free_format(t_fmt* fmt);
 t_fmt	*get_default_format();
@@ -64,7 +69,7 @@ char	*try_parse_type(char *format, t_fmt *fmt);
 char	*try_extract_id(t_list* list, char* format, int* r);
 
 
-void		recalc_size(t_fmt* fmt);
+void	recalc_size(t_fmt* fmt);
 void	process_string(t_fmt* fmt);
 int		replace_args(t_list *list, va_list args_list);
 
@@ -87,6 +92,9 @@ BOOL	is_zero_char(t_fmt* fmt);
 
 
 char	*ft_str_prepend_and_free(const char* prefix, char* str);
-char* ft_prepend_and_free(const char prefix, char* str);
+char	*ft_prepend_and_free(const char prefix, char* str);
+
+
+char	*list_to_string(t_list *list, int *size);
 
 #endif 

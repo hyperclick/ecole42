@@ -27,10 +27,10 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 		return;
 		//exit(1);
 	}
-	if (g_failed_tests_count > 10000)
+	if (g_failed_tests_count > 100)
 	{
 		//return;
-		exit(1);
+//		exit(1);
 	}
 	printf("test #%d: '%s': '", g_tests_count, format);
 

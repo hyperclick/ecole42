@@ -61,7 +61,7 @@ handle_new_code()
 	fi
 	build
 	run
-	email
+	#email
 
 }
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf2.c                                       :+:      :+:    :+:   */
+/*   format_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,43 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libstr.h"
+#include "../ft_printf_internal.h"
 
-BOOL	valid_token_second_char(char c)
+void	free_item(void *content)
 {
-	return (c != 0 && c != '%' && c != ' ');
-}
+	t_item *e;
 
-BOOL	is_token(const char *str)
-{
-	return (*str == '%' && valid_token_second_char(*(str + 1)));
-}
-
-int		count_tokens(const char *str)
-{
-	int len;
-
-	len = 0;
-	while (*str != 0)
+	e = (t_item *)content;
+	if (is_format(e))
 	{
-		if (is_token(str))
-		{
-			++len;
-		}
-		++str;
+		free_format(e->fmt);
 	}
-	return (len);
+	else if (is_string(e))
+	{
+		free(e->str);
+	}
+	free((void *)e);
 }
 
-void	fill_tokens(char **tokens, const char *str)
+void	free_list(t_list** list)
 {
-	while (*str != 0)
+	lstdel(list, free_item);
+}
+
+void	add_string(t_list* list, char* str)
+{
+	if (*str == 0)
 	{
-		if (is_token(str))
-		{
-			*tokens = ft_strsub(str, 0, 2);
-			tokens++;
-		}
-		++str;
+		free(str);
+		str = NULL;
+		return;
 	}
+	lst_append(list, lst_new(create_string(str), -1));
+}
+
+void	add_format(t_list* list, const t_fmt* fmt)
+{
+	lst_append(list, lst_new(create_format(fmt), -1));
 }
