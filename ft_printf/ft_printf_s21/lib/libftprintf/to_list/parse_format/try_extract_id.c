@@ -41,13 +41,15 @@ char *try_parse_settings(char *format, t_fmt *fmt, t_list *list, int *r)
 	format = try_parse_length(format, fmt);
 	format = try_parse_type(format, fmt);
 
+	printf("[%s1] format address = %p\n", __FUNCTION__, format);
+	printf("format = '%s'\n", format);
 	//%-w.-p || %w.-p
 	if (fmt->width != DEFAULT_WIDTH && fmt->precision < 0 && fmt->precision_set)
 	{
 		fmt->width = DEFAULT_WIDTH;
 	}
 	format = handle_parsed(format, fmt, list, r, smth_parsed);
-	printf("[%s] format address = %p\n", __FUNCTION__, format);
+	printf("[%s2] format address = %p\n", __FUNCTION__, format);
 	printf("format = '%s'\n", format);
 	return (format);
 }

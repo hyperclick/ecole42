@@ -57,7 +57,7 @@ char *try_parse_type(char *format, t_fmt *fmt)
 	if (is_valid_type(*format))
 	{
 		fmt->type = *format;
-		printf("format + 1 address = %p\n", format + 1);
+		printf("[%s] format + 1 address = %p\n", __FUNCTION__, format + 1);
 		printf("format + 1 = '%s'\n", format + 1);
 		return (format + 1);
 	}
