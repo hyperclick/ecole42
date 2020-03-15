@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_repeat.c                                 :+:      :+:    :+:   */
+/*   asserts.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/05 18:08:51 by darugula          #+#    #+#             */
-/*   Updated: 2019/10/05 18:08:53 by darugula         ###   ########.fr       */
+/*   Created: 2019/11/08 12:37:38 by darugula          #+#    #+#             */
+/*   Updated: 2019/11/08 12:37:40 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libstr.h"
+#include "../../ft_printf_internal.h"
 
-char	*ft_str_repeat(char *s, int n)
+void	process_sign(t_fmt *fmt)
 {
-	char	*dst;
-	char	*start;
-	int		len;
-
-	len = ft_strlen(s);
-	dst = (char *)malloc(sizeof(char) * (len * n + 1));
-	start = dst;
-	start[len * n] = 0;
-	while (n-- > 0)
+	if ((is_signed_number(fmt->type) || fmt->type == 'p') && fmt->flags.plus_before_positive)
 	{
-		ft_strcpy(dst, s);
-		dst += len;
+		if (fmt->prefix[0] != '-')
+		{
+			if (fmt->precision < 0)
+			{
+				fmt->value = ft_str_prepend_and_free("+", fmt->value);
+			}
+			else
+			{
+				fmt->prefix = ft_str_prepend_and_free("+", fmt->prefix);
+			}
+		}
 	}
-	return (start);
 }

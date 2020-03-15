@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   to_list.c                                        :+:      :+:    :+:   */
+/*   asserts.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,58 +12,30 @@
 
 #include "../ft_printf_internal.h"
 
-BOOL	is_string(t_item *e)
+int	replace_args(t_list *list, va_list args_list)
 {
-	return (e->str != NULL);
-}
+	int		r;
+	int		size;
+	t_item	*e;
 
-BOOL	is_format(t_item *e)
-{
-	return (e->fmt != NULL);
-}
-
-
-
-t_list *to_list(char *format, int *r)
-{
-	t_list *list;
-	list = NULL;
-
-	if (format == NULL)
+	while (list != NULL)
 	{
-		*r = -1;
-		return (list);
-	}
-	list = lst_new(create_string(ft_strdup("")), -1);
-	if (*format == 0)
-	{
-		*r = 0;
-		return (list);
-	}
-	char *str;
-	char *start;
-	str = (char *)malloc(sizeof(format) + 1);
-	start = str;
-	while (*format != 0)
-	{
-		if (*format == '%')
+		e = (t_item *)list->content;
+		if (is_format(e))
 		{
-			*str = 0;
-			str = start;
-			add_string(list, ft_strdup(str));
-			format = try_extract_id(list, format + 1, r);
-			if (*r < 0)
+			r = process_type(e->fmt, args_list);
+			if (r < 0)
 			{
-				return (list);
+				return (r);
 			}
-			continue;
+			e->str_len = e->fmt->size;
+			e->str = (e->fmt->type == 'c' && *e->fmt->value == 0) ?
+				ft_strjoin2(3, e->fmt->pad_left, e->fmt->prefix, e->fmt->value)
+				: ft_strjoin2(4, e->fmt->pad_left, e->fmt->prefix, e->fmt->value, e->fmt->pad_right);
+			free_format(e->fmt);
+			e->fmt = NULL;
 		}
-		*str++ = *format++;
+		list = list->next;
 	}
-	*str = 0;
-	str = start;
-	add_string(list, ft_strdup(str));
-	free(start);
-	*r = 0;
-	return (list);
+	return (0);
 }

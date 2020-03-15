@@ -69,9 +69,14 @@ char	*try_parse_type(char *format, t_fmt *fmt);
 char	*try_extract_id(t_list* list, char* format, int* r);
 
 
+void	process_width(t_fmt *fmt);
+void	process_sign(t_fmt *fmt);
+void	process_blank(t_fmt *fmt);
+void	process_precision(t_fmt *fmt);
 void	recalc_size(t_fmt* fmt);
 void	process_string(t_fmt* fmt);
 int		replace_args(t_list *list, va_list args_list);
+int		process_type(t_fmt *fmt, va_list args_list);
 
 BOOL	is_int_number(char t);
 BOOL	is_signed_number(char t);
@@ -79,12 +84,13 @@ BOOL	is_number(char t);
 BOOL	is_valid_type(char t);
 
 void	parse_d(t_fmt* fmt, va_list args_list);
+t_fmt	*char_to_string(t_fmt *fmt, long long int c);
 t_fmt	*pchar_to_string(t_fmt* fmt, const char* str);
 t_fmt	*hex_to_string(t_fmt* fmt, unsigned long long int p, BOOL is_upper_case);
 t_fmt	*pointer_to_string(void* p, t_fmt* fmt);
-//t_fmt	*oct_to_string(t_fmt* fmt, unsigned long long int n);
+t_fmt	*oct_to_string(t_fmt* fmt, unsigned long long int n);
 void	parse_u(t_fmt* fmt, va_list args_list);
-//t_fmt	*uint_to_string(t_fmt* fmt, unsigned long long int n);
+t_fmt	*uint_to_string(t_fmt* fmt, unsigned long long int n);
 
 BOOL	is_valid_length(t_fmt* fmt);
 BOOL	is_zero_char(t_fmt* fmt);

@@ -46,7 +46,10 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	va_copy(arg1, argptr);
 	size = vsnprintf(e, size, format, arg1);
 	va_end(arg1);
-
+	if (size < 0)
+	{
+		size = 54321;
+	}
 	e = (char*)malloc(sizeof(char) * (size + 1));
 	//va_start(argptr, format);
 	va_copy(arg2, argptr);
