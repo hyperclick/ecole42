@@ -54,7 +54,7 @@ void	add_format(t_list *list, const t_fmt *fmt);
 void	free_list(t_list **list);
 void	free_item(void *content);
 void	free_format(t_fmt *fmt);
-char *handle_parsed(char *format, t_fmt *fmt, t_list *list, int *r, BOOL smth_parsed);
+char	*handle_parsed(char *format, t_fmt *fmt, t_list *list, int *r, BOOL smth_parsed);
 t_fmt	*get_default_format();
 
 void	free_format(t_fmt* fmt);

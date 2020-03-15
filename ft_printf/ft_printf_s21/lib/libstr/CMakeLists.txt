@@ -8,6 +8,7 @@ ft_isascii.c
 ft_isdigit.c
 ft_isprint.c
 ft_itoa.c
+prepend_and_free.c
 ft_str_append.c
 ft_str_count_chars.c
 ft_str_ends_with.c

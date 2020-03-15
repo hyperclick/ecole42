@@ -30,21 +30,11 @@ void	recalc_size(t_fmt *fmt)
 	}
 }
 
-BOOL is_null_pointer(t_fmt *fmt)
+BOOL	is_null_pointer(t_fmt *fmt)
 {
 	return (fmt->type == 's' && (ft_strequ(fmt->value, "(nil)") || ft_strequ(fmt->value, "(null)")));
 }
 
-void	process_sign1(t_fmt *fmt)
-{
-	if ((is_signed_number(fmt->type) || fmt->type == 'p') && fmt->flags.plus_before_positive)
-	{
-		if (fmt->prefix[0] != '-')
-		{
-			fmt->prefix = ft_str_prepend_and_free("+", fmt->prefix);
-		}
-	}
-}
 void	process_sign(t_fmt *fmt)
 {
 	if ((is_signed_number(fmt->type) || fmt->type == 'p') && fmt->flags.plus_before_positive)
@@ -63,23 +53,6 @@ void	process_sign(t_fmt *fmt)
 	}
 }
 
-char *ft_str_prepend_and_free(const char *prefix, char *str)
-{
-	char *tmp;
-
-	tmp = str;
-	str = ft_strjoin(prefix, str);
-	free(tmp);
-	return (str);
-}
-
-char *ft_prepend_and_free(const char prefix, char *str)
-{
-	char tmp[] = " ";
-
-	*tmp = prefix;
-	return (ft_str_prepend_and_free(tmp, str));
-}
 
 void	process_blank(t_fmt *fmt)
 {
