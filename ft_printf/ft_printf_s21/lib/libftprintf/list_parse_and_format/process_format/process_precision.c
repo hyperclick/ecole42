@@ -36,44 +36,55 @@ char *append_to_zero(const char *append)
 	return (dst);
 }
 
-void	process_precision(t_fmt *fmt)
+BOOL	process_some_cases(t_fmt *fmt)
 {
-	int	abs_precision;
-
-	if (!fmt->precision_set || (fmt->type == 'c' && fmt->precision >= 0))
+	if (!fmt->precision_set)
 	{
-		return;
+		return (TRUE);
 	}
-	if (fmt->type == 'c' && /*fmt->precision < 0 &&*/ !is_valid_length(fmt))
+	if (fmt->type == 'c')
 	{
-		return;
+		if (fmt->precision >= 0 || !is_valid_length(fmt))
+		{
+			return (TRUE);
+		}
 	}
-	abs_precision = fmt->precision < 0 ? -fmt->precision : fmt->precision;
-	if (fmt->precision < 0 && fmt->type == 's')// || !is_int_number(fmt->type))
+	if (fmt->precision < 0 && fmt->type == 's')
 	{
 		free(fmt->value);
 		fmt->value = ft_str_repeat(" ", -fmt->precision);
-		return;
+		return (TRUE);
 	}
 	if (fmt->precision == 0 && ft_strequ(fmt->value, "0"))
 	{
-		if (fmt->type == 'p')//if (fmt->flags.is_alt_form)
+		if (fmt->type == 'p')
 		{
 			free(fmt->value);
 			fmt->value = ft_strdup("");
 		}
-		return;
+		return (TRUE);
 	}
 	if (fmt->precision <0 && fmt->precision > -3 && ft_strequ(fmt->value, "0") && (fmt->type == 'p'))
 	{
 		free(fmt->value);
 		fmt->value = ft_strdup("");
-		return;
+		return (TRUE);
 	}
+	return (FALSE);
+}
 
+void	process_precision(t_fmt *fmt)
+{
+	int	abs_precision;
 	int	diff;
 	char *tmp;
 
+	if (process_some_cases(fmt))
+	{
+		return;
+	}
+
+	abs_precision = fmt->precision < 0 ? -fmt->precision : fmt->precision;
 	diff = (fmt->precision < 0 && ft_strequ(fmt->prefix, " ") ? fmt->size : ft_strlen(fmt->value)) - abs_precision;
 	if (fmt->type == 'o' && *fmt->prefix == '0' && fmt->precision <= 0)
 	{
