@@ -88,11 +88,12 @@ void	parse_u(t_fmt* fmt, va_list args_list);
 t_fmt	*char_to_string(t_fmt *fmt, long long int c);
 t_fmt	*pchar_to_string(t_fmt* fmt, const char* str);
 t_fmt	*hex_to_string(t_fmt* fmt, unsigned long long int p, BOOL is_upper_case);
-t_fmt	*pointer_to_string(void* p, t_fmt* fmt);
-t_fmt	*oct_to_string(t_fmt* fmt, unsigned long long int n);
-t_fmt	*uint_to_string(t_fmt* fmt, unsigned long long int n);
 t_fmt	*little_hex_to_string(t_fmt *fmt, unsigned long long int p);
 t_fmt	*big_hex_to_string(t_fmt *fmt, unsigned long long int p);
+t_fmt	*pointer_to_string(void* p, t_fmt* fmt);
+t_fmt	*oct_to_string(t_fmt* fmt, unsigned long long int n);
+t_fmt	*int_to_string(t_fmt *fmt, long long int n);
+t_fmt	*uint_to_string(t_fmt* fmt, unsigned long long int n);
 
 BOOL	is_valid_length(t_fmt* fmt);
 BOOL	is_zero_char(t_fmt* fmt);
