@@ -83,7 +83,6 @@ void	process_precision(t_fmt *fmt)
 	{
 		return;
 	}
-
 	abs_precision = fmt->precision < 0 ? -fmt->precision : fmt->precision;
 	diff = (fmt->precision < 0 && ft_strequ(fmt->prefix, " ") ? fmt->size : ft_strlen(fmt->value)) - abs_precision;
 	if (fmt->type == 'o' && *fmt->prefix == '0' && fmt->precision <= 0)
