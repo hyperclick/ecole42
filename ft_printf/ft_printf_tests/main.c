@@ -8,6 +8,12 @@ int	main()
 #else
 	printf("not mac\n");
 #endif
+	test("% .-5d", -1);			//expected: 5'-1   ', actual: 4'-1  '
+	test("%-.-5d", 1);			//expected: 5' 1   '
+	test("% .-5d", 1);			//expected: 5' 1   ', actual: 6' 1    '
+	test("% .5d", 1);			//6' 00001'
+	test("% 5d", 1);			//5'    1'
+	test("% -5d", 1);			//5' 1   '
 	test("%1");					//
 	test("|%1|");				//
 	test("%#+5.-5hX","");		//expected: '0XFFFF', actual: '0XFFFF2147483647'
@@ -26,12 +32,6 @@ int	main()
 	test("%+.-10llp", "");		//
 	test("%+#.10llp", "");		//
 	test("%+#5.-10lx", "");		//
-	test("% .-5d", -1);			//expected: 5'-1   ', actual: 4'-1  '
-	test("%-.-5d", 1);			//expected: 5' 1   '
-	test("% .-5d", 1);			//expected: 5' 1   ', actual: 6' 1    '
-	test("% .5d", 1);			//6' 00001'
-	test("% 5d", 1);			//5'    1'
-	test("% -5d", 1);			//5' 1   '
 
 	test("%05.0s", "");			//expected: '00000', actual: '     '
 	test("%05c", 'a');			//expected: '0000a'
