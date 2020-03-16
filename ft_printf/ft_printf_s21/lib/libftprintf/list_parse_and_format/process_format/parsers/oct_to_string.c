@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asserts.c                                          :+:      :+:    :+:   */
+/*   oct_to_string.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,32 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf_internal.h"
+#include "../../../ft_printf_internal.h"
 
-int	replace_args(t_list *list, va_list args_list)
+t_fmt* oct_to_string(t_fmt* fmt, unsigned long long int n)
 {
-	int		r;
-	int		size;
-	t_item	*e;
-
-	while (list != NULL)
+	if (fmt->flags.is_alt_form)
 	{
-		e = (t_item *)list->content;
-		if (is_format(e))
+		fmt->prefix = ft_strdup("0");
+		if (fmt->precision_set && fmt->precision > 0)
 		{
-			r = process_type(e->fmt, args_list);
-			if (r < 0)
-			{
-				return (r);
-			}
-			e->str_len = e->fmt->size;
-			e->str = (e->fmt->type == 'c' && *e->fmt->value == 0) ?
-				ft_strjoin2(3, e->fmt->pad_left, e->fmt->prefix, e->fmt->value)
-				: ft_strjoin2(4, e->fmt->pad_left, e->fmt->prefix, e->fmt->value, e->fmt->pad_right);
-			free_format(e->fmt);
-			e->fmt = NULL;
+			fmt->precision--;
 		}
-		list = list->next;
 	}
-	return (0);
+	if (n == 0)
+	{
+		if (fmt->flags.is_alt_form || (fmt->precision_set && fmt->precision == 0))
+		{
+			fmt->value = ft_strdup("");
+		}
+		else
+		{
+			fmt->value = ft_strdup("0");
+		}
+	}
+	else
+	{
+		fmt->value = ft_itoa_base2(n, "01234567", FALSE);
+	}
+	//if (fmt->flags.is_alt_form && n != 0)
+	return (fmt);
 }

@@ -19,8 +19,7 @@ void	test2(BOOL mac_only, const char* format, va_list argptr)
 	va_list arg1;
 	va_list arg2;
 	va_list arg3;
-	//va_list arg4;
-	//va_copy(arg4, argptr);
+
 	g_tests_count++;
 	if (g_tests_count < 0)
 	{

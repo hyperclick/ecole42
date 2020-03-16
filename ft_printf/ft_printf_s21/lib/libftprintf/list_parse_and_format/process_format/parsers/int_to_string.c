@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   asserts.c                                          :+:      :+:    :+:   */
+/*   int_to_string.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,17 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf_internal.h"
+#include "../../../ft_printf_internal.h"
 
-void	process_blank(t_fmt *fmt)
+t_fmt* int_to_string(t_fmt* fmt, long long int n)
 {
-	if (ft_contains("idaAeEfFgG", fmt->type)
-		&& fmt->flags.blank_before_positive
-		&& !fmt->flags.plus_before_positive)
+	if (n == 0 && fmt->precision_set && fmt->precision == 0)
 	{
-		if (fmt->prefix[0] != '-')
-		{
-			fmt->prefix = ft_str_prepend_and_free(" ", fmt->prefix);
-		}
+		fmt->value = ft_strdup("");
+		return (fmt);
 	}
+	unsigned long int	u;
+
+	u = n;
+	if (n < 0)
+	{
+		fmt->prefix = ft_strdup("-");
+		u = -(unsigned long int)n;
+	}
+	fmt->value = ft_uitoa(u);
+	return (fmt);
+}
+
+t_fmt* uint_to_string(t_fmt* fmt, unsigned long long int n)
+{
+	if (n == 0 && fmt->precision_set && fmt->precision == 0)
+	{
+		fmt->value = ft_strdup("");
+		return (fmt);
+	}
+	fmt->value = ft_uitoa(n);
+	return (fmt);
 }
