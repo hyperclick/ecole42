@@ -41,7 +41,7 @@ static int		ft_f_man(char **s, int i)
 	return (i);
 }
 
-static char		*ft_low(t_double *floats, char **s)
+char		*ft_low(t_double *floats, char **s)
 {
 	int		i;
 	int		len;
@@ -68,7 +68,7 @@ static char		*ft_low(t_double *floats, char **s)
 	return (ft_final_str_from_2(floats, tmp1, tmp2));
 }
 
-static char		*ft_more(t_double *floats, char **s)
+char		*ft_more(t_double *floats, char **s)
 {
 	int		i;
 	char	*tmp1;
@@ -95,7 +95,7 @@ static char		*ft_more(t_double *floats, char **s)
 	return (tmp1);
 }
 
-static char		*ft_between(t_double *floats, char **s, int exp)
+char		*ft_between(t_double *floats, char **s, int exp)
 {
 	int		i;
 	int		len;

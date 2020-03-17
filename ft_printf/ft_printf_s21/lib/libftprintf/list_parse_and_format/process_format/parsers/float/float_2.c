@@ -33,7 +33,7 @@ static char	*ft_negative(char *res, int degree)
 	return (tmp);
 }
 
-static char	*ft_final_str(const unsigned char *bin_deg, char *res, int degree,
+char	*ft_final_str(const unsigned char *bin_deg, char *res, int degree,
 							 int sign)
 {
 	int		i;

@@ -80,6 +80,8 @@ char			*ft_strsub(char const *s, int start, int len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strjoin2(int count, ...);
 char			*ft_str_remove_at(char *dst, int n);
+void			ft_swap(char *a, char *b);
+char			*ft_strrev(char *str);
 char			*ft_strtrim2(char const *s, char const *whitespaces);
 char			*ft_strtrim(char const *s);
 

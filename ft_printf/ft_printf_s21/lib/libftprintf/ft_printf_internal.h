@@ -3,9 +3,9 @@
 # define FT_PRINTF_INTERNAL_H
 
 # include "libstr.h"
-# include "libio.h"
+# include "../liblists/lists.h"
+# include "../libio/libio.h"
 # include "libmem.h"
-# include "lists.h"
 
 # define DEFAULT_WIDTH 0
 # define DEFAULT_PRECISION 0

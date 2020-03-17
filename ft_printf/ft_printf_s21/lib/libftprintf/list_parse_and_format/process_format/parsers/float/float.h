@@ -51,12 +51,12 @@ union					u_bin
 	unsigned char		byte[4];
 };
 
-char *ft_do_union(int sign);
+char					*ft_do_union(int sign);
 void					ft_bits(unsigned char num, unsigned char *str);
-static char *ft_between(t_double *floats, char **s, int exp);
-static char *ft_more(t_double *floats, char **s);
-static char *ft_low(t_double *floats, char **s);
-static char *ft_final_str(const unsigned char *bin_deg, char *res, int sigi,
+char				*ft_between(t_double *floats, char **s, int exp);
+char				*ft_more(t_double *floats, char **s);
+char				*ft_low(t_double *floats, char **s);
+char				*ft_final_str(const unsigned char *bin_deg, char *res, int sigi,
 	int sign);
 char *ft_final_str_from_2(t_double *floats, char *tmp1, char *tmp2);
 void					ft_change_prec(t_double *floats, char *tmp1, char *tmp2, int len);

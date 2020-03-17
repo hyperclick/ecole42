@@ -10,7 +10,9 @@ int	main()
 #endif
 
 	long double n = 1.2;
-	char *str = to_string(n);
+	char *s = to_string(n);
+	
+	
 	test("% .-5d", -1);			//expected: 5'-1   ', actual: 4'-1  '
 	test("%-.-5d", 1);			//expected: 5' 1   '
 	test("% .-5d", 1);			//expected: 5' 1   ', actual: 6' 1    '

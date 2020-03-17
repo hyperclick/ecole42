@@ -125,10 +125,10 @@ void		test2(void(*e)(), void(*a)(), const char* name)
 	const char* actual_err = ft_strjoin2(3, "test_cases/actual/", name, "_err.txt");
 
 	char		curdir[PATH_MAX];
-	debug_printf("curdir = %s\n", getcwd(curdir, PATH_MAX));
+	//debug_printf("curdir = %s\n", getcwd(curdir, PATH_MAX));
 
-	debug_set_pname("test");
-	debug_printf("testing %s\n", name);
+	//debug_set_pname("test");
+	//debug_printf("testing %s\n", name);
 	if (e != NULL)
 	{
 		redirect_and_exec(e, expected_out, expected_err);
@@ -142,7 +142,7 @@ void		test2(void(*e)(), void(*a)(), const char* name)
 	ok = compare_and_free(expected_err, actual_err, ft_strjoin(name, "_err")) && ok;
 	if (!ok)
 	{
-		ft_exit(2);
+		exit(2);
 	}
 }
 
