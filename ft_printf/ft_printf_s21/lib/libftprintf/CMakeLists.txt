@@ -18,13 +18,13 @@ ADD_LIBRARY(ftprintf STATIC
 	list_parse_and_format/process_format/process_type.c
 	list_parse_and_format/replace_args.c
 	types.c
-	#float/float.h
-	#float/float.c
-	#float/float_2.c
-	#float/float_3.c
-	#float/float_4.c
-	#float/float_5.c
-	#float/precision.c
+	list_parse_and_format/process_format/parsers/float/float.h
+	list_parse_and_format/process_format/parsers/float/float.c
+	list_parse_and_format/process_format/parsers/float/float_2.c
+	list_parse_and_format/process_format/parsers/float/float_3.c
+	list_parse_and_format/process_format/parsers/float/float_4.c
+	list_parse_and_format/process_format/parsers/float/float_5.c
+	#list_parse_and_format/process_format/parsers/float/precision.c
 	list_create/add_free_item.c
 	list_create/parse_format/create_free_fmt.c
 	list_create/parse_format/format_parser.c

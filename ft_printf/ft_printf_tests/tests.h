@@ -5,6 +5,7 @@
 #include "asserts.h"
 #include "libstr.h"
 
+
 void	test(const char *format, ...);
 
 void	test_mac(const char *format, ...);

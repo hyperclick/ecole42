@@ -12,7 +12,7 @@
 
 #include "float.h"
 
-char 	*ft_free(char *str1, char *str2)
+char *ft_free(char *str1, char *str2)
 {
 	if (str1)
 		free(str1);
@@ -21,7 +21,7 @@ char 	*ft_free(char *str1, char *str2)
 	return (NULL);
 }
 
-char	*ft_frees(char **obj, int strs)
+char *ft_frees(char **obj, int strs)
 {
 	while (--strs >= 0)
 		if (obj && obj[strs])
@@ -30,7 +30,7 @@ char	*ft_frees(char **obj, int strs)
 	return (NULL);
 }
 
-char		*ft_do_union(int degree)
+char *ft_do_union(int degree)
 {
 	union u_bin		deg;
 	unsigned char	bin_deg[16];
@@ -47,9 +47,9 @@ char		*ft_do_union(int degree)
 	return (ft_final_str(bin_deg, "1", deg.i, degree));
 }
 
-static char	*ft_max_min(t_double *count)
+static char *ft_max_min(t_double *count)
 {
-	char	*buf;
+	char *buf;
 
 	buf = NULL;
 	if (count->bits.m == 0)
@@ -61,11 +61,11 @@ static char	*ft_max_min(t_double *count)
 	return (buf);
 }
 
-char			*ft_do_str(t_double *floats, int exp, const unsigned char *man)
+char *ft_do_str(t_double *floats, int exp, const unsigned char *man)
 {
-	int		i;
-	char	**s;
-	char	*res;
+	int			i;
+	char **s;
+	char *res;
 
 	i = -1;
 	res = NULL;
@@ -88,19 +88,16 @@ char			*ft_do_str(t_double *floats, int exp, const unsigned char *man)
 	return (res);
 }
 
-static char	*ft_printf_f(t_double *count, long double num)
+static char *ft_printf_f(t_double *count, long double num)
 {
-	char			*buf;
+	char *buf;
 	int				exp;
 	unsigned char	man[65];
 	int				i;
 
 	i = 8;
 	buf = NULL;
-	if (count->prec < 0)
-		count->prec = 6;
 	count->num = num;
-	count->prec = count->length;
 	buf = ft_max_min(count);
 	exp = count->bits.e - 16383;
 	man[64] = '\0';
@@ -110,4 +107,15 @@ static char	*ft_printf_f(t_double *count, long double num)
 		if (!(buf = ft_do_str(count, exp, man)))
 			exit(0);
 	return (buf);
+}
+
+char *to_string(long double num)
+{
+	t_double *count;
+	char *str;
+
+	if (!(count = (t_double *)malloc(sizeof(t_double))))
+		return (0);
+	str = ft_printf_f(count, num);
+	return (str);
 }

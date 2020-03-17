@@ -2,10 +2,10 @@
 
 # define FT_PRINTF_INTERNAL_H
 
-#include "lists.h"
 # include "libstr.h"
 # include "libio.h"
 # include "libmem.h"
+# include "lists.h"
 
 # define DEFAULT_WIDTH 0
 # define DEFAULT_PRECISION 0

@@ -1,5 +1,5 @@
 #include "tests.h"
-
+#include "list_parse_and_format/process_format/parsers/float/float.h"
 
 int	main()
 {
@@ -8,6 +8,9 @@ int	main()
 #else
 	printf("not mac\n");
 #endif
+
+	long double n = 1.2;
+	char *str = to_string(n);
 	test("% .-5d", -1);			//expected: 5'-1   ', actual: 4'-1  '
 	test("%-.-5d", 1);			//expected: 5' 1   '
 	test("% .-5d", 1);			//expected: 5' 1   ', actual: 6' 1    '
