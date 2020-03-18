@@ -49,9 +49,9 @@ char	*ft_final_str(const unsigned char *bin_deg, char *res, int degree,
 	while (i < 16)
 	{
 		if (bin_deg[i++] == '1')
-			res = ft_multcolumn(ft_multcolumn(res, res), b);
+			res = ft_join(ft_join(res, res), b);
 		else
-			res = ft_multcolumn(res, res);
+			res = ft_join(res, res);
 		if (res == NULL)
 			return (NULL);
 	}

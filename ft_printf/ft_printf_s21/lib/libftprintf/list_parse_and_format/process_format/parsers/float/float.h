@@ -22,7 +22,7 @@ enum				e_error
 	MALLOC_ERR = 0,
 };
 
-typedef union			u_double
+typedef struct			u_double
 {
 	struct
 	{
@@ -51,18 +51,21 @@ union					u_bin
 	unsigned char		byte[4];
 };
 
-char					*ft_do_union(int sign);
-void					ft_bits(unsigned char num, unsigned char *str);
+char				*to_string(long double num);
+char				*ft_printf_f(t_double *count, long double num);
+char				*ft_do_union(int sign);
+void				ft_bits(unsigned char num, unsigned char *str);
+char *ft_do_str(t_double *floats, int exp, const unsigned char *man);
 char				*ft_between(t_double *floats, char **s, int exp);
 char				*ft_more(t_double *floats, char **s);
 char				*ft_low(t_double *floats, char **s);
 char				*ft_final_str(const unsigned char *bin_deg, char *res, int sigi,
 	int sign);
-char *ft_final_str_from_2(t_double *floats, char *tmp1, char *tmp2);
-void					ft_change_prec(t_double *floats, char *tmp1, char *tmp2, int len);
-char *ft_sum_to_str(t_double *s, char **buf, int strs, size_t len, int sign);
-char *ft_frees(char **obj, int strs);
-char *ft_free(char *str1, char *str2);
-void *on_crash(int err);
+char				*ft_final_str_from_2(t_double *floats, char *tmp1, char *tmp2);
+void				ft_change_prec(t_double *floats, char *tmp1, char *tmp2, int len);
+char				*ft_sum_to_str(t_double *s, char **buf, int strs, size_t len, int sign);
+char				*ft_frees(char **obj, int strs);
+char				*ft_free(char *str1, char *str2);
+void				*on_crash(int err);
 
 #endif

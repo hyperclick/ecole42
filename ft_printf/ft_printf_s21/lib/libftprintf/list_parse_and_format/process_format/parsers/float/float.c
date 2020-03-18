@@ -47,7 +47,7 @@ char *ft_do_union(int degree)
 	return (ft_final_str(bin_deg, "1", deg.i, degree));
 }
 
-static char *ft_max_min(t_double *count)
+char *ft_max_min(t_double *count)
 {
 	char *buf;
 
@@ -88,7 +88,7 @@ char *ft_do_str(t_double *floats, int exp, const unsigned char *man)
 	return (res);
 }
 
-static char *ft_printf_f(t_double *count, long double num)
+char *ft_printf_f(t_double *count, long double num)
 {
 	char *buf;
 	int				exp;
@@ -116,6 +116,7 @@ char *to_string(long double num)
 
 	if (!(count = (t_double *)malloc(sizeof(t_double))))
 		return (0);
+	count->str = ft_strnew(1000);
 	str = ft_printf_f(count, num);
 	return (str);
 }
