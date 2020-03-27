@@ -1,0 +1,18 @@
+#!/bin/bash
+
+bash build.txt
+ret_code=$?
+	if (($ret_code != 0))
+	then
+		echo build failed
+		exit $ret_code
+	fi
+bash test.txt
+ret_code=$?
+	if (($ret_code != 0))
+	then
+		echo test failed
+		exit $ret_code
+	fi
+
+exit 0

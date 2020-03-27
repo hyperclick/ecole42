@@ -1,0 +1,8 @@
+#!/bin/bash
+
+	rm -f err.txt
+	rm -f out.txt
+	echo running tests
+	./ft_printf_tests/ft_printf_tests 2>err.txt 1>out.txt 
+
+exit 0

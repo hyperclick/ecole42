@@ -1,0 +1,19 @@
+#!/bin/bash
+
+
+	cmake ..
+	echo cmake .. result = $?
+	if (($? != 0))
+	then
+		exit $?
+	fi
+	cmake --build .
+	echo cmake --build . result = $?
+	if (($? != 0))
+	then
+		exit $?
+	fi
+
+
+
+exit 0
