@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libstr.h"
 
 int		ft_count_words(const char *str, const char whitespaces[])
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libstr.h"
 
 char	**ft_split(char **r, const char *str, int count, const char *sep)
 {
