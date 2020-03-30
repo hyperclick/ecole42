@@ -49,9 +49,9 @@ char	*ft_final_str(const unsigned char *bin_deg, char *res, int degree,
 	while (i < 16)
 	{
 		if (bin_deg[i++] == '1')
-			res = ft_join(ft_join(res, res), b);
+			res = ft_strjoin(ft_strjoin(res, res), b);
 		else
-			res = ft_join(res, res);
+			res = ft_strjoin(res, res);
 		if (res == NULL)
 			return (NULL);
 	}

@@ -12,6 +12,13 @@ char			* ft_uitoa(unsigned long long int n);
 char			*ft_itoa_base(long long int n, const char *digits);
 char			* ft_itoa_base2(unsigned long long int n, const char* digits, BOOL is_negative);
 
+
+void	ft_putchar_fd(int c, int fd);
+void		ft_e_putstr(const char *str);
+void	ft_putstr(const char *str);
+void	ft_putstr_fd(char const *str, int fd);
+
+
 int				ft_str_count_chars(const char *str, const char find);
 void			ft_sort_strings(char *a[], int count);
 BOOL			ft_starts_with(const char *str, const char c);

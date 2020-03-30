@@ -2,6 +2,7 @@
 ADD_LIBRARY(str STATIC
 ft_contains.c
 ft_count_words.c
+ft_e_putstr.c
 ft_is_number.c
 ft_isalnum.c
 ft_isalpha.c
@@ -9,6 +10,9 @@ ft_isascii.c
 ft_isdigit.c
 ft_isprint.c
 ft_itoa.c
+ft_putchar_fd.c
+ft_putstr.c
+ft_putstr_fd.c
 prepend_and_free.c
 ft_split.c
 ft_str_append.c
