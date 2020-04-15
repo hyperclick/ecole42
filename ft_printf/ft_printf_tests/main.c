@@ -1,5 +1,6 @@
 #include "tests.h"
 #include "list_parse_and_format/process_format/parsers/float/float.h"
+#include "asserts.h"
 
 int	main()
 {
@@ -10,8 +11,10 @@ int	main()
 #endif
 
 	long double n = 1.2;
-	char *s = to_string(n);
-	
+	char *s = to_string(n, 1);
+	assert_str_equals("1.2", s);
+	s = to_string(n, 2);
+	assert_str_equals("1.2", s);
 	
 	test("% .-5d", -1);			//expected: 5'-1   ', actual: 4'-1  '
 	test("%-.-5d", 1);			//expected: 5' 1   '
