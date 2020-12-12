@@ -2,7 +2,7 @@
 
 project(ft_printf_root)
 
-ADD_DEFINITIONS(-DMAC_OS)
+#ADD_DEFINITIONS(-DMAC_OS)
 
 set(CMAKE_BUILD_TYPE Debug)
 # Include sub-projects.

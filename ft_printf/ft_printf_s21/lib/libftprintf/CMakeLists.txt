@@ -28,6 +28,7 @@ ADD_LIBRARY(ftprintf STATIC
 	list_create/add_free_item.c
 	list_create/parse_format/create_free_fmt.c
 	list_create/parse_format/format_parser.c
+	list_create/parse_format/format_to_string.c
 	list_create/parse_format/try_extract_id.c
 	list_create/parse_format/handle_format_parsed.c
 	list_create/to_list.c

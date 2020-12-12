@@ -69,5 +69,6 @@ t_fmt	*get_default_format()
 	f->prefix = NULL;
 	f->value = NULL;
 	//f->value_is_negative = FALSE;
+	f->size = 0;
 	return (f);
 }

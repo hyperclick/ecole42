@@ -33,6 +33,7 @@ typedef	struct s_format
 	char		* pad_left;
 	char		* pad_right;
 	int			size;
+	//BOOL		
 }				t_fmt;
 
 typedef	struct s_format_or_string
@@ -51,6 +52,7 @@ t_item	*create_string(char *str);
 t_item	*create_format(const t_fmt *fmt);
 void	add_string(t_list *list, char *str);
 void	add_format(t_list *list, const t_fmt *fmt);
+char	*format_to_string(t_fmt fmt);
 void	free_list(t_list **list);
 void	free_item(void *content);
 void	free_format(t_fmt *fmt);

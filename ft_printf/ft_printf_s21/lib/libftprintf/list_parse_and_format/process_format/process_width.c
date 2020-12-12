@@ -14,9 +14,16 @@
 
 char	*get_pad(t_fmt *fmt)
 {
-	if (fmt->flags.zero_pad)
+	//if (fmt->flags.zero_pad)
+	//{
+	//	if (fmt->type == 'c' || fmt->type == 's' || !fmt->precision_set )
+	//	{
+	//		return ("0");
+	//	}
+	//}	
+	if (fmt->flags.zero_pad && fmt->type != 'c' && fmt->type != 's' && fmt->type != 'p' )
 	{
-		if (fmt->type == 'c' || fmt->type == 's' || !fmt->precision_set )
+		if (!fmt->precision_set )
 		{
 			return ("0");
 		}

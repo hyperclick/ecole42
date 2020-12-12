@@ -1,16 +1,28 @@
-#ifndef DIC_H
-#define DIC_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   dic.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: darugula <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/31 14:50:14 by darugula          #+#    #+#             */
+/*   Updated: 2019/12/31 14:50:16 by darugula         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include "lists.h"
-#include "libstr.h"
-#include "libio.h"
+#ifndef DIC_H
+# define DIC_H
+
+# include "lists.h"
+# include "libstr.h"
+# include "libio.h"
 
 typedef struct	s_key_value_pair
 {
 	char *key;
 	void *value;
 }				t_kvp;
-t_kvp *get_kvp(t_list *n);
+t_kvp			*get_kvp(t_list *n);
 BOOL			dic_is_empty(t_list *dic);
 int				dic_get_count(t_list *dic);
 t_list			*dic_find(t_list *dic, const char *key);

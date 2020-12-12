@@ -37,7 +37,7 @@ char *list_to_string(t_list *list, int *size)
 		if (e->str_len < 0)
 		{
 			*size = e->str_len;
-			r = last_format_end;
+			//r = last_format_end;
 			break;
 		}
 		ft_strncpy(r, e->str, e->str_len);

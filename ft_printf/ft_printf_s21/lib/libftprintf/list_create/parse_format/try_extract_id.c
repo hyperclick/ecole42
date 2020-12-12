@@ -60,7 +60,7 @@ char *try_extract_id(t_list *list, char *format, int *r)
 	}
 	if (*format == 0)
 	{
-		*r = 0;
+		*r = -1;
 		return (format);
 	}
 	return (try_parse_settings(format, get_default_format(), list, r));

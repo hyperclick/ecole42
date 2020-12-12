@@ -29,9 +29,16 @@ int	replace_args(t_list *list, va_list args_list)
 				return (r);
 			}
 			e->str_len = e->fmt->size;
-			e->str = (e->fmt->type == 'c' && *e->fmt->value == 0) ?
+			if (e->str_len == -1)
+			{
+				e->str = ft_strdup("should not see this as well");
+			}
+			else
+			{
+				e->str = (e->fmt->type == 'c' && *e->fmt->value == 0) ?
 				ft_strjoin2(3, e->fmt->pad_left, e->fmt->prefix, e->fmt->value)
 				: ft_strjoin2(4, e->fmt->pad_left, e->fmt->prefix, e->fmt->value, e->fmt->pad_right);
+			}
 			free_format(e->fmt);
 			e->fmt = NULL;
 		}

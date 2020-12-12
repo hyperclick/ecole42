@@ -40,8 +40,9 @@ BOOL	need_exit(t_fmt *fmt)
 {
 	return (
 		(	!(fmt->length[0] == 'l' && fmt->length[1] == 'l') && fmt->type == 's' && ft_contains("l", *fmt->length) && *fmt->value != 0 && !is_null_pointer(fmt) && fmt->precision >= 0 )
-		|| 
-		(	!(fmt->length[0] == 'l' && fmt->length[1] == 'l') && fmt->type == 'c' && ft_contains("l", *fmt->length) && *fmt->value < 0	)
+		||
+		(fmt->size == -1)
+		//(!(fmt->length[0] == 'l' && fmt->length[1] == 'l') && fmt->type == 'c' && ft_contains("l", *fmt->length) && *fmt->value < 0)
 		);
 }
 
@@ -51,13 +52,13 @@ void	process_string(t_fmt *fmt)
 	{
 		fmt->prefix = ft_strdup("");
 	}
-	if (need_exit(fmt))
+	if (fmt->size == -1)
 	{
-		fmt->size = -1;
+//		fmt->size = -1;
 		free(fmt->value);
 		fmt->value = ft_strdup("should not see this");
-		fmt->pad_left = ft_strdup("");
-		fmt->pad_right = ft_strdup("");
+		fmt->pad_left = ft_strdup("should not see this");
+		fmt->pad_right = ft_strdup("should not see this");
 		return;
 	}
 	process_sign(fmt);

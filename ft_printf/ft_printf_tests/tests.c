@@ -128,9 +128,9 @@ void	test_number(const char* format)
 	test(format, ULLONG_MAX);
 	//test(format, LONG_LONG_MIN);
 	//test(format, ULONG_LONG_MAX);
-	char* str = ft_strjoin2(3, "|%d|", format, "|%c|");
-	test(str, 1, 2, 'a');
-	free(str);
+	//char* str = ft_strjoin2(3, "|%d|", format, "|%c|");
+	//test(str, 1, 2, 'a');
+	//free(str);
 }
 
 void	test_char(const char* format)
@@ -139,18 +139,18 @@ void	test_char(const char* format)
 	test(format, 300);
 	test(format, 0);
 	test(format, '\n');
-	char* str = ft_strjoin2(3, "|%d|", format, "|%d|");
-	test(str, 99999999, 'a', 1);
-	free(str);
+	//char* str = ft_strjoin2(3, "|%d|", format, "|%d|");
+	//test(str, 99999999, 'a', 1);
+	//free(str);
 }
 void	test_pointer(char* format)
 {
 	long q = INT_MAX;
 	test(format, q);
 	test(format, &q);
-	char* str = ft_strjoin2(3, "|%d|", format, "|%s|");
-	test(str, 99999999, &q, "abc");
-	free(str);
+	//char* str = ft_strjoin2(3, "|%d|", format, "|%s|");
+	//test(str, 99999999, &q, "abc");
+	//free(str);
 }
 
 void	test_string(char* format)
@@ -162,9 +162,9 @@ void	test_string(char* format)
 	char* q = "qwe";
 	test(format, q);
 
-	char* str = ft_strjoin2(3, "|%d|", format, "|%s|");
-	test(str, 99999999, q, "abc");
-	free(str);
+	//char* str = ft_strjoin2(3, "|%d|", format, "|%s|");
+	//test(str, 99999999, q, "abc");
+	//free(str);
 }
 
 void	test_format(char* format)

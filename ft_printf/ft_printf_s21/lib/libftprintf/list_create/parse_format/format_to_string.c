@@ -9,7 +9,7 @@
 /*   Updated: 2019/11/08 12:37:40 by darugula         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include "ft_printf_internal.h"
 
 char *flags_to_string(t_fmt_flags f)
 {
@@ -48,11 +48,11 @@ char *precision_to_string(int p)
 	char *precision;
 	char *tmp;
 
-	if (p == DEFAULT_PRECISION)
-	{
-		precision = ft_strdup("");
-	}
-	else
+	//if (p == DEFAULT_PRECISION)
+	//{
+	//	precision = ft_strdup("");
+	//}
+	//else
 	{
 		tmp = ft_itoa(p);
 		precision = ft_strjoin(".", tmp);

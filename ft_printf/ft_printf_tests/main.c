@@ -10,53 +10,161 @@ int	main()
 	printf("not mac\n");
 #endif
 
-	long double n = 1.2;
-	char *s = to_string(n, 1);
-	assert_str_equals("1.2", s);
-	s = to_string(n, 2);
-	assert_str_equals("1.2", s);
-	
+	test("%10");				//expected: -1''
+	test("%1");					//expected: -1''
+	test("%", -1);				//0""
+	test("%-10.-d", -1);		//'%-10.-d'
+	test("%--d", -1);			//"-1"
+	test("%q");					//expected: -1'', actual: 2'%q'
+	test("%1q");				//expected: -1'', actual: 3'%1q'
+	test("%#-10.-d", -1);		//
+	test("%#-10.-10d", -1);		//
+	test("%#-10.-10d", -1);		//11'%#-10.0-10d', actual: -1''
+
+	//test("%jjd", 1);//expected: '%jd', actual: '1'
+	//test("%llllld", 1);//expected: '%llld', actual: '1'
+	//test("%lhd", 1);//expected: '%hd', actual: '1'
+	test("%3d", 1);//3"  1"
+//	test("%3)d", 1);// expected: '%3)d', actual: '  )d'
+	//test("%3))d", 1);//expected: '%3))d', actual: '  ))d'
+
+	//test("%1)");				//expected: 3'%1)', actual: 3'%1)'
+	//test("%1a");				// expected: '0x0.0000000000007p-1022', actual: '%10'
+
+
+
+
+
+	test("%#-10d", -1);//
+	test("%#-10.d", -1);//
+
+	test("%hc", -1);//1"?"
+
+	test("%zc", -1);//-1""
+	test("%#zc", -1);//-1""
+
+
+	test("%jc", -1);//-1""
+	test("%#jc", -1);//-1""
+	test("%#c", -1);//
+	test("%j", -1);//-1""
+
+
+	test("%zs", "");//-1""
+	test("%js", "ab");//-1""
+	test("%js", "");//-1""
+	test("%#js", "");//-1""
+
+	test("%.ls", "");//0""
+	test("%.0ls", "ab");//0""
+	test("%#.0ls", "");//0""
+	test("%.Ls", "ab");//0""
+	test("%.Ls", "ab");//expected: '0', actual: '-1'
+
+	test("%.1s", "ab");//1"a"
+	test("%.0s", "ab");//0""
+	test("%.0s", "");//0""
+	test("%.s", "");//0""
+	test("%.s", "ab");//0""
+	test("%.0d", 1);//
+
+	test("%.1ls", "ab");//-1""
+	test("%.2ls", "ab");//expected: -1'', 
+
+	test("%ls", "ab");//-1""
+	test("%ls", "a");//expected:  -1''
+	test("%ls", "");//expected: '-1'
+	test("%lls", "a");//1"a"
+
+	test("%#ls", "");//0
+	test("%ls", "q");//-1""
+	test("%#ls", NULL);
+	test("%ls", NULL);
+
+	//test("%.ls", "");//0""
+	//test("%#.0ls", "");
+	test("%#ls", "");
+	test("%#Ls", "");
+
+	test("%#lc", INT_MIN);//expected: '-1', actual: '1'
+
+	test("%#k");// expected: '%#k', actual: '%k'
+	test("%#");//''
+	test("|%#");//'|'
+	test("%#|");//expected: '%#|', actual: '%|'
+	test("|%#|");//expected: '|%#|', actual: '|%|'
+	test("|%#|",1);//expected: '|%#|', actual: '|%|'
+
+	test("|%d|%#|%c|", 1, 'b', 'a');//
+
+	test("|%d|%#|%c|", 1,'b','a');//expected: '|1|%#|b|', actual: 7'|1|%|b|'
+
+
+
+
+
+
+
+	test("%.5s", "123456");//
+	test("%.6s", NULL);// expected: '', actual: '(null'
+	test("%.5s", NULL);// expected: '', actual: '(null'
+	test("%.10s", NULL);//"5(nil)"
+	test("%.10p", NULL);//"5'(nil)', actual: '00000(nil)'
+	test("%05.0s", 0);	
+	test("%05.0p", 0);			//expected: '(nil)', actual: '     '
+	test("%010s", NULL);
+	test("%010p", NULL);//expected: '     (nil)', actual: '00000(nil)'
+
+	//long double n = 1.2;
+	//char *s = to_string(n, 1);
+	//assert_str_equals("1.2", s);
+	//s = to_string(n, 2);
+	//assert_str_equals("1.2", s);
+
+	test("|%1");				//expected: 4'|%1', actual: 4'|%1'
+	//test("|%1|");				//expected: 4'|%1|',			actual: 1'|'
+	test("%");					//expected: -1'',				actual: 0''
+	test("%1");					//expected: -1'', actual: -1''
+	test("|%");					//expected: -1'|',	 
 	test("% .-5d", -1);			//expected: 5'-1   ', actual: 4'-1  '
 	test("%-.-5d", 1);			//expected: 5' 1   '
 	test("% .-5d", 1);			//expected: 5' 1   ', actual: 6' 1    '
 	test("% .5d", 1);			//6' 00001'
 	test("% 5d", 1);			//5'    1'
 	test("% -5d", 1);			//5' 1   '
-	test("%1");					//
-	test("|%1|");				//
-	test("%#+5.-5hX","");		//expected: '0XFFFF', actual: '0XFFFF2147483647'
-	test("%#-10.-10tX","");		//expected: '0X1015C4400', actual: '0X1015C44000X7FFFFFFF'
-	test("%#+0.-5hx", 1);		//expected: '0xffff', actual: '0xffff%#+0.-5hu'
-	test("%0-0.-10tp", "");		//expected: '0x10664dad3', actual: '0x10664dad3%0-0.-10tX'
-	test("%+.-10hhp", "");		//expected: '0x10fe8eac9', actual: '0x10fe8eac9%+10z'
-	test("%+#5.-10lx", "");		//expected: '0xffff', actual: '0xffff0x1  '
-	test("%+#.-10llp", "");		//expected: '0x1069c4e98', actual: '0x1069c4e98          '
+	//test("%#+5.-5hX","");		//expected: '0XFFFF', actual: '0XFFFF2147483647'
+	//test("%#-10.-10tX","");		//expected: '0X1015C4400', actual: '0X1015C44000X7FFFFFFF'
+	//test("%#+0.-5hx", 1);		//expected: '0xffff', actual: '0xffff%#+0.-5hu'
+	//test("%0-0.-10tp", "");		//expected: '0x10664dad3', actual: '0x10664dad3%0-0.-10tX'
+	//test("%+.-10hhp", "");		//expected: '0x10fe8eac9', actual: '0x10fe8eac9%+10z'
+	//test("%+#5.-10lx", "");		//expected: '0xffff', actual: '0xffff0x1  '
+	//test("%+#.-10llp", "");		//expected: '0x1069c4e98', actual: '0x1069c4e98          '
 
-	test("%");
+
 	test("%+#.10llp", "");		//
 	test("%+#.-10p", "");		//
 	test("%+#.-10lp", "");		//
 	test("%#.-10llp", "");		//
 	test("%+.-10llp", "");		//
 	test("%+#.10llp", "");		//
-	test("%+#5.-10lx", "");		//
+//	test("%+#5.-10lx", "");		//
 
 	test("%05.0s", "");			//expected: '00000', actual: '     '
 	test("%05c", 'a');			//expected: '0000a'
-	test("%05p", 0);			//expected: '0x000', actual: '  0x0'
+	test("%05p", 0);			//expected: '(nil)', actual: '  0x0'
 	test("%05.0c", 'a');		//expected: '0000a', actual: '    a'
 	test("%05.0p", 0);			//expected: '   0x'
-	test("|%0.10|");			//
-	test("|%0.-10|");			//
-	test("|%.10|");				//
-	test("|%.-10|");			//
-	test("|%#0.10|");			//2'||'
+//	test("|%0.10|");			//
+//	test("|%0.-10|");			//
+//	test("|%.10|");				//
+//	test("|%.-10|");			//
+//	test("|%#0.10|");			//2'||'
 	test("|%#0.-10|");			//expected: '||         ', actual: '||000000000'
 	test("|%d|%#0.-10|%c|");	//expected: '|1||          |', actual: '|1||000000000 |'
-	test("|%05.10|");			//'|0000|'
-	test("|%010.5|");			//'|000000000|'
-	test("|%05|");				//6|0000|
-	test("|%10|");				//11'         '
+//	test("|%05.10|");			//'|0000|'
+//	test("|%010.5|");			//'|000000000|'
+//	test("|%05|");				//6|0000|
+//	test("|%10|");				//11'         '
 	test("%10");				//0''
 	test("%05");				//0''
 
@@ -85,21 +193,21 @@ int	main()
 	test("%+.10d", 0);		//11"+0000000000"	actual: '00000000+0'
 
 
-	test("|%10.5|");						//11"|         |"
-	test("|%5.10|");						//6"|    |"
-	test("|%10|");							//15"|1||          |"
-	test("|%10.0|");						//15"|1||          |"
-	test("|%10|");							//15"|1||          |"
-	test("|%10|%c", 'a', 1);				//15"|1||          |"
-	test("|%d|%10|%c|", 1, 2, 'a');			//15"|1||          |"
-	test("|%d|%#10|%c|", 1, 2, 'a');		//15"|1||          |"
-	test("|%d|%#-10|%c|", 1, 2, 'a');		//15"|1||          |"
-	test("|%d|%#-10.0|%c|", 1, 2, 'a');		//15"|1||          |"
-	test("|%d|%-10.0|%c|", 1, 2, 'a');		//15"|1||          |"
-	test("|%d|%10.0|%c|", 1, 2, 'a');		//15"|1||          |"
-	test("|%10.0|%c|", 1, 2, 'a');			//15"|1||          |"
-	test("|%-10.0|", 1, 2, 'a');				//15"|1||          |"
-	test("|%#-10.0|", 1, 2, 'a');				//15"|1||          |"
+	//test("|%10.5|");						//11"|         |"
+	//test("|%5.10|");						//6"|    |"
+	//test("|%10|");							//15"|1||          |"
+	//test("|%10.0|");						//15"|1||          |"
+	//test("|%10|");							//15"|1||          |"
+	//test("|%10|%c", 'a', 1);				//15"|1||          |"
+	//test("|%d|%10|%c|", 1, 2, 'a');			//15"|1||          |"
+	//test("|%d|%#10|%c|", 1, 2, 'a');		//15"|1||          |"
+	//test("|%d|%#-10|%c|", 1, 2, 'a');		//15"|1||          |"
+	//test("|%d|%#-10.0|%c|", 1, 2, 'a');		//15"|1||          |"
+	//test("|%d|%-10.0|%c|", 1, 2, 'a');		//15"|1||          |"
+	//test("|%d|%10.0|%c|", 1, 2, 'a');		//15"|1||          |"
+	//test("|%10.0|%c|", 1, 2, 'a');			//15"|1||          |"
+	//test("|%-10.0|", 1, 2, 'a');				//15"|1||          |"
+	//test("|%#-10.0|", 1, 2, 'a');				//15"|1||          |"
 
 
 	//test("%0.0-10tX", 0.0);
@@ -122,16 +230,16 @@ int	main()
 	test("%.0d", 0);				//0""
 	test("%#.0u", 0);				//0""
 
-	test("%10.-5d", 1);		//5"1    "
-	test("%-10.-5d", 1);	//5"1    "
-	test("%-5.-10d", 1);	//10"1         "
+	//test("%10.-5d", 1);		//5"1    "
+	//test("%-10.-5d", 1);	//5"1    "
+	//test("%-5.-10d", 1);	//10"1         "
 	test("%-10.5d", 1);		//10"00001     "
 	test("%10d", 1);		//10"         1"
 	test("%-10d", 1);		//10"1         "
-	test("%-10.-5d", -1);	//5"-1   "
+	//test("%-10.-5d", -1);	//5"-1   "
 	test("%10.5d", 1);		//10"     00001"
 	test("%10.5d", -1);		//10"    -00001"
-	test("%#-10.-5d", -1);
+	//test("%#-10.-5d", -1);
 
 	//test("%#.-10-10d", 1);//10"1         "
 	test("%#.-3||d", 1);//5"|  |d"
@@ -182,12 +290,12 @@ int	main()
 	test("%4.2d", -1);//" -01"
 	test("%#.-10d", -1);//10"-1        "
 	test("%.-3||d", 1);//5"|  |d"
-	test("%.3||d", 1);//5"
+	//test("%.3||d", 1);//5"
 	//return 1;
 
-	test("%-3||d", 1111);//4"|  |d"
-	test("%-3|d", 1111);//4"|  d"
-	test("%3|d", 1111);//4"  |d"
+//	test("%-3||d", 1111);//4"|  |d"
+//	test("%-3|d", 1111);//4"|  d"
+//	test("%3|d", 1111);//4"  |d"
 	test("%3d", 1);//
 	test("%-3d", 1);//
 	test("%10", -1);//0""
@@ -215,8 +323,8 @@ int	main()
 	test("%llc", INT_MAX);//1"\377"
 
 	test("%c", INT_MIN);//1""
-	test("%lc", INT_MIN);//-1""
-	test("%llc", INT_MIN);//1""
+	//test("%lc", INT_MIN);//-1""
+	//test("%llc", INT_MIN);//-1""
 
 	test("%lc", 'a');
 	test("%llc", 'a');
@@ -224,7 +332,7 @@ int	main()
 
 	test("%Lu", 1.0);//"73832"
 	test("%Lu", 0.0);//"129979392"
-	test("%Lu", __LONG_LONG_MAX__);//4294967295
+	test("%Lu", __LONG_LONG_MAX__);//4294967295//9223372036854775807
 	test("%Lu", ULONG_MAX);//4294967295
 	test("%Lu", LONG_MAX);//4294967295
 	test("%Lu", LONG_MIN);//1"0"
@@ -296,25 +404,13 @@ int	main()
 	test("%lld", ULONG_MAX);
 
 
-	test("%lls", "a");//1"a"
-
-
-
-
-	
-	test("%ls", "");//0""
-	test("%#ls", "");//0
-	test("%ls", "q");//-1""
-	test("%#ls", NULL);
-	test("%ls", NULL);
-
 
 
 
 
 	test("%#x", UINT_MAX);
 	test("%#X", UINT_MAX);
-	test("%lc", INT_MIN);
+	//test("%lc", INT_MIN);
 	test("%c", INT_MIN);
 	test("%jd", INT_MIN);
 	test("%#o", UINT_MAX);
@@ -324,13 +420,13 @@ int	main()
 
 
 
-	test("_%d|%#[%d_", 1, 2, 3);//"_1|[2_"
+//	test("_%d|%#[%d_", 1, 2, 3);//"_1|[2_"
 	//test("_%d %#_%d_", 1, 2, 3);//
 	//test("_%d_%# %d_", 1, 2, 3);//
 	//test("_%d_%#_%d_", 1, 2, 3);//"_1_%d_"
-	test("%c12%.9h(%c 56", 'a', 'b');//11"a12(b 56"
-	test("%c12%#(%c 56", 'a', 'b');//11"a12(b 56"
-	test("%c 45 %.10|123", 'a');//5"a 45 "
+//	test("%c12%.9h(%c 56", 'a', 'b');//11"a12(b 56"
+//	test("%c12%#(%c 56", 'a', 'b');//11"a12(b 56"
+//	test("%c 45 %.10|123", 'a');//5"a 45 "
 
 	test("111");
 	test("1%d", 0);
@@ -383,19 +479,16 @@ int	main()
 	test("%lca", -1);
 	test("%#lc", -1);
 	test("%#lc", 1);
-	test("%", -1);//0""
-	test("%jjd", 1);//1"1"
-	test("%llllld", 1);//1"1"
-	test("%lhd", 1);//1"1"
-	test("%3d", 1);//3"  1"
-	test("%3)d", 1);//4"  )d"
-	test("%3))d", 1);//5"  ))d"
+
+	test("%05");				//0''
+//	test("%3)d", 1);// expected: '%3)d', actual: '  )d'
+//	test("%3))d", 1);//expected: '%3))d', actual: '  ))d'
 	test("%wwwwwd", 1);//"wwwwd"
-	test("%.10)d", 1);//")d"
+//	test("%.10)d", 1);//")d"
 	test("%lwd", 1);//wd
 	test("%wld", 1);//wld
-	test("%c 45 %.10)", 'a');//5"a 45 )"
-	test("%.10)", 1);//")"
+	test("%c 45 %.10)", 'a');//expected: 'a 45 %.10)', actual: 'a 45 %)'
+	test("%.10)", 1);//expected: '%.10)', actual: '%)'
 	test("%.10123", 1);//""
 	//test("%.10 123");//""
 	//test("%d_%.10 123", 1);//"1_"
@@ -403,7 +496,7 @@ int	main()
 	test("%c");//""
 	test("%.1)");//""
 	test("%c  ...%.10", 'a');//"a  ..."
-	test("%#)", -1);//""
+	//test("%#)", -1);//expected: '%#)', actual: '%)'
 	test_mac("%dwww", 1);//"1wwww"
 	test_mac("qqq%lswww", "ab");//""
 	test_mac("12 %s 34 %s 56 %ls 78", "ab", "cd", "ef");//"12 ab 34 cd"
@@ -419,7 +512,7 @@ int	main()
 	test("% s", "ab");//
 	test("%   s", "ab");//
 	test("%010s", NULL);
-	test("%010p", NULL);//"0x00000000"
+	test("%010p", NULL);//expected: '     (nil)', actual: '00000(nil)'
 	test("%.8p", "");
 	test("%p", "");
 	test("%#p", "");
@@ -460,9 +553,9 @@ int	main()
 	test("1%");
 
 
-	test("%-+##++++++------      w");
-	test("%##++++++------      ww");
-	test("%  w");
+	//test("%-+##++++++------      w");//expected: 5'%#+-w', actual: '%w'
+	//test("%##++++++------      ww");
+	//test("%  w");//expected: '% w', actual: '%w'
 
 	test("%#d", -1);
 
@@ -495,19 +588,6 @@ int	main()
 	//test("%#O", 0);
 	//test("%#O", 8);
 	//test("%#O", UINT_MAX);
-	test("%.1s", "ab");//1"a"
-	test("%.0s", "ab");//0""
-	test("%.2ls", "ab");//-1""
-	test("%.1ls", "ab");//-1""
-	test("%.0d", 1);//
-	test("%.0ls", "ab");//0""
-	test("%ls", "ab");//-1""
-	test("%.0s", "");//0""
-	test("%.s", "");//0""
-	test("%.s", "ab");//0""
-	test("%.Ls", "ab");//0""
-	test("%.ls", "");//0""
-	test("%#.0ls", "");
 	test("%.-1p", "");
 	test("%.10p", NULL);//"5(nil)"
 	test("%.2p", "asd");

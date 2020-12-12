@@ -17,11 +17,13 @@ t_fmt* char_to_string(t_fmt* fmt, long long int c)
 	fmt->value = ft_strnew(1);
 	fmt->value[0] = c;
 
-	if (!( fmt->length[0] == 'l' && fmt->length[1] == 'l' ) && ((c > 255 || c < 0) && ft_contains("l", *fmt->length)))//INT_MAX)
+	//if (!(fmt->length[0] == 'l' && fmt->length[1] == 'l') && ((c > 255 || c < 0) && ft_contains("l", *fmt->length)))//INT_MAX)
+	//if ((c > 255 || c < 0) && (ft_contains("l", *fmt->length) || fmt->length[0] == 'L' || fmt->length[0] == 'j'))//ft_contains("hlLjzt", fmt->length[0] ))
+	if ((c > 255 || c < 0) && (ft_contains("lLjzt", *fmt->length) ))//h
 	{
-		fmt->value[0] = -1;
+		fmt->size = -1;
 	}
-	if (fmt->value[0] == 0)
+	else if (fmt->value[0] == 0)
 	{
 		fmt->size = 1;
 	}

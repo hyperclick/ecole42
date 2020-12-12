@@ -42,18 +42,16 @@ BOOL	process_some_cases(t_fmt *fmt)
 	{
 		return (TRUE);
 	}
+	if (fmt->type == 'p' && ft_strequ(fmt->value, "(nil)"))
+	{
+		return (TRUE);
+	}
 	if (fmt->type == 'c')
 	{
 		if (fmt->precision >= 0 || !is_valid_length(fmt))
 		{
 			return (TRUE);
 		}
-	}
-	if (fmt->precision < 0 && fmt->type == 's')
-	{
-		free(fmt->value);
-		fmt->value = ft_str_repeat(" ", -fmt->precision);
-		return (TRUE);
 	}
 	if (fmt->precision == 0 && ft_strequ(fmt->value, "0"))
 	{
@@ -91,6 +89,12 @@ void	process_precision(t_fmt *fmt)
 	}
 	if (diff > 0 && fmt->type == 's')
 	{
+		if (ft_strequ(fmt->value, "(null)"))
+		{
+			free(fmt->value);
+			fmt->value = ft_strdup("");
+			return;
+		}
 		tmp = fmt->value;
 
 		fmt->value = ft_strsub(fmt->value, 0, fmt->precision);
